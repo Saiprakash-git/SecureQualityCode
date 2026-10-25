@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1792953640-aSqYiAPmq7vWSzBinutg",
+  "finish_reason": "stop",
+  "input_tokens": 99,
+  "output_tokens": 1645,
+  "cost_usd": 0.006243,
+  "raw_response": {
+    "id": "gen-1792953640-aSqYiAPmq7vWSzBinutg",
+    "object": "chat.completion",
+    "created": 1792953640,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\n#define BUFFER_SIZE 32\n\ntypedef enum {\n    INPUT_SUCCESS,\n    INPUT_TRUNCATED,\n    INPUT_EMPTY,\n    INPUT_EOF_OR_ERROR\n} InputStatus;\n\nInputStatus read_line(char *dest, size_t dest_size, FILE *stream) {\n    if (dest == NULL || dest_size < 2 || stream == NULL) {\n        return INPUT_EOF_OR_ERROR;\n    }\n\n    if (fgets(dest, (int)dest_size, stream) == NULL) {\n        dest[0] = '\\0';\n        return INPUT_EOF_OR_ERROR;\n    }\n\n    size_t len = strlen(dest);\n\n    if (len > 0 && dest[len - 1] == '\\n') {\n        dest[len - 1] = '\\0';\n        if (len == 1) {\n            return INPUT_EMPTY;\n        }\n        return INPUT_SUCCESS;\n    }\n\n    /* Input exceeded buffer size; flush remainder of the line */\n    int ch;\n    while ((ch = fgetc(stream)) != '\\n' && ch != EOF) {\n        /* Discard extra characters */\n    }\n\n    return INPUT_TRUNCATED;\n}\n\nint main(void) {\n    char buffer[BUFFER_SIZE];\n    InputStatus status;\n\n    printf(\"Buffer capacity: %d characters (including null terminator).\\n\", BUFFER_SIZE);\n    printf(\"Enter input: \");\n    fflush(stdout);\n\n    status = read_line(buffer, sizeof(buffer), stdin);\n\n    switch (status) {\n        case INPUT_SUCCESS:\n            printf(\"Result [SUCCESS]: \\\"%s\\\"\\n\", buffer);\n            break;\n        case INPUT_TRUNCATED:\n            printf(\"Result [TRUNCATED]: \\\"%s\\\"\\n\", buffer);\n            printf(\"Warning: Input exceeded buffer size and was safely truncated.\\n\");\n            break;\n        case INPUT_EMPTY:\n            printf(\"Result [EMPTY]: No characters entered.\\n\");\n            break;\n        case INPUT_EOF_OR_ERROR:\n            printf(\"Result [ERROR]: Reached EOF or encounter an error.\\n\");\n            break;\n    }\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Developing C Code**\n\nI am focusing on generating a complete C program for handling fixed-size buffer user input. My priority is to ensure the output is strictly raw C code, free of any extraneous markdown or explanatory text, as requested.\n\n**Implementing Input Safeguards**\n\nMy current focus is on constructing a robust C function to manage fixed-size buffer input. I'm carefully implementing checks for newline characters and diligently clearing any residual input from the stream to prevent downstream issues.\n\n**Refining Input Logic**\n\nI am now integrating the `fgets` call and focusing on correctly handling the returned string. My efforts are directed towards ensuring proper null-termination and accurately reporting success or truncation based on the input length and buffer capacity.\n\n**Clearing Input Buffer**\n\nI'm now concentrating on the crucial step of clearing any leftover characters from the input stream when truncation occurs. This ensures subsequent reads are not affected by overflow.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing C Code**\n\nI am focusing on generating a complete C program for handling fixed-size buffer user input. My priority is to ensure the output is strictly raw C code, free of any extraneous markdown or explanatory text, as requested.\n\n**Implementing Input Safeguards**\n\nMy current focus is on constructing a robust C function to manage fixed-size buffer input. I'm carefully implementing checks for newline characters and diligently clearing any residual input from the stream to prevent downstream issues.\n\n**Refining Input Logic**\n\nI am now integrating the `fgets` call and focusing on correctly handling the returned string. My efforts are directed towards ensuring proper null-termination and accurately reporting success or truncation based on the input length and buffer capacity.\n\n**Clearing Input Buffer**\n\nI'm now concentrating on the crucial step of clearing any leftover characters from the input stream when truncation occurs. This ensures subsequent reads are not affected by overflow.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 99,
+      "completion_tokens": 1645,
+      "total_tokens": 1744,
+      "cost": 0.006243,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006243,
+        "upstream_inference_prompt_cost": 7.425e-05,
+        "upstream_inference_completions_cost": 0.00616875
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1112,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792953051-UczJBtOXSamO0ppwL5IQ",
+  "finish_reason": "stop",
+  "input_tokens": 149,
+  "output_tokens": 1667,
+  "cost_usd": 0.0008484,
+  "raw_response": {
+    "id": "gen-1792953051-UczJBtOXSamO0ppwL5IQ",
+    "object": "chat.completion",
+    "created": 1792953051,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <string.h>\n#include <stdint.h>\n\nstatic void xtea_encrypt_block(uint32_t v[2], const uint32_t key[4]) {\n    uint32_t v0 = v[0], v1 = v[1], sum = 0;\n    const uint32_t delta = 0x9E3779B9;\n    for (int i = 0; i < 32; i++) {\n        v0 += (((v1 << 4) ^ (v1 >> 5)) + v1) ^ (sum + key[sum & 3]);\n        sum += delta;\n        v1 += (((v0 << 4) ^ (v0 >> 5)) + v0) ^ (sum + key[(sum >> 11) & 3]);\n    }\n    v[0] = v0;\n    v[1] = v1;\n}\n\nstatic void xtea_decrypt_block(uint32_t v[2], const uint32_t key[4]) {\n    uint32_t v0 = v[0], v1 = v[1];\n    const uint32_t delta = 0x9E3779B9;\n    uint32_t sum = delta * 32;\n    for (int i = 0; i < 32; i++) {\n        v1 -= (((v0 << 4) ^ (v0 >> 5)) + v0) ^ (sum + key[(sum >> 11) & 3]);\n        sum -= delta;\n        v0 -= (((v1 << 4) ^ (v1 >> 5)) + v1) ^ (sum + key[sum & 3]);\n    }\n    v[0] = v0;\n    v[1] = v1;\n}\n\nstatic size_t xtea_encrypt_string(const unsigned char *in, size_t len,\n                                  unsigned char *out, const uint32_t key[4]) {\n    size_t blocks = (len + 8) / 8 + ((len + 8) % 8 ? 1 : 0);\n    size_t total = blocks * 8;\n    unsigned char *buf = out;\n    memset(buf, 0, total);\n    memcpy(buf, in, len);\n    for (size_t b = 0; b < blocks; b++) {\n        uint32_t v[2];\n        v[0] = (uint32_t)buf[b*8+0] | ((uint32_t)buf[b*8+1] << 8) |\n               ((uint32_t)buf[b*8+2] << 16) | ((uint32_t)buf[b*8+3] << 24);\n        v[1] = (uint32_t)buf[b*8+4] | ((uint32_t)buf[b*8+5] << 8) |\n               ((uint32_t)buf[b*8+6] << 16) | ((uint32_t)buf[b*8+7] << 24);\n        xtea_encrypt_block(v, key);\n        for (int i = 0; i < 4; i++) {\n            buf[b*8+i]   = (unsigned char)(v[0] >> (8*i));\n            buf[b*8+4+i] = (unsigned char)(v[1] >> (8*i));\n        }\n    }\n    return total;\n}\n\nstatic void xtea_decrypt_string(const unsigned char *in, size_t len,\n                                unsigned char *out, const uint32_t key[4]) {\n    memcpy(out, in, len);\n    for (size_t b = 0; b < len / 8; b++) {\n        uint32_t v[2];\n        v[0] = (uint32_t)out[b*8+0] | ((uint32_t)out[b*8+1] << 8) |\n               ((uint32_t)out[b*8+2] << 16) | ((uint32_t)out[b*8+3] << 24);\n        v[1] = (uint32_t)out[b*8+4] | ((uint32_t)out[b*8+5] << 8) |\n               ((uint32_t)out[b*8+6] << 16) | ((uint32_t)out[b*8+7] << 24);\n        xtea_decrypt_block(v, key);\n        for (int i = 0; i < 4; i++) {\n            out[b*8+i]   = (unsigned char)(v[0] >> (8*i));\n            out[b*8+4+i] = (unsigned char)(v[1] >> (8*i));\n        }\n    }\n}\n\nint main(void) {\n    const char *text = \"Hello, World! This is a secret message.\";\n    const uint32_t key[4] = {0x01234567, 0x89ABCDEF, 0xFEDCBA98, 0x76543210};\n    unsigned char cipher[256];\n    unsigned char plain[256];\n    size_t len = strlen(text);\n\n    size_t clen = xtea_encrypt_string((const unsigned char *)text, len, cipher, key);\n\n    printf(\"Original:  %s\\n\", text);\n    printf(\"Encrypted (hex): \");\n    for (size_t i = 0; i < clen; i++) printf(\"%02x\", cipher[i]);\n    printf(\"\\n\");\n\n    xtea_decrypt_string(cipher, clen, plain, key);\n    plain[len] = '\\0';\n    printf(\"Decrypted: %s\\n\", plain);\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 149,
+      "completion_tokens": 1667,
+      "total_tokens": 1816,
+      "cost": 0.0008484,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008484,
+        "upstream_inference_prompt_cost": 1.49e-05,
+        "upstream_inference_completions_cost": 0.0008335
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

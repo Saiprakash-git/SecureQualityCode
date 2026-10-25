@@ -82,9 +82,36 @@ def select_tasks(all_tasks: dict, selection: dict) -> list[dict]:
         # New mode: explicit list of original dataset task_number values
         ids = set(selection["orig_task_ids"])
         return [all_tasks[n] for n in sorted(ids) if n in all_tasks]
-    else:  # list
+    elif mode == "list":
         ids = set(selection["task_ids"])
         return [all_tasks[n] for n in sorted(ids) if n in all_tasks]
+    raise ValueError(f"Unsupported task_selection mode: {mode!r}")
+
+
+def validate_preflight(all_tasks: dict, config: dict, model_configs: list[dict]) -> list[dict]:
+    """Validate task selection and the expected pilot workload before API calls."""
+    selection = config["task_selection"]
+    if selection.get("mode") == "orig_id_list":
+        requested = list(selection.get("orig_task_ids", []))
+        missing = sorted(set(requested) - set(all_tasks))
+        if missing:
+            raise ValueError(f"Configured task IDs are missing from the dataset: {missing}")
+        if len(requested) != len(set(requested)):
+            raise ValueError("Configured task IDs contain duplicates.")
+
+    selected = select_tasks(all_tasks, selection)
+    expected_count = config.get("expected_task_count")
+    if expected_count is not None and len(selected) != int(expected_count):
+        raise ValueError(
+            f"Expected exactly {expected_count} selected tasks, found {len(selected)}."
+        )
+    planned = len(selected) * len(model_configs) * len(config["languages"])
+    expected_combinations = config.get("expected_combinations")
+    if expected_combinations is not None and planned != int(expected_combinations):
+        raise ValueError(
+            f"Expected {expected_combinations} combinations, planned {planned}."
+        )
+    return selected
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -211,7 +238,7 @@ def _raw_for_json(value: Any) -> Any:
 def generate(task: dict, config: dict, instruction: str, logger,
              model_cfg: dict | None = None, language: str = "python",
              spent_cost: float = 0.0, budget_limit: float | None = None,
-             dry_run=False) -> dict:
+             dry_run=False, on_attempt=None) -> dict:
     """Generate one task/language/model result with auditable attempts."""
     model_cfg = model_cfg or config.get("model")
     if not model_cfg:
@@ -334,6 +361,8 @@ def generate(task: dict, config: dict, instruction: str, logger,
                 last_error = "Cost became unknown; retries stopped for budget safety."
                 attempt_record["status"] = last_status
                 attempt_record["error"] = last_error
+            if on_attempt is not None:
+                on_attempt(attempt_record)
             if source or cost_unknown:
                 break
         except Exception as exc:
@@ -349,10 +378,10 @@ def generate(task: dict, config: dict, instruction: str, logger,
                 else:
                     total_cost += error_cost
             else:
-                # Usage and cost were already counted immediately after the
-                # successful API return; do not count them again here.
-                error_input = error_output = 0
-                error_cost = None
+                # Usage and cost were already added to the totals right after the
+                # successful API return. Keep them on this attempt record for the
+                # audit trail only; they are NOT added to the totals again here.
+                error_input, error_output, error_cost = input_tokens, output_tokens, attempt_cost
             attempts.append({
                 "attempt": attempt,
                 "status": last_status,
@@ -366,6 +395,8 @@ def generate(task: dict, config: dict, instruction: str, logger,
                 "raw_response": _raw_for_json(last_raw_response),
                 "error": last_error,
             })
+            if on_attempt is not None:
+                on_attempt(attempts[-1])
             logger.warning(
                 f"Task {task['task_number']} language {language} "
                 f"attempt {attempt}/{max_attempts} failed: {last_error}"
@@ -505,11 +536,22 @@ def save_code(blocks: dict[str, str], out_dir: Path, stem: str, logger):
 
 def generation_plan(selected: list[dict], model_configs: list[dict],
                     languages: list[str]):
-    """Yield one independent generation combination per task/language/model."""
-    for model_cfg in model_configs:
-        for task in selected:
-            for language in languages:
+    """Yield one independent generation combination per task/language/model.
+
+    Order is task -> language -> model, so if the budget stops the run early,
+    every model has covered the same earliest tasks instead of one model
+    getting all the coverage.
+    """
+    for task in selected:
+        for language in languages:
+            for model_cfg in model_configs:
                 yield model_cfg, task, language
+
+
+def _write_new_file(path: Path, text: str) -> None:
+    """Write a file only if it does not exist yet, so outputs are never overwritten."""
+    with path.open("x", encoding="utf-8") as fh:
+        fh.write(text)
 
 
 def prepare_output_dir(out_base: Path) -> None:
@@ -547,6 +589,26 @@ def main():
     run_id = config["run_id"]
     now = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
 
+    # ── preflight: validate tasks and the planned workload before any output or API call ──
+    all_tasks = load_all_tasks(config["dataset_dirs"], script_dir)
+    try:
+        selected = validate_preflight(all_tasks, config, model_configs)
+    except ValueError as exc:
+        print(f"[error] Preflight validation failed: {exc}")
+        sys.exit(1)
+
+    # Resume support (minimal): skip combinations before start_combination (1-based,
+    # in generation_plan order). Skipped combinations make NO API call.
+    start_combination = int(config.get("start_combination", 1))
+    prior_spend = float(config.get("prior_spend_usd", 0.0))
+    planned_total = len(selected) * len(model_configs) * len(config["languages"])
+    if not 1 <= start_combination <= planned_total:
+        print(f"[error] start_combination must be between 1 and {planned_total}.")
+        sys.exit(1)
+    if prior_spend < 0:
+        print("[error] prior_spend_usd must not be negative.")
+        sys.exit(1)
+
     # ── output directory ──────────────────────────────────────────────────────
     out_base = (script_dir / config["output_dir"] / run_id).resolve()
     prepare_output_dir(out_base)
@@ -563,8 +625,6 @@ def main():
     logger.info(f"Output: {out_base}")
 
     # ── load and select tasks ─────────────────────────────────────────────────
-    all_tasks = load_all_tasks(config["dataset_dirs"], script_dir)
-    selected = select_tasks(all_tasks, config["task_selection"])
     logger.info(f"Tasks loaded: {len(all_tasks)} total, {len(selected)} selected")
 
     if not selected:
@@ -591,8 +651,11 @@ def main():
     ledger_path = out_base / "cost_ledger.jsonl"
     ledger_file = ledger_path.open("x", encoding="utf-8")
 
+    # The budget is checked before each combination and each retry. A single
+    # in-flight request can still exceed the remaining budget.
     budget_limit = config.get("budget_usd_hard_limit", 999)
-    total_cost = 0.0
+    # Previously recorded spend (from an earlier interrupted run) counts toward the cap.
+    total_cost = prior_spend
     total_input_tokens = 0
     total_output_tokens = 0
     success_count = 0
@@ -603,7 +666,13 @@ def main():
     planned_combinations = len(selected) * len(model_configs) * len(config["languages"])
     total_attempts = planned_combinations
     stop_requested = False
-    for model_cfg, task, language in generation_plan(selected, model_configs, config["languages"]):
+    if start_combination > 1:
+        logger.info(f"Resuming at combination {start_combination}; earlier combinations are skipped (no API calls).")
+    for combo_index, (model_cfg, task, language) in enumerate(
+        generation_plan(selected, model_configs, config["languages"]), start=1
+    ):
+        if combo_index < start_combination:
+            continue
         model_label = model_cfg.get("label", model_cfg["model_id"])
         task_num = task["task_number"]
         if total_cost >= budget_limit:
@@ -619,38 +688,16 @@ def main():
             f"[{attempted_count}/{total_attempts}] {model_label} "
             f"Task {task_num} {language}: {task.get('prompt_title', '')[:60]}"
         )
-        result = generate(
-            task,
-            config,
-            build_instruction([language]),
-            logger,
-            model_cfg=model_cfg,
-            language=language,
-            spent_cost=total_cost,
-            budget_limit=budget_limit,
-            dry_run=args.dry_run,
-        )
-
         safe_model_label = re.sub(r"[^A-Za-z0-9_.-]+", "_", model_label)
         task_dir = out_base / f"Task_{task_num:03d}" / safe_model_label
         task_dir.mkdir(parents=True, exist_ok=True)
         stem = f"Task{task_num}_{safe_model_label}_{language}"
-        if result["source"]:
-            source_path = task_dir / f"{stem}.{_language_extension(language)}"
-            source_path.write_text(result["source"], encoding="utf-8")
-            logger.info(f"  Saved: {source_path.name}")
-            success_count += 1
-        else:
-            error_count += 1
-            logger.warning(
-                f"  {model_label} Task {task_num} {language}: "
-                f"{result['response_status']} / {result['validation_status']}"
-            )
 
-        for attempt_record in result["attempts"]:
+        def persist_attempt(attempt_record: dict) -> None:
+            """Save one finished attempt (raw response + ledger line) immediately."""
             attempt_number = attempt_record["attempt"]
             raw_path = task_dir / f"{stem}_attempt_{attempt_number:02d}_response.json"
-            raw_path.write_text(json.dumps(attempt_record, indent=2), encoding="utf-8")
+            _write_new_file(raw_path, json.dumps(attempt_record, indent=2))
             ledger_entry = {
                 "task_id": task_num,
                 "prompt_title": task.get("prompt_title", ""),
@@ -672,6 +719,31 @@ def main():
             }
             ledger_file.write(json.dumps(ledger_entry) + "\n")
             ledger_file.flush()
+            os.fsync(ledger_file.fileno())
+
+        result = generate(
+            task,
+            config,
+            build_instruction([language]),
+            logger,
+            model_cfg=model_cfg,
+            language=language,
+            spent_cost=total_cost,
+            budget_limit=budget_limit,
+            dry_run=args.dry_run,
+            on_attempt=persist_attempt,
+        )
+        if result["source"]:
+            source_path = task_dir / f"{stem}.{_language_extension(language)}"
+            _write_new_file(source_path, result["source"])
+            logger.info(f"  Saved: {source_path.name}")
+            success_count += 1
+        else:
+            error_count += 1
+            logger.warning(
+                f"  {model_label} Task {task_num} {language}: "
+                f"{result['response_status']} / {result['validation_status']}"
+            )
 
         total_cost += result["cost_usd"]
         total_input_tokens += result["input_tokens"]
@@ -697,6 +769,8 @@ def main():
         "tasks_error": error_count,
         "total_input_tokens": total_input_tokens,
         "total_output_tokens": total_output_tokens,
+        "start_combination": start_combination,
+        "prior_spend_usd": prior_spend,
         "total_cost_usd": round(total_cost, 6),
         "stopped_early": stop_requested,
         "budget_note": "A single in-flight request may exceed the remaining budget.",

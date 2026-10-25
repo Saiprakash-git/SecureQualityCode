@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792945964-YFUis5hRD7hSJKY1IRDR",
+  "finish_reason": "stop",
+  "input_tokens": 173,
+  "output_tokens": 577,
+  "cost_usd": 0.0003058,
+  "raw_response": {
+    "id": "gen-1792945964-YFUis5hRD7hSJKY1IRDR",
+    "object": "chat.completion",
+    "created": 1792945964,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import sys\n\nMAX_INPUT_LENGTH = 1024\n\n\ndef validate_input(text, max_length=MAX_INPUT_LENGTH):\n    if not isinstance(text, str):\n        raise TypeError(\"Input must be a string.\")\n    if len(text) > max_length:\n        raise ValueError(f\"Input exceeds maximum length of {max_length} characters.\")\n    return text\n\n\ndef process_text(text):\n    stripped = text.strip()\n    return {\n        \"original_length\": len(text),\n        \"stripped_length\": len(stripped),\n        \"uppercase\": stripped.upper(),\n        \"lowercase\": stripped.lower(),\n        \"reversed\": stripped[::-1],\n        \"word_count\": len(stripped.split()),\n        \"character_count\": len(stripped),\n    }\n\n\ndef read_input(max_length=MAX_INPUT_LENGTH):\n    try:\n        raw = sys.stdin.readline(max_length + 2)\n    except Exception as e:\n        raise IOError(f\"Failed to read input: {e}\")\n    if len(raw) > max_length + 1:\n        raise ValueError(f\"Input exceeds maximum length of {max_length} characters.\")\n    return raw.rstrip(\"\\r\\n\")\n\n\ndef format_results(results):\n    lines = []\n    for key, value in results.items():\n        lines.append(f\"{key}: {value}\")\n    return \"\\n\".join(lines)\n\n\ndef main():\n    try:\n        text = read_input()\n        text = validate_input(text)\n        results = process_text(text)\n        print(format_results(results))\n    except (ValueError, TypeError, IOError) as e:\n        print(f\"Error: {e}\", file=sys.stderr)\n        return 1\n    return 0\n\n\nif __name__ == \"__main__\":\n    sys.exit(main())",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 173,
+      "completion_tokens": 577,
+      "total_tokens": 750,
+      "cost": 0.0003058,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003058,
+        "upstream_inference_prompt_cost": 1.73e-05,
+        "upstream_inference_completions_cost": 0.0002885
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

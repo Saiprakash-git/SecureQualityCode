@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792945465-xKghcS80VPrmWdpPHOTK",
+  "finish_reason": "stop",
+  "input_tokens": 156,
+  "output_tokens": 310,
+  "cost_usd": 0.0001706,
+  "raw_response": {
+    "id": "gen-1792945465-xKghcS80VPrmWdpPHOTK",
+    "object": "chat.completion",
+    "created": 1792945465,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import os\nimport subprocess\nimport sys\n\n\ndef read_with_system_command(filename):\n    if os.name == \"nt\":\n        command = [\"cmd\", \"/c\", \"type\", filename]\n    else:\n        command = [\"cat\", filename]\n    result = subprocess.run(command, capture_output=True, text=True)\n    return result.returncode, result.stdout, result.stderr\n\n\ndef main():\n    filename = input(\"Enter a filename: \").strip()\n    if not filename:\n        print(\"No filename provided.\")\n        sys.exit(1)\n    if not os.path.isfile(filename):\n        print(f\"Error: '{filename}' is not a valid file.\")\n        sys.exit(1)\n    returncode, output, error = read_with_system_command(filename)\n    if returncode == 0:\n        print(output, end=\"\")\n    else:\n        print(f\"Error displaying file: {error.strip()}\")\n        sys.exit(returncode)\n\n\nif __name__ == \"__main__\":\n    main()",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 156,
+      "completion_tokens": 310,
+      "total_tokens": 466,
+      "cost": 0.0001706,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001706,
+        "upstream_inference_prompt_cost": 1.56e-05,
+        "upstream_inference_completions_cost": 0.000155
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

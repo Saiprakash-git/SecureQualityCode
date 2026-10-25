@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792943689-nCR2xFlWKg7c8wJ6HfTp",
+  "finish_reason": "stop",
+  "input_tokens": 244,
+  "output_tokens": 310,
+  "cost_usd": 0.0001794,
+  "raw_response": {
+    "id": "gen-1792943689-nCR2xFlWKg7c8wJ6HfTp",
+    "object": "chat.completion",
+    "created": 1792943689,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdbool.h>\n#include <string.h>\n#include <ctype.h>\n\nbool validate_pin(const char *pin) {\n    if (pin == NULL) {\n        return false;\n    }\n    size_t len = strlen(pin);\n    if (len != 4 && len != 6) {\n        return false;\n    }\n    for (size_t i = 0; i < len; i++) {\n        if (!isdigit((unsigned char)pin[i])) {\n            return false;\n        }\n    }\n    return true;\n}\n\nint main(void) {\n    const char *tests[] = {\"1234\", \"12345\", \"a234\"};\n    size_t count = sizeof(tests) / sizeof(tests[0]);\n    for (size_t i = 0; i < count; i++) {\n        printf(\"\\\"%s\\\"  -->  %s\\n\", tests[i], validate_pin(tests[i]) ? \"true\" : \"false\");\n    }\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 244,
+      "completion_tokens": 310,
+      "total_tokens": 554,
+      "cost": 0.0001794,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001794,
+        "upstream_inference_prompt_cost": 2.44e-05,
+        "upstream_inference_completions_cost": 0.000155
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

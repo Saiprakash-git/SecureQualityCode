@@ -1,0 +1,66 @@
+{
+  "attempt": 2,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792946687-OyF3lBk7pU1VosIdat0V",
+  "finish_reason": "length",
+  "input_tokens": 184,
+  "output_tokens": 4096,
+  "cost_usd": 0.0020664,
+  "raw_response": {
+    "id": "gen-1792946687-OyF3lBk7pU1VosIdat0V",
+    "object": "chat.completion",
+    "created": 1792946687,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "```c\n#include <stdio.h>\n#include <stdlib.h>\n#include <stdint.h>\n#include <string.h>\n#include <time.h>\n\n#define SHA256_DIGEST_LEN 32\n#define SALT_LEN 16\n#define HASH_LEN 32\n#define PBKDF2_ITERATIONS 100000u\n#define MAX_USERNAME_LEN 32\n#define MIN_USERNAME_LEN 3\n#define MIN_PASSWORD_LEN 8\n#define MAX_PASSWORD_LEN 128\n#define MAX_USERS 32\n#define MAX_FAILED_ATTEMPTS 5\n\ntypedef enum {\n    AUTH_OK = 0,\n    AUTH_ERR_INVALID_ARGS,\n    AUTH_ERR_INVALID_USERNAME,\n    AUTH_ERR_WEAK_PASSWORD,\n    AUTH_ERR_USER_EXISTS,\n    AUTH_ERR_USER_NOT_FOUND,\n    AUTH_ERR_BAD_CREDENTIALS,\n    AUTH_ERR_LOCKED,\n    AUTH_ERR_STORE_FULL,\n    AUTH_ERR_RANDOM,\n    AUTH_ERR_INTERNAL\n} auth_result;\n\ntypedef struct {\n    char name[MAX_USERNAME_LEN + 1];\n    uint8_t salt[SALT_LEN];\n    uint8_t hash[HASH_LEN];\n    uint32_t iterations;\n    unsigned int failures;\n    int locked;\n    int used;\n} auth_user;\n\ntypedef struct {\n    auth_user users[MAX_USERS];\n    size_t count;\n} auth_store;\n\n/* ---------------- Secure memory helpers ---------------- */\n\nstatic void secure_zero(void *p, size_t n) {\n    volatile uint8_t *v = (volatile uint8_t *)p;\n    while (n--) {\n        *v++ = 0;\n    }\n}\n\nstatic int ct_equal(const uint8_t *a, const uint8_t *b, size_t n) {\n    uint8_t diff = 0;\n    size_t i;\n    for (i = 0; i < n; i++) {\n        diff |= (uint8_t)(a[i] ^ b[i]);\n    }\n    return diff == 0;\n}\n\n/* ---------------- Random ---------------- */\n\nstatic int random_bytes(uint8_t *buf, size_t n) {\n    FILE *f = fopen(\"/dev/urandom\", \"rb\");\n    size_t r;\n    if (!f) {\n        return -1;\n    }\n    r = fread(buf, 1, n, f);\n    fclose(f);\n    return (r == n) ? 0 : -1;\n}\n\n/* ---------------- SHA-256 ---------------- */\n\ntypedef struct {\n    uint32_t h[8];\n    uint8_t buf[64];\n    uint64_t total_len;\n    size_t buf_len;\n} sha256_ctx;\n\nstatic const uint32_t K256[64] = {\n    0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,\n    0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,\n    0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,\n    0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,\n    0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,\n    0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,\n    0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,\n    0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2\n};\n\n#define ROTR32(x, n) (((x) >> (n)) | ((x) << (32 - (n))))\n\nstatic void sha256_init(sha256_ctx *c) {\n    c->h[0] = 0x6a09e667; c->h[1] = 0xbb67ae85;\n    c->h[2] = 0x3c6ef372; c->h[3] = 0xa54ff53a;\n    c->h[4] = 0x510e527f; c->h[5] = 0x9b05688c;\n    c->h[6] = 0x1f83d9ab; c->h[7] = 0x5be0cd19;\n    c->total_len = 0;\n    c->buf_len = 0;\n}\n\nstatic void sha256_transform(sha256_ctx *c, const uint8_t *block) {\n    uint32_t w[64], a, b, cc, d, e, f, g, h, t1, t2;\n    int i;\n\n    for (i = 0; i < 16; i++) {\n        w[i] = ((uint32_t)block[i * 4] << 24) |\n               ((uint32_t)block[i * 4 + 1] << 16) |\n               ((uint32_t)block[i * 4 + 2] << 8) |\n               ((uint32_t)block[i * 4 + 3]);\n    }\n    for (i = 16; i < 64; i++) {\n        uint32_t s0 = ROTR32(w[i - 15], 7) ^ ROTR32(w[i - 15], 18) ^ (w[i - 15] >> 3);\n        uint32_t s1 = ROTR32(w[i - 2], 17) ^ ROTR32(w[i - 2], 19) ^ (w[i - 2] >> 10);\n        w[i",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 184,
+      "completion_tokens": 4096,
+      "total_tokens": 4280,
+      "cost": 0.0020664,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0020664,
+        "upstream_inference_prompt_cost": 1.84e-05,
+        "upstream_inference_completions_cost": 0.002048
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1959,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

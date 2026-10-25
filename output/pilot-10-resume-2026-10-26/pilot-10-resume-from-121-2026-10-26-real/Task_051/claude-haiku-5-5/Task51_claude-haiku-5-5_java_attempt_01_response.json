@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792952980-1XOequ0NsS8oHk4aFFtK",
+  "finish_reason": "stop",
+  "input_tokens": 152,
+  "output_tokens": 1481,
+  "cost_usd": 0.0007557,
+  "raw_response": {
+    "id": "gen-1792952980-1XOequ0NsS8oHk4aFFtK",
+    "object": "chat.completion",
+    "created": 1792952980,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import java.nio.charset.StandardCharsets;\nimport java.security.SecureRandom;\nimport java.util.Base64;\nimport javax.crypto.Cipher;\nimport javax.crypto.SecretKey;\nimport javax.crypto.SecretKeyFactory;\nimport javax.crypto.spec.GCMParameterSpec;\nimport javax.crypto.spec.PBEKeySpec;\nimport javax.crypto.spec.SecretKeySpec;\n\npublic class Main {\n\n    private static final int SALT_LENGTH = 16;\n    private static final int IV_LENGTH = 12;\n    private static final int KEY_LENGTH_BITS = 256;\n    private static final int GCM_TAG_LENGTH_BITS = 128;\n    private static final int PBKDF2_ITERATIONS = 65536;\n\n    public static String encrypt(String plaintext, String password) throws Exception {\n        if (plaintext == null) {\n            throw new IllegalArgumentException(\"Plaintext must not be null\");\n        }\n        if (password == null || password.isEmpty()) {\n            throw new IllegalArgumentException(\"Password must not be empty\");\n        }\n\n        SecureRandom random = new SecureRandom();\n\n        byte[] salt = new byte[SALT_LENGTH];\n        random.nextBytes(salt);\n\n        byte[] iv = new byte[IV_LENGTH];\n        random.nextBytes(iv);\n\n        SecretKey key = deriveKey(password, salt);\n\n        Cipher cipher = Cipher.getInstance(\"AES/GCM/NoPadding\");\n        cipher.init(Cipher.ENCRYPT_MODE, key, new GCMParameterSpec(GCM_TAG_LENGTH_BITS, iv));\n        byte[] ciphertext = cipher.doFinal(plaintext.getBytes(StandardCharsets.UTF_8));\n\n        byte[] output = new byte[salt.length + iv.length + ciphertext.length];\n        System.arraycopy(salt, 0, output, 0, salt.length);\n        System.arraycopy(iv, 0, output, salt.length, iv.length);\n        System.arraycopy(ciphertext, 0, output, salt.length + iv.length, ciphertext.length);\n\n        return Base64.getEncoder().encodeToString(output);\n    }\n\n    private static SecretKey deriveKey(String password, byte[] salt) throws Exception {\n        PBEKeySpec spec = new PBEKeySpec(password.toCharArray(), salt, PBKDF2_ITERATIONS, KEY_LENGTH_BITS);\n        try {\n            SecretKeyFactory factory = SecretKeyFactory.getInstance(\"PBKDF2WithHmacSHA256\");\n            byte[] keyBytes = factory.generateSecret(spec).getEncoded();\n            return new SecretKeySpec(keyBytes, \"AES\");\n        } finally {\n            spec.clearPassword();\n        }\n    }\n\n    public static void main(String[] args) {\n        String plaintext = args.length > 0 ? args[0] : \"Hello, World!\";\n        String password = args.length > 1 ? args[1] : \"examplePassword\";\n\n        try {\n            String encrypted = encrypt(plaintext, password);\n            System.out.println(encrypted);\n        } catch (Exception e) {\n            System.err.println(\"Encryption failed: \" + e.getMessage());\n            System.exit(1);\n        }\n    }\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "CAQSuwsKEAgTGAI4AUIIdGhpbmtpbmcSDGG/SGJkPFBIJx3waBoMTwde/3nDr7UZeWmIIjD0lQCbyidpg5g4JF1YU6xuLpThu9ipEPI84F4RrvnCClbFaXIfZBL7g9orOJgom38q2Arvrp3b2ZFFs1bfp++CK4FsVbmC2L52ZF4fg2GhRQQThofrFeGBCYQOVr4jOZ7u5su01mF4dehQbnf4hsqCYF2lYO4nHESJDLCQIhe7k08wiM6NWsUhZ30erQbPtULiKsJmpu7+abpDfJudF3qWNamANBME56jEizn2ggm+Cqlik9VQqc+AvEuC9K9kuM421Z/nOIF3KgYuhAo1HkrgWeIoKevT+NtNMX4Mixo6uqFq8DLNYBx6zhJcsoj8CfF0+fCXJ47+mmZgtJDj2udU+OR2x6Zok2E6Rhwrv7slTxhxO+i8ElyWFaCvNV8VdFP+s8VkIulZ26Ne3ZU59s9zSwzecobK6mbbnVcJ7tQzFMlVAMhZvcJJK9KvdXHtQxS+mo5XZKtpz6OKYL/RzX62W3oFJIbxDv+6APTB+is0MRT507g1PBdBOPl+uSUMlEpoGyxqhvcvlLKmHVAaHuLX1dFFawLcbheWQFcGT2DKcq7anrCl9hjJ32H6QpAN+Y3PqtSF2zXddCL3fUjPTTzjFaduTdj5tAznTbHU/jyHeLV5gK3eTL673jYbWMNnn0l/Zw+498i5e2dqlLNbhpe0NtD4NWEHHwYkssl/yxAxRVrVt/0Qrny5oOlZAUkRpLyKOSxNOaKzGToIcf/cM5xow8jAWNq8IIb25hH3WFSKUTxn+k/61AoN/J/Ji2fThAPdmh4CHnNpCuUiobYUXPiS87QKoxhLv7vNW8FKCGJJvQtKRY0Nn1PzGJATyVaSCr1khqBMCmCNOiX1uRE+ldZoHKzzULYrIXHI8H9oeFBNDG/dD3nbHLZNp7c1F8CxtN+CqR4+AWy0lfGcj4n6rNkyu1xV9fLX/GlfH1dzfcdEDc0vnOoJm3cJuBlfCY/e6lmRimpU24/1azxYTkv1hcw6hjpKf8rkNxG1U1AoDYE1k7PrGOGClS7ltE1/4yO8quVDUWRF90ThgeM3Jc4QiCMXpCCYsi0BBLSfBX8I+wabzv72y46jrZoNQT/nfip1GcTTq8UTaah4okFI+3IZudQofFrRdIBefIrb0UgIBd/01h2pit1M9NflthtqmONNlTA6sSOkcxZ7padM3cnRtjDYVhPnZsMDk8+1Iwi8XVpz0sGeOAAe/d2p3P2xoIU/Kjar7J0/lYcc83AFYl+kuHqT+/7g+25KppwYjGid6myoM2xBPCragxB9X5LJZ4bjScqopByqgKl4T12+I/OFSprkNj5v1X6TKoRmrpW7gwRojwXTmHmhceG+OJx9N9KsBSBttEX4rr6lQUPSFqwdaWOhdq+ZiizReogG6ERdrCVMqOiWpm7YWDUa8RP7+GLXpUw6ZenDdYVs56fn57IezvWY2CHuvK/xIx6R7o4HRdl+fnQXHYqyt3yWyMDicFpyNf4VVqti2KoSp/XUwkbWHC4gRAl7cdZ7+ppx1OEKYE8mmW2uaWHlO40ZLx/8YOBeQPduLD7cMCRa44uwdrpPrWMxjfu7FHFm6ihuCPgWoYhZHFZ2SIwN4wjaGVv9yJ7weR6eKg5dIruo6knykPwxnpg2sH43txDpWfTM28LjcKeOJNP8LE4HEB22qcIh+QiYYlrPHBZF3MTQG5ck2DlzPCZlWqAGBU1UEinNtz2QiM+wnuTrXadp1D53UDf6n630jUGrmnu64PbMbZNpv/Zq8gibkfEDm9TbuG9h7TWLCtE//mLgydQQonPbIiamdagQ75vUkiEx5hIX0A2tu/c7dWqJVjkcBgOhqi/UWQttKciJ1BA0DScZcv53u4L2n7/8Lll9ugouGi7ifnvQ4z7uRLtmVy6LVm+zaFbyDEMYAQ==.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 152,
+      "completion_tokens": 1481,
+      "total_tokens": 1633,
+      "cost": 0.0007557,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007557,
+        "upstream_inference_prompt_cost": 1.52e-05,
+        "upstream_inference_completions_cost": 0.0007405
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 328,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

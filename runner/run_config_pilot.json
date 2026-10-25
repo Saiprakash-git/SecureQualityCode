@@ -17,10 +17,12 @@
     "..\\Repo\\SecureQualityCode\\code-llm-evaluation-dataset-main\\code-llm-evaluation-dataset-main\\dataset\\promptDescription-1XX"
   ],
   "output_dir": "..\\output\\benchmark-90",
-  "run_id": "pilot-90task",
+  "run_id": "pilot-20-budget5-2026-10-25",
   "description": "Pilot: 20 of 90 selected tasks x 5 models x 4 languages",
   "phase": "pilot",
-  "budget_usd_hard_limit": 8.0,
+  "budget_usd_hard_limit": 5.0,
+  "expected_task_count": 20,
+  "expected_combinations": 400,
   "models": [
     {
       "label": "claude-sonnet-5.5",

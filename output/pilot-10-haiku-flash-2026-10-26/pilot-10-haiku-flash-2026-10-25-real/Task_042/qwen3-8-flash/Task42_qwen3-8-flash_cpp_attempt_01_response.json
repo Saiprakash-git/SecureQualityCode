@@ -1,0 +1,13 @@
+{
+  "attempt": 1,
+  "status": "api_error",
+  "validation_status": "not_attempted",
+  "response_model_id": null,
+  "response_id": null,
+  "finish_reason": null,
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "cost_usd": null,
+  "raw_response": null,
+  "error": "IncompleteRead(110 bytes read)"
+}

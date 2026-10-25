@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1792943730-6aObaj2YdQ0TaTGc0DZE",
+  "finish_reason": "stop",
+  "input_tokens": 224,
+  "output_tokens": 690,
+  "cost_usd": 0.0003579,
+  "raw_response": {
+    "id": "gen-1792943730-6aObaj2YdQ0TaTGc0DZE",
+    "object": "chat.completion",
+    "created": 1792943730,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdbool.h>\n\nbool validate_pin(const char *pin) {\n    if (!pin) {\n        return false;\n    }\n\n    int length = 0;\n\n    while (*pin) {\n        if (*pin < '0' || *pin > '9') {\n            return false;\n        }\n\n        length++;\n        pin++;\n    }\n\n    return length == 4 || length == 6;\n}",
+          "refusal": null,
+          "reasoning": "We need answer user wants raw source code only, no markdown fences. Need write one complete self-contained C source file. Problem: ATM PIN validation: valid if exactly 4 or 6 digits, only digits. Function passed valid PIN string return true else false. Need likely implement bool validate_pin(char *pin) or const char*. In C, bool from stdbool.h. Need self-contained source file maybe includes stdbool.h, string.h. Could implement without strlen. Need only raw source code, starting first source line. No explanations.\n\nNeed consider if input string can contain spaces? PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits. So all characters must be digits, length 4 or 6. Empty false. Null false. Return true/false.\n\nPotential Codewars style: bool validate_pin(char *pin). Need maybe use isdigit? Include ctype.h. But if char signed, cast unsigned char. Simpler: check c>='0' && c<='9'. Count length.\n\nComplete self-contained source file:\n#include <stdbool.h>\n\nbool validate_pin(const char *pin) {\n    if (pin == NULL) return false;\n    int length = 0;\n    while (*pin != '\\0') {\n        if (*pin < '0' || *pin > '9') return false;\n        length++;\n        pin++;\n    }\n    return length == 4 || length == 6;\n}\n\nBut NULL requires stddef.h? In C, NULL defined in stddef.h, stdio.h, stdlib.h. If include stdbool.h only, NULL may not be defined. Could use 0: if (!pin) return false; avoids NULL. Or include <stddef.h>. Better self-contained: #include <stdbool.h>\nbool validate_pin(const char *pin) { if (!pin) return false; ... }\n\nNeed no main? \"one complete self-contained source file\" Usually function only okay? Complete source file maybe needs no main? In challenge expects function. They say All functions should accept input as parameters and return output if any. So just function. Could include main? If they expect raw source file maybe not main. But \"complete self-contained source file\" could require compilable? A C file with function and no main is not executable but complete source. Many tasks want just function. We should not add main because tests may link. If add main might conflict. So only include and function.\n\nNeed ensure exactly 4 or 6 digits. If string length >6 but first 6 digits then non-digit? We return false at non-digit or length check after loop. If length 7 digits returns false. Good.\n\nNeed no markdown fences. Final only code. Ensure first line source. Could use #include <stdbool.h>\n\nLet's final.\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user wants raw source code only, no markdown fences. Need write one complete self-contained C source file. Problem: ATM PIN validation: valid if exactly 4 or 6 digits, only digits. Function passed valid PIN string return true else false. Need likely implement bool validate_pin(char *pin) or const char*. In C, bool from stdbool.h. Need self-contained source file maybe includes stdbool.h, string.h. Could implement without strlen. Need only raw source code, starting first source line. No explanations.\n\nNeed consider if input string can contain spaces? PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits. So all characters must be digits, length 4 or 6. Empty false. Null false. Return true/false.\n\nPotential Codewars style: bool validate_pin(char *pin). Need maybe use isdigit? Include ctype.h. But if char signed, cast unsigned char. Simpler: check c>='0' && c<='9'. Count length.\n\nComplete self-contained source file:\n#include <stdbool.h>\n\nbool validate_pin(const char *pin) {\n    if (pin == NULL) return false;\n    int length = 0;\n    while (*pin != '\\0') {\n        if (*pin < '0' || *pin > '9') return false;\n        length++;\n        pin++;\n    }\n    return length == 4 || length == 6;\n}\n\nBut NULL requires stddef.h? In C, NULL defined in stddef.h, stdio.h, stdlib.h. If include stdbool.h only, NULL may not be defined. Could use 0: if (!pin) return false; avoids NULL. Or include <stddef.h>. Better self-contained: #include <stdbool.h>\nbool validate_pin(const char *pin) { if (!pin) return false; ... }\n\nNeed no main? \"one complete self-contained source file\" Usually function only okay? Complete source file maybe needs no main? In challenge expects function. They say All functions should accept input as parameters and return output if any. So just function. Could include main? If they expect raw source file maybe not main. But \"complete self-contained source file\" could require compilable? A C file with function and no main is not executable but complete source. Many tasks want just function. We should not add main because tests may link. If add main might conflict. So only include and function.\n\nNeed ensure exactly 4 or 6 digits. If string length >6 but first 6 digits then non-digit? We return false at non-digit or length check after loop. If length 7 digits returns false. Good.\n\nNeed no markdown fences. Final only code. Ensure first line source. Could use #include <stdbool.h>\n\nLet's final.\n",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 224,
+      "completion_tokens": 690,
+      "total_tokens": 914,
+      "cost": 0.0003579,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003579,
+        "upstream_inference_prompt_cost": 3.36e-05,
+        "upstream_inference_completions_cost": 0.0003243
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 591,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

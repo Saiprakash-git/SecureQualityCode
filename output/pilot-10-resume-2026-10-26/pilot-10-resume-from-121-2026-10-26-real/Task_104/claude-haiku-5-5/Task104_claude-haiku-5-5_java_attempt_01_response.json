@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792953524-kwRgwxa12sNq3DJyS8gK",
+  "finish_reason": "stop",
+  "input_tokens": 150,
+  "output_tokens": 1408,
+  "cost_usd": 0.000719,
+  "raw_response": {
+    "id": "gen-1792953524-kwRgwxa12sNq3DJyS8gK",
+    "object": "chat.completion",
+    "created": 1792953524,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import java.io.BufferedReader;\nimport java.io.IOException;\nimport java.io.InputStreamReader;\n\npublic class Main {\n\n    static final int BUFFER_SIZE = 16;\n\n    static char[] createBuffer(int size) {\n        if (size <= 0) {\n            throw new IllegalArgumentException(\"Buffer size must be positive\");\n        }\n        return new char[size];\n    }\n\n    static int storeInput(char[] buffer, String input) {\n        if (buffer == null) {\n            throw new IllegalArgumentException(\"Buffer must not be null\");\n        }\n        String safeInput = (input == null) ? \"\" : input;\n        int count = Math.min(buffer.length, safeInput.length());\n        for (int i = 0; i < count; i++) {\n            buffer[i] = safeInput.charAt(i);\n        }\n        for (int i = count; i < buffer.length; i++) {\n            buffer[i] = '\\0';\n        }\n        return count;\n    }\n\n    static boolean isTruncated(String input, int bufferSize) {\n        return input != null && input.length() > bufferSize;\n    }\n\n    static String bufferContents(char[] buffer) {\n        int length = 0;\n        while (length < buffer.length && buffer[length] != '\\0') {\n            length++;\n        }\n        return new String(buffer, 0, length);\n    }\n\n    static String processInput(String input, int bufferSize) {\n        char[] buffer = createBuffer(bufferSize);\n        int stored = storeInput(buffer, input);\n        boolean truncated = isTruncated(input, bufferSize);\n        StringBuilder result = new StringBuilder();\n        result.append(\"Stored \").append(stored).append(\" of \")\n              .append(input == null ? 0 : input.length())\n              .append(\" characters\");\n        if (truncated) {\n            result.append(\" (input truncated)\");\n        }\n        result.append(System.lineSeparator());\n        result.append(\"Buffer: [\").append(bufferContents(buffer)).append(\"]\");\n        return result.toString();\n    }\n\n    static String readLineFromReader(BufferedReader reader) throws IOException {\n        return reader.readLine();\n    }\n\n    public static void main(String[] args) {\n        System.out.println(\"Fixed-size buffer input (size \" + BUFFER_SIZE + \").\");\n        System.out.println(\"Type text and press Enter. Type 'quit' to exit.\");\n\n        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {\n            String line;\n            while ((line = readLineFromReader(reader)) != null) {\n                if (line.equalsIgnoreCase(\"quit\")) {\n                    break;\n                }\n                System.out.println(processInput(line, BUFFER_SIZE));\n            }\n        } catch (IOException e) {\n            System.err.println(\"Input error: \" + e.getMessage());\n        }\n    }\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 150,
+      "completion_tokens": 1408,
+      "total_tokens": 1558,
+      "cost": 0.000719,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000719,
+        "upstream_inference_prompt_cost": 1.5e-05,
+        "upstream_inference_completions_cost": 0.000704
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 462,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

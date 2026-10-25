@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792945601-GEX3GkMrGdQ6pqD2P6A3",
+  "finish_reason": "stop",
+  "input_tokens": 155,
+  "output_tokens": 1487,
+  "cost_usd": 0.000759,
+  "raw_response": {
+    "id": "gen-1792945601-GEX3GkMrGdQ6pqD2P6A3",
+    "object": "chat.completion",
+    "created": 1792945601,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import java.io.*;\nimport java.util.*;\n\npublic class FileViewer {\n\n    static List<String> buildCommand(String filename, String osName) {\n        if (osName.toLowerCase().contains(\"win\")) {\n            return Arrays.asList(\"cmd\", \"/c\", \"type\", filename);\n        }\n        return Arrays.asList(\"cat\", filename);\n    }\n\n    static String runCommand(List<String> command) throws IOException, InterruptedException {\n        ProcessBuilder pb = new ProcessBuilder(command);\n        pb.redirectErrorStream(true);\n        Process process = pb.start();\n\n        StringBuilder output = new StringBuilder();\n        try (BufferedReader reader = new BufferedReader(\n                new InputStreamReader(process.getInputStream()))) {\n            String line;\n            while ((line = reader.readLine()) != null) {\n                output.append(line).append(System.lineSeparator());\n            }\n        }\n\n        process.waitFor();\n        return output.toString();\n    }\n\n    static String displayFile(String filename) throws IOException, InterruptedException {\n        if (filename == null || filename.trim().isEmpty()) {\n            return \"Error: no filename provided.\" + System.lineSeparator();\n        }\n        List<String> command = buildCommand(filename.trim(), System.getProperty(\"os.name\"));\n        return runCommand(command);\n    }\n\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        System.out.print(\"Enter filename: \");\n        String filename = scanner.nextLine();\n\n        try {\n            String contents = displayFile(filename);\n            System.out.print(contents);\n        } catch (IOException | InterruptedException e) {\n            System.err.println(\"Error running system command: \" + e.getMessage());\n            if (e instanceof InterruptedException) {\n                Thread.currentThread().interrupt();\n            }\n        } finally {\n            scanner.close();\n        }\n    }\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "CAQS8hcKEAgTGAI4AUIIdGhpbmtpbmcSDFYCVI+P1UlvgqMUqhoMJg7j9nguPsRRsIwyIjBYLnEreWAqYBFsP3KoC6+uQppV5N9HE4E5MnU4JzmMrurUJscL8Vih3AaS4Kl9wboqjxd1X6odt2+Le2okSEzJF7OZBj/GbA8UGLGKukzwkbij5b69Qihx5RDW94ulZzVvrt/Lg4JTWu1mYj1VmNunI2MobfjV9elRI01FYAg1+g8stYJaOy54XgOuwaiP93ZoWxZrpZKj9R8HVCSHum8sOx2VujLhSfMYaV2ghSWr7GyoLskGtB4LFFwKNTKglOm9xoMahLwgBgJlt2rct4+WTPmyYiEVT2YaPt3/lSmZj6FmeR5PCFvE9pmhmemEOdS0VdUgX3n4Kface4QHGPc8THffQGzMoIzj9Q2DRIvgddJcb2x0P/nKFjxT/4pFwq09xqlgFVImXfO5tZ8tWsD7/2aNdjs+D2jBzAX/s1ANnvM8b9ZfPjXBQ2NO36yxy/dDgNvrbvZ770z1YLGnBBUURYwVhcY7cUZdUmU6QWNl8vzjUHt5CX70vZ8eWNhZvVItPgYzlKcgSgjLzYNhgPnH13UKkR97KdlyOV2aAd9NttpeO+brroOqsfVvExPdnFNE5M4ZP5msYqR58e+fthLRsve5YvkWrFOVvvEusYFbLcZ91TlV2jkK0kyMwP16H4sIC/NUcTQ8KkOslLP8EuZt+OSMAvb+O7BgXIzcb6Vc8SsFqKLq075hSjNi30CoBUWSx621pteyDlU1LYA1ab+yaU8VC4p3m2o4zlJXAB51izMW7QEmRt+mP7atbtPUz4asma3EHDGFt2M7X0ST8Ty+M5lTAwe8ibwcaAsgqcr/weEMCMb+LuPftzDKAnobk/AiCmg2ZyyfukHKLhS3XJYh0V6orTjHpfTZ1FXAs6JvgctlhpVc0+RX3JW6GkY+K8rj35CxLTpr3s407UJ5ZErPlwySETatpSg6QF+M47QYSkjLIvPiK0IiPGfZEDee7LC4/oi/uzX+6x2BUwLPxO3kaeK03WKcTiC73AvCBzNPxwDtzykFj0rhAhCHvSSjyR237wreST1NM9YKs4nMM5SLXE8d0Ttjxjd53/JX+U3hsGsmxcoWZwUSNGuCnHo/kJRJgSfFVNT95Zxj16ZlR+NV3Kf+9Cbpf+CEA3wiwk/cNVFYJhUC0Gw6n9436Kf9mHSjWy4UHtxjyMD76t3+WSm9y+Lf8el5Ro54puItWON9N7ZR2kcX8smAr8DOH31P93xJMqGMP2AZiwe2Tau6HzwAXhjB4px0tPdxb0s+LaBmCJPzGMuTYONP9nHMmkVjCssIT6+UzARF8lKTCD9g6575fWInZa+kqiSqUMHgDXoQQmp8fMNaxphCmZS45yjBjSkwVKWFgEp7w324nyf2CJPSFnL4HWSIlqMExXW7vTpsQOF218zJF3XEtWHShRmpHYETxaVtdGiu52YrC7JoCSoXKc0qtLZmYZwV5IbFbGVg4JiafJXIumX2B/krntrnN5TMTWYQwifcke6AunQHqxutICPgl/oJ0XdfOSSvLCGOwGBKH1eiKBVwp2kNdwFk/0oHrdl9fGYLX4wBsknV3N+J+7uKK2T7G0iYFVrJYRFZ48lEz/S6Hz1CSszYR5plJf4j1QOivOpcDM8tzvAWjOxEvXMm1toZ9HLuZ6LVXr30ED8Dlh6Gu3mJqYFhM6KKka2P+ekCRoSUSygSnMtL4vGWsDQsM/c+AKcyVbQxH/N8l0sdzi7Gw80ZC23NpEkAEj7rITNwMhJwQJROwrwdO86qMH0lbLcsv7Sxb/SP0hdNhhCtAUZXDJMlOyZOgqScI6AHjrP78HY76sucpLV+1P5cpbH4HVp/EHZL536p83bBhCoi4jy0vFUipBndpJvkWieXpAU1KjVmSI/Lxew2y5A7pDbc2lIErjqzFmJSkkDa4pu6WjcB3/REwKa4tvRcfpcjGyaRBHCluBZryMpcRL1YpDLiulcy/EpD4xlPC0GYQhjP3SVPpTyBZKNp922j0gfpVX7HRAscLXcH5SdSXcZXawL/+zJhfjJ54PQBbxrbXCFDQrxCM2xBY+i16eB/mGMiyxacPix5P9qdxm3ijvVmtd+8EK8zbogXgnWyfUae818GQiIi8u6onHa6EvJeoJsY1RfJXFLhdGqtwOcAEMvFARkMx47BRTDPjNRmcQqph/cllKPDj3cjofo4mB77mu2vQnAeL5DcVb+87JdKWeyhIlPTCeM6zwSogyD/76/PqDvl1upwquSsBXhCGIfZ2nD1cb26SyTFuRZUPFXvm/UzAsuwGo1u81lCk3S8fJ8U/sSTh8aH1bpLhAd4xy9Lruc8XS6m6y2XJ9veI1WFui6IMTdtlW+cV7Zzy6Jre36wVT2BL0ZUZkZ5oLq036iANo+QK2++IY6Cmxq5pwXOynDgK+IjpA9L6g//X6r0sXzs1Zk9jtT7t2Qz7NqNYiq//ucdN1E3rJWrBYbpxK9ElLsaHQnz6mFY9PXKjkzq7AlKzY5znZYryJELDaQ7nKmiy6QtuONNw/bZ76KLWAizmRnvjABCO+Nlkym+X4JGUrbCxBWq1ao1tBl+zTNgpDS//lWbQWaffGNbRr0gyClrvlxL6KqrD8B9qoT3seL3KRqz2S/drTkVMuKax+5N8r5rfGJkc+BhCYOlFJYql36sGTV3DrEjB930hy64AUu5tMTpDk1l3J28VyswYtSNeTlB2XemXRWnb9zM6aXOsEAyxbYQULGAOkS4pMc8nO99yGKMMCWeMtKQlzW+4rccai39vq4G+QYtHYLzyLG5TzErNsqhKHIn/DyQs/U/1KhmnSVs71NmFFXZislqkwFBui/2Lav2IMT6xXSz5O6bmav0TlqR5fe2sEWN7rN/yL+ajO+nxV0pZpttkHnyTByH8JzeZLkceGcYLG0n9rn9xnvKQnDBkzubHOdYRMn0J1+qsjCAQIUN8Tnbr2VobZ25n8fYxiKnoJ2j5ApGZotYOgih2C8EhBYbuXpLW/14tSZ96AGlqG54wkmKCtRqRiu+J0UoK3QLTyQu54x5UWmLQXW21JKm05cdrxnvV2JDHxiuFVmFWHMd+pB3RBJDltSUOoq2zFKHer3isG5DlO8W58OXSS+pz4MI6XgDHRs9lU/qTXKVKU+woniXJufnc9fRdGxs1ODWfOJ2cibvfwVenpD1dmq7F/KeBbNLNT0/DleWO9VDiXRXcjdwUewWbPR2GM3gZv2AaHpegj050L6fk1X6Ibw0kcr2GdyYcx1ssfd8CB+Xk5FwZMnOK66Yc4cUQtELwdhGkXYiNmhgM2DgRBaWTaOQaE/LrqV0JigtBmN4v/61PnNxzwqdTnNqQmDIFsmJpoX+vErzBtkje5B463PccOjDxPmwRONAtuJjvp8icAtKWOb1aKUqzazZYJBSF1cvkJgy7z4iYNQ1w92pgMpGnaNt/Q0J0BjujMAo3T/Ik/OjQYNg+dQAOANmFmM4dff2NZjrg7SGPfM0KXkYtMp5v8S+FFJuX5JTg4UX2nERzO5+rGiTvRlvC97aL0xhpSLCYnA41MPztgjA4JCc8neiBsc8Qo1LZfz7fp/htLhRhYhCf8gPMKyRG1oObz2MyfItH2bJ9DAsVgTs26Sz5jNRYSviBXmhEnqF75HaGE56NzL2uBGswG2qh1fCYs4dr30A8ZxzMEggD1WpRu5gfKkBVieDyC6lwaAd2z4ue9ccwan+Qls0oKVB43cly75BBDmXrv8uhbkSmD+NA+IQ2ZC3vtvj2MQC//2eJIpx9FvZtTbv8Onz3+GxFVYAm1sZps4t3fCOalH72oyRo//bOgxNXD/xuTbtae2LxH9IDa3VvJxQskCBMD6zYvXck5tRwdi2yX5L/Hh8v9Pitc5qxwSgUtbOIV1gz64zEXfqEjWQ1pJywekihOE+cZNbPD5r7CrtPTbLbZFSxyk0mXZOGvC98iXNj10Hg8PXkjzjmpLoI4halFfV+X+/923w7zrPFOKbxjG5yfUwjILLaly009NX35bkXmYIH+94kl92UCxmsD7hGSdrGAE=.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 155,
+      "completion_tokens": 1487,
+      "total_tokens": 1642,
+      "cost": 0.000759,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000759,
+        "upstream_inference_prompt_cost": 1.55e-05,
+        "upstream_inference_completions_cost": 0.0007435
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 846,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

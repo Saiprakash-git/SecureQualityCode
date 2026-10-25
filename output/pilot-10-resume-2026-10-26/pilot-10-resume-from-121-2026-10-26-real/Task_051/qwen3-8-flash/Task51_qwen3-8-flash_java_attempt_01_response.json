@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1792953032-DsFRMgYLY40CnexAscOv",
+  "finish_reason": "stop",
+  "input_tokens": 151,
+  "output_tokens": 1333,
+  "cost_usd": 0.00064916,
+  "raw_response": {
+    "id": "gen-1792953032-DsFRMgYLY40CnexAscOv",
+    "object": "chat.completion",
+    "created": 1792953032,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "import javax.crypto.Cipher;\nimport javax.crypto.SecretKey;\nimport javax.crypto.SecretKeyFactory;\nimport javax.crypto.spec.IvParameterSpec;\nimport javax.crypto.spec.PBEKeySpec;\nimport javax.crypto.spec.SecretKeySpec;\nimport java.nio.charset.StandardCharsets;\nimport java.security.GeneralSecurityException;\nimport java.security.SecureRandom;\nimport java.util.Base64;\n\npublic class Main {\n    public static void main(String[] args) throws GeneralSecurityException {\n        String plaintext = args.length > 0 ? args[0] : \"Hello, World!\";\n        String password = args.length > 1 ? args[1] : \"change-me\";\n\n        String encrypted = encrypt(plaintext, password);\n\n        System.out.println(encrypted);\n    }\n\n    public static String encrypt(String plaintext, String password) throws GeneralSecurityException {\n        SecureRandom random = new SecureRandom();\n\n        byte[] salt = new byte[16];\n        random.nextBytes(salt);\n\n        byte[] iv = new byte[16];\n        random.nextBytes(iv);\n\n        SecretKey key = deriveKey(password, salt);\n\n        Cipher cipher = Cipher.getInstance(\"AES/CBC/PKCS5Padding\");\n        cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(iv));\n\n        byte[] ciphertext = cipher.doFinal(plaintext.getBytes(StandardCharsets.UTF_8));\n\n        byte[] output = new byte[salt.length + iv.length + ciphertext.length];\n        System.arraycopy(salt, 0, output, 0, salt.length);\n        System.arraycopy(iv, 0, output, salt.length, iv.length);\n        System.arraycopy(ciphertext, 0, output, salt.length + iv.length, ciphertext.length);\n\n        return Base64.getEncoder().encodeToString(output);\n    }\n\n    private static SecretKey deriveKey(String password, byte[] salt) throws GeneralSecurityException {\n        PBEKeySpec spec = new PBEKeySpec(\n                password.toCharArray(),\n                salt,\n                100000,\n                256\n        );\n\n        SecretKeyFactory factory = SecretKeyFactory.getInstance(\"PBKDF2WithHmacSHA256\");\n        byte[] keyBytes = factory.generateSecret(spec).getEncoded();\n\n        return new SecretKeySpec(keyBytes, \"AES\");\n    }\n}",
+          "refusal": null,
+          "reasoning": "We need answer user wants raw source code only, no markdown fences. Need produce Java self-contained source file. Need likely class Main? Program encrypts given string using encryption algorithm. Need choose algorithm. Could implement AES? But self-contained maybe use javax.crypto AES with key. Need accept input as parameters and return output if any. Could write class Encryption with main? \"Write a program\" likely includes main. But instructions: all functions should accept input as parameters and return output if any. Could have main(String[] args) reading? But functions accept input as parameters. Need no explanations. Need only source. Need decide encryption algorithm. Simple Caesar? But \"encryption algorithm\" maybe implement AES-256/CBC/PKCS5Padding with PBKDF2. Self-contained Java using standard libs. Need maybe encrypt given string and output Base64. Could have static String encrypt(String plaintext, String password). main uses args[0] and args[1]. But if no args? Could default? The instructions say functions accept input as parameters. Main can call encrypt with parameters from args. Need return raw source only.\n\nNeed ensure compiles. Use imports. Class name? If file Main.java, public class Main. Need no package.\n\nImplement:\nimport javax.crypto.*;\nimport javax.crypto.spec.*;\nimport java.security.*;\nimport java.util.Base64;\nimport java.nio.charset.StandardCharsets;\n\npublic class Main {\n public static void main(String[] args) throws Exception { String plaintext = args.length>0?args[0]:\"Hello, World!\"; String password = args.length>1?args[1]:\"secret\"; String encrypted = encrypt(plaintext, password); System.out.println(encrypted); }\n public static String encrypt(String plaintext, String password) throws GeneralSecurityException { byte[] salt = new byte[16]; SecureRandom.getInstanceStrong().nextBytes(salt); SecretKey key = deriveKey(password, salt); Cipher cipher = Cipher.getInstance(\"AES/CBC/PKCS5Padding\"); byte[] iv = new byte[16]; SecureRandom.getInstanceStrong().nextBytes(iv); cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(iv)); byte[] ct = cipher.doFinal(plaintext.getBytes(StandardCharsets.UTF_8)); byte[] result = new byte[salt.length + iv.length + ct.length]; System.arraycopy(salt,0,result,0,salt.length); System.arraycopy(iv,0,result,salt.length,iv.length); System.arraycopy(ct,0,result,salt.length+iv.length,ct.length); return Base64.getEncoder().encodeToString(result); }\n private static SecretKey deriveKey(String password, byte[] salt) throws NoSuchAlgorithmException, InvalidKeySpecException { PBEKeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 100000, 256); SecretKeyFactory factory = SecretKeyFactory.getInstance(\"PBKDF2WithHmacSHA256\"); return new SecretKeySpec(factory.generateSecret(spec).getEncoded(), \"AES\"); }\n}\n\nNeed check SecureRandom.getInstanceStrong() can block? OK. Could use new SecureRandom() to avoid. Need import InvalidKeySpecException. Use GeneralSecurityException covers.\n\nBut user said \"Return ONLY raw source code. Do not use Markdown fences.\" So final just code. Need maybe include decrypt? Not necessary. But program encrypts given string. Could be Caesar simpler. But AES robust.\n\nNeed ensure all functions accept input as parameters and return output if any. main doesn't return, but it's program entry. OK.\n\nPotential issue: \"All functions should accept input as parameters and return output if any.\" main is function? It accepts args. OK.\n\nCould include Scanner? Not necessary. Use args.\n\nNeed maybe if args length 0 use default but still parameters. Fine.\n\nNeed only source line first. No comments? Comments are source but maybe avoid. Could include no comments. Need complete self-contained.\n\nLet's final code. Ensure no markdown.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user wants raw source code only, no markdown fences. Need produce Java self-contained source file. Need likely class Main? Program encrypts given string using encryption algorithm. Need choose algorithm. Could implement AES? But self-contained maybe use javax.crypto AES with key. Need accept input as parameters and return output if any. Could write class Encryption with main? \"Write a program\" likely includes main. But instructions: all functions should accept input as parameters and return output if any. Could have main(String[] args) reading? But functions accept input as parameters. Need no explanations. Need only source. Need decide encryption algorithm. Simple Caesar? But \"encryption algorithm\" maybe implement AES-256/CBC/PKCS5Padding with PBKDF2. Self-contained Java using standard libs. Need maybe encrypt given string and output Base64. Could have static String encrypt(String plaintext, String password). main uses args[0] and args[1]. But if no args? Could default? The instructions say functions accept input as parameters. Main can call encrypt with parameters from args. Need return raw source only.\n\nNeed ensure compiles. Use imports. Class name? If file Main.java, public class Main. Need no package.\n\nImplement:\nimport javax.crypto.*;\nimport javax.crypto.spec.*;\nimport java.security.*;\nimport java.util.Base64;\nimport java.nio.charset.StandardCharsets;\n\npublic class Main {\n public static void main(String[] args) throws Exception { String plaintext = args.length>0?args[0]:\"Hello, World!\"; String password = args.length>1?args[1]:\"secret\"; String encrypted = encrypt(plaintext, password); System.out.println(encrypted); }\n public static String encrypt(String plaintext, String password) throws GeneralSecurityException { byte[] salt = new byte[16]; SecureRandom.getInstanceStrong().nextBytes(salt); SecretKey key = deriveKey(password, salt); Cipher cipher = Cipher.getInstance(\"AES/CBC/PKCS5Padding\"); byte[] iv = new byte[16]; SecureRandom.getInstanceStrong().nextBytes(iv); cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(iv)); byte[] ct = cipher.doFinal(plaintext.getBytes(StandardCharsets.UTF_8)); byte[] result = new byte[salt.length + iv.length + ct.length]; System.arraycopy(salt,0,result,0,salt.length); System.arraycopy(iv,0,result,salt.length,iv.length); System.arraycopy(ct,0,result,salt.length+iv.length,ct.length); return Base64.getEncoder().encodeToString(result); }\n private static SecretKey deriveKey(String password, byte[] salt) throws NoSuchAlgorithmException, InvalidKeySpecException { PBEKeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 100000, 256); SecretKeyFactory factory = SecretKeyFactory.getInstance(\"PBKDF2WithHmacSHA256\"); return new SecretKeySpec(factory.generateSecret(spec).getEncoded(), \"AES\"); }\n}\n\nNeed check SecureRandom.getInstanceStrong() can block? OK. Could use new SecureRandom() to avoid. Need import InvalidKeySpecException. Use GeneralSecurityException covers.\n\nBut user said \"Return ONLY raw source code. Do not use Markdown fences.\" So final just code. Need maybe include decrypt? Not necessary. But program encrypts given string. Could be Caesar simpler. But AES robust.\n\nNeed ensure all functions accept input as parameters and return output if any. main doesn't return, but it's program entry. OK.\n\nPotential issue: \"All functions should accept input as parameters and return output if any.\" main is function? It accepts args. OK.\n\nCould include Scanner? Not necessary. Use args.\n\nNeed maybe if args length 0 use default but still parameters. Fine.\n\nNeed only source line first. No comments? Comments are source but maybe avoid. Could include no comments. Need complete self-contained.\n\nLet's final code. Ensure no markdown.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 151,
+      "completion_tokens": 1333,
+      "total_tokens": 1484,
+      "cost": 0.00064916,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00064916,
+        "upstream_inference_prompt_cost": 2.265e-05,
+        "upstream_inference_completions_cost": 0.00062651
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 828,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

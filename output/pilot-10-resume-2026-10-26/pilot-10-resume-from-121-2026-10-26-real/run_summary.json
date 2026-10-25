@@ -1,0 +1,16 @@
+{
+  "run_id": "pilot-10-resume-from-121-2026-10-26-real",
+  "end_time": "20261026_001239",
+  "tasks_attempted": 80,
+  "planned_combinations": 200,
+  "tasks_success": 70,
+  "tasks_error": 10,
+  "total_input_tokens": 15245,
+  "total_output_tokens": 331181,
+  "start_combination": 121,
+  "prior_spend_usd": 0.637065,
+  "total_cost_usd": 1.252278,
+  "stopped_early": false,
+  "budget_note": "A single in-flight request may exceed the remaining budget.",
+  "dry_run": false
+}

@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792953368-qfEuwMT7iZE6rJfbOF8a",
+  "finish_reason": "stop",
+  "input_tokens": 151,
+  "output_tokens": 529,
+  "cost_usd": 0.0002796,
+  "raw_response": {
+    "id": "gen-1792953368-qfEuwMT7iZE6rJfbOF8a",
+    "object": "chat.completion",
+    "created": 1792953368,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "class FixedBuffer:\n    def __init__(self, capacity):\n        if not isinstance(capacity, int) or capacity <= 0:\n            raise ValueError(\"capacity must be a positive integer\")\n        self.capacity = capacity\n        self._data = []\n\n    def write(self, text):\n        if not isinstance(text, str):\n            raise TypeError(\"text must be a string\")\n        available = self.capacity - len(self._data)\n        accepted = text[:available]\n        self._data.extend(accepted)\n        return len(accepted)\n\n    def read(self):\n        return \"\".join(self._data)\n\n    def clear(self):\n        self._data.clear()\n\n    def is_full(self):\n        return len(self._data) >= self.capacity\n\n    def __len__(self):\n        return len(self._data)\n\n\ndef read_into_buffer(buffer, prompt=\"> \", stop_word=\"quit\"):\n    while not buffer.is_full():\n        try:\n            line = input(prompt)\n        except EOFError:\n            break\n        if line.strip() == stop_word:\n            break\n        written = buffer.write(line + \"\\n\")\n        if written < len(line) + 1:\n            break\n    return buffer.read()\n\n\ndef main(capacity=256):\n    buf = FixedBuffer(capacity)\n    print(f\"Enter text (buffer size {capacity} characters). Type 'quit' to finish.\")\n    content = read_into_buffer(buf)\n    print(\"--- Buffer contents ---\")\n    print(content, end=\"\")\n    print()\n    print(f\"Stored {len(buf)} of {buf.capacity} characters.\")\n    return content\n\n\nif __name__ == \"__main__\":\n    main()",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 151,
+      "completion_tokens": 529,
+      "total_tokens": 680,
+      "cost": 0.0002796,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002796,
+        "upstream_inference_prompt_cost": 1.51e-05,
+        "upstream_inference_completions_cost": 0.0002645
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

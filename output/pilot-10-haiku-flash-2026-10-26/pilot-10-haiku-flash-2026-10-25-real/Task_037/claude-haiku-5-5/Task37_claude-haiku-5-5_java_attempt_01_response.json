@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792943886-fSVHgtMJ64WGtAT51wVE",
+  "finish_reason": "stop",
+  "input_tokens": 165,
+  "output_tokens": 1937,
+  "cost_usd": 0.000985,
+  "raw_response": {
+    "id": "gen-1792943886-fSVHgtMJ64WGtAT51wVE",
+    "object": "chat.completion",
+    "created": 1792943886,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import java.sql.Connection;\nimport java.sql.DriverManager;\nimport java.sql.PreparedStatement;\nimport java.sql.ResultSet;\nimport java.sql.ResultSetMetaData;\nimport java.sql.SQLException;\nimport java.util.LinkedHashMap;\nimport java.util.Map;\nimport java.util.Scanner;\n\npublic class UserLookup {\n\n    public static Connection connect(String jdbcUrl, String dbUser, String dbPassword) throws SQLException {\n        return DriverManager.getConnection(jdbcUrl, dbUser, dbPassword);\n    }\n\n    public static Map<String, Object> findUserByUsername(Connection conn, String username) throws SQLException {\n        if (conn == null) {\n            throw new IllegalArgumentException(\"Connection must not be null\");\n        }\n        if (username == null || username.trim().isEmpty()) {\n            throw new IllegalArgumentException(\"Username must not be empty\");\n        }\n\n        String sql = \"SELECT id, username, email, full_name, created_at FROM users WHERE username = ?\";\n\n        try (PreparedStatement ps = conn.prepareStatement(sql)) {\n            ps.setString(1, username.trim());\n            try (ResultSet rs = ps.executeQuery()) {\n                if (!rs.next()) {\n                    return null;\n                }\n                Map<String, Object> user = new LinkedHashMap<>();\n                ResultSetMetaData md = rs.getMetaData();\n                for (int i = 1; i <= md.getColumnCount(); i++) {\n                    user.put(md.getColumnLabel(i), rs.getObject(i));\n                }\n                return user;\n            }\n        }\n    }\n\n    public static String formatUser(Map<String, Object> user) {\n        if (user == null) {\n            return \"User not found.\";\n        }\n        StringBuilder sb = new StringBuilder(\"User information:\\n\");\n        for (Map.Entry<String, Object> e : user.entrySet()) {\n            sb.append(String.format(\"  %-12s: %s%n\", e.getKey(), e.getValue()));\n        }\n        return sb.toString();\n    }\n\n    public static String lookup(String jdbcUrl, String dbUser, String dbPassword, String username) {\n        try (Connection conn = connect(jdbcUrl, dbUser, dbPassword)) {\n            Map<String, Object> user = findUserByUsername(conn, username);\n            return formatUser(user);\n        } catch (SQLException e) {\n            return \"Database error: \" + e.getMessage();\n        } catch (IllegalArgumentException e) {\n            return \"Input error: \" + e.getMessage();\n        }\n    }\n\n    public static void main(String[] args) {\n        if (args.length < 3) {\n            System.out.println(\"Usage: java UserLookup <jdbcUrl> <dbUser> <dbPassword> [username]\");\n            System.exit(1);\n        }\n\n        String jdbcUrl = args[0];\n        String dbUser = args[1];\n        String dbPassword = args[2];\n\n        String username;\n        if (args.length >= 4) {\n            username = args[3];\n        } else {\n            try (Scanner scanner = new Scanner(System.in)) {\n                System.out.print(\"Enter username: \");\n                username = scanner.hasNextLine() ? scanner.nextLine() : \"\";\n            }\n        }\n\n        System.out.println(lookup(jdbcUrl, dbUser, dbPassword, username));\n    }\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 165,
+      "completion_tokens": 1937,
+      "total_tokens": 2102,
+      "cost": 0.000985,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000985,
+        "upstream_inference_prompt_cost": 1.65e-05,
+        "upstream_inference_completions_cost": 0.0009685
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 790,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

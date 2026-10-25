@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1792952162-0O01GU3H23FS8ICc6trG",
+  "finish_reason": "stop",
+  "input_tokens": 117,
+  "output_tokens": 1710,
+  "cost_usd": 0.00650025,
+  "raw_response": {
+    "id": "gen-1792952162-0O01GU3H23FS8ICc6trG",
+    "object": "chat.completion",
+    "created": 1792952162,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "import os\nimport re\nimport sqlite3\nimport hashlib\n\ndef init_db(db_path: str = \"users.db\") -> None:\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    cursor.execute(\"\"\"\n        CREATE TABLE IF NOT EXISTS users (\n            id INTEGER PRIMARY KEY AUTOINCREMENT,\n            name TEXT NOT NULL,\n            email TEXT NOT NULL UNIQUE,\n            password_hash TEXT NOT NULL,\n            salt TEXT NOT NULL,\n            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n        )\n    \"\"\")\n    conn.commit()\n    conn.close()\n\ndef is_valid_email(email: str) -> bool:\n    email_regex = r\"^[\\w\\.-]+@[\\w\\.-]+\\.\\w+$\"\n    return bool(re.match(email_regex, email))\n\ndef is_valid_password(password: str) -> bool:\n    return len(password) >= 8\n\ndef hash_password(password: str, salt: bytes = None) -> tuple:\n    if salt is None:\n        salt = os.urandom(16)\n    hashed = hashlib.pbkdf2_hmac(\n        \"sha256\",\n        password.encode(\"utf-8\"),\n        salt,\n        iterations=100000\n    )\n    return hashed.hex(), salt.hex()\n\ndef register_user(db_path: str, name: str, email: str, password: str) -> dict:\n    name = name.strip()\n    email = email.strip().lower()\n\n    if not name:\n        return {\"success\": False, \"message\": \"Name cannot be empty.\"}\n\n    if not is_valid_email(email):\n        return {\"success\": False, \"message\": \"Invalid email address format.\"}\n\n    if not is_valid_password(password):\n        return {\"success\": False, \"message\": \"Password must be at least 8 characters long.\"}\n\n    pwd_hash, salt = hash_password(password)\n\n    try:\n        conn = sqlite3.connect(db_path)\n        cursor = conn.cursor()\n        cursor.execute(\n            \"INSERT INTO users (name, email, password_hash, salt) VALUES (?, ?, ?, ?)\",\n            (name, email, pwd_hash, salt)\n        )\n        conn.commit()\n        user_id = cursor.lastrowid\n        conn.close()\n        return {\n            \"success\": True,\n            \"message\": \"User registered successfully.\",\n            \"user_id\": user_id\n        }\n    except sqlite3.IntegrityError:\n        return {\"success\": False, \"message\": \"Email is already registered.\"}\n    except sqlite3.Error as e:\n        return {\"success\": False, \"message\": f\"Database error: {str(e)}\"}\n\ndef get_user_by_email(db_path: str, email: str) -> dict:\n    conn = sqlite3.connect(db_path)\n    cursor = conn.cursor()\n    cursor.execute(\n        \"SELECT id, name, email, created_at FROM users WHERE email = ?\",\n        (email.strip().lower(),)\n    )\n    row = cursor.fetchone()\n    conn.close()\n    if row:\n        return {\n            \"id\": row[0],\n            \"name\": row[1],\n            \"email\": row[2],\n            \"created_at\": row[3]\n        }\n    return None\n\ndef main() -> None:\n    db_file = \"users.db\"\n    init_db(db_file)\n\n    print(\"=== User Registration System ===\")\n    name = input(\"Enter your full name: \")\n    email = input(\"Enter your email address: \")\n    password = input(\"Enter your password (min 8 chars): \")\n\n    result = register_user(db_file, name, email, password)\n\n    if result[\"success\"]:\n        print(f\"Success: {result['message']} (User ID: {result['user_id']})\")\n        user = get_user_by_email(db_file, email)\n        print(\"Stored User Details:\", user)\n    else:\n        print(f\"Error: {result['message']}\")\n\nif __name__ == \"__main__\":\n    main()",
+          "refusal": null,
+          "reasoning": "**Developing Registration Logic**\n\nI'm currently focused on architecting the core logic for user registration. My thoughts are revolving around how to best handle the input of name, email, and password, and then how to securely transmit this data for database storage. This involves considering potential validation steps and the overall flow of information.\n\n**Hashing Passwords Securely**\n\nMy current focus is on the precise implementation of password hashing. I'm detailing the use of `hashlib.pbkdf2_hmac` with SHA256 and 100,000 iterations, ensuring each password gets a unique, random salt for robust security.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Registration Logic**\n\nI'm currently focused on architecting the core logic for user registration. My thoughts are revolving around how to best handle the input of name, email, and password, and then how to securely transmit this data for database storage. This involves considering potential validation steps and the overall flow of information.\n\n**Hashing Passwords Securely**\n\nMy current focus is on the precise implementation of password hashing. I'm detailing the use of `hashlib.pbkdf2_hmac` with SHA256 and 100,000 iterations, ensuring each password gets a unique, random salt for robust security.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 117,
+      "completion_tokens": 1710,
+      "total_tokens": 1827,
+      "cost": 0.00650025,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00650025,
+        "upstream_inference_prompt_cost": 8.775e-05,
+        "upstream_inference_completions_cost": 0.0064125
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 726,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

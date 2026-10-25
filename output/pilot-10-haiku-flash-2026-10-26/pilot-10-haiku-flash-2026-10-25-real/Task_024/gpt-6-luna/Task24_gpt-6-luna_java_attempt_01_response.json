@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1792943648-ZWcsPdjIkzRaa5fojtz5",
+  "finish_reason": "stop",
+  "input_tokens": 166,
+  "output_tokens": 150,
+  "cost_usd": 9.16e-05,
+  "raw_response": {
+    "id": "gen-1792943648-ZWcsPdjIkzRaa5fojtz5",
+    "object": "chat.completion",
+    "created": 1792943648,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "public class Kata {\n    public static boolean validatePin(String pin) {\n        if (pin == null || (pin.length() != 4 && pin.length() != 6)) {\n            return false;\n        }\n\n        for (int i = 0; i < pin.length(); i++) {\n            if (pin.charAt(i) < '0' || pin.charAt(i) > '9') {\n                return false;\n            }\n        }\n\n        return true;\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Generating Java code**\n\nI need to produce a self-contained Java source code snippet for the \"validatePin\" function from the Codewars kata. The expected class structure seems to be a public class named \"Kata\" with a static method that takes a string parameter for the pin. I should consider edge cases like null inputs as well. Essentially, my focus should be on providing just the source code without any unnecessary information. Let's get started on that!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Generating Java code**\n\nI need to produce a self-contained Java source code snippet for the \"validatePin\" function from the Codewars kata. The expected class structure seems to be a public class named \"Kata\" with a static method that takes a string parameter for the pin. I should consider edge cases like null inputs as well. Essentially, my focus should be on providing just the source code without any unnecessary information. Let's get started on that!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3iYi0mMcYAPD6-ER6brc6HY5S719Oo1FubxNC7de5qxhN150CfDvZeb3qd5N9Svp3tn3dMRnKGtenqEaL_kqfF93aoO_8ahGHoiXbJ-IGKRHGpy6FFBM64VJXuKms7r4fevYQudjJhvxo3B1Ra6YwijU7KG68mxor73WSleyPLHktVVLvgxjTBnROhQro1gu8UtIaC6Ns1WsDuVWJwdaPfDdOvKjIOZ8ggogkbGR1QtuAwvaYyDYhE9kju4Gc8es9FWC6cTaH-ZT7YuJSsJ4Hn9R9QJEkRHHZx_41YI0Tf8TbzmJ5nEWgc8vyVUvjHQ3iBOh5YUfb60I0N4kUk1tP_Nbmt7pxvhWiYitYRkkTRpY1pylHGoUvE68Rvc6BwTOFhoXVyYXQyiYS_vWKSP-Xc8zO6An-0Fe4_-gTbSIEvp370ETHhivRfloiuV9GKUEWH5oFI5ZntTh-vYqSHiGpmvu3_yMZLtONG9IDzbzHtU7YTDOkuxuO4nCCzmQdAtIbLebQTaqmVqfB84NRf78Z4fRc0LbRT4NiQSEHFZ0rYcDvhuynKK57ozy4t2RK1YGRcy0s_S_e9M-EBmrXWnlaxSwNvm9WIW0zWz4dyTZPI6yD8VVAkXtptRprFYWbjtBF8QaPdiYApxqHIkMxV_37aVdngtJkeqmqbOj_Rmpb_3UKi_Iw0rBgPhi5gVmbGd9dQr8GAh-ZpvtGxYCVB9VPCo1RxY0C5P4y7xnT7ffB3Nr-zhxQgOCNTOgQ7eovyYJnRrE_oWhfPaG3eJzr2xBTvuEV9-ttv5jEUYYrT1SEIul-FWYLkPHEPp7GILDaI2Z1HnffjjjLIplJS2OKaBl_XaGkFC-451klV6mXEifBKpCydOe2zcBBeAS9l3JNyYmTi-o5SytKNpd4NmbwZHeuNIZud2L1fyUpT5doA97i2dgl-ehtk5LxFMhFUat858aSTMTQrL1MmY2CKA8TRpDrx6ZkFrVdovIVcCD8yCuuUs7MQE9i1xuwYxs7RnAEqR0Jza8qJhlowVDVFdBJ-nKToeqxdpicP8KzcT8xuFs1Cl3aWFAIEcVcCM9H5gDr8zxWWcWKeU2sZHOkMtFqFuxpgOzXd2N461OfXFr1376jbm0I6xemUVO0unhbYGped2OkfmoBN-cptU2YUFXb_Tq7lXDyN15Bc-Gs20LL7CtR3usTKnBSLHayqLeanFN60uJh0MJudTFuH7p6_I74sEdKuzZoWNx-vjHGlzlVMc4XL-eKMj91giD8zwRoP6ZW4bViRrT-VDtLu_7sFBo6H5J2sf2FXbm377hoC8GVnyh5keIRvHBVZTIEwF8BSOM23LQlIJYVNdCTsIct8FlpeEN-ftSopcc7y9m-wD9oCRDDFB68nsme1HkoDXsavkDfcLe-I5SPynW5_tNhRZMrf75UcbIzXQrl1p1q0tXuA4LvZo_E7JIuxJPIvG3Hh9AIn4l9JvGLQs99yKlkNqGBxZ3-sgDB_E9WDS-bRgOxdWK88lQg0k1KeicStontGlG-J5B5fOLWN1tSikAoqGuwYgdm380HictxbXbgoQ2cyc5Mc4GF0-ANmLNL8WNRz9yZmqdivS5FE06BgqyOpFn_AD3xDwHU_bW5s7owGB5gGTcQgGoXIY7S8Q0_2moHPYw344Vzyj8rVVBXGm2VRrHd3feCE0R7RQaICakJX79d0ksPYJDYA7TgRX9m2FdlfOE-HYdC8tlDUp_OeqAiS1wyY0vBTL8LRE0yAfwFv3HV70K60seFxVhtMZKBR_blUQJ8dZXSG9K_VJ99N1l1zHfiaPdMg4Ep6lvB4sNWfTVzNranffk85mCcJOiue4121Ly_lAgvXS2aykTAjsJ5ehUA4xEJ6YKE8Od7eJP0PVsifR4yx3dZy33dUAZtgVE5RwSdERW6mX7988xWsNDXH4OlM4iWylTE900n2ikI2UvjeO6q9O4t0L6IxC9XdvxqYDXZbzNVfglnJnyscL5XdIwvANoC5Vau77vT5Tte5b0jpSBHJiE7yc6FJVOhEwTqfKmKR5mWBK-F6UoOHyYDep6KpJvWCnb95UlBJStjO_DTpVDwGQbRLLJC1YcPoewNBqwm0tL1AvrcCJzF2AWilKg4KbXfmUBSEfE0MlnIgO9fefPLqUU6WnfL4zQKzQXAhALy0kLRp9p3Q-BJbVNnQAclQvFljr8SQ==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_05144be8830427ea016ade262166ac87d1bdc6b8b528a5511d",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 166,
+      "completion_tokens": 150,
+      "total_tokens": 316,
+      "cost": 9.16e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 9.16e-05,
+        "upstream_inference_prompt_cost": 1.66e-05,
+        "upstream_inference_completions_cost": 7.5e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 46,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792943644-rPJlqHMzYMj3aCDerq5A",
+  "finish_reason": "stop",
+  "input_tokens": 247,
+  "output_tokens": 217,
+  "cost_usd": 0.0001332,
+  "raw_response": {
+    "id": "gen-1792943644-rPJlqHMzYMj3aCDerq5A",
+    "object": "chat.completion",
+    "created": 1792943644,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "public class Solution {\n    public static boolean validatePIN(String pin) {\n        if (pin == null) {\n            return false;\n        }\n        int len = pin.length();\n        if (len != 4 && len != 6) {\n            return false;\n        }\n        for (int i = 0; i < len; i++) {\n            char c = pin.charAt(i);\n            if (c < '0' || c > '9') {\n                return false;\n            }\n        }\n        return true;\n    }\n\n    public static void main(String[] args) {\n        System.out.println(validatePIN(\"1234\"));\n        System.out.println(validatePIN(\"12345\"));\n        System.out.println(validatePIN(\"a234\"));\n    }\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 247,
+      "completion_tokens": 217,
+      "total_tokens": 464,
+      "cost": 0.0001332,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001332,
+        "upstream_inference_prompt_cost": 2.47e-05,
+        "upstream_inference_completions_cost": 0.0001085
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

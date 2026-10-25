@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1792943682-FSs27LnBtOq32XZzpn0F",
+  "finish_reason": "stop",
+  "input_tokens": 224,
+  "output_tokens": 312,
+  "cost_usd": 0.00018024,
+  "raw_response": {
+    "id": "gen-1792943682-FSs27LnBtOq32XZzpn0F",
+    "object": "chat.completion",
+    "created": 1792943682,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "public class Solution {\n    public static boolean validatePin(String pin) {\n        return pin != null && pin.matches(\"\\\\d{4}|\\\\d{6}\");\n    }\n}",
+          "refusal": null,
+          "reasoning": "We need answer user wants raw source code only, no markdown. Need produce Java self-contained source file. Problem: ATM PIN validation: valid if exactly 4 or 6 digits, only digits. Need function accepts input as parameters returns output. Likely CodeWars style? Need class maybe Solution with boolean validatePin(String pin). Return only source code. Need ensure no explanations. Could include public class Solution? Since Java source file self-contained. Usually expects class Solution. Need maybe no package. Implement pin != null && (pin.length()==4 || pin.length()==6) && pin.chars().allMatch(Character::isDigit). But Character.isDigit may accept non-ASCII digits? Problem says digits likely 0-9. Use regex \"[0-9]{4}|[0-9]{6}\". Simpler: return pin != null && pin.matches(\"\\\\d{4}|\\\\d{6}\"); In Java \\d matches ASCII digits? Java regex \\d by default [0-9] unless UNICODE_CHARACTER_CLASS. Good. Need only raw source. Ensure class maybe Solution. If platform expects Solution. Let's output:\npublic class Solution { public static boolean validatePin(String pin) { return pin != null && pin.matches(\"\\\\d{4}|\\\\d{6}\"); } }\nNeed maybe no main. Good.\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user wants raw source code only, no markdown. Need produce Java self-contained source file. Problem: ATM PIN validation: valid if exactly 4 or 6 digits, only digits. Need function accepts input as parameters returns output. Likely CodeWars style? Need class maybe Solution with boolean validatePin(String pin). Return only source code. Need ensure no explanations. Could include public class Solution? Since Java source file self-contained. Usually expects class Solution. Need maybe no package. Implement pin != null && (pin.length()==4 || pin.length()==6) && pin.chars().allMatch(Character::isDigit). But Character.isDigit may accept non-ASCII digits? Problem says digits likely 0-9. Use regex \"[0-9]{4}|[0-9]{6}\". Simpler: return pin != null && pin.matches(\"\\\\d{4}|\\\\d{6}\"); In Java \\d matches ASCII digits? Java regex \\d by default [0-9] unless UNICODE_CHARACTER_CLASS. Good. Need only raw source. Ensure class maybe Solution. If platform expects Solution. Let's output:\npublic class Solution { public static boolean validatePin(String pin) { return pin != null && pin.matches(\"\\\\d{4}|\\\\d{6}\"); } }\nNeed maybe no main. Good.\n",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 224,
+      "completion_tokens": 312,
+      "total_tokens": 536,
+      "cost": 0.00018024,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00018024,
+        "upstream_inference_prompt_cost": 3.36e-05,
+        "upstream_inference_completions_cost": 0.00014664
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 269,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

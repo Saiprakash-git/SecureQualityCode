@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792946289-B0yI35qnncGdxQwlcbmG",
+  "finish_reason": "stop",
+  "input_tokens": 171,
+  "output_tokens": 922,
+  "cost_usd": 0.0004781,
+  "raw_response": {
+    "id": "gen-1792946289-B0yI35qnncGdxQwlcbmG",
+    "object": "chat.completion",
+    "created": 1792946289,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n#include <limits>\n#include <algorithm>\n#include <cctype>\n\nstd::string toUpperCase(const std::string& input) {\n    std::string result = input;\n    std::transform(result.begin(), result.end(), result.begin(),\n                   [](unsigned char c) { return static_cast<char>(std::toupper(c)); });\n    return result;\n}\n\nstd::string reverseString(const std::string& input) {\n    return std::string(input.rbegin(), input.rend());\n}\n\nstd::string removeWhitespace(const std::string& input) {\n    std::string result;\n    result.reserve(input.size());\n    for (unsigned char c : input) {\n        if (!std::isspace(c)) {\n            result.push_back(static_cast<char>(c));\n        }\n    }\n    return result;\n}\n\nsize_t countVowels(const std::string& input) {\n    size_t count = 0;\n    for (unsigned char c : input) {\n        char lc = static_cast<char>(std::tolower(c));\n        if (lc == 'a' || lc == 'e' || lc == 'i' || lc == 'o' || lc == 'u') {\n            ++count;\n        }\n    }\n    return count;\n}\n\nstd::string processInput(const std::string& input) {\n    std::string output;\n    output += \"Original length: \" + std::to_string(input.size()) + \"\\n\";\n    output += \"Uppercase: \" + toUpperCase(input) + \"\\n\";\n    output += \"Reversed: \" + reverseString(input) + \"\\n\";\n    output += \"Without whitespace: \" + removeWhitespace(input) + \"\\n\";\n    output += \"Vowel count: \" + std::to_string(countVowels(input)) + \"\\n\";\n    return output;\n}\n\nstd::string readLineSafely(std::istream& in, size_t maxLength) {\n    std::string line;\n    line.reserve(std::min<size_t>(maxLength, 256));\n    char ch;\n    while (in.get(ch)) {\n        if (ch == '\\n') {\n            break;\n        }\n        if (line.size() < maxLength) {\n            line.push_back(ch);\n        }\n    }\n    if (line.size() >= maxLength) {\n        std::cerr << \"Warning: input truncated to \" << maxLength << \" characters.\\n\";\n    }\n    return line;\n}\n\nint main() {\n    const size_t MAX_INPUT_LENGTH = 1024;\n\n    std::cout << \"Enter a string (max \" << MAX_INPUT_LENGTH << \" characters):\\n\";\n    std::string input = readLineSafely(std::cin, MAX_INPUT_LENGTH);\n\n    if (!std::cin && !std::cin.eof()) {\n        std::cerr << \"Error reading input.\\n\";\n        return 1;\n    }\n\n    std::cout << processInput(input);\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 171,
+      "completion_tokens": 922,
+      "total_tokens": 1093,
+      "cost": 0.0004781,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0004781,
+        "upstream_inference_prompt_cost": 1.71e-05,
+        "upstream_inference_completions_cost": 0.000461
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

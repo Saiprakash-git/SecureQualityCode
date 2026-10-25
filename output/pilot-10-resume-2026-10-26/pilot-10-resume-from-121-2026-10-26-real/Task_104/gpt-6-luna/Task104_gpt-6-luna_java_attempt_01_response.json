@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1792953533-nznEgux55s7iqQVmDJX3",
+  "finish_reason": "stop",
+  "input_tokens": 103,
+  "output_tokens": 637,
+  "cost_usd": 0.0003288,
+  "raw_response": {
+    "id": "gen-1792953533-nznEgux55s7iqQVmDJX3",
+    "object": "chat.completion",
+    "created": 1792953533,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "import java.io.BufferedReader;\nimport java.io.IOException;\nimport java.io.InputStreamReader;\n\npublic class Main {\n    private static final int BUFFER_SIZE = 100;\n\n    public static void main(String[] args) throws IOException {\n        char[] buffer = new char[BUFFER_SIZE];\n        String input = readInput(new BufferedReader(new InputStreamReader(System.in)));\n        int length = storeInput(input, buffer);\n\n        System.out.println(new String(buffer, 0, length));\n        if (input.length() > BUFFER_SIZE) {\n            System.err.println(\"Input exceeded the \" + BUFFER_SIZE + \"-character limit and was truncated.\");\n        }\n    }\n\n    private static String readInput(BufferedReader reader) throws IOException {\n        String input = reader.readLine();\n        return input == null ? \"\" : input;\n    }\n\n    private static int storeInput(String input, char[] buffer) {\n        int length = Math.min(input.length(), buffer.length);\n        input.getChars(0, length, buffer, 0);\n        return length;\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Defining a Java program**\n\nI see that the task is a bit vague, but I need to create a Java program that handles user input into a fixed-size buffer safely without overflow. I'll define parameters clearly, ensuring all functions accept input and return outputs.\n\nI think using a `FixedSizeBuffer` class makes sense, allowing for input management with a maximum of around 100 characters. I should avoid using `Scanner` and utilize `BufferedReader` instead to read characters into a `char[]` buffer while managing input effectively.**Implementing input handling in Java**\n\nI\u2019m working on a Java program that reads input into a fixed-size buffer, enforcing a capacity of 100 characters. I'll use `BufferedReader` to handle this and report any overflow with an appropriate error message\u2014better not to silently truncate data.\n\nThe program will copy the minimum length between the input and the buffer size and print out the buffer contents. If the input exceeds the capacity, it should clearly indicate that there was an overflow, ensuring that users are well-informed.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Defining a Java program**\n\nI see that the task is a bit vague, but I need to create a Java program that handles user input into a fixed-size buffer safely without overflow. I'll define parameters clearly, ensuring all functions accept input and return outputs.\n\nI think using a `FixedSizeBuffer` class makes sense, allowing for input management with a maximum of around 100 characters. I should avoid using `Scanner` and utilize `BufferedReader` instead to read characters into a `char[]` buffer while managing input effectively.**Implementing input handling in Java**\n\nI\u2019m working on a Java program that reads input into a fixed-size buffer, enforcing a capacity of 100 characters. I'll use `BufferedReader` to handle this and report any overflow with an appropriate error message\u2014better not to silently truncate data.\n\nThe program will copy the minimum length between the input and the buffer size and print out the buffer contents. If the input exceeds the capacity, it should clearly indicate that there was an overflow, ensuring that users are well-informed.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3kzEuzYwNuTVsXbCOMCFPK_k1ztsOLlkwuG4fSYKGojXisYyAT6grWg5ubvcUfp6ip022hLLt5-7CVWhx9NDZIKWSnJHEqa3Lu_GG5P2iI7Zqq1cwlJ7OEONvKkrYkYIuxYgkoi8CpFUnLw4Vl4XGPuCZuq_DU64dspkVjVQw694vLQam3NvyUc8hhXOXLIfWPNja4-8F6-cpJ6S1JP-fstnJ2EFZMCiRWwfcfEpHF8hbs6uLsfGJfRCXnNLDbqcvWzwFt_4lUAimMhrx9XiKJBOBGG2-A0I-PR4KuzCgh9p8G-zjcmb-_WXlt1Wd_tqF-4nbdsCR8WnTeNup8OPid4D7tBYHti5HrCVcm56xbg_4QfB0PmTJcpbgzbpGhX7ljNpHjsON_2rqCJ4e3gu-2g-ABBnp2kMMYgYhlTlXSzye5mY9XDI8RvW8RwifTHg42tVsSYHhkcPXfQutYmtSoTrIRdZkamUVOX7AfYPZjjRQmFcqYMR1rkCLwUHhVUdcGpaXW7Pr6p9HFnQrYFu7rMnx3eAZBXDwrvUJ0RtDAx6wJ1bomZCZAaHJsvxZzfbKxqzZsiVO_ZYDWI5QQaazw8riY0i2EvD4GvAIheqbPSDgiSYxQbbBKgBW2xAZA2LTCrgr7TbjzobqY7gYlhApMvXi2dWgV_u9pptKf23aZu2lKD63omfDa8E8qm6kZqOaWoBSQcSZ_2AJ2VoQWzcZo64jCMelAMk7fRo9SQr6wivEqwHv5hkKI2wt4O7o4DaUfFJ_2YiYnUsdR6OueMi-20JJ_5vN1gXBoWjY1M3xBZVCWktptU-Nss8PoQMucyjqrAjSuw1Yh178CdsZwFaUAFRuCNUYH9jExUMe_ZhZnAHWGckb8aFvQ1gWafJrjyKUHWaiO8vyfAYcZzCwGq_Dj0eduRz91CkAMY2hI33FFGCCWYuaKXu0c5mw3eJnxyqRUNbX9Q6kYw7jZ_OAAEyVhQakGLyCfyyeVBEMIBXts75Hzo-nXy0enq0h8atiO2xYNV63CVZ4q3uHBAj_tzptB_JOF56mGNfZzldqun7sibMzut4CY6Z4k2r9_ODsOu3Q5PCyGVN3Z9C2cKqQST3qPIK5QLRZlQFZfrMC8mVvqpO_zc9Gx8hxAI7cEtXEkix7VR-96VNmph302uxXMircy_qQClr22V3SkKnWAhj7r_vjAXL2_TkD4qMxc66dvOXX9qKP37PyievkwegBTPOgNnXFwKiJnicoQIPEPZcpNk0o7QEuuN4pa4QmyqPKlLknIsRMFB_7nwMT1IEHKnVq5WfimMfvaMsQ0jPiB6AcHKsnAA8hpCYODiLvz-6Q1W7M0pUFlDwdnHGs5kXodIl2MfPom7PKuhEtf_4l0Av1jmZyLlBi8iNdn-j9RLE1r11q8tEQCEIvRHx19nGUeX7v3akX-rsu6HpUIzRlU_x3or6L8r-eVuJQxPtLAoGQGx2EUnJhagzOhtCz9cjjzUbqQ9xnsFkoOBWOzr5H6O6cLmBeEeJu2nxSuTNqhuaFxKVYIAfTMuln1wxzNB0itr8lETpBWceOgtNEdZurS9jbyvO0AxTQkAEWT0zMf4mesEV7mayphuBBvubsmYzr0FokQATxlMZT3iQKKhuGSrSdbe5i-09I-2TAZSgupps1d8YLiBY-2eTqvMyvXI_oyuQwUqJy4ELMb2of4ZO9zgv6NgEccNlykiURh-3XzPX0rnGt4VsfiP37vwhKY727lI8hW1JrjjQC-_yVBQcJ2e1gkrzvgk6DbPC-sH85uauoDY90hbXVLhUvICtuBdXvZF2jSQTOz2Uh5HXJok918-8FBIfagVHSWDCTocSxn-dOUYWnXqSLUhu6H4sb2WNKdn-gpCEH9BkHgScgrtdkcCIqtOsWg2mctzt3QoSgqLVDuVMVB3LlXnAgVKF8t_0bufsK2QJpCaDtZ3W4F4LUj1qCzNSA6NY0c2ucnEMRuTa7gy2m63rDmuzdVGmrP7nyPPIdUDKAY2s4x4jlcEI8TTZqZWWsAkJabbVB0TXjGtcitghoc97WFOWbA4qL9be08_yWH7d9qH4hNog9_me6h_FoQt6JO9qGBNEDUzQzI9JjMSyoVmtQPr_Fzog6YhcQupEa5UG-DfqZ8ur_ZNA_ldxJCskLeT-kB1zCP0QLlQM0MGyEt8I491cKLW9A1vmsKdjtJYowgZhNakHhZaCalMLJV8nyEVPPwVlACXDHQZMq6yfYMqrATEJdn3XRg9PoRjcPdKSXY8CO1KEMsWvs7cNKVKUlpuiu4hH3WUp4gueR2kgrHbId31RiTfLGvkmSkHsEo-k7ei13Do8lvrk93ozQEZlb5Ls-4nYbF9l8Dp6BIAKxqRK5_uHb-gz2FaDCnXH8KbQEd2N_88SglmmoANV4kaqJMkSgnBEdLuK3GU50-Ez6GcALKHd4kqa0_Zy2q4hZCLRrndl6ijFT9q7wExwS_8fKpYeJheBD3Sfe_BgQl43O7B5lcX2pPT1znTno9icRnEe1tgYnF54cBR0oKX9nuN_SGp0S6LWy4ti_rpRlZsSq2KuOuktPQmvOimJb9qGaBBxG-e5ylGLMIXSYjkPhSBe3LrHltMjexaL6nZ9R4xVyd0lXSbzlz1tRS31wl9lPr12vWcVGW-LP0Vj3vzvR8scCApMZhmFJTTprEove8BrqUtUiFFGdJc500huJRJxyNdRFKfhKrC7E1SWjW-LvWph0GrwvOhaSq6Y1_6sZWLdONrIfOMlD7g6KUHcaWlAUUpehUJ5xHG3YFV-Bqmf_5QzPDHpQuY6TbiVlwE-v9_1rnIiw5u4vZXZObaob4Ga2qnjJtHQo70M6EWFh68zDyELKBzqFlyzyzMHQzWIyUDdqGE9TR4KWUh1bwezhuClQfshw3P1vLS7dBD7uinHc5Vg3lIKgLP9wLqpJ-KAXB3SoxX9JKQL_qKQnnBqjlQl5PXzJbqdzPhkwHPhykjlvoDlLoQE_lAOvYAwp58lQekJHyCMvNA2hUfnNR_Hr5-d42cWgV28w8RuSv6HsRO6Xzyf2kqUJ-NCoClGnBj1uH33RKnqU1SXuw2YLdPvbadS-K70JAraHflDZPr1mxB86kZU7UWoKrDKr1_ZkxCzaUg6KA2b7gdQ0E4YdTXgHKxhSq9cfif_hq5Hx1RqHw_90fO6vJL6shumjRbNIBOEjGVu1sm_BwhNMVhLTyT1t5-KQkvLS6n6C7kKwzj2PlGUOCjNd34p0NR5sqMWxlO2prZLQZSwv8lFk17WVauDTAowiV_kbbaEFbCXuGCjY1xURuGPzAV4SFVRZhs8mdims0u3phMBHoCnjcpiYnRlBEOHoYEjoTjXRuHCcTPmBMPH_QvmwsdnDQke4L-4nyCeQo_C7sfxued1AteCUpaNFyFkSjUCA8tpD2A5CN2AWUmiAiw_IbIrcZz6imtrYneGv9fwJQ_IL6xzPqC0H41LRheddGhybUT_zVyvcUjAJgFsTnzgEzcVk_hx8j5V0I88AZqVxJv-hID-1bK1-hQMJfxCuW-u_SIKPigKlHii5ZYJboBaGAxmgPhIIcIWoVJGa0y8eVRfmyQnWUyXugYoxP_d3gw2YI4aBP4-37D4R6Q766qKzH7ZRosU8ZUFKzsvsZSjpJDvhuO3lazQKBlLGZkJD87wd2M5AS3UOjuMxWCbNUX7Mjh9Qj88UbuUljRcOiSHrAefMvNeixU_5S_LUPgVKquHe53TDzNE6Z7bg6ks5d_tzCnZWTzX4ZRIvH-uT-WHrl-oFZoSVcDc4ivU15Hr4rIQ0K_6KotYB3t3v43bxlJ7j3cOMTX3PPMxFLnwX4BSKZVYKUHKYSeTfeUkHqHj6G-f6JlBNBs674v73y93rCEi6LE1ccs_7zeKtIHwoGVyKZ1pQOOvoeoVR00eo4z-NOxHiqmCW5XJj_VfTTlv2qbqzZIRKsUJ9WBvYqqaA31atPq0xTo6BUqk9WTXSF5oMx4pJtIrKYOFwQwvZoA2GLEEfQvEwmxC2_EhMoaGnEIzztye2C-BeliMcMFi4cR-4toeKBcCg-Kf82gpEkTChtXacuDAixZnBH2NCRgMB9MwuEQXvmzCpvcRx1L7br6oKNGH2Hq1gezbG63A-6diAPBSwbAiRvIurXJefpeKV0gEbiTVMeBilrFzvFCoTbLS4ggFFDAy-Ewm-lNtSg2tlyUhff1e3AZtkERA7JTKmZnBTpxTV_lBD48Q8bJn-425GmIXAzUR4PEASuos2AQwymdhFBkrx7opMtcuXwrXpvZjfZkTUOdJYdLcuVWKsXjbORIsyNELom2geGK-unyqQBdAV9InFtG9jLvkoHt13e5F-crdEhd2wW8J1toFGuG9fQYWsfNecmcKezMkIBDyL-AZ-LUi8CVWV2W2q1aLuj9ErcmvjxOAkldKogwkrAan9sZQcVWrINYj5bLzzHdAUuq4P3-XIM7pb1SgYg2CwNCI0ohifoKBdXtjtpu5L8uD1dLs9iw2v07OFIFQAfjyac7U4upF4eFIYl_oV6qGUaWwem8mioiUWgvrY1kE2BK8GQWn4uInDMClaItX_yT0Epp5ckl81iwBturVpc-F7pENLE2aRzfYRYFUB5vHVNntFf_hdx-NE9cLAr5L0gc5wm3EALMKgvNDtK0VdmXOmAV9ywbTD4ys7usFC01rXKnK9ehjfMDNLMeVVNnUJz7czX5mbpEhtnnJk9nrOPAq_kXQxRGJDkH8WP2jgrT13I4xbCfRN-Vfb36bRNM5WVVNCfcstnwYpx23xYBm5QPB179liVcGIjeKwcVJKQjQ58BM5Wx8klpR0f-zM2fNfL8ugZ8MUBUJz6s6zFmNyIYmHUnJ3qGcVkQeyrM98D_pGClGiSA4XDoYqBZxCso0BMDIEVLchjdki5bErZ1lkTm379z17n2lnPfS7HlzxL_cWgMyUIZwSdSYmjYhPoeCpvPcxLUCPntI8fkSgWKNrV7oH829B9LymzgfLrEE26RaAX5FHDDSLiE-a0x8MMQ9sGu5ususEAIGxj9Mqn4st_J80-ErbhkJodm-JXfvGGyeWTlbnGUgYTDnX-w2itPXsrRrTGeiSiNPVfsYfYayUhYpERn7WICG2fyNynUzoDquVaWGmxN5jhqrBgp6bGkqVqKi9j0uXHtFBgMy07K2VwRk2XwNCa7KuvaYJpO5OLmxJFdebmtpsS_9DhZkYVGbNkfVgX0PhQMuwgGuWsn2EvIgnkMd9cUciWMfIF9BUpm5VN9J4J-Y3HGagJ7_LUr1qixBM9Vm3Laz4iXS0L8H-Gvt9IN1fVecV8zf3EuMRQF__Kr1hBhPyik8e9MQ-o7doz3hgqFPcAHmi7q7_uHV4RrdCtiEfitdL2PeHtyTD3OWWpbsoQwJKpRHsTXQjgXLQbpgddrcnWGZj4u6JJzIJUUBnt7n0XNaKsdoDW8CRXbVoSSzuM9qee028IP32_ojdMTqaW26Mp5NPMWiFVzIXkIQHfughC9IBQt_Rushn7eGmTH_6wiG29DYoufNZiinEkDKvLhjqyA5iNEggcNQDyKfWKdCfwal08egWlLjmzZgX60GeTBo7tCpoqxX_mwvwYPC1PjkQpt_fdwGnxtdAvFzOckw4hnQ6G4Y4JD0HqLcdrF9YNDb7QKvkn6KCqkyduja9MJGX5GTi8As6ccxujsPAUMLcfKacqGAQpCAOzFa4CkJoFojgw7O-CziVpKnomPEtSa40j8q8-TUxOwMrbVIYUgF44mRZDcGf9Hqf8A1CYHibR58L3zkA8Slz1HpeBpCxOVxq43zV-XolQKeAMQnS_kVKpWSM0N7oFunfUpkNW_OqICtsnF8FObbME6XWjijGGw6l7lrssgwIRHMqDsF9h93AxZUJKuynJYLrbHYubcBmTtEzs6EDE9yNs9Z180slxa1YTlLGvfGTekZTXnDZfBbpzMao5MgTO-TQ4oyKUVFN18DvJlYd8Y-FkaDrsXxRSzNx9Bi2Tsl1PB_YpA5HDNhznvmN7CldQ04muyQtgXjd_0613u0Ol69TacaClUWviwlYq6R60yfijvCtzzDgRcawbYygPr1UrWzPhkpGR8eSEi1YdlhRGHSKUaMVYrw5y47EB0xsy-B5k7khKtYcZS91F9sUWMYRDFl2leDrOW22rkncygNtQAEfoKwo3GOtrMcQjtnJyaeVxHe7G7XB46cMaSKZSoXZKn3dybtAoD8-h15t_qU8_NQ9nOBuTN56x4hGnxkjHZxxXYU_SHSZqLG6mY5vYKrpsz19wRagnbAORDLVk3ByltvJmkJb8wJDfmGrBsgai11hQmOoPP8RPlH6VvSSvrO7VBXoD1JbG7dYJ9IJL6rMdDMr0q8J2sN4GZ2cjUSJ3uehQrg9tsBySESQDTUyhQt2qXUZZDT_GrM_jXXiDDHQfS96oJQCNwsOAYLhm-C4ejDIKxscYiuDVgw0JxfkcVIY8syFuUCpc8Tbb7bNtCzlP69-xUmObjLVjVoADku-qnV8V5YEoJAdFviTOEhvkkF8lAJLqajyhpJ7oI9PiVDmT2_oh26mktv8_OZHlsEKPIp2fHGNY-96l2ySkYkqshVGALxa7fU91sqH2dsPrVK89qPAkUbsFcJ1ek21yQbRrGcm8pg1iy4MtiXPWCxA47zGwJTGcpaoDvA15JumQI7JDeIEWiRKF5cIb_dqjbhv1ea8DeHNLznSpjo9xtHjqnpZBr7nJDslN4BwwgKHP1PAJ2DY38qFxx0xT1LBq_CD_DVtNOt4b-k-KL7UBJvo1pG871PvoAo3URPK8YEDKwUtQ5vmBM0zWlWzBNB2C1fostRsrSvyl91aoEzTTTW19i5Ni8ioFyQQBZ4LtLGZ94vBTEvTqzvDfFu6tmCychZRdzHwmvbEukiD7wEuGIJ0RFblZZbjXuvJ7q-Psa24meyYjperdXb-r1zn9XnFZCfYZ0ZwFBEQUEgTOSpeDe7gb0kzvp8MuHuBlKK7On33jCS5HxQrO3VBDM99rLSK4w0xlfx7T7XdoOJ6R1VsB7nCxrNsQryFAkS9EoJDbU09tPpN9E78wE42JlJx-zroRkzopaPzTMdDIZ0ZSGu-IRWLDRxq0uLxI8qr-MoBa1ylZoFsWHwbiOo0TvdqNO06bF9yDpyxVogmZTXVoypVKlq2RUTSIFpz1u01kBTgkc3Mw==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_02a12908a42d352c016ade4cbe6c6c87d1a76a9b33207f10e0",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 103,
+      "completion_tokens": 637,
+      "total_tokens": 740,
+      "cost": 0.0003288,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003288,
+        "upstream_inference_prompt_cost": 1.03e-05,
+        "upstream_inference_completions_cost": 0.0003185
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 420,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792945904-VDTLcl88V2bIg8HrPs0A",
+  "finish_reason": "stop",
+  "input_tokens": 154,
+  "output_tokens": 283,
+  "cost_usd": 0.0001569,
+  "raw_response": {
+    "id": "gen-1792945904-VDTLcl88V2bIg8HrPs0A",
+    "object": "chat.completion",
+    "created": 1792945904,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n#include <cstdlib>\n\nstd::string buildCommand(const std::string& filename) {\n#ifdef _WIN32\n    return \"type \\\"\" + filename + \"\\\"\";\n#else\n    return \"cat '\" + filename + \"'\";\n#endif\n}\n\nint runCommand(const std::string& command) {\n    return std::system(command.c_str());\n}\n\nint main() {\n    std::string filename;\n    std::cout << \"Enter filename: \";\n    std::getline(std::cin, filename);\n\n    if (filename.empty()) {\n        std::cerr << \"No filename provided.\" << std::endl;\n        return 1;\n    }\n\n    int result = runCommand(buildCommand(filename));\n    if (result != 0) {\n        std::cerr << \"Failed to display file: \" << filename << std::endl;\n        return 1;\n    }\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 154,
+      "completion_tokens": 283,
+      "total_tokens": 437,
+      "cost": 0.0001569,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001569,
+        "upstream_inference_prompt_cost": 1.54e-05,
+        "upstream_inference_completions_cost": 0.0001415
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

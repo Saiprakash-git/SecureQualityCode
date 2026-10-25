@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1792943613-Q1tufLrvE3w3nVHeFtCR",
+  "finish_reason": "stop",
+  "input_tokens": 172,
+  "output_tokens": 641,
+  "cost_usd": 0.00253275,
+  "raw_response": {
+    "id": "gen-1792943613-Q1tufLrvE3w3nVHeFtCR",
+    "object": "chat.completion",
+    "created": 1792943613,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "def validate_pin(pin: str) -> bool:\n    return len(pin) in (4, 6) and pin.isdigit() and pin.isascii()\n",
+          "refusal": null,
+          "reasoning": "**Validating PIN Input**\n\nI'm currently focusing on the core logic for validating PINs. My thoughts are centered on ensuring the input string contains only digits and precisely 4 or 6 characters in length. This initial step is crucial before I delve into handling potential edge cases or alternative input types.\n\n**Refining PIN Validation**\n\nI'm now refining the PIN validation by exploring more robust methods. My thoughts are leaning towards using `isdecimal()` combined with an ASCII check, or a regular expression, to ensure only standard digits are accepted and to handle the length constraints effectively.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Validating PIN Input**\n\nI'm currently focusing on the core logic for validating PINs. My thoughts are centered on ensuring the input string contains only digits and precisely 4 or 6 characters in length. This initial step is crucial before I delve into handling potential edge cases or alternative input types.\n\n**Refining PIN Validation**\n\nI'm now refining the PIN validation by exploring more robust methods. My thoughts are leaning towards using `isdecimal()` combined with an ASCII check, or a regular expression, to ensure only standard digits are accepted and to handle the length constraints effectively.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 172,
+      "completion_tokens": 641,
+      "total_tokens": 813,
+      "cost": 0.00253275,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00253275,
+        "upstream_inference_prompt_cost": 0.000129,
+        "upstream_inference_completions_cost": 0.00240375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 603,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

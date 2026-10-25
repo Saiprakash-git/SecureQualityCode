@@ -1,0 +1,66 @@
+{
+  "attempt": 2,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1792952963-DyI7Dzm3EdyYRW91z47I",
+  "finish_reason": "stop",
+  "input_tokens": 176,
+  "output_tokens": 1369,
+  "cost_usd": 0.00066983,
+  "raw_response": {
+    "id": "gen-1792952963-DyI7Dzm3EdyYRW91z47I",
+    "object": "chat.completion",
+    "created": 1792952963,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "import base64\nimport hashlib\n\n\ndef encrypt(text, key):\n    if not isinstance(text, str):\n        raise TypeError(\"text must be a string\")\n    if not isinstance(key, str):\n        raise TypeError(\"key must be a string\")\n    if not key:\n        raise ValueError(\"key must not be empty\")\n\n    key_bytes = hashlib.sha256(key.encode(\"utf-8\")).digest()\n    data = text.encode(\"utf-8\")\n\n    encrypted = bytearray(data)\n    for i, byte in enumerate(data):\n        encrypted[i] = byte ^ key_bytes[i % len(key_bytes)]\n\n    return base64.b64encode(encrypted).decode(\"ascii\")\n\n\ndef decrypt(cipher_text, key):\n    if not isinstance(cipher_text, str):\n        raise TypeError(\"cipher_text must be a string\")\n    if not isinstance(key, str):\n        raise TypeError(\"key must be a string\")\n    if not key:\n        raise ValueError(\"key must not be empty\")\n\n    encrypted = base64.b64decode(cipher_text.encode(\"ascii\"))\n    key_bytes = hashlib.sha256(key.encode(\"utf-8\")).digest()\n\n    decrypted = bytearray(encrypted)\n    for i, byte in enumerate(encrypted):\n        decrypted[i] = byte ^ key_bytes[i % len(key_bytes)]\n\n    return decrypted.decode(\"utf-8\")\n\n\nif __name__ == \"__main__\":\n    import sys\n\n    text = sys.argv[1] if len(sys.argv) > 1 else \"Hello, World!\"\n    key = sys.argv[2] if len(sys.argv) > 2 else \"secret\"\n\n    encrypted_text = encrypt(text, key)\n    print(encrypted_text)",
+          "refusal": null,
+          "reasoning": "We need answer user wants raw source code only, no markdown. Need write Python program encrypts given string using encryption algorithm. Need likely self-contained source file, functions accept input parameters and return output. Need maybe implement simple encryption algorithm. Could use XOR with key? But \"encrypts\" maybe Caesar cipher? Need ensure valid source code only. No explanations. Need final only code. Need think about requirements. They said previous response not valid source code. Need return raw source file contents starting first source line. We can implement a simple AES? But no external libs? Python standard library includes hashlib, secrets? Encryption algorithm could be XOR with key and base64. Need self-contained. Maybe implement AES-128? Too long. Could implement Caesar cipher? But encryption of arbitrary string with key. Need likely simple program. Since asks \"Write a program that encrypts a given string using an encryption algorithm.\" Could define function encrypt(text, key). Use XOR cipher with repeating key and hex output. Or use Fernet? Not standard library. Could use cryptography if installed? Not guaranteed. Better implement simple secure-ish? Maybe implement AES? Could be overkill. Need code only. Maybe implement a simple substitution? Let's make XOR encryption with key, returns hex string. Include main? They want functions accept input as parameters and return output. Could include if __name__ == '__main__' reading input? But maybe not necessary. Program can encrypt given string. Need raw source. Could include docstrings? Fine.\n\nNeed ensure no markdown. Final:\nimport base64\nimport hashlib\n\ndef encrypt(plain_text, key):\n    if not isinstance(plain_text, str): raise TypeError\n    if not isinstance(key, str): raise TypeError\n    key_bytes = hashlib.sha256(key.encode()).digest()\n    data = plain_text.encode('utf-8')\n    encrypted = bytes(b ^ key_bytes[i % len(key_bytes)] for i, b in enumerate(data))\n    return base64.b64encode(encrypted).decode('ascii')\n\ndef decrypt(encrypted_text, key): ... maybe useful. But only encrypt. Could include decrypt for completeness. Need maybe not too much. If include decrypt, self-contained. But user only asks encrypts. Could add main demonstration? If run, encrypt input? But functions accept params. Maybe include:\n\ndef encrypt_string(text, key): ...\n\nif __name__ == \"__main__\":\n    import sys\n    text = sys.argv[1] if len(sys.argv)>1 else \"Hello, World!\"\n    key = sys.argv[2] if len(sys.argv)>2 else \"secret\"\n    print(encrypt_string(text, key))\n\nThis is program. Need raw code. No fences.\n\nPotential issue: XOR with SHA256 keystream is not secure encryption (no nonce/integrity). But acceptable simple encryption algorithm. Could implement AES? Maybe use Python's built-in? There is no built-in AES. Could implement AES-128 in pure Python? Long but doable. But user likely expects simple. Need maybe \"encryption algorithm\" not necessarily secure. Could implement Vigenere? But arbitrary Unicode? XOR better.\n\nNeed ensure return only source. No comments? Comments okay but maybe raw source. Let's output concise.\n\nNeed consider previous response invalid source maybe because markdown. We'll output plain.\n\nLet's craft robust code:\n\nimport base64\nimport hashlib\n\ndef encrypt(text, key):\n    if text is None: text = \"\"\n    if key is None: key = \"\"\n    if not isinstance(text, str): raise TypeError(\"text must be a string\")\n    if not isinstance(key, str): raise TypeError(\"key must be a string\")\n    if not key:\n        raise ValueError(\"key must not be empty\")\n    key_bytes = hashlib.sha256(key.encode(\"utf-8\")).digest()\n    data = text.encode(\"utf-8\")\n    cipher = bytearray(data)\n    for i, byte in enumerate(data):\n        cipher[i] = byte ^ key_bytes[i % len(key_bytes)]\n    return base64.b64encode(cipher).decode(\"ascii\")\n\ndef decrypt(cipher_text, key):\n    ...\n\nif __name__ == \"__main__\":\n    import sys\n    text = sys.argv[1] if len(sys.argv) > 1 else \"Hello\"\n    key = sys.argv[2] if len(sys.argv) > 2 else \"secret\"\n    print(encrypt(text, key))\n\nNeed maybe no ValueError? Fine.\n\nBut user asks only encrypts. Could omit decrypt. But self-contained source file. Fine.\n\nNeed final only code. Ensure no markdown.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user wants raw source code only, no markdown. Need write Python program encrypts given string using encryption algorithm. Need likely self-contained source file, functions accept input parameters and return output. Need maybe implement simple encryption algorithm. Could use XOR with key? But \"encrypts\" maybe Caesar cipher? Need ensure valid source code only. No explanations. Need final only code. Need think about requirements. They said previous response not valid source code. Need return raw source file contents starting first source line. We can implement a simple AES? But no external libs? Python standard library includes hashlib, secrets? Encryption algorithm could be XOR with key and base64. Need self-contained. Maybe implement AES-128? Too long. Could implement Caesar cipher? But encryption of arbitrary string with key. Need likely simple program. Since asks \"Write a program that encrypts a given string using an encryption algorithm.\" Could define function encrypt(text, key). Use XOR cipher with repeating key and hex output. Or use Fernet? Not standard library. Could use cryptography if installed? Not guaranteed. Better implement simple secure-ish? Maybe implement AES? Could be overkill. Need code only. Maybe implement a simple substitution? Let's make XOR encryption with key, returns hex string. Include main? They want functions accept input as parameters and return output. Could include if __name__ == '__main__' reading input? But maybe not necessary. Program can encrypt given string. Need raw source. Could include docstrings? Fine.\n\nNeed ensure no markdown. Final:\nimport base64\nimport hashlib\n\ndef encrypt(plain_text, key):\n    if not isinstance(plain_text, str): raise TypeError\n    if not isinstance(key, str): raise TypeError\n    key_bytes = hashlib.sha256(key.encode()).digest()\n    data = plain_text.encode('utf-8')\n    encrypted = bytes(b ^ key_bytes[i % len(key_bytes)] for i, b in enumerate(data))\n    return base64.b64encode(encrypted).decode('ascii')\n\ndef decrypt(encrypted_text, key): ... maybe useful. But only encrypt. Could include decrypt for completeness. Need maybe not too much. If include decrypt, self-contained. But user only asks encrypts. Could add main demonstration? If run, encrypt input? But functions accept params. Maybe include:\n\ndef encrypt_string(text, key): ...\n\nif __name__ == \"__main__\":\n    import sys\n    text = sys.argv[1] if len(sys.argv)>1 else \"Hello, World!\"\n    key = sys.argv[2] if len(sys.argv)>2 else \"secret\"\n    print(encrypt_string(text, key))\n\nThis is program. Need raw code. No fences.\n\nPotential issue: XOR with SHA256 keystream is not secure encryption (no nonce/integrity). But acceptable simple encryption algorithm. Could implement AES? Maybe use Python's built-in? There is no built-in AES. Could implement AES-128 in pure Python? Long but doable. But user likely expects simple. Need maybe \"encryption algorithm\" not necessarily secure. Could implement Vigenere? But arbitrary Unicode? XOR better.\n\nNeed ensure return only source. No comments? Comments okay but maybe raw source. Let's output concise.\n\nNeed consider previous response invalid source maybe because markdown. We'll output plain.\n\nLet's craft robust code:\n\nimport base64\nimport hashlib\n\ndef encrypt(text, key):\n    if text is None: text = \"\"\n    if key is None: key = \"\"\n    if not isinstance(text, str): raise TypeError(\"text must be a string\")\n    if not isinstance(key, str): raise TypeError(\"key must be a string\")\n    if not key:\n        raise ValueError(\"key must not be empty\")\n    key_bytes = hashlib.sha256(key.encode(\"utf-8\")).digest()\n    data = text.encode(\"utf-8\")\n    cipher = bytearray(data)\n    for i, byte in enumerate(data):\n        cipher[i] = byte ^ key_bytes[i % len(key_bytes)]\n    return base64.b64encode(cipher).decode(\"ascii\")\n\ndef decrypt(cipher_text, key):\n    ...\n\nif __name__ == \"__main__\":\n    import sys\n    text = sys.argv[1] if len(sys.argv) > 1 else \"Hello\"\n    key = sys.argv[2] if len(sys.argv) > 2 else \"secret\"\n    print(encrypt(text, key))\n\nNeed maybe no ValueError? Fine.\n\nBut user asks only encrypts. Could omit decrypt. But self-contained source file. Fine.\n\nNeed final only code. Ensure no markdown.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 176,
+      "completion_tokens": 1369,
+      "total_tokens": 1545,
+      "cost": 0.00066983,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00066983,
+        "upstream_inference_prompt_cost": 2.64e-05,
+        "upstream_inference_completions_cost": 0.00064343
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 989,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

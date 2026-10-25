@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1792943758-oMFG01bMH3B1PWVNr7tq",
+  "finish_reason": "stop",
+  "input_tokens": 172,
+  "output_tokens": 869,
+  "cost_usd": 0.00338775,
+  "raw_response": {
+    "id": "gen-1792943758-oMFG01bMH3B1PWVNr7tq",
+    "object": "chat.completion",
+    "created": 1792943758,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <string>\n\nbool validate_pin(const std::string& pin) {\n    if (pin.length() != 4 && pin.length() != 6) {\n        return false;\n    }\n    for (char c : pin) {\n        if (c < '0' || c > '9') {\n            return false;\n        }\n    }\n    return true;\n}\n\nint main() {\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Validating PINs**\n\nI'm currently focused on implementing a robust function to validate ATM PIN codes. My thought process is centered on ensuring the input string contains precisely four or six characters, and that each character is exclusively a digit.\n\n**Refining PIN validation**\n\nI'm now focused on crafting the C++ code to validate PINs. My current work involves ensuring the input string strictly adheres to a length of four or six digits, and that every character is indeed a numerical digit. I'm prioritizing a clean, efficient implementation.\n\n**Testing PIN function**\n\nI'm now considering the need for a `main` function to make the code a complete, self-contained source file. I'm also exploring alternative, more portable methods for digit checking, potentially using direct character comparisons.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Validating PINs**\n\nI'm currently focused on implementing a robust function to validate ATM PIN codes. My thought process is centered on ensuring the input string contains precisely four or six characters, and that each character is exclusively a digit.\n\n**Refining PIN validation**\n\nI'm now focused on crafting the C++ code to validate PINs. My current work involves ensuring the input string strictly adheres to a length of four or six digits, and that every character is indeed a numerical digit. I'm prioritizing a clean, efficient implementation.\n\n**Testing PIN function**\n\nI'm now considering the need for a `main` function to make the code a complete, self-contained source file. I'm also exploring alternative, more portable methods for digit checking, potentially using direct character comparisons.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "AY89a1/rP9dN3boTrqYp/+vApd5yUcRfInTLaCJ6AqrVEhO+t5PiaAHzXI7poNaT2f7qD+4GgrQErOlIYEK6bFi8+H4TZwMYKxd/puhCrggfheiadx8oL+n3+X4WiTbGrlxU7kQKh9NNSeOnm0a+6io+GAC0BCiT0Gs4Z3IKd4145mmsfsvril8wq6T9tSk0FVLoiYfyJ8lD3OyF+BfecbAVmQbzASv0iKVVdr2Oj+/L0nuNJxvJwBqsIEXUQC7K5yqbc1XcS3s42bVIvcbOWTVBjcsxESdbkyjteQ7x/P3aeOW47nJo7jhdc/e/dXjO0BHab7St99ieTqwYH423UwiGN/mx3avcK2iE1ib1hFejaSVRA8pTr5opF8jxwpCRkv+2TgnB4t6PID0dfLeF/PorCpI0/82lIfZDeTJjvjY+XsKuIhB/n7SUWBS1VlPLR9ZBipW1skuKVoBqHaUk/V3PWzsHpessyDHM4EO9FeZ8fBmzcx7JpTyx3mNSe+BggRyz33/RYp0y1eBQ3stIYRozlhWeWlpUDEl2OrEbznLhRWISBk0bNJ4VdaNNaYI9c29If/SIk9NRodCvr+2GMwXecKLInt9PbTCLYefOoEjoYrCO5Ezv2bWbvowVKK+9SoWY76j9ox7DM5Vj6Gx3+88N+ds6wldZv7hkFAVvR8p1OFcgaKdJTX8Wt2k+YonekhY99gf4XV2469HcFEKl1mbOAKPGAEu7gMoDfufO7U/mbVOe0IhwoIMx8b7DeZlrIgn8N0b9bWw+8z2nqxX46XFqYIkfPX3Gn7CoEaDgo3MfcMfVAGnRDEQkRd3uyd+65b5s5CBijVfq8FyiooGA3J8IFUN/AXBVWVFiEnjOEqYFBh0FE4aMOETcdk5ikF8PDW3bIw473Kg3ORVOurnOmi2v4FiFmZMY3xzmkE1Kjif7l3skS4AlUCUxmjgHx6M7O8vFhW3AbcMaodYmDcRiOtmhepmE802AMI4xz2zyHlvWjvfrrrFPHt5f9MF7bkUZWmzSPrwGJmU1TnJ3TI6T5bpa5A5Mn+WoozVYmnaWHkmNfhu85I3NVM2nliYLBaaIrWKDlEI3t9yLOlkEgyLrRW+HDRVMcWiPz9bzTOSaXJjMDf9y8S74F2EmETphGBF15grx1jbXuFFJgeygkuGdzDZRnFtvJHzFcJQvd4mEb+gfRUTkapeYjjj6Z82Wo9WhlUZo/XIbBqwyDONhQYY3Lu+VwQJ2NxOQZyOvN1tRHUVMU5sUrp5R8JBr6TmMq+N/1NMUbOLiX9j0aeFbvSJdWRFxdMnQLZec5IOwZQhceQmclylMxrVMNTMw7/pU3lteomjORv4wBmY6dxltWbnx7jdH9c1MHoL/C8i8Ec8C3zCd4+tE/p54j9gCot1I7xdzjA62j7JyJn8nX4xAQKL37TWsAqLAZ8+DNkrcvt8t00W3yzTJ2PgmMh1I40cXyPGgnaZdUFO8D6NNFoEACMxFEzdqg0fC98xdZsTgGe7n66dBjldWa5aOb2rhKQdR7Yfr1ZXBXqY563usmj43V458Z5EoONLjxilLtgZRTXXoF1lZ6lEY7NJUrslgThyO/nh50MDwkGUIQDN+4N+W2wX3lwdszTlqtLRIiWLMS53xsQmsfvCFcrBNhINKRiuPtnYo5xFhx/GKgWwkmCHVtHIA8SCN+qZzFZqzutGQnVrJyMgLWTYHeY7Aa9XgC4M0QEQMddMaGwosMOpQQNTktNA8qIA8tHfDVyQT6VU3MMffQopO6donRlSDlt6sB7ynksPRanDBPCcm9J2M+8yzsiyOXU5wS/XCJxaTnrqhjMlzNWU+fLYFNuFDK3mw74KoKXPapeHdl4vs/BpZo9ghcqHx7+1tRSH2TxSN4vGAUDZOAZaE/aZHB35LRIG5GW1cZMns1DbQiQ9gn3TrWACZRGcnpWd/pkBwdmT4gCulhPmsMMzQQPNeR+/FW8qh0AbnH+omqenvhOoVTY7+tR/ZGk833dvoR6znRwLc/Y43WcXlqs/0TJdkKtxebwiya22TndiuTStm/AT5LD7i26+j2ir97t5nXmSFrv5CTktZys5YhGDt11RybFMW7z9ZFSIehLVXiLnE+PTt9g5s745p7+je/OJHhLYYNgj+4aBs4G95a5WowbEyBcsU71paAngIwAIAD4349rW3x1kPdUW9+f9PJTx/NC/5xXGKhE0fRFm2sshbiAFKNjAYUr0m/lwRe6K3t2tz99QMn3QTIyBemGfSryqa4x5+qNBkMBDaroAo/q+yiLwrbmkULOz33xj3iHUDZmrUD8UrjJGykTQ4VIxxUmXy9shhtFCUC/BGZwSmr8BnWtBiLDXglgGRHS4SCXg+T7OEEsttysTeRdGcQb11HQ3ZUlohOND2YNxDr2L2UVdF0//v3kehZd95ff/HXaWRhiDUMJ71BO4cGf2ZCta35Bpyznl16R44ctNYGwjl5cUVeYnpkHkuvEekuoAuRNV2b9wcS8qHhmVq7a1Eq3UlWCPf7RTBSkf/6PLf7LlMnOfo+Bok2VMFXZsGihPwyLW1T68hONS6d6agMzDz3sHua3FdiuXSm8DEEBTPPQ1ss0fPOLr+qnI1yO8NuairLc98qoAHwXjmJC7jORN/CVo8vRKJ5VDmya1pni7vM6cxb/zkIvdmtO1cawzJQb71fZLvqICUQcnx6pIHkdghk/2L7jik8R2HDRGCu3f6fK9LX2ock/RDvWvtBsydfjyXrJ7tMzX/vgiAQ+r+0AaTI8UtguwyioYVrBTkYICuHfVRiNndQ8cT6/bsp37dBY5Qaf6Gvy+SFcJAd3Q3SWrcuU3U0F11eHxdugc6wti0/Q9Ke3bbHGeMww9sO2sK3DWmr37uCf9RCLopX+f8vm3eNK45P3qK1W4LPWoqab/TKTd7drT2ZBqq7RleMD7sBCGvKsyFlPc6TWCWdtaQ97SEIXmA0+FEtdI9syW+QeD5LOwdl/HRa5V87E5ZNcuvveS0LP3zqR7WDqWNh5+EGuN+1H2Rp5KkfJ743SYWfxUnxl6cevuf98yr1eaxFFIHdpAGDW1OSpNph/VfLyekTZH9ly4xtuKo+Wz+965GRrA/rW712CTfAtb86BbDIkiCncUrYImIewLDsu539ZYZaf9ZUYlgYlDAOhm9C/LpgjvVlwIVEzBNM66FGE6KVJu+tRbjQsAsyk31vRID+xkjPMr3rmJH1LYQtXjK+fk1q+dvGE9C5IDSu95ha4dy2Uksr7dkIg0wzesQM4LjoAIaYi/REwkxWTAjLSX2Gk9/Jq/iSsjQniUBv4w1V/MBxnbMQsdQZj5Jy6ns8Xzx/ypexS4oJFQ/ZN593BSweP45qutfmncn01Z6d5P0YhX/gSI8TuOt+ahIGSJgFLC7bXTQdcddh5LC24AczHpyjqfGPLJ0EQQDXeeJ1aPo4W9Wdb15t6qQ2B9+AfmTA6Py/s/sfIFX9Ty7Lh4YvjTrwjVT1Smc+d2p6JkYf7UeP/N7RYq/QKDMXK2zBHYM9BZGNj7c+nWqK8SaL1fVTALB0nexKIP3bzLImV2R0EWZIuhP+fNsD0by0Hyt4DYXH1UbYDsRPpn1E2avspTyohj1JjjVawh0nJadXDdt7PMuP8K+lz9XmeeQ2xGBNLxsRbB78Ki7aikC3EstAGaUQ8uhksvM0DGM8Ef3NQ9rFDh4bUefaEwf3Zi2SZUM4dfDyW8IsOVgD2ya5TGgoZ5FqRK/sC9zkPki4B+G6LKA3Ij4WW8AGRlkLh6UjfLZyZT/DGQyCCZXXyLeWQGSknC3MiyUVvGP0+3xQRV1BWORwYBk8P+VYanFH7BgdYCUYSpTPM9eBnXZGsPezNvRMKJStKH3krMjH756g7p//JaDdJwEfXucUPIMu/XOgXj11yfVRxYLtT3LBw5fTZGNGjp+eq1D8pfLWEO8imRFKa8G/LdctvVZ3pnBapJpe8Sdv4dmnmQn191u2fLz91Cj/8BuU4tPKdYqE4lQ/LKc+W0evFYa1JDycCK4jOzI/y62plJChhbTQWBP5JRd0zgkR2P7NqGeR8PBZkeEuOP6Rp+uFuQcc9yfp1tYPO9dlA8/P6Plb+ONxCpftKZohLl1Idz5qzDUT0bt0wEDT4HSsCvXURjIECNvgav1GxiCpof2ErpHOZvYygQZjsD6cQxww+Zsz1LvqPTu/EHo328jCvyEuNfpJ3nNv4wXu/geH1e3LC0smEr9MRQAahQCvGzb3ZMT2zOGIso39kclkgbDlw4VzDpPC35mtiLi7//Sfvg7IXCClGOzMg4PNOrhadhYRY7dnERHRAL9kTp83auYj8CJjCWr8GbAZI48yxJTskZLCoLzHXxZCdxiWxQxLCoVPImiFSUEFB+HZyTf",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 172,
+      "completion_tokens": 869,
+      "total_tokens": 1041,
+      "cost": 0.00338775,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00338775,
+        "upstream_inference_prompt_cost": 0.000129,
+        "upstream_inference_completions_cost": 0.00325875
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 764,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

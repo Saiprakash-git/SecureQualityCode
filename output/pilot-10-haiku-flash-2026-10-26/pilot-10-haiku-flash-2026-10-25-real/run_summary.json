@@ -1,0 +1,14 @@
+{
+  "run_id": "pilot-10-haiku-flash-2026-10-25-real",
+  "end_time": "20261025_222500",
+  "tasks_attempted": 120,
+  "planned_combinations": 200,
+  "tasks_success": 114,
+  "tasks_error": 6,
+  "total_input_tokens": 20472,
+  "total_output_tokens": 321270,
+  "total_cost_usd": 0.637065,
+  "stopped_early": true,
+  "budget_note": "A single in-flight request may exceed the remaining budget.",
+  "dry_run": false
+}

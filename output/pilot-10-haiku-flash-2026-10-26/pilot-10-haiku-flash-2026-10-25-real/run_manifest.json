@@ -1,0 +1,95 @@
+{
+  "run_id": "pilot-10-haiku-flash-2026-10-25-real",
+  "start_time": "20261025_212321",
+  "config": {
+    "run_id": "pilot-10-haiku-flash-2026-10-25-real",
+    "description": "10-task pilot (first half of the 20-task pilot) x 5 models x 4 languages. Task 7 already run separately; see TASK_STATUS.md.",
+    "phase": "pilot",
+    "languages": [
+      "python",
+      "java",
+      "c",
+      "cpp"
+    ],
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "max_attempts": 3,
+    "retry_max": 3,
+    "retry_delay_seconds": 5,
+    "sleep_between_requests_seconds": 2,
+    "budget_usd_hard_limit": 5.0,
+    "expected_task_count": 10,
+    "expected_combinations": 200,
+    "dataset_dirs": [
+      "..\\Repo\\SecureQualityCode\\code-llm-evaluation-dataset-main\\code-llm-evaluation-dataset-main\\dataset\\promptDescription-0XX",
+      "..\\Repo\\SecureQualityCode\\code-llm-evaluation-dataset-main\\code-llm-evaluation-dataset-main\\dataset\\promptDescription-1XX"
+    ],
+    "output_dir": "..\\output\\pilot-10-haiku-flash-2026-10-26",
+    "models": [
+      {
+        "label": "claude-haiku-5-5",
+        "provider": "openrouter",
+        "model_id": "anthropic/claude-haiku-5.5"
+      },
+      {
+        "label": "gpt-6-luna",
+        "provider": "openrouter",
+        "model_id": "openai/gpt-6-luna"
+      },
+      {
+        "label": "gemini-3-8-flash",
+        "provider": "openrouter",
+        "model_id": "google/gemini-3.8-flash"
+      },
+      {
+        "label": "mistral-large-4",
+        "provider": "openrouter",
+        "model_id": "mistralai/mistral-large-4-0"
+      },
+      {
+        "label": "qwen3-8-flash",
+        "provider": "openrouter",
+        "model_id": "qwen/qwen3.8-flash"
+      }
+    ],
+    "task_selection": {
+      "mode": "orig_id_list",
+      "orig_task_ids": [
+        104,
+        41,
+        24,
+        37,
+        38,
+        39,
+        42,
+        43,
+        46,
+        51
+      ]
+    }
+  },
+  "model_ids": [
+    "anthropic/claude-haiku-5.5",
+    "openai/gpt-6-luna",
+    "google/gemini-3.8-flash",
+    "mistralai/mistral-large-4-0",
+    "qwen/qwen3.8-flash"
+  ],
+  "task_ids_selected": [
+    24,
+    37,
+    38,
+    39,
+    41,
+    42,
+    43,
+    46,
+    51,
+    104
+  ],
+  "planned_combinations": 200,
+  "max_attempts": 3,
+  "retry_semantics": "max_attempts includes the initial request",
+  "dry_run": false
+}

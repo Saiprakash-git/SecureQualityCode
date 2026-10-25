@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1792943699-EEQdUm7f11qPuTf19IJ3",
+  "finish_reason": "stop",
+  "input_tokens": 172,
+  "output_tokens": 667,
+  "cost_usd": 0.00263025,
+  "raw_response": {
+    "id": "gen-1792943699-EEQdUm7f11qPuTf19IJ3",
+    "object": "chat.completion",
+    "created": 1792943699,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdbool.h>\n#include <stddef.h>\n\nbool validate_pin(const char *pin) {\n    if (!pin) {\n        return false;\n    }\n\n    size_t len = 0;\n    while (pin[len] != '\\0') {\n        if (pin[len] < '0' || pin[len] > '9') {\n            return false;\n        }\n        len++;\n    }\n\n    return (len == 4 || len == 6);\n}",
+          "refusal": null,
+          "reasoning": "**Validating PIN Logic**\n\nI'm currently focused on defining the core logic for validating PIN codes. My thought process centers on ensuring the function correctly identifies strings composed of precisely four or six digits, and nothing else. I'm considering edge cases where the input might be too short, too long, or contain non-digit characters.\n\n**Refining PIN Validator**\n\nI'm now working on the implementation for `validate_pin`. My focus is on correctly handling NULL inputs and iterating through the string to check for digit-only characters and the exact length constraints of 4 or 6. I've incorporated standard headers for bool and size_t.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Validating PIN Logic**\n\nI'm currently focused on defining the core logic for validating PIN codes. My thought process centers on ensuring the function correctly identifies strings composed of precisely four or six digits, and nothing else. I'm considering edge cases where the input might be too short, too long, or contain non-digit characters.\n\n**Refining PIN Validator**\n\nI'm now working on the implementation for `validate_pin`. My focus is on correctly handling NULL inputs and iterating through the string to check for digit-only characters and the exact length constraints of 4 or 6. I've incorporated standard headers for bool and size_t.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 172,
+      "completion_tokens": 667,
+      "total_tokens": 839,
+      "cost": 0.00263025,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00263025,
+        "upstream_inference_prompt_cost": 0.000129,
+        "upstream_inference_completions_cost": 0.00250125
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 546,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

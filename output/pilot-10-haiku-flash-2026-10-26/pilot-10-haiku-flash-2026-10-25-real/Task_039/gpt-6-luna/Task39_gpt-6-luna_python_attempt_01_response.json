@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1792945469-GWmc90PBkfw0pJQE3dp5",
+  "finish_reason": "stop",
+  "input_tokens": 111,
+  "output_tokens": 329,
+  "cost_usd": 0.0001756,
+  "raw_response": {
+    "id": "gen-1792945469-GWmc90PBkfw0pJQE3dp5",
+    "object": "chat.completion",
+    "created": 1792945469,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "import subprocess\n\n\ndef display_file(filename):\n    return subprocess.run([\"cat\", \"--\", filename], check=False).returncode\n\n\ndef main():\n    filename = input(\"Filename: \")\n    return display_file(filename)\n\n\nif __name__ == \"__main__\":\n    main()",
+          "refusal": null,
+          "reasoning": "**Considering subprocess usage**\n\nI'm thinking about how to use `subprocess.run([\"cat\", filename])` to run a command. I need to ensure the filename is absolute to avoid any leading hyphen risks. Using `cat` with `--` can help clarify the input. I want to avoid using the shell for this. Also, I should check for any input errors with something like `input(\"Filename: \")` in the main part of my code. I'm focusing on using raw source only.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Considering subprocess usage**\n\nI'm thinking about how to use `subprocess.run([\"cat\", filename])` to run a command. I need to ensure the filename is absolute to avoid any leading hyphen risks. Using `cat` with `--` can help clarify the input. I want to avoid using the shell for this. Also, I should check for any input errors with something like `input(\"Filename: \")` in the main part of my code. I'm focusing on using raw source only.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3i1BEPMEE07hAqBKHkUtRKgbdshzqFaNfvBDMZlmTI4iF0Cig9gXbziE2BaC-7t0nwX69PElZ7lyj-oDCwIFnSyZbV_yWEtiHQ-NLJ3Zt0NGYXe2EjImh9oOsaqTL2lFvhU6DHaHgPJCfxo1HVzATIL9UJTKxymD6rCEeJH0hDfcZ8BVpRU-l37KkwU4Yz8GtX1vH1GhlXjm_kUVcxIfE003s0G-MUoaORWwfhX6MmHFq_lUG0RjTw02yBmoTt1BY8ZtYoyi98Z-jzSxgzqEkkAuF3JD_19OYPwonuY5MVBhsDGEgrKeQ6JaFN-wBIAOGIxpNB3tabMzgOuSUtbUNMp5O2xccN3AuW1vBr2dkW75rWJn-tFOH_quclm9N8XBG0K4Wltsw36sxODrQBAh7efXXWgiVlVPpzhdlXiSfgLD2RNdejCJiDv20LUdh9hLBJmHyhtFTMk8ZFHeXLvQDwvRa6jTp6BmKr324EQfLEFWbQQ02gRF_28rYFXQfpUb-B9KA29vxfa8SCBfWTUIChjNdSWW8nf9h3ArYmPk3xAu7NxWpaHWUKKZAYZ4bxc0V7GNDhpPnJUJbrYpwXlXOJiEMV5t5iZ0pOGh98PUWhh6RUVA-CcaUnmkJIk8-i5-cJ_eN3zYjAAcBcD6zwHtv1uddY5nrCIAlIRHJRgs5X0Up4Zk9x7egt6V9kh_voWikgyiDgI3FELEKzWVnXjoie2ITgqUM12-KyeeuUrY5XTU0gwui_lXwMGcVl86FdDeHnaR17kkDt87J9WE4kFBLHXxhnNlS3d6lkvY7ysBFMDLvlQURVTPEfUtpA5-3uekVPH70ErkQ236J27TkqbL0J3eM1AkaxPnqkUIOGvU1j8ZfVfr_UWIj7GiP7l2eGRifkndiQRU5jYj62ltrrARxCNMvdVrnYZkZQo4v3m3u3aCzyxWTViKjec6xjAn1nmAYg9yYGjwJN_SDYvSQFfiOaq9di-pN5IY-pSBXPrUL0LPfTpGDxsjfv6OfMeW4RT4rB5PX7rxV_d6e-I5Ug2lph-EZOlP7C_vSGPJ0fFYiP4CsUnW7G0p3bUxFzTA3vfCf50x_9jk9qHtQC57jCgd5lW_5z8Ag7iuctISPLL6AmiWe7bDZ3fSK7PIuMSdSuTLaxV-HyUltWUTr4hNJ1DgMqYDEmKd2VjpgEG0FrmrPhb1rJwnx9ey9CRf3o4LVpYe9R2BEe_D4N4Z2yyRcbQe2ISyj5e_DVlYC2hNyWd8KnAfXHW6V9WQscydxcNWind64Vn1s2JYLHUsYddqMSbfIB2uc_MTDv-zXFz_fyuQ0QDBwSJmqY4fT22P05pkYkQwsx5vQKOECHZgn9wtY2iM8rr3oQnYDftAkoURkzi691E_SzBBKTqA0afstCi7szjZMuIvuh2fU9Uw6C17YcoXNPr69Mrm725TnWfOfW_E8yE02Pqemw2YIdRc4aqVKdB-tp8aJ55kelNFcZpuz_1QgXkNA9y7fzk_7yza3DJVTUGFLKwAj35b6lDfj0GUlFlJfrzi-AyyNBb-eCFyQutpAr7fcQpj2bAdComrQuyvwGD-K8Yxd7GwgBAhOk-H5h99E0LRwB6-7CV7c53X65mI1ZeRiH30Is9V3m9mCRPra4fWk1MTz58NzqjqdeztULKaZYPL6sCZ33-QY9w3eGv29UzRrEdqqGGJ9s0QtI3Sfl7x3IGBMGA0xy7rJl833uZDpT7WGHj9JSZWl6q5ksdsNKBFybiohkdsY6ATWDwzTdU9KF5q-lJPoaxKqqzC4tAVz3pVibsvej42tUuVlc8Tvas4w07W0pbfzIybiV8-OESABpLvL7OtYcN27UlgN7Dx_NTUZtms2_606o24PthPiTNzc6S9Hc8q-PGnS2ft2V2ZgwTP-htTvqPRGot0k5ufN3-zh965WrmkFfy3kk6grwzI0b8BZYJOIquk1-STDlkdMlMLNeP8p0vfvGuZTjfLGnY-ODPT9GWAkiCtiNQepyvVXXLGSp3eWHPOEYg_YTOah45w6iXrXKxLM6QHN1H8mWFkCofm4YHAwsb-VyGFmBnqSAx7yX-82Py4ybTnhCDeonZiQzFIxdkewZA7UmbvCGupqfLJMgDhRsONxcLoTPJrJmWBQgSdL3f9jqUzep3RKysMH1Za6NsI52pOXvZt27xM0AjZO_UHSgh2caQ7ARzejTpaK3im6ENRoaNdeJWeGPajws2umosX9ueqCln_W0Hmhb_cMqO0D1MVtgNXXjNnTx-jQIgil3um3WjtA9Lp9AWDcwoJalJ3QDz_qYrZCsSbz6oPdkf6gvhUYTfNCyCCvt572hG7LRP2zPkKidbZbOMC-phMKtBcX0XUWrpJ6PtggqBliPwEz7WzRh0JmAe1aRzgvOEbqq5IJtR0k4Oy4PRta67lkpQD77ZzHHnQcnP-FUVVjIQ9Z2T_MxRpnTTTCLy6rw_I29v86mdwFVX2m6ATZg8WHo1riu43ZE9K2qFBbuRWTY4zCIPMpKt4cA18tkq1X9FTYC5q5KZDynSM8hsmV3tHpxsRTS-pdtVrX7uZr4VrVMkv-TFWEpgw1A6wXsv4TuOac-m48Uvh-J2z7p5MdQcJ4y5hF5JcPaOxmt9_wIqlRW5M3SfQsMT3OfWVYp3CuvS_jO9-7prI-GBUTgjVTXqYWsqONLIgfMt_kua3ttflKcAxH34OtcSf0LIO25EOPN_Lea3wwmkGVl5_XXI8AGrUwopkS9Eq14OopSOpZEZHhK4xd-T2L53PVQGhX-glDN_jIwjJxIXXUOl_2rDB52DbAY4MPmDMts7TZPxUtApR0Q6k53ttwKibUaoIqsb7AYrVNMha8b4oXy8omS4Yphp7_MG6aaLu7qi5EA0-jYj3w-7H4FSYce0gzDZQ9FYV8C42ymg_DDSs3B-T3QPZ1bRC-Spw3ewC7ksp9SQle_Cgsk0fzO4EKp3c7IgZo05eYAqvU2XoIRbg4Z4xrRh6NHKjP3NsDKvMgSSUVijbyitPJ47JJsYw7T8NNa6cENrNo3rSw3CBGUW7NJN3fNphT0dq8yvq3E7REn2yHgnY5x0LT0eXpp-swi3lQQXyjgzkxoyFNc1HqKPs-1TOxpO0gH8mO3Xsnd-kgAXTGea9ks4ks6J-hZhc-76YtoZ6gfhFIBam6WXF0CEWHAzWBTCuy8JFNsusjGhTEQWtHkWXPAb-eOB1owaH7fir0mf1S5oyAgvxnosvaV0tExR2RNoxbHoT_c30svN2sjANhbOzMZ_zZtuCPcd0Dt8FDnARycJWEyUb4eDju7EBagmJqfY9n4SITNqreHK3cnL90Y7XZ9Melne9V7IpzI6z5fC2de78WH2aeVDfDe1gnXbe61znCp6KRRqibye3S9-7gYffbs0x0D2qIL8lJdWz65t8rtBbkJKnD6ryRPvptdGm84rGuKcsBp6mPkkvpV3E-q5JuRvrUOaQQkFHG6WkLefiRmddWzCobO7j6YBZdJiSfn3I_bZaRfMveLg1h2907_DsoyLoAmzVq24aftffikmfKaEXUmc0xvbRpERZ3Hr7_GejgQI23PiDTRc32hf7qSMC50MzlUqPnK99skZHBBeBskrXGGH3o-XO0aNChBFRE1jA9s2av2sZQxK1dGJNWsk65yOR1VkKJ_GEy8Pta8x17vixFanvRel0kfPS06lFD0x1ZzJMTI-ZQJSBtqgOYTtO8dxDqP3t2XdPEbjF3iYhhaIzvHhIsUNJKYtwSS6acfG1QNZsos3oEAFWV65_d5U2a9M4bMYKpccox9AguI3JH-LjDbiourvfRYNj7Y0ExI3UWDevM2HQEWNyKgog-yXvsVBWbeBBL0DbTU09xYQCyTBbbiGQMpUyiufZLvMw7P2KtG2Tk2eopOzwPOl2Rs4W9hrVnqDoHR3pjxDQ2h_wOsnpBeLh8tx0x202DjtBOijL5zcnyL4yZFRlXEGBPi6FCEZxb_2_7k4hdfxJhqxly6oNEL8S8yy3ZN5Yao91BnsiqYtX40iP4oFzAbDXBu3pAk_NfLcsG7YL4zXitgz-lXSg2ffRRLFsW1cWcQ3NxACM0OQ6RvK9UggLagH0zAJZ9NzPvSeDq1HrCM25OgCT0O265TMRgL7Oatd3_gcoL3eHJI0JCJ17KB5OA8UMPsns2L7WgbPq-4pHlvw99zuN2tOiW7taFPpekk7nhh_i6xNTc9qp9if8WLNjvKN5SIfOrjaIgVFu8yExYwhMpY9zgD-aV3FMdF8TFGYQTsP9x33RZdlbyTmccGzfZkBKadRkJnC96nxObKbAKONbRxn4pQYyFQWeqc6kMOA9PR1IqLHBau2eO_h7bSLNO5206bztulMRv9Dbq4S1OB3SLo-GC2MVxPhGzqqldD3PtzjNue4OE5YxzOplqhKUhTijysjYzr8d3PEifVUjRdY3JIyRPQhEauz-uEcmj6Ko2512LMMDHFEuHqZY3eb-DuJmlR1VFGVCYf3iLYfF3CX5D7t2aB4djfEXV1xESE9vMWgy-qMrdFxugBKfvczGBtD6oY6nyhl3W3V83jSpXgHXCkMthpmfY2f7kKLnQrLFbumI74XxSWnCRHi1vKZN6_6Xad46gBceDzqMZWEjpFku0Rz-P5EJgUi0RrmAap6fC0_HZi_K7TVzAqd2viOf_6SKdYtdUzn_yeKzRxCseqIos2prGTOdXTck-LHTbUf8sRBv3K0u3ery5AReeuOyUkZ1rfyQ9fUxO4WwJq83djtdm7MYJTzukL2nB4CmL9vRxHVZ3z8z4KUIEAeuPenrgQDvF1U8g_GjXr7OARfhYcLtdR7yRG4HSvetAn7Q9iLYOOuZHakRcGhNxlIODipbf2e5M02KH46yO1ujB0-kISdfJKIXoDXFsrlVhSe-lpYJj3HdXBUun7ybYKyE8N9WmlnHgOKuBrDksS03bDlF7_YXD-_M0vLH7U1HyZJsxCyzDv0nBaPnwcDaUl3_7B1AQZj0z8ta5mgwDXJn-zr5LZop-lERZNFKzrDV2-c66XLnTgpXX-h2kBaS8V2coqTsaIHg0j6-tHP14iGaEbOK9ZEdIT092O8E8AX4nQsbfow_EpOyl5_Q4EOn-n4zHZrYT7jDYalEvxq1HnJKFf8xce6yWVSuAA==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0b08ad29ef0fead9016ade2d3de00887d19a0bdccea8085adf",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 111,
+      "completion_tokens": 329,
+      "total_tokens": 440,
+      "cost": 0.0001756,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001756,
+        "upstream_inference_prompt_cost": 1.11e-05,
+        "upstream_inference_completions_cost": 0.0001645
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 270,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}
