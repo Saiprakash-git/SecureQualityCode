@@ -1,0 +1,55 @@
+{
+  "run_id": "one-task-python-smoke-safe-2026-10-24",
+  "description": "Safe smoke test: original task 7 in Python across five OpenRouter models",
+  "phase": "smoke-test-safe",
+  "languages": ["python"],
+  "temperature": 0.2,
+  "top_p": 0.95,
+  "max_tokens": 8192,
+  "retry_max": 2,
+  "max_attempts": 2,
+  "retry_delay_seconds": 5,
+  "sleep_between_requests_seconds": 2,
+  "budget_usd_hard_limit": 5.0,
+  "dataset_dirs": [
+    "..\\Repo\\SecureQualityCode\\code-llm-evaluation-dataset-main\\code-llm-evaluation-dataset-main\\dataset\\promptDescription-0XX",
+    "..\\Repo\\SecureQualityCode\\code-llm-evaluation-dataset-main\\code-llm-evaluation-dataset-main\\dataset\\promptDescription-1XX"
+  ],
+  "output_dir": "..\\output\\one-task-python-smoke-safe-2026-10-24",
+  "models": [
+    {
+      "label": "claude-sonnet-5-5",
+      "provider": "openrouter",
+      "model_id": "anthropic/claude-sonnet-5.5",
+      "max_tokens": 8192
+    },
+    {
+      "label": "gpt-6-luna",
+      "provider": "openrouter",
+      "model_id": "openai/gpt-6-luna",
+      "max_tokens": 8192
+    },
+    {
+      "label": "gemini-3-8-flash",
+      "provider": "openrouter",
+      "model_id": "google/gemini-3.8-flash",
+      "max_tokens": 8192
+    },
+    {
+      "label": "mistral-large-4",
+      "provider": "openrouter",
+      "model_id": "mistralai/mistral-large-4-0",
+      "max_tokens": 8192
+    },
+    {
+      "label": "qwen3-8-max-0902",
+      "provider": "openrouter",
+      "model_id": "qwen/qwen3.8-max-0902",
+      "max_tokens": 8192
+    }
+  ],
+  "task_selection": {
+    "mode": "orig_id_list",
+    "orig_task_ids": [7]
+  }
+}

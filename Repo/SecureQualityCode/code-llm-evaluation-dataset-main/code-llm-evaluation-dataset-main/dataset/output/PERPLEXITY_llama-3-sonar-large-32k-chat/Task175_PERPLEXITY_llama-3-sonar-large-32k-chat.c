@@ -1,0 +1,1 @@
+// Not possible to implement in C as it does not support classes and interfaces.

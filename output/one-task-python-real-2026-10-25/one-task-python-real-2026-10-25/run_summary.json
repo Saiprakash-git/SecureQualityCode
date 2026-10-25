@@ -1,0 +1,14 @@
+{
+  "run_id": "one-task-python-real-2026-10-25",
+  "end_time": "20261025_003736",
+  "tasks_attempted": 5,
+  "planned_combinations": 5,
+  "tasks_success": 4,
+  "tasks_error": 1,
+  "total_input_tokens": 1282,
+  "total_output_tokens": 38616,
+  "total_cost_usd": 0.20866,
+  "stopped_early": false,
+  "budget_note": "A single in-flight request may exceed the remaining budget.",
+  "dry_run": false
+}

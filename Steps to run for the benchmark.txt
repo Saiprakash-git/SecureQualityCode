@@ -1,0 +1,140 @@
+Steps to run for the benchmark 
+
+dry run: 
+cd F:\MajorProject-VII\runner
+
+python run_experiment.py `
+  --config pilot_2026_10_23\run_config_pilot_2026_10_23.json `
+  --dry-run 
+
+
+
+the second line is for the new config which is taking in for the all 5 models 
+
+
+real run : 
+python run_experiment.py `
+  --config pilot_2026_10_23\run_config_pilot_2026_10_23.json
+
+
+
+## Before Real Run
+
+1. **Rotate your OpenRouter API key**
+
+   Do not use the previously exposed key.
+
+2. **Open the new pilot config**
+
+```text
+runner\pilot_2026_10_23\run_config_pilot_2026_10_23.json
+```
+
+3. **Verify/update all five `model_id` values**
+
+   Confirm each model exists on OpenRouter and record their prices.
+
+4. **Check the pilot tasks**
+
+   Confirm the config contains these 20 IDs:
+
+```text
+0, 1, 2, 3, 4, 5, 6, 7, 8, 24,
+36, 37, 38, 39, 41, 42, 43, 46, 51, 52
+```
+
+5. **Set the approved budget**
+
+   Keep:
+
+```json
+"budget_usd_hard_limit": 8.0
+```
+
+   Adjust it only after checking current model prices.
+
+6. **Use a new output folder**
+
+   Do not reuse the existing dry-run output folder. Change:
+
+```json
+"run_id": "pilot-real-2026-10-23"
+```
+
+   and use a new output directory, for example:
+
+```json
+"output_dir": "..\\output\\pilot-real-2026-10-23"
+```
+
+7. **Open PowerShell in the runner folder**
+
+```powershell
+cd F:\MajorProject-VII\runner
+```
+
+8. **Set the new API key temporarily**
+
+```powershell
+$env:OPENROUTER_API_KEY = "your-new-rotated-key"
+```
+
+9. **Run the dry run using the new config**
+
+```powershell
+python run_experiment.py `
+  --config pilot_2026_10_23\run_config_pilot_2026_10_23.json `
+  --dry-run
+```
+
+10. **Check the dry-run summary**
+
+Confirm:
+
+```text
+100 model-task attempts
+400 expected language files
+0 errors
+$0 cost
+```
+
+11. **Run the real pilot**
+
+```powershell
+python run_experiment.py `
+  --config pilot_2026_10_23\run_config_pilot_2026_10_23.json
+```
+
+12. **After completion, inspect**
+
+```text
+run_manifest.json
+cost_ledger.jsonl
+run_summary.json
+```
+
+13. **Confirm the real run**
+
+Check that:
+
+- Every model has results.
+- Every task has Python, Java, C, and C++ output.
+- The ledger contains approximately 100 records.
+- The cost is within budget.
+- No API errors or missing code blocks occurred.
+
+14. **Do not start security evaluation yet**
+
+First preserve the generated outputs. Then run the separate validation stages:
+
+```text
+compile/build
+-> semantic tests
+-> type checks
+-> security scanners
+-> quality scanners
+-> sandbox tests
+-> manual review sample
+```
+
+Do not run `python run_experiment.py` without `--config`, because that uses the older default configuration.

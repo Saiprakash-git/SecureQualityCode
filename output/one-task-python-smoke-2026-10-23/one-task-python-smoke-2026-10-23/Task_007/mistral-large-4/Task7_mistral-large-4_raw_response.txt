@@ -1,0 +1,153 @@
+```python
+import socket
+import json
+import threading
+import hashlib
+import os
+import sys
+from getpass import getpass
+
+class ChatServer:
+    def __init__(self, host='localhost', port=5555, users_file='users.json'):
+        self.host = host
+        self.port = port
+        self.users_file = users_file
+        self.clients = {}
+        self.lock = threading.Lock()
+        self.load_users()
+
+    def load_users(self):
+        if not os.path.exists(self.users_file):
+            default_users = {
+                "admin": self.hash_password("admin123"),
+                "user1": self.hash_password("pass123")
+            }
+            with open(self.users_file, 'w') as f:
+                json.dump(default_users, f, indent=2)
+            print(f"[SERVER] Created users file: {self.users_file}")
+
+        with open(self.users_file, 'r') as f:
+            self.users = json.load(f)
+
+    def hash_password(self, password):
+        return hashlib.sha256(password.encode()).hexdigest()
+
+    def authenticate(self, username, password):
+        if username in self.users:
+            return self.users[username] == self.hash_password(password)
+        return False
+
+    def handle_client(self, conn, addr):
+        username = None
+        try:
+            while True:
+                data = conn.recv(4096).decode('utf-8')
+                if not data:
+                    break
+
+                try:
+                    message = json.loads(data)
+                    msg_type = message.get('type')
+
+                    if msg_type == 'login':
+                        username = message.get('username')
+                        password = message.get('password')
+
+                        if self.authenticate(username, password):
+                            with self.lock:
+                                self.clients[username] = conn
+                            response = {
+                                'type': 'login_response',
+                                'status': 'success',
+                                'message': f'Welcome {username}!'
+                            }
+                            conn.send(json.dumps(response).encode('utf-8'))
+                            print(f"[AUTH] {username} authenticated from {addr}")
+                            self.broadcast({
+                                'type': 'system',
+                                'message': f'{username} joined the chat'
+                            }, exclude=username)
+                        else:
+                            response = {
+                                'type': 'login_response',
+                                'status': 'fail',
+                                'message': 'Invalid username or password'
+                            }
+                            conn.send(json.dumps(response).encode('utf-8'))
+                            print(f"[AUTH FAIL] {username} from {addr}")
+
+                    elif msg_type == 'chat':
+                        if username:
+                            chat_msg = {
+                                'type': 'chat',
+                                'username': username,
+                                'message': message.get('message', '')
+                            }
+                            self.broadcast(chat_msg)
+                            print(f"[CHAT] {username}: {message.get('message')}")
+                        else:
+                            conn.send(json.dumps({
+                                'type': 'error',
+                                'message': 'Not authenticated'
+                            }).encode('utf-8'))
+
+                    elif msg_type == 'logout':
+                        break
+
+                except json.JSONDecodeError:
+                    conn.send(json.dumps({
+                        'type': 'error',
+                        'message': 'Invalid message format'
+                    }).encode('utf-8'))
+
+        except Exception as e:
+            print(f"[ERROR] {e}")
+        finally:
+            if username and username in self.clients:
+                with self.lock:
+                    del self.clients[username]
+                self.broadcast({
+                    'type': 'system',
+                    'message': f'{username} left the chat'
+                })
+            conn.close()
+            print(f"[DISCONNECT] {addr}")
+
+    def broadcast(self, message, exclude=None):
+        with self.lock:
+            for user, conn in list(self.clients.items()):
+                if user != exclude:
+                    try:
+                        conn.send(json.dumps(message).encode('utf-8'))
+                    except:
+                        pass
+
+    def start(self):
+        server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        server.bind((self.host, self.port))
+        server.listen(5)
+        print(f"[SERVER] Listening on {self.host}:{self.port}")
+
+        try:
+            while True:
+                conn, addr = server.accept()
+                print(f"[NEW CONNECTION] {addr}")
+                thread = threading.Thread(target=self.handle_client, args=(conn, addr))
+                thread.daemon = True
+                thread.start()
+        except KeyboardInterrupt:
+            print("\n[SERVER] Shutting down...")
+        finally:
+            server.close()
+
+class ChatClient:
+    def __init__(self, host='localhost', port=5555):
+        self.host = host
+        self.port = port
+        self.socket = None
+        self.username = None
+        self.authenticated = False
+
+    def get_credentials(self):
+        print("=== Chat

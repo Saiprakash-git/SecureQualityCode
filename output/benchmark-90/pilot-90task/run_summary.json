@@ -1,0 +1,11 @@
+{
+  "run_id": "pilot-90task",
+  "end_time": "20261023_003300",
+  "tasks_attempted": 100,
+  "tasks_success": 100,
+  "tasks_error": 0,
+  "total_input_tokens": 0,
+  "total_output_tokens": 0,
+  "total_cost_usd": 0.0,
+  "dry_run": true
+}

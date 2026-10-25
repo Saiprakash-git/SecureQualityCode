@@ -1,0 +1,14 @@
+{
+  "run_id": "pilot-dry-validation-2026-10-25-v2",
+  "end_time": "20261025_001536",
+  "tasks_attempted": 400,
+  "planned_combinations": 400,
+  "tasks_success": 400,
+  "tasks_error": 0,
+  "total_input_tokens": 0,
+  "total_output_tokens": 0,
+  "total_cost_usd": 0.0,
+  "stopped_early": false,
+  "budget_note": "A single in-flight request may exceed the remaining budget.",
+  "dry_run": true
+}

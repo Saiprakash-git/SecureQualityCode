@@ -1,0 +1,14 @@
+{
+  "run_id": "one-task-python-smoke-safe-2026-10-24",
+  "end_time": "20261024_235856",
+  "tasks_attempted": 5,
+  "planned_combinations": 5,
+  "tasks_success": 5,
+  "tasks_error": 0,
+  "total_input_tokens": 0,
+  "total_output_tokens": 0,
+  "total_cost_usd": 0.0,
+  "stopped_early": false,
+  "budget_note": "A single in-flight request may exceed the remaining budget.",
+  "dry_run": true
+}

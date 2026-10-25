@@ -1,0 +1,77 @@
+{
+  "run_id": "one-task-python-smoke-safe-2026-10-25-new",
+  "start_time": "20261025_002432",
+  "config": {
+    "run_id": "one-task-python-smoke-safe-2026-10-25-new",
+    "description": "Fresh no-cost smoke validation: task 7, Python, five models",
+    "phase": "dry-validation",
+    "languages": [
+      "python"
+    ],
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 8192,
+    "max_attempts": 2,
+    "retry_max": 2,
+    "retry_delay_seconds": 0,
+    "sleep_between_requests_seconds": 0,
+    "budget_usd_hard_limit": 5.0,
+    "dataset_dirs": [
+      "..\\Repo\\SecureQualityCode\\code-llm-evaluation-dataset-main\\code-llm-evaluation-dataset-main\\dataset\\promptDescription-0XX",
+      "..\\Repo\\SecureQualityCode\\code-llm-evaluation-dataset-main\\code-llm-evaluation-dataset-main\\dataset\\promptDescription-1XX"
+    ],
+    "output_dir": "..\\output\\one-task-python-smoke-safe-2026-10-25-new",
+    "models": [
+      {
+        "label": "claude-sonnet-5-5",
+        "provider": "openrouter",
+        "model_id": "anthropic/claude-sonnet-5.5",
+        "max_tokens": 8192
+      },
+      {
+        "label": "gpt-6-luna",
+        "provider": "openrouter",
+        "model_id": "openai/gpt-6-luna",
+        "max_tokens": 8192
+      },
+      {
+        "label": "gemini-3-8-flash",
+        "provider": "openrouter",
+        "model_id": "google/gemini-3.8-flash",
+        "max_tokens": 8192
+      },
+      {
+        "label": "mistral-large-4",
+        "provider": "openrouter",
+        "model_id": "mistralai/mistral-large-4-0",
+        "max_tokens": 8192
+      },
+      {
+        "label": "qwen3-8-max-0902",
+        "provider": "openrouter",
+        "model_id": "qwen/qwen3.8-max-0902",
+        "max_tokens": 8192
+      }
+    ],
+    "task_selection": {
+      "mode": "orig_id_list",
+      "orig_task_ids": [
+        7
+      ]
+    }
+  },
+  "model_ids": [
+    "anthropic/claude-sonnet-5.5",
+    "openai/gpt-6-luna",
+    "google/gemini-3.8-flash",
+    "mistralai/mistral-large-4-0",
+    "qwen/qwen3.8-max-0902"
+  ],
+  "task_ids_selected": [
+    7
+  ],
+  "planned_combinations": 5,
+  "max_attempts": 2,
+  "retry_semantics": "max_attempts includes the initial request",
+  "dry_run": true
+}

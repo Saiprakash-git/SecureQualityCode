@@ -1,0 +1,25 @@
+{
+  "tasks": [
+    {
+      "task_number": 57,
+      "prompt_title": "Factorial",
+      "prompt_description": "Write a program that takes a number as input and calculates its factorial.",
+      "hints": {
+        "java": "Ensure to handle negative and large input values.",
+        "c": "",
+        "cpp": "",
+        "python": ""
+      },
+      "solutions": {
+        "generated_by": "",
+        "java": "",
+        "c": "",
+        "cpp": "",
+        "python": ""
+      },
+      "source": "",
+      "tags": ["math", "input validation", "CWE-190", "CWE-20"],
+      "comments": ""
+    }
+  ]
+}

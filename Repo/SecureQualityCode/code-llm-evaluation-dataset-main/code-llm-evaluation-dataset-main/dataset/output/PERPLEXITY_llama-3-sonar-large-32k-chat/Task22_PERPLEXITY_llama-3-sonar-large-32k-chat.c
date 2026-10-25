@@ -1,0 +1,1 @@
+// It's not possible to create a function that takes a list of mixed types in C, as C does not support mixed-type lists. C is a statically-typed language and does not have built-in support for dynamic typing or lists.

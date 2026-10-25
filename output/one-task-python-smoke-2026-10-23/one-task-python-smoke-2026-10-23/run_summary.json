@@ -1,0 +1,11 @@
+{
+  "run_id": "one-task-python-smoke-2026-10-23",
+  "end_time": "20261023_194234",
+  "tasks_attempted": 5,
+  "tasks_success": 5,
+  "tasks_error": 0,
+  "total_input_tokens": 0,
+  "total_output_tokens": 0,
+  "total_cost_usd": 0.0,
+  "dry_run": true
+}

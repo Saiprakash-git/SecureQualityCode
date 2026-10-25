@@ -1,0 +1,29 @@
+{
+  "tasks": [
+    {
+      "task_number": 1,
+      "prompt_description": "",
+      "solutions": {
+        "java": "",
+        "c": "",
+        "cpp": "",
+        "python": ""
+      },
+      "hints": {
+        "java": "",
+        "c": "",
+        "cpp": "",
+        "python": ""
+      },
+      "test_cases": {
+        "java": "",
+        "c": "",
+        "cpp": "",
+        "python": ""
+      },
+      "source": "https://",
+      "tags": [""],
+      "comments": ""
+    }
+  ]
+}

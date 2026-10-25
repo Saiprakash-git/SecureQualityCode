@@ -1,0 +1,46 @@
+{
+  "_comment": "Edit this file to control the experiment. Run run_experiment.py after configuring.",
+
+  "run_id": "pilot-run-001",
+  "description": "20-task pilot run to estimate cost and validate pipeline",
+
+  "model": {
+    "provider": "openrouter",
+    "model_id": "openai/gpt-4o",
+    "_model_options": [
+      "openai/gpt-4o",
+      "anthropic/claude-3.5-sonnet",
+      "google/gemini-pro-1.5",
+      "meta-llama/llama-3.1-70b-instruct",
+      "deepseek/deepseek-coder"
+    ],
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096
+  },
+
+  "languages": ["python", "java", "c", "cpp"],
+
+  "task_selection": {
+    "mode": "list",
+    "_mode_options": ["list", "range", "all"],
+    "task_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+    "_comment_for_range_mode": "Set mode to 'range' and use start/end below instead of task_ids",
+    "range_start": 1,
+    "range_end": 100,
+    "_comment_for_all_mode": "Set mode to 'all' to run every JSON in the dataset folders"
+  },
+
+  "dataset_dirs": [
+    "..\\Repo\\SecureQualityCode\\code-llm-evaluation-dataset-main\\code-llm-evaluation-dataset-main\\dataset\\promptDescription-0XX",
+    "..\\Repo\\SecureQualityCode\\code-llm-evaluation-dataset-main\\code-llm-evaluation-dataset-main\\dataset\\promptDescription-1XX"
+  ],
+
+  "output_dir": "..\\runner\\output",
+
+  "budget_usd_hard_limit": 5.0,
+  "retry_max": 3,
+  "max_attempts": 3,
+  "retry_delay_seconds": 5,
+  "sleep_between_requests_seconds": 2
+}

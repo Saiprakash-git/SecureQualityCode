@@ -1,0 +1,2 @@
+// This problem is not suitable for C language as it does not have built-in support for binary search and sorting.
+// You can implement these functions manually, but it would be very complex and inefficient.

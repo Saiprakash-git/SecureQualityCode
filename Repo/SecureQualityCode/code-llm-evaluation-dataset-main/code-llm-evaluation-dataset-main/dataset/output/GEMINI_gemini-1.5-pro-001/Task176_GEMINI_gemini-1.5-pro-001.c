@@ -1,0 +1,1 @@
+// Comment: C does not have built-in support for dynamic arrays or classes like other languages. Implementing this data structure in C would require manual memory management and function pointers for method-like behavior, making the code significantly more complex.

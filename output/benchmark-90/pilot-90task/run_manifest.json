@@ -1,0 +1,137 @@
+{
+  "run_id": "pilot-90task",
+  "start_time": "20261023_003259",
+  "config": {
+    "languages": [
+      "python",
+      "java",
+      "c",
+      "cpp"
+    ],
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_tokens": 4096,
+    "retry_max": 3,
+    "retry_delay_seconds": 5,
+    "sleep_between_requests_seconds": 2,
+    "dataset_dirs": [
+      "..\\Repo\\SecureQualityCode\\code-llm-evaluation-dataset-main\\code-llm-evaluation-dataset-main\\dataset\\promptDescription-0XX",
+      "..\\Repo\\SecureQualityCode\\code-llm-evaluation-dataset-main\\code-llm-evaluation-dataset-main\\dataset\\promptDescription-1XX"
+    ],
+    "output_dir": "..\\output\\benchmark-90",
+    "run_id": "pilot-90task",
+    "description": "Pilot: 20 of 90 selected tasks x 5 models x 4 languages",
+    "phase": "pilot",
+    "budget_usd_hard_limit": 8.0,
+    "models": [
+      {
+        "label": "claude-sonnet-5.5",
+        "provider": "openrouter",
+        "model_id": "anthropic/claude-sonnet-4-5",
+        "_note": "Update model_id when Claude Sonnet 5.5 is live on OpenRouter"
+      },
+      {
+        "label": "gpt-6-luna",
+        "provider": "openrouter",
+        "model_id": "openai/gpt-4o",
+        "_note": "Update model_id when GPT-6 Luna is live on OpenRouter"
+      },
+      {
+        "label": "gemini-3.8-flash",
+        "provider": "openrouter",
+        "model_id": "google/gemini-flash-1.5",
+        "_note": "Update model_id when Gemini 3.8 Flash is live on OpenRouter"
+      },
+      {
+        "label": "codestral-2508",
+        "provider": "openrouter",
+        "model_id": "mistralai/codestral-2501",
+        "_note": "Update model_id when Codestral 2508 is live on OpenRouter"
+      },
+      {
+        "label": "llama-4-scout",
+        "provider": "openrouter",
+        "model_id": "meta-llama/llama-3.3-70b-instruct",
+        "_note": "Update model_id when Llama 4 Scout is live on OpenRouter"
+      }
+    ],
+    "task_selection": {
+      "mode": "orig_id_list",
+      "_comment": "orig_task_ids = task_number values from original dataset. selection_ids = our stable 1-90 IDs.",
+      "orig_task_ids": [
+        7,
+        41,
+        24,
+        37,
+        38,
+        39,
+        42,
+        43,
+        46,
+        51,
+        52,
+        0,
+        36,
+        1,
+        2,
+        5,
+        6,
+        8,
+        3,
+        4
+      ],
+      "selection_ids": [
+        1,
+        2,
+        13,
+        14,
+        15,
+        16,
+        33,
+        34,
+        35,
+        45,
+        46,
+        55,
+        56,
+        65,
+        66,
+        67,
+        68,
+        69,
+        83,
+        84
+      ]
+    }
+  },
+  "model_ids": [
+    "anthropic/claude-sonnet-4-5",
+    "openai/gpt-4o",
+    "google/gemini-flash-1.5",
+    "mistralai/codestral-2501",
+    "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "task_ids_selected": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    24,
+    36,
+    37,
+    38,
+    39,
+    41,
+    42,
+    43,
+    46,
+    51,
+    52
+  ],
+  "dry_run": true
+}

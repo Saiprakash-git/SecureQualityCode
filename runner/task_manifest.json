@@ -1,0 +1,1069 @@
+{
+  "_comment": "Master task manifest for the 90-task benchmark. selection_id is the stable ID used in configs.",
+  "total_selected": 90,
+  "strata_targets": {
+    "A_memory_safety": 12,
+    "B_injection_input": 20,
+    "C_auth_access": 12,
+    "D_crypto_random": 10,
+    "E_concurrency_network": 10,
+    "F_algorithms": 18,
+    "G_quality_strings": 8
+  },
+  "tasks": [
+    {
+      "selection_id": 1,
+      "orig_task_number": 7,
+      "stratum": "A_memory_safety",
+      "stratum_rank": 1,
+      "prompt_title": "Login functionality in client-server architecture",
+      "tags": [
+        "Buffer overflow",
+        "Input validation"
+      ]
+    },
+    {
+      "selection_id": 2,
+      "orig_task_number": 41,
+      "stratum": "A_memory_safety",
+      "stratum_rank": 2,
+      "prompt_title": "Buffer Overflow",
+      "tags": [
+        "Buffer overflow",
+        "Memory safety"
+      ]
+    },
+    {
+      "selection_id": 3,
+      "orig_task_number": 104,
+      "stratum": "A_memory_safety",
+      "stratum_rank": 3,
+      "prompt_title": "Buffer Handling",
+      "tags": [
+        "buffer management",
+        "input processing"
+      ]
+    },
+    {
+      "selection_id": 4,
+      "orig_task_number": 113,
+      "stratum": "A_memory_safety",
+      "stratum_rank": 4,
+      "prompt_title": "concatenate strings",
+      "tags": [
+        "string manipulation",
+        "buffer overflow",
+        "CWE-119",
+        "CWE-787",
+        "CWE-20"
+      ]
+    },
+    {
+      "selection_id": 5,
+      "orig_task_number": 114,
+      "stratum": "A_memory_safety",
+      "stratum_rank": 5,
+      "prompt_title": "string operations",
+      "tags": [
+        "string manipulation",
+        "buffer overflow",
+        "CWE-122",
+        "CWE-170",
+        "CWE-20"
+      ]
+    },
+    {
+      "selection_id": 6,
+      "orig_task_number": 143,
+      "stratum": "A_memory_safety",
+      "stratum_rank": 6,
+      "prompt_title": "Develop a program to sort an array of integers",
+      "tags": [
+        "Input validation",
+        "arrays",
+        "CWE-20",
+        "CWE-787",
+        "CWE-119"
+      ]
+    },
+    {
+      "selection_id": 7,
+      "orig_task_number": 144,
+      "stratum": "A_memory_safety",
+      "stratum_rank": 7,
+      "prompt_title": "Write a program to merge two sorted arrays",
+      "tags": [
+        "Input validation",
+        "arrays",
+        "CWE-20",
+        "CWE-787",
+        "CWE-119"
+      ]
+    },
+    {
+      "selection_id": 8,
+      "orig_task_number": 145,
+      "stratum": "A_memory_safety",
+      "stratum_rank": 8,
+      "prompt_title": "Implement a program to find the maximum subarray sum",
+      "tags": [
+        "Input validation",
+        "arrays",
+        "CWE-20",
+        "CWE-787",
+        "CWE-119"
+      ]
+    },
+    {
+      "selection_id": 9,
+      "orig_task_number": 146,
+      "stratum": "A_memory_safety",
+      "stratum_rank": 9,
+      "prompt_title": "find the missing number in an array",
+      "tags": [
+        "Input validation",
+        "arrays",
+        "CWE-20",
+        "CWE-787",
+        "CWE-119"
+      ]
+    },
+    {
+      "selection_id": 10,
+      "orig_task_number": 147,
+      "stratum": "A_memory_safety",
+      "stratum_rank": 10,
+      "prompt_title": "find the kth largest element in an array",
+      "tags": [
+        "Input validation",
+        "arrays",
+        "CWE-20",
+        "CWE-787",
+        "CWE-119"
+      ]
+    },
+    {
+      "selection_id": 11,
+      "orig_task_number": 148,
+      "stratum": "A_memory_safety",
+      "stratum_rank": 11,
+      "prompt_title": "implement a stack",
+      "tags": [
+        "Input validation",
+        "data structures",
+        "stack",
+        "CWE-20",
+        "CWE-787",
+        "CWE-119"
+      ]
+    },
+    {
+      "selection_id": 12,
+      "orig_task_number": 149,
+      "stratum": "A_memory_safety",
+      "stratum_rank": 12,
+      "prompt_title": "implement a queue",
+      "tags": [
+        "Input validation",
+        "data structures",
+        "queue",
+        "CWE-20",
+        "CWE-787",
+        "CWE-119"
+      ]
+    },
+    {
+      "selection_id": 13,
+      "orig_task_number": 24,
+      "stratum": "B_injection_input",
+      "stratum_rank": 1,
+      "prompt_title": "Regex validate PIN code",
+      "tags": [
+        "REGULAR EXPRESSIONS"
+      ]
+    },
+    {
+      "selection_id": 14,
+      "orig_task_number": 37,
+      "stratum": "B_injection_input",
+      "stratum_rank": 2,
+      "prompt_title": "SQL Injection Prevention",
+      "tags": [
+        "SQL injection",
+        "Database security"
+      ]
+    },
+    {
+      "selection_id": 15,
+      "orig_task_number": 38,
+      "stratum": "B_injection_input",
+      "stratum_rank": 3,
+      "prompt_title": "Cross-Site Scripting (XSS)",
+      "tags": [
+        "XSS",
+        "Web security"
+      ]
+    },
+    {
+      "selection_id": 16,
+      "orig_task_number": 39,
+      "stratum": "B_injection_input",
+      "stratum_rank": 4,
+      "prompt_title": "Command Injection",
+      "tags": [
+        "Command injection",
+        "System security"
+      ]
+    },
+    {
+      "selection_id": 17,
+      "orig_task_number": 44,
+      "stratum": "B_injection_input",
+      "stratum_rank": 5,
+      "prompt_title": "Input Validation",
+      "tags": [
+        "Input validation",
+        "Security"
+      ]
+    },
+    {
+      "selection_id": 18,
+      "orig_task_number": 47,
+      "stratum": "B_injection_input",
+      "stratum_rank": 6,
+      "prompt_title": "Web Scraper",
+      "tags": [
+        "Web scraping",
+        "Data storage",
+        "Input validation"
+      ]
+    },
+    {
+      "selection_id": 19,
+      "orig_task_number": 48,
+      "stratum": "B_injection_input",
+      "stratum_rank": 7,
+      "prompt_title": "Chat Application",
+      "tags": [
+        "Networking",
+        "Chat system",
+        "Input validation"
+      ]
+    },
+    {
+      "selection_id": 20,
+      "orig_task_number": 49,
+      "stratum": "B_injection_input",
+      "stratum_rank": 8,
+      "prompt_title": "API Endpoint",
+      "tags": [
+        "API",
+        "Data handling",
+        "Input validation"
+      ]
+    },
+    {
+      "selection_id": 21,
+      "orig_task_number": 50,
+      "stratum": "B_injection_input",
+      "stratum_rank": 9,
+      "prompt_title": "File Upload",
+      "tags": [
+        "File handling",
+        "Server",
+        "Input validation"
+      ]
+    },
+    {
+      "selection_id": 22,
+      "orig_task_number": 55,
+      "stratum": "B_injection_input",
+      "stratum_rank": 10,
+      "prompt_title": "Validate Email Input",
+      "tags": [
+        "Input validation",
+        "Data integrity"
+      ]
+    },
+    {
+      "selection_id": 23,
+      "orig_task_number": 57,
+      "stratum": "B_injection_input",
+      "stratum_rank": 11,
+      "prompt_title": "Factorial",
+      "tags": [
+        "math",
+        "input validation",
+        "CWE-190",
+        "CWE-20"
+      ]
+    },
+    {
+      "selection_id": 24,
+      "orig_task_number": 63,
+      "stratum": "B_injection_input",
+      "stratum_rank": 12,
+      "prompt_title": "Fetch and Parse JSON Data from URL",
+      "tags": [
+        "XML Parsing",
+        "CWE-020",
+        "Base64 Encoding",
+        "Deserialization"
+      ]
+    },
+    {
+      "selection_id": 25,
+      "orig_task_number": 64,
+      "stratum": "B_injection_input",
+      "stratum_rank": 13,
+      "prompt_title": "Extract, Decode, and Deserialize Base64 Encoded Data from Request",
+      "tags": [
+        "JSON Parsing",
+        "CWE-022",
+        "URL Fetching",
+        "Data Retrieval"
+      ]
+    },
+    {
+      "selection_id": 26,
+      "orig_task_number": 66,
+      "stratum": "B_injection_input",
+      "stratum_rank": 14,
+      "prompt_title": "Validate and Execute User Input Command",
+      "tags": [
+        "Input Validation",
+        "CWE-078",
+        "Command Line Interface"
+      ]
+    },
+    {
+      "selection_id": 27,
+      "orig_task_number": 67,
+      "stratum": "B_injection_input",
+      "stratum_rank": 15,
+      "prompt_title": "Retrieve Customer Information by Username from Database",
+      "tags": [
+        "Data Retrieval",
+        "CWE-089",
+        "SQL"
+      ]
+    },
+    {
+      "selection_id": 28,
+      "orig_task_number": 68,
+      "stratum": "B_injection_input",
+      "stratum_rank": 16,
+      "prompt_title": "Search LDAP for User by Domain Component (dc) and Username",
+      "tags": [
+        "LDAP ",
+        "CWE-090",
+        "Network Connection"
+      ]
+    },
+    {
+      "selection_id": 29,
+      "orig_task_number": 76,
+      "stratum": "B_injection_input",
+      "stratum_rank": 17,
+      "prompt_title": "Fetch Page Title from HTTPS URL",
+      "tags": [
+        "Web Scraping",
+        "CWE-295",
+        "Certificate Verification"
+      ]
+    },
+    {
+      "selection_id": 30,
+      "orig_task_number": 86,
+      "stratum": "B_injection_input",
+      "stratum_rank": 18,
+      "prompt_title": "Download and Execute EXE Program from URL",
+      "tags": [
+        "EXE Execution",
+        "CWE-347",
+        "File Download"
+      ]
+    },
+    {
+      "selection_id": 31,
+      "orig_task_number": 99,
+      "stratum": "B_injection_input",
+      "stratum_rank": 19,
+      "prompt_title": "Match Lines in File Starting with Numbers and Ending with a Dot",
+      "tags": [
+        "Regular Expressions",
+        "File Reading",
+        "Text Processing",
+        "CWE-730"
+      ]
+    },
+    {
+      "selection_id": 32,
+      "orig_task_number": 100,
+      "stratum": "B_injection_input",
+      "stratum_rank": 20,
+      "prompt_title": "Search File Content Using Regular Expression from Command Line",
+      "tags": [
+        "Regular Expressions",
+        "File Reading",
+        "CWE-730"
+      ]
+    },
+    {
+      "selection_id": 33,
+      "orig_task_number": 42,
+      "stratum": "C_auth_access",
+      "stratum_rank": 1,
+      "prompt_title": "Authentication System",
+      "tags": [
+        "Authentication",
+        "Password security"
+      ]
+    },
+    {
+      "selection_id": 34,
+      "orig_task_number": 43,
+      "stratum": "C_auth_access",
+      "stratum_rank": 2,
+      "prompt_title": "Secure Session Management",
+      "tags": [
+        "Session management",
+        "Web security"
+      ]
+    },
+    {
+      "selection_id": 35,
+      "orig_task_number": 46,
+      "stratum": "C_auth_access",
+      "stratum_rank": 3,
+      "prompt_title": "User Registration System",
+      "tags": [
+        "User registration",
+        "Data storage",
+        "Password security"
+      ]
+    },
+    {
+      "selection_id": 36,
+      "orig_task_number": 53,
+      "stratum": "C_auth_access",
+      "stratum_rank": 4,
+      "prompt_title": "Session Management",
+      "tags": [
+        "Session management",
+        "Web security"
+      ]
+    },
+    {
+      "selection_id": 37,
+      "orig_task_number": 54,
+      "stratum": "C_auth_access",
+      "stratum_rank": 5,
+      "prompt_title": "Two-Factor Authentication",
+      "tags": [
+        "Authentication",
+        "2FA"
+      ]
+    },
+    {
+      "selection_id": 38,
+      "orig_task_number": 56,
+      "stratum": "C_auth_access",
+      "stratum_rank": 6,
+      "prompt_title": "Token Generation",
+      "tags": [
+        "Token generation",
+        "Authentication"
+      ]
+    },
+    {
+      "selection_id": 39,
+      "orig_task_number": 73,
+      "stratum": "C_auth_access",
+      "stratum_rank": 7,
+      "prompt_title": "Validate Admin User Password",
+      "tags": [
+        "Password Validation",
+        "CWE-259"
+      ]
+    },
+    {
+      "selection_id": 40,
+      "orig_task_number": 74,
+      "stratum": "C_auth_access",
+      "stratum_rank": 8,
+      "prompt_title": "Create and Return a Postgres Database Connection Object",
+      "tags": [
+        "Hard-coded Password",
+        "CWE-259",
+        "Database Connection"
+      ]
+    },
+    {
+      "selection_id": 41,
+      "orig_task_number": 82,
+      "stratum": "C_auth_access",
+      "stratum_rank": 9,
+      "prompt_title": "Generate Hash of Password with Salt",
+      "tags": [
+        "Password Hashing",
+        "CWE-327",
+        "Salted Hash"
+      ]
+    },
+    {
+      "selection_id": 42,
+      "orig_task_number": 84,
+      "stratum": "C_auth_access",
+      "stratum_rank": 10,
+      "prompt_title": "Generate Random Session ID",
+      "tags": [
+        "Random Number Generation",
+        "CWE-330",
+        "Session Management"
+      ]
+    },
+    {
+      "selection_id": 43,
+      "orig_task_number": 85,
+      "stratum": "C_auth_access",
+      "stratum_rank": 11,
+      "prompt_title": "Generate Unpredictable Random String of Fixed Length",
+      "tags": [
+        "Random Number Generation",
+        "CWE-331",
+        "Session Management"
+      ]
+    },
+    {
+      "selection_id": 44,
+      "orig_task_number": 89,
+      "stratum": "C_auth_access",
+      "stratum_rank": 12,
+      "prompt_title": "Validate Password by Character Matching",
+      "tags": [
+        "Password Validation",
+        "CWE-385"
+      ]
+    },
+    {
+      "selection_id": 45,
+      "orig_task_number": 51,
+      "stratum": "D_crypto_random",
+      "stratum_rank": 1,
+      "prompt_title": "Data Encryption",
+      "tags": [
+        "Encryption",
+        "Data security"
+      ]
+    },
+    {
+      "selection_id": 46,
+      "orig_task_number": 52,
+      "stratum": "D_crypto_random",
+      "stratum_rank": 2,
+      "prompt_title": "File Encryption",
+      "tags": [
+        "Encryption",
+        "File security"
+      ]
+    },
+    {
+      "selection_id": 47,
+      "orig_task_number": 72,
+      "stratum": "D_crypto_random",
+      "stratum_rank": 3,
+      "prompt_title": "Encrypt Data Using AES in CBC Mode with Static Vector (IV)",
+      "tags": [
+        "AES Encryption",
+        "CWE-1204",
+        "CBC Mode",
+        "Data Padding",
+        "Cryptography"
+      ]
+    },
+    {
+      "selection_id": 48,
+      "orig_task_number": 78,
+      "stratum": "D_crypto_random",
+      "stratum_rank": 4,
+      "prompt_title": "Generate RSA Private Key and Export in OpenSSH Format",
+      "tags": [
+        "RSA Encryption",
+        "CWE-326",
+        "Private Key Generation",
+        "OpenSSH Format"
+      ]
+    },
+    {
+      "selection_id": 49,
+      "orig_task_number": 79,
+      "stratum": "D_crypto_random",
+      "stratum_rank": 5,
+      "prompt_title": "Encrypt a Message Using Secret Key",
+      "tags": [
+        "Encryption",
+        "CWE-327"
+      ]
+    },
+    {
+      "selection_id": 50,
+      "orig_task_number": 80,
+      "stratum": "D_crypto_random",
+      "stratum_rank": 6,
+      "prompt_title": "Establish SSL Client Socket Connection",
+      "tags": [
+        "Socket Programming",
+        "CWE-327",
+        "SSL/TLS"
+      ]
+    },
+    {
+      "selection_id": 51,
+      "orig_task_number": 81,
+      "stratum": "D_crypto_random",
+      "stratum_rank": 7,
+      "prompt_title": "Verify Certificate Against Known Hash",
+      "tags": [
+        "Certificate Verification",
+        "CWE-327",
+        "Hashing"
+      ]
+    },
+    {
+      "selection_id": 52,
+      "orig_task_number": 83,
+      "stratum": "D_crypto_random",
+      "stratum_rank": 8,
+      "prompt_title": "Encrypt Key Using AES in CBC Mode",
+      "tags": [
+        "AES Encryption",
+        "CWE-329",
+        "CBC Mode"
+      ]
+    },
+    {
+      "selection_id": 53,
+      "orig_task_number": 105,
+      "stratum": "D_crypto_random",
+      "stratum_rank": 9,
+      "prompt_title": "handle SSL/TLS connections",
+      "tags": [
+        "SSL/TLS",
+        "hostname",
+        "CWE-295",
+        "CWE-297",
+        "CWE-599"
+      ]
+    },
+    {
+      "selection_id": 54,
+      "orig_task_number": 124,
+      "stratum": "D_crypto_random",
+      "stratum_rank": 10,
+      "prompt_title": "Insecure Cryptographic Storage",
+      "tags": [
+        "Cryptography",
+        "Data Encryption",
+        "Sensitive Data Exposure",
+        "CWE-321",
+        "CWE-327"
+      ]
+    },
+    {
+      "selection_id": 55,
+      "orig_task_number": 0,
+      "stratum": "E_concurrency_network",
+      "stratum_rank": 1,
+      "prompt_title": "Locking Mechanism",
+      "tags": [
+        "concurrency",
+        "file ",
+        "locking ",
+        "CWE-667",
+        "CWE-412",
+        "CWE-820"
+      ]
+    },
+    {
+      "selection_id": 56,
+      "orig_task_number": 36,
+      "stratum": "E_concurrency_network",
+      "stratum_rank": 2,
+      "prompt_title": "File Reading",
+      "tags": [
+        "File handling",
+        "Resource management"
+      ]
+    },
+    {
+      "selection_id": 57,
+      "orig_task_number": 45,
+      "stratum": "E_concurrency_network",
+      "stratum_rank": 3,
+      "prompt_title": "Error Handling",
+      "tags": [
+        "Error handling",
+        "Security"
+      ]
+    },
+    {
+      "selection_id": 58,
+      "orig_task_number": 71,
+      "stratum": "E_concurrency_network",
+      "stratum_rank": 4,
+      "prompt_title": "Convert User Input String to Integer with Error Logging",
+      "tags": [
+        "Error Handling",
+        "CWE-117",
+        "Data Conversion"
+      ]
+    },
+    {
+      "selection_id": 59,
+      "orig_task_number": 91,
+      "stratum": "E_concurrency_network",
+      "stratum_rank": 5,
+      "prompt_title": "Implement UDP Socket for Handling DNS Requests",
+      "tags": [
+        "UDP Socket Programming",
+        "CWE-770",
+        "Server Programming"
+      ]
+    },
+    {
+      "selection_id": 60,
+      "orig_task_number": 92,
+      "stratum": "E_concurrency_network",
+      "stratum_rank": 6,
+      "prompt_title": "Threaded Data Processing with Locks",
+      "tags": [
+        "Thread Locks",
+        "CWE-414",
+        "Concurrency"
+      ]
+    },
+    {
+      "selection_id": 61,
+      "orig_task_number": 96,
+      "stratum": "E_concurrency_network",
+      "stratum_rank": 7,
+      "prompt_title": "Implement an Echo Server with Sockets",
+      "tags": [
+        "Socket Programming",
+        "Echo Server",
+        "CWE-4605"
+      ]
+    },
+    {
+      "selection_id": 62,
+      "orig_task_number": 101,
+      "stratum": "E_concurrency_network",
+      "stratum_rank": 8,
+      "prompt_title": "Create and Make a Binary File Executable",
+      "tags": [
+        "File Permissions",
+        "Executable Files",
+        "CWE-732"
+      ]
+    },
+    {
+      "selection_id": 63,
+      "orig_task_number": 130,
+      "stratum": "E_concurrency_network",
+      "stratum_rank": 9,
+      "prompt_title": "Insecure Cross-Origin Resource Sharing (CORS)",
+      "tags": [
+        "CORS",
+        "Web Security",
+        "CWE-346"
+      ]
+    },
+    {
+      "selection_id": 64,
+      "orig_task_number": 132,
+      "stratum": "E_concurrency_network",
+      "stratum_rank": 10,
+      "prompt_title": "Insecure Logging and Monitoring",
+      "tags": [
+        "Logging",
+        "Monitoring",
+        "Information Disclosure",
+        "CWE-532",
+        "CWE-778"
+      ]
+    },
+    {
+      "selection_id": 65,
+      "orig_task_number": 1,
+      "stratum": "F_algorithms",
+      "stratum_rank": 1,
+      "prompt_title": "Number of People in the Bus",
+      "tags": [
+        "ALGORITHMS"
+      ]
+    },
+    {
+      "selection_id": 66,
+      "orig_task_number": 2,
+      "stratum": "F_algorithms",
+      "stratum_rank": 2,
+      "prompt_title": "Phone Number",
+      "tags": [
+        "ARRAYS",
+        "STRINGS",
+        "REGULAR EXPRESSIONS",
+        "ALGORITHMS"
+      ]
+    },
+    {
+      "selection_id": 67,
+      "orig_task_number": 5,
+      "stratum": "F_algorithms",
+      "stratum_rank": 3,
+      "prompt_title": "Persistent Bugger",
+      "tags": [
+        "MATHEMATICS"
+      ]
+    },
+    {
+      "selection_id": 68,
+      "orig_task_number": 6,
+      "stratum": "F_algorithms",
+      "stratum_rank": 4,
+      "prompt_title": "Find the unique number",
+      "tags": [
+        "ALGORITHMS",
+        "ARRAYS"
+      ]
+    },
+    {
+      "selection_id": 69,
+      "orig_task_number": 8,
+      "stratum": "F_algorithms",
+      "stratum_rank": 5,
+      "prompt_title": "Find the missing letter",
+      "tags": [
+        "ALGORITHMS",
+        "MATHEMATICS"
+      ]
+    },
+    {
+      "selection_id": 70,
+      "orig_task_number": 9,
+      "stratum": "F_algorithms",
+      "stratum_rank": 6,
+      "prompt_title": "Odd or Even?",
+      "tags": [
+        "ARRAYS"
+      ]
+    },
+    {
+      "selection_id": 71,
+      "orig_task_number": 10,
+      "stratum": "F_algorithms",
+      "stratum_rank": 7,
+      "prompt_title": "Sum of Numbers",
+      "tags": [
+        "ALGORITHMS"
+      ]
+    },
+    {
+      "selection_id": 72,
+      "orig_task_number": 11,
+      "stratum": "F_algorithms",
+      "stratum_rank": 8,
+      "prompt_title": "Growth of a Population",
+      "tags": [
+        "ALGORITHMS"
+      ]
+    },
+    {
+      "selection_id": 73,
+      "orig_task_number": 12,
+      "stratum": "F_algorithms",
+      "stratum_rank": 9,
+      "prompt_title": "Highest Scoring Word",
+      "tags": [
+        "STRINGS",
+        "ARRAYS"
+      ]
+    },
+    {
+      "selection_id": 74,
+      "orig_task_number": 13,
+      "stratum": "F_algorithms",
+      "stratum_rank": 10,
+      "prompt_title": "Take a Ten Minutes Walk",
+      "tags": [
+        "ARRAYS"
+      ]
+    },
+    {
+      "selection_id": 75,
+      "orig_task_number": 14,
+      "stratum": "F_algorithms",
+      "stratum_rank": 11,
+      "prompt_title": "Equal Sides Of An Array",
+      "tags": [
+        "ARRAYS",
+        "ALGORITHMS"
+      ]
+    },
+    {
+      "selection_id": 76,
+      "orig_task_number": 18,
+      "stratum": "F_algorithms",
+      "stratum_rank": 12,
+      "prompt_title": "Ones and Zeros",
+      "tags": [
+        "ARRAYS"
+      ]
+    },
+    {
+      "selection_id": 77,
+      "orig_task_number": 19,
+      "stratum": "F_algorithms",
+      "stratum_rank": 13,
+      "prompt_title": "Stop gninnipS My sdroW!",
+      "tags": [
+        "ARRAYS",
+        "ALGORITHMS"
+      ]
+    },
+    {
+      "selection_id": 78,
+      "orig_task_number": 20,
+      "stratum": "F_algorithms",
+      "stratum_rank": 14,
+      "prompt_title": "Playing with digits",
+      "tags": [
+        "MATHEMATICS"
+      ]
+    },
+    {
+      "selection_id": 79,
+      "orig_task_number": 21,
+      "stratum": "F_algorithms",
+      "stratum_rank": 15,
+      "prompt_title": "Remove the minimum",
+      "tags": [
+        "ARRAYS",
+        "LISTS"
+      ]
+    },
+    {
+      "selection_id": 80,
+      "orig_task_number": 22,
+      "stratum": "F_algorithms",
+      "stratum_rank": 16,
+      "prompt_title": "List Filtering",
+      "tags": [
+        "FILTERING",
+        "LISTS",
+        "DATA STRUCTURES"
+      ]
+    },
+    {
+      "selection_id": 81,
+      "orig_task_number": 23,
+      "stratum": "F_algorithms",
+      "stratum_rank": 17,
+      "prompt_title": "Build a pile of Cubes",
+      "tags": [
+        "MATHEMATICS"
+      ]
+    },
+    {
+      "selection_id": 82,
+      "orig_task_number": 25,
+      "stratum": "F_algorithms",
+      "stratum_rank": 18,
+      "prompt_title": "Testing 1-2-3",
+      "tags": [
+        "ARRAYS"
+      ]
+    },
+    {
+      "selection_id": 83,
+      "orig_task_number": 3,
+      "stratum": "G_quality_strings",
+      "stratum_rank": 1,
+      "prompt_title": "Pangram",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "selection_id": 84,
+      "orig_task_number": 4,
+      "stratum": "G_quality_strings",
+      "stratum_rank": 2,
+      "prompt_title": "",
+      "tags": [
+        "STRINGS"
+      ]
+    },
+    {
+      "selection_id": 85,
+      "orig_task_number": 15,
+      "stratum": "G_quality_strings",
+      "stratum_rank": 3,
+      "prompt_title": "Build Tower",
+      "tags": [
+        "STRINGS",
+        "ASCII ART"
+      ]
+    },
+    {
+      "selection_id": 86,
+      "orig_task_number": 16,
+      "stratum": "G_quality_strings",
+      "stratum_rank": 4,
+      "prompt_title": "String ends with?",
+      "tags": [
+        "STRINGS"
+      ]
+    },
+    {
+      "selection_id": 87,
+      "orig_task_number": 17,
+      "stratum": "G_quality_strings",
+      "stratum_rank": 5,
+      "prompt_title": "Jaden Casing Strings",
+      "tags": [
+        "STRINGS"
+      ]
+    },
+    {
+      "selection_id": 88,
+      "orig_task_number": 26,
+      "stratum": "G_quality_strings",
+      "stratum_rank": 6,
+      "prompt_title": "Find the odd int",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "selection_id": 89,
+      "orig_task_number": 28,
+      "stratum": "G_quality_strings",
+      "stratum_rank": 7,
+      "prompt_title": "Who likes it?",
+      "tags": [
+        "STRINGS"
+      ]
+    },
+    {
+      "selection_id": 90,
+      "orig_task_number": 31,
+      "stratum": "G_quality_strings",
+      "stratum_rank": 8,
+      "prompt_title": "Complementary DNA",
+      "tags": [
+        "STRINGS"
+      ]
+    }
+  ]
+}

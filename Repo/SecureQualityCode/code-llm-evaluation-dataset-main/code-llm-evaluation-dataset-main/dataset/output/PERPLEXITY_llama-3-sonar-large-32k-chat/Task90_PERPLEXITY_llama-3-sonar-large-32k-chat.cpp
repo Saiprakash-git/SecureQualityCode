@@ -1,0 +1,2 @@
+// This code is not possible in a single file as C++ does not have built-in support for networking and multithreading.
+// You would need to use libraries like boost::asio for networking and std::thread for multithreading.

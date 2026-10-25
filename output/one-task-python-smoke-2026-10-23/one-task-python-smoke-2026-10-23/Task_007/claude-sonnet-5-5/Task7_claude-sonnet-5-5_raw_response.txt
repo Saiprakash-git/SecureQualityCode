@@ -1,0 +1,283 @@
+```python
+code here:
+import argparse
+import getpass
+import hashlib
+import hmac
+import json
+import os
+import re
+import secrets
+import socket
+import socketserver
+import ssl
+import tempfile
+import threading
+import time
+
+USERNAME_RE = re.compile(r"^[A-Za-z0-9_]{3,32}$")
+MAX_LINE_BYTES = 4096
+MAX_PASSWORD_LEN = 256
+MIN_PASSWORD_LEN = 8
+MAX_MESSAGE_LEN = 1000
+PBKDF2_ITERATIONS = 200_000
+MAX_FAILED_ATTEMPTS = 5
+LOCKOUT_SECONDS = 60
+MAX_HISTORY = 100
+
+_file_lock = threading.Lock()
+
+
+# ----------------------------- Server: storage -----------------------------
+
+def hash_password(password, salt=None, iterations=PBKDF2_ITERATIONS):
+    if salt is None:
+        salt = secrets.token_bytes(16)
+    digest = hashlib.pbkdf2_hmac("sha256", password.encode("utf-8"), salt, iterations)
+    return {"salt": salt.hex(), "hash": digest.hex(), "iterations": iterations}
+
+
+def load_users(path):
+    with _file_lock:
+        if not os.path.exists(path):
+            return {}
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    return data if isinstance(data, dict) else {}
+
+
+def save_users(path, users):
+    with _file_lock:
+        directory = os.path.dirname(os.path.abspath(path))
+        fd, tmp_path = tempfile.mkstemp(dir=directory)
+        try:
+            with os.fdopen(fd, "w", encoding="utf-8") as f:
+                json.dump(users, f)
+            try:
+                os.chmod(tmp_path, 0o600)
+            except OSError:
+                pass
+            os.replace(tmp_path, path)
+        except Exception:
+            if os.path.exists(tmp_path):
+                os.remove(tmp_path)
+            raise
+
+
+def validate_username(username):
+    return isinstance(username, str) and bool(USERNAME_RE.fullmatch(username))
+
+
+def validate_password(password):
+    return (isinstance(password, str)
+            and MIN_PASSWORD_LEN <= len(password) <= MAX_PASSWORD_LEN)
+
+
+def add_user(path, username, password):
+    if not validate_username(username):
+        return False
+    if not validate_password(password):
+        return False
+    users = load_users(path)
+    if username in users:
+        return False
+    users[username] = hash_password(password)
+    save_users(path, users)
+    return True
+
+
+def authenticate(path, username, password):
+    if not validate_username(username):
+        return False
+    if not isinstance(password, str) or len(password) > MAX_PASSWORD_LEN:
+        return False
+    users = load_users(path)
+    record = users.get(username)
+    if record is None:
+        # Dummy work to reduce user-enumeration timing differences
+        hash_password(password, salt=b"\x00" * 16)
+        return False
+    try:
+        salt = bytes.fromhex(record["salt"])
+        expected = bytes.fromhex(record["hash"])
+        iterations = int(record["iterations"])
+    except (KeyError, ValueError, TypeError):
+        return False
+    actual = hashlib.pbkdf2_hmac("sha256", password.encode("utf-8"), salt, iterations)
+    return hmac.compare_digest(actual, expected)
+
+
+# ----------------------------- Server: state -------------------------------
+
+class ChatState:
+    def __init__(self, users_path):
+        self.users_path = users_path
+        self.lock = threading.Lock()
+        self.messages = []
+        self.failures = {}
+
+    def is_locked(self, username, now=None):
+        now = time.time() if now is None else now
+        with self.lock:
+            count, until = self.failures.get(username, (0, 0))
+            return until > now
+
+    def record_failure(self, username, now=None):
+        now = time.time() if now is None else now
+        with self.lock:
+            count, until = self.failures.get(username, (0, 0))
+            if until and until <= now:
+                count = 0
+            count += 1
+            until = now + LOCKOUT_SECONDS if count >= MAX_FAILED_ATTEMPTS else 0
+            self.failures[username] = (count, until)
+
+    def clear_failures(self, username):
+        with self.lock:
+            self.failures.pop(username, None)
+
+    def add_message(self, user, text):
+        entry = {"user": user, "text": text, "ts": int(time.time())}
+        with self.lock:
+            self.messages.append(entry)
+            del self.messages[:-MAX_HISTORY]
+        return entry
+
+    def get_history(self, limit):
+        with self.lock:
+            return list(self.messages[-limit:])
+
+
+# ----------------------------- Server: protocol ----------------------------
+
+def parse_message(raw_line):
+    if len(raw_line) > MAX_LINE_BYTES:
+        raise ValueError("message too large")
+    try:
+        msg = json.loads(raw_line.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError):
+        raise ValueError("malformed message")
+    if not isinstance(msg, dict) or not isinstance(msg.get("action"), str):
+        raise ValueError("invalid request structure")
+    return msg
+
+
+def make_response(status, message="", **extra):
+    resp = {"status": status, "message": message}
+    resp.update(extra)
+    return resp
+
+
+def handle_request(request, state, session):
+    action = request["action"]
+
+    if action == "login":
+        if session.get("user"):
+            return make_response("error", "already logged in")
+        username = request.get("username")
+        password = request.get("password")
+        if not validate_username(username) or not isinstance(password, str):
+            return make_response("error", "invalid credentials")
+        if state.is_locked(username):
+            return make_response("error", "too many failed attempts, try later")
+        if authenticate(state.users_path, username, password):
+            state.clear_failures(username)
+            session["user"] = username
+            return make_response("ok", "login successful", username=username)
+        state.record_failure(username)
+        return make_response("error", "invalid credentials")
+
+    if action == "logout":
+        session["user"] = None
+        return make_response("ok", "logged out", close=True)
+
+    user = session.get("user")
+    if not user:
+        return make_response("error", "authentication required")
+
+    if action == "send":
+        text = request.get("text")
+        if not isinstance(text, str) or not text.strip():
+            return make_response("error", "empty message")
+        if len(text) > MAX_MESSAGE_LEN:
+            return make_response("error", "message too long")
+        state.add_message(user, text)
+        return make_response("ok", "message sent")
+
+    if action == "history":
+        limit = request.get("limit", 20)
+        if not isinstance(limit, int) or isinstance(limit, bool):
+            limit = 20
+        limit = max(1, min(limit, MAX_HISTORY))
+        return make_response("ok", "history", messages=state.get_history(limit))
+
+    return make_response("error", "unknown action")
+
+
+class ChatHandler(socketserver.StreamRequestHandler):
+    def handle(self):
+        session = {"user": None}
+        self.request.settimeout(300)
+        while True:
+            try:
+                raw = self.rfile.readline(MAX_LINE_BYTES + 1)
+            except (socket.timeout, OSError):
+                break
+            if not raw:
+                break
+            close = False
+            try:
+                if len(raw) > MAX_LINE_BYTES:
+                    close = True
+                    raise ValueError("message too large")
+                request = parse_message(raw)
+                response = handle_request(request, self.server.chat_state, session)
+                close = bool(response.pop("close", False))
+            except ValueError as exc:
+                response = make_response("error", str(exc))
+            try:
+                self.wfile.write(encode_message(response))
+                self.wfile.flush()
+            except OSError:
+                break
+            if close:
+                break
+
+
+class ChatServer(socketserver.ThreadingTCPServer):
+    allow_reuse_address = True
+    daemon_threads = True
+
+    def __init__(self, address, chat_state, ssl_context=None):
+        super().__init__(address, ChatHandler)
+        self.chat_state = chat_state
+        if ssl_context is not None:
+            self.socket = ssl_context.wrap_socket(self.socket, server_side=True)
+
+
+def run_server(host, port, users_path, certfile=None, keyfile=None):
+    context = None
+    if certfile and keyfile:
+        context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+        context.load_cert_chain(certfile, keyfile)
+    server = ChatServer((host, port), ChatState(users_path), context)
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        server.server_close()
+
+
+# ----------------------------- Client --------------------------------------
+
+def encode_message(message):
+    return (json.dumps(message, separators=(",", ":")) + "\n").encode("utf-8")
+
+
+def prompt_credentials(input_fn=input, password_fn=getpass.getpass):
+    username = input_fn("Username: ").strip()
+    password = password_fn("Password: ")
+    return username, password
+
+
