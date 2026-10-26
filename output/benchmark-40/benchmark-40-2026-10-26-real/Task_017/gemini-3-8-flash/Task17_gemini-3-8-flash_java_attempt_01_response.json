@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793009785-iva2hFsvjnIlSq5RUiRn",
+  "finish_reason": "stop",
+  "input_tokens": 319,
+  "output_tokens": 1066,
+  "cost_usd": 0.00423675,
+  "raw_response": {
+    "id": "gen-1793009785-iva2hFsvjnIlSq5RUiRn",
+    "object": "chat.completion",
+    "created": 1793009785,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "public class JadenCase {\n\n    public String toJadenCase(String phrase) {\n        if (phrase == null || phrase.isEmpty()) {\n            return null;\n        }\n\n        char[] chars = phrase.toCharArray();\n        for (int i = 0; i < chars.length; i++) {\n            if (i == 0 || chars[i - 1] == ' ') {\n                chars[i] = Character.toUpperCase(chars[i]);\n            }\n        }\n\n        return new String(chars);\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Developing Jaden Case Logic**\n\nI'm currently focusing on refining the core logic for Jaden casing. My primary concern is ensuring accurate capitalization of the first letter of each word while preserving subsequent letters and handling edge cases gracefully. I'm iterating on how best to split and rejoin the string.\n\n**Refining Casing Logic**\n\nI'm currently exploring the character array approach for Jaden casing. My focus is on efficiently manipulating characters to capitalize the start of each word, and I'm carefully considering how to manage whitespace and ensure the correct output format.\n\n**Testing Edge Case Handling**\n\nI'm currently scrutinizing how the current character-by-character logic handles non-space separators like apostrophes, ensuring contractions remain correctly cased. I'm also exploring the implications of a `split(\" \")` approach versus my current method.\n\n**Implementing Char Array Logic**\n\nI'm currently focused on implementing the Jaden casing logic using a character array. I'm refining the approach to correctly capitalize characters that follow a space or are at the beginning of the string, ensuring multiple spaces are handled appropriately.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Jaden Case Logic**\n\nI'm currently focusing on refining the core logic for Jaden casing. My primary concern is ensuring accurate capitalization of the first letter of each word while preserving subsequent letters and handling edge cases gracefully. I'm iterating on how best to split and rejoin the string.\n\n**Refining Casing Logic**\n\nI'm currently exploring the character array approach for Jaden casing. My focus is on efficiently manipulating characters to capitalize the start of each word, and I'm carefully considering how to manage whitespace and ensure the correct output format.\n\n**Testing Edge Case Handling**\n\nI'm currently scrutinizing how the current character-by-character logic handles non-space separators like apostrophes, ensuring contractions remain correctly cased. I'm also exploring the implications of a `split(\" \")` approach versus my current method.\n\n**Implementing Char Array Logic**\n\nI'm currently focused on implementing the Jaden casing logic using a character array. I'm refining the approach to correctly capitalize characters that follow a space or are at the beginning of the string, ensuring multiple spaces are handled appropriately.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 319,
+      "completion_tokens": 1066,
+      "total_tokens": 1385,
+      "cost": 0.00423675,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00423675,
+        "upstream_inference_prompt_cost": 0.00023925,
+        "upstream_inference_completions_cost": 0.0039975
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 943,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

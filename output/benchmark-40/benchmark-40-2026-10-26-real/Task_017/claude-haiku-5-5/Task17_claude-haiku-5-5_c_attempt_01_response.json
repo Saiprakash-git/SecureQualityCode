@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793009950-o8c4bm4LYeBxg5YdFGDq",
+  "finish_reason": "stop",
+  "input_tokens": 444,
+  "output_tokens": 956,
+  "cost_usd": 0.0005224,
+  "raw_response": {
+    "id": "gen-1793009950-o8c4bm4LYeBxg5YdFGDq",
+    "object": "chat.completion",
+    "created": 1793009950,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <ctype.h>\n#include <string.h>\n\nchar *jaden_case(const char *s) {\n    if (s == NULL || s[0] == '\\0') {\n        return NULL;\n    }\n\n    size_t n = strlen(s);\n    char *result = malloc(n + 1);\n    if (result == NULL) {\n        return NULL;\n    }\n\n    int start_of_word = 1;\n    for (size_t i = 0; i < n; i++) {\n        unsigned char c = (unsigned char)s[i];\n        if (isspace(c)) {\n            result[i] = (char)c;\n            start_of_word = 1;\n        } else if (start_of_word) {\n            result[i] = (char)toupper(c);\n            start_of_word = 0;\n        } else {\n            result[i] = (char)tolower(c);\n        }\n    }\n    result[n] = '\\0';\n    return result;\n}\n\nint main(void) {\n    const char *input = \"How can mirrors be real if our eyes aren't real\";\n    char *output = jaden_case(input);\n    if (output != NULL) {\n        printf(\"%s\\n\", output);\n        free(output);\n    } else {\n        printf(\"NULL\\n\");\n    }\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 444,
+      "completion_tokens": 956,
+      "total_tokens": 1400,
+      "cost": 0.0005224,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0005224,
+        "upstream_inference_prompt_cost": 4.44e-05,
+        "upstream_inference_completions_cost": 0.000478
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 547,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793008117-LjO4pAJ7hIKazzIJMbK6",
+  "finish_reason": "stop",
+  "input_tokens": 181,
+  "output_tokens": 339,
+  "cost_usd": 0.0001876,
+  "raw_response": {
+    "id": "gen-1793008117-LjO4pAJ7hIKazzIJMbK6",
+    "object": "chat.completion",
+    "created": 1793008117,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <ctype.h>\n\nint is_pangram(const char *text)\n{\n    unsigned int letters = 0;\n\n    for (const unsigned char *p = (const unsigned char *)text; *p; ++p) {\n        if (isalpha(*p)) {\n            letters |= 1u << (tolower(*p) - 'a');\n        }\n    }\n\n    return letters == (1u << 26) - 1;\n}\n\nint main(void)\n{\n    char text[100000];\n\n    if (fgets(text, sizeof(text), stdin) == NULL) {\n        return 0;\n    }\n\n    puts(is_pangram(text) ? \"True\" : \"False\");\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Creating C pangram checker**\n\nI need to write C code for a function that checks if a given string is a pangram, returning a boolean value. The function should handle input correctly, ignoring numbers and punctuation, and accounting for spaces and letter case. I'll define `bool is_pangram(const char *s)` for the main functionality. The `main` function should read from stdin and print either \"True\" or \"False.\" I'll ensure it follows expected outputs, likely in lowercase as \"true\" or \"false\" for common usage.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Creating C pangram checker**\n\nI need to write C code for a function that checks if a given string is a pangram, returning a boolean value. The function should handle input correctly, ignoring numbers and punctuation, and accounting for spaces and letter case. I'll define `bool is_pangram(const char *s)` for the main functionality. The `main` function should read from stdin and print either \"True\" or \"False.\" I'll ensure it follows expected outputs, likely in lowercase as \"true\" or \"false\" for common usage.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3yH5xaoHYY1oafJK4MHzIwtxnl7gsoAFdbuQNkYPzPEjcjMJibmv05iXUId43TBa1FsbZk-nrcDPy7lcEuFDOsMTkzSX1bUErursFCmcbVYs0jZN-qdyIx6AP0hvjE1s7QapUZwfi4ZOOaBgg4PuEXsC-6hbTCsQJ_HDK-qkjskc7o34XvOedQbk7ddSOyOEH8mO7MlqN24x_1g2VIaEgbjmwaGfaakqjsx2F7J53QPEb2VSe7bceHeDImV2lc-d1xglb9q6VwWeZPkACJrDy6qvJ2WTtBCINPyRFNV8knGS3h5D5ryhm3MgAzvCKQhuiwGs41dxcxYn1bPPrgex61WhUj50scCY52wUf4sW4u0b6g34HfMpfDr24miyCe3njGG6IxP2dUCoHgw4JuIR1NYrZ-ZgkujYu6KmWHS67jn9HHa4F7OQfa_cgCaPAsig6ey7z35D_DCW7FiUGeNHX8w8WZ3d5L-nm7KzsqdvQgkVReKs4d9tJxVx4Ipps8VN7fdKh9OvnwYtWsXewcH5-ApaB5E0ChRu1RqO137iHlK6atQZn33VeqD7q6kbV4_5iRntF489TWk1nSWJwGO_jMPeNABpc6UgzF-hKEmu9ExQ5Mj286WtIkaMNZlQwqnZiBDJRNF1jf8rYzIcT6mFZoKmW4-gRLJ5gJ_e70K7bisuIc_dzvx5HvRERpwog_TlFI_DtzHN_-rx4z_MKAhvnWfhBeaUrOadEfzV1UxsXE0OVLFS9BgRqUsL-_Y_kHMCi_bzUzL5mECBeW3CXUBeHD083dFQowJ2ONe0a7Ex6B2xwAcJgShoJ5-pHvyrWLM-mcnLaVuuhWP7uNfp9XyiO5ZzKEOMTLpUCA8T4mRTZOQzrKZAfT7nZTQWku2b_4uXGnqTATOQdhaSEdZwP6J3GW29mOSGRZTzUcymb0Ai8v2KKPraJHZ31mFTb5mO8z07upsTOpqD_79ZVq9WwrbgYItV9AzIRjgdvG3vkVRND5zXazThh6ezf2ahfjzSiPrWCcViLSuvipK6u-ifXM04xs4CzINFs32ZQpCK8KjKFH6t86TRNnfSBy3ediJEC3aEzDErNyD7jMRPj_yA95BNEZ0ojMI48JABie75uH4Re1DSoZaFUApt5Yaq_otVg19sTTYHPinbdXVQM8RLErt-GqAoJGsHot0oGd7qmI8Ds-3cSP--zZtQ0SUdpNIe9XwIq5KO2p2FTWI9c_JVYJE6SIgXdClONWpRmH_wDtohSTRcAjE2OvP2BGKsf4dE_0kVa4GPOuVGMtiUxpqHNdxyt7AkY88UZxt-rfI8XnhMTwyLipXWeJ_ZJBaQlQaVSQqYlTsT7riRX0x7BQqrTFjcPDlZweXlQwSnakRxz6sxoRNS2GUf3oa66S5_mXtHtMsk3wMeBYE2O8WA75PMZQMcGyht0txivA_witxYVUfgndRZHPgYqa9J32qAGsHobJ8X8zhRBhWHg4Qepnuuz7frxAbwPuUs1bN8KnFZdj-htLD2eGlC-PESFY3oBtJDJr0uenpgXo4RLdwzkPso84rYNBB5mllpfTHKpk3qGQnblUiJwmmAXbwmu_F3dj2PWcHUwx5pf_V96Cio9kAAj7QRk-08p2PxZ0V4ERth5mhxqgsMUQTESiA40oALvnMwkShlndk1eUakuXs2AF4UOaBbu1AYNRlItpaz39UhC2EWB63Z3BPQp-FtK-_1Hdz70mUSCxMVVYqlSZwXY4s8J96R7WcUT6FORaGggJSYEzDkA83czwtFkmb0V08f3dJt8Xeb89xvuFUXKwPw7r5EHP4LW4zCPyQtRS-WW3Qricuwye3hpFXli3EsbqWB_1HwV-uqIKLbwctBKTNwOZI6wfJySx6OD3mwRc7uB1G14f66UdV1miWLPrzVrVHrFDEyHJJguBa10jrjYyOPlAiY6cw-nyzJLh-V2zWHnChOlKD3mL9qdzCdtzZwcxnK9kt0_EQCAACCyGCuxsBsOlrjHEdBbNHLKOSLORuGDxEAdWJ-AVFRisOgMmKCN3yp1VYW0I4sZ8_Q3dv8z0_EcXLq9wIJ6WnsUu-iG3ddUtyb-wF2igtaqh_umlYObSA3U9P35P6umx4LuK-G8G8u838gYGskdD68SKqPMFz7j-cM_dG6SARbNN-0luB1h4U7DiV7mhL4CN9lZu1sW6AfW1B-Ud8h50TPZkk6IEmQ49heFqzJl40jw-58nrSrfVblKlbUeBxs0GE_1auMJaACegCYBwzn1rh6r3q8Wvgf2G6z66m8PTEqIPZxhHcXYFlErEKajz9N4UPe3tSS05gXgT_8U4TN8zrkll-xwyKdq3CZYK054PsbmSSI62LrkIo0X60WV5lkQtL-xYTmAYptTRqnZk6TjTts-JMQgdptvgTE_HdHN5nbgOKwHzeoSljVtt1f8ncg0u1jHMCcb6jg9M7pKHLRvmlVUKp3Zw9WGrB2P3yzDZO7NIeUxxpitFf_R544LtKZK8TORGz7hGylDY1noDo25NA_n26Uo3vOnBgC69Me2mqPaAl1H9vRcMA1RUPU8sGFOqLsetAe-QB0hm-cLsOug2TdQWwPlPFhTT__qlbKmFxIuO40G6sEsuK4l72mf-L1zmNPH0Sqg-CcRFGvzg2iKB_0-MrAHcPgnfkaQKaUcfzfv8Wv_rAwmLleXn-IwjlZJd1bPwgLTon33FeR9BDXrT6Wmy_vBgNYxqlDBZE1vExbzosdEHhZNoIf9MZdKjNx8AgOg8O-dGYM7M_uDKIE_-7piXpuExg5qqosM7-i0XNjYnHLgMMYDRBB3E303NEK_NNiuynm-1gLdTAL4PJP-hlwe4Q2_KPrxiQjZklQZKmmCW0KKT5i1nNhDsdp92I4BGdXhnrQ0zLP8259aLBK5tQvsd0tEJdYjMrZ6Iyx1jUgo2AJYkkCV-cxff8Kn77_b_CZupYJZ0DrMhHH_ORvu9W4xO9TnZsIJbiBIdfeEIqNW9eknBELuFxnpkSrAT_uzWK15ePIzPoFGD4z51cZwSyVZudbCO-4jEE9P4TCWuds3LNOhpK2aVfOfmGaTWRwHqx_2LFyjUyTCA6_L0H_Z0kWfnKPfDTnUqWiQFR1sGsGI_9_9wDdIdf6Ecl0M68ecO0eEMXu7Nowm_Z7EqQFyIwiFDs3TVJ_XJMn43_ByTWafAC0rRnQZPTJ5nXJgCNmeQjDk2Q6TWrFE4P1wn82ZloqgOboG_EpW-U3riri-upiGrtkabcgzALWIPfARyE25osOsABf4llBs1d6Y6eHYe7BRD7G2n2d3axP6xtIsqdV92XO_Vng0vpxxz642qXAonN5Whwn6fKe0JApmb4W_EWeCvvmFq36v2AmktZHL0mXM-5MXDeUnRRSx_zSmc_EUu-UuNJ1VIN6IN2H_Af1WU1F1OYmS1oDDo8FU3o2uwKlRVDb1eWQY8BHDtR4XP9ckukgO-zmZuOOBt6_AFeVmzhPcJYEqXBp6cmuoYa_F2Xcmqvy54FbM0jGfr9J_9VcZVl9D18T4WxqcFMBXHE5KHkcadaTlKc0XsotToHELkkaC0WQSlZQXFWkGZ-hh7derv9y3V1XIV-Rxx7UypNETd2Hd3RwzHqywituvOGkQSm5E9NkiwiN0HKggIPZNFMu6nvwl0hMJRH8PIIi1oAwbV26RL_Xd-BLTpYTS9-1W4JMQx-lx94JMkA93rCVLHzoOBetwHPt_AUs2TLVC91LzaMVe9CQstyQuxvvBtg5SopoXs7UvEJ5Kz7lCO0yhQHtvFC-ZVQ0iNWIs8ZooH3XQLKK-AlXE5tON5TvJfHo1FUaE36DDAibtQt_eXeWjyAvZfTtP_lG6bmQ0jLtX_Qh3AGwn-z8sGFMjaOjK_c6pgxODgU=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0ec2b420475d5ff1016adf21f6915487d1897a27bd216d17ba",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 181,
+      "completion_tokens": 339,
+      "total_tokens": 520,
+      "cost": 0.0001876,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001876,
+        "upstream_inference_prompt_cost": 1.81e-05,
+        "upstream_inference_completions_cost": 0.0001695
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 179,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793010230-Sk1pZ6qe1Sh4V42cLJvK",
+  "finish_reason": "stop",
+  "input_tokens": 296,
+  "output_tokens": 313,
+  "cost_usd": 0.0001861,
+  "raw_response": {
+    "id": "gen-1793010230-Sk1pZ6qe1Sh4V42cLJvK",
+    "object": "chat.completion",
+    "created": 1793010230,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <cctype>\n#include <string>\n\nstd::string toJadenCase(std::string phrase) {\n    bool capitalizeNext = true;\n\n    for (char& ch : phrase) {\n        unsigned char value = static_cast<unsigned char>(ch);\n\n        if (std::isspace(value)) {\n            capitalizeNext = true;\n        } else if (capitalizeNext) {\n            ch = static_cast<char>(std::toupper(value));\n            capitalizeNext = false;\n        }\n    }\n\n    return phrase;\n}",
+          "refusal": null,
+          "reasoning": "**Inferring function behavior**\n\nI need to figure out the expected function for the Codewars task, Jaden Casing Strings. The likely C++ signature is `std::string toJadenCase(std::string phrase)`, which should return the corresponding output. The function should capitalize the first character of each word, including after spaces and apostrophes. It should also handle all whitespace and avoid undefined behavior. If the input is empty, it should return it unchanged. I\u2019ll provide a straightforward implementation for that.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Inferring function behavior**\n\nI need to figure out the expected function for the Codewars task, Jaden Casing Strings. The likely C++ signature is `std::string toJadenCase(std::string phrase)`, which should return the corresponding output. The function should capitalize the first character of each word, including after spaces and apostrophes. It should also handle all whitespace and avoid undefined behavior. If the input is empty, it should return it unchanged. I\u2019ll provide a straightforward implementation for that.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3yo7UvGyGpMz19R1Hu9JF1-o6S8agi6xzEjiKRrJNKyBxWY9KIaCPL4YSIoejc-km2s6hc8gs1BmQmO20jFMI6Es0WNyLjor0MVgC5o5TVN6bU3WpdS5cbf17mkv0cyMk_gc1F1ErUeyfEuZ3gijDSGs0PZfTMd0uJHyc9aukqXTCxKUk7FrPApm_WlkV2hx24AxWFvjRW_vCKofDQfpZa2tO0v-xQyJidHrh682bwzUBfzZBjAJcd9k1jAKrSXoajslg-aqW_RS9WqsD_--nXbxGRvPwmr6ArPShTjoAiMiE-FoJO1dAoQ0hBKArUYv9yoD9GyWGvWohNfWi1_u04HCTSIEIWDqhIT09tuyxp_eloOubHoOpQF7trgqhr62dOCGuQhqFZ2M5czeWu2RSEermwPJq4AXDZC4PCnp5PMvFB9wWwbBe5Vi-Vi3k6I_BybuKSAqnwOOETy57bcn6pALv1umPbVp9AeZHh7eNWFQH6AXBLqZ_jRWYkLfk09_wrt-q-KkPnv6swKahs7C112LP1umCHMiY55btOmZsAZIqwW8_QcUzQ5_siU1wuKKOW03domOs11u--et1JC1yc5urj2Pp1IbhyIpJAvjJQubqNhpWoFP_No4t2qWNSTdZx1ggmPoP9rPI4rrvMgMm559Fc1GfzRwTWFCI6AOlgc7RiLeJiP8mgiMyVw8SJMc0joikFfKQYY9MgE85y9Wtsx6kbtTWHIND1phTRbDUIaHGCPv7whOL3-a2AAbwYr30iYIWfqf79uY7QfddGT1vK3FsWthsnVyBuizWR4RmbAii19spq0qVQK-eJfK96RRHsaNX04vZvsj8NOM4gnBu-qB-5Y7m57xOpbSXdiBXl3IBrDIljl4yHyDPc-xeueDfch3sBa_2SEDLPDrxPD7j8co_QAv5vM9OzI22HeM3uxqnFO2PZ9JVn14l3bp17Wt_RuOxO0Qq5dj9esZt4ZdHjdkDxhRX_pzHccadcDr-dOh2WrR4G0TTRESriMrCNoY2FUy6VGsXbdLJX0pVNMpm5BIpFVFlRA1KrV6_Avf3rPZF-MfxrzYm_n1woY9T0MX88E1PwKx7Qs70Z5wHUkCMSZKWdiCRLEN3n9FoRafk8PKJ7Kl6RVIj_ZEzvzmcbt1xg2AhPHbsew2x_eQwhh3zuDn3MiIB1VkQrVDjbc0m7qgaOO8ndpWnvbK3ZylKwaUZIIgcUiwa-1Qg0pvqDTCxHoxKN_Ro6H535pQhnAxLWmApTOYDhZDHtlGW9C8WgQq3ch6V2XCGgvfSVd2crM6AAA6nmOGSXLcb03pGZ24ns2-AgmyGENZ7Fq6UIfqWmd-Zft0xjL4v3iqim4by_kH8P98aZu21Ym8_io0_1Y9LJ3p0Jbuu-zk5HLLUnLHrghnuTIgIkUty8cnovku8zH63aMej7wVH4knN4Qo-368Ui6HMWaQV65t8PqkxDLtrpx-ZtHm8ZAcEEv2DKmx-uwzAIMQ725I5G9EdJqkXXlt2M8D72kGzKGRPNUz_9AO9Az8tUq3XwnJV49C3EE4Vz9-Njy79qStgRhpi5fhCafakYwr5JeCsDTC8tYIRvP-Xe8D0ZmXprNKfiW2Z0MjVDWKks9Mi_CUi_bPRfiPBKpStxxD0vDWXXWPgqRNPYkrx2jJFdoUPdSRKK2ivF2FAcoU1AXLWbvMUtmJ0uNGOi425fgsXsA0eNTvs-5PD0Nwxgr4a9hJXoikZoDz8zXZzrn-Z2L6s4oKJRX_33zwu9xBHxrjsq0mCxBKiAdjbOQCCvAVVNKw-H5XSFsr6zNTrZYx8l_FeqhzDtfA7jZOB3PjyLlyma8cdlG_VlsqcspbYaGcLyjUY8K5ORz9u8ASTybSvRyfxODLZG0QqNnwXThUnSWO2uuLtgaKOsw9GzibyP1SHQq-Hv7NXLfXOkFqcNJynQkAT944pVlPSeLf0kPyLv6yYRysh_kWBUZ-CD7LDY7r796JmDG4B5HWwCayBsyutpytbNFIhU82qv5DwmbNuSaz8PnFjxVzxy4pAPfMLF58HpI4ta-wS-0iUynqJqCuzZXfUa3TlH44iKaiL4xlhN0gfqBKfcnItI4UhohXDIfbf-B8f8e3LHF9xX2JL8Zf_eyzzOTYDY7iS2UNvfNlXlAfZmrc6wm-yPtm3N5yMn6Cw7ebx4GXMoLTrX-Jp9yFLoQkNTrOoMZWZvzxcBRJ-sQIc8LfHHerWjKN71FWfmVavL3MaGYKv5uSXIS_e_ml45QlgNm_H1lRcyvNLHp7tdTPGU92C2I4omj802suBqOPr62Npx_WV-INBJbyvZ72Tci3e9p7xeAJ7PNkIkt__IZ9lkno-OS1bs7FMmBTo12d1guiYWjqDs21Sixl_W6kNzrjsnInI6J_6ydJ3DyoffqbnFJqTjPjh5SbkwxzwEYNZ6yxkfx3AXb2VO8CUyAELTCQG3WvBVhm8BLPTofSxhNqPiQ4YpO2eeHh6gefF-weDeMgWlConLlwbbwQUAo7Q--irkdBKklXQJGmm8vXuenj3CCpWub8DP71gjXIt2PC5AoDuNTLeF_fqZo8xMhWPu8r3zKwb1gB_hNDoBBk0RiWFH10OHEa0zFYLRCEhnkK3eVjjv9nfvEOteMJPQur9UdUpH3WuydFCmDdq55KvCd78K355G5EqV0okIG6dHFT4KIIl9Bq3uxYhgZKZOUjDuPzoSmrqyeL1Kf3XimgluCKcBV14U1-VmW-WjLdVTj5jiD0fSkURtzRZN35H3gyzi01TP_jxHWsuLs0yGosIR7pIjHv3TEm9ewe2NtGvEX6cPjP5kpCCQQoep3-5oiMNRBEJ53FoYK8bdEq2Vv72T3qxIIQnqtY3el5PGG26cdP4yZwQTDQQ14Q8VNgqcIzodysMmXS6m7V9gfUIpAimR21OQNecNfXfqQHSrlO1ZBUjTbRHnVCOkO5skEv4dJfjJjOnXyeR8h8pmBXSZNCV_q4zvMKta11RK2QlnBa7-3-fi6--PoCsM6FzPDKPdIzYbLz4J8uxKvFA55jiQcqQ5u-6_FnH-0z3GSyXxPaiB5aNwtp399TZvvl0wwf2zpOTK1QlH1FU3knD2X8frylOyYStMGd5hjF2pWAUId9Kkng92JGmFVwF-JMTP1po48Qy9fEk1kRnIjVaB-GImX2BxfI-okVcnlaOs2LqxpuohSt3yWr7htUBnqvJ9mkm8e7bIiveKlw3vEfDeWGoijaaz_eKlHNVuZSSfCFO0WO7mjtpSBqJ20vNeVSSLcGxagpfkBDJFUpvs3-v-TFfcoQMSxWXSMaNxcz16319NCugZX6pkrce7Btwv_eb9zm_Peh3X50Pg3rVYGUZpXoB63ePVgl3Qr4S3lL6h-22wjIfX1S3eNwMD9ZdpSnchCPnZSH47mkwBNVd3j_mMqeUegEGe1QGeMTvp2YQioLSVUHGzjJxNHzqQi9SCUFNrKkAnTnR5sfyyxvTV6wB6Z7eP_lFnARkINhOF_niZZ2DY5WQuodliI0chUq7A2AxNKbL0kvOd3bB2GofJHm7hEsaFJpU_OCXFBQT42QFNP8f1kC0V3ZTJcVFumM7kcTP2_WlAUy6rcr0OSU-hH1rlLhn203A0cIPRfC8axEN-yxQuKs9K91DJhA9YtR_EArx1uxu7_xXPtK60FjgKLHogRVeEjnzDZMEM8lNBuY8acbslFozV8FxV4Cq3r1zQfR9zAyX3U-J6oUmLVlSkNdEqphPyCQeVVr3xrCkcor1rk9g7KzFl_KvFdtRLQ0PKBFKRtnwhFrMQHNowLIWHUZZeylz0PmRPSh9R2_nuGCyJ-_jCCJP5e1P_0wi4VJCX-mvWPSSiqDXrjzXJ8GNYe5EvQdlemXpuhWJf6Qr4su8xoC3SVrID3FlhUHzcBg3Xsj5JUuCI-QDvB6Cyw4fjJr-m09Fgc0FHS1Pi4TF8bxyzaicaxreK0P4099qmEV9y7jLv99GH1yoBWOSDv7VHL97t3BA4adOszUoHm6C_yelsnQlb5f8JOOLRoUXO9u1CsaQSMjP167PVWETSY0BA7gNxTeJipA_wST7ZBl2QCNy60QmeU4xEuPdsYLgIE7HjWI5RBA3sf-deoIJcKi2BW4FlsArpmHuNvqYHY_njE18EQMEXPlvpKX1IUKgdEKHTqVQLJTc1wftp-6RRGEruxKbWZKTOO6rAqyXhOsnb__-MSMQT7fdxr1dodAT5S-uFnLD0vxcEbG0eYR_sowpOAh1bEm_S7ws1FLV6M=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0401fa575955a975016adf2a37602487d18af4e7126f335d49",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 296,
+      "completion_tokens": 313,
+      "total_tokens": 609,
+      "cost": 0.0001861,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001861,
+        "upstream_inference_prompt_cost": 2.96e-05,
+        "upstream_inference_completions_cost": 0.0001565
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 204,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

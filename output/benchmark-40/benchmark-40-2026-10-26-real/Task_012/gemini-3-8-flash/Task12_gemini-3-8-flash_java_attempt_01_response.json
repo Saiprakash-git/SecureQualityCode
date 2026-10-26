@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793008623-btj7tMcrLzm4uXnKFCNX",
+  "finish_reason": "stop",
+  "input_tokens": 200,
+  "output_tokens": 743,
+  "cost_usd": 0.00293625,
+  "raw_response": {
+    "id": "gen-1793008623-btj7tMcrLzm4uXnKFCNX",
+    "object": "chat.completion",
+    "created": 1793008623,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "public class Solution {\n    public static String high(String s) {\n        String[] words = s.split(\" \");\n        String highestWord = \"\";\n        int maxScore = -1;\n\n        for (String word : words) {\n            int currentScore = 0;\n            for (int i = 0; i < word.length(); i++) {\n                currentScore += word.charAt(i) - 'a' + 1;\n            }\n\n            if (currentScore > maxScore) {\n                maxScore = currentScore;\n                highestWord = word;\n            }\n        }\n\n        return highestWord;\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Calculating Word Scores**\n\nI'm currently focused on determining the score for each word, summing the point values of its constituent letters. For any words that tie in score, I'm ensuring the one that appeared first in the input string will be prioritized.\n\n**Refining Word Parsing**\n\nI'm now considering edge cases like multiple spaces or leading/trailing whitespace to ensure robust word separation. The current approach of simply splitting by space might need adjustment to handle these scenarios accurately.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Calculating Word Scores**\n\nI'm currently focused on determining the score for each word, summing the point values of its constituent letters. For any words that tie in score, I'm ensuring the one that appeared first in the input string will be prioritized.\n\n**Refining Word Parsing**\n\nI'm now considering edge cases like multiple spaces or leading/trailing whitespace to ensure robust word separation. The current approach of simply splitting by space might need adjustment to handle these scenarios accurately.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 200,
+      "completion_tokens": 743,
+      "total_tokens": 943,
+      "cost": 0.00293625,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00293625,
+        "upstream_inference_prompt_cost": 0.00015,
+        "upstream_inference_completions_cost": 0.00278625
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 598,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

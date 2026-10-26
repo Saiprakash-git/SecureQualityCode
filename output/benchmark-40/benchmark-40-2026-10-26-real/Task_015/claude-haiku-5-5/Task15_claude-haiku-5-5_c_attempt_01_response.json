@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793009365-EmqoM3EVFT4ip0ghkpt4",
+  "finish_reason": "stop",
+  "input_tokens": 298,
+  "output_tokens": 704,
+  "cost_usd": 0.0003818,
+  "raw_response": {
+    "id": "gen-1793009365-EmqoM3EVFT4ip0ghkpt4",
+    "object": "chat.completion",
+    "created": 1793009365,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nchar **build_tower(int nFloors) {\n    if (nFloors <= 0) return NULL;\n\n    int width = 2 * nFloors - 1;\n    char **tower = malloc(sizeof(char *) * nFloors);\n    if (!tower) return NULL;\n\n    for (int i = 0; i < nFloors; i++) {\n        tower[i] = malloc(width + 1);\n        if (!tower[i]) {\n            for (int j = 0; j < i; j++) free(tower[j]);\n            free(tower);\n            return NULL;\n        }\n\n        int stars = 2 * i + 1;\n        int pad = (width - stars) / 2;\n\n        memset(tower[i], ' ', pad);\n        memset(tower[i] + pad, '*', stars);\n        memset(tower[i] + pad + stars, ' ', pad);\n        tower[i][width] = '\\0';\n    }\n\n    return tower;\n}\n\nvoid free_tower(char **tower, int nFloors) {\n    if (!tower) return;\n    for (int i = 0; i < nFloors; i++) free(tower[i]);\n    free(tower);\n}\n\nint main(void) {\n    int n = 6;\n    char **tower = build_tower(n);\n    if (!tower) return 1;\n\n    printf(\"[\\n\");\n    for (int i = 0; i < n; i++) {\n        printf(\"  \\\"%s\\\"%s\\n\", tower[i], (i < n - 1) ? \",\" : \"\");\n    }\n    printf(\"]\\n\");\n\n    free_tower(tower, n);\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "CAQS3wgKEAgTGAI4AUIIdGhpbmtpbmcSDL4ROPW0AIw/XUgZVhoMAw7J60TKi+edMmN1IjDNtyrHEp2hS9mklxQn7sejw3uvqFxi5PK0WI7RqsdbzrXAR7u+yJdoTNF8M3anoukq/Af1E+GwMoUcprhnw/eoGcGo7gFvEJXo9Qi38f4a/c/zjJent2uOoTyqEvlBlsO0S/D8kbYtgn616Jqa6v+NKckQPisUCKQf5JvyEplPQKLDX/LgMZwY7Jfzo9z7tYtahjHFyMHbsLDduF4MaFkQQUfzw3NpnJJmBMWoCImOkxHIaQ+xNz6OiiCI8LMCWPNFMyytYWrEhytB7qH2VvIKQn2XF/OHNCY/aXPJcPCXUP/lAt+ehIgCN0FU2ogWo+7Eca9AJLLc4g7sHMEEG2mjiN+8NB7UiiQnKY2z3efLPnkcPxB18O6Fmwbjp0JRoGq3LxnxljZTPgB2QgC6a//tSzannI8pImQRDl3iJUdijXwi6W3NTTGUOK9qknd26EK222CPu0LYSA6bK5mZyQBdZ1rd/5nrhKmOmNZ46Qmr5dDHuqrpuZZ/QI1d9+cJMAdAzWPvAYDuJVnSojuuZoWnkdz2QzPwiFBlNGcIMG9HkX96+zPhnm5ANv+Bp4YP5ICHOpTJXDaW/qQ+VvjQ0IrL84ydKrZVa9diU/UHcx0ybk2h4g6HtCILfsZt8ORI8PYOG2HOHd2vvAB9KXG1g7hvzKZiz9vO04egdtrVg6VVeCYZLRNwPXf8sZvz3JCFd0PLQMeat9TLBSLdSwjthHZ7YZFRb9oX0m7TSfhWWIm0+13AYegRIaW5DppnKTq4jiUfhMsY1QRj/FdV7QiWSiyD0vc29EHlAXqCAQk0CAxG8ROmGMblVe40Rre5shI6Tt24z7yC7mp3Yk+0KxXAO0fj++YMDWy6KBQZk4P6btlmJmzlyqsjV9IrDB3qLTqIvqyOcrXRjrChNTTyZUHx/qUDJ/cvBrH8ZBDt47uPZ0LNXhYE0GgGdpPiBjC5sACvdmU9A5vBjArHrFw99B244lYyLAsD8V7Nur0LJBKz+1tDNvMOvJ6YkhNheu1EkCfgcj0yVXnd6q5ZzhRECRF7I2rUt5AEFsNXrmp/AzBIjZfQ6CJzCzAipAIUB2Np/jgq+ME2RBsVgzFme796YQQedMQytZE5TQ6oONBjbSYjFcnSOKLhjvYpF7o0aoyQ1/3M57fDqcWVIBbZS0+09nEwMpN2bnxbaQlI/fiJ7I4glGlVX7/P19WJHNf5dZriVol5+ahwGmp1szDSXECHWMYwF2WhFySE03sZ8PRCjGsrBuYLDrk6BZGlusRWfS+VUAWUTjFe11LMakZJNLefj2ofHqpZ2O0ttXf/6CV2b3XNolBM6rfwgECWjyLsZslH3F1lSasQS8et4D5iyV8Pl6LTKySN+wJfGe3XxBosd639nJ2m2uDD9yoJ54EUTS3hbKxDjkUU5Zn2oiH4jun9ew8qo/4YAQ==.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 298,
+      "completion_tokens": 704,
+      "total_tokens": 1002,
+      "cost": 0.0003818,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003818,
+        "upstream_inference_prompt_cost": 2.98e-05,
+        "upstream_inference_completions_cost": 0.000352
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 174,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

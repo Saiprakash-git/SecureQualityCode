@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793006358-wNAzPmRmPWV3u7K9lWgw",
+  "finish_reason": "stop",
+  "input_tokens": 270,
+  "output_tokens": 2518,
+  "cost_usd": 0.001286,
+  "raw_response": {
+    "id": "gen-1793006358-wNAzPmRmPWV3u7K9lWgw",
+    "object": "chat.completion",
+    "created": 1793006358,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import argparse\nimport hashlib\nimport json\nimport os\nimport sys\nimport threading\nfrom concurrent.futures import ThreadPoolExecutor, as_completed\nfrom contextlib import contextmanager\n\n\nclass FileLockManager:\n    \"\"\"\n    Provides one exclusive lock per file path.\n\n    Deadlock avoidance strategy:\n      * Each worker acquires at most one file lock at a time and never\n        requests a second lock while holding one, so a circular wait cannot form.\n      * The internal registry guard is held only long enough to look up or\n        create a per-file lock; it is never held while a file lock is awaited.\n      * Acquisition uses a timeout so a stalled file cannot block workers forever.\n    \"\"\"\n\n    def __init__(self):\n        self._locks = {}\n        self._registry_guard = threading.Lock()\n\n    def _get_lock(self, path):\n        key = os.path.abspath(path)\n        with self._registry_guard:\n            lock = self._locks.get(key)\n            if lock is None:\n                lock = threading.Lock()\n                self._locks[key] = lock\n            return lock\n\n    @contextmanager\n    def exclusive(self, path, timeout=None):\n        lock = self._get_lock(path)\n        acquired = lock.acquire(timeout=timeout) if timeout is not None else lock.acquire()\n        if not acquired:\n            raise TimeoutError(f\"Timed out waiting for lock on {path}\")\n        try:\n            yield\n        finally:\n            lock.release()\n\n\ndef process_file(path, chunk_size=1024 * 1024):\n    \"\"\"\n    Default file processor: computes size, line/word counts and SHA-256 digest.\n    Reads the file in chunks so that large files do not need to fit in memory.\n    \"\"\"\n    sha = hashlib.sha256()\n    size = 0\n    lines = 0\n    words = 0\n    in_word = False\n    with open(path, \"rb\") as fh:\n        while True:\n            chunk = fh.read(chunk_size)\n            if not chunk:\n                break\n            size += len(chunk)\n            sha.update(chunk)\n            lines += chunk.count(b\"\\n\")\n            for byte in chunk:\n                is_space = byte in b\" \\t\\r\\n\\f\\v\"\n                if is_space:\n                    in_word = False\n                elif not in_word:\n                    in_word = True\n                    words += 1\n    return {\n        \"size_bytes\": size,\n        \"lines\": lines,\n        \"words\": words,\n        \"sha256\": sha.hexdigest(),\n    }\n\n\ndef _process_with_lock(lock_manager, path, processor, lock_timeout):\n    with lock_manager.exclusive(path, timeout=lock_timeout):\n        return processor(path)\n\n\ndef list_files(directory):\n    if not os.path.isdir(directory):\n        raise NotADirectoryError(f\"Not a directory: {directory}\")\n    return sorted(\n        os.path.join(directory, name)\n        for name in os.listdir(directory)\n        if os.path.isfile(os.path.join(directory, name))\n    )\n\n\ndef process_directory(directory, max_workers=4, lock_timeout=30.0, processor=process_file):\n    \"\"\"\n    Processes every regular file in `directory` concurrently.\n    Each file is handled by exactly one thread at a time via FileLockManager.\n    Returns a dict mapping file path -> result dict (or {\"error\": message}).\n    \"\"\"\n    if max_workers < 1:\n        raise ValueError(\"max_workers must be at least 1\")\n\n    files = list_files(directory)\n    lock_manager = FileLockManager()\n    results = {}\n\n    with ThreadPoolExecutor(max_workers=max_workers) as executor:\n        futures = {\n            executor.submit(_process_with_lock, lock_manager, path, processor, lock_timeout): path\n            for path in files\n        }\n        for future in as_completed(futures):\n            path = futures[future]\n            try:\n                results[path] = future.result()\n            except Exception as exc:\n                results[path] = {\"error\": f\"{type(exc).__name__}: {exc}\"}\n\n    return results\n\n\ndef main(argv=None):\n    parser = argparse.ArgumentParser(description=\"Concurrently process files in a directory.\")\n    parser.add_argument(\"directory\", help=\"Directory containing files to process\")\n    parser.add_argument(\"-w\", \"--workers\", type=int, default=4, help=\"Number of worker threads\")\n    parser.add_argument(\"-t\", \"--timeout\", type=float, default=30.0,\n                        help=\"Seconds to wait for a file lock before failing\")\n    args = parser.parse_args(argv)\n\n    try:\n        results = process_directory(args.directory, args.workers, args.timeout)\n    except (NotADirectoryError, ValueError) as exc:\n        print(f\"Error: {exc}\", file=sys.stderr)\n        return 1\n\n    print(json.dumps(results, indent=2, sort_keys=True))\n    return 0\n\n\nif __name__ == \"__main__\":\n    sys.exit(main())",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 270,
+      "completion_tokens": 2518,
+      "total_tokens": 2788,
+      "cost": 0.001286,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.001286,
+        "upstream_inference_prompt_cost": 2.7e-05,
+        "upstream_inference_completions_cost": 0.001259
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 902,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

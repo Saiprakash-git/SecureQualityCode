@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1793007907-EFpfgWsaG6ODzDQnhWW9",
+  "finish_reason": "stop",
+  "input_tokens": 229,
+  "output_tokens": 132,
+  "cost_usd": 9.639e-05,
+  "raw_response": {
+    "id": "gen-1793007907-EFpfgWsaG6ODzDQnhWW9",
+    "object": "chat.completion",
+    "created": 1793007907,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "def is_pangram(s):\n    return set(\"abcdefghijklmnopqrstuvwxyz\") <= set(s.lower())",
+          "refusal": null,
+          "reasoning": "We need answer user wants raw source code only, no markdown. Need write Python program to detect pangram. Need likely simple function. Ensure self-contained. Could be:\ndef is_pangram(s):\n    return set('abcdefghijklmnopqrstuvwxyz') <= set(s.lower())\nMaybe handle ignore numbers/punctuation. Return bool. Need only source code no fences. Final should just code. Need consider if they expect solution maybe named is_pangram. Could include import string? Simpler. Need raw source line. No prose. Ensure no Markdown.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user wants raw source code only, no markdown. Need write Python program to detect pangram. Need likely simple function. Ensure self-contained. Could be:\ndef is_pangram(s):\n    return set('abcdefghijklmnopqrstuvwxyz') <= set(s.lower())\nMaybe handle ignore numbers/punctuation. Return bool. Need only source code no fences. Final should just code. Need consider if they expect solution maybe named is_pangram. Could include import string? Simpler. Need raw source line. No prose. Ensure no Markdown.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 229,
+      "completion_tokens": 132,
+      "total_tokens": 361,
+      "cost": 9.639e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 9.639e-05,
+        "upstream_inference_prompt_cost": 3.435e-05,
+        "upstream_inference_completions_cost": 6.204e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 110,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

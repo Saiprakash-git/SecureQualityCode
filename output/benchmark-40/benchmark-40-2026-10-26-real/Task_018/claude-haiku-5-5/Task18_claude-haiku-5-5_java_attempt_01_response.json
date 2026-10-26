@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793010338-Num08GizpVh2FaA33toO",
+  "finish_reason": "stop",
+  "input_tokens": 398,
+  "output_tokens": 450,
+  "cost_usd": 0.0002648,
+  "raw_response": {
+    "id": "gen-1793010338-Num08GizpVh2FaA33toO",
+    "object": "chat.completion",
+    "created": 1793010338,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import java.util.Arrays;\nimport java.util.Scanner;\n\npublic class BinaryArrayToInteger {\n\n    public static int binaryArrayToInt(int[] bits) {\n        int result = 0;\n        for (int bit : bits) {\n            result = (result << 1) | (bit & 1);\n        }\n        return result;\n    }\n\n    public static void main(String[] args) {\n        if (args.length > 0) {\n            int[] bits = new int[args.length];\n            for (int i = 0; i < args.length; i++) {\n                bits[i] = Integer.parseInt(args[i].trim());\n            }\n            System.out.println(binaryArrayToInt(bits));\n        } else {\n            Scanner scanner = new Scanner(System.in);\n            while (scanner.hasNextLine()) {\n                String line = scanner.nextLine().trim();\n                if (line.isEmpty()) {\n                    continue;\n                }\n                String cleaned = line.replaceAll(\"[\\\\[\\\\]\\\\s]\", \"\");\n                String[] parts = cleaned.split(\",\");\n                int[] bits = new int[parts.length];\n                for (int i = 0; i < parts.length; i++) {\n                    bits[i] = Integer.parseInt(parts[i]);\n                }\n                System.out.println(binaryArrayToInt(bits));\n            }\n            scanner.close();\n        }\n    }\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 398,
+      "completion_tokens": 450,
+      "total_tokens": 848,
+      "cost": 0.0002648,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002648,
+        "upstream_inference_prompt_cost": 3.98e-05,
+        "upstream_inference_completions_cost": 0.000225
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

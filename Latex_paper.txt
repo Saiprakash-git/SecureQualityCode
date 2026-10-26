@@ -1,0 +1,708 @@
+section 1 - intro version
+
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Generating Secure and High-Quality Code with LLMs by Combining CWE Vulnerability Knowledge and Business Logic Understanding}
+
+% TODO: confirm university name, city, and emails (placeholders below).
+% Guide listed as per project abstract sheet; move to Acknowledgment instead
+% if your department does not list guides as co-authors on submitted papers.
+% NOTE: all four authors share one affiliation block below -- this is the
+% standard, reliably-rendering layout for same-affiliation IEEE authors.
+% If you later need separate affiliations, re-split into IEEEauthorblockN/A
+% pairs joined by \and, but keep each affiliation to 2 short lines or the
+% conference class can fail to balance the columns and stack them vertically.
+\author{
+\IEEEauthorblockN{
+Manda Bharath Kumar,
+Dileep Yarrabothula,
+Sai Prakash Avula,
+Dr. M Venu Gopalachari
+}
+\IEEEauthorblockA{
+\textit{Department of Information Technology} \\
+\textit{[University Name]} \\
+[City], India \\
+[email1], [email2], [email3], [email4]
+}
+}
+
+\maketitle
+
+\begin{abstract}
+Large language models are increasingly used to generate production code, yet
+large-scale measurement studies show this convenience carries a persistent
+security cost: a multi-language, multi-model analysis of five widely used
+LLMs found recurring, language-specific weaknesses such as improper
+cryptographic implementation, hardcoded credentials, and memory-safety
+violations, with models often ignoring secure language features already
+available to them. Subsequent CWE-guided mitigation frameworks reduce such
+weaknesses by retrieving relevant vulnerability knowledge during generation,
+but recent benchmarks reveal a deeper problem: even when models can
+correctly name the right security principle, they frequently fail to apply
+it at the correct location in the code, and agents that pass functional
+tests remain insecure on the majority of tasks. Security-aware prompting and
+iterative refinement do not reliably close this gap, and in several reported
+cases security-focused prompting reduces functional correctness, while
+deleted or weakened defenses go undetected by static analyzers across
+successive code changes. Moreover, existing mitigation approaches operate on
+the technical content of a task alone, remaining largely agnostic to the
+business logic and access-control expectations, such as ownership,
+authorization, and workflow invariants, that govern real-world software but
+are rarely stated explicitly in a prompt. This project proposes a
+verification-driven framework that synthesizes an explicit, traceable
+security and business-logic contract for a given development task from CWE
+knowledge, language-specific secure-coding idioms, and an inferred or
+developer-supplied business-context profile; generates code guided by this
+contract; and verifies each requirement with an executable check, including
+generated multi-identity authorization tests that target access-control
+flaws invisible to static scanners. A bounded, functionality-preserving
+repair step corrects verified failures without unbounded re-prompting or
+degrading correctness, and contract tests persist as a regression guard
+across subsequent feature changes. The framework is evaluated against
+raw-prompting, generic security-prompting, and CWE-only baselines on
+functional correctness, security-test pass rate, contract-requirement
+coverage, and the survival of earlier security guarantees as new features
+are added, with the aim of making LLM-generated code measurably closer to
+production-ready while reducing the manual verification burden on
+developers.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Large Language Models, Secure Code Generation, Common Weakness Enumeration,
+Business Logic Understanding, AI-Assisted Software Development, Code
+Security, Agentic Coding
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+The adoption of large language models (LLMs) for automated code generation
+has fundamentally reshaped software development practice, with developers
+increasingly relying on AI assistance not only for boilerplate code but for
+complete features, and in many cases entire applications generated through
+conversational, ``vibe-coding'' workflows. This shift promises substantial
+productivity gains, but it also changes where the cost of software defects
+falls: instead of a developer writing and reviewing their own logic, a
+developer must now review logic they did not write, often faster than they
+can meaningfully verify it. As LLM usage and inference cost continue to
+scale, the manual effort required to catch an AI assistant's mistakes,
+security flaws chief among them, becomes the binding constraint on how much
+of the development lifecycle can safely be delegated to AI. Reducing that
+verification burden, not merely reducing raw vulnerability counts in
+isolation, is therefore the practical problem this work addresses.
+
+Empirical evidence shows the problem is severe and is not improving
+proportionally with model capability. A multi-language, multi-model
+measurement study of five widely used LLMs found recurring,
+language-specific security weaknesses, including improper cryptographic
+implementation, hardcoded credentials, and memory-safety violations, with
+models frequently failing to use secure language features already available
+to them \cite{kharma2026}. More recent agent-level benchmarks sharpen the
+picture further: across thirteen agent-model combinations evaluated on
+real-world vulnerability-remediation tasks, 90.5\% of tasks were solved
+functionally but only 33.0\% securely \cite{agentleague2026}. On a separate
+benchmark isolating agent behavior on historical vulnerability fixes, the
+best-performing combination was correct and secure on just 10.5\% of tasks,
+meaning 82.8\% of its functionally correct solutions remained insecure
+\cite{susvibes2026}. Critically, naive mitigations do not close this gap and
+can actively worsen it: explicitly telling an agent which CWE to guard
+against reduced functional correctness without improving overall security
+\cite{susvibes2026}, and a systematic study across multiple secure-coding
+interventions found that models consistently \emph{know} the relevant
+security principle, scoring well above chance on direct knowledge probes,
+yet fail to apply it at the correct location in generated code, a
+phenomenon the authors term the ``knowledge--actuation gap'' \cite{sok2026}.
+
+A second, distinct line of work has sought to close this gap by grounding
+generation in structured vulnerability knowledge, most commonly the Common
+Weakness Enumeration (CWE) taxonomy, retrieving task-relevant CWE entries
+and steering generation toward documented mitigations
+\cite{securecoder2026}. Such CWE-guided approaches report meaningful
+reductions in vulnerability rates, but share two limitations relevant to
+this work. First, the guidance they retrieve is selected from the technical
+surface of the task alone, the code pattern being requested, with no
+representation of the business logic governing the system: who is
+authorized to perform an action, what ownership or workflow invariants must
+hold, what data is sensitive. Vulnerabilities in this class, such as broken
+object-level authorization, missing ownership checks, and workflow-rule
+violations, are defined by the absence of logic rather than the presence of
+a bad pattern, and are consequently invisible to CWE-pattern retrieval and
+to the static analyzers typically used to evaluate these methods. Second,
+existing evidence indicates that whatever security gains these methods
+achieve at the level of a single, isolated generation can erode across a
+realistic development sequence: security-aware prompting shows limited
+transfer from function-level to repository-level evaluation
+\cite{secrepobench2026}, and iterative, multi-turn refinement has been shown
+to degrade the security of previously generated code rather than improve
+it, with static analyzers failing to detect the regression
+\cite{scaffold2026}.
+
+This project addresses these three compounding gaps, the
+knowledge--actuation gap, the absence of business-logic-aware verification,
+and the degradation of security guarantees across iterative development,
+with a single framework. Rather than steering generation with retrieved CWE
+text alone, the proposed framework synthesizes an explicit,
+machine-checkable \emph{contract} for each development task, combining
+retrieved CWE mitigations, language-specific secure-coding idioms, and a
+structured business-context profile, covering roles, assets, trust
+boundaries, and invariants, either supplied by the developer or inferred
+from the task and existing codebase. Each contract requirement carries its
+own verification method, including, where static analysis is structurally
+blind, generated multi-identity behavioral tests that directly probe for
+missing authorization and workflow-invariant violations. Code is generated
+against this contract, verified in a sandboxed environment against
+functional tests, contract tests, and static scanners, and, when
+verification fails, repaired under a bounded, functionality-preserving
+procedure that is explicitly forbidden from altering code tied to
+already-satisfied requirements, directly targeting the
+correctness-regression trade-off observed in prior security-aware
+prompting. Finally, contract tests generated for one feature persist as a
+regression suite that is re-run before every subsequent feature is
+generated, directly targeting the cross-iteration degradation problem that
+static, single-shot evaluation cannot detect.
+
+The contributions of this work are:
+\begin{itemize}
+\item A structured, traceable contract-synthesis method that unifies CWE
+vulnerability knowledge with an explicit business-context profile, where
+every requirement carries an executable verification method rather than
+being left as unverified guidance text.
+\item A behavioral-oracle generation technique that targets business-logic
+and access-control vulnerabilities, such as broken object-level
+authorization, that are invisible to the static analyzers used in prior
+CWE-guided evaluation.
+\item A bounded, functionality-preserving repair procedure and persistent
+regression-testing mechanism, together targeting the
+security--functionality trade-off and the cross-iteration security
+degradation documented in recent agent-security literature.
+\item An evaluation methodology, contract-requirement coverage, security-test
+pass rate alongside functional correctness, and defense survival across a
+sequence of added features, that goes beyond the single-shot, function-level
+metrics used in most prior CWE-guided work.
+\end{itemize}
+
+The remainder of this paper is organized as follows. Section~II reviews
+related work on secure code generation, CWE-guided methods, and agent
+security benchmarks. Section~III formulates the problem and states the
+research questions this work targets. Section~IV presents the proposed
+framework in detail. Section~V describes the experimental setup. Section~VI
+reports results and analysis. Section~VII discusses threats to validity, and
+Section~VIII concludes with future work.
+
+\section{Related Work}
+% TODO: full section to be drafted next, organized by the taxonomy below:
+% A. Measurement studies of LLM code security (base paper, CSA/Veracode data)
+% B. Input/context-steering: CWE-guided prompting (SecureCoder, MA-CoT, BRACE)
+% C. Training/alignment and constrained decoding (SVEN, SRCode, ProSec)
+% D. Post-generation feedback and repair agents (SCAFFOLD-CEGIS, PromSec)
+% E. Benchmarks for agentic / repository-level secure code generation
+%    (SUSVIBES, LSCBench, SecRepoBench, Agent Security League, EvoCode-Bench)
+% F. Specification- and context-driven security (closest related work --
+%    Multilayer Specification Security Model -- needs explicit differentiation)
+
+\section{Problem Formulation}
+% TODO: formalize the knowledge-actuation gap, the function-vs-security
+% trade-off, and the regression problem as RQ1-RQ3, grounded in the
+% quantitative findings cited in Section I.
+
+\section{Proposed Framework}
+% TODO: one subsection per pipeline stage (context analyzer, CWE retriever,
+% contract synthesizer, oracle generator, guided generator, verifier,
+% bounded repair, regression guard), with the architecture figure.
+
+\section{Experimental Setup}
+% TODO: dataset/tasks, models, baselines, metrics.
+
+\section{Results and Analysis}
+% TODO: to be filled once experiments / pilot are run.
+
+\section{Threats to Validity}
+% TODO.
+
+\section{Conclusion and Future Work}
+% TODO.
+
+\section*{Acknowledgment}
+% TODO.
+
+\begin{thebibliography}{00}
+\bibitem{kharma2026} M. Kharma, S. Choi, M. AlKhanafseh, and D. Mohaisen,
+``Security and quality in LLM-generated code: A multi-language,
+multi-model analysis,'' 2026, arXiv:2502.01853. [Online]. Available:
+https://arxiv.org/abs/2502.01853
+
+\bibitem{sok2026} ``SoK: AI secure code generation: Progress, pitfalls, and
+paths forward,'' 2026, arXiv:2606.25195. [Online]. Available:
+https://arxiv.org/abs/2606.25195
+% TODO: verify author names from the published version.
+
+\bibitem{susvibes2026} ``Is vibe coding safe? Benchmarking vulnerability of
+agent-generated code in real-world tasks,'' 2026, arXiv:2512.03262.
+[Online]. Available: https://arxiv.org/abs/2512.03262
+% TODO: verify author names.
+
+\bibitem{secrepobench2026} ``SecRepoBench: Benchmarking code agents for
+secure code generation,'' 2026, arXiv:2504.21205. [Online]. Available:
+https://arxiv.org/abs/2504.21205
+% TODO: verify author names.
+
+\bibitem{scaffold2026} Y. Chen, Y. Bian, H. Wang, S. Li, and Z. Cui,
+``SCAFFOLD-CEGIS: Preventing latent security degradation in LLM-driven
+iterative code refinement,'' 2026, arXiv:2603.08520. [Online]. Available:
+https://arxiv.org/abs/2603.08520
+
+\bibitem{agentleague2026} ``Agent Security League: Evaluating the security
+of AI-coded software,'' Endor Labs, 2026. [Online]. Available:
+https://www.endorlabs.com/learn/agent-security-league-evaluating-the-security-of-ai-coded-software
+
+\bibitem{securecoder2026} ``Towards secure code generation with LLMs: A
+study on Common Weakness Enumeration,'' 2026.
+% TODO: locate arXiv / venue id and full author list.
+
+\bibitem{specdriven2026} O. Grynets, A. Salyk, V. Lyashkevych, O. Kaskun, and
+D. Zhuravchak, ``Specification-driven development benchmark: Security
+knowledge transition,'' 2026, arXiv:2606.00167. [Online]. Available:
+https://arxiv.org/abs/2606.00167
+
+\end{thebibliography}
+
+\end{document}
+
+
+
+section 2 - Related work version 
+
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Generating Secure and High-Quality Code with LLMs by Combining CWE Vulnerability Knowledge and Business Logic Understanding}
+
+% TODO: confirm university name, city, and emails (placeholders below).
+% Guide listed as per project abstract sheet; move to Acknowledgment instead
+% if your department does not list guides as co-authors on submitted papers.
+% NOTE: all four authors share one affiliation block below -- this is the
+% standard, reliably-rendering layout for same-affiliation IEEE authors.
+% If you later need separate affiliations, re-split into IEEEauthorblockN/A
+% pairs joined by \and, but keep each affiliation to 2 short lines or the
+% conference class can fail to balance the columns and stack them vertically.
+\author{
+\IEEEauthorblockN{
+Manda Bharath Kumar,
+Dileep Yarrabothula,
+Sai Prakash Avula,
+Dr. M Venu Gopalachari
+}
+\IEEEauthorblockA{
+\textit{Department of Information Technology} \\
+\textit{[University Name]} \\
+[City], India \\
+[email1], [email2], [email3], [email4]
+}
+}
+
+\maketitle
+
+\begin{abstract}
+Large language models are increasingly used to generate production code, yet
+large-scale measurement studies show this convenience carries a persistent
+security cost: a multi-language, multi-model analysis of five widely used
+LLMs found recurring, language-specific weaknesses such as improper
+cryptographic implementation, hardcoded credentials, and memory-safety
+violations, with models often ignoring secure language features already
+available to them. Subsequent CWE-guided mitigation frameworks reduce such
+weaknesses by retrieving relevant vulnerability knowledge during generation,
+but recent benchmarks reveal a deeper problem: even when models can
+correctly name the right security principle, they frequently fail to apply
+it at the correct location in the code, and agents that pass functional
+tests remain insecure on the majority of tasks. Security-aware prompting and
+iterative refinement do not reliably close this gap, and in several reported
+cases security-focused prompting reduces functional correctness, while
+deleted or weakened defenses go undetected by static analyzers across
+successive code changes. Moreover, existing mitigation approaches operate on
+the technical content of a task alone, remaining largely agnostic to the
+business logic and access-control expectations, such as ownership,
+authorization, and workflow invariants, that govern real-world software but
+are rarely stated explicitly in a prompt. This project proposes a
+verification-driven framework that synthesizes an explicit, traceable
+security and business-logic contract for a given development task from CWE
+knowledge, language-specific secure-coding idioms, and an inferred or
+developer-supplied business-context profile; generates code guided by this
+contract; and verifies each requirement with an executable check, including
+generated multi-identity authorization tests that target access-control
+flaws invisible to static scanners. A bounded, functionality-preserving
+repair step corrects verified failures without unbounded re-prompting or
+degrading correctness, and contract tests persist as a regression guard
+across subsequent feature changes. The framework is evaluated against
+raw-prompting, generic security-prompting, and CWE-only baselines on
+functional correctness, security-test pass rate, contract-requirement
+coverage, and the survival of earlier security guarantees as new features
+are added, with the aim of making LLM-generated code measurably closer to
+production-ready while reducing the manual verification burden on
+developers.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Large Language Models, Secure Code Generation, Common Weakness Enumeration,
+Business Logic Understanding, AI-Assisted Software Development, Code
+Security, Agentic Coding
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+The adoption of large language models (LLMs) for automated code generation
+has fundamentally reshaped software development practice, with developers
+increasingly relying on AI assistance not only for boilerplate code but for
+complete features, and in many cases entire applications generated through
+conversational, ``vibe-coding'' workflows. This shift promises substantial
+productivity gains, but it also changes where the cost of software defects
+falls: instead of a developer writing and reviewing their own logic, a
+developer must now review logic they did not write, often faster than they
+can meaningfully verify it. As LLM usage and inference cost continue to
+scale, the manual effort required to catch an AI assistant's mistakes,
+security flaws chief among them, becomes the binding constraint on how much
+of the development lifecycle can safely be delegated to AI. Reducing that
+verification burden, not merely reducing raw vulnerability counts in
+isolation, is therefore the practical problem this work addresses.
+
+Empirical evidence shows the problem is severe and is not improving
+proportionally with model capability. A multi-language, multi-model
+measurement study of five widely used LLMs found recurring,
+language-specific security weaknesses, including improper cryptographic
+implementation, hardcoded credentials, and memory-safety violations, with
+models frequently failing to use secure language features already available
+to them \cite{kharma2026}. More recent agent-level benchmarks sharpen the
+picture further: across thirteen agent-model combinations evaluated on
+real-world vulnerability-remediation tasks, 90.5\% of tasks were solved
+functionally but only 33.0\% securely \cite{agentleague2026}. On a separate
+benchmark isolating agent behavior on historical vulnerability fixes, the
+best-performing combination was correct and secure on just 10.5\% of tasks,
+meaning 82.8\% of its functionally correct solutions remained insecure
+\cite{susvibes2026}. Critically, naive mitigations do not close this gap and
+can actively worsen it: explicitly telling an agent which CWE to guard
+against reduced functional correctness without improving overall security
+\cite{susvibes2026}, and a systematic study across multiple secure-coding
+interventions found that models consistently \emph{know} the relevant
+security principle, scoring well above chance on direct knowledge probes,
+yet fail to apply it at the correct location in generated code, a
+phenomenon the authors term the ``knowledge--actuation gap'' \cite{sok2026}.
+
+A second, distinct line of work has sought to close this gap by grounding
+generation in structured vulnerability knowledge, most commonly the Common
+Weakness Enumeration (CWE) taxonomy, retrieving task-relevant CWE entries
+and steering generation toward documented mitigations
+\cite{securecoder2026}. Such CWE-guided approaches report meaningful
+reductions in vulnerability rates, but share two limitations relevant to
+this work. First, the guidance they retrieve is selected from the technical
+surface of the task alone, the code pattern being requested, with no
+representation of the business logic governing the system: who is
+authorized to perform an action, what ownership or workflow invariants must
+hold, what data is sensitive. Vulnerabilities in this class, such as broken
+object-level authorization, missing ownership checks, and workflow-rule
+violations, are defined by the absence of logic rather than the presence of
+a bad pattern, and are consequently invisible to CWE-pattern retrieval and
+to the static analyzers typically used to evaluate these methods. Second,
+existing evidence indicates that whatever security gains these methods
+achieve at the level of a single, isolated generation can erode across a
+realistic development sequence: security-aware prompting shows limited
+transfer from function-level to repository-level evaluation
+\cite{secrepobench2026}, and iterative, multi-turn refinement has been shown
+to degrade the security of previously generated code rather than improve
+it, with static analyzers failing to detect the regression
+\cite{scaffold2026}.
+
+This project addresses these three compounding gaps, the
+knowledge--actuation gap, the absence of business-logic-aware verification,
+and the degradation of security guarantees across iterative development,
+with a single framework. Rather than steering generation with retrieved CWE
+text alone, the proposed framework synthesizes an explicit,
+machine-checkable \emph{contract} for each development task, combining
+retrieved CWE mitigations, language-specific secure-coding idioms, and a
+structured business-context profile, covering roles, assets, trust
+boundaries, and invariants, either supplied by the developer or inferred
+from the task and existing codebase. Each contract requirement carries its
+own verification method, including, where static analysis is structurally
+blind, generated multi-identity behavioral tests that directly probe for
+missing authorization and workflow-invariant violations. Code is generated
+against this contract, verified in a sandboxed environment against
+functional tests, contract tests, and static scanners, and, when
+verification fails, repaired under a bounded, functionality-preserving
+procedure that is explicitly forbidden from altering code tied to
+already-satisfied requirements, directly targeting the
+correctness-regression trade-off observed in prior security-aware
+prompting. Finally, contract tests generated for one feature persist as a
+regression suite that is re-run before every subsequent feature is
+generated, directly targeting the cross-iteration degradation problem that
+static, single-shot evaluation cannot detect.
+
+The contributions of this work are:
+\begin{itemize}
+\item A structured, traceable contract-synthesis method that unifies CWE
+vulnerability knowledge with an explicit business-context profile, where
+every requirement carries an executable verification method rather than
+being left as unverified guidance text.
+\item A behavioral-oracle generation technique that targets business-logic
+and access-control vulnerabilities, such as broken object-level
+authorization, that are invisible to the static analyzers used in prior
+CWE-guided evaluation.
+\item A bounded, functionality-preserving repair procedure and persistent
+regression-testing mechanism, together targeting the
+security--functionality trade-off and the cross-iteration security
+degradation documented in recent agent-security literature.
+\item An evaluation methodology, contract-requirement coverage, security-test
+pass rate alongside functional correctness, and defense survival across a
+sequence of added features, that goes beyond the single-shot, function-level
+metrics used in most prior CWE-guided work.
+\end{itemize}
+
+The remainder of this paper is organized as follows. Section~II reviews
+related work on secure code generation, CWE-guided methods, and agent
+security benchmarks. Section~III formulates the problem and states the
+research questions this work targets. Section~IV presents the proposed
+framework in detail. Section~V describes the experimental setup. Section~VI
+reports results and analysis. Section~VII discusses threats to validity, and
+Section~VIII concludes with future work.
+
+\section{Related Work}
+
+\subsection{Measurement Studies of LLM Code Security}
+
+Large-scale measurement studies establish that insecure code generation is a
+persistent, cross-model property rather than an artifact of any single
+system. Kharma~\textit{et al.} \cite{kharma2026} evaluate five widely used
+LLMs across four programming languages on a manually vetted 200-task
+dataset, finding recurring, language-specific weaknesses, including
+cryptographic misuse, hardcoded credentials, and memory-safety violations,
+and show that security effectiveness does not track model size or recency.
+Industry telemetry corroborates this at production scale: an analysis of
+enterprise repositories reports that AI-assisted development increased
+commit frequency several-fold while security findings grew roughly
+tenfold over a comparable period, with the flaw mix shifting toward
+architectural and access-control issues rather than syntax errors
+\cite{csa2026}. This work treats \cite{kharma2026} as its base measurement
+study and extends it along the axis these measurement studies do not cover:
+why security guidance fails to translate into secure code, and how to make
+that translation verifiable.
+
+\subsection{Input- and Context-Steering Methods}
+
+A family of methods steers generation by retrieving relevant CWE knowledge
+at inference time. SecureCoder \cite{securecoder2026} maps a task to
+CWE-aligned security knowledge through multi-label classification and
+supplies the resulting guidance as generation constraints. MA-CoT
+\cite{macot2026} embeds task-specific CWE mitigation snippets and
+language-aware safeguards directly into a chain-of-thought prompt. BRACE
+\cite{brace2026} uses an auxiliary LLM call to identify task-relevant CWE
+risks, validates them against the official CWE catalog, and supplies
+canonical mitigation guidance to the target model. These methods share a
+common limitation directly relevant to this work: the CWE guidance they
+retrieve is selected from the technical surface of the task description
+alone. None represents business logic, such as ownership, authorization
+scope, or workflow invariants, and consequently none can guide generation
+toward defenses, like object-level authorization checks, whose omission is
+not visible in the task's technical surface at all.
+
+\subsection{Training, Alignment, and Constrained Decoding}
+
+A second family trains or constrains the model itself. SRCode
+\cite{srcode2026} applies token-level reinforcement-learning rewards,
+identifying secure and insecure tokens via a teacher model, and reports
+consistent gains on CWEval and CodeLMSec; the authors also report that
+vanilla PPO without this shaping reduces functional security performance,
+illustrating that naive reward design can be counterproductive. Constrained
+decoding approaches \cite{decoding2026} instead restrict the token
+distribution at generation time to exclude known-insecure patterns. These
+approaches require either a capable teacher model and substantial training
+infrastructure, or precise grammars per vulnerability class, both of which
+are outside the scope of a framework intended to work with arbitrary,
+off-the-shelf LLMs and IDE coding agents. This work treats model training as
+a complementary future direction, discussed in Section~VIII, rather than a
+precondition for the proposed framework.
+
+\subsection{Post-Generation Feedback and Repair}
+
+A third family generates, checks, and iteratively revises code.
+SCAFFOLD-CEGIS \cite{scaffold2026} is the most directly relevant: the
+authors show empirically that unconstrained, LLM-driven iterative
+refinement exhibits an \emph{iterative refinement paradox}, where security
+degrades across successive refinement rounds due to specification drift,
+and that naively adding static-analysis gating between iterations does not
+suppress this degradation and can increase it. Their proposed mitigation
+combines semantic security anchors, invariant checks, and a bounded diff
+budget to constrain revision. This finding directly motivates the bounded,
+functionality-preserving repair procedure in Section~IV: rather than
+permitting unconstrained re-prompting, repair in this work is explicitly
+forbidden from altering code already tied to a satisfied requirement, and
+is capped at a fixed number of rounds.
+
+\subsection{Benchmarks for Agentic and Repository-Level Secure Code Generation}
+
+Recent benchmarks evaluate coding agents, not just raw model completions,
+and consistently report a large gap between functional and secure success.
+Across thirteen agent-model combinations on real-world vulnerability tasks,
+90.5\% of tasks were solved functionally but only 33.0\% securely, and
+explicitly naming the target CWE to the agent did not improve security
+while reducing functional correctness \cite{agentleague2026}. LSCBench
+\cite{lscbench2026} evaluates three granularities of task scope and finds
+that 56.0\% of its tasks were secured by no evaluated model, and that
+additional agent turns did not improve security outcomes. SecRepoBench
+\cite{secrepobench2026} shows that security-aware prompting, effective at
+the function level, contributes almost no measurable gain at the
+repository level, and that a repair agent built for this setting fixed none
+of 43 insecure repository-scale completions. SecureVibeBench
+\cite{securevibebench2026} and EvoCode-Bench \cite{evocode2026} extend
+evaluation to multi-file and multi-turn settings respectively; the latter
+finds that regression, correct behavior breaking after a later edit, is a
+leading failure mode for top-tier agents, but does not evaluate regression
+of \emph{security} properties specifically. No benchmark surveyed couples
+regression analysis with a security oracle across a sequence of
+feature-adding tasks, which is the evaluation gap Section~V addresses.
+
+\subsection{Specification- and Context-Driven Security}
+
+The work closest in spirit to this proposal is the Specification-Driven
+Development Benchmark \cite{specdriven2026}, which introduces a Multilayer
+Specification Security Model linking system entities, threats, risks, and
+controls, and a Security Knowledge Transition Method that converts business
+and technical specifications into a security-enriched generation contract.
+Against a hidden 221-test API suite, the authors report failures falling
+from 50 under a no-security baseline to 42 under ASVS conditioning and 36
+under their model, with the largest gains in business-logic and
+admin-safety categories, directly corroborating that explicit business
+context improves generation outcomes beyond CWE guidance alone. This work
+differs in three respects. First, \cite{specdriven2026} evaluates
+generation as a single conditioned pass against a fixed hidden suite; this
+work instead generates an executable, task-specific oracle, including
+multi-identity authorization tests, as part of the contract itself, rather
+than relying solely on a separate held-out test suite. Second,
+\cite{specdriven2026} does not report a repair mechanism; failing
+generations are not revised under an explicit functionality-preserving
+constraint. Third, \cite{specdriven2026} evaluates single-pass generation
+only; it does not address the degradation of security guarantees across a
+sequence of feature additions, which Section~IV's regression guard and
+Section~V's defense-survival metric are designed to measure.
+
+\section{Problem Formulation}
+% TODO: formalize the knowledge-actuation gap, the function-vs-security
+% trade-off, and the regression problem as RQ1-RQ3, grounded in the
+% quantitative findings cited in Section I.
+
+\section{Proposed Framework}
+% TODO: one subsection per pipeline stage (context analyzer, CWE retriever,
+% contract synthesizer, oracle generator, guided generator, verifier,
+% bounded repair, regression guard), with the architecture figure.
+
+\section{Experimental Setup}
+% TODO: dataset/tasks, models, baselines, metrics.
+
+\section{Results and Analysis}
+% TODO: to be filled once experiments / pilot are run.
+
+\section{Threats to Validity}
+% TODO.
+
+\section{Conclusion and Future Work}
+% TODO.
+
+\section*{Acknowledgment}
+% TODO.
+
+\begin{thebibliography}{00}
+\bibitem{kharma2026} M. Kharma, S. Choi, M. AlKhanafseh, and D. Mohaisen,
+``Security and quality in LLM-generated code: A multi-language,
+multi-model analysis,'' 2026, arXiv:2502.01853. [Online]. Available:
+https://arxiv.org/abs/2502.01853
+
+\bibitem{sok2026} ``SoK: AI secure code generation: Progress, pitfalls, and
+paths forward,'' 2026, arXiv:2606.25195. [Online]. Available:
+https://arxiv.org/abs/2606.25195
+% TODO: verify author names from the published version.
+
+\bibitem{susvibes2026} ``Is vibe coding safe? Benchmarking vulnerability of
+agent-generated code in real-world tasks,'' 2026, arXiv:2512.03262.
+[Online]. Available: https://arxiv.org/abs/2512.03262
+% TODO: verify author names.
+
+\bibitem{secrepobench2026} ``SecRepoBench: Benchmarking code agents for
+secure code generation,'' 2026, arXiv:2504.21205. [Online]. Available:
+https://arxiv.org/abs/2504.21205
+% TODO: verify author names.
+
+\bibitem{scaffold2026} Y. Chen, Y. Bian, H. Wang, S. Li, and Z. Cui,
+``SCAFFOLD-CEGIS: Preventing latent security degradation in LLM-driven
+iterative code refinement,'' 2026, arXiv:2603.08520. [Online]. Available:
+https://arxiv.org/abs/2603.08520
+
+\bibitem{agentleague2026} ``Agent Security League: Evaluating the security
+of AI-coded software,'' Endor Labs, 2026. [Online]. Available:
+https://www.endorlabs.com/learn/agent-security-league-evaluating-the-security-of-ai-coded-software
+
+\bibitem{securecoder2026} ``Towards secure code generation with LLMs: A
+study on Common Weakness Enumeration,'' 2026.
+% TODO: locate arXiv / venue id and full author list.
+
+\bibitem{specdriven2026} O. Grynets, A. Salyk, V. Lyashkevych, O. Kaskun, and
+D. Zhuravchak, ``Specification-driven development benchmark: Security
+knowledge transition,'' 2026, arXiv:2606.00167. [Online]. Available:
+https://arxiv.org/abs/2606.00167
+
+\bibitem{csa2026} ``CSA research note: AI-generated code vulnerability
+surge,'' Cloud Security Alliance, 2026. [Online]. Available:
+https://labs.cloudsecurityalliance.org/research/csa-research-note-ai-generated-code-vulnerability-surge-2026/
+
+\bibitem{macot2026} ``Enhancing reliability in LLM-based secure code
+generation,'' 2026, arXiv:2605.24300. [Online]. Available:
+https://arxiv.org/abs/2605.24300
+% TODO: verify author names.
+
+\bibitem{brace2026} ``Activating latent security knowledge through
+LLM-guided risk analysis for secure code generation,'' 2026,
+arXiv:2606.16244. [Online]. Available: https://arxiv.org/abs/2606.16244
+% TODO: verify author names.
+
+\bibitem{srcode2026} ``Learning to generate secure code via token-level
+rewards,'' 2026, arXiv:2602.23407. [Online]. Available:
+https://arxiv.org/abs/2602.23407
+% TODO: verify author names.
+
+\bibitem{decoding2026} ``Constrained decoding for secure code generation,''
+2024, arXiv:2405.00218. [Online]. Available:
+https://arxiv.org/abs/2405.00218
+% TODO: verify author names.
+
+\bibitem{lscbench2026} ``The last secure code benchmark: Is the code you
+vibe secure?'' 2026, arXiv:2610.14766. [Online]. Available:
+https://arxiv.org/abs/2610.14766
+% TODO: verify author names.
+
+\bibitem{securevibebench2026} ``SecureVibeBench: Benchmarking secure vibe
+coding,'' 2026. [Online]. Available:
+https://aclanthology.org/2026.acl-long.1107.pdf
+% TODO: verify author names.
+
+\bibitem{evocode2026} ``EvoCode-Bench: Evaluating coding agents in
+multi-turn iterative interactions,'' 2026, arXiv:2605.24110. [Online].
+Available: https://arxiv.org/abs/2605.24110
+% TODO: verify author names.
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793009018-r9UHsBpbn4HXxema08Cl",
+  "finish_reason": "stop",
+  "input_tokens": 644,
+  "output_tokens": 231,
+  "cost_usd": 0.0001799,
+  "raw_response": {
+    "id": "gen-1793009018-r9UHsBpbn4HXxema08Cl",
+    "object": "chat.completion",
+    "created": 1793009018,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "**Output:** Java source file with a class and a method that takes the array and returns the index.\n\npublic class Solution {\n    public static int findEvenIndex(int[] arr) {\n        long total = 0;\n        for (int v : arr) {\n            total += v;\n        }\n        long left = 0;\n        for (int i = 0; i < arr.length; i++) {\n            long right = total - left - arr[i];\n            if (left == right) {\n                return i;\n            }\n            left += arr[i];\n        }\n        return -1;\n    }\n\n    public static void main(String[] args) {\n        int[] arr = {1, 2, 3, 4, 3, 2, 1};\n        System.out.println(findEvenIndex(arr));\n    }\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 644,
+      "completion_tokens": 231,
+      "total_tokens": 875,
+      "cost": 0.0001799,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001799,
+        "upstream_inference_prompt_cost": 6.44e-05,
+        "upstream_inference_completions_cost": 0.0001155
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

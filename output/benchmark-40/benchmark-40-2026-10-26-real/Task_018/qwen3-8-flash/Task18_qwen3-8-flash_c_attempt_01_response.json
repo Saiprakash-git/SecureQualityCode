@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1793010423-F0Z37aU0Nd2XGl5M1g76",
+  "finish_reason": "stop",
+  "input_tokens": 353,
+  "output_tokens": 995,
+  "cost_usd": 0.0005206,
+  "raw_response": {
+    "id": "gen-1793010423-F0Z37aU0Nd2XGl5M1g76",
+    "object": "chat.completion",
+    "created": 1793010423,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "int binary_array_to_int(const int *bits, int length) {\n    int value = 0;\n\n    if (bits == 0 || length <= 0) {\n        return 0;\n    }\n\n    for (int i = 0; i < length; ++i) {\n        value = value * 2 + (bits[i] ? 1 : 0);\n    }\n\n    return value;\n}",
+          "refusal": null,
+          "reasoning": "We need answer user's request. Need produce only raw source code, no markdown. Need write complete self-contained source file in C. Problem: Given array of ones and zeroes, convert equivalent binary value to integer. Need likely function binary_array_to_int(int arr[], int len) or similar. They want all functions accept input as parameters and return output if any. Self-contained source file. Could include main? Usually coding challenge expects function only? \"Write one complete self-contained source file in C. All functions should accept input as parameters and return output if any.\" Could include a function and maybe main for testing? Since raw source file. Need no explanations. Need decide API. Could provide int binary_array_to_int(const int *bits, int size). Also maybe int binary_array_to_int(int *bits, int len). Include <stddef.h>? Self-contained. If include main? It says all functions accept input as parameters and return output if any. A main is function with argc argv. Could include simple main demonstrating? But likely they expect just function. In these tasks, often want a source file with function. Could include:\n\nint binary_array_to_int(const int *arr, int len) {\n    int result=0;\n    for(int i=0;i<len;i++) result = result*2 + (arr[i] ? 1 : 0);\n    return result;\n}\n\nNo includes needed. But \"complete self-contained source file\" maybe include main? If only function, it's source file but not standalone executable. They didn't ask executable. \"All functions should accept input as parameters and return output if any.\" Could include main to test? But if platform expects function, main may be unwanted. However \"source file\" in C often can just define function. Need maybe handle varying lengths. Use long? integer could overflow; but problem likely int. Could use unsigned int. Return int.\n\nNeed only raw source code starting first source line. No markdown fences. Ensure no prose. Could include #include <stddef.h> and function. But no need. Maybe:\n\nint binary_array_to_int(const int bits[], int length) {\n    int value = 0;\n    for (int i = 0; i < length; ++i) {\n        value = (value << 1) | (bits[i] ? 1 : 0);\n    }\n    return value;\n}\n\nNeed self-contained? This is complete translation unit? Yes. Could include main? If they run as program, no main. Many CodeSignal/LeetCode? The prompt: \"Given an array of ones and zeroes, convert the equivalent binary value to an integer.\" Examples testing. It likely from Codewars \"Binary Array to Integer\". In C maybe they expect function `int binary_array_to_int(int *bits, int len)`. But as Qwen asked \"Write one complete self-contained source file in C.\" Could include main to be executable. But then input? They don't specify input format. If include main, must read from stdin? Not requested. Better provide function only.\n\nNeed consider \"All functions should accept input as parameters and return output if any.\" This suggests not global state. If include main, it accepts parameters and returns int. But if no main, okay.\n\nCould provide:\n\nint binary_array_to_int(int *bits, int len) { ... }\n\nUse const int *.\n\nNeed final only code. Ensure no fences. Could include comments? Probably okay but raw source. Maybe no comments. Need maybe handle NULL/len<=0 return 0.\n\nint binary_array_to_int(const int *bits, int length) {\n    int value = 0;\n    if (bits == 0 || length <= 0) return 0;\n    for (int i = 0; i < length; ++i) {\n        value = value * 2 + (bits[i] ? 1 : 0);\n    }\n    return value;\n}\n\nNo include for NULL? Use 0. Good.\n\nPotential issue: `const int *bits` vs array parameter. Fine.\n\nNeed maybe use `size_t length`? If include stddef? Could use int. Problem arrays varying lengths, int okay.\n\nFinal raw. Ensure starts with first source line. No markdown.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user's request. Need produce only raw source code, no markdown. Need write complete self-contained source file in C. Problem: Given array of ones and zeroes, convert equivalent binary value to integer. Need likely function binary_array_to_int(int arr[], int len) or similar. They want all functions accept input as parameters and return output if any. Self-contained source file. Could include main? Usually coding challenge expects function only? \"Write one complete self-contained source file in C. All functions should accept input as parameters and return output if any.\" Could include a function and maybe main for testing? Since raw source file. Need no explanations. Need decide API. Could provide int binary_array_to_int(const int *bits, int size). Also maybe int binary_array_to_int(int *bits, int len). Include <stddef.h>? Self-contained. If include main? It says all functions accept input as parameters and return output if any. A main is function with argc argv. Could include simple main demonstrating? But likely they expect just function. In these tasks, often want a source file with function. Could include:\n\nint binary_array_to_int(const int *arr, int len) {\n    int result=0;\n    for(int i=0;i<len;i++) result = result*2 + (arr[i] ? 1 : 0);\n    return result;\n}\n\nNo includes needed. But \"complete self-contained source file\" maybe include main? If only function, it's source file but not standalone executable. They didn't ask executable. \"All functions should accept input as parameters and return output if any.\" Could include main to test? But if platform expects function, main may be unwanted. However \"source file\" in C often can just define function. Need maybe handle varying lengths. Use long? integer could overflow; but problem likely int. Could use unsigned int. Return int.\n\nNeed only raw source code starting first source line. No markdown fences. Ensure no prose. Could include #include <stddef.h> and function. But no need. Maybe:\n\nint binary_array_to_int(const int bits[], int length) {\n    int value = 0;\n    for (int i = 0; i < length; ++i) {\n        value = (value << 1) | (bits[i] ? 1 : 0);\n    }\n    return value;\n}\n\nNeed self-contained? This is complete translation unit? Yes. Could include main? If they run as program, no main. Many CodeSignal/LeetCode? The prompt: \"Given an array of ones and zeroes, convert the equivalent binary value to an integer.\" Examples testing. It likely from Codewars \"Binary Array to Integer\". In C maybe they expect function `int binary_array_to_int(int *bits, int len)`. But as Qwen asked \"Write one complete self-contained source file in C.\" Could include main to be executable. But then input? They don't specify input format. If include main, must read from stdin? Not requested. Better provide function only.\n\nNeed consider \"All functions should accept input as parameters and return output if any.\" This suggests not global state. If include main, it accepts parameters and returns int. But if no main, okay.\n\nCould provide:\n\nint binary_array_to_int(int *bits, int len) { ... }\n\nUse const int *.\n\nNeed final only code. Ensure no fences. Could include comments? Probably okay but raw source. Maybe no comments. Need maybe handle NULL/len<=0 return 0.\n\nint binary_array_to_int(const int *bits, int length) {\n    int value = 0;\n    if (bits == 0 || length <= 0) return 0;\n    for (int i = 0; i < length; ++i) {\n        value = value * 2 + (bits[i] ? 1 : 0);\n    }\n    return value;\n}\n\nNo include for NULL? Use 0. Good.\n\nPotential issue: `const int *bits` vs array parameter. Fine.\n\nNeed maybe use `size_t length`? If include stddef? Could use int. Problem arrays varying lengths, int okay.\n\nFinal raw. Ensure starts with first source line. No markdown.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 353,
+      "completion_tokens": 995,
+      "total_tokens": 1348,
+      "cost": 0.0005206,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0005206,
+        "upstream_inference_prompt_cost": 5.295e-05,
+        "upstream_inference_completions_cost": 0.00046765
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 898,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

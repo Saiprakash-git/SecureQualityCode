@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793008289-scgYG8Gg7eCKzMMtkmMN",
+  "finish_reason": "stop",
+  "input_tokens": 185,
+  "output_tokens": 193,
+  "cost_usd": 0.000115,
+  "raw_response": {
+    "id": "gen-1793008289-scgYG8Gg7eCKzMMtkmMN",
+    "object": "chat.completion",
+    "created": 1793008289,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "public class Solution {\n    public static String oddOrEven(int[] array) {\n        int parity = 0;\n        for (int value : array) {\n            parity ^= value & 1;\n        }\n        return parity == 0 ? \"even\" : \"odd\";\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Implementing a Java function**\n\nI need to output a complete Java source that includes a function for a code challenge. The function should be in a class called `Solution` with the method `public static String oddOrEven(int[] array)`. It's essential to consider the empty array case as [0], and also how the parity of the sum works. I\u2019ll need to manage potential overflow by using long, but since parity isn't lost with int either, I think I can stick with that. I should ensure to return the expected outcome clearly!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Implementing a Java function**\n\nI need to output a complete Java source that includes a function for a code challenge. The function should be in a class called `Solution` with the method `public static String oddOrEven(int[] array)`. It's essential to consider the empty array case as [0], and also how the parity of the sum works. I\u2019ll need to manage potential overflow by using long, but since parity isn't lost with int either, I think I can stick with that. I should ensure to return the expected outcome clearly!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3yKk6CaBYmhX7HNWOY-G8pEuZ9siBcRKkVC_j9eCd0ZOeTwfCKXmWeei13INr847l6WSrP9AeuSYOOFmfmWSG29U2zb8fST_SG6y9kMTZWmGJqeGZHBbYVZGeWMLyv1w3QX0VWoEl3xxKqHcoLX3GzBzy_FpnNsGx5wqzY4wC0iGa5gNdw-hada4lGnoP7UmyZYIMoJAzDmi4g4EHBgYgvoOnICx_C7vqUAddo4RMJLZLfmiO-rImhV0AJ9D5U8cvsT3NTdSJx28zKbswcfNRu7E92EL3gUBeOPiD6ITsHiqGYEjLxiT-v7V-GXB8cu8akAsaYj62tf8ZX6meTSz-35VStU4gUYsEACHg3nn84G9qikDOWo6qPFUV4XElLLeexKbOt1DkZELNyQ3dvicyqwdw4rgLJaIxNoDENOxGyCvLKFrRbZslzQawkoU_ipYtgtdmUEXfs1TFaSooPZ3mWLGnUdc6ZFz7OJIf1mCzIfpbADP2m7ZugbNbNpv5NCxUsD9-RBnTFKawPRs3ZxE1gCGOe6jJYy7P5tT0TtXy84yP2OKlS4V5NQSLRAIwthzeJXwcidq9O6x3U9bnbFdCQulioKo0JXA1zHmUK_go3FInbTbh8lfE76plq9qDvbQk6INiaWuJoK76dHGErqcnxLU71l4avndPLUWPPTythLg1KsiuzINAQQp3unVzxmxj91bK6CE_-5LOXrsYiQJtvPc3FHbsEgTpshI15mETwhBT81ZQt7qKL2_cHmW-btvhStEAdIxU0WTy8_HFxx5zf_VbS8JJgh-T9-R8MYccLxaQ6HE1QUFIAUIKtTI_3QJY0m6IhAvYhLUNv8ihsH4kj8PaJl1acjSgRQanadCc-XO9bGS0E7USiUyvJwN_LSlU7bSivuGWJOHCc7qUx-CjMq44FReeH330y7upVmXcWzXU8fBwZHkEYohgC5RygxFERcab_THRzeeu62I0sovrlqSxTp-94cZuoEETEST3fobz2ywvygLOvIR5aOJ-NKwYrG18c_MDT2sckCrUsQPfuKbGjR05eAwN51YrMrcUUA430YF9sIsdLbdqehge3RYTCwQdSFkEbxTIbc_NzklXk196nIsuoHI1l4A8hvtXop56ZCXRZbIuZ4cAZ4fQRnGlHymeKlOT2CU3il3EcSLXsO5csF5J8CNiO55qk5_TLmgiev8UpxSLlkM_1q-pWmQCR8_CeOmu1r_8ix7tsItga5njEKUAjJYl0i2pj0hNfbrI3QpYfi89JQm6MTKuHj7UWdQZj36sRMt71NvNLpa8aHE-1cl0sp9OrancqYdyrWQdTZXZlVSgvS8PFtzh94L2moUnGB8C-D1IkPNTrFE4JpZ7nocycLeHaZi_LRTflIw5q918ARKHHWEG7ClGhq_fRcWqbx4LIrzZz9jQyYPcly3zTeQCSw2w8CdJbNfrqzDwtkAx5QZudHHI3PZXytkx8YQohiJ2fvTT3atFMhdW7o0k5pZTie5FxrFXHRVSURZtNMJbHBpiWqD1BbojefFQYd_6uIrklxP1lg82UTcLKaelJsRgmkGIxftXSDdgAlhTy2c3eO-4NMXFtDUvI3Nn5JvwaOOVmmyE_i47CK7hscNouGkMYU8dm4wdlF9ZC69PC1Klni-ReTc1l3VxgCfC2Jn4Yzk6R0HhNJUz7zp3ChevZ0xSpBjuoJojNKd216k7tSc0jSJJ0C_yT2zA2hJBZ7wkciK3Rz5a4Aqve7MxR6nuglT-XwNucuBDnYCXrJrE9TchCIutzN2BJ1uWum8ZzVFf8AaRx7Ck1lBYaDuvyNGCOxXyqgLMLivkVd1kTNvDE1aNW75X_WWbjiIFArwslwCuvjgPQDe42Wwaw0sQvuiaoXrNz__3NO3PBnqy_Hc5BM2kVoTrVoDY_9ZMLYLsxUYjcVRTf1O59CTjAycpLPtJbkxg1YFa6go-7UNPLq-1MLOo5tiGnWU5N0fH4ZFS7goCMUaYVzXUeExVQqG94Z1UaAzQc8SZvMbEMfPENUL2d1cm4yr1Qwde5S6uq0Jika_gmCJpKYDOilt5Aq7re24xeuRpxhmN3GSsHKlRr_B6ZZafaODw7L-PJgC9A4QyriqWFG1vjg0dB0L3a1IzzxCyxwBP1Ig8R9kKBGQWjaxWhRtctcH5BoKlSiTHKG93OsrRMA_5sZ-2-IxWgS4JHo26oSCpLRpkxgdI2WvnEWDvC1eeLVloUWIOszDgbOslHYiGoZmmgVuZXJcUhUs3cKWWZy599H7Gn5UIlLCHEnCVrtx666BvKvuHvjd6lBedE0rf3O7vd6DQorU_-7VJ1d6KDQRAA6p9AQ3PlnS3BpM5kOVhWL-oQ8E16BMci-UmaTXaNl4jOKhLkqX_Z_5eU50yvIs4b6AhSalYUWD2efOBEfphlhozB0QvPMqKtYAUVFy7aoqFAzxe8QvtEsbJ8tGfyvJ6ZyHriX6O44oquVlllaEQiNRtKxwwVgynw2Tu0VNxy9idcL0XVYLNuYeSsH0yKmbW6StIsrqEfin_9Impvkh5qcRkWgwPKtDoP7-w6aNOQyAwm-xTPq0uxjZmfvTR8Bkf7PA_8SFtFgmKg3mtuRwXblmrKGCG8JtKDgOaelmKw_MCGRUPcTf2Q79cEY6KieKsPWgBf6TNs7nMN6YM1OtR1mAxc40guwlftTY9Qc0_NwtRyq_QjCQ4cjCjZO9__UASuueLqMGgP6Ze2aOERQ2oa0qaExoR1_3LHBMk_sBaWbvRh5bte7wQ-zSZWikFiuQL1f0Q_VK5j5hy0KE9iUWSjPkw-kFkIRJWXhHdboZrO2R2-kZ8t69TZVrjGb8h5bmZn2xalVN9_lwpCszwlY_Y12aDcIccn2Qno-NpUHkD-_wKU-QBFsf3ckiimksbxGq5tNlf4I6VSh3Be-CIJ50MP_Rt1_IL3AdnRC464eBViz3DLjJBXrwFfdKuf02lWR7cBybX_N8HDHhM4fAdWiyY3WqHKJsWBzoE8DluZPyPfu6GEGxFqLzc-rLEOkMo3Qu9gj3C_bkg5FwToMaCJ9vr1ZGrVFQWGy6izHhsPPV4d-cItVVcp2KqJsoq-uOjOrhx9RZOzwYkn7fARJWLfNbCv01YQjS1D0sozGkswJla2WXAbg2MPJNsdMIVzs5uPvaiIRK9km3C7_FFEkmSWZvmATObEtBxtHdQbB1rZr9FV9sbuXRUl0N3_e-t0j3O4Aa8figDbmACF_ZF_GepVcCZDJbYTnuZp7xsmZ2lNCxEfwCFXQ3ButZznZTqDr9Zg==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_016366f815f129ef016adf22a1fb7487d1850e5a4646086c3d",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 185,
+      "completion_tokens": 193,
+      "total_tokens": 378,
+      "cost": 0.000115,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000115,
+        "upstream_inference_prompt_cost": 1.85e-05,
+        "upstream_inference_completions_cost": 9.65e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 128,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,16 @@
+{
+  "run_id": "benchmark-40-2026-10-26-real",
+  "end_time": "20261026_155923",
+  "tasks_attempted": 160,
+  "planned_combinations": 800,
+  "tasks_success": 152,
+  "tasks_error": 8,
+  "total_input_tokens": 53164,
+  "total_output_tokens": 299669,
+  "start_combination": 1,
+  "prior_spend_usd": 1.460938,
+  "total_cost_usd": 2.080105,
+  "stopped_early": true,
+  "budget_note": "A single in-flight request may exceed the remaining budget.",
+  "dry_run": false
+}

@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793010390-HBXmypENDSpuipuG9wNw",
+  "finish_reason": "stop",
+  "input_tokens": 300,
+  "output_tokens": 1284,
+  "cost_usd": 0.00504,
+  "raw_response": {
+    "id": "gen-1793010390-HBXmypENDSpuipuG9wNw",
+    "object": "chat.completion",
+    "created": 1793010390,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stddef.h>\n\nunsigned binary_array_to_num(const unsigned *bits, size_t count) {\n    unsigned result = 0;\n    for (size_t i = 0; i < count; i++) {\n        result = (result << 1) | bits[i];\n    }\n    return result;\n}\n\nint main(void) {\n    const unsigned test1[] = {0, 0, 0, 1};\n    const unsigned test2[] = {0, 0, 1, 0};\n    const unsigned test3[] = {0, 1, 0, 1};\n    const unsigned test4[] = {1, 0, 0, 1};\n    const unsigned test5[] = {0, 1, 1, 0};\n    const unsigned test6[] = {1, 1, 1, 1};\n    const unsigned test7[] = {1, 0, 1, 1};\n\n    printf(\"%u\\n\", binary_array_to_num(test1, sizeof(test1) / sizeof(test1[0])));\n    printf(\"%u\\n\", binary_array_to_num(test2, sizeof(test2) / sizeof(test2[0])));\n    printf(\"%u\\n\", binary_array_to_num(test3, sizeof(test3) / sizeof(test3[0])));\n    printf(\"%u\\n\", binary_array_to_num(test4, sizeof(test4) / sizeof(test4[0])));\n    printf(\"%u\\n\", binary_array_to_num(test5, sizeof(test5) / sizeof(test5[0])));\n    printf(\"%u\\n\", binary_array_to_num(test6, sizeof(test6) / sizeof(test6[0])));\n    printf(\"%u\\n\", binary_array_to_num(test7, sizeof(test7) / sizeof(test7[0])));\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Converting Binary to Integer**\n\nI'm focusing on translating binary arrays to their integer equivalents in C. My current task is to develop a robust C function that can handle binary representations of varying lengths.\n\n**Developing Conversion Function**\n\nI'm working on a C function to convert binary arrays to integers. My plan is to create a self-contained file with the conversion logic and a `main` function for testing. The core of the conversion will involve iterating and bitwise operations to build the integer value.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Converting Binary to Integer**\n\nI'm focusing on translating binary arrays to their integer equivalents in C. My current task is to develop a robust C function that can handle binary representations of varying lengths.\n\n**Developing Conversion Function**\n\nI'm working on a C function to convert binary arrays to integers. My plan is to create a self-contained file with the conversion logic and a `main` function for testing. The core of the conversion will involve iterating and bitwise operations to build the integer value.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 300,
+      "completion_tokens": 1284,
+      "total_tokens": 1584,
+      "cost": 0.00504,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00504,
+        "upstream_inference_prompt_cost": 0.000225,
+        "upstream_inference_completions_cost": 0.004815
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 816,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

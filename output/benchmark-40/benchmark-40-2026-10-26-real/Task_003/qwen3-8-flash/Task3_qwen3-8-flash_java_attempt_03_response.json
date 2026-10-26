@@ -1,0 +1,66 @@
+{
+  "attempt": 3,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1793008097-fdBPoeuWzU8fmI2CFe1S",
+  "finish_reason": "stop",
+  "input_tokens": 254,
+  "output_tokens": 770,
+  "cost_usd": 0.0004,
+  "raw_response": {
+    "id": "gen-1793008097-fdBPoeuWzU8fmI2CFe1S",
+    "object": "chat.completion",
+    "created": 1793008097,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "import java.io.BufferedReader;\nimport java.io.InputStreamReader;\n\npublic class Main {\n    public static boolean isPangram(String input) {\n        if (input == null) {\n            return false;\n        }\n\n        int mask = 0;\n\n        for (int i = 0; i < input.length(); i++) {\n            char c = input.charAt(i);\n\n            if (c >= 'a' && c <= 'z') {\n                mask |= 1 << (c - 'a');\n            } else if (c >= 'A' && c <= 'Z') {\n                mask |= 1 << (c - 'A');\n            }\n        }\n\n        return mask == (1 << 26) - 1;\n    }\n\n    public static void main(String[] args) throws Exception {\n        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));\n        String input = reader.readLine();\n        System.out.println(isPangram(input));\n    }\n}",
+          "refusal": null,
+          "reasoning": "We need answer user's request: return ONLY raw source code, no markdown fences, no explanations. Need write Java program to solve pangram. Need likely class Main? They ask one complete self-contained source file in JAVA. All functions should accept input as parameters and return output if any. Need detect whether string is pangram. Could provide public class Main with static boolean isPangram(String s). Maybe also main method? They say program, self-contained source file. In many coding platforms expect class Main and main reading input? But instruction: functions accept input as parameters and return output. Could include main that reads line and prints true/false? Need likely safe. Need only raw source. No fences. Ensure valid Java.\n\nNeed think about edge cases: ignore numbers/punctuation, case irrelevant. Use boolean[26], loop chars, if 'A' to 'Z' or 'a' to 'z', mark. Count unique. Return count==26. Could use bitmask. For Java source file, public class Main.\n\nPotential issue if no input? main can read line, if null print false. But problem maybe expects function only? They say program. Include main.\n\nNeed final only source code. No markdown. Ensure no package.\n\nCould implement:\nimport java.io.*;\nimport java.util.*;\n\npublic class Main {\n    public static boolean isPangram(String input) {\n        if (input == null) return false;\n        int mask = 0;\n        for (int i=0; i<input.length(); i++) {\n            char c = input.charAt(i);\n            if (c >= 'a' && c <= 'z') mask |= 1 << (c - 'a');\n            else if (c >= 'A' && c <= 'Z') mask |= 1 << (c - 'A');\n        }\n        return mask == (1 << 26) - 1;\n    }\n    public static void main(String[] args) throws Exception {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line = br.readLine();\n        System.out.println(isPangram(line));\n    }\n}\n\nNeed maybe if input contains multiple lines? Pangram sentence could be one line. If read all stdin? Could read entire input to handle spaces/newlines. But line enough. Maybe robust: read all bytes from System.in, trim? If pangram includes newline? We can read all input as string. But if multiple test cases? Not specified. Keep simple.\n\nCould avoid imports? Use java.io.*.\n\nNeed final raw. Ensure no comments? okay.\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user's request: return ONLY raw source code, no markdown fences, no explanations. Need write Java program to solve pangram. Need likely class Main? They ask one complete self-contained source file in JAVA. All functions should accept input as parameters and return output if any. Need detect whether string is pangram. Could provide public class Main with static boolean isPangram(String s). Maybe also main method? They say program, self-contained source file. In many coding platforms expect class Main and main reading input? But instruction: functions accept input as parameters and return output. Could include main that reads line and prints true/false? Need likely safe. Need only raw source. No fences. Ensure valid Java.\n\nNeed think about edge cases: ignore numbers/punctuation, case irrelevant. Use boolean[26], loop chars, if 'A' to 'Z' or 'a' to 'z', mark. Count unique. Return count==26. Could use bitmask. For Java source file, public class Main.\n\nPotential issue if no input? main can read line, if null print false. But problem maybe expects function only? They say program. Include main.\n\nNeed final only source code. No markdown. Ensure no package.\n\nCould implement:\nimport java.io.*;\nimport java.util.*;\n\npublic class Main {\n    public static boolean isPangram(String input) {\n        if (input == null) return false;\n        int mask = 0;\n        for (int i=0; i<input.length(); i++) {\n            char c = input.charAt(i);\n            if (c >= 'a' && c <= 'z') mask |= 1 << (c - 'a');\n            else if (c >= 'A' && c <= 'Z') mask |= 1 << (c - 'A');\n        }\n        return mask == (1 << 26) - 1;\n    }\n    public static void main(String[] args) throws Exception {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line = br.readLine();\n        System.out.println(isPangram(line));\n    }\n}\n\nNeed maybe if input contains multiple lines? Pangram sentence could be one line. If read all stdin? Could read entire input to handle spaces/newlines. But line enough. Maybe robust: read all bytes from System.in, trim? If pangram includes newline? We can read all input as string. But if multiple test cases? Not specified. Keep simple.\n\nCould avoid imports? Use java.io.*.\n\nNeed final raw. Ensure no comments? okay.\n",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 254,
+      "completion_tokens": 770,
+      "total_tokens": 1024,
+      "cost": 0.0004,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0004,
+        "upstream_inference_prompt_cost": 3.81e-05,
+        "upstream_inference_completions_cost": 0.0003619
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 552,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

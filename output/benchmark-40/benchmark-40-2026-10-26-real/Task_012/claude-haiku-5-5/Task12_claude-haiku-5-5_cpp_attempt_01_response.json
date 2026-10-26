@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793008908-23fj220nWfaS8E1igcHA",
+  "finish_reason": "stop",
+  "input_tokens": 274,
+  "output_tokens": 235,
+  "cost_usd": 0.0001449,
+  "raw_response": {
+    "id": "gen-1793008908-23fj220nWfaS8E1igcHA",
+    "object": "chat.completion",
+    "created": 1793008908,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <sstream>\n#include <string>\n\nstd::string high(const std::string& s) {\n    std::istringstream iss(s);\n    std::string word;\n    std::string best;\n    int bestScore = -1;\n    while (iss >> word) {\n        int score = 0;\n        for (char c : word) {\n            if (c >= 'a' && c <= 'z') {\n                score += c - 'a' + 1;\n            }\n        }\n        if (score > bestScore) {\n            bestScore = score;\n            best = word;\n        }\n    }\n    return best;\n}\n\nint main() {\n    std::string line;\n    std::getline(std::cin, line);\n    std::cout << high(line) << std::endl;\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 274,
+      "completion_tokens": 235,
+      "total_tokens": 509,
+      "cost": 0.0001449,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001449,
+        "upstream_inference_prompt_cost": 2.74e-05,
+        "upstream_inference_completions_cost": 0.0001175
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

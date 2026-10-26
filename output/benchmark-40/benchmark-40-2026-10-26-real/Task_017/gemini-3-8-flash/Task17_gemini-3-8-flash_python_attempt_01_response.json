@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793009728-gc1i2DVwavFNl4XgXBgi",
+  "finish_reason": "stop",
+  "input_tokens": 319,
+  "output_tokens": 744,
+  "cost_usd": 0.00302925,
+  "raw_response": {
+    "id": "gen-1793009728-gc1i2DVwavFNl4XgXBgi",
+    "object": "chat.completion",
+    "created": 1793009728,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "def to_jaden_case(string):\n    if string is None:\n        return None\n    return \" \".join(word.capitalize() for word in string.split(\" \"))",
+          "refusal": null,
+          "reasoning": "**Processing Jaden Casing**\n\nI'm currently refining my approach to Jaden-casing. My focus is on ensuring proper capitalization for all words while accurately preserving contractions and their original punctuation within the sentence structure. I'm testing edge cases and ensuring robust handling.\n\n**Perfecting Jaden Casing**\n\nI'm double-checking that my Jaden-casing logic correctly handles apostrophes within words, ensuring contractions like \"aren't\" are capitalized as \"Aren't\" and not \"Aren'T.\" My current focus is on implementing this using Python's `capitalize()` method after splitting strings.\n\n**Refining Word Splitting**\n\nI'm examining how `split(' ')` behaves compared to a plain `split()`, especially with multiple spaces. My current objective is to ensure the `to_jaden_case` function handles these variations correctly and consistently with common test cases like those on Codewars.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Processing Jaden Casing**\n\nI'm currently refining my approach to Jaden-casing. My focus is on ensuring proper capitalization for all words while accurately preserving contractions and their original punctuation within the sentence structure. I'm testing edge cases and ensuring robust handling.\n\n**Perfecting Jaden Casing**\n\nI'm double-checking that my Jaden-casing logic correctly handles apostrophes within words, ensuring contractions like \"aren't\" are capitalized as \"Aren't\" and not \"Aren'T.\" My current focus is on implementing this using Python's `capitalize()` method after splitting strings.\n\n**Refining Word Splitting**\n\nI'm examining how `split(' ')` behaves compared to a plain `split()`, especially with multiple spaces. My current objective is to ensure the `to_jaden_case` function handles these variations correctly and consistently with common test cases like those on Codewars.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 319,
+      "completion_tokens": 744,
+      "total_tokens": 1063,
+      "cost": 0.00302925,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00302925,
+        "upstream_inference_prompt_cost": 0.00023925,
+        "upstream_inference_completions_cost": 0.00279
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 704,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

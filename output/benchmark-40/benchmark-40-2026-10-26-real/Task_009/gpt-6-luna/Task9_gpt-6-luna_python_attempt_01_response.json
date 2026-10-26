@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793008254-hp3AU3dSqOK0Bq3zKDb0",
+  "finish_reason": "stop",
+  "input_tokens": 186,
+  "output_tokens": 109,
+  "cost_usd": 7.31e-05,
+  "raw_response": {
+    "id": "gen-1793008254-hp3AU3dSqOK0Bq3zKDb0",
+    "object": "chat.completion",
+    "created": 1793008254,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "def odd_or_even(arr):\n    return \"even\" if sum(arr) % 2 == 0 else \"odd\"",
+          "refusal": null,
+          "reasoning": "**Producing function code**\n\nI need to produce code, likely a function called `odd_or_even`. It seems like it's inspired by a challenge, possibly from Codewars, with the signature `odd_or_even(arr)`. I want to make it self-contained, returning only the code needed. I\u2019ll ensure it can handle input like an empty array `[0]` and that the sum's parity is taken into account. So my final definition will be: `def odd_or_even(arr): return \"even\" if sum(arr) % 2 == 0 else \"odd\"`.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Producing function code**\n\nI need to produce code, likely a function called `odd_or_even`. It seems like it's inspired by a challenge, possibly from Codewars, with the signature `odd_or_even(arr)`. I want to make it self-contained, returning only the code needed. I\u2019ll ensure it can handle input like an empty array `[0]` and that the sum's parity is taken into account. So my final definition will be: `def odd_or_even(arr): return \"even\" if sum(arr) % 2 == 0 else \"odd\"`.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3yKBWnUi6IiunFsCcpgCEaA82CSblLrD0tSiU6CXzEaPV6oyxVUiJ9ivBUhJ-DgX2o2p0f8m9iyqKb1oMEiW80ocDtWOEBFKCG4FtUmoOtm5B-y3QPdX_lj9seV2OQJdH1apzTpc9c5GlYmkykvaFk7aA7o3wvnj2aIbsviB1MxYqYZgSg0s0e9Q0aibVOA1rS7OZPZBy62eqB_Jjgc0-voD1zelq2reK-7qZWrj6sm8VrYVffvneGd590oj3-UnyVQVg7472PQov0i6NGVN53xdDEIe_8mW_PLWF_p0Z_9zyiJV7oM-uJ1aSxVF1NqBVtebxoVi9EMaCJNwrie13kiFlCfmv5nHQlh4MpsHE0OD6nQ2KjmGm9dh3SrYyzBxgiwTuj3Uxfj9MLEHAnTsvubcgt9MEfE9SyrwL--XvV8spT0Bgl4Lje7SMxvI5tBhH68wOV8T47DigFoNHKnLohQD-jEz4v_dTuEcxKlK16SckOV4zAt-_y7XBtQTKqyRwQ_jqCsRiyt5-XY9wR1EiVbWbx8lVlP0NPCsF8pvk3DDVxonkWLx1m2CUKzgkxpCHHqYXqzoj8-aQZ8yMFJxCA94aWNh5PMKREQ0vJa_-tlGGPOgxPWLDZLlXnO4ecbInCBx355FPk3OURUFVQ6WGS_YsB-_-jtT65nPuPImZ-0o8Q6UEmkK5a0QL8ZBKz_WJ9n9xx91K6Y6-PSyWzjWly9hWMXpzyrgDVNrRy5jhP2KSOmKSvp4e9GNvarFBZi4-UQKe6GNP7lA_K_jIZ7sTsx56mILvfj5O1T9WM-LAzf1Qdx174O8JxOA1S0Aba28DuZETOubh6GOe0oGpi-Y4NgMp0dypmiNt8Lo55K3S1JVhtCktaTuk0Xn6VbKwc3MbHz4cRuTFLX7j1-iQhubyIu2NYPyVCVCMeguVSBVio5dpJNE_tl2k7yLJaA1S0GCJ9hJdsxqkvp1yd6HtFXeRpmEKHrFSmcKBtUn7HyscH3RQjze7ZzeQRr4X-e6GXSEB7eUnKZb6kCzfmmtNb8j-y890y4RSesvA1x_uePm3gEexJZFvHARR4jrxNTVFxXMEjX7PS-m8Pos8-wdRtL7CJzHa87dyiPAk8I3-3u1ChKZloofBJwscWuityqEXW-5V1jOkPQJ5rFHQE7QXS0O5WeVHsQNgGOsg_dKnJpLjm_BhNnyu_VCFoky9_MZ-jqiL15gHZfNH0NTR_3LWdnlWUzB2b6bRsPfULuC0aRe1rmV1LKhqXXg39k74253o3Gn_OKQEo6Xyy0azBU8WuquZ4kBsjnBDeXpACOZynPgsRThaIgvqZPEM0yV8hhfGSxsz4u-jb-FoumTsWb-p-iP_GVEtkNC7gScE2B-ZkaLxTDlCsxano8n3sKqKl7zDLIiZvzlOiyhzeJCY7MNvWD_QS629EDlE-Eqw6ESaqYbrEm-1X_7NepaP0-HB71u0gSjwagJmsm_kj8M6FLZnHauTW-URnw2IX1WSeDM3hxR5GP0_leNDdQpfqe5EV4OfGIkBfR_vPxeU9WhUAv6PyfP9O3YHz2EHr1xYuxBkinxjVEHvvyXweML2mr7-eAVEP32WNcHh1KNwYJTG3mELw5GMc0FtxI5DAAAI9AJQC0OuFEhrNHZPDqbce8FqkAwenY2U358stqNfICK6Wf8aZoqgkJh3SKqMH2w0Wk6C2qR3x5xObcLfqqHOc3XZYDGhrcuk7_xOR-irxpc-x1gyTKzW8cvIdApSU6OtWYzqpzch3aqjO56iESEeKUzKRuN_nGGB8VzF4oXe_WE5dEesx1alsF_NFbl2OsKgmLRzT37JBukMMMPP7AhPV__ssY5-l5v5zJFv5rZIMNFPTrfVVrzdIbvtaJ3DIUu87OfPO3_rsd4yWBlI-y5tLmo0FjaqBAVtIvHboLNlRH_VKZ5AHS3jUK_Xutr8VFoDjEl87IPlqNsB6h95Aw71TY1MX8GHevSiyLVlst29TXM9MYILorJjUTebQNctsGbL4JClKco8mVop3REyRYtg5mZiQ92zWJaYFmW__0cIA9ORG1ozn27y_CuvDhLLZw6RbE6j6yqCqxBDKnQ7wms13MEjGRWkc6RBplPE0Q-ncBE6hxIB4DIogiFxwnhisobgTMrGGsJJ1eRQtLg4MBd2GnIFkMtT8aTlpRl0KgUc-Qa0dZ5hpfTeyt56eAcracoTbpsTa5TMSykjsPwsJm-cH83Fxz5o_Xb-yUrgprb-v3lQ8o7GBrpfldheVhysNuDwXGjRc-P_z72jOLhVXckFT6_IfPlBgh5joiAhZVtTWBeYNtff0zG6EfgudHMJDBzUmTrDqundxiE4CsX7dw5H7ZCassHxXtIrj0PcmRHnC5cEC44aqi2G6jfdp6rPhLXpxO9uy-WiewDb7MMJe-Hi7UfrGt-LiHHtkvOzi9pfjW0NXLSI9PWp8OGWe4cMPef2r8OeRuavjCUhLj5hb9LsZHNRsZd7oP-29janIPFWDApz069io9y0B5LjOmzJXXtJUcRoU8_h6o4pF9eGq9j8XvLYrZqDkKRLM40.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0c8702945a9d1d0e016adf227f65a087d1b91cdba5a6e2d1ba",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 186,
+      "completion_tokens": 109,
+      "total_tokens": 295,
+      "cost": 7.31e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 7.31e-05,
+        "upstream_inference_prompt_cost": 1.86e-05,
+        "upstream_inference_completions_cost": 5.45e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 78,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

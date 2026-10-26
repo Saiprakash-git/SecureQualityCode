@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793010299-s85JPb35m0Fy38HeGYyw",
+  "finish_reason": "stop",
+  "input_tokens": 399,
+  "output_tokens": 55,
+  "cost_usd": 6.74e-05,
+  "raw_response": {
+    "id": "gen-1793010299-s85JPb35m0Fy38HeGYyw",
+    "object": "chat.completion",
+    "created": 1793010299,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "def binary_array_to_number(arr):\n    result = 0\n    for bit in arr:\n        result = (result << 1) | (1 if bit else 0)\n    return result",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 399,
+      "completion_tokens": 55,
+      "total_tokens": 454,
+      "cost": 6.74e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 6.74e-05,
+        "upstream_inference_prompt_cost": 3.99e-05,
+        "upstream_inference_completions_cost": 2.75e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793008615-jZDafhiIhwdjHFSswsx0",
+  "finish_reason": "stop",
+  "input_tokens": 200,
+  "output_tokens": 412,
+  "cost_usd": 0.000226,
+  "raw_response": {
+    "id": "gen-1793008615-jZDafhiIhwdjHFSswsx0",
+    "object": "chat.completion",
+    "created": 1793008615,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "public class Kata {\n    public static String high(String s) {\n        String bestWord = \"\";\n        int bestScore = -1;\n        int wordStart = 0;\n\n        for (int i = 0; i <= s.length(); i++) {\n            if (i == s.length() || s.charAt(i) == ' ') {\n                int score = 0;\n                for (int j = wordStart; j < i; j++) {\n                    score += s.charAt(j) - 'a' + 1;\n                }\n                if (score > bestScore) {\n                    bestScore = score;\n                    bestWord = s.substring(wordStart, i);\n                }\n                wordStart = i + 1;\n            }\n        }\n\n        return bestWord;\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Crafting Java Source Code**\n\nI need to create a complete self-contained Java source code, and it looks like the user is referring to a Codewars challenge called \"Highest Scoring Word.\" The typical class structure for this in Java is `class Kata { public static String high(String s) }`. I think I should define the method, ensuring it can handle input strings accurately. I'll also need to implement logic for splitting the input by spaces and scoring words, returning the highest-scoring word while also considering ties.**Scoring Words by Tokens**\n\nI\u2019m considering using tokenized word scanning instead of just splitting strings. This approach might help avoid issues if the string is empty or doesn\u2019t contain valid words. I\u2019ll initialize a score, perhaps starting at -1. Then, as I scan through the characters, I'll score the letters accordingly and return the substring of the highest-scoring word. Since everything is in lowercase and has spaces, it should work out fine. Let's make sure to handle those cases!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Crafting Java Source Code**\n\nI need to create a complete self-contained Java source code, and it looks like the user is referring to a Codewars challenge called \"Highest Scoring Word.\" The typical class structure for this in Java is `class Kata { public static String high(String s) }`. I think I should define the method, ensuring it can handle input strings accurately. I'll also need to implement logic for splitting the input by spaces and scoring words, returning the highest-scoring word while also considering ties.**Scoring Words by Tokens**\n\nI\u2019m considering using tokenized word scanning instead of just splitting strings. This approach might help avoid issues if the string is empty or doesn\u2019t contain valid words. I\u2019ll initialize a score, perhaps starting at -1. Then, as I scan through the characters, I'll score the letters accordingly and return the substring of the highest-scoring word. Since everything is in lowercase and has spaces, it should work out fine. Let's make sure to handle those cases!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3yPsXGzS97oINEiT-Hf0sJfP93Z48sH-R4nNHrQ6scNEK-lllNzLLrq5enZt1HpwSoYODEeoLxadF_d0T59JvQNTaC7oX7Ca-UP4DIJuzRpLxyo6NJAP-oKEaNvHzwCYitq6g_u165JF3rDyG8f9A4yHUO-ohP-nG9EcyqVX29wzrRIh1Qmni1MiygnE3Xk2czusOzIoXRae4K65MNADi9yN-2scl80htyRVXJ3cE4nLiE31VccnCySz422QHYNUIKTUaC8tOiH3iWUG75-HlUPGJTcYTSoSlySHSzprzJwTzYlsYzgqOYdLShTY4DkGoo7YBRGgafUF52qSeOJ7lcF-BTjoh5BleXdyA7S0NsT6e7bOKYPq0b_m--Zf0rzelW81jkE7HtvdA7Hb-BDKfxk29QYkWhybvmwFwjG2ohUlxoeRoLOyw0Frwji0z_akb_EMeSTV9lKdNKn69qOWMgqNiAa6mwgOlcAFcNdkRZaHgtVYCo1qHNurVdMItk10Nk6AQ_tihZw2_VQ4EA_7xmMD418t2S4C2M2ZYYr3-c48sIoZalqMeAvQu7q0PcXmwIYxzLFkKobZzDhpuMpGjwAT9Te7-kibJwm3Sm4xST4CxXNt0sZ1H4lX3IHPNTX03X5WltBmzFbZSdFMr_wU3Wy_WaJLCad211ipz2NGdkXI8EVhG8BZQBcl3J4Uc0-m9UnivgBsspYXrwg1i-JFmLiql_Ai-QxlDrjxbyzfQ-kgoUlTAzThPKjOjfh--FqGU9fbEDsc4GkK85ySL0MSywMp4OGalKpPsUSurX1SwtjXCOlWTZQioUfNQV1oXQfvMq75E4OzMmEL3J5jBMjSsIejHSuPSjIIV7DVlG6RBTyGrwxkef7R9v_PsxIsKN40EJOIxhO3cd4KElp56N2Hq50Y1qno5GZkZU6VU0I5H8_CwZFyZqMu4EaDFFfYS8ltAUC2rPqNHP4WqMW3TndJ1GpZ1SDbGRkvL1TOlipF7dSWiZMjqA-z5Ef-A0GJOzioIMrp3qeB0Wwe2Ry4osHGZAGCFL-BflXsR9OpBjl_Inq53dtjNQzH_Gtq3ha5C7MNcyl9nE1C_47VLlvhnQ31pmYBoPl5DAQ17qpkB2OfhJyDjWwdsDgRCloB5x_aTlBZ-OlMvI_Mor67xjd8hpd_UmXQQ9WzHGi9y_LO8zZxSDhxJMPVnPLprAu8OJ8IEtIkE9myOF8iY7gWZKW3EEVVjGOhYN4-en-IHdFcWCBa4Si1Escem5hqFe1_WZhb-ki--YC1Js4GxBPoA25RiBYE1YH18I5bSTDssEYCqHjSYQtufuGZVbs0ziqf5VyjWKfQLXOlnxlr3uZo7FbeRD_p_FhDfSiQDV9EkFjKPlnnoBKlVEnx7-qRUngjpChaqBl-pm5aT9KOkvHGX_rwCr_4d6nxBjxWEw97KzA0unsl_4OR3LoDI0luw2CMdwZVm2rN9BPBImgEUBV7YaJqd7mo30AQ1K3wxVJOsDevuuG7YReRCs-p4nivs49psfuep4WfHOW9gmGyJvSwQyjNItiCJ4ySZryykoryTB8YRNJf7rki8D8Y-OJiRhJnyh0yG-YQMXi8p5E6Drn6nG5JujFtuG6Z2--GgEVAGBQoyS5F4yIHtv0GpeLdFBWpofIlN7HHmIHVMk8vNTNm5SCY7gPHbNRC77r7E03bHsgrlC7H26o6nw2p2SXCm-5WDcz-pXpPzJq7xNV1r1QIWuzuLRVjSATQV0ug750y2VjOiA2_H1I1b6ekTS5X7I0-ykMuN8QYbPqUfKXKTtUT0ms4tnJK6PzqH_OnSgY4ikBFG8_BzNiz2gNF232TMnIRVpSM8hwZsBcYyt2UduVRJ-rH3IRtE93U6ZzubO3hYkYznVZtlZSl6LyBu7cH0nXrwbBvOPZ8vMTlL-eoI3KWsFtn4F6TGgXr6jfZx1hh2MxNlQYQvxvuaY-dR1oTs2bHqTv1V09s8f6ABm2M1H_zUoYbP4AgMyg2CCveB3kafP4JJvXoiQG8xj5VYMUMKo5-IxVX-bj2mO4lkhG8UF0Yd4Us_SgZlvXsNjwbP3-m9o6-vLMSBgeiHPw0znzJcnPoJjFmdUlXSx6MdXkqhrZyxho626Vk3pPRb3HLqj22nSq9NLUU5I9RbTsJLqmkYXJMMtquKUmhGfrrvFbYSDd9nIbqGS5ELwxgsIASuoIPV1V6zPNqsjNMQW8v8AltLjNJrR9qe22COYs0JTN4cl1zHwBkAb5Imb84B26WvEJ-MWgcMoDdE7qXNKgqkNGiPDToB-h4ytOnrQNj6lRN3ziWNLFvlMmoK8YMlWyIRyWNF6YBsMk56OEmsdAMsNIoI8iSaLbDRz5nZdIF8SsVuF2h-fil-7B8-vBgtLkXpjIS1XzRX1yvoLdh-BibXHgqqUt48bpwp6jj7P8RPqQNO5TD4MyVxXZR5OXkBiWnBqIvSpjLg9yCa9C7OVr_g8ixcCl0Zvu8d967RcWH4dsRVPBjp30pLE0vfMEsNaOd2ry2EE6Jf019IbyJfQb0EcM6yNuKP2WWojHJKbE53WmUlVaHvXhw5i1PMqorSArYOmzWq_-fINwc4QZj9eDr2tBg0W5Swxb-0GeTk2Ph6HRwtxT8pKbSCgX6Gvidl3VrdjF7vuEtzDqnk6OpKUgFv9Lzcb1xwmHnV6h297aoYLhhueg2qn2Wzw9CVnt5KZ1p5EaX6aTY014WT29xS8CX2t9ybpv9W66rrRldIrF0sNzF6pR43bMvKISWpZPVJoXnnm_wjdXb0NsZIvMvWni7AWtiFqKHU3bZnUAdbZPIxH_U1b0BpllCbdm_4cr2lOMPejPbyUI2K9CkHU6QR4-MrdvvLutpXrDM6S4jTl-qmiVJsu0CPCsn8QWiU3Y5fS-XeYAnJGG_KHcjc3A7VmfZRqRZvOwYAnywffgNDUfNmXIPSUqlBjbaLhoeaE57brBIGq5-H09Ds06kDrz6Sf_shC5Vk_HUkg5EB-I_o9xuvhQ85JRgAAdw41vN-TvzD73sKmn1tM-Nb7ukQImVw0gFQXzlGzp4syR2PQ9OlBXUfuprCblZsYBXj7rp6osQX3bmw1nRP-fBeVU-KpTP0Da_2XrMi1KhYGwrRO-TKIlnUfe0AHamfXIm5MoprITro1KF7JolCwoYPqvWzfosA7CEsN3hQXTrZt2tlANKEAFBAmeSvrrc11irJRSIx9tM5qQxQD8bSHXUWVKQ7-fF1TCeaTabhxFeEi8j7yZ3Qg_TE0eimINp-SBYCuqBXG8lVoZVHddlqtACXfKfp9hP283mm9yvRS9SIlJas6N6AwEUTecFBMfDHMFIqAbr-gHCehIQV9rpBF4HX8XOkc1Z_2zGcscJV7lTF07skk__4019rndM5hsuTEyg37Ecl0rzaWN7y1_0kZayvtLb75pkCIOLAAOXQfCabjagXtjmHVh3DwSX_w6gEqZRZO6TwcZpcjXXhKZGVAt0PIIjzPTFhy8_CjKSskWlsOQo5JhfU_bWI8joxdZY5w10yy4gxHFx3l6yCE_XU5NCg1Y9l7f-HWuNI46KWdX0RYN9nBImJrNGtkE1bbVA9TGoIpTmqJN_eGFdFVzeBHh7RI-bXADclmAq6Aiz8cUWiU2N_KivO3Y0hv_Oc7ct5GsnPhq-diSetlL9SjhwFep3V59tK_L3hM_ACAtQfJldDuqjH7HFYEzxkcXT2qrr31HyphIBZ16TBd7mSs41HeD4QZZ-Ge2lVcDcUWeSKEXfeMiU1sxN3NEbWrvN8nHRuwOJvP9e73QfjaUjhd6xyhC345huADxwTf4wXvpdCY9-uFl6viiaspokFpD3Cy_XJCzIyOhcz6uV4CZgyYBxCMvPGWTabyPPeX78hojqFLfkqlqgvNU3mZ5NmbDroA5ub7pLu-gzw07rX98QH8eKlCOZaM8LHRw381y2gER7tEDsKHNprU13T5VnLqOZ_RASuqDVWvwuCgll1iZlGLGLeho3RNeKwimMw15nHgj7vDnn2ispseEb0XUQgDGF61QMprH3PBI9AIvoRXTkNTZjtcotk00zkAbVsYx187JF331vIiHHzJINIuPRFdowIBcda5wI4OwEOFRcKdb3UdcaoqpfscdIbnm6mBOKpMc8ILe7vMwTajIyz3zPrd9-01h2yuyp_bUY2yVOI-fRcKfG_eJGglw4_-Wt60tyVMMLcbjLptyH1d2bwmB7kZl63ImuNooPdA_JW9KthXhu0LCSEAQNd9B8-Tft9ERmpxURLtRyI3VirtpinH0D_cZPUebwLTYTBs3IY-lcnwAjd2ds6-UAwBeYoZHVeHsF3fXlceGEg8kzVyiQ7uozH75VSiLdi2oMHIQhnCLlFZozXTgL_4r8N5C4h5cSXtAY2Gdb3Go4q06E_ThAHPeafXsdp6yXQGhqcssGR1pvScIHRLiuYQuiwJTcgwHMiNCTkXfb1PgoHR6wGh2xohbyGOFqONDgsLMEvS2tGK9wWzH4LHJlijbC48NZYK1IpVg23bvL_3ic-JF28eahOsBiLtURXX-bEZC5DoJspFJ6-ulpoKrvin4SAZ7RIZJmbxeH1HzpMglTnW4vEGuIUYGDv68-1UZsheUEWA5iQgCVudC6zA5nb-iKK0LeskacHU1F5CDpkGExQpyqufdw55YF-3d7EQoOiaiG7Cn4iGoPUxzlrFIOa5VO62PxOq2eL_ND7flDxtZ-ZeQEyFEdusjqke4cUssxD5G98ZTw-PWb_0aY8e_hmsdBQaw6GZDXXIxYIqcVB__HuOX0V6lN4jgmaespCKd1qbExw7pdBGVrFlldsNMu-yuYYmctRyoHVkrHweQ2Mn6EvS5rkGqVCKlm.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0f8aca06847984a2016adf23e87b0887d19a2516fd330cd674",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 200,
+      "completion_tokens": 412,
+      "total_tokens": 612,
+      "cost": 0.000226,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000226,
+        "upstream_inference_prompt_cost": 2e-05,
+        "upstream_inference_completions_cost": 0.000206
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 246,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

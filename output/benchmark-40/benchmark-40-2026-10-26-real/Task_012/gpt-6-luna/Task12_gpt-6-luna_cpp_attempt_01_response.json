@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793008912-5zw4w5CjpaQpQGbOuLP3",
+  "finish_reason": "stop",
+  "input_tokens": 200,
+  "output_tokens": 339,
+  "cost_usd": 0.0001895,
+  "raw_response": {
+    "id": "gen-1793008912-5zw4w5CjpaQpQGbOuLP3",
+    "object": "chat.completion",
+    "created": 1793008912,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <string>\n#include <sstream>\n\nstd::string high(const std::string& str) {\n    std::istringstream input(str);\n    std::string word, bestWord;\n    int bestScore = -1;\n\n    while (input >> word) {\n        int score = 0;\n        for (char letter : word) {\n            score += letter - 'a' + 1;\n        }\n        if (score > bestScore) {\n            bestScore = score;\n            bestWord = word;\n        }\n    }\n\n    return bestWord;\n}",
+          "refusal": null,
+          "reasoning": "**Considering C++ function implementation**\n\nI need to output a complete, self-contained C++ source code for the \"Highest Scoring Word\" problem. The expected function signature is `std::string highestScoringWord(const std::string& str)`. I should ensure that the code adheres to typical expectations, including accepting parameters and providing a robust parsing method for whitespace. \n\nIt might be helpful to implement both function names for compatibility, keeping in mind to maintain ties by returning the earliest word in case of scoring ties. Let\u2019s just provide the code.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Considering C++ function implementation**\n\nI need to output a complete, self-contained C++ source code for the \"Highest Scoring Word\" problem. The expected function signature is `std::string highestScoringWord(const std::string& str)`. I should ensure that the code adheres to typical expectations, including accepting parameters and providing a robust parsing method for whitespace. \n\nIt might be helpful to implement both function names for compatibility, keeping in mind to maintain ties by returning the earliest word in case of scoring ties. Let\u2019s just provide the code.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3yUYVwUkf23mM37ZchK9Y-yMQ8sqyaE5CiAGYQxyDZ8zAcZoVKEFT2JRl8JxKgNSFchvulEiQpb9Um6F_X-mLrRJfc_laMuk8H4ti6D5bmSP_wdLJKtNOVYgSAiqqDTzp2qK23il1ZFvZS03-9yjsClk5Q8n941__iKrjF7b5rjljEtaK4OybohyenMPxbGTWMg2ovWVgiyG-IP9IqNnzo9K_9tov0LlVLGgxetxu3uNk2z-6Mr3qdOV3Bo9xo8qKtGhMIGsuvlhjTa9USjZ_UR19-x3QqT8jcRCs10AgmnGzDpQBWW-XbpKtuy6gxgbvbp9Gblhb6cBgqzCLZ5oDqlAgL-Q48tQdT71cL9SWQidCTDg5v-bGWwkT-fa85zM8Mo_SegIbZjE_0-faUUVsK8_3psfa9F86je7WbDI7ARdilcrvpIor4B69T7jD1_AWAhGoWZvS0JaJYr-kTbCzSLnEod9qJIObIYhRxB5bt3GT3iQ6ZleVN8V3SEWOuFQKcHzCCcJ1cnJUDKIfRGMSlij8YM77iHCP1-7ZswVMHnvgBBHZbhxEbXdp5LrD2sk6eCgGjorQhfGufpG5qxiKoCpKJgdfy2jz65E7i-PR3wrG-CU1d5oK0Lez2zV2WRe9dgKIPAZIi8Ig6UEICQN-_51_JI8kUzideTSaMuf3pDRK5qNh0DYzk2nvCrhaSH9V2nENZfuqFZqJ-dQpNRO5rO2lKoCQFoSifE3ZWL-IuecKTHGzgKfIvJp_UsaQozy1qJewUC8nbyjwtZY1jLqwXYodQiLEIEGEMjIsFwEvYzId3snvf559M9M-NqfVKE-ZIRX7zeXOtvQ60bfpmAZbPSxpcB6IQSvReTFEtshKDUR4raXVRo_8FGj6Di2gZfcGer4qrGVdbTzAoIxtpjub0lcVyIpn31iq3WLEEP1G74pwHyh_Jl8AgDmiKN0dkgwFDClMTR9YxDBlO_3iLO7EDunSMaekU2bCJ8HXKI_r-4ctxt_7t-sKE3j7ksXPZwToOBGiqGHCwCEYypmU_YJxWMNytNDvk-BrjuAbs_4F1oNzXzadxUZBYzygc3hLxVv7Zye2-c4sRr8896ac0EijptlXhKQR3ADB2s-yPntVfoVHwyPKlZMzOY4p3kBw08i_UzR3ebXUY7cojVNirDIwyChRQa-ujRiq27rQIa3XPNOBXgdzyNjCyekrbeF-i2n-1G4eF9a9Zcjvequef_-CZsULdkbK4YzBdESYMb4n3GMEjzqhuGbwtlwn5pN5s-7tBZz_it4U2Nq6FYMEK4VkwjXUAALNS4St9vb1o-bQXh7l6VCZ6hyNrJ3KmL8pG59ZOnWkejvw5YLk19xKJ9qXFU7WPUHX_F8iUC9H1TnLpE3zDqG5xd52GNZxLxlQF5gkyAoFo38oeFRGuDauovavrkyyUeSYrDzkz2ccjKOf-DMmoj068aYyy1lkBrp6jR2SQnBSEDayol0d7tE0o16kbgMd3k_VZAhXGaQipyL-XuGQkY5fU8_mLzTN1a69xQsa025m1sDi-LGmggAYy3xju0bR18fps2dd-JYpdoHV3HgFW_HEkGkqMt10K23tDgFQGUwP9Yehu7eNRnNq6msVbRG98LdmyOuwmFdBtTJWhsMcATITy-X6HLZuXOjvev7X51pZIDakup_xUIHTowy1qvWNyre66JmcboLJTJ--ldEsPjoIqEn-nRU5Us7ydm_Fbon2FUIHBdYcN0D_jnBoCMxH7hXO16yT0dIQuGI9FRgmLkeyu8N8clnJrRxG2mvzhuc0jzCoGLVB34nZ5R3j9apuIPs7sPDKmW0-7bly27gFUv6cWHm-NTjMlLo8wQtF06d9e6ICGtTzdiBWH4JJu_ABG_5Xl0q18udBLlNdoqs6XG6SDMdNju1ULoG994qq-XrjqHz9_w-NfSkJ5DDvRvMJnQuS6O1D6b97NRshNiGAw9sIZ2CBRbg38ZmCd8RvM7VCDG_FSU7i8CnL-z7R-92bZknGYESP-7jiFE5aR1XTT8EgUflwnwsGvR7NxBwfuirxNHiOPNeSknAep78KlzGlZd7tbx2971i4doQBwAGf66vyQ0Ofagk1U6jtg2F3MC7y9GKzwVgrrecKRcMNnBMQCzH6Nk2D7AO5ovPmvzMyiAi-UVP1B3tqjjyPQ7AN-RNY4smjgoy5ngYJknINyY-xC-CFW9tHbpk8-s7nzbjEzbTi25e-Hq_I-znrCX4KuJh7BKUdutwvjiiuOqRfBhCNVAXxt4nt7dzQQjcEAOOASG_zBiJd2uhb2xk59q9HsOznBDlloRjTB4huzaCwfwjz-n2r5We0voCtui73H_9xP9vP-oOs_p_OD3sw03s8CU27Jb6N6dUrKrYoZmOYrrXKTnfeo93aFL_vTNjIvXK7NF0PMh4kX1x0Buv-1tJ_0PvsmfDUquVAT1gHBUKorX576ECTooax5C9iSsWOmHe6G6SVyPPm7-ZPVwQOaP7m97KzRII3NxSa1w1gyQ-P_QFe77374DQeLY9kH1j9thadcPujRmf5kEAImyFN4GurHP_R-9YpX6KStAepl3talOrxEoB5xxTTNIDhaudo5xMPl9O9Gi9j_AKZPfZmJOg6CuZDdkRTBcgb-AydJeLk4ypZ-VXk7-BtbzBId9Bp5yZVFpKIUVRQQN1E0OZsrdZxTzPRFoD7EEKpauKZVWMuDN-hh7o0AXTdaYiSXPxs2m271ddSCaHWLe0X_WguIokv3mmZOF6ahD2LL7Xs2BAuAwEY_dFlu9ejQkIG9GjCTxS2CXTMSaxWIi4b1dTdIt4gP3mAbuiR92NvgNGr2y7xp7e6KmQ8wOFqC2N4t4Z-2sTP1kV8tMSBTmfPUOGaquG8zbh8c3soos_wzMDCS_Ghzqb43WyyLTB5m5DQFbZvYA_B6zzWO0U5SnvdqvUUHmnHIKpeLMNVY7FK36rJVcLSQqog0dyMAYNJ0Nhe8ve2J0xe3JIUwdECq1XNfsInnL5HY5U7rtJIcXeBdpnFpm6MDglVqJqpvFCUGnE8rma7L7FuKTqaZ8E_ET27wddSQ46gQ-mthC3Fq78ypoC6mN8KQHIY-oJH0rRgFixdMm_UVNei1lIKSE3gs8yblSBoWjXQ9Nt6RoBjMSzzEmrTMWhA2afLX9XlDB3Wo7NP1V0PEnOeSGjs-kO90b8ijq6Mqz41v4-KbxI0RnOdInpCjLEk0tJWBLTEzEtQuotdp6LzYVK3_nGqdAVFmEJifl9ZtZXj5eFcseFx47ZsN4P1ZosIFfRD5O5MBaqF-yIdaINrGdxRLSY5xaksUU3tAcS6EzsaEvmD1Lsh7BBclEDEziORB5nl5zFA19dD5FEgXGHUrav9BJn24AkCeAWL9lZAaQ649D52ErjWc6IouQBIeAqZZ2UlIxzCBZlOHWdjBGzIYtVKmpNBedo013NcpXNYBkhAFOnh_o3M67G3zRvh6RIrEIqkfnuzvyTU_wPhqG8VQKKpKXquu_Jue7j4iM8Wb9qhqKeKNTmTnRvU8gS09fIsYFflKOALVmk2kVm9hnLKqSioVKh5fjVdo1r2YmGEHctDbrDObXXuv2DUnarTb93DnYtBUEQN9fof1ZR6wA0auznakekFkNRF-22xCIxtiqUdneEQQP4XKk6ghQLQwWWcfzTvza2d_71l8GvtkLjIafQRndEDfPtduKALmkU8_KRCaHzGnZIVjyZUKRLjo2BxMwxtsf-armYLuJjPso1JcTT-kPNYlEWDI81OeVQAXFjpZ7Q4hODo0FDclPfailL5s-62IFHB86Gte3Mb_904MfewLMXqTqO5uVtP7Jhb-Mn1t4mk-04OUVhw9pmduDDHcH4xdvWbhuVAt93-RWx65uGfCcgr6dnk4kpYnLS4t5JyxzfizepmKlbtEIKJzYw_WKV9VZ33d5WBESvphbTO_kDJ4wm86FWintbD8Ktm1lDjXf23Tz4j9KiO0e5LxyLc_qtPhzH-kdpKwIiefeynSoZ3kAtHyb479NVQoTf9JWiQ1myiGtOgdqkOao7Rs3egbDiro49dlrn9jHau6-52jCZIaYefNEDuTCYd8wqXjlvNs9MRWJWrfSmIYFkKcHfCyeD1HmRn6LTpmlrLuCM0Z9w3j26Z95NTPgozadPUCOHF-MJ9v31MBQ_sUsC5CJR3HeD0GsIY8K_XPs8CLKCVYEk4JuYO-573lTc8oa3fAwbkjn1xfc0AfQKpFeVkiI0CzE63fnYtIVKN-sNvfIcp7h2ElnGmpOTU4Ko4YYWV0bo_kTq5E3mvRF_84npW7ji4juEmH0tkPTKCk7FgPWGjDnu9lVQ7L8GszuqtJPAwLnrCMN6DSEg9lto6s6E5Xf-BVmVKHJzwEUpvF0dR8JUBu2KtGY=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0b884ba065a87aa5016adf2514a2b887d180df7a9e74da9bbc",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 200,
+      "completion_tokens": 339,
+      "total_tokens": 539,
+      "cost": 0.0001895,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001895,
+        "upstream_inference_prompt_cost": 2e-05,
+        "upstream_inference_completions_cost": 0.0001695
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 218,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793008579-jH3X9LF8VCmZl6x833us",
+  "finish_reason": "stop",
+  "input_tokens": 276,
+  "output_tokens": 88,
+  "cost_usd": 7.16e-05,
+  "raw_response": {
+    "id": "gen-1793008579-jH3X9LF8VCmZl6x833us",
+    "object": "chat.completion",
+    "created": 1793008579,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "def high(x):\n    best_word = \"\"\n    best_score = -1\n    for word in x.split():\n        score = sum(ord(c) - ord('a') + 1 for c in word)\n        if score > best_score:\n            best_score = score\n            best_word = word\n    return best_word",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 276,
+      "completion_tokens": 88,
+      "total_tokens": 364,
+      "cost": 7.16e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 7.16e-05,
+        "upstream_inference_prompt_cost": 2.76e-05,
+        "upstream_inference_completions_cost": 4.4e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793010453-Hw9BcGoHEAWzVYzxDljn",
+  "finish_reason": "stop",
+  "input_tokens": 300,
+  "output_tokens": 821,
+  "cost_usd": 0.00330375,
+  "raw_response": {
+    "id": "gen-1793010453-Hw9BcGoHEAWzVYzxDljn",
+    "object": "chat.completion",
+    "created": 1793010453,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <vector>\n\nint binaryArrayToNumber(const std::vector<int>& vec) {\n    int result = 0;\n    for (int bit : vec) {\n        result = (result << 1) | bit;\n    }\n    return result;\n}\n\nint main() {\n    std::vector<std::vector<int>> tests = {\n        {0, 0, 0, 1},\n        {0, 0, 1, 0},\n        {0, 1, 0, 1},\n        {1, 0, 0, 1},\n        {0, 0, 1, 0},\n        {0, 1, 1, 0},\n        {1, 1, 1, 1},\n        {1, 0, 1, 1}\n    };\n\n    for (const auto& test : tests) {\n        std::cout << \"Testing: [\";\n        for (size_t i = 0; i < test.size(); ++i) {\n            std::cout << test[i] << (i + 1 < test.size() ? \", \" : \"\");\n        }\n        std::cout << \"] ==> \" << binaryArrayToNumber(test) << \"\\n\";\n    }\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Processing Conversion Logic**\n\nI am currently focusing on the core conversion logic from a binary array/vector representation to an integer. My thought process is centered on iterating through the input, handling each bit correctly, and accumulating the resultant integer value. The aim is a clean, efficient implementation.\n\n**Implementing Conversion Algorithm**\n\nI've successfully implemented the core conversion logic. My current focus is on testing various binary array inputs to ensure the function accurately translates them into their integer equivalents, refining the code for robustness.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Processing Conversion Logic**\n\nI am currently focusing on the core conversion logic from a binary array/vector representation to an integer. My thought process is centered on iterating through the input, handling each bit correctly, and accumulating the resultant integer value. The aim is a clean, efficient implementation.\n\n**Implementing Conversion Algorithm**\n\nI've successfully implemented the core conversion logic. My current focus is on testing various binary array inputs to ensure the function accurately translates them into their integer equivalents, refining the code for robustness.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 300,
+      "completion_tokens": 821,
+      "total_tokens": 1121,
+      "cost": 0.00330375,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00330375,
+        "upstream_inference_prompt_cost": 0.000225,
+        "upstream_inference_completions_cost": 0.00307875
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 511,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

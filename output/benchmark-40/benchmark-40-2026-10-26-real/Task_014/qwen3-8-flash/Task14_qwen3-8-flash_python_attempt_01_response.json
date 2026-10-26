@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1793009009-V1EILBueQQv0dH3qIFkt",
+  "finish_reason": "stop",
+  "input_tokens": 597,
+  "output_tokens": 223,
+  "cost_usd": 0.00019436,
+  "raw_response": {
+    "id": "gen-1793009009-V1EILBueQQv0dH3qIFkt",
+    "object": "chat.completion",
+    "created": 1793009009,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "def find_even_index(arr):\n    total = sum(arr)\n    left_sum = 0\n\n    for index, value in enumerate(arr):\n        right_sum = total - left_sum - value\n        if left_sum == right_sum:\n            return index\n        left_sum += value\n\n    return -1",
+          "refusal": null,
+          "reasoning": "We need answer user wants only raw source code, no markdown. Need produce Python self-contained file. Need solve find_even_index likely. Need ensure functions accept input params return output. Probably define find_even_index(arr). Could include main? They want only source file contents. Need no explanations. Need think about edge cases: length >0 <1000. Need lowest index. Algorithm: total=sum(arr), left=0; for i, x in enumerate(arr): right=total-left-x; if left==right return i; left += x; return -1. Need maybe handle empty? Input says 0<arr, but robust return -1. Should we include type hints? Fine. Only raw source code. Ensure no fences. Final only code.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user wants only raw source code, no markdown. Need produce Python self-contained file. Need solve find_even_index likely. Need ensure functions accept input params return output. Probably define find_even_index(arr). Could include main? They want only source file contents. Need no explanations. Need think about edge cases: length >0 <1000. Need lowest index. Algorithm: total=sum(arr), left=0; for i, x in enumerate(arr): right=total-left-x; if left==right return i; left += x; return -1. Need maybe handle empty? Input says 0<arr, but robust return -1. Should we include type hints? Fine. Only raw source code. Ensure no fences. Final only code.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 597,
+      "completion_tokens": 223,
+      "total_tokens": 820,
+      "cost": 0.00019436,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00019436,
+        "upstream_inference_prompt_cost": 8.955e-05,
+        "upstream_inference_completions_cost": 0.00010481
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 155,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

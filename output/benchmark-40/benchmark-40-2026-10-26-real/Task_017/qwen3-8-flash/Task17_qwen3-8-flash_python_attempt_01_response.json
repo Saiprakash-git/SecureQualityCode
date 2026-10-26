@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1793009756-8Bpc7iMl6a0J6M3TiC1i",
+  "finish_reason": "stop",
+  "input_tokens": 366,
+  "output_tokens": 586,
+  "cost_usd": 0.00033032,
+  "raw_response": {
+    "id": "gen-1793009756-8Bpc7iMl6a0J6M3TiC1i",
+    "object": "chat.completion",
+    "created": 1793009756,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "def to_jaden_case(string):\n    if string is None:\n        return None\n    return \" \".join(word.capitalize() for word in string.split())",
+          "refusal": null,
+          "reasoning": "We need answer user wants ONLY raw source code, no Markdown fences, no explanations. Need write one complete self-contained source file in PYTHON. Task: Jaden Smith Casing. Need likely function? The prompt from Codewars? Need infer required API. \"Your task is to convert strings to how they would be written by Jaden Smith.\" Example. Note Java version expects null for empty/null. In Python maybe function to_jaden_case(string). Need return capitalized words. Need only source code. Need think about edge cases. We should produce self-contained file. Likely function name? Codewars Python \"Jaden Smith Casing\" has class Person? Actually kata: \"Jaden Smith Casing\" Python solution: \n```\ndef to_jaden_case(string):\n    return ' '.join(word.capitalize() for word in string.split())\n```\nBut note contractions: \"aren't\" expected \"Aren't\" (capitalize first letter, rest lower). str.capitalize does that. If input empty? Python maybe returns empty string. If None? Could handle None return None? Note Java version expects null. In Python maybe None. But tests may not pass None. Need robust: if string is None return None; if not string return string? If empty string return empty. If multiple spaces? Jaden cased? Usually split and join single spaces. But if preserve whitespace? Kata likely expects words separated by spaces, simple. If string contains punctuation? capitalize works.\nNeed output only raw source. No fences.\nPotential issue: If word includes apostrophe and capitalized? \"aren't\".capitalize -> \"Aren't\". Good.\nNeed maybe include class? The kata may expect function `to_jaden_case`. Let's ensure. Could also define `to_jaden_case` and maybe `Jaden`? But likely enough.\nNeed satisfy \"All functions should accept input as parameters and return output if any.\" We'll define function.\nNeed no prose. Final code:\n```\ndef to_jaden_case(string):\n    if string is None:\n        return None\n    return \" \".join(word.capitalize() for word in string.split())\n```\nBut if string empty: split gives [], join -> \"\". Good. If string whitespace: returns \"\". Is that okay? If Java empty returns null? Maybe not. But fine.\nCould use `str.title()`? It capitalizes after apostrophe? \"aren't\".title() -> \"Aren'T\" wrong. So capitalize.\nNeed maybe handle non-string? Could convert? Not necessary. If string is not str, maybe TypeError. Could return None for None.\nNeed only source line. Ensure no Markdown.\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user wants ONLY raw source code, no Markdown fences, no explanations. Need write one complete self-contained source file in PYTHON. Task: Jaden Smith Casing. Need likely function? The prompt from Codewars? Need infer required API. \"Your task is to convert strings to how they would be written by Jaden Smith.\" Example. Note Java version expects null for empty/null. In Python maybe function to_jaden_case(string). Need return capitalized words. Need only source code. Need think about edge cases. We should produce self-contained file. Likely function name? Codewars Python \"Jaden Smith Casing\" has class Person? Actually kata: \"Jaden Smith Casing\" Python solution: \n```\ndef to_jaden_case(string):\n    return ' '.join(word.capitalize() for word in string.split())\n```\nBut note contractions: \"aren't\" expected \"Aren't\" (capitalize first letter, rest lower). str.capitalize does that. If input empty? Python maybe returns empty string. If None? Could handle None return None? Note Java version expects null. In Python maybe None. But tests may not pass None. Need robust: if string is None return None; if not string return string? If empty string return empty. If multiple spaces? Jaden cased? Usually split and join single spaces. But if preserve whitespace? Kata likely expects words separated by spaces, simple. If string contains punctuation? capitalize works.\nNeed output only raw source. No fences.\nPotential issue: If word includes apostrophe and capitalized? \"aren't\".capitalize -> \"Aren't\". Good.\nNeed maybe include class? The kata may expect function `to_jaden_case`. Let's ensure. Could also define `to_jaden_case` and maybe `Jaden`? But likely enough.\nNeed satisfy \"All functions should accept input as parameters and return output if any.\" We'll define function.\nNeed no prose. Final code:\n```\ndef to_jaden_case(string):\n    if string is None:\n        return None\n    return \" \".join(word.capitalize() for word in string.split())\n```\nBut if string empty: split gives [], join -> \"\". Good. If string whitespace: returns \"\". Is that okay? If Java empty returns null? Maybe not. But fine.\nCould use `str.title()`? It capitalizes after apostrophe? \"aren't\".title() -> \"Aren'T\" wrong. So capitalize.\nNeed maybe handle non-string? Could convert? Not necessary. If string is not str, maybe TypeError. Could return None for None.\nNeed only source line. Ensure no Markdown.\n",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 366,
+      "completion_tokens": 586,
+      "total_tokens": 952,
+      "cost": 0.00033032,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00033032,
+        "upstream_inference_prompt_cost": 5.49e-05,
+        "upstream_inference_completions_cost": 0.00027542
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 550,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

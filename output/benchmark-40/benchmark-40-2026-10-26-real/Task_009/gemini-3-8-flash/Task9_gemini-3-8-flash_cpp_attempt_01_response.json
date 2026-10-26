@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793008537-IP0Sn43HS76HooafPnEd",
+  "finish_reason": "stop",
+  "input_tokens": 189,
+  "output_tokens": 461,
+  "cost_usd": 0.0018705,
+  "raw_response": {
+    "id": "gen-1793008537-IP0Sn43HS76HooafPnEd",
+    "object": "chat.completion",
+    "created": 1793008537,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <vector>\n#include <string>\n\nstd::string odd_or_even(const std::vector<int>& v) {\n    long long sum = 0;\n    for (int n : v) {\n        sum += n;\n    }\n    return (sum % 2 != 0) ? \"odd\" : \"even\";\n}\n\nint main() {\n    std::cout << odd_or_even({0}) << \"\\n\";\n    std::cout << odd_or_even({0, 1, 4}) << \"\\n\";\n    std::cout << odd_or_even({0, -1, -5}) << \"\\n\";\n    std::cout << odd_or_even({}) << \"\\n\";\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Determining list parity**\n\nI'm focusing on the core task: figuring out if the sum of list elements is odd or even. My approach considers empty lists as having a sum of zero, which is even. I'm exploring efficient ways to determine this sum's parity.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Determining list parity**\n\nI'm focusing on the core task: figuring out if the sum of list elements is odd or even. My approach considers empty lists as having a sum of zero, which is even. I'm exploring efficient ways to determine this sum's parity.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "AY89a1/dVRnQrUZ4osk4jMj8vWG6GOU7vkGx5XRAdNJdb41iuYyNSbt1BWcHKVj3xNsycL3l3I+ZmKVfCTuqUMM2GRrUx8dRAe9pnRbtKGTCIs2EkBvAT9XN38NHAGEN/viKgNMT1Psbo75PPn1ZKgtHLIeow3meOpETvvC4yl0ukYYQ5o4ddT4pJ4J9zMmZtXWTwqnCPZtH4p962NqWTEcf4zfx7aHj++J/FeyRSeuwvO00yo8uQLnOTZtYCKeY7ffjWk2S1nUG/YVo7glGVDi2p6BuxbJk9drX+JyAao3fGBax76AuYcxdghOykF1pa6BDcPg2FRzky8SaeOVll6YfEr4Fa2BJ3Yo0N5pMJ0vyWmGLmrlU0fK0iCJCr69y7cZdqeNkDWvnAG2kofmRiru3LCU8LDN2HXpXy/XiAAjwSsHZ6fZQIjkfJIaJRjn2TKeA6IeMjZXbaKXeO0XUfbqTsCe90+R/j5bswr6rkwlx9QZQvZ1DzPyVxBkzinxQjtaKZv5d4nU7gfFJrwWjjUns69kgTqo5gCH4uDiZP0ufRhBYEjj4H/MA8gSjkeNlw7i5KBLNaXofj80uPSLfRD3BKPuThRzZDs1Po3wcG0apET4vx8hc7hoXQiD7O4oLaUOf06fUrj7A98Btqt78e1A9Zdq96IQtp7t0Cyh5XLJ1vxm0It0tSdwcOb0PU+VEeTCxHMQob+WHpD7xbpMIbu0J2aVQZfy3SLD98NP9HRksg8ODmODRsMhX/XAZH/lN9NwWqt7zLI1TZGxXqA1IMLQ3gDL1XbrlV1OK1E2oLT96DkULDdtuYuymH6Ko1strgQbaifnhQC1IFWho1j81c45sFp9CBaF4WmxCs8uv+YjK4lYio16Ad55XeL26TnR9wzj/Ck0tcBh0tlRsWRWFWk7CVadCe4v0l57Na67uyumAvbx+/BmSodZhVQK4uHx3/E0Kdm1x5JcQl6q90KjOO7K1zJ8jJv3bxkVy/gs3D+f958TOWhCnrLtoZ6St02JEY7gv9UdmV2qQK55xQiuhMgMs7YKdCHZtGJevUtaoHDysZpRmiO+ynDU5CGc3l/qfMEe38OiA2acwt+cUxx4pSyv77JqBhhQ2RN7gyKs/+RH0pb9/+73pif7Tg74TjVCkqq0k24aIdEQWM5um7vjY1DwOlbb5O+UFCk5t/cWcbnIr0SG6VXRIC55dZGnhFwpZlqK+/ISug1hvAOL4J3l3BE01bV8GaO74fuatEm/3oPBeAs5tDt1jg3F704XlBMYAMMnTqODjGF9sbfjfmTxf6JqXHmnxQfFTGoBMIFD/p9GfNthywevbF/RAT10OTug+XPeffmtx7S2GkH6U6MhFzbX0NimSvI0eOeNz0bQJKkfBON/9QB6RU3g0gcl2adF2ReL09XNTXVqe4/rHXl5KGcvyjj1VoLqeRZYmqJdEzU0OtTVpwpnKFLi7XtIJM7DM8DXYFG9CmDc/ivpCl6xZI1C7ZCkWDTMT3SBL1AzD4pmw0ERaCas0c1kdPZdYgaqHsg43qt66AYp40SsSfVMy081dv9F9dC9yHng6RZYXvzqT",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 189,
+      "completion_tokens": 461,
+      "total_tokens": 650,
+      "cost": 0.0018705,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0018705,
+        "upstream_inference_prompt_cost": 0.00014175,
+        "upstream_inference_completions_cost": 0.00172875
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 279,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

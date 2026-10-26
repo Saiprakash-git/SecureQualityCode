@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793006763-CJco92tY191YQr2VOLvX",
+  "finish_reason": "stop",
+  "input_tokens": 269,
+  "output_tokens": 3477,
+  "cost_usd": 0.0017654,
+  "raw_response": {
+    "id": "gen-1793006763-CJco92tY191YQr2VOLvX",
+    "object": "chat.completion",
+    "created": 1793006763,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import java.io.BufferedReader;\nimport java.io.IOException;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport java.util.ArrayList;\nimport java.util.Comparator;\nimport java.util.List;\nimport java.util.Map;\nimport java.util.TreeMap;\nimport java.util.concurrent.ConcurrentHashMap;\nimport java.util.concurrent.ConcurrentMap;\nimport java.util.concurrent.ExecutorService;\nimport java.util.concurrent.Executors;\nimport java.util.concurrent.Future;\nimport java.util.concurrent.TimeUnit;\nimport java.util.concurrent.locks.ReentrantLock;\nimport java.util.stream.Stream;\n\npublic class ConcurrentFileProcessor {\n\n    public static class FileStats {\n        private final long lines;\n        private final long words;\n        private final long bytes;\n        private final String processedBy;\n\n        public FileStats(long lines, long words, long bytes, String processedBy) {\n            this.lines = lines;\n            this.words = words;\n            this.bytes = bytes;\n            this.processedBy = processedBy;\n        }\n\n        public long getLines() { return lines; }\n        public long getWords() { return words; }\n        public long getBytes() { return bytes; }\n        public String getProcessedBy() { return processedBy; }\n\n        @Override\n        public String toString() {\n            return \"lines=\" + lines + \", words=\" + words + \", bytes=\" + bytes + \", thread=\" + processedBy;\n        }\n    }\n\n    private final Path directory;\n    private final int threadCount;\n    private final long lockTimeoutSeconds;\n    private final ConcurrentMap<Path, ReentrantLock> fileLocks = new ConcurrentHashMap<>();\n    private final ConcurrentMap<Path, FileStats> results = new ConcurrentHashMap<>();\n    private final ConcurrentMap<Path, String> errors = new ConcurrentHashMap<>();\n\n    public ConcurrentFileProcessor(Path directory, int threadCount, long lockTimeoutSeconds) {\n        if (directory == null) throw new IllegalArgumentException(\"directory must not be null\");\n        if (threadCount < 1) throw new IllegalArgumentException(\"threadCount must be >= 1\");\n        this.directory = directory;\n        this.threadCount = threadCount;\n        this.lockTimeoutSeconds = lockTimeoutSeconds;\n    }\n\n    public Map<Path, FileStats> processDirectory() throws IOException, InterruptedException {\n        List<Path> files = listRegularFiles(directory);\n        results.clear();\n        errors.clear();\n\n        ExecutorService pool = Executors.newFixedThreadPool(threadCount);\n        try {\n            List<Future<?>> futures = new ArrayList<>();\n            for (Path file : files) {\n                futures.add(pool.submit(() -> processFile(file)));\n            }\n            for (Future<?> f : futures) {\n                try {\n                    f.get();\n                } catch (Exception e) {\n                    // Errors are recorded per file inside processFile\n                }\n            }\n        } finally {\n            pool.shutdown();\n            pool.awaitTermination(1, TimeUnit.MINUTES);\n        }\n\n        return new TreeMap<>(results);\n    }\n\n    public Map<Path, String> getErrors() {\n        return new TreeMap<>(errors);\n    }\n\n    static List<Path> listRegularFiles(Path dir) throws IOException {\n        List<Path> files = new ArrayList<>();\n        try (Stream<Path> stream = Files.list(dir)) {\n            stream.filter(Files::isRegularFile).sorted().forEach(files::add);\n        }\n        return files;\n    }\n\n    void processFile(Path file) {\n        ReentrantLock lock = fileLocks.computeIfAbsent(file, k -> new ReentrantLock());\n        boolean acquired = false;\n        try {\n            // Only one lock is ever held per thread at a time, and tryLock with a timeout\n            // prevents indefinite blocking, so deadlock is avoided.\n            acquired = lock.tryLock(lockTimeoutSeconds, TimeUnit.SECONDS);\n            if (!acquired) {\n                errors.put(file, \"could not acquire lock within timeout\");\n                return;\n            }\n            FileStats stats = computeStats(file);\n            results.put(file, stats);\n        } catch (InterruptedException e) {\n            Thread.currentThread().interrupt();\n            errors.put(file, \"interrupted\");\n        } catch (IOException e) {\n            errors.put(file, e.getMessage());\n        } finally {\n            if (acquired) {\n                lock.unlock();\n            }\n        }\n    }\n\n    static FileStats computeStats(Path file) throws IOException {\n        long lines = 0;\n        long words = 0;\n        try (BufferedReader reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {\n            String line;\n            while ((line = reader.readLine()) != null) {\n                lines++;\n                String trimmed = line.trim();\n                if (!trimmed.isEmpty()) {\n                    words += trimmed.split(\"\\\\s+\").length;\n                }\n            }\n        }\n        long bytes = Files.size(file);\n        return new FileStats(lines, words, bytes, Thread.currentThread().getName());\n    }\n\n    static List<Path> createSampleFiles(Path dir, int count) throws IOException {\n        Files.createDirectories(dir);\n        List<Path> created = new ArrayList<>();\n        for (int i = 0; i < count; i++) {\n            Path p = dir.resolve(\"data_\" + i + \".txt\");\n            StringBuilder sb = new StringBuilder();\n            int lines = 10 + i * 5;\n            for (int j = 0; j < lines; j++) {\n                sb.append(\"file \").append(i).append(\" line \").append(j).append(\" some sample words here\\n\");\n            }\n            Files.write(p, sb.toString().getBytes(StandardCharsets.UTF_8));\n            created.add(p);\n        }\n        return created;\n    }\n\n    static void deleteRecursively(Path dir) throws IOException {\n        if (!Files.exists(dir)) return;\n        try (Stream<Path> stream = Files.walk(dir)) {\n            List<Path> paths = new ArrayList<>();\n            stream.forEach(paths::add);\n            paths.sort(Comparator.reverseOrder());\n            for (Path p : paths) {\n                Files.deleteIfExists(p);\n            }\n        }\n    }\n\n    public static void main(String[] args) throws Exception {\n        Path dir;\n        int threads = 4;\n        boolean demo = args.length == 0;\n\n        if (demo) {\n            dir = Files.createTempDirectory(\"concurrent_files_\");\n            createSampleFiles(dir, 20);\n        } else {\n            dir = Paths.get(args[0]);\n            if (args.length > 1) {\n                threads = Integer.parseInt(args[1]);\n            }\n        }\n\n        try {\n            ConcurrentFileProcessor processor = new ConcurrentFileProcessor(dir, threads, 30);\n            Map<Path, FileStats> results = processor.processDirectory();\n\n            for (Map.Entry<Path, FileStats> e : results.entrySet()) {\n                System.out.println(e.getKey().getFileName() + \": \" + e.getValue());\n            }\n            Map<Path, String> errs = processor.getErrors();\n            for (Map.Entry<Path, String> e : errs.entrySet()) {\n                System.out.println(\"ERROR \" + e.getKey().getFileName() + \": \" + e.getValue());\n            }\n            System.out.println(\"Processed \" + results.size() + \" file(s) with \" + threads + \" thread(s).\");\n        } finally {\n            if (demo) {\n                deleteRecursively(dir);\n            }\n        }\n    }\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 269,
+      "completion_tokens": 3477,
+      "total_tokens": 3746,
+      "cost": 0.0017654,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0017654,
+        "upstream_inference_prompt_cost": 2.69e-05,
+        "upstream_inference_completions_cost": 0.0017385
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 800,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

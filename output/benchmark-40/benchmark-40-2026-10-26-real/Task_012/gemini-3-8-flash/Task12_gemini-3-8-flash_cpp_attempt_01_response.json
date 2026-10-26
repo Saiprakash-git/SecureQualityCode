@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793008923-vuuozbQ4EJg0xqWVmH6q",
+  "finish_reason": "stop",
+  "input_tokens": 200,
+  "output_tokens": 896,
+  "cost_usd": 0.00351,
+  "raw_response": {
+    "id": "gen-1793008923-vuuozbQ4EJg0xqWVmH6q",
+    "object": "chat.completion",
+    "created": 1793008923,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n#include <sstream>\n\nstd::string highestScoringWord(const std::string& str) {\n    std::istringstream iss(str);\n    std::string word;\n    std::string best_word;\n    int max_score = -1;\n\n    while (iss >> word) {\n        int current_score = 0;\n        for (char c : word) {\n            current_score += (c - 'a' + 1);\n        }\n\n        if (current_score > max_score) {\n            max_score = current_score;\n            best_word = word;\n        }\n    }\n\n    return best_word;\n}\n\nint main() {\n    std::string test = \"man i need a taxi up to ubud\";\n    std::cout << highestScoringWord(test) << std::endl;\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Developing C++ Word Scorer**\n\nI'm currently focused on crafting a C++ solution to identify the highest-scoring word from a space-delimited string. My current thinking centers on efficiently parsing the input and devising a scoring mechanism for each word.\n\n**Refining Scoring Logic**\n\nMy current focus is on precisely calculating word scores, iterating through each character and summing their corresponding point values. I'm also ensuring that the tie-breaking rule, prioritizing the first word encountered, is correctly implemented.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing C++ Word Scorer**\n\nI'm currently focused on crafting a C++ solution to identify the highest-scoring word from a space-delimited string. My current thinking centers on efficiently parsing the input and devising a scoring mechanism for each word.\n\n**Refining Scoring Logic**\n\nMy current focus is on precisely calculating word scores, iterating through each character and summing their corresponding point values. I'm also ensuring that the tie-breaking rule, prioritizing the first word encountered, is correctly implemented.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 200,
+      "completion_tokens": 896,
+      "total_tokens": 1096,
+      "cost": 0.00351,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00351,
+        "upstream_inference_prompt_cost": 0.00015,
+        "upstream_inference_completions_cost": 0.00336
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 683,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

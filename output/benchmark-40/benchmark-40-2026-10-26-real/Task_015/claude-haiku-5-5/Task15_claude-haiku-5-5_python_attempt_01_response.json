@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793009285-yjkex1Ai0vPFTNjdBDqB",
+  "finish_reason": "stop",
+  "input_tokens": 302,
+  "output_tokens": 104,
+  "cost_usd": 8.22e-05,
+  "raw_response": {
+    "id": "gen-1793009285-yjkex1Ai0vPFTNjdBDqB",
+    "object": "chat.completion",
+    "created": 1793009285,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "def build_tower(n_floors):\n    width = 2 * n_floors - 1\n    tower = []\n    for i in range(n_floors):\n        stars = 2 * i + 1\n        padding = (width - stars) // 2\n        tower.append(\" \" * padding + \"*\" * stars + \" \" * padding)\n    return tower",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 302,
+      "completion_tokens": 104,
+      "total_tokens": 406,
+      "cost": 8.22e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 8.22e-05,
+        "upstream_inference_prompt_cost": 3.02e-05,
+        "upstream_inference_completions_cost": 5.2e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

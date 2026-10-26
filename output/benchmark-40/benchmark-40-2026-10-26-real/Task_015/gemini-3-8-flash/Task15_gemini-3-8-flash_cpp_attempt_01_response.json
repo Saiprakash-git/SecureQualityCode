@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793009668-3K6HsCL1OL3zElgNhFdp",
+  "finish_reason": "stop",
+  "input_tokens": 216,
+  "output_tokens": 780,
+  "cost_usd": 0.003087,
+  "raw_response": {
+    "id": "gen-1793009668-3K6HsCL1OL3zElgNhFdp",
+    "object": "chat.completion",
+    "created": 1793009668,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n#include <vector>\n\nstd::vector<std::string> towerBuilder(unsigned int nFloors) {\n    std::vector<std::string> tower;\n    tower.reserve(nFloors);\n    for (unsigned int i = 0; i < nFloors; ++i) {\n        std::string spaces(nFloors - 1 - i, ' ');\n        std::string stars(2 * i + 1, '*');\n        tower.push_back(spaces + stars + spaces);\n    }\n    return tower;\n}\n\nint main() {\n    unsigned int floors = 6;\n    std::vector<std::string> tower = towerBuilder(floors);\n    for (const auto& floor : tower) {\n        std::cout << \"\\\"\" << floor << \"\\\"\\n\";\n    }\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Building Tower Logic**\n\nI'm currently focused on translating the tower-building requirements into concrete C++ code. My aim is to implement functions that gracefully handle input parameters and return the expected tower structures. The core logic for generating these towers is taking shape, with a focus on clear and modular code.\n\n**Crafting String Components**\n\nI'm now solidifying the string construction for each floor. The formula for calculating left/right spaces and central stars is clear: `n - 1 - i` spaces and `2*i + 1` stars. I'm integrating this directly into the `std::string` concatenation to form each floor's visual representation.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Building Tower Logic**\n\nI'm currently focused on translating the tower-building requirements into concrete C++ code. My aim is to implement functions that gracefully handle input parameters and return the expected tower structures. The core logic for generating these towers is taking shape, with a focus on clear and modular code.\n\n**Crafting String Components**\n\nI'm now solidifying the string construction for each floor. The formula for calculating left/right spaces and central stars is clear: `n - 1 - i` spaces and `2*i + 1` stars. I'm integrating this directly into the `std::string` concatenation to form each floor's visual representation.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 216,
+      "completion_tokens": 780,
+      "total_tokens": 996,
+      "cost": 0.003087,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003087,
+        "upstream_inference_prompt_cost": 0.000162,
+        "upstream_inference_completions_cost": 0.002925
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 574,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

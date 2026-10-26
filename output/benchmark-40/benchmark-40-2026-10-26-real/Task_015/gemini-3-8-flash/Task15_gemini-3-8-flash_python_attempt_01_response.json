@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793009293-kIHNb9Kc9FGYri8xoEQ9",
+  "finish_reason": "stop",
+  "input_tokens": 216,
+  "output_tokens": 470,
+  "cost_usd": 0.0019245,
+  "raw_response": {
+    "id": "gen-1793009293-kIHNb9Kc9FGYri8xoEQ9",
+    "object": "chat.completion",
+    "created": 1793009293,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "def tower_builder(n_floors):\n    return [\n        \" \" * (n_floors - i - 1) + \"*\" * (2 * i + 1) + \" \" * (n_floors - i - 1)\n        for i in range(n_floors)\n    ]",
+          "refusal": null,
+          "reasoning": "**Building Pyramid Structure**\n\nI'm currently focused on translating the core logic for constructing the pyramid. My current thoughts are revolving around how to best generate each floor's string representation, ensuring correct centering and the progressive increase of asterisks.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Building Pyramid Structure**\n\nI'm currently focused on translating the core logic for constructing the pyramid. My current thoughts are revolving around how to best generate each floor's string representation, ensuring correct centering and the progressive increase of asterisks.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "AY89a1+xsfekL9lnS0pCyNV/Upic8av9b1YGHopv4zMqQm4v8Uh2DTRLqhS61WQprW9i4NNGrtiRCHrwhHpgLuy+HLY+ZJHLRPSOb5ySFs/7hN9Omu38KWAQqDw12W5Io8eFsjSiy3axaS03LOSInQCbuCn4Qy5qCx55LRQXhPIA5NnNULo+me9mKZDpCLz86DOeppanZ3wmsbJf+/NFnVu426DQTc0XPc3o2dBMErfQLy1Cl39A0rzbZk6udsrCHIRtEptp0nFzgIcqqV9nhuzhEZYsyFagzZk9WdFhoGgIIeHR/67Uent9v92ckhDOcMPa7RpCqfv3xeUqe5u89jjO6mdTBaJpG5HaGlRnO9pHCS/5ZgNt5d/3QWmzGmQGez8iOoakPchtqbYFIVrXrnw1M5sM35HeefgeRddieGZCJ5vfQMBQBiltXn0klQRTYzDAD0JbYFn/E2vxwSjnkYHO+71iou5Tn0CAfqZB3RJLCLozU8hs/3g+3zxMKxEGs8aF7Ad0P/h4It22hxqNdZVfH5EPHQPUqKjWpEd1ZkSS9sUdBsZnHbbVfwM/wApKZhzmLxsSyWCuXNIpa0D2kg6dci+RkZMVXquTdfImJPtFoPKEsKT1S+mwtvtmG47gwfXlR9USDI0viDELMKd3TU3QyoMgpTJzp1wS4QN5vy5eT9dGKApOi/DeSuwwT2odbsozs83ppNNEYlyJIVqx13qdgDULZWQLf1mTI64JqYgcKOg5VjERoi8GGiK4rWE85PvlUkMyg4+iCexsxhNNk+Fl9H2NUkSVE1Ro/DFjlCw5eZkH1mieymThbZmFb5vUp+yoT1WvMCGb8o+f3VGWqnmX9x/tSwTGIJ/aRHoCS8w3nGo+opsYjaJbNNhoBuuB/uxhK3x3JmlNdBAk3LHWJiG5lv3Il69Pfi0a8+A0EMH0dcrudOPpkStoEDx1YxGhvp1gyzdf6abjoKcNsxZQ++moogWQeIzncg2yesclfE4ZenOhhGFT+Gj+8KY+v6AjxVU5cXYqaMO+W+2xdYsRnt2P9efNoNNfYwGS2LNtHwpU+qO1NQFFvYisJjYh/u/UkjYeIfyVkJzK6WQeX1RVsFBHLYmQF4nMCHdl32BRhD2IJYWQFJQmWTnuMoSKORwdC5y4fBXHvxqdjX1P43VVUppuretDUAa7q5+jC9ultYxcypYDc57eikMdHGcpeQRxaMIBpL/Y1l5bwu7Ai4xT5e9sJtwikCHgETGKnvDedjq6diTeCjMUrvzEUFm5w+RrwuFHo878VewHRnLnTOgpHKvrrRvZW6zUg4+6n2P33uAaUmzIPSTgHcii3RZBRkTUg0AoJRsqPZAZO8Om1D9D1U9Y9AFgvuIwL7laRdz/QO2cd1HsVRzyBJG8+UyuVf0bFe9WCunBYojf14jmX7F6HzGedboJEOrb/ZAn4LQPYiXAGT6z17sFWtPQWq+b70fFnf1TwzBMgb/f/D4/XvKRIJMNe7hb3Y+owuenYusJU8K6KHVNYVx4MRr+qJF3ByGqbAb2nH+vuckIoDMFvggl+7YXYod4JDDyHNATyE+YQHyBK6baPlGgJfcjmp7ilS3tO4GqWZFfZMFU+eOV5SJj7m3/sMdDEdLjMvtzY8ZwVhVXrXYSZcsjbvbggBRdU/DBroFYorm5bLzyFo6EL1l2sCmo3feZlzx3EpunHRCl9l1EZaYVzoQm+fknEKoE0XxVM+CWqA2G08j4a8Eh5pBqbN1pNAxAmqZgU8KHDRDjReVCEPj6gYainQBfcmtp87jgABFbjdD8EJQ6mLYqXshLt3jvYRF0SVk86UjgFyZ3vCTHZw+45lizbDjnkw5CAOpFjL2M8iLf5T7lR9X1udVB+NAJ3BCaQsjvP8MEiJf/wZtauOH+J3EQlA4bwu/ywqwCGwy8fqHTERBtvckDZSep2lLmzilfR+udk5j46zRDDrLW1Jnu/Tx4BA==",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 216,
+      "completion_tokens": 470,
+      "total_tokens": 686,
+      "cost": 0.0019245,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0019245,
+        "upstream_inference_prompt_cost": 0.000162,
+        "upstream_inference_completions_cost": 0.0017625
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 399,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

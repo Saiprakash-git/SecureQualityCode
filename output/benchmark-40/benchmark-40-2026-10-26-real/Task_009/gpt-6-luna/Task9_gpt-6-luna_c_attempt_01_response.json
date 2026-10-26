@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793008443-oQ7VA8yLa1hKc4dUSoJx",
+  "finish_reason": "stop",
+  "input_tokens": 185,
+  "output_tokens": 432,
+  "cost_usd": 0.0002345,
+  "raw_response": {
+    "id": "gen-1793008443-oQ7VA8yLa1hKc4dUSoJx",
+    "object": "chat.completion",
+    "created": 1793008443,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stddef.h>\n\nchar *odd_or_even(const int *array, size_t length)\n{\n    int odd = 0;\n\n    for (size_t i = 0; i < length; ++i) {\n        odd ^= (array[i] % 2 != 0);\n    }\n\n    return odd ? \"odd\" : \"even\";\n}",
+          "refusal": null,
+          "reasoning": "**Drafting C function for parity**\n\nI need to create a complete self-contained C source code. The task seems to be about determining if the sum of an array is odd or even, likely related to a Codewars challenge. I should structure the function as `char* odd_or_even(const int *array, size_t length)`, including necessary headers like `<stddef.h>`. It needs to handle empty arrays and avoid overflow. I'll ensure I use the general signature while being mindful of how negatives affect modulo operations versus using XOR for parity. I want a robust implementation!**Finalizing function signature in C**\n\nIn C, a string literal is typically a char array, and I can return a `char*`, although modifying it can lead to undefined behavior. It might be better to define it as `const char*`. However, considering the expectations for Codewars, `char * odd_or_even(const int *array, size_t length)` seems appropriate. I don't need a main function since I'm aiming for a complete self-contained source file. I'll ensure to handle empty arrays carefully and use a parity accumulator for the logic.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Drafting C function for parity**\n\nI need to create a complete self-contained C source code. The task seems to be about determining if the sum of an array is odd or even, likely related to a Codewars challenge. I should structure the function as `char* odd_or_even(const int *array, size_t length)`, including necessary headers like `<stddef.h>`. It needs to handle empty arrays and avoid overflow. I'll ensure I use the general signature while being mindful of how negatives affect modulo operations versus using XOR for parity. I want a robust implementation!**Finalizing function signature in C**\n\nIn C, a string literal is typically a char array, and I can return a `char*`, although modifying it can lead to undefined behavior. It might be better to define it as `const char*`. However, considering the expectations for Codewars, `char * odd_or_even(const int *array, size_t length)` seems appropriate. I don't need a main function since I'm aiming for a complete self-contained source file. I'll ensure to handle empty arrays carefully and use a parity accumulator for the logic.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3yNBl5u1yb4oT7t0pnql9K3wajmflAjUjtR-5G_-UVZmupP7SiULYqC3HreWgJRrWSLPVB8flngqKKKod_wZ2A__MSvC1r7GQeqwZ6dY4ZPLX6gQmWJ1YsaRo4TJH7jDZTS3WMXSLXdI_ALoSMH5_fy0u9-u30AMjKyMIgWiiP1Ti9-dqsH7RTPVIoGdOPvqdISSWMref768L7-Cpe-aY3-zdBmdwvVnNE57RR1NhSQFfVml5I3eIciC4_2zdUkRs35B_fbWYWVJI6MxeMF3DEfD5N_0R3gXt4m2gGGttVveXmICbssrufzk6kZ7wOOVwTe8JIsMLDsnq15f3drTbOPyh2jSQH-tzgxzFogcKTkeliKwfjT8KxL2eRKBrNuGzj6VtAPz1F8gx8rcmlLnQdEsQEleOfQ0jFrSEe8ITmCqzI00oLET2i41agnkvcJNwr4r_JvbuOys0PFOu9w4xEDxoF0HyFK9wjTvCRctb8J4UXtGUBNLzNnYE9P7TRjgB3SYBu8KebeBH0HlIst7tppdDVNPdSeOSQlHePI2xkvTwL88VCw3rNuwU8y6MXN2pxx1PTLjUYIKUDZpjEsp5ViOGoMA8YMfyErGOnlby1kkoGv2BBIhIWifLRGkAepDrnsHlJWcI2t7VMIj7bY4a7W9iMMPVA7mLK9NLtAtsS1K-8kM0ffq-1Z-7AZPV1KmaIVHr3Id2yn1cJfv2ss6Wy8EKcn8-p-8uVaCnMEq5WKaGIs2D91DBstiw3DZaoblw3rE8pMs38msBn7T_7Prg9vXFb8Iz7fCKufUynAay_rpSYxTHx4ZonveEFZHtwodfthKoFLcdjJfEki6m4S8kLSjhd84QZThqchrlNgFOdJ5fgDPp9LkjG-heleU6FP8f6v7aBFQUjDzBMLOCcnxG7mpdFtHdIkvMxB0wdUUcFbRHSdmAj0d9zIrjo2BaVzjk7s2D64QUsvC9VMnuHc-gCn0Vgci_zAxNvK9DlDGfhyc4bc8KVbx3ld8Z20M1xCQbH9BlraJz5E0J4aLSPMBs8MVN8zp2v3fTqVz441zouKEvJkC2J6PXeNJruY1HEQYOfD3tAFYh5-PAmvyjBRZkawpSP_0J46kZ9qiStrQHFi8nXsngdk9rlXz7wIiX6HWzPeIPy-PMRj_DAIPdPC1eX_q4iwBouFWlgfLc6w7r7sEXVXGPyxBZomAZmQywEVn3yGqzGqj8EZDHhKr37QIRDXAk_mE08i942jp-wuLG-qxXQMdCrK-ryeR3rZ-lbh6vPYQEGyG3nuOpdIBuTPHzIOOof4zxJZqbjeSLUN1Om0m8DioMupNy2CSQSA5vSelV_tSm7-kK1jx7y5Z2AyKK0Q-XcG5DR6oilBfNiwjIBwLmb0NIrNo_sz9yQiaC7IorDtaffLGhsOrJiSfsZC9C6GFdZ6wXZVazdv3dyd38Lc4B8thucjS2JkpXsWb0IdtPvsy1ofC_YlgaPcxS8Z_mIEZdk2kxGSBStngvtdftBW4LU8lR6m56vEQgVjj9ecWKN3nDcFMT-O7JFUaDeeEBjTsb5Dw20LCMJapLJN8Emv5PlVTEW6YNbmXoi0QjREi0P1do3C4THQAKOn-4YOHyt5-xarJfEdViN2-VLpdsI2UI3jNOqcTrl3QhnlVS5INuOVlehrZ86m12zhwy8GIK9XlTUZFVVKraWHGYY7Sw2fyU3pwQTTsq-kwuM1PbwpLVSlHLsSUBndOjBWM4Wtd2cvz7F-4FdkfKyI4JkucABE8lmocNLQKAliEeV3dun21eLgf_zpIwn-63S6BafY8ABlJ5CiWM68PToWToWT1gG8hQrMmPjQNNP1DF_DyR4iF0kBHLcEgjPiiE7ZZcNk-bN-Ds3c-VzWjDkVMyDMtUXSIwEmxUZg-fgZFW2X2oKrfRG-MgNyQM7wTPD6YQq2R3gliuX8F7ssPBVfEiv-NDnzP43V2xcftxwyA6NQuO_E3LA1agwW1YOKLaT9iEgoVNPZKahISUECQLC33JmvtpuFe7_idaduFmEw-Sb14C-DB5vPM9YRFsicqvbvW4RMPKnuN1nRfrHQWxWJzB2OTXm_Wc0RuBS8X1YbePzr-963GddXHMfDw_ZFkzgmZFIgpnsZZW9pqGb0yRu7nVab6cAHKsqjyNDpwdPI6iEqaJnFh_n_NseW3YIaAPORvt6qkHub8iJQ8ywS4OZC7pMG2c3C7GSOBhb_QpimDipZnuhOjTcx9tK7VqFH5TFgdiRErIrCtbHyL8iSvD7iUZ7JxJ4-FzxBGFRSUSanLRLVJqiSZE9YE0hu0lWOVrgovMMOwjfABZX0zxtw8KyrYW0cuKE9FRk5JF0OOSpxiQsqJlYeNsPqwkIuyhLSe1FFJBpc3IhWUzVNzC3Ygpurmj9zvR-HTmh8Zm1DTKRIjsrjAsCGLm0uwfPdbuQsLBT3Yyg_1YKzbur1Sh9ncVWCi6SDfsbxqqfZAWq5jpaScy0vV9jV7EZVV5NXSDDIxDjSfpw2LmAMeU2mRkLemYi4ZWe-IzBU01gtYTjfuUCWFzvz8gEbqmW3LELt_eFEIvGjnwsVUWKKUfBZPkNFcgg245xroIkYtgwpur3UpcxxfEFZ6Y-7XP4cazG_10NU5o3JQJhc6Qya9bWKzEx3wh_AMsXHlmk53Lsv9Zhyk82nmbMeCswU3W_70taRsdFQu9U8enPcerQyRWYTeTI98CNBZGJTE-m2B2ucphsWOZGRgl0f6aT5tcH3_NBxIgiIIOKNx9TzYWkv8OXHYgIZh5zAqtKZ5lrrQ3KRBX2ZLgIV68ZWaM5bbhftrSUxTFgJ5jPopWvos531WCFSYJIwp2t0oZwIG-qzB0B_jkWufFvqALDQP9Zh3hPWrIF8rNuvhzqcOpxsBguim2Zed-Uhf5HEe3vwSAiebuPH6osg8hQQ8orBAf8jm1cJgEPwXL0L_sANhiX_TB2nOKa4eJhXFSRjdoSY0nAd9EA0vAs3zWHgIXjpL96DfHQXPnpFz_LDJJ3VrJnbp53L1dc7QsLeMoqmiQiygwqHTvRu7Z1rSkdEVbk8yOq1t__EH5s_-TJTCVOBIE-V9EPEoviDWaMwsQR66VrwjbDEl-rgpJHYwDf5X8zdg6ALY8MOPomJorZG8CtkJ3W79iLoi-SkB5Sh8wZACPN0eU_5sb3LXhWzy1grFbieGTHOjzQQa_gmC5Mq5KGpkGTa5QC7NvEurAc-2eyFSU-m7wLVO41coXoqSUFYXd1CRJiO56h_j8DE46boH1i23xeYmPEj5NrM-GrdjuyDDCY7MbM7pnQ0o5EtFzgs4ca_pkxmbNFpGfgozGr6ZC8iDqo4-yYlLq-ReznSeQyvKjhuFXowKA9dCAKzlvAXEMaqwG6vT64O4U9yKtKCCcfrPOkgTYOQG3e68J1uZGdtYCzz30ezgEQDHIeeE_J8Y8gn2U3cnEnT2tE5E1Iw9RonQkviTr9mgpFqutZmBKVoVyjQAbOgzINH7edEOKXIqK-YDA6beyZ6xyKuHmrbi3G_A00xnyQ7of0VM3I8Nynt8ZLV2_-GuZD2RS29JBGJtI8VTAv_qeEQAxasGplMPLXCeoO3AvoIIHecUE7KnniwxRxTAKZXltgrvoaNWyD2rNCIGeL2BHJhOZPz7KwKoMfMrQXs5JZlAr6n6QSRl9_DYOOecDAylbjzElRT7vb431W1PoscV8G0pirSAJyCmX6c7WBTu-mAYIpkoV9Vkd9uahd6fMzJIxkeXOSN1cMWK6TW48U0MDIdKALamKLBrMxtsXUDfhUgCX92IVhiYzLoR2WtnCwmNrX6-98d73GWdAEQOsL-kPJe77gz6_aEckanQRjpMDpgJuZXiO-ogBvFVbe3dLyBeJmOQ5qyzGHiQrmLUlTp-2R24y4Q9SJoyFYzP6rvOKvSNi1zQnDGPrePo1ZBGeoDIe-DvDTAhjzsv6Iy00jgdY813DEpjjtbBiZnkFFtumB-hboRUpwXQwVVHOxQNhb-lh2k6ld-fwaSzxzPXgSkz5Zjk_D_7T26z3qT3DjQ5uzLulu7vowyc5PSBaGTEWkb6fYB1A4G9a85SnxZNDtTnijB2BzS5lY-eA6QXtGLrkUVAa1SXcDpBPDiOjsIi60Y6BcyLR-CC9sFUGPXe7Msam_tbuSP_lXSYr0JGycY42yhhh1zZbHVyzf2Z3m53EvbssKtPCzteo4wiS9ShxDFJ_cxi1hhWtriGhXReaHQx7CSSFnwGP1E6hPSduBu_us0cYnkcgDONXyBYjUsLKrrHLSYt44RiDcLz9mOREh40CAG8KqhKJ0NqKWwHbhonEJd7MSqY-2D59WSSy7kw_bf60t33vx42tFsl1aXwtS8GGJXYK0LBcKrZZ6qT2OkU2Y6rJRZpqIfbVBI7rIaGPcfL15YEe_nqYHWwcXxTI38gbCK3JQr8IcrL2VJ_8R5ZhnDt0NP-25wX05oUcLnocpYFS-3q__CTyzXCEOZfddY61SSV1kAEoan1H4eBtXqFOafr5-Ih8wyYOP9zHr2VQst-MPdo0EC8pcBjCXf23czeLbD4X1gJH723NngHyEeEpkuG1wDiUmGBk6WLkKasRezAualOxvTABzoHbJsCE6T7aTYoNr-0RAX4CrCXXevVPHSChGfUzKvbFEgHRiOgMrVS_lkc5nMlK5oJJWDagjonfBcY_VniLdxFcywaN7PNvGBMiGrb1nWS7a0-FFn6DLFdGe3Vw3vIFmZzvhpjveuZEmVZIAvSzU7FY1SfHbXE6brAT9nSN-_BGK1yCgXArwCkp7Ynn_sH8OmZHN2j_COx-SoZC09JTZ3J15UOk5mOggZMHK-GzHnu4NOODbCxJKO8B9NgYz1LgceDumeP9e6Ctt4ctx52rhe-Vsdwi9-zGxjiU5fPk29jLoSdDNRXLbWprfSg37tZtvj86kl0oxk3VV3TlZde6tjFRtnLpk74jSIESlK7zwn-ux-JbyFalHmeXbqTZWvmeG4C1_YGKby9SiWYPk9ydZEnVgfxmYNXrTM2huECSOgI3FDRvo8LxX2E-r-1Xil8rC1FN0_iNRQPBZfymTsYVRygS-CeMD4XbR49-T8RQ8Vyyi5T_U3LHhTcxvci5rFv3C8cVi1PtxJJ80007a5JPnz7DEYrKe_4vkUZgNCD2lbVgsl85uN2uatyBb-5181fWeN5Gw5S6K8zjlGcc2GhyFlfFyzs1HTz8JKovfJcw2I8FjR-6HWvVoUfxnXGwEFe8xsRmP-ksDgP6KCbx80E9EhWvtYmngV7n66qHiZq9Z-PGyBdn41AKqlemLCkRAR3IYmSmfyTaL2p7b73A7f5ngi7tkLcZ76kD0DKIvOTz1AHs9gDTMiqlpBx1ZRO1BHiMmu7yZWIwrV6n_Uc0TpH_3okUTZ1UdH1BPyXXxyuLdaUe56ZZjIM56qkbAasiBIsxG56RmiMTcgwCojcBe7OxVhkvrbWODxHKOFEdWzInzkFcZ66SWbd2QiUUqAXGk2zQV7h71jZaSoqdwa2AFpv99MdEqVF02xJrxMjRS4OyGBKLIqgVzoRhXNrh8xQ42hcT5M3Tyg1ZpkQ623ftbQ4u4Usn2WqC3S3glQaPRpSOsuBXkU178Wf_jqouDwJLEBwIeKLHFxX79NBivEZNycIebLjw4pH1PdtCXHU5f1NiCJAKuswsXXnAEk-YqK-U6Z-5cSG384sek-YNvsD9EMxoOBRjTCjjgS7MU-HObOmDl1RroiqL4wdkwo5IDWkE_ZtMmz8uli9GFXRMjB6ftg_Q7ji2lUFg5iOLi3hMzA-HfDZa_EgBNhybkGCo-t7lVfXPQ3PyB7Y7czEDFg5qnNcg7RE6YwEv1eQIgCpRBosBBD7iLjonpMv2bctVa6yZPZlkgdGq76AbxffufHMLKvQ6TUNZFbFava_nB0K_klPBtTyoCiS0mB6-3LlnoSnxJIRIaktwtAAxs_LWFVpp3ie1Yit2wsOPE5OD8grIBbaVqRH8TT7IWsmNE-p3FNl54ee6orxuyXgoByt2t3cW22Qluj-YH35p6ufv39cbdMi6ZJhk-6j-QKulBYh_0HMnsvk5CtTR9Vi_45PxJDykW7lO3hWT2bvmHLMx3TtJ6U=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_00749ac7de1d6bea016adf233bf29087d19de7996605c599f6",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 185,
+      "completion_tokens": 432,
+      "total_tokens": 617,
+      "cost": 0.0002345,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002345,
+        "upstream_inference_prompt_cost": 1.85e-05,
+        "upstream_inference_completions_cost": 0.000216
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 353,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

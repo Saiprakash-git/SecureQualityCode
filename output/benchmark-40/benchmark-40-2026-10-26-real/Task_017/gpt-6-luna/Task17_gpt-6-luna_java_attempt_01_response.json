@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793009776-Be7r2dHXOApJlIKDlwv4",
+  "finish_reason": "stop",
+  "input_tokens": 296,
+  "output_tokens": 406,
+  "cost_usd": 0.0002326,
+  "raw_response": {
+    "id": "gen-1793009776-Be7r2dHXOApJlIKDlwv4",
+    "object": "chat.completion",
+    "created": 1793009776,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "public class JadenCase {\n    public String toJadenCase(String phrase) {\n        if (phrase == null || phrase.isEmpty()) {\n            return null;\n        }\n\n        StringBuilder result = new StringBuilder(phrase);\n        boolean atWordStart = true;\n\n        for (int i = 0; i < result.length(); i++) {\n            char c = result.charAt(i);\n            if (Character.isWhitespace(c)) {\n                atWordStart = true;\n            } else if (atWordStart) {\n                result.setCharAt(i, Character.toUpperCase(c));\n                atWordStart = false;\n            }\n        }\n\n        return result.toString();\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Considering Java coding requirements**\n\nI need to produce Java source only, specifically for the \"Jaden Casing Strings\" task on Codewars. It seems like the expected structure is a class named JadenCase with a method called toJadenCase that capitalizes the first letter of each word while preserving apostrophes. I want to ensure empty or null input returns null and that whitespace handling is robust. I should avoid altering any repeated whitespace and consider character boundaries carefully. My focus is on achieving a straightforward and effective solution.**Developing Java string handling**\n\nI\u2019m looking to use StringBuilder along with a boolean to track when I'm at the start of a word. I'll make use of Character.isWhitespace to handle leading whitespace and ensure I correctly identify words separated by spaces. It's important to uppercase the first character of each word and leave the rest unchanged. I even want to handle cases like \"some-word\" as a valid word. This should give me a solid foundation for implementing the desired functionality.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Considering Java coding requirements**\n\nI need to produce Java source only, specifically for the \"Jaden Casing Strings\" task on Codewars. It seems like the expected structure is a class named JadenCase with a method called toJadenCase that capitalizes the first letter of each word while preserving apostrophes. I want to ensure empty or null input returns null and that whitespace handling is robust. I should avoid altering any repeated whitespace and consider character boundaries carefully. My focus is on achieving a straightforward and effective solution.**Developing Java string handling**\n\nI\u2019m looking to use StringBuilder along with a boolean to track when I'm at the start of a word. I'll make use of Character.isWhitespace to handle leading whitespace and ensure I correctly identify words separated by spaces. It's important to uppercase the first character of each word and leave the rest unchanged. I even want to handle cases like \"some-word\" as a valid word. This should give me a solid foundation for implementing the desired functionality.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3yh2JpEzifcpcJgepkY-r0Kyj6BrM_1DirxYXsbDBqpXB7Eclda3QQtHwjf-FGKSgDcSGIpfJqOjAe9sx0GFlYZRIxLD2yevAl9kMzdBqX-awkZr6njbXcO8fopmWtm9PT1rL7RqGWZIDWLBgw-EdhkjKsJunQEnNig68DzMmfpDNLVdzcACGoHJDSHjWIwEusbkcWgs8QRl_BbyWMVDthiMN-UJcIaQ3pIbsk1PIKitQ2BQzFxheVOXGjavCLUrAVJtzvcUFzJIf1O1Xy4iV2CeJ0GkfjYZSpKpLfWAg1UjQ5llGkNW4IxcrwahPPDWqExs_mULrCvXFCoaiEPjYVCRRvHt6o-0To-ZiT542mforJ7qD0mKeZ2tS7b-Od4b4OIMIcxbO8fN4lMMaNHxsZmZsTuzgebWfNBmkIqU1nAuOAIYrvTPsV6nNys3hv3g5WNU4KnI74D0YeIAFHDI3OShBsM4ATXNDlkvUNWIEn2wPsKzDZ3FgGfV_cHjCWP-pIBBhxVY5VeJHE8BkFoAeQ5Gpk0K9461Ng_p5oLWcQvILCNi5unmvs_mEdwrBFdS2EtJvfjBChPDQzzLsNla_Jq8OF7SKoFD1rAm31L3xl6TnjgFt2mvpGQwj2lap6VjMYgNjd-g2krsRD0xKexd73zbnIWEHm-ZZBrbsGwsBT5xvYAOJh-OjyRQ8hCSO4e5eQHpZE3rpqoGulPKqDno8dxdoXs-sOzrrfRQLWFZ8huj1GI5gThiSuSrtsFAOstPAEipJyIZ8YL55brCxSSGShbro42ChPPYjphGWg5a_wIhVUjhPfLv0_ZryhOhtbJmBrQQAqhq6BPPkEkVedIfc0mJWKfvqtTKWXfopvqnGo1Gd47LcV5UzYW75a2227nEGCC-gMI0_B2NFmN36f3opdr0PLQNuS_WUzr9z16GEnHsyuDq46fo_xp2r-hxMubDO-X2hd-_VwOjqW21ziuTZgsqGqTvmItXZOOlRX-2UqUxv9_dJ1_oOUKmhVKCuR1xmzaHi2lN8ty5W53gF352WAvP4Un8ZnS9iNss_GhJVXrCM9icei9lwf-39oNzZbmRev3VYWXFpiPGSv77i3Kv34kx9lYdAPrQenG1xUeRB3zZdebWuELj0yc8kH_OB8jB1yieBtcXS1q2yRx8Fc5te-Y1jXOZVSf-oi6n_1R7dT7lCDs2H4E8nm9Y8uy2j0KwrkU7-tLvGGFR-BFvaiPfHSfO9ZIKGP367wDAP9lXGSfi9B3cEaoHLJpS4_xlaKiAbTcV0uBT_-3JuuTwI44TUZs04V9fDMSYTOeo74nMzmX5TDkzDYtq4IZbN6e1O66wifDHZKqg9hOTsIfiqGSw1Sx7pBlvgDxeNQFSngg_iNjQan9HDpa-ANkpoNpYTWA0u7btij8Zh_ua-ZvOSJvCzqqlE6Sx0q2riy0cqiuc52Zqel6aTGJ2ffURzn4uKPLQdZ5xio8wTmLn4FywVpNZNHhW6q6-WRx9vEzNzkt--xLBLILO3FrwwnsCltamlPe9_vsiAcpEXK5rE5a0BYvJL4RYwGFSO_t_pH6B7crOAt9MdtswUXzLtXR1cdWtYBW5kypL4otjBPfZOsi7HduT_MHgByOX6QCEL-etD1K2ivgiBMJlQZ_zlqtDXXxShjbJpj2-jQcEhjEjBe8FaFgCFyj_VfL-1TM6UvWtxFwF1s9rAJLooH_oWzZHuKXmPrCybqhyyOVkwG2YUXsyijMgeGv0qA79zdnKBCsfjEMkvL9qJRW9uEWDorOhjvuT4_K4WdgWwT5mpELJDS6wStkD_gDN__3F4sCiG6kJTuGVGpiax2l1jNgfAi5aPERSlBg3u5OSxqCG9BXw5hzSqGw3sZ_pZ_5gsYza8VYI0a6rIwSgmdAI0euJo1qBbxAooQBreAuc8ZvVkUHw4Isunr8z8L82sAdw3hm4SKjRNsjAGHoVV7L3f9lQwG56LO1YYVArZbFYM1YAgOvUB9sj2IiICGbiYKcXbueIbUgVf51ufzWysZQDVjjwfa4PrbLOu8E3qjFKeR6DD69O8OKBHaDWYNDrxYajV1kmVTlY0jFYeWjPdMMn2z5y86jOm2LKEbdOmxvqntDoPaWjpL8aMXqaRwtpX6Lhk85SWVnYLYz6Ip3NRDtON8oc48q0o2akYO3YWfIJvI4EefpxhyxlyvJc_KZ5aXm8uZfx4JPEG076EAsWxsak3TuqCvzo19qYfwDZBtGH-CtTO2dXNzCDGN2rrBb4aasJNd7YeKFT5rTuEpRpsHsGR0fMdrjwgEHjaa-sGEpch7l5hFG4WniJFp3mVYG8poARnToNCQRC5MXunK1nI4Mqghd1fa6L5xBqAaK2CWzAP7rWdmVOQXu26T0cfET47o2qIZisjQO74n0Az8Q5cdg8FlcjDeo9dwfB5Nt_qr9FrLg_KUySx9wC-FU7u_mSz_c5-5HC520tjmdw60RNC28gbzzv9WtZfPQxo0bpQGix_oXeIQqMIczXJHPkgF3RoqDD4TiUqR7I7fYObIeJXMqlp7KSUdDiKSSpkgRT5ST32Axzg-T5Q5LUayFBNSOL94NSxMVwGEWoWy5BUEF5BKaH_yHgku6kVgJcioN6WL0Zid32RTP1AubNpXsyttGJNPHCXCoFkVBkYbNrkd2cJlTuDN1BKfpmAzIe5nQPCTP5PNwiIEBclc2CqmqtIT8Kvb39F_nTCDvgcs853hs3spaE5TiqYWtRb0jjUvQjl3Tma0Aq9NLg2m57vgxzuLuqIzZP0LWREl4Ypv26YfW9rLsQsinf01GQ4gavWthZdbOpAFcDw9f4Ky6O2fUHtl5Fn8okmoZGu0a23Yru4LXMdsvx9RELLeTc92gRXmZiahXzNJ16PEuefJ-Fn_jB8Wu5A-r2c9U6taBfG0mKyiVbTXn36u-yqNXtYFEgX3LRq8YFLBM3yQZc3p0jZOA7tALyG_OCGZRB_kgM1I4DYTJfCGY1ibOKxj11XgV6ov-s1XYsWCL_dz1qRdXJHZv4WjTOw7neGVNvuSj2oM25FzXvOFc4bLFLoHGERRcLNAk9Jx3Q9Pxzy-_VT4wPfHyOxfDdHTIJZ4Z8ZOYtaBgDtIJU68nf9kPB3Rb74TAfVMu3yj-rVmvUQGignUraLelAbon7tEZMeI_mkmjDr3qQXehgdNMXTLZovtxips08nfyXyEtepn8lZTNgqTYZLI6izXegzCegvMpM3VcaU6zXmu91KdrCJfUvKILGa3fGSKuTvsnKqFc7__sJlTcEDT7oskK6PCSq9MPsof8cTqxQoY6sYqg0ZVpjYsPmhNcCY6okGybkDhxSmGKAXRHAPIHEBiaQkxgWIXw2W-oQ80ukFcmEZsc0Rop_tUdyYZ_wiy_5BLKbyyGGLTa7JjpyH33QuHScH9P0Muh4wLRSPBd4QsOOekrtbjRfBP53WoApMmXJKRFjlRjSr6uxZodJe7mtYy7FPL3MV7_oZEMr9Gmrjc3eq8uuGMb9uahL_bZcsGIwoEWICiA69WEQgDGENFX8cxt9-kIv4CLeQjkq32begoLDGeRgrPgd9PalSG_hFtqVFniALZB_oKy4-GFtmpS8AIU1KTXJLy-pMn63HcIGrSupnCXW-4CJZSHelt0uR0Xkx9VFt-wHf4OltEhitz8UBD7c9Av3ZICXUOihbuuNhKtnyoJNpYl0q31j_bTNf6_uQjXAsPkuv_7nXMSHhl8boa8xBI6JJhH3D964vilKJNUciOyrzL6qPEA6cRtNp2EHNWXQc3wIGZ9Ka0v48cbN6H4B4_rH0I5MpcjuZ2RfTn2vlLB6ytzYHIVEfeXfR1JymfOMuhktOi-PnoVs4iJkML1jfjQxT6__LI0akX6cbuBWzzGMunE8Bcl6fXxFglgqti7TSarh-0u1W4xOW1W7ETX9LEH7nkm4CXFFSBsj6OtAOy2LusoU__TjksZnQWJabWwejNIuvEZ4pQE8OvJveFnfUWQFhdN3gy-Vn4--TK_cZyMdxOFovd-5drodRt_lJj9aKS97v2rgjfLatKNWudIAaOGn3mUKuZZuNadGIctLqHOD_SKs_IQNHtwuuShcwtEFCpfsjSy6wYkF3WMB_BdRheBXLpn7SHdhChySPL3ToiDgvQACq0wCjBcVC32LusTgabw3QDlvxrQUJ6qZzIpEgvP0ASF7mb8PSArxm8w4sp79xDeYyYxuaNFtZ3JwjAugwA5H0efb9KVoa2M3OERwQ2vTrSB77VdhE9kX3T_49IRgvW3c-xRGHoFELWE-kzh1vvB1lK3PC9TkEXqSrTdEp3O8CEqZkYhs9lMQpgW52KT1aZG2ILgC_LUgjuYxz7guHXlQVbinvX7zydyHFKHZ0_nsAPIBPqn3kVetBhVF4bqHQtJU-D5odN4A6myAthPUSuD-QUX7OgZCzVJ8MCX5PCERQQlkrC7CCgctf8NYGhUp1g5f93-ILYAvJVo6z-WjoVzOPc6_ytplH3s8axQtmrJe5pW5BBouuhuseYodKN-cxZu4N1fNOMVSEoMu3k7T8Ec2gz2rrWTlIdB-909VBFIMN5zenk3NlL2z3XDVCDa0xYIipG-VJPFgVfP_wA0rn15zDpl1gHUotwGpqeeO3RsUpKCtLd6P38dfTRVlKBY0Di1yI4_xic4Axjh71tVhqD6n28USTaXj9GLQEErd7bSK_s-CRopCjxyva4PQtRXxVT4AkOIrdtTvH_BjXqovWBMCdO3yEroJhAnFCJ5E-7YvzfEShHaKJceuX-rPY8B---GZHe6wCZcApr-Hof8X4P2h0dGWxqFYZNMVuuLBHYiUYS-Naqpqh2bx_pae03nZMHc6v09zP2ubb7ZSpDl62fkHS4VB6ZlT1CZo5pexsqc2VA9BSVQNvnEWLWboyWU2lpVc5nQDThtXNCVFQ2jxfHR2JvG0clml4_BUx1JnLdDk-ZLLnBpom164WE-w0-tVrprjf92JRayz6GsNqo8SnJtHsP63YX8vSM-UAXtdcYH753VjS04YKVjTXgJtCjNXl5P8XH61-SN_UGG_3kPO.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_01b475f0179d458f016adf2871683887d18d0738e7e84c17cd",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 296,
+      "completion_tokens": 406,
+      "total_tokens": 702,
+      "cost": 0.0002326,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002326,
+        "upstream_inference_prompt_cost": 2.96e-05,
+        "upstream_inference_completions_cost": 0.000203
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 261,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

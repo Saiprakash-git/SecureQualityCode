@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793008196-LOlPTcweq0Pt0yUeVEAi",
+  "finish_reason": "stop",
+  "input_tokens": 181,
+  "output_tokens": 453,
+  "cost_usd": 0.0002446,
+  "raw_response": {
+    "id": "gen-1793008196-LOlPTcweq0Pt0yUeVEAi",
+    "object": "chat.completion",
+    "created": 1793008196,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n\nbool is_pangram(const std::string& text) {\n    unsigned int letters = 0;\n\n    for (unsigned char ch : text) {\n        if (ch >= 'A' && ch <= 'Z') {\n            letters |= 1u << (ch - 'A');\n        } else if (ch >= 'a' && ch <= 'z') {\n            letters |= 1u << (ch - 'a');\n        }\n    }\n\n    return letters == (1u << 26) - 1;\n}\n\nint main() {\n    std::string text;\n    std::getline(std::cin, text);\n    std::cout << (is_pangram(text) ? \"True\" : \"False\") << '\\n';\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Implementing a C++ Program**\n\nI\u2019m thinking about a C++ program that reads an input line and prints it out. I need to include the necessary headers and focus on alphabetic characters within the ASCII range while ignoring numbers and punctuation. Locale handling is important, requiring letters A-Z, so I'll use unsigned char and tolower for conversion. I should utilize getline to preserve spaces in the input. The output will be a return of \"True\" or \"False\" based on the criteria. I might also need to implement an int mask for processing.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Implementing a C++ Program**\n\nI\u2019m thinking about a C++ program that reads an input line and prints it out. I need to include the necessary headers and focus on alphabetic characters within the ASCII range while ignoring numbers and punctuation. Locale handling is important, requiring letters A-Z, so I'll use unsigned char and tolower for conversion. I should utilize getline to preserve spaces in the input. The output will be a return of \"True\" or \"False\" based on the criteria. I might also need to implement an int mask for processing.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3yJJEIfB-lmrFYKHtHuW8xZ1YyMw9up-VM9p3gXtcAbZS-jmKjeLsFRIyQk3tuF3Zn6pJgPnkFVn-j-Px_7do3XLEOPpRjsb6MRMR-hYfi38AQNvNFPomEhFBlNJdrkEuqS-MxWfiZiz46RczOfSBdsp0DERDJflIA5Z6N6cNqpaxUPYpEpVNI0x0hQlKrC7cGzhBDA9qEurhpA6OhiADSLLWpHJ11Gt4zUISMKdbkG62nHs_0jLhtbWf7FysIRbfoLITAfMkJuW1Gf3rlK7eNDzd8HvfVXuQTeHRJ992MNLElWl1BzUGeioZrCjEzhBBoFdHVV7R2IEduJjn16efN4zMY4fJTxu41htWRDHtN_DKku-7DwJA8e9N6vdEY9vQcFmShboYRzd_JD6dK5-hyaQRKSadrH6LdunzF7H3YYVfrbbwFGY-ygGKgrKr6MAXjesuzs2qB4X4n18NHtgM0aABGACQ7fRt48JhJM4b7NG0fwE40gN9ZwTLOX0a0dDfC-k47JIqbEb_bmF2cOSFXrfV4uA-Efk3xgU-rne__8VaIawq_-fbgKT2qcxs1R6LuTqFzUSac7OonHFE4Ecb8hzzERrBIlB1fLVyelFkA3mUlcOl4FzmLaR5EqW4xaQrxSPRIevv6RWhhr6jRX-iMUV6Gxtq7W7zmKUHMvZsmHjvYbj-Z2Zsjy-_XVg_3mgH1pWomqG0i8B3ggC66w7PnBlnfsa-4MQdI6dRypwiUqaM7IwbE_M4_JN_EpLjdRLCnzZU9T3eNZjDw9TuuxPw8n1SeEAFOB-KlMqxTullGbu0yc3ab3DPzTrHw4yhbDdWSDQ4lu0IfZxFE73vMin4Ca5kX7lYBCBlCBkIuv_iJUxvwbHwTgLEuXdXxWSO-id3_j-_ZO_UbA4aDG411xyGSc-Ar6IOtfL9QpFrKXR8qD1i-y_kT_bQnZ7HYO6aGgHm9P3DzJbK5RrWm7d1qGKTcaqykM2jovLoo644NI-t_HV1PlhQH8jrYco80knZsqtmAjxnV_N8I6cxerMsDtkc5_q6fM3_1fzHkFjLSv7bxZjcwOHM-l4zuniI3VDE_k0r8cyAGaA0aWw7v3WdQzb64sqju6IpqY3ZIGvePFAm3Crgp09lAWZ0N_LJdXfF4AEe-K2y1HwUPTNV1dCGXRtSUwqIEQMGlHXT3iVr-xm2g0vQTk3DBKPnLtJHTweQ7_NgJ1X7d_BARhYiPyChXo3u8YT-tAdtuHf-LY56nJl0-dq1sqkykDmr8LmqB6m0AxF7BOqwQaOEyp6GfOpZiWSEZuChT4N8Mai7s-GOQaEYN1bUyKdYRCB7zZqZ3z83ZYhYd7w66SUDaq6SRjBMlBh9-525C9i2FbPxZxD1mpY-LHljOYav-Z1n1P_ynCC_xL-5x0HYqGijLA8RTSw6nxwpJg6OttVUBEQe-DIHVeGCWpB5-d2APikrcwgeDF9PIxu21Zu8uIhm3PMRqExUOpLcMcjZcXsVPh56asywmrS5xRkNuhHZHYRGPdmymomcvNbca10CyV9EGD49Oui5hSRb9CBIwdTcCq3R2lZVt-tj52PacxEMHBu83NUHzHSES9wZQXWSRNGk5E5NDiuzUmVmMbRQlEGI03tsSxErwsy73aKqDkToUvuO2OA9Soz3BnuAV668qHJd4Kf1tTc6lUMJst5eHa10IGYoZRqBFG9x0rNcoMv1ncphUPoHzH7PvHPeBYwQVzCdSDC0lAybpe5fbngPuR6F7kfYpnKNIpWYQ8nHrtF-6Ekr7VIaBOxJ22YI0Su7H13Cc-GpUhkU6RiacFPHxUPtZNZlp_mtG_iQiLDCG0xFiGpBHlFbnJiSaybHW7KbdqpCQ4AHiA0WTE3_423sce7NFGcJXTmOIhFRdFGyEeVAjoRHPcXPKqbvu9inXr-RfRmeJi-0cF_VGXmEZfsMOghJ7IfoSxy2y8nMiaseeeZeM42QTbGGuDbt3TpHdmSJE6eY7eRqFcT0kKJaRKYBOfzHwwVWLiQBrYC9tuht01L-wnmd6eS4txMAXRs4LrQzFR_Oc8Pu07vcF9e3IYspdWwRMvqlNzWKy1KaMihEbTuDEh7inw5b-p9kaVt3Bfob6A_OdMo6tT8zfuSP-JxDMWWG0xRvk1RscdFfvNgMRdPOI1DwxZpnFv_HGAZr0Ml8MP-BFVPqv7lIzVyzlkckt-mNrXsRhNf6SepCIzdKBUhM6r9Du153kWjYigDyMH6V5ZGT8AkCb_2wgsSRnX5xOCTVMoQWBhF7gYuUwwBePbgrTrdB30H4H68rh3nVl0ilWyRI0DZTRhtzRtm1mqjML-5sm-Obeis_zHEzFip80yaGkEm7w_-aBVjaPzol9iWPQZUEquKNGLF2eXUDHlnnUkk1650Y4L1kQbmNmOxyvC_hqUKe-9GgJCEpDmmmcgyM0TO-xrwAK8RkSzzohfdDY47YY8P9Z3O7aAflM3XI37GcQX5jpRmH6O1-WdlJRd0Qjr-1k0UxuSNZp2dwdqLoCvznuZZbnGk5Xup2W8L4URFwCkCMocn6ReKV00_c6U-VKtNYm2BN--osk3EHDrM2lsqtPFwEdYHpcDBHPz1BcSDbdvjzVwM36LLZE7YPTSDLt64HvdhREypsUeUyJieVRmCrLwwAWuwuwQmtr44P4pY06Y4SeedSWIMMceqmlaV7Ge8fLQFuF9KJ2WLdoJquudmPodx7sNonMx8VFc28WWe5g0p8LSjK7XcTWeoO3zdk0Oieyqhp1MJPlIN_5jptHNlfq9wjI4LRn6Jp-iCe-NeGANBS9WlEIBhxt5hpjpAzmxBkuLrzn9b1mjZnOtJebpP3SbtKkaNq17Mp4_olEGk0qOmY4eEcKwkVOrePDQHkUYpqcapSTYG0CVdOMD5wKa6NC_uWYC2bOd9n9dUbY6l4etLhzOj1wgww1qMBICRVnDrMZkXU9mlZcQxy6IfbneEkiTKgVsLlpHq1KyJOO-Kyw1tfZ7OCVEQSbm3k-KjuIwLbhqWA_zZ6JFyyPDWg2e80SOxEkhXo3ApggbyPcm4ualXeCK4opByALYYeAKQ-Sch-WeWtDY-yduUxdRapcaQonbgVMs3YmiQJ9sk5FJhB3e_L7vs_BMseQ56opCPdP7oZ3aZxZzLNDz_LG6yiY4L8W2L4QuQmVBXVviBH86NwbLxp0yu0_reVvmUjgVr0KL22DntLcFl4CenND_510pwiLIjF90carRQa_pBzZxVExhsvVGGgKCQLS23ybXfhTuo_3_FMG8nY0tuM3NTcxZoONUHqwSeQJzk5HKFWSpnVh6n3hOAPI4U_WENYF2aWjKDNP3-491BtREilsCq37FQ_ZO4cLofRuqsWOd_F3sINNg4WVWVw6F2pZnIVGqukXJyxM5WgnCMxsx6Feos22C57wZm6EyOOZOwDEWoXFuL-miPWoM1OONizCCy1W3v_LieuF-jOhHJ38bf8CnTrZxxu2wZLpRgNp2ITB4svWav85GDotU2UBcGJA_nac_w7pYDErKLqPE2WCb6ZSLWhuA4yg0VGKWsdcjKgSag-AMlYxTq3V-VXi3OLXFvTg-DV9-9-RHHqmjIbJrDd9RI7atFOGdxg390Z8BOoao9uBsj75aGaL_0L2jg1jZuT67ShIL5lIqE9_zGVtIfRzKdqCED0_7UKQBDAiN0u2iFLPLoKKIWustf5aXGv5y5VDCwQLkQNF8FosG2kPM5MaKt85m3PzoI8dXXZ11QzbLe0diDt5IhKtMbntFCLznVUh045HWMFJ06wt4Lfrjqf_hg2UeqbxRSz-DydCeaoaFrj0tWCTet2R5z4YTjx9lHXqM7EwaVLob81eiJf2xvcESwY_Lv-baKbvq3ID96dgphHX_NIVAhr3bKR60EiX0DGVMaMTTuEToNwAXBNy75pppAxJLuk-GC826BgpxCCWpTl8gfQwy0rptLqLMwhHFGhGz_MWrvC7FhLzv8KfhNHUDpdM89UIbGPyAbg3fANxyFVUHasic6iNuv0TWFHrDLBUhq-MI8fMNvLlNOxamA5dlFIhkZPbelSlwhLMz2ISzfgPpLuOnpK42FQxRazhipmXjXunqmFcqpu2vFpK-5s9JWWMBpxcHYU7U1TlUXdZbo5E4qK-lL9vOm3mShOTFwvZxaBVuq6WZX44JAhgxb6sCKO0rTXeFSybUvN7eZdzYwgVgmg69Ybad3JbGZKKoL_X68TK4SSyy2dxILkgt43XuH-ZRMlVkB37LXEauAIFJp8nEAbvYbTk0JubZQS41TrpBm9_EkBiFQCiVilK1AzjAzGTGXGDdeUYNvcs07Pv0CCMdj6GV5jV2xdrqZuUhOrqN0D0eO5G-EP3DUo-NGPlMls94xXFcszqmvfiuayTOTklJl9R6oMaFpxAGqnE_l1RUH8zN6q1N29-57DOt7WQW8Cs70KQXAufl68ZV8JpZfBdCj7CNH-QTNGvJjbVpaVNQwZtodT0NORpK3MdpwPjb6jdrALyTJGKSCnhLzfSU2N8GCe08SWIiLENnb8sLqOWYFdfUhs6Pv4KPasKWf4ovLLe0ExSnhCd9HySS899Q2wTE9HgVJEO5xoN89-GfOlysO9-3QYaKZS66-pFcp0385ZKmaBtOyRb7PTFme213tYXfTnfpNTtVmIxm7srbsSL4VogJ98O0jxkZpHxnxU3nhj-dW14i9ajtbCi_KgL7uUPRNaPJpu142GTYmHGDt3rQalqINkrNh4I-mwLjs0Hhkh2er2zMXLUwOUUdA1Lsrp_pxjI5rpS8KCvEOq60vKQTgzEZTE59ZxjIykPGbDmCusaPPLp0u9gV-aReyZloJudci-_Qu1kuaaQ6czIkHrQDNuGUuqVC9mVShCgmCimFUaHsRxISS_QFh45T4i2gEbJ3J3KFLSUeIt08ZZkhEh5YJ571p2rI8UGnhRoROHJATk_zZmh8-hwrsaUajdlE5q0Mb57Kk2IZMCNDs9wImAtYoXmB9bsg0hN34vXj_iIyE1Ei5EtNa0gO4Uf8pvmq9LDmQunAecVQvNkwBgkB_tnwOUrSR9Z7Cb-hjGVrhdGwVqc4y2lgUR-leTWwCF6q3TCaK6Y34AA_LIvS4FdgY5Ryl0wC9sPTOULO-v0zbn_kvvV_MQ9lrMXWhkMrFNJFZ-7l-geGdZM4B-DbN25k-x0rmI9XnnjkIyksjw2WJCtjDoQGvjymHle7pC9Vg1xO64rlDr1ywbReXu3rk6IrqJnf-.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0ee11baa4cc64b9e016adf2245a42087d1ae405450ed54210b",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 181,
+      "completion_tokens": 453,
+      "total_tokens": 634,
+      "cost": 0.0002446,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002446,
+        "upstream_inference_prompt_cost": 1.81e-05,
+        "upstream_inference_completions_cost": 0.0002265
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 280,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

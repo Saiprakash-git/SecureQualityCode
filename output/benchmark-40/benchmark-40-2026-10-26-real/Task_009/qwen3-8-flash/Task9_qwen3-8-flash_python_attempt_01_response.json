@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1793008278-BpPjYML8RC1BBcu2QrW3",
+  "finish_reason": "stop",
+  "input_tokens": 241,
+  "output_tokens": 273,
+  "cost_usd": 0.00016446,
+  "raw_response": {
+    "id": "gen-1793008278-BpPjYML8RC1BBcu2QrW3",
+    "object": "chat.completion",
+    "created": 1793008278,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "def odd_or_even(arr):\n    return \"even\" if sum(arr) % 2 == 0 else \"odd\"",
+          "refusal": null,
+          "reasoning": "We need answer user wants ONLY raw source code, no markdown. Need produce Python self-contained source file. Problem: Given list integers determine sum odd/even. Empty as [0]. Need likely function name? Codewars classic \"odd_or_even\". Need infer expected function name. The prompt doesn't specify name. Usually Kata: \"odd_or_even\". Return string. Need only source code. Could define odd_or_even(arr). Also maybe sum_even_or_odd? Let's think. The examples likely from Codewars \"Odd or Even?\"? Function name is odd_or_even. Need provide complete self-contained source file. Could include robust: def odd_or_even(arr): return \"even\" if sum(arr) % 2 == 0 else \"odd\". Empty sum([])=0 even. Negative modulo works in Python: -6 %2=0, -5%2=1. Good.\nNeed only raw source, starting first line. No fences. Ensure no prose. Final: def odd_or_even(arr):\n    return \"even\" if sum(arr) % 2 == 0 else \"odd\"\nCould include docstring? Fine but maybe only code. Need no markdown.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user wants ONLY raw source code, no markdown. Need produce Python self-contained source file. Problem: Given list integers determine sum odd/even. Empty as [0]. Need likely function name? Codewars classic \"odd_or_even\". Need infer expected function name. The prompt doesn't specify name. Usually Kata: \"odd_or_even\". Return string. Need only source code. Could define odd_or_even(arr). Also maybe sum_even_or_odd? Let's think. The examples likely from Codewars \"Odd or Even?\"? Function name is odd_or_even. Need provide complete self-contained source file. Could include robust: def odd_or_even(arr): return \"even\" if sum(arr) % 2 == 0 else \"odd\". Empty sum([])=0 even. Negative modulo works in Python: -6 %2=0, -5%2=1. Good.\nNeed only raw source, starting first line. No fences. Ensure no prose. Final: def odd_or_even(arr):\n    return \"even\" if sum(arr) % 2 == 0 else \"odd\"\nCould include docstring? Fine but maybe only code. Need no markdown.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 241,
+      "completion_tokens": 273,
+      "total_tokens": 514,
+      "cost": 0.00016446,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00016446,
+        "upstream_inference_prompt_cost": 3.615e-05,
+        "upstream_inference_completions_cost": 0.00012831
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 244,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

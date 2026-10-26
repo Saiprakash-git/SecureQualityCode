@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793009325-u8D63JUHBXyDR9BT8RU2",
+  "finish_reason": "stop",
+  "input_tokens": 216,
+  "output_tokens": 745,
+  "cost_usd": 0.00295575,
+  "raw_response": {
+    "id": "gen-1793009325-u8D63JUHBXyDR9BT8RU2",
+    "object": "chat.completion",
+    "created": 1793009325,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "public class TowerBuilder {\n    public static String[] buildTower(int nFloors) {\n        String[] tower = new String[nFloors];\n        int width = 2 * nFloors - 1;\n\n        for (int i = 0; i < nFloors; i++) {\n            int stars = 2 * i + 1;\n            int spaces = nFloors - 1 - i;\n            StringBuilder floor = new StringBuilder(width);\n\n            for (int j = 0; j < spaces; j++) {\n                floor.append(' ');\n            }\n            for (int j = 0; j < stars; j++) {\n                floor.append('*');\n            }\n            for (int j = 0; j < spaces; j++) {\n                floor.append(' ');\n            }\n\n            tower[i] = floor.toString();\n        }\n\n        return tower;\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Building Pyramid Structure**\n\nI'm currently focused on translating the visual pyramid structure into a list of strings. My approach involves calculating the correct number of spaces and asterisks for each floor, working from the base upwards to ensure the widening pattern is accurately represented.\n\n**Generating Tower Rows**\n\nI've refined the logic to generate each row. For a floor `i`, I'm calculating `2 * i + 1` stars and `nFloors - 1 - i` spaces on each side. I'm using a `StringBuilder` for efficient string construction to create the complete tower rows.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Building Pyramid Structure**\n\nI'm currently focused on translating the visual pyramid structure into a list of strings. My approach involves calculating the correct number of spaces and asterisks for each floor, working from the base upwards to ensure the widening pattern is accurately represented.\n\n**Generating Tower Rows**\n\nI've refined the logic to generate each row. For a floor `i`, I'm calculating `2 * i + 1` stars and `nFloors - 1 - i` spaces on each side. I'm using a `StringBuilder` for efficient string construction to create the complete tower rows.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 216,
+      "completion_tokens": 745,
+      "total_tokens": 961,
+      "cost": 0.00295575,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00295575,
+        "upstream_inference_prompt_cost": 0.000162,
+        "upstream_inference_completions_cost": 0.00279375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 536,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

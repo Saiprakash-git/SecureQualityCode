@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793009657-bNJzkAAb5Dsryb3CRwEd",
+  "finish_reason": "stop",
+  "input_tokens": 300,
+  "output_tokens": 474,
+  "cost_usd": 0.000267,
+  "raw_response": {
+    "id": "gen-1793009657-bNJzkAAb5Dsryb3CRwEd",
+    "object": "chat.completion",
+    "created": 1793009657,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <vector>\n#include <string>\n\nstd::vector<std::string> buildTower(int nFloors) {\n    std::vector<std::string> tower;\n    if (nFloors <= 0) {\n        return tower;\n    }\n    int width = 2 * nFloors - 1;\n    for (int i = 0; i < nFloors; ++i) {\n        int stars = 2 * i + 1;\n        int pad = (width - stars) / 2;\n        std::string row(pad, ' ');\n        row += std::string(stars, '*');\n        row += std::string(pad, ' ');\n        tower.push_back(row);\n    }\n    return tower;\n}\n\nint main() {\n    int n;\n    if (!(std::cin >> n)) {\n        return 0;\n    }\n    std::vector<std::string> tower = buildTower(n);\n    for (const auto& row : tower) {\n        std::cout << \"\\\"\" << row << \"\\\"\" << std::endl;\n    }\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "CAQSlwgKEAgTGAI4AUIIdGhpbmtpbmcSDBl+DDS4FOwd2xtDBxoMfT+CsUq9d9U6T2R4IjCrKQOCQjHVFm7onIbuQni+nP8y655OIHllN5QVJG3Kl8AiDkRtmj0r9IC4QHu3aQ8qtAfiHP9VV9s8aICUva2EEFO6mLEaVDT2/rmpB0JXPWvC1peCpzU23zjkofmuuXjZ/m5bnHkVVEJ5EtTogvIfY86ZqXEqrNV+bcM9GT3mo3UMJHgQMhqtA2qoT23AFoqc1YmGHuZflgg4cMqBr67TqLXFeOsAeBxCnA5ohU9d6aNjwjZbHRKruHjoodXG9HZW0bmatFRSV0sVQoZyXBkX57qjY59KPjGuqaEUNVegzaZ3Jni0z+rX65KLv7oGcoxL+ZTKafwyVaTOqvJcV/SMJacDo2hLduFwtCSXpzvauEzJ9nRW2cFTBxoMBKFBtPYrxR6UHsAZ/Bahw+omDARkVShu/acdcfqryHOzsQR24rnJZmR5h4+PgBZfcC1P5Y3jWDq4ejiOkJZ6benrFG2v+pjBOjIqpwE4A73Jm3F05Xe+ILQxVghiijXzEnSSQA26gGybaNrhy7sonWC0ZAo4P8lVf6g2azJpkkVU1d38L/rCvcWhMr2BrfIYIkjhww0j+79SLuyMK5tx0IxazdPnwXDkjV/9PYgnEqRJLgk+591mkdsCUD0FbO2AMXs+oRVMMei38RW7hYKovbOh1fup2BfudMATTYx2pL7BvDNEuRqiVr7ugXAjcSA2uEPQmDlU12tRhxRw6giQVCJqnrtgDnrZOHt+11cqKQUnXjq+uiyRkjW/8k23Tpt/YDGG5V8zVUykKfLRU74DIoBhBRExhcgQIwNSrW7yaYS2Mxc64e6zn36N6VdmVTwK6DEf4d7PT40h3t/aPeNybffAF5xaqK1gQ9dykmWbJlbJYP/hsYJl7ziNhS/D+LivC7QINogSvE7+HT6BXM1ucFrypoAbLzRStTrpQ7Da6IuoBzUe1Zm6pnt5dBoTrLY9pRBpxpY+F8I+Ar5CAdEdOEw/c+H/s6xQrP+NhsH89Pvz045N3pYyyL3D4Kovq/+cuFteDH8xS2VmJyuQbiK7S92Tw4ze6m3BpuBbwRKeuAEgIlAg0eKWJmPvUdojfa6/DTkah0MHzXL4jisRS48IbZnwSKw6ryeJxXsCr1cE6SZ8aJQMPFoDvjDGT6X/WNHHQ6kTW26hZM4s3mpRWz6HRisl/kI0XLhjs1XH4nXkwQ6I2xY1yg33MTj2rtX4yyuAsK9D5ZhkpghQmTcEGN3tQie3t1flbyaDbwBocrEdo9r4EttVpj5yvt6jOdzwwRfqmEji9BzrKihj50xzRiG5+6FiOrBKpJaYu6pJ+IITncUc3+oFmyd5U2hpFqAYAQ==.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 300,
+      "completion_tokens": 474,
+      "total_tokens": 774,
+      "cost": 0.000267,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000267,
+        "upstream_inference_prompt_cost": 3e-05,
+        "upstream_inference_completions_cost": 0.000237
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 153,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}
