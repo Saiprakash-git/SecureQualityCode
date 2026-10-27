@@ -1,0 +1,70 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793018048-dUIxfUWUqbGdGWxDS2GW",
+  "finish_reason": "stop",
+  "input_tokens": 143,
+  "output_tokens": 450,
+  "cost_usd": 0.0002393,
+  "raw_response": {
+    "id": "gen-1793018048-dUIxfUWUqbGdGWxDS2GW",
+    "object": "chat.completion",
+    "created": 1793018048,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "import sys\nfrom html.parser import HTMLParser\nfrom urllib.request import Request, urlopen\n\n\nclass _TitleParser(HTMLParser):\n    def __init__(self):\n        super().__init__(convert_charrefs=True)\n        self._in_title = False\n        self._parts = []\n\n    def handle_starttag(self, tag, attrs):\n        if tag.lower() == \"title\" and not self._in_title:\n            self._in_title = True\n\n    def handle_endtag(self, tag):\n        if tag.lower() == \"title\" and self._in_title:\n            self._in_title = False\n\n    def handle_data(self, data):\n        if self._in_title:\n            self._parts.append(data)\n\n    def title(self):\n        return \"\".join(self._parts).strip()\n\n\ndef get_page_title(url):\n    request = Request(url, headers={\"User-Agent\": \"Mozilla/5.0\"})\n    with urlopen(request, timeout=30) as response:\n        content = response.read()\n        encoding = response.headers.get_content_charset() or \"utf-8\"\n\n    parser = _TitleParser()\n    parser.feed(content.decode(encoding, errors=\"replace\"))\n    parser.close()\n    return parser.title()\n\n\nif __name__ == \"__main__\":\n    print(get_page_title(sys.argv[1]))",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30jHhsZry4Q1MBe9Dhh_75NEJKzervoslVG1iUP6SakO8LgE9Wgsg_8qvjrAgS93EW3nK9k337xHKd8h3oV_kqO5z_Q67hKeNaCqDLlRCevVjSe3ad1dBmPIe-ONzOEQY8q47kQ7Guk7a1vZZLFx0mdTPZjIrsTVoc9bsj_qePV_arCMrGYhPE1VqbVc1RKpyQEFbs-EgFWUAekHGw8e_dyPj27Nakh-XOlZ8a0cczTiOgLqyxYOryV3rS2HTQCGpOR2ucpjuvACVY2wgsrYabr9GA2YrhWF3zOV3Rmi2yN5OtLm_AQue03faxenBiPeH1z8F_0cBXDSW7ASk1xWT_EsgON1_fQUFzz9Hm3-1hMnUFCLOz9lOSsjRutIj1RJRSjQjfBwN2raHmBtO7-OZT1sImZcMtvODCs3pO7688Z_cva_jBf1phAoXb2v1EvyNuE-fKoSC-35OalyFz71X4HCxOgyi2M5q4JGOUHakwCRUNmg8CAr5U-H7zXcCnap7DJ4D71JXSd2G6zXAHxawQ-jNXwrQlrsbERtLOSJCZTGGtURdUYk2KpWS_OarIXxHPo5w-txBZQM0i2ofL9NqsUYm6M9VI3pyFgzsJlmuNBJkkX8f9QsF4nX_W9wKn98XQw9tBmvWrmu8GFZ3dIv9Yrk0oUspNUySVjtntW_4u7Jkitmt_zlcvV4CABINs3S2ellNuxe28j5Wz_mGgpIsxlwPA3FS_AIKlNq6GdbcfnxYaEnEyihttvWxJw6rvNMntS5jLhwEwE33dVngNMboscG9ijeTWeNWV2oltssCKnN-pOlGSQx6Ta-gpGPHLNKamsikfMfARj0CZ6218pAQlFTMZaJgFGx-yncsnNUzjXHtyMx9wqY95uo0FrPtLv-U4tj771ncBPT29N1-qBYYLbraeiAupJkhhIDArT1STAa4dpdA_i8qIHz3souySWBKdMDYMM43HtagurfXRaJuUGxtqVz8Q6PcNGUVFx970MtoNW2ByuXbaVeegVMskFtlEBDCnYt0aXzzum4AZVM917PLZ3zMZq8KRdUJOEd6f2NJcjpcLqL4QKbClkpeIT8puezl04pH2ZUI-TndnjRU2I3IUqt90dEEP0PlUXpWUdf-dt4yT6E7RqAG7cCMMBVNajHwuN5SXs7PFiFuWmviyteokDbk_f_IWmdw6DptRl2OTuxQSsJV3rX0BOd5JxZo4LM-jvxh7a2x1tynQ8BFrbspO1Tbq9bTlBi5y2exRb8OAZJ3PjC6NPDMZnJLrsOi7oGwZm0SHpO1uZZ1NrKKksjAiRJwECeirm0dQLpXuhqmzDwjkcnyjfvujUVOqyAyqIu7YYymRm9yF5UvHsEfLTlFBjH0t6B0XPguS-eLVHj4CQMoC1unN2i9KY7ReQZ_RoiMaL0k0YXmn1IQVbmRWV3qjgT8iNr3QPEx57OqC3jWHUpOH_e9pnehvnqfH7K_sSP2BKkkn6psmVuY53FS9g7oLdC27q4v8hHgfkkg5frbfQC6Xb-tDvHRAoMz9pK7Pdru9bs4H8mLN3NtxjxEIakblM43uSM-4eEuDIkZYwuy3TwicAY6bpfVVivpOQas9ugCy2h5N69gKvTMWaiVoiObbRAlcleCYbX-odAypZh8R7_NTu1wRlnvZAYOPY9l2i4CPBhJ9SXD_7J-a5DUNDDXycAX8nzZZ7zDyUAARNIK6hCRF4wKx781o5oIaPTeagCoAHrt7S5wYPR3wHSrmzkM4zLX_1EVXkdviBYjekTXoFCJ-J8SB5XwCUS3cNj3A_fDm-O2z_hhAc3qXiyPwr1yD4jiCSdn9TgJWfxqUt5tYYRpX7LYYssWDvorlxJjj9aSpzpFsEmRAGA-XBmH5CfmzHR6TmfsICRFk_my3wwqoY75GY5HaEHy1eegqedbb5hUKTrjtlT2gLuGxegvrbvzOGsf-G1nA9Ny7k-J16qBj3NilExa2hMcgwXeHi2V574nA285yMzzoTErznpjU8fA4EwGXn7dEPu10G6yvcujeGRX81ErvnMcR2z4AnIziKbDkPUPbevcf_92ouD6NHrHWJpLM2EkU3BKQnxuGivbOP_t1ZCsj9fTZ_e3pbAXU-aXv-2qbjJKuKaQLlW2AncURk_duoFx0-RGgYNauU0YRGoWz8Xk7-4zgwy0RoQ8fSHgVhVh7GY8KDq7YaaiaIVnLG9GIry1WFiBqLjv0f64OQi4DbPdoDTrI9MzQaguJFEnVw8_IFzuL_VLLOYeVU0SBQYU7wcpzlxSl8j4YFqk9Jcg1CqM0OYVaRieVsjN3y8Q-U_Cg6Tr-BEkcdAVU9mla-JIMtoU_7DRizW_5HPVneAALUSAE2aIPUMAZPp3FEXMLisBZxvMfFze0WC9734Dp4fJHaA_5sMdz45zlmjq5i14-26RAh-pJXluFBwPcNOeQUfs2GyWyB4OJ8_WSbpLEF8XX1aXG_2CfEgQcuoYY2qoSkT2T4wFh0PQiwEMyezQUdasQVmaKhMLLYSy6ai47XN4WR1nCtpbdN7AAMxNinL2cWaJWG_InhywJ1Xe9Z1BLbghby7VGV18eSO_trOGw-z3o7wgFQuTZv5nNKo0DHS6F9DWHqs7b8Q0ZDi0WxRYSF-kI_dNNJIxISJRdiAUoTszIL044KtJXrdeF2T2qW-6VbWMRS_Ge56_s92Al0v6Ikb2EcQCliNucjaUdlAcRMbvc3lLnMbecCk8Fqu35D0hv8V42jbZlK0jYrzbZGyW723q0h9cmOzteYW_s9K5jRx8lDrWVnZQsAuqRkDVsHpccVbkMtNxgJNZ35IQV6Ry6FwvYYczHzZ785BrlPjWh0hAmvUxEcqVl_omAx45Zb8H-3PkXiYEzNwf4pRA9kwTvaHP2g-91zTxwLKmSQXnHekI7T51P9kFnq2gskz9Ydk6w1s-p_jxFNjZ3BdkHcditDed3wQH6NyCedSqVwj9VE3Mivok4pfvR-YwinXvBekw3_Rgc2VJyllZzNfHj5Gm3EjYnTOxoQ31nkT04BAZT_6n88XT55PccxnOGzJvOf2zkfPM1H-6JsTinWcxAd1ZK6BZB5Sx0RNmoStXrykoQVSlFKrRuRWaf6F60L4nemV7V2ddwM7xsv6z87Kee8ivyPUB9q26oDMI--JLYKsS3IGDAVWfta_DGsXSSbEb7D5in50RpTh1yT8ctzTAURGBpgSYx3PItSvOUpmj6lmm3-d9mLkhTSgdBPlK35KsBIRW6rgHfVCFdnX0AsjRo5pnMnQXHsMulaNEOJ5rTSvh6adP5X2ihMoGJhNpEUX1MdieiqZt_hRFIzV_lG2gDPiGx4cYqvHUllVsolk_bnyhj8JcV1sR0llcFmN0W-EJEQy1t4UDLXJg67ZCZRHh_NeYbiz1yo51E_cX0dsBD9rIbEZJrlVu_S8Wy6e5Hk2I478GrErVcQ7Vpby1A2Sy-KYOGRNnIkLWDw64CIJDTfc6QS5e-4YeXcG_l1ilTGmM4Q6ksJ7PMLdA9bDWUO3ondwoaPzGfUrT_HLu7HzpVGAld9tObVtU9Qxg4Az5XHjnwqffz9NHi54Q4aOxXlPTGQ3-WSfX3bpGLL-lzvSf9ONfpWx7_UTi-X5vcv52tIBzd3aFr97BtZVN-O5yg3dEgJtIu0Zz1r4rF5OuJIfR3UQsEIt04eN0BtXVEWMOuA98mA-3DO7fe5iRETy3w_S6CFmcrVeXr7AjArAWrJ4ODzv-d6gYVDl_ZZK0jPo1v3teRO2dIRH5pDr6nlKhqwZDoP_QXO3PV8nD-l1Pv4MV7TFRnxMuMDA-O2NCdGvfsCTGAHGGkZraz5q97-L0MnIBQxTrSAu4Hl_Svmpw2Ig7lf68UplsUrskUdVhUfcLEe0AcVgy4M5fMPCDGYpp7XGHt6aeV8i2DJFnxvQNgduwQMhs761VoKk7XXQuDfaE189eBfCYHWbeKVvjAtkJL1E38fhis7EW_8_2Rd_3iklGfu5sg==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0ef847b2f20ee3d9016adf48c6585487d18af6f272ee584171",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 143,
+      "completion_tokens": 450,
+      "total_tokens": 593,
+      "cost": 0.0002393,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002393,
+        "upstream_inference_prompt_cost": 1.43e-05,
+        "upstream_inference_completions_cost": 0.000225
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 178,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

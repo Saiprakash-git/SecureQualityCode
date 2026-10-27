@@ -1,0 +1,19 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "Task56_CLAUDE_claude_3_5_sonnet_20240620.generateToken",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": [
+    "AuthTokenGenerator.generateToken"
+   ]
+  }
+ ],
+ "combo_index": 286,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_056/claude-haiku-5-5/Task56_claude-haiku-5-5_java.java",
+ "artifact_sha256": "5b8599e150612d110f5859a96c15a497ec5a4d341e9b4e5efe9f29225b8209d5",
+ "oracle_test_path": "src/test/java/claude/task56/Task56Test.java",
+ "oracle_test_sha256": "72dca04d47a446841163d557862ca6a9f691c208418e7b2f96da4b0c94ffb0f7",
+ "author": "functional.py draft_adapter (static)"
+}

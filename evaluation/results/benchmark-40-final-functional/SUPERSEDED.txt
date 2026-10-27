@@ -1,0 +1,2 @@
+SUPERSEDED by benchmark-40-final-functional-v2.
+This run misreported build failures as run errors (verdict bug, fixed) and used a facade without java.util imports (fixed); 11 adapters were rejected after this run. Kept only for the audit trail (work_log.md step 12).

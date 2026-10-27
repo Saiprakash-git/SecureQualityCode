@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "Task28_OPENAI_gpt_4o.likes",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 228,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_028/gemini-3-8-flash/Task28_gemini-3-8-flash_java.java",
+ "artifact_sha256": "d380d010d8b6de88357d68441d4d3d233daa989f8a61cd5dea63a79583555282",
+ "oracle_test_path": "src/test/java/gtp4o/task28/Task28Test.java",
+ "oracle_test_sha256": "745f1150682a1c6d2af77293a114fb821a13a595b74872b36e386e506b517c6c",
+ "author": "functional.py draft_adapter (static)"
+}

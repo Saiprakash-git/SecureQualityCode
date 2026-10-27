@@ -1,0 +1,12 @@
+{
+ "cwe-top-25": {
+  "bytes": 713967,
+  "sha256": "725e296a8b75b951619af243ec4ca47d06a56587ce19cc8bbf94a21135b0791d",
+  "rules_approx": 216
+ },
+ "security-audit": {
+  "bytes": 492566,
+  "sha256": "83d7cde9157b3c79cc5cfaea26e7bd2ba9c740f2ba07635ad475b2585556c32d",
+  "rules_approx": 225
+ }
+}

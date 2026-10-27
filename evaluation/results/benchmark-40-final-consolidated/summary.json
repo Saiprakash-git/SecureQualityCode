@@ -1,0 +1,2664 @@
+{
+ "snapshot_id": "30d64f1cb11b31601668eac1c52335b3add07055a728327fce475e9189abbdc2",
+ "overall": {
+  "planned": 800,
+  "artifacts": 734,
+  "truncated": 80,
+  "failed_generation": 66,
+  "gate1_counts": {
+   "pass": 604,
+   "no_artifact": 66,
+   "fail_integrity": 85,
+   "fail_syntax": 2,
+   "fail_compile": 2,
+   "blocked_dependency": 41
+  },
+  "gate1_pass": {
+   "k": 604,
+   "n": 800,
+   "rate": 0.755,
+   "ci95": [
+    0.724,
+    0.7835
+   ]
+  },
+  "functional_counts": {
+   "not_testable": 670,
+   "passed": 130
+  },
+  "functional_executed": 130,
+  "functional_pass_of_executed": {
+   "k": 130,
+   "n": 130,
+   "rate": 1.0,
+   "ci95": [
+    0.9713,
+    1.0
+   ]
+  },
+  "untested_reasons": {
+   "no_oracle": 268,
+   "gate1": 196,
+   "oracle_rejected": 162,
+   "adapter": 44
+  },
+  "scanned_gate1_pass": 604,
+  "security_any_finding": {
+   "k": 147,
+   "n": 604,
+   "rate": 0.2434,
+   "ci95": [
+    0.2108,
+    0.2792
+   ]
+  },
+  "security_high_finding": {
+   "k": 20,
+   "n": 604,
+   "rate": 0.0331,
+   "ci95": [
+    0.0215,
+    0.0506
+   ]
+  },
+  "security_medhigh_finding": {
+   "k": 96,
+   "n": 604,
+   "rate": 0.1589,
+   "ci95": [
+    0.132,
+    0.1902
+   ]
+  },
+  "security_medhigh_per_kloc": 7.79,
+  "security_findings_per_kloc": 28.25,
+  "findings_by_tool": {
+   "semgrep": 55,
+   "bandit": 51,
+   "flawfinder": 674
+  },
+  "cppcheck_per_kloc": 3.55,
+  "mean_nloc": 45.7,
+  "mean_avg_ccn": 3.76,
+  "functions_ccn_gt10": 82,
+  "cost_usd": 4.374148,
+  "cost_per_gate1_pass": 0.007242,
+  "cost_per_functional_pass": 0.033647,
+  "output_tokens": 1296934
+ },
+ "by_model": {
+  "claude-haiku-5-5": {
+   "planned": 160,
+   "artifacts": 159,
+   "truncated": 26,
+   "failed_generation": 1,
+   "gate1_counts": {
+    "pass": 118,
+    "fail_integrity": 31,
+    "fail_syntax": 1,
+    "fail_compile": 1,
+    "blocked_dependency": 8,
+    "no_artifact": 1
+   },
+   "gate1_pass": {
+    "k": 118,
+    "n": 160,
+    "rate": 0.7375,
+    "ci95": [
+     0.6643,
+     0.7995
+    ]
+   },
+   "functional_counts": {
+    "not_testable": 132,
+    "passed": 28
+   },
+   "functional_executed": 28,
+   "functional_pass_of_executed": {
+    "k": 28,
+    "n": 28,
+    "rate": 1.0,
+    "ci95": [
+     0.8794,
+     1.0
+    ]
+   },
+   "untested_reasons": {
+    "no_oracle": 55,
+    "oracle_rejected": 29,
+    "gate1": 42,
+    "adapter": 6
+   },
+   "scanned_gate1_pass": 118,
+   "security_any_finding": {
+    "k": 35,
+    "n": 118,
+    "rate": 0.2966,
+    "ci95": [
+     0.2217,
+     0.3844
+    ]
+   },
+   "security_high_finding": {
+    "k": 3,
+    "n": 118,
+    "rate": 0.0254,
+    "ci95": [
+     0.0087,
+     0.0721
+    ]
+   },
+   "security_medhigh_finding": {
+    "k": 21,
+    "n": 118,
+    "rate": 0.178,
+    "ci95": [
+     0.1194,
+     0.2568
+    ]
+   },
+   "security_medhigh_per_kloc": 9.0,
+   "security_findings_per_kloc": 35.31,
+   "findings_by_tool": {
+    "semgrep": 11,
+    "bandit": 11,
+    "flawfinder": 186
+   },
+   "cppcheck_per_kloc": 2.38,
+   "mean_nloc": 49.9,
+   "mean_avg_ccn": 3.41,
+   "functions_ccn_gt10": 15,
+   "cost_usd": 0.1599,
+   "cost_per_gate1_pass": 0.001355,
+   "cost_per_functional_pass": 0.005711,
+   "output_tokens": 253018
+  },
+  "gemini-3-8-flash": {
+   "planned": 160,
+   "artifacts": 156,
+   "truncated": 14,
+   "failed_generation": 4,
+   "gate1_counts": {
+    "pass": 131,
+    "fail_integrity": 14,
+    "blocked_dependency": 11,
+    "no_artifact": 4
+   },
+   "gate1_pass": {
+    "k": 131,
+    "n": 160,
+    "rate": 0.8187,
+    "ci95": [
+     0.7518,
+     0.8707
+    ]
+   },
+   "functional_counts": {
+    "not_testable": 134,
+    "passed": 26
+   },
+   "functional_executed": 26,
+   "functional_pass_of_executed": {
+    "k": 26,
+    "n": 26,
+    "rate": 1.0,
+    "ci95": [
+     0.8713,
+     1.0
+    ]
+   },
+   "untested_reasons": {
+    "no_oracle": 59,
+    "oracle_rejected": 36,
+    "gate1": 29,
+    "adapter": 10
+   },
+   "scanned_gate1_pass": 131,
+   "security_any_finding": {
+    "k": 37,
+    "n": 131,
+    "rate": 0.2824,
+    "ci95": [
+     0.2124,
+     0.3649
+    ]
+   },
+   "security_high_finding": {
+    "k": 4,
+    "n": 131,
+    "rate": 0.0305,
+    "ci95": [
+     0.0119,
+     0.0759
+    ]
+   },
+   "security_medhigh_finding": {
+    "k": 18,
+    "n": 131,
+    "rate": 0.1374,
+    "ci95": [
+     0.0887,
+     0.2068
+    ]
+   },
+   "security_medhigh_per_kloc": 5.66,
+   "security_findings_per_kloc": 29.89,
+   "findings_by_tool": {
+    "semgrep": 10,
+    "bandit": 28,
+    "flawfinder": 184
+   },
+   "cppcheck_per_kloc": 2.56,
+   "mean_nloc": 56.7,
+   "mean_avg_ccn": 3.53,
+   "functions_ccn_gt10": 15,
+   "cost_usd": 1.198023,
+   "cost_per_gate1_pass": 0.009145,
+   "cost_per_functional_pass": 0.046078,
+   "output_tokens": 289217
+  },
+  "gpt-6-luna": {
+   "planned": 160,
+   "artifacts": 160,
+   "truncated": 11,
+   "failed_generation": 0,
+   "gate1_counts": {
+    "pass": 134,
+    "fail_integrity": 11,
+    "fail_syntax": 1,
+    "blocked_dependency": 14
+   },
+   "gate1_pass": {
+    "k": 134,
+    "n": 160,
+    "rate": 0.8375,
+    "ci95": [
+     0.7725,
+     0.8866
+    ]
+   },
+   "functional_counts": {
+    "not_testable": 136,
+    "passed": 24
+   },
+   "functional_executed": 24,
+   "functional_pass_of_executed": {
+    "k": 24,
+    "n": 24,
+    "rate": 1.0,
+    "ci95": [
+     0.862,
+     1.0
+    ]
+   },
+   "untested_reasons": {
+    "no_oracle": 61,
+    "oracle_rejected": 37,
+    "gate1": 26,
+    "adapter": 12
+   },
+   "scanned_gate1_pass": 134,
+   "security_any_finding": {
+    "k": 31,
+    "n": 134,
+    "rate": 0.2313,
+    "ci95": [
+     0.168,
+     0.3096
+    ]
+   },
+   "security_high_finding": {
+    "k": 5,
+    "n": 134,
+    "rate": 0.0373,
+    "ci95": [
+     0.016,
+     0.0844
+    ]
+   },
+   "security_medhigh_finding": {
+    "k": 24,
+    "n": 134,
+    "rate": 0.1791,
+    "ci95": [
+     0.1234,
+     0.2527
+    ]
+   },
+   "security_medhigh_per_kloc": 7.85,
+   "security_findings_per_kloc": 19.7,
+   "findings_by_tool": {
+    "semgrep": 13,
+    "bandit": 6,
+    "flawfinder": 109
+   },
+   "cppcheck_per_kloc": 1.69,
+   "mean_nloc": 48.5,
+   "mean_avg_ccn": 4.52,
+   "functions_ccn_gt10": 36,
+   "cost_usd": 0.10263,
+   "cost_per_gate1_pass": 0.000766,
+   "cost_per_functional_pass": 0.004276,
+   "output_tokens": 199996
+  },
+  "mistral-large-4": {
+   "planned": 160,
+   "artifacts": 149,
+   "truncated": 19,
+   "failed_generation": 11,
+   "gate1_counts": {
+    "pass": 122,
+    "no_artifact": 11,
+    "fail_compile": 1,
+    "fail_integrity": 19,
+    "blocked_dependency": 7
+   },
+   "gate1_pass": {
+    "k": 122,
+    "n": 160,
+    "rate": 0.7625,
+    "ci95": [
+     0.6909,
+     0.8218
+    ]
+   },
+   "functional_counts": {
+    "not_testable": 134,
+    "passed": 26
+   },
+   "functional_executed": 26,
+   "functional_pass_of_executed": {
+    "k": 26,
+    "n": 26,
+    "rate": 1.0,
+    "ci95": [
+     0.8713,
+     1.0
+    ]
+   },
+   "untested_reasons": {
+    "no_oracle": 53,
+    "oracle_rejected": 34,
+    "gate1": 38,
+    "adapter": 9
+   },
+   "scanned_gate1_pass": 122,
+   "security_any_finding": {
+    "k": 28,
+    "n": 122,
+    "rate": 0.2295,
+    "ci95": [
+     0.1638,
+     0.3117
+    ]
+   },
+   "security_high_finding": {
+    "k": 6,
+    "n": 122,
+    "rate": 0.0492,
+    "ci95": [
+     0.0227,
+     0.1032
+    ]
+   },
+   "security_medhigh_finding": {
+    "k": 21,
+    "n": 122,
+    "rate": 0.1721,
+    "ci95": [
+     0.1154,
+     0.2488
+    ]
+   },
+   "security_medhigh_per_kloc": 10.81,
+   "security_findings_per_kloc": 34.49,
+   "findings_by_tool": {
+    "semgrep": 14,
+    "bandit": 5,
+    "flawfinder": 131
+   },
+   "cppcheck_per_kloc": 9.66,
+   "mean_nloc": 35.6,
+   "mean_avg_ccn": 3.29,
+   "functions_ccn_gt10": 6,
+   "cost_usd": 2.455545,
+   "cost_per_gate1_pass": 0.020127,
+   "cost_per_functional_pass": 0.094444,
+   "output_tokens": 373979
+  },
+  "qwen3-8-flash": {
+   "planned": 160,
+   "artifacts": 110,
+   "truncated": 10,
+   "failed_generation": 50,
+   "gate1_counts": {
+    "no_artifact": 50,
+    "pass": 99,
+    "fail_integrity": 10,
+    "blocked_dependency": 1
+   },
+   "gate1_pass": {
+    "k": 99,
+    "n": 160,
+    "rate": 0.6188,
+    "ci95": [
+     0.5415,
+     0.6904
+    ]
+   },
+   "functional_counts": {
+    "not_testable": 134,
+    "passed": 26
+   },
+   "functional_executed": 26,
+   "functional_pass_of_executed": {
+    "k": 26,
+    "n": 26,
+    "rate": 1.0,
+    "ci95": [
+     0.8713,
+     1.0
+    ]
+   },
+   "untested_reasons": {
+    "gate1": 61,
+    "adapter": 7,
+    "oracle_rejected": 26,
+    "no_oracle": 40
+   },
+   "scanned_gate1_pass": 99,
+   "security_any_finding": {
+    "k": 16,
+    "n": 99,
+    "rate": 0.1616,
+    "ci95": [
+     0.102,
+     0.2465
+    ]
+   },
+   "security_high_finding": {
+    "k": 2,
+    "n": 99,
+    "rate": 0.0202,
+    "ci95": [
+     0.0056,
+     0.0707
+    ]
+   },
+   "security_medhigh_finding": {
+    "k": 12,
+    "n": 99,
+    "rate": 0.1212,
+    "ci95": [
+     0.0707,
+     0.2
+    ]
+   },
+   "security_medhigh_per_kloc": 6.38,
+   "security_findings_per_kloc": 20.89,
+   "findings_by_tool": {
+    "semgrep": 7,
+    "bandit": 1,
+    "flawfinder": 64
+   },
+   "cppcheck_per_kloc": 3.48,
+   "mean_nloc": 34.8,
+   "mean_avg_ccn": 4.07,
+   "functions_ccn_gt10": 10,
+   "cost_usd": 0.458049,
+   "cost_per_gate1_pass": 0.004627,
+   "cost_per_functional_pass": 0.017617,
+   "output_tokens": 180724
+  }
+ },
+ "by_language": {
+  "python": {
+   "planned": 200,
+   "artifacts": 187,
+   "truncated": 1,
+   "failed_generation": 13,
+   "gate1_counts": {
+    "pass": 186,
+    "no_artifact": 13,
+    "fail_integrity": 1
+   },
+   "gate1_pass": {
+    "k": 186,
+    "n": 200,
+    "rate": 0.93,
+    "ci95": [
+     0.8859,
+     0.9578
+    ]
+   },
+   "functional_counts": {
+    "not_testable": 160,
+    "passed": 40
+   },
+   "functional_executed": 40,
+   "functional_pass_of_executed": {
+    "k": 40,
+    "n": 40,
+    "rate": 1.0,
+    "ci95": [
+     0.9124,
+     1.0
+    ]
+   },
+   "untested_reasons": {
+    "no_oracle": 106,
+    "gate1": 14,
+    "oracle_rejected": 40
+   },
+   "scanned_gate1_pass": 186,
+   "security_any_finding": {
+    "k": 24,
+    "n": 186,
+    "rate": 0.129,
+    "ci95": [
+     0.0883,
+     0.1848
+    ]
+   },
+   "security_high_finding": {
+    "k": 2,
+    "n": 186,
+    "rate": 0.0108,
+    "ci95": [
+     0.003,
+     0.0384
+    ]
+   },
+   "security_medhigh_finding": {
+    "k": 11,
+    "n": 186,
+    "rate": 0.0591,
+    "ci95": [
+     0.0333,
+     0.1028
+    ]
+   },
+   "security_medhigh_per_kloc": 2.68,
+   "security_findings_per_kloc": 8.8,
+   "findings_by_tool": {
+    "semgrep": 8,
+    "bandit": 51,
+    "flawfinder": 0
+   },
+   "cppcheck_per_kloc": 0.0,
+   "mean_nloc": 36.1,
+   "mean_avg_ccn": 3.08,
+   "functions_ccn_gt10": 20,
+   "cost_usd": 0.945697,
+   "cost_per_gate1_pass": 0.005084,
+   "cost_per_functional_pass": 0.023642,
+   "output_tokens": 228665
+  },
+  "java": {
+   "planned": 200,
+   "artifacts": 189,
+   "truncated": 15,
+   "failed_generation": 11,
+   "gate1_counts": {
+    "pass": 170,
+    "no_artifact": 11,
+    "fail_syntax": 2,
+    "fail_integrity": 17
+   },
+   "gate1_pass": {
+    "k": 170,
+    "n": 200,
+    "rate": 0.85,
+    "ci95": [
+     0.7939,
+     0.8929
+    ]
+   },
+   "functional_counts": {
+    "not_testable": 167,
+    "passed": 33
+   },
+   "functional_executed": 33,
+   "functional_pass_of_executed": {
+    "k": 33,
+    "n": 33,
+    "rate": 1.0,
+    "ci95": [
+     0.8957,
+     1.0
+    ]
+   },
+   "untested_reasons": {
+    "oracle_rejected": 96,
+    "gate1": 30,
+    "no_oracle": 25,
+    "adapter": 16
+   },
+   "scanned_gate1_pass": 170,
+   "security_any_finding": {
+    "k": 11,
+    "n": 170,
+    "rate": 0.0647,
+    "ci95": [
+     0.0365,
+     0.1121
+    ]
+   },
+   "security_high_finding": {
+    "k": 0,
+    "n": 170,
+    "rate": 0.0,
+    "ci95": [
+     0.0,
+     0.0221
+    ]
+   },
+   "security_medhigh_finding": {
+    "k": 11,
+    "n": 170,
+    "rate": 0.0647,
+    "ci95": [
+     0.0365,
+     0.1121
+    ]
+   },
+   "security_medhigh_per_kloc": 2.05,
+   "security_findings_per_kloc": 2.05,
+   "findings_by_tool": {
+    "semgrep": 17,
+    "bandit": 0,
+    "flawfinder": 0
+   },
+   "cppcheck_per_kloc": 0.0,
+   "mean_nloc": 48.7,
+   "mean_avg_ccn": 3.55,
+   "functions_ccn_gt10": 18,
+   "cost_usd": 0.949834,
+   "cost_per_gate1_pass": 0.005587,
+   "cost_per_functional_pass": 0.028783,
+   "output_tokens": 331148
+  },
+  "c": {
+   "planned": 200,
+   "artifacts": 175,
+   "truncated": 36,
+   "failed_generation": 25,
+   "gate1_counts": {
+    "fail_integrity": 37,
+    "no_artifact": 25,
+    "pass": 117,
+    "fail_compile": 1,
+    "blocked_dependency": 20
+   },
+   "gate1_pass": {
+    "k": 117,
+    "n": 200,
+    "rate": 0.585,
+    "ci95": [
+     0.5157,
+     0.6511
+    ]
+   },
+   "functional_counts": {
+    "not_testable": 178,
+    "passed": 22
+   },
+   "functional_executed": 22,
+   "functional_pass_of_executed": {
+    "k": 22,
+    "n": 22,
+    "rate": 1.0,
+    "ci95": [
+     0.8513,
+     1.0
+    ]
+   },
+   "untested_reasons": {
+    "gate1": 83,
+    "adapter": 15,
+    "oracle_rejected": 13,
+    "no_oracle": 67
+   },
+   "scanned_gate1_pass": 117,
+   "security_any_finding": {
+    "k": 100,
+    "n": 117,
+    "rate": 0.8547,
+    "ci95": [
+     0.7796,
+     0.9073
+    ]
+   },
+   "security_high_finding": {
+    "k": 11,
+    "n": 117,
+    "rate": 0.094,
+    "ci95": [
+     0.0533,
+     0.1605
+    ]
+   },
+   "security_medhigh_finding": {
+    "k": 63,
+    "n": 117,
+    "rate": 0.5385,
+    "ci95": [
+     0.4483,
+     0.6261
+    ]
+   },
+   "security_medhigh_per_kloc": 26.42,
+   "security_findings_per_kloc": 108.71,
+   "findings_by_tool": {
+    "semgrep": 30,
+    "bandit": 0,
+    "flawfinder": 653
+   },
+   "cppcheck_per_kloc": 6.21,
+   "mean_nloc": 53.7,
+   "mean_avg_ccn": 5.46,
+   "functions_ccn_gt10": 28,
+   "cost_usd": 1.384543,
+   "cost_per_gate1_pass": 0.011834,
+   "cost_per_functional_pass": 0.062934,
+   "output_tokens": 386733
+  },
+  "cpp": {
+   "planned": 200,
+   "artifacts": 183,
+   "truncated": 28,
+   "failed_generation": 17,
+   "gate1_counts": {
+    "pass": 131,
+    "no_artifact": 17,
+    "fail_compile": 1,
+    "fail_integrity": 30,
+    "blocked_dependency": 21
+   },
+   "gate1_pass": {
+    "k": 131,
+    "n": 200,
+    "rate": 0.655,
+    "ci95": [
+     0.5868,
+     0.7174
+    ]
+   },
+   "functional_counts": {
+    "not_testable": 165,
+    "passed": 35
+   },
+   "functional_executed": 35,
+   "functional_pass_of_executed": {
+    "k": 35,
+    "n": 35,
+    "rate": 1.0,
+    "ci95": [
+     0.9011,
+     1.0
+    ]
+   },
+   "untested_reasons": {
+    "no_oracle": 70,
+    "gate1": 69,
+    "oracle_rejected": 13,
+    "adapter": 13
+   },
+   "scanned_gate1_pass": 131,
+   "security_any_finding": {
+    "k": 12,
+    "n": 131,
+    "rate": 0.0916,
+    "ci95": [
+     0.0532,
+     0.1533
+    ]
+   },
+   "security_high_finding": {
+    "k": 7,
+    "n": 131,
+    "rate": 0.0534,
+    "ci95": [
+     0.0261,
+     0.1062
+    ]
+   },
+   "security_medhigh_finding": {
+    "k": 11,
+    "n": 131,
+    "rate": 0.084,
+    "ci95": [
+     0.0475,
+     0.1441
+    ]
+   },
+   "security_medhigh_per_kloc": 2.21,
+   "security_findings_per_kloc": 3.31,
+   "findings_by_tool": {
+    "semgrep": 0,
+    "bandit": 0,
+    "flawfinder": 21
+   },
+   "cppcheck_per_kloc": 9.3,
+   "mean_nloc": 48.4,
+   "mean_avg_ccn": 3.45,
+   "functions_ccn_gt10": 16,
+   "cost_usd": 1.094074,
+   "cost_per_gate1_pass": 0.008352,
+   "cost_per_functional_pass": 0.031259,
+   "output_tokens": 350388
+  }
+ },
+ "by_model_language": {
+  "claude-haiku-5-5": {
+   "python": {
+    "planned": 40,
+    "artifacts": 39,
+    "truncated": 0,
+    "failed_generation": 1,
+    "gate1_counts": {
+     "pass": 39,
+     "no_artifact": 1
+    },
+    "gate1_pass": {
+     "k": 39,
+     "n": 40,
+     "rate": 0.975,
+     "ci95": [
+      0.8712,
+      0.9956
+     ]
+    },
+    "functional_counts": {
+     "not_testable": 32,
+     "passed": 8
+    },
+    "functional_executed": 8,
+    "functional_pass_of_executed": {
+     "k": 8,
+     "n": 8,
+     "rate": 1.0,
+     "ci95": [
+      0.6756,
+      1.0
+     ]
+    },
+    "untested_reasons": {
+     "no_oracle": 23,
+     "oracle_rejected": 8,
+     "gate1": 1
+    },
+    "scanned_gate1_pass": 39,
+    "security_any_finding": {
+     "k": 7,
+     "n": 39,
+     "rate": 0.1795,
+     "ci95": [
+      0.0898,
+      0.3267
+     ]
+    },
+    "security_high_finding": {
+     "k": 0,
+     "n": 39,
+     "rate": 0.0,
+     "ci95": [
+      0.0,
+      0.0897
+     ]
+    },
+    "security_medhigh_finding": {
+     "k": 3,
+     "n": 39,
+     "rate": 0.0769,
+     "ci95": [
+      0.0265,
+      0.2032
+     ]
+    },
+    "security_medhigh_per_kloc": 3.05,
+    "security_findings_per_kloc": 8.53,
+    "findings_by_tool": {
+     "semgrep": 3,
+     "bandit": 11,
+     "flawfinder": 0
+    },
+    "cppcheck_per_kloc": 0.0,
+    "mean_nloc": 42.1,
+    "mean_avg_ccn": 3.09,
+    "functions_ccn_gt10": 5,
+    "cost_usd": 0.033516,
+    "cost_per_gate1_pass": 0.000859,
+    "cost_per_functional_pass": 0.00419,
+    "output_tokens": 35443
+   },
+   "java": {
+    "planned": 40,
+    "artifacts": 40,
+    "truncated": 6,
+    "failed_generation": 0,
+    "gate1_counts": {
+     "pass": 31,
+     "fail_syntax": 1,
+     "fail_integrity": 8
+    },
+    "gate1_pass": {
+     "k": 31,
+     "n": 40,
+     "rate": 0.775,
+     "ci95": [
+      0.625,
+      0.8768
+     ]
+    },
+    "functional_counts": {
+     "not_testable": 33,
+     "passed": 7
+    },
+    "functional_executed": 7,
+    "functional_pass_of_executed": {
+     "k": 7,
+     "n": 7,
+     "rate": 1.0,
+     "ci95": [
+      0.6457,
+      1.0
+     ]
+    },
+    "untested_reasons": {
+     "oracle_rejected": 17,
+     "gate1": 9,
+     "no_oracle": 5,
+     "adapter": 2
+    },
+    "scanned_gate1_pass": 31,
+    "security_any_finding": {
+     "k": 1,
+     "n": 31,
+     "rate": 0.0323,
+     "ci95": [
+      0.0057,
+      0.1619
+     ]
+    },
+    "security_high_finding": {
+     "k": 0,
+     "n": 31,
+     "rate": 0.0,
+     "ci95": [
+      0.0,
+      0.1103
+     ]
+    },
+    "security_medhigh_finding": {
+     "k": 1,
+     "n": 31,
+     "rate": 0.0323,
+     "ci95": [
+      0.0057,
+      0.1619
+     ]
+    },
+    "security_medhigh_per_kloc": 0.64,
+    "security_findings_per_kloc": 0.64,
+    "findings_by_tool": {
+     "semgrep": 1,
+     "bandit": 0,
+     "flawfinder": 0
+    },
+    "cppcheck_per_kloc": 0.0,
+    "mean_nloc": 50.3,
+    "mean_avg_ccn": 3.24,
+    "functions_ccn_gt10": 2,
+    "cost_usd": 0.033478,
+    "cost_per_gate1_pass": 0.00108,
+    "cost_per_functional_pass": 0.004783,
+    "output_tokens": 60941
+   },
+   "c": {
+    "planned": 40,
+    "artifacts": 40,
+    "truncated": 10,
+    "failed_generation": 0,
+    "gate1_counts": {
+     "fail_integrity": 11,
+     "pass": 25,
+     "blocked_dependency": 4
+    },
+    "gate1_pass": {
+     "k": 25,
+     "n": 40,
+     "rate": 0.625,
+     "ci95": [
+      0.4703,
+      0.7578
+     ]
+    },
+    "functional_counts": {
+     "not_testable": 34,
+     "passed": 6
+    },
+    "functional_executed": 6,
+    "functional_pass_of_executed": {
+     "k": 6,
+     "n": 6,
+     "rate": 1.0,
+     "ci95": [
+      0.6097,
+      1.0
+     ]
+    },
+    "untested_reasons": {
+     "gate1": 15,
+     "adapter": 2,
+     "oracle_rejected": 3,
+     "no_oracle": 14
+    },
+    "scanned_gate1_pass": 25,
+    "security_any_finding": {
+     "k": 25,
+     "n": 25,
+     "rate": 1.0,
+     "ci95": [
+      0.8668,
+      1.0
+     ]
+    },
+    "security_high_finding": {
+     "k": 2,
+     "n": 25,
+     "rate": 0.08,
+     "ci95": [
+      0.0222,
+      0.2497
+     ]
+    },
+    "security_medhigh_finding": {
+     "k": 15,
+     "n": 25,
+     "rate": 0.6,
+     "ci95": [
+      0.4074,
+      0.766
+     ]
+    },
+    "security_medhigh_per_kloc": 28.98,
+    "security_findings_per_kloc": 122.34,
+    "findings_by_tool": {
+     "semgrep": 7,
+     "bandit": 0,
+     "flawfinder": 183
+    },
+    "cppcheck_per_kloc": 2.58,
+    "mean_nloc": 62.1,
+    "mean_avg_ccn": 4.46,
+    "functions_ccn_gt10": 5,
+    "cost_usd": 0.048933,
+    "cost_per_gate1_pass": 0.001957,
+    "cost_per_functional_pass": 0.008155,
+    "output_tokens": 82963
+   },
+   "cpp": {
+    "planned": 40,
+    "artifacts": 40,
+    "truncated": 10,
+    "failed_generation": 0,
+    "gate1_counts": {
+     "pass": 23,
+     "fail_compile": 1,
+     "fail_integrity": 12,
+     "blocked_dependency": 4
+    },
+    "gate1_pass": {
+     "k": 23,
+     "n": 40,
+     "rate": 0.575,
+     "ci95": [
+      0.422,
+      0.7149
+     ]
+    },
+    "functional_counts": {
+     "not_testable": 33,
+     "passed": 7
+    },
+    "functional_executed": 7,
+    "functional_pass_of_executed": {
+     "k": 7,
+     "n": 7,
+     "rate": 1.0,
+     "ci95": [
+      0.6457,
+      1.0
+     ]
+    },
+    "untested_reasons": {
+     "no_oracle": 13,
+     "oracle_rejected": 1,
+     "adapter": 2,
+     "gate1": 17
+    },
+    "scanned_gate1_pass": 23,
+    "security_any_finding": {
+     "k": 2,
+     "n": 23,
+     "rate": 0.087,
+     "ci95": [
+      0.0242,
+      0.268
+     ]
+    },
+    "security_high_finding": {
+     "k": 1,
+     "n": 23,
+     "rate": 0.0435,
+     "ci95": [
+      0.0077,
+      0.2099
+     ]
+    },
+    "security_medhigh_finding": {
+     "k": 2,
+     "n": 23,
+     "rate": 0.087,
+     "ci95": [
+      0.0242,
+      0.268
+     ]
+    },
+    "security_medhigh_per_kloc": 1.76,
+    "security_findings_per_kloc": 2.64,
+    "findings_by_tool": {
+     "semgrep": 0,
+     "bandit": 0,
+     "flawfinder": 3
+    },
+    "cppcheck_per_kloc": 8.8,
+    "mean_nloc": 49.4,
+    "mean_avg_ccn": 3.05,
+    "functions_ccn_gt10": 3,
+    "cost_usd": 0.043973,
+    "cost_per_gate1_pass": 0.001912,
+    "cost_per_functional_pass": 0.006282,
+    "output_tokens": 73671
+   }
+  },
+  "gemini-3-8-flash": {
+   "python": {
+    "planned": 40,
+    "artifacts": 39,
+    "truncated": 0,
+    "failed_generation": 1,
+    "gate1_counts": {
+     "pass": 39,
+     "no_artifact": 1
+    },
+    "gate1_pass": {
+     "k": 39,
+     "n": 40,
+     "rate": 0.975,
+     "ci95": [
+      0.8712,
+      0.9956
+     ]
+    },
+    "functional_counts": {
+     "not_testable": 32,
+     "passed": 8
+    },
+    "functional_executed": 8,
+    "functional_pass_of_executed": {
+     "k": 8,
+     "n": 8,
+     "rate": 1.0,
+     "ci95": [
+      0.6756,
+      1.0
+     ]
+    },
+    "untested_reasons": {
+     "no_oracle": 23,
+     "oracle_rejected": 8,
+     "gate1": 1
+    },
+    "scanned_gate1_pass": 39,
+    "security_any_finding": {
+     "k": 9,
+     "n": 39,
+     "rate": 0.2308,
+     "ci95": [
+      0.1265,
+      0.3834
+     ]
+    },
+    "security_high_finding": {
+     "k": 0,
+     "n": 39,
+     "rate": 0.0,
+     "ci95": [
+      0.0,
+      0.0897
+     ]
+    },
+    "security_medhigh_finding": {
+     "k": 2,
+     "n": 39,
+     "rate": 0.0513,
+     "ci95": [
+      0.0142,
+      0.1689
+     ]
+    },
+    "security_medhigh_per_kloc": 1.73,
+    "security_findings_per_kloc": 16.71,
+    "findings_by_tool": {
+     "semgrep": 1,
+     "bandit": 28,
+     "flawfinder": 0
+    },
+    "cppcheck_per_kloc": 0.0,
+    "mean_nloc": 44.5,
+    "mean_avg_ccn": 2.65,
+    "functions_ccn_gt10": 2,
+    "cost_usd": 0.255578,
+    "cost_per_gate1_pass": 0.006553,
+    "cost_per_functional_pass": 0.031947,
+    "output_tokens": 52868
+   },
+   "java": {
+    "planned": 40,
+    "artifacts": 39,
+    "truncated": 1,
+    "failed_generation": 1,
+    "gate1_counts": {
+     "pass": 38,
+     "no_artifact": 1,
+     "fail_integrity": 1
+    },
+    "gate1_pass": {
+     "k": 38,
+     "n": 40,
+     "rate": 0.95,
+     "ci95": [
+      0.835,
+      0.9862
+     ]
+    },
+    "functional_counts": {
+     "not_testable": 34,
+     "passed": 6
+    },
+    "functional_executed": 6,
+    "functional_pass_of_executed": {
+     "k": 6,
+     "n": 6,
+     "rate": 1.0,
+     "ci95": [
+      0.6097,
+      1.0
+     ]
+    },
+    "untested_reasons": {
+     "oracle_rejected": 22,
+     "no_oracle": 6,
+     "adapter": 4,
+     "gate1": 2
+    },
+    "scanned_gate1_pass": 38,
+    "security_any_finding": {
+     "k": 3,
+     "n": 38,
+     "rate": 0.0789,
+     "ci95": [
+      0.0272,
+      0.208
+     ]
+    },
+    "security_high_finding": {
+     "k": 0,
+     "n": 38,
+     "rate": 0.0,
+     "ci95": [
+      0.0,
+      0.0918
+     ]
+    },
+    "security_medhigh_finding": {
+     "k": 3,
+     "n": 38,
+     "rate": 0.0789,
+     "ci95": [
+      0.0272,
+      0.208
+     ]
+    },
+    "security_medhigh_per_kloc": 1.76,
+    "security_findings_per_kloc": 1.76,
+    "findings_by_tool": {
+     "semgrep": 4,
+     "bandit": 0,
+     "flawfinder": 0
+    },
+    "cppcheck_per_kloc": 0.0,
+    "mean_nloc": 59.8,
+    "mean_avg_ccn": 3.25,
+    "functions_ccn_gt10": 2,
+    "cost_usd": 0.269854,
+    "cost_per_gate1_pass": 0.007101,
+    "cost_per_functional_pass": 0.044976,
+    "output_tokens": 68865
+   },
+   "c": {
+    "planned": 40,
+    "artifacts": 39,
+    "truncated": 8,
+    "failed_generation": 1,
+    "gate1_counts": {
+     "fail_integrity": 8,
+     "pass": 25,
+     "blocked_dependency": 6,
+     "no_artifact": 1
+    },
+    "gate1_pass": {
+     "k": 25,
+     "n": 40,
+     "rate": 0.625,
+     "ci95": [
+      0.4703,
+      0.7578
+     ]
+    },
+    "functional_counts": {
+     "not_testable": 35,
+     "passed": 5
+    },
+    "functional_executed": 5,
+    "functional_pass_of_executed": {
+     "k": 5,
+     "n": 5,
+     "rate": 1.0,
+     "ci95": [
+      0.5655,
+      1.0
+     ]
+    },
+    "untested_reasons": {
+     "gate1": 15,
+     "adapter": 3,
+     "oracle_rejected": 3,
+     "no_oracle": 14
+    },
+    "scanned_gate1_pass": 25,
+    "security_any_finding": {
+     "k": 23,
+     "n": 25,
+     "rate": 0.92,
+     "ci95": [
+      0.7503,
+      0.9778
+     ]
+    },
+    "security_high_finding": {
+     "k": 3,
+     "n": 25,
+     "rate": 0.12,
+     "ci95": [
+      0.0417,
+      0.2996
+     ]
+    },
+    "security_medhigh_finding": {
+     "k": 12,
+     "n": 25,
+     "rate": 0.48,
+     "ci95": [
+      0.3003,
+      0.665
+     ]
+    },
+    "security_medhigh_per_kloc": 20.19,
+    "security_findings_per_kloc": 114.83,
+    "findings_by_tool": {
+     "semgrep": 5,
+     "bandit": 0,
+     "flawfinder": 177
+    },
+    "cppcheck_per_kloc": 0.63,
+    "mean_nloc": 63.4,
+    "mean_avg_ccn": 5.55,
+    "functions_ccn_gt10": 6,
+    "cost_usd": 0.362493,
+    "cost_per_gate1_pass": 0.0145,
+    "cost_per_functional_pass": 0.072499,
+    "output_tokens": 88758
+   },
+   "cpp": {
+    "planned": 40,
+    "artifacts": 39,
+    "truncated": 5,
+    "failed_generation": 1,
+    "gate1_counts": {
+     "pass": 29,
+     "fail_integrity": 5,
+     "blocked_dependency": 5,
+     "no_artifact": 1
+    },
+    "gate1_pass": {
+     "k": 29,
+     "n": 40,
+     "rate": 0.725,
+     "ci95": [
+      0.5717,
+      0.8389
+     ]
+    },
+    "functional_counts": {
+     "not_testable": 33,
+     "passed": 7
+    },
+    "functional_executed": 7,
+    "functional_pass_of_executed": {
+     "k": 7,
+     "n": 7,
+     "rate": 1.0,
+     "ci95": [
+      0.6457,
+      1.0
+     ]
+    },
+    "untested_reasons": {
+     "no_oracle": 16,
+     "oracle_rejected": 3,
+     "adapter": 3,
+     "gate1": 11
+    },
+    "scanned_gate1_pass": 29,
+    "security_any_finding": {
+     "k": 2,
+     "n": 29,
+     "rate": 0.069,
+     "ci95": [
+      0.0191,
+      0.2196
+     ]
+    },
+    "security_high_finding": {
+     "k": 1,
+     "n": 29,
+     "rate": 0.0345,
+     "ci95": [
+      0.0061,
+      0.1718
+     ]
+    },
+    "security_medhigh_finding": {
+     "k": 1,
+     "n": 29,
+     "rate": 0.0345,
+     "ci95": [
+      0.0061,
+      0.1718
+     ]
+    },
+    "security_medhigh_per_kloc": 1.64,
+    "security_findings_per_kloc": 3.82,
+    "findings_by_tool": {
+     "semgrep": 0,
+     "bandit": 0,
+     "flawfinder": 7
+    },
+    "cppcheck_per_kloc": 9.83,
+    "mean_nloc": 63.1,
+    "mean_avg_ccn": 3.33,
+    "functions_ccn_gt10": 5,
+    "cost_usd": 0.310098,
+    "cost_per_gate1_pass": 0.010693,
+    "cost_per_functional_pass": 0.0443,
+    "output_tokens": 78726
+   }
+  },
+  "gpt-6-luna": {
+   "python": {
+    "planned": 40,
+    "artifacts": 40,
+    "truncated": 0,
+    "failed_generation": 0,
+    "gate1_counts": {
+     "pass": 40
+    },
+    "gate1_pass": {
+     "k": 40,
+     "n": 40,
+     "rate": 1.0,
+     "ci95": [
+      0.9124,
+      1.0
+     ]
+    },
+    "functional_counts": {
+     "not_testable": 32,
+     "passed": 8
+    },
+    "functional_executed": 8,
+    "functional_pass_of_executed": {
+     "k": 8,
+     "n": 8,
+     "rate": 1.0,
+     "ci95": [
+      0.6756,
+      1.0
+     ]
+    },
+    "untested_reasons": {
+     "no_oracle": 24,
+     "oracle_rejected": 8
+    },
+    "scanned_gate1_pass": 40,
+    "security_any_finding": {
+     "k": 4,
+     "n": 40,
+     "rate": 0.1,
+     "ci95": [
+      0.0396,
+      0.2305
+     ]
+    },
+    "security_high_finding": {
+     "k": 1,
+     "n": 40,
+     "rate": 0.025,
+     "ci95": [
+      0.0044,
+      0.1288
+     ]
+    },
+    "security_medhigh_finding": {
+     "k": 2,
+     "n": 40,
+     "rate": 0.05,
+     "ci95": [
+      0.0138,
+      0.165
+     ]
+    },
+    "security_medhigh_per_kloc": 1.92,
+    "security_findings_per_kloc": 4.48,
+    "findings_by_tool": {
+     "semgrep": 1,
+     "bandit": 6,
+     "flawfinder": 0
+    },
+    "cppcheck_per_kloc": 0.0,
+    "mean_nloc": 39.1,
+    "mean_avg_ccn": 3.88,
+    "functions_ccn_gt10": 10,
+    "cost_usd": 0.017385,
+    "cost_per_gate1_pass": 0.000435,
+    "cost_per_functional_pass": 0.002173,
+    "output_tokens": 33448
+   },
+   "java": {
+    "planned": 40,
+    "artifacts": 40,
+    "truncated": 2,
+    "failed_generation": 0,
+    "gate1_counts": {
+     "pass": 37,
+     "fail_syntax": 1,
+     "fail_integrity": 2
+    },
+    "gate1_pass": {
+     "k": 37,
+     "n": 40,
+     "rate": 0.925,
+     "ci95": [
+      0.8014,
+      0.9742
+     ]
+    },
+    "functional_counts": {
+     "not_testable": 35,
+     "passed": 5
+    },
+    "functional_executed": 5,
+    "functional_pass_of_executed": {
+     "k": 5,
+     "n": 5,
+     "rate": 1.0,
+     "ci95": [
+      0.5655,
+      1.0
+     ]
+    },
+    "untested_reasons": {
+     "oracle_rejected": 22,
+     "no_oracle": 5,
+     "adapter": 5,
+     "gate1": 3
+    },
+    "scanned_gate1_pass": 37,
+    "security_any_finding": {
+     "k": 2,
+     "n": 37,
+     "rate": 0.0541,
+     "ci95": [
+      0.015,
+      0.177
+     ]
+    },
+    "security_high_finding": {
+     "k": 0,
+     "n": 37,
+     "rate": 0.0,
+     "ci95": [
+      0.0,
+      0.0941
+     ]
+    },
+    "security_medhigh_finding": {
+     "k": 2,
+     "n": 37,
+     "rate": 0.0541,
+     "ci95": [
+      0.015,
+      0.177
+     ]
+    },
+    "security_medhigh_per_kloc": 2.05,
+    "security_findings_per_kloc": 2.05,
+    "findings_by_tool": {
+     "semgrep": 4,
+     "bandit": 0,
+     "flawfinder": 0
+    },
+    "cppcheck_per_kloc": 0.0,
+    "mean_nloc": 52.7,
+    "mean_avg_ccn": 3.86,
+    "functions_ccn_gt10": 8,
+    "cost_usd": 0.024529,
+    "cost_per_gate1_pass": 0.000663,
+    "cost_per_functional_pass": 0.004906,
+    "output_tokens": 47744
+   },
+   "c": {
+    "planned": 40,
+    "artifacts": 40,
+    "truncated": 7,
+    "failed_generation": 0,
+    "gate1_counts": {
+     "fail_integrity": 7,
+     "pass": 27,
+     "blocked_dependency": 6
+    },
+    "gate1_pass": {
+     "k": 27,
+     "n": 40,
+     "rate": 0.675,
+     "ci95": [
+      0.5202,
+      0.7992
+     ]
+    },
+    "functional_counts": {
+     "not_testable": 36,
+     "passed": 4
+    },
+    "functional_executed": 4,
+    "functional_pass_of_executed": {
+     "k": 4,
+     "n": 4,
+     "rate": 1.0,
+     "ci95": [
+      0.5101,
+      1.0
+     ]
+    },
+    "untested_reasons": {
+     "gate1": 13,
+     "adapter": 4,
+     "oracle_rejected": 3,
+     "no_oracle": 16
+    },
+    "scanned_gate1_pass": 27,
+    "security_any_finding": {
+     "k": 21,
+     "n": 27,
+     "rate": 0.7778,
+     "ci95": [
+      0.5924,
+      0.8939
+     ]
+    },
+    "security_high_finding": {
+     "k": 2,
+     "n": 27,
+     "rate": 0.0741,
+     "ci95": [
+      0.0206,
+      0.2337
+     ]
+    },
+    "security_medhigh_finding": {
+     "k": 16,
+     "n": 27,
+     "rate": 0.5926,
+     "ci95": [
+      0.4073,
+      0.7549
+     ]
+    },
+    "security_medhigh_per_kloc": 29.59,
+    "security_findings_per_kloc": 83.46,
+    "findings_by_tool": {
+     "semgrep": 8,
+     "bandit": 0,
+     "flawfinder": 102
+    },
+    "cppcheck_per_kloc": 1.52,
+    "mean_nloc": 48.8,
+    "mean_avg_ccn": 6.46,
+    "functions_ccn_gt10": 10,
+    "cost_usd": 0.03365,
+    "cost_per_gate1_pass": 0.001246,
+    "cost_per_functional_pass": 0.008413,
+    "output_tokens": 65986
+   },
+   "cpp": {
+    "planned": 40,
+    "artifacts": 40,
+    "truncated": 2,
+    "failed_generation": 0,
+    "gate1_counts": {
+     "pass": 30,
+     "blocked_dependency": 8,
+     "fail_integrity": 2
+    },
+    "gate1_pass": {
+     "k": 30,
+     "n": 40,
+     "rate": 0.75,
+     "ci95": [
+      0.5981,
+      0.8581
+     ]
+    },
+    "functional_counts": {
+     "not_testable": 33,
+     "passed": 7
+    },
+    "functional_executed": 7,
+    "functional_pass_of_executed": {
+     "k": 7,
+     "n": 7,
+     "rate": 1.0,
+     "ci95": [
+      0.6457,
+      1.0
+     ]
+    },
+    "untested_reasons": {
+     "no_oracle": 16,
+     "oracle_rejected": 4,
+     "adapter": 3,
+     "gate1": 10
+    },
+    "scanned_gate1_pass": 30,
+    "security_any_finding": {
+     "k": 4,
+     "n": 30,
+     "rate": 0.1333,
+     "ci95": [
+      0.0531,
+      0.2968
+     ]
+    },
+    "security_high_finding": {
+     "k": 2,
+     "n": 30,
+     "rate": 0.0667,
+     "ci95": [
+      0.0185,
+      0.2132
+     ]
+    },
+    "security_medhigh_finding": {
+     "k": 4,
+     "n": 30,
+     "rate": 0.1333,
+     "ci95": [
+      0.0531,
+      0.2968
+     ]
+    },
+    "security_medhigh_per_kloc": 3.0,
+    "security_findings_per_kloc": 4.2,
+    "findings_by_tool": {
+     "semgrep": 0,
+     "bandit": 0,
+     "flawfinder": 7
+    },
+    "cppcheck_per_kloc": 5.4,
+    "mean_nloc": 55.6,
+    "mean_avg_ccn": 4.37,
+    "functions_ccn_gt10": 8,
+    "cost_usd": 0.027066,
+    "cost_per_gate1_pass": 0.000902,
+    "cost_per_functional_pass": 0.003867,
+    "output_tokens": 52818
+   }
+  },
+  "mistral-large-4": {
+   "python": {
+    "planned": 40,
+    "artifacts": 38,
+    "truncated": 1,
+    "failed_generation": 2,
+    "gate1_counts": {
+     "pass": 37,
+     "no_artifact": 2,
+     "fail_integrity": 1
+    },
+    "gate1_pass": {
+     "k": 37,
+     "n": 40,
+     "rate": 0.925,
+     "ci95": [
+      0.8014,
+      0.9742
+     ]
+    },
+    "functional_counts": {
+     "not_testable": 32,
+     "passed": 8
+    },
+    "functional_executed": 8,
+    "functional_pass_of_executed": {
+     "k": 8,
+     "n": 8,
+     "rate": 1.0,
+     "ci95": [
+      0.6756,
+      1.0
+     ]
+    },
+    "untested_reasons": {
+     "no_oracle": 21,
+     "oracle_rejected": 8,
+     "gate1": 3
+    },
+    "scanned_gate1_pass": 37,
+    "security_any_finding": {
+     "k": 3,
+     "n": 37,
+     "rate": 0.0811,
+     "ci95": [
+      0.028,
+      0.213
+     ]
+    },
+    "security_high_finding": {
+     "k": 1,
+     "n": 37,
+     "rate": 0.027,
+     "ci95": [
+      0.0048,
+      0.1382
+     ]
+    },
+    "security_medhigh_finding": {
+     "k": 3,
+     "n": 37,
+     "rate": 0.0811,
+     "ci95": [
+      0.028,
+      0.213
+     ]
+    },
+    "security_medhigh_per_kloc": 4.94,
+    "security_findings_per_kloc": 6.92,
+    "findings_by_tool": {
+     "semgrep": 2,
+     "bandit": 5,
+     "flawfinder": 0
+    },
+    "cppcheck_per_kloc": 0.0,
+    "mean_nloc": 27.4,
+    "mean_avg_ccn": 2.61,
+    "functions_ccn_gt10": 2,
+    "cost_usd": 0.561622,
+    "cost_per_gate1_pass": 0.015179,
+    "cost_per_functional_pass": 0.070203,
+    "output_tokens": 77089
+   },
+   "java": {
+    "planned": 40,
+    "artifacts": 38,
+    "truncated": 3,
+    "failed_generation": 2,
+    "gate1_counts": {
+     "pass": 35,
+     "fail_integrity": 3,
+     "no_artifact": 2
+    },
+    "gate1_pass": {
+     "k": 35,
+     "n": 40,
+     "rate": 0.875,
+     "ci95": [
+      0.7389,
+      0.9454
+     ]
+    },
+    "functional_counts": {
+     "not_testable": 32,
+     "passed": 8
+    },
+    "functional_executed": 8,
+    "functional_pass_of_executed": {
+     "k": 8,
+     "n": 8,
+     "rate": 1.0,
+     "ci95": [
+      0.6756,
+      1.0
+     ]
+    },
+    "untested_reasons": {
+     "oracle_rejected": 19,
+     "no_oracle": 6,
+     "adapter": 2,
+     "gate1": 5
+    },
+    "scanned_gate1_pass": 35,
+    "security_any_finding": {
+     "k": 3,
+     "n": 35,
+     "rate": 0.0857,
+     "ci95": [
+      0.0296,
+      0.2238
+     ]
+    },
+    "security_high_finding": {
+     "k": 0,
+     "n": 35,
+     "rate": 0.0,
+     "ci95": [
+      0.0,
+      0.0989
+     ]
+    },
+    "security_medhigh_finding": {
+     "k": 3,
+     "n": 35,
+     "rate": 0.0857,
+     "ci95": [
+      0.0296,
+      0.2238
+     ]
+    },
+    "security_medhigh_per_kloc": 4.41,
+    "security_findings_per_kloc": 4.41,
+    "findings_by_tool": {
+     "semgrep": 6,
+     "bandit": 0,
+     "flawfinder": 0
+    },
+    "cppcheck_per_kloc": 0.0,
+    "mean_nloc": 38.9,
+    "mean_avg_ccn": 3.26,
+    "functions_ccn_gt10": 2,
+    "cost_usd": 0.51734,
+    "cost_per_gate1_pass": 0.014781,
+    "cost_per_functional_pass": 0.064667,
+    "output_tokens": 91257
+   },
+   "c": {
+    "planned": 40,
+    "artifacts": 34,
+    "truncated": 7,
+    "failed_generation": 6,
+    "gate1_counts": {
+     "no_artifact": 6,
+     "pass": 23,
+     "fail_compile": 1,
+     "fail_integrity": 7,
+     "blocked_dependency": 3
+    },
+    "gate1_pass": {
+     "k": 23,
+     "n": 40,
+     "rate": 0.575,
+     "ci95": [
+      0.422,
+      0.7149
+     ]
+    },
+    "functional_counts": {
+     "not_testable": 37,
+     "passed": 3
+    },
+    "functional_executed": 3,
+    "functional_pass_of_executed": {
+     "k": 3,
+     "n": 3,
+     "rate": 1.0,
+     "ci95": [
+      0.4385,
+      1.0
+     ]
+    },
+    "untested_reasons": {
+     "gate1": 17,
+     "adapter": 4,
+     "oracle_rejected": 3,
+     "no_oracle": 13
+    },
+    "scanned_gate1_pass": 23,
+    "security_any_finding": {
+     "k": 20,
+     "n": 23,
+     "rate": 0.8696,
+     "ci95": [
+      0.6787,
+      0.9546
+     ]
+    },
+    "security_high_finding": {
+     "k": 3,
+     "n": 23,
+     "rate": 0.1304,
+     "ci95": [
+      0.0454,
+      0.3213
+     ]
+    },
+    "security_medhigh_finding": {
+     "k": 13,
+     "n": 23,
+     "rate": 0.5652,
+     "ci95": [
+      0.3681,
+      0.7437
+     ]
+    },
+    "security_medhigh_per_kloc": 32.91,
+    "security_findings_per_kloc": 130.69,
+    "findings_by_tool": {
+     "semgrep": 6,
+     "bandit": 0,
+     "flawfinder": 129
+    },
+    "cppcheck_per_kloc": 27.11,
+    "mean_nloc": 44.9,
+    "mean_avg_ccn": 4.7,
+    "functions_ccn_gt10": 2,
+    "cost_usd": 0.782905,
+    "cost_per_gate1_pass": 0.034039,
+    "cost_per_functional_pass": 0.260968,
+    "output_tokens": 100230
+   },
+   "cpp": {
+    "planned": 40,
+    "artifacts": 39,
+    "truncated": 8,
+    "failed_generation": 1,
+    "gate1_counts": {
+     "pass": 27,
+     "fail_integrity": 8,
+     "blocked_dependency": 4,
+     "no_artifact": 1
+    },
+    "gate1_pass": {
+     "k": 27,
+     "n": 40,
+     "rate": 0.675,
+     "ci95": [
+      0.5202,
+      0.7992
+     ]
+    },
+    "functional_counts": {
+     "not_testable": 33,
+     "passed": 7
+    },
+    "functional_executed": 7,
+    "functional_pass_of_executed": {
+     "k": 7,
+     "n": 7,
+     "rate": 1.0,
+     "ci95": [
+      0.6457,
+      1.0
+     ]
+    },
+    "untested_reasons": {
+     "no_oracle": 13,
+     "oracle_rejected": 4,
+     "adapter": 3,
+     "gate1": 13
+    },
+    "scanned_gate1_pass": 27,
+    "security_any_finding": {
+     "k": 2,
+     "n": 27,
+     "rate": 0.0741,
+     "ci95": [
+      0.0206,
+      0.2337
+     ]
+    },
+    "security_high_finding": {
+     "k": 2,
+     "n": 27,
+     "rate": 0.0741,
+     "ci95": [
+      0.0206,
+      0.2337
+     ]
+    },
+    "security_medhigh_finding": {
+     "k": 2,
+     "n": 27,
+     "rate": 0.0741,
+     "ci95": [
+      0.0206,
+      0.2337
+     ]
+    },
+    "security_medhigh_per_kloc": 2.12,
+    "security_findings_per_kloc": 2.12,
+    "findings_by_tool": {
+     "semgrep": 0,
+     "bandit": 0,
+     "flawfinder": 2
+    },
+    "cppcheck_per_kloc": 14.86,
+    "mean_nloc": 34.9,
+    "mean_avg_ccn": 3.04,
+    "functions_ccn_gt10": 0,
+    "cost_usd": 0.593678,
+    "cost_per_gate1_pass": 0.021988,
+    "cost_per_functional_pass": 0.084811,
+    "output_tokens": 105403
+   }
+  },
+  "qwen3-8-flash": {
+   "python": {
+    "planned": 40,
+    "artifacts": 31,
+    "truncated": 0,
+    "failed_generation": 9,
+    "gate1_counts": {
+     "no_artifact": 9,
+     "pass": 31
+    },
+    "gate1_pass": {
+     "k": 31,
+     "n": 40,
+     "rate": 0.775,
+     "ci95": [
+      0.625,
+      0.8768
+     ]
+    },
+    "functional_counts": {
+     "not_testable": 32,
+     "passed": 8
+    },
+    "functional_executed": 8,
+    "functional_pass_of_executed": {
+     "k": 8,
+     "n": 8,
+     "rate": 1.0,
+     "ci95": [
+      0.6756,
+      1.0
+     ]
+    },
+    "untested_reasons": {
+     "gate1": 9,
+     "oracle_rejected": 8,
+     "no_oracle": 15
+    },
+    "scanned_gate1_pass": 31,
+    "security_any_finding": {
+     "k": 1,
+     "n": 31,
+     "rate": 0.0323,
+     "ci95": [
+      0.0057,
+      0.1619
+     ]
+    },
+    "security_high_finding": {
+     "k": 0,
+     "n": 31,
+     "rate": 0.0,
+     "ci95": [
+      0.0,
+      0.1103
+     ]
+    },
+    "security_medhigh_finding": {
+     "k": 1,
+     "n": 31,
+     "rate": 0.0323,
+     "ci95": [
+      0.0057,
+      0.1619
+     ]
+    },
+    "security_medhigh_per_kloc": 2.65,
+    "security_findings_per_kloc": 2.65,
+    "findings_by_tool": {
+     "semgrep": 1,
+     "bandit": 1,
+     "flawfinder": 0
+    },
+    "cppcheck_per_kloc": 0.0,
+    "mean_nloc": 24.4,
+    "mean_avg_ccn": 3.21,
+    "functions_ccn_gt10": 1,
+    "cost_usd": 0.077595,
+    "cost_per_gate1_pass": 0.002503,
+    "cost_per_functional_pass": 0.009699,
+    "output_tokens": 29817
+   },
+   "java": {
+    "planned": 40,
+    "artifacts": 32,
+    "truncated": 3,
+    "failed_generation": 8,
+    "gate1_counts": {
+     "no_artifact": 8,
+     "pass": 29,
+     "fail_integrity": 3
+    },
+    "gate1_pass": {
+     "k": 29,
+     "n": 40,
+     "rate": 0.725,
+     "ci95": [
+      0.5717,
+      0.8389
+     ]
+    },
+    "functional_counts": {
+     "not_testable": 33,
+     "passed": 7
+    },
+    "functional_executed": 7,
+    "functional_pass_of_executed": {
+     "k": 7,
+     "n": 7,
+     "rate": 1.0,
+     "ci95": [
+      0.6457,
+      1.0
+     ]
+    },
+    "untested_reasons": {
+     "gate1": 11,
+     "oracle_rejected": 16,
+     "no_oracle": 3,
+     "adapter": 3
+    },
+    "scanned_gate1_pass": 29,
+    "security_any_finding": {
+     "k": 2,
+     "n": 29,
+     "rate": 0.069,
+     "ci95": [
+      0.0191,
+      0.2196
+     ]
+    },
+    "security_high_finding": {
+     "k": 0,
+     "n": 29,
+     "rate": 0.0,
+     "ci95": [
+      0.0,
+      0.117
+     ]
+    },
+    "security_medhigh_finding": {
+     "k": 2,
+     "n": 29,
+     "rate": 0.069,
+     "ci95": [
+      0.0191,
+      0.2196
+     ]
+    },
+    "security_medhigh_per_kloc": 1.77,
+    "security_findings_per_kloc": 1.77,
+    "findings_by_tool": {
+     "semgrep": 2,
+     "bandit": 0,
+     "flawfinder": 0
+    },
+    "cppcheck_per_kloc": 0.0,
+    "mean_nloc": 39.0,
+    "mean_avg_ccn": 4.23,
+    "functions_ccn_gt10": 4,
+    "cost_usd": 0.104634,
+    "cost_per_gate1_pass": 0.003608,
+    "cost_per_functional_pass": 0.014948,
+    "output_tokens": 62341
+   },
+   "c": {
+    "planned": 40,
+    "artifacts": 22,
+    "truncated": 4,
+    "failed_generation": 18,
+    "gate1_counts": {
+     "no_artifact": 18,
+     "pass": 17,
+     "fail_integrity": 4,
+     "blocked_dependency": 1
+    },
+    "gate1_pass": {
+     "k": 17,
+     "n": 40,
+     "rate": 0.425,
+     "ci95": [
+      0.2851,
+      0.578
+     ]
+    },
+    "functional_counts": {
+     "not_testable": 36,
+     "passed": 4
+    },
+    "functional_executed": 4,
+    "functional_pass_of_executed": {
+     "k": 4,
+     "n": 4,
+     "rate": 1.0,
+     "ci95": [
+      0.5101,
+      1.0
+     ]
+    },
+    "untested_reasons": {
+     "gate1": 23,
+     "adapter": 2,
+     "oracle_rejected": 1,
+     "no_oracle": 10
+    },
+    "scanned_gate1_pass": 17,
+    "security_any_finding": {
+     "k": 11,
+     "n": 17,
+     "rate": 0.6471,
+     "ci95": [
+      0.413,
+      0.8269
+     ]
+    },
+    "security_high_finding": {
+     "k": 1,
+     "n": 17,
+     "rate": 0.0588,
+     "ci95": [
+      0.0105,
+      0.2698
+     ]
+    },
+    "security_medhigh_finding": {
+     "k": 7,
+     "n": 17,
+     "rate": 0.4118,
+     "ci95": [
+      0.2161,
+      0.6399
+     ]
+    },
+    "security_medhigh_per_kloc": 20.15,
+    "security_findings_per_kloc": 83.12,
+    "findings_by_tool": {
+     "semgrep": 4,
+     "bandit": 0,
+     "flawfinder": 62
+    },
+    "cppcheck_per_kloc": 5.04,
+    "mean_nloc": 46.7,
+    "mean_avg_ccn": 6.23,
+    "functions_ccn_gt10": 5,
+    "cost_usd": 0.156562,
+    "cost_per_gate1_pass": 0.00921,
+    "cost_per_functional_pass": 0.039141,
+    "output_tokens": 48796
+   },
+   "cpp": {
+    "planned": 40,
+    "artifacts": 25,
+    "truncated": 3,
+    "failed_generation": 15,
+    "gate1_counts": {
+     "no_artifact": 15,
+     "pass": 22,
+     "fail_integrity": 3
+    },
+    "gate1_pass": {
+     "k": 22,
+     "n": 40,
+     "rate": 0.55,
+     "ci95": [
+      0.3983,
+      0.6929
+     ]
+    },
+    "functional_counts": {
+     "not_testable": 33,
+     "passed": 7
+    },
+    "functional_executed": 7,
+    "functional_pass_of_executed": {
+     "k": 7,
+     "n": 7,
+     "rate": 1.0,
+     "ci95": [
+      0.6457,
+      1.0
+     ]
+    },
+    "untested_reasons": {
+     "gate1": 18,
+     "oracle_rejected": 1,
+     "adapter": 2,
+     "no_oracle": 12
+    },
+    "scanned_gate1_pass": 22,
+    "security_any_finding": {
+     "k": 2,
+     "n": 22,
+     "rate": 0.0909,
+     "ci95": [
+      0.0253,
+      0.2781
+     ]
+    },
+    "security_high_finding": {
+     "k": 1,
+     "n": 22,
+     "rate": 0.0455,
+     "ci95": [
+      0.0081,
+      0.218
+     ]
+    },
+    "security_medhigh_finding": {
+     "k": 2,
+     "n": 22,
+     "rate": 0.0909,
+     "ci95": [
+      0.0253,
+      0.2781
+     ]
+    },
+    "security_medhigh_per_kloc": 2.6,
+    "security_findings_per_kloc": 2.6,
+    "findings_by_tool": {
+     "semgrep": 0,
+     "bandit": 0,
+     "flawfinder": 2
+    },
+    "cppcheck_per_kloc": 10.42,
+    "mean_nloc": 34.9,
+    "mean_avg_ccn": 3.3,
+    "functions_ccn_gt10": 0,
+    "cost_usd": 0.119258,
+    "cost_per_gate1_pass": 0.005421,
+    "cost_per_functional_pass": 0.017037,
+    "output_tokens": 39770
+   }
+  }
+ },
+ "paired_functional": [
+  {
+   "model_a": "claude-haiku-5-5",
+   "model_b": "gemini-3-8-flash",
+   "paired_cells": 25,
+   "a_pass_b_not": 0,
+   "b_pass_a_not": 0,
+   "mcnemar_exact_p_unadjusted": 1.0
+  },
+  {
+   "model_a": "claude-haiku-5-5",
+   "model_b": "gpt-6-luna",
+   "paired_cells": 23,
+   "a_pass_b_not": 0,
+   "b_pass_a_not": 0,
+   "mcnemar_exact_p_unadjusted": 1.0
+  },
+  {
+   "model_a": "claude-haiku-5-5",
+   "model_b": "mistral-large-4",
+   "paired_cells": 24,
+   "a_pass_b_not": 0,
+   "b_pass_a_not": 0,
+   "mcnemar_exact_p_unadjusted": 1.0
+  },
+  {
+   "model_a": "claude-haiku-5-5",
+   "model_b": "qwen3-8-flash",
+   "paired_cells": 25,
+   "a_pass_b_not": 0,
+   "b_pass_a_not": 0,
+   "mcnemar_exact_p_unadjusted": 1.0
+  },
+  {
+   "model_a": "gemini-3-8-flash",
+   "model_b": "gpt-6-luna",
+   "paired_cells": 24,
+   "a_pass_b_not": 0,
+   "b_pass_a_not": 0,
+   "mcnemar_exact_p_unadjusted": 1.0
+  },
+  {
+   "model_a": "gemini-3-8-flash",
+   "model_b": "mistral-large-4",
+   "paired_cells": 24,
+   "a_pass_b_not": 0,
+   "b_pass_a_not": 0,
+   "mcnemar_exact_p_unadjusted": 1.0
+  },
+  {
+   "model_a": "gemini-3-8-flash",
+   "model_b": "qwen3-8-flash",
+   "paired_cells": 24,
+   "a_pass_b_not": 0,
+   "b_pass_a_not": 0,
+   "mcnemar_exact_p_unadjusted": 1.0
+  },
+  {
+   "model_a": "gpt-6-luna",
+   "model_b": "mistral-large-4",
+   "paired_cells": 23,
+   "a_pass_b_not": 0,
+   "b_pass_a_not": 0,
+   "mcnemar_exact_p_unadjusted": 1.0
+  },
+  {
+   "model_a": "gpt-6-luna",
+   "model_b": "qwen3-8-flash",
+   "paired_cells": 23,
+   "a_pass_b_not": 0,
+   "b_pass_a_not": 0,
+   "mcnemar_exact_p_unadjusted": 1.0
+  },
+  {
+   "model_a": "mistral-large-4",
+   "model_b": "qwen3-8-flash",
+   "paired_cells": 25,
+   "a_pass_b_not": 0,
+   "b_pass_a_not": 0,
+   "mcnemar_exact_p_unadjusted": 1.0
+  }
+ ],
+ "top_cwes_artifacts": [
+  [
+   "CWE-134",
+   86
+  ],
+  [
+   "CWE-120",
+   63
+  ],
+  [
+   "CWE-119",
+   40
+  ],
+  [
+   "CWE-126",
+   36
+  ],
+  [
+   "CWE-20",
+   33
+  ],
+  [
+   "CWE-362",
+   27
+  ],
+  [
+   "CWE-676",
+   16
+  ],
+  [
+   "CWE-78",
+   13
+  ],
+  [
+   "CWE-259",
+   8
+  ],
+  [
+   "CWE-327",
+   6
+  ],
+  [
+   "CWE-22",
+   6
+  ],
+  [
+   "CWE-939",
+   6
+  ],
+  [
+   "CWE-704",
+   4
+  ],
+  [
+   "CWE-703",
+   4
+  ],
+  [
+   "CWE-276",
+   4
+  ]
+ ]
+}

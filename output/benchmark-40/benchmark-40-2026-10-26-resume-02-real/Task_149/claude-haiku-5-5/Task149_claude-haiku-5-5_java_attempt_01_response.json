@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793025494-i52Bh4FgSBrabSYCLymd",
+  "finish_reason": "stop",
+  "input_tokens": 160,
+  "output_tokens": 595,
+  "cost_usd": 0.0003135,
+  "raw_response": {
+    "id": "gen-1793025494-i52Bh4FgSBrabSYCLymd",
+    "object": "chat.completion",
+    "created": 1793025494,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "public class Main {\n\n    static class Queue<T> {\n        private static class Node<T> {\n            T value;\n            Node<T> next;\n            Node(T value) {\n                this.value = value;\n            }\n        }\n\n        private Node<T> head;\n        private Node<T> tail;\n        private int size;\n\n        public void enqueue(T item) {\n            Node<T> node = new Node<>(item);\n            if (tail == null) {\n                head = tail = node;\n            } else {\n                tail.next = node;\n                tail = node;\n            }\n            size++;\n        }\n\n        public T dequeue() {\n            if (isEmpty()) {\n                throw new IllegalStateException(\"Queue is empty\");\n            }\n            T value = head.value;\n            head = head.next;\n            if (head == null) {\n                tail = null;\n            }\n            size--;\n            return value;\n        }\n\n        public T peek() {\n            if (isEmpty()) {\n                throw new IllegalStateException(\"Queue is empty\");\n            }\n            return head.value;\n        }\n\n        public boolean isEmpty() {\n            return size == 0;\n        }\n\n        public int size() {\n            return size;\n        }\n    }\n\n    public static void main(String[] args) {\n        Queue<Integer> queue = new Queue<>();\n        int[] items = {10, 20, 30};\n        for (int item : items) {\n            queue.enqueue(item);\n        }\n        System.out.println(\"Peek: \" + queue.peek());\n        System.out.println(\"Dequeue: \" + queue.dequeue());\n        System.out.println(\"Peek: \" + queue.peek());\n        System.out.println(\"Size: \" + queue.size());\n        System.out.println(\"Dequeue: \" + queue.dequeue());\n        System.out.println(\"Dequeue: \" + queue.dequeue());\n        System.out.println(\"Empty: \" + queue.isEmpty());\n    }\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 160,
+      "completion_tokens": 595,
+      "total_tokens": 755,
+      "cost": 0.0003135,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003135,
+        "upstream_inference_prompt_cost": 1.6e-05,
+        "upstream_inference_completions_cost": 0.0002975
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

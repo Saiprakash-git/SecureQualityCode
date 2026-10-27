@@ -1,0 +1,31 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "number",
+   "target": "number",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "static std::vector<std::string>",
+    "params": [
+     "const std::vector<std::string> &lines"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "const std::vector<std::string>& lines"
+    ],
+    "return": "std::vector<std::string>"
+   }
+  }
+ ],
+ "combo_index": 217,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_025/gpt-6-luna/Task25_gpt-6-luna_cpp.cpp",
+ "artifact_sha256": "7043ae014f67853274325a971e468c8ecdf221096ad7fc4c6e69353008388bac",
+ "oracle_test_path": "tests/claude/Task25_Test.cpp",
+ "oracle_test_sha256": "b4cb9aa430c1491928b72789c6f7a08becb916af33fe2baeb9a26c1138a357ad",
+ "author": "functional.py draft_adapter (static)"
+}

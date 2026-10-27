@@ -1,0 +1,20 @@
+Task82_claude-haiku-5-5_c.c:128:20: error: expected expression
+  128 |         out[i * 4 +
+      |                    ^
+Task82_claude-haiku-5-5_c.c:128:20: error: expected ']'
+Task82_claude-haiku-5-5_c.c:128:12: note: to match this '['
+  128 |         out[i * 4 +
+      |            ^
+Task82_claude-haiku-5-5_c.c:128:20: error: expected '}'
+  128 |         out[i * 4 +
+      |                    ^
+Task82_claude-haiku-5-5_c.c:125:29: note: to match this '{'
+  125 |     for (i = 0; i < 8; i++) {
+      |                             ^
+Task82_claude-haiku-5-5_c.c:128:20: error: expected '}'
+  128 |         out[i * 4 +
+      |                    ^
+Task82_claude-haiku-5-5_c.c:103:76: note: to match this '{'
+  103 | static void sha256_final(sha256_ctx *ctx, uint8_t out[SHA256_DIGEST_SIZE]) {
+      |                                                                            ^
+4 errors generated.

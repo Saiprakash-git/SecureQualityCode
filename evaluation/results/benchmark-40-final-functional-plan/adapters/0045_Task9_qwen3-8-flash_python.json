@@ -1,0 +1,26 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "oddOrEven",
+   "target": "odd_or_even",
+   "kind": "alias",
+   "name_match": "normalized",
+   "types_match": null,
+   "canonical_signature": {
+    "arity": 1
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": null,
+    "return": null
+   }
+  }
+ ],
+ "combo_index": 45,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_009/qwen3-8-flash/Task9_qwen3-8-flash_python.py",
+ "artifact_sha256": "07a35848bc27013d9cce0e56d77ac672ee933505faf34bce17e5cf7ed4182f0d",
+ "oracle_test_path": "tests/gtp4o/Task9_OPENAI_gpt_4o/Task9_OPENAI_gpt_4o.py",
+ "oracle_test_sha256": "92c34449953b899de39f3e431054b643ff2359ad033d222902fdf51af687187d",
+ "author": "functional.py draft_adapter (static)"
+}

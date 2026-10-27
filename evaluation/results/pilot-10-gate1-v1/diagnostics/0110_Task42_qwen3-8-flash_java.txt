@@ -1,0 +1,2 @@
+Main.java:57:6: compiler.err.premature.eof
+1 error

@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793024325-xlLF1eBKx4JfavqvPQbx",
+  "finish_reason": "stop",
+  "input_tokens": 105,
+  "output_tokens": 1997,
+  "cost_usd": 0.0075675,
+  "raw_response": {
+    "id": "gen-1793024325-xlLF1eBKx4JfavqvPQbx",
+    "object": "chat.completion",
+    "created": 1793024325,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n#include <vector>\n#include <algorithm>\n#include <cctype>\n#include <sstream>\n\nstd::string string_copy(const std::string& source) {\n    return std::string(source);\n}\n\nstd::string string_concat(const std::string& first, const std::string& second) {\n    return first + second;\n}\n\nstd::string string_join(const std::vector<std::string>& tokens, const std::string& delimiter) {\n    std::string result;\n    for (size_t i = 0; i < tokens.size(); ++i) {\n        result += tokens[i];\n        if (i + 1 < tokens.size()) {\n            result += delimiter;\n        }\n    }\n    return result;\n}\n\nstd::string to_uppercase(std::string str) {\n    std::transform(str.begin(), str.end(), str.begin(), [](unsigned char c) {\n        return static_cast<char>(std::toupper(c));\n    });\n    return str;\n}\n\nstd::string to_lowercase(std::string str) {\n    std::transform(str.begin(), str.end(), str.begin(), [](unsigned char c) {\n        return static_cast<char>(std::tolower(c));\n    });\n    return str;\n}\n\nstd::string reverse_string(std::string str) {\n    std::reverse(str.begin(), str.end());\n    return str;\n}\n\nstd::string trim_left(const std::string& str) {\n    size_t start = str.find_first_not_of(\" \\t\\n\\r\\f\\v\");\n    return (start == std::string::npos) ? \"\" : str.substr(start);\n}\n\nstd::string trim_right(const std::string& str) {\n    size_t end = str.find_last_not_of(\" \\t\\n\\r\\f\\v\");\n    return (end == std::string::npos) ? \"\" : str.substr(0, end + 1);\n}\n\nstd::string trim(const std::string& str) {\n    return trim_right(trim_left(str));\n}\n\nstd::string replace_all(std::string str, const std::string& target, const std::string& replacement) {\n    if (target.empty()) {\n        return str;\n    }\n    size_t pos = 0;\n    while ((pos = str.find(target, pos)) != std::string::npos) {\n        str.replace(pos, target.length(), replacement);\n        pos += replacement.length();\n    }\n    return str;\n}\n\nstd::vector<std::string> split(const std::string& str, char delimiter) {\n    std::vector<std::string> tokens;\n    std::string token;\n    std::istringstream token_stream(str);\n    while (std::getline(token_stream, token, delimiter)) {\n        tokens.push_back(token);\n    }\n    return tokens;\n}\n\nbool is_palindrome(const std::string& str) {\n    std::string sanitized;\n    for (unsigned char c : str) {\n        if (std::isalnum(c)) {\n            sanitized += static_cast<char>(std::tolower(c));\n        }\n    }\n    size_t n = sanitized.length();\n    for (size_t i = 0; i < n / 2; ++i) {\n        if (sanitized[i] != sanitized[n - 1 - i]) {\n            return false;\n        }\n    }\n    return true;\n}\n\nint main() {\n    std::string original = \"  Hello, World! Welcome to C++ String Operations.  \";\n\n    std::string copied = string_copy(original);\n    std::cout << \"Original: [\" << original << \"]\\n\";\n    std::cout << \"Copied:   [\" << copied << \"]\\n\\n\";\n\n    std::string trimmed = trim(original);\n    std::cout << \"Trimmed:  [\" << trimmed << \"]\\n\";\n\n    std::string upper = to_uppercase(trimmed);\n    std::string lower = to_lowercase(trimmed);\n    std::cout << \"Uppercase: \" << upper << \"\\n\";\n    std::cout << \"Lowercase: \" << lower << \"\\n\\n\";\n\n    std::string reversed = reverse_string(trimmed);\n    std::cout << \"Reversed: \" << reversed << \"\\n\\n\";\n\n    std::string s1 = \"Super\";\n    std::string s2 = \"Structure\";\n    std::string combined = string_concat(s1, s2);\n    std::cout << \"Concatenation: \" << combined << \"\\n\\n\";\n\n    std::string replaced = replace_all(trimmed, \"C++\", \"Modern C++\");\n    std::cout << \"Replacement: \" << replaced << \"\\n\\n\";\n\n    std::string csv_data = \"Apple,Orange,Banana,Mango,Pineapple\";\n    std::vector<std::string> fruits = split(csv_data, ',');\n    std::cout << \"Split tokens:\\n\";\n    for (const auto& fruit : fruits) {\n        std::cout << \" - \" << fruit << \"\\n\";\n    }\n\n    std::string joined = string_join(fruits, \" -> \");\n    std::cout << \"Joined back: \" << joined << \"\\n\\n\";\n\n    std::string pal1 = \"A man, a plan, a canal: Panama\";\n    std::string pal2 = \"Not a palindrome\";\n    std::cout << \"\\\"\" << pal1 << \"\\\" is palindrome? \" \n              << (is_palindrome(pal1) ? \"true\" : \"false\") << \"\\n\";\n    std::cout << \"\\\"\" << pal2 << \"\\\" is palindrome? \" \n              << (is_palindrome(pal2) ? \"true\" : \"false\") << \"\\n\";\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Exploring String Operations**\n\nI'm currently delving into the intricacies of C++ string manipulation. My focus is on designing versatile functions that gracefully handle diverse string inputs, ensuring robust and reliable processing of text data.\n\n**Developing String Functions**\n\nMy current focus is on implementing core string operations like copying, concatenating, reversing, and case conversion. I'm also planning functions for trimming, replacing substrings, and splitting strings based on delimiters to ensure comprehensive string utility.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Exploring String Operations**\n\nI'm currently delving into the intricacies of C++ string manipulation. My focus is on designing versatile functions that gracefully handle diverse string inputs, ensuring robust and reliable processing of text data.\n\n**Developing String Functions**\n\nMy current focus is on implementing core string operations like copying, concatenating, reversing, and case conversion. I'm also planning functions for trimming, replacing substrings, and splitting strings based on delimiters to ensure comprehensive string utility.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 105,
+      "completion_tokens": 1997,
+      "total_tokens": 2102,
+      "cost": 0.0075675,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0075675,
+        "upstream_inference_prompt_cost": 7.875e-05,
+        "upstream_inference_completions_cost": 0.00748875
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 598,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

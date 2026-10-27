@@ -1,0 +1,4 @@
+Task105_claude-haiku-5-5_c.c:10:10: fatal error: 'openssl/ssl.h' file not found
+   10 | #include <openssl/ssl.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.

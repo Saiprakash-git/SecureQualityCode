@@ -1,0 +1,26 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "find_nb",
+   "target": "find_nb",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": null,
+   "canonical_signature": {
+    "arity": 1
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": null,
+    "return": null
+   }
+  }
+ ],
+ "combo_index": 183,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_023/gemini-3-8-flash/Task23_gemini-3-8-flash_python.py",
+ "artifact_sha256": "29d653909c7be6cad846de1f62cdaef37b73505cdd29eaae9615e4af5d782c10",
+ "oracle_test_path": "tests/claude/Task23_CLAUDE_claude_3_5_sonnet_20240620/Task23_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "49510e4b17ae7222845de9387966b69e148228e5846677cf357d59357e50af1d",
+ "author": "functional.py draft_adapter (static)"
+}

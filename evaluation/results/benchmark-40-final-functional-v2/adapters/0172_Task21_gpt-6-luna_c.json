@@ -1,0 +1,35 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "remove_smallest",
+   "target": "remove_smallest",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": false,
+   "canonical_signature": {
+    "return": "int*",
+    "params": [
+     "const int* numbers",
+     "int length",
+     "int* new_length"
+    ]
+   },
+   "target_signature": {
+    "arity": 3,
+    "params": [
+     "const int *numbers",
+     "size_t numbers_size",
+     "size_t *result_size"
+    ],
+    "return": "int *"
+   }
+  }
+ ],
+ "combo_index": 172,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_021/gpt-6-luna/Task21_gpt-6-luna_c.c",
+ "artifact_sha256": "0bedd61a6e5cefdf5bfb13e1413218d8676d0f645e4615578ee8b839cc930aaa",
+ "oracle_test_path": "tests/claude/Task21_Test.c",
+ "oracle_test_sha256": "d02a00376478d65ee71a2daaa0cfbc96e847f6b0f93a4aea32dd298ef8a2d03e",
+ "author": "functional.py draft_adapter (static)"
+}

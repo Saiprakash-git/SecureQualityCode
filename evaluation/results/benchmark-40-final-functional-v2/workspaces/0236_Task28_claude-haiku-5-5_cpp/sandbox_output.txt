@@ -1,0 +1,7 @@
+@@b46bf0bfeda56498 STEP 0 BEGIN@@
+
+@@b46bf0bfeda56498 STEP 0 END rc=0@@
+@@b46bf0bfeda56498 STEP 1 BEGIN@@
+All test cases passed!
+
+@@b46bf0bfeda56498 STEP 1 END rc=0@@

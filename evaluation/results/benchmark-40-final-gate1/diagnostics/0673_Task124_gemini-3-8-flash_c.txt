@@ -1,0 +1,11 @@
+Task124_gemini-3-8-flash_c.c:268:36: warning: missing terminating '"' character [-Winvalid-pp-token]
+  268 |     if (vault_store_record(&vault, "
+      |                                    ^
+Task124_gemini-3-8-flash_c.c:268:36: error: expected expression
+Task124_gemini-3-8-flash_c.c:268:37: error: expected '}'
+  268 |     if (vault_store_record(&vault, "
+      |                                     ^
+Task124_gemini-3-8-flash_c.c:244:16: note: to match this '{'
+  244 | int main(void) {
+      |                ^
+1 warning and 2 errors generated.

@@ -1,0 +1,10 @@
+Task46_claude-haiku-5-5_cpp.cpp:103:5: error: use of undeclared identifier 'size'
+  103 |     size
+      |     ^
+Task46_claude-haiku-5-5_cpp.cpp:103:9: error: expected '}'
+  103 |     size
+      |         ^
+Task46_claude-haiku-5-5_cpp.cpp:102:40: note: to match this '{'
+  102 | std::string trim(const std::string& s) {
+      |                                        ^
+2 errors generated.

@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "*",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 764,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-02-real/Task_148/mistral-large-4/Task148_mistral-large-4_python.py",
+ "artifact_sha256": "51a077c73dd2a5f4303a6443710ce8a295d02d68741535a1c5ea9cfadf1b3182",
+ "oracle_test_path": "tests/gtp4o/Task148_OPENAI_gpt_4o/Task148_OPENAI_gpt_4o.py",
+ "oracle_test_sha256": "94214cf2be1c57c63f0ff80346cba07a8317f413a1ddade5c09a66950a7db3d0",
+ "author": "functional.py draft_adapter (static)"
+}

@@ -1,0 +1,60 @@
+{
+ "language": "java",
+ "artifact_origin": "generated",
+ "artifact_sha256": "d2c95f3ec7871fdffa75a1358679d275a8f427311ae6e1a652b4b45c6d68f6ed",
+ "oracle_test_path": "src/test/java/claude/task14/Task14_TestCase.java",
+ "oracle_test_sha256": "71bc41886605ae811a7d56d96332110f67dee8595fa0d7c4ab3617a6c8c73c5a",
+ "verdict_style": "junit_xml",
+ "bindings": [
+  {
+   "canonical": "Task14_CLAUDE_claude_3_5_sonnet_20240620.findEvenIndex",
+   "target": "EqualSides.findEvenIndex",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "file": "EqualSides.java",
+   "change": "package claude.task14 prepended"
+  }
+ ],
+ "steps": [
+  [
+   "{javac}",
+   "-encoding",
+   "UTF-8",
+   "-proc:none",
+   "-d",
+   "classes",
+   "-cp",
+   "{junit_jar}",
+   "claude/task14/EqualSides.java",
+   "claude/task14/Task14_CLAUDE_claude_3_5_sonnet_20240620.java",
+   "claude/task14/Task14_TestCase.java"
+  ],
+  [
+   "{java}",
+   "-jar",
+   "{junit_jar}",
+   "execute",
+   "--class-path",
+   "classes",
+   "--select-class",
+   "claude.task14.Task14_TestCase",
+   "--reports-dir",
+   "reports",
+   "--disable-banner",
+   "--details=summary"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "claude/task14/EqualSides.java": "7183de29edbb7755045e3f58515e8926d9db1ac7818bec2942f2b9108e9ddaea",
+  "claude/task14/Task14_CLAUDE_claude_3_5_sonnet_20240620.java": "347e40c77b2988e890ee6affec87ad19c74ba4233eed88e5a075b1e86ef4cc0b",
+  "claude/task14/Task14_TestCase.java": "71bc41886605ae811a7d56d96332110f67dee8595fa0d7c4ab3617a6c8c73c5a"
+ }
+}

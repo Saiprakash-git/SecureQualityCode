@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792945673-mcL3Kyj6qrSfTQMwtDaw",
+  "finish_reason": "stop",
+  "input_tokens": 152,
+  "output_tokens": 1345,
+  "cost_usd": 0.0006877,
+  "raw_response": {
+    "id": "gen-1792945673-mcL3Kyj6qrSfTQMwtDaw",
+    "object": "chat.completion",
+    "created": 1792945673,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#define _POSIX_C_SOURCE 200809L\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nstatic int read_filename(char *buf, size_t size) {\n    if (fgets(buf, (int)size, stdin) == NULL) {\n        return -1;\n    }\n    size_t len = strlen(buf);\n    if (len > 0 && buf[len - 1] == '\\n') {\n        buf[len - 1] = '\\0';\n        len--;\n    }\n    if (len == 0) {\n        return -1;\n    }\n    return 0;\n}\n\nstatic int shell_quote(const char *in, char *out, size_t size) {\n    size_t pos = 0;\n    if (size < 3) {\n        return -1;\n    }\n    out[pos++] = '\\'';\n    for (const char *p = in; *p != '\\0'; p++) {\n        if (*p == '\\'') {\n            if (pos + 4 >= size) {\n                return -1;\n            }\n            out[pos++] = '\\'';\n            out[pos++] = '\\\\';\n            out[pos++] = '\\'';\n            out[pos++] = '\\'';\n        } else {\n            if (pos + 2 >= size) {\n                return -1;\n            }\n            out[pos++] = *p;\n        }\n    }\n    if (pos + 2 > size) {\n        return -1;\n    }\n    out[pos++] = '\\'';\n    out[pos] = '\\0';\n    return 0;\n}\n\nstatic int build_command(const char *filename, char *cmd, size_t size) {\n    char quoted[1024];\n    if (shell_quote(filename, quoted, sizeof(quoted)) != 0) {\n        return -1;\n    }\n    int n = snprintf(cmd, size, \"cat %s\", quoted);\n    if (n < 0 || (size_t)n >= size) {\n        return -1;\n    }\n    return 0;\n}\n\nstatic int display_file(const char *filename) {\n    char cmd[2048];\n    if (build_command(filename, cmd, sizeof(cmd)) != 0) {\n        fprintf(stderr, \"Error: filename is too long or invalid.\\n\");\n        return -1;\n    }\n    int status = system(cmd);\n    if (status == -1) {\n        fprintf(stderr, \"Error: failed to execute system command.\\n\");\n        return -1;\n    }\n    if (status != 0) {\n        fprintf(stderr, \"Error: could not display file '%s'.\\n\", filename);\n        return -1;\n    }\n    return 0;\n}\n\nint main(void) {\n    char filename[512];\n\n    printf(\"Enter filename: \");\n    fflush(stdout);\n\n    if (read_filename(filename, sizeof(filename)) != 0) {\n        fprintf(stderr, \"Error: no filename provided.\\n\");\n        return EXIT_FAILURE;\n    }\n\n    if (display_file(filename) != 0) {\n        return EXIT_FAILURE;\n    }\n\n    return EXIT_SUCCESS;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 152,
+      "completion_tokens": 1345,
+      "total_tokens": 1497,
+      "cost": 0.0006877,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0006877,
+        "upstream_inference_prompt_cost": 1.52e-05,
+        "upstream_inference_completions_cost": 0.0006725
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 373,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

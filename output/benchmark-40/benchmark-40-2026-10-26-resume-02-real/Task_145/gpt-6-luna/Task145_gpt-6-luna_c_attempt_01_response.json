@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793025325-RJhzXfZkJUV9gKoRzRnD",
+  "finish_reason": "stop",
+  "input_tokens": 112,
+  "output_tokens": 834,
+  "cost_usd": 0.0004282,
+  "raw_response": {
+    "id": "gen-1793025325-RJhzXfZkJUV9gKoRzRnD",
+    "object": "chat.completion",
+    "created": 1793025325,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <stddef.h>\n\ntypedef struct {\n    long long sum;\n    size_t start;\n    size_t end;\n    int valid;\n} SubarrayResult;\n\nstatic SubarrayResult max_subarray(const int *values, size_t count)\n{\n    SubarrayResult result = {0, 0, 0, 0};\n\n    if (values == NULL || count == 0) {\n        return result;\n    }\n\n    long long current_sum = values[0];\n    result.sum = current_sum;\n    result.start = 0;\n    result.end = 0;\n    result.valid = 1;\n\n    size_t current_start = 0;\n\n    for (size_t i = 1; i < count; ++i) {\n        if (current_sum < 0) {\n            current_sum = values[i];\n            current_start = i;\n        } else {\n            current_sum += values[i];\n        }\n\n        if (current_sum > result.sum) {\n            result.sum = current_sum;\n            result.start = current_start;\n            result.end = i;\n        }\n    }\n\n    return result;\n}\n\nint main(void)\n{\n    size_t count;\n\n    if (scanf(\"%zu\", &count) != 1) {\n        return 1;\n    }\n\n    if (count == 0) {\n        printf(\"No subarray\\n\");\n        return 0;\n    }\n\n    int *values = malloc(count * sizeof(*values));\n    if (values == NULL) {\n        return 1;\n    }\n\n    for (size_t i = 0; i < count; ++i) {\n        if (scanf(\"%d\", &values[i]) != 1) {\n            free(values);\n            return 1;\n        }\n    }\n\n    SubarrayResult result = max_subarray(values, count);\n\n    printf(\"Maximum sum: %lld\\nSubarray:\", result.sum);\n    for (size_t i = result.start; i <= result.end; ++i) {\n        printf(\" %d\", values[i]);\n    }\n    putchar('\\n');\n\n    free(values);\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Planning a C Program**\n\nI need to produce a C source program to find the maximum sum of a contiguous subarray. There's no specific input format given, so I'll implement a way to read an array of integers, then use Kadane's algorithm to find the sum and indices. I believe the user wants clear output, including both the maximum sum and the subarray values. I'll ensure the function handles all edge cases, like all negative numbers or ties, efficiently.**Developing Output Format**\n\nI need to figure out how to structure the output for the program that finds the maximum sum of a contiguous subarray. I should display the total maximum sum and the corresponding subarray. While a simpler output with just the maximum sum might be okay, I'll aim for something more complete, including the subarray elements. \n\nMy function will return a structure containing the sum and indices. I\u2019ll also handle cases like dynamic allocation and negative sizes to ensure robustness.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Planning a C Program**\n\nI need to produce a C source program to find the maximum sum of a contiguous subarray. There's no specific input format given, so I'll implement a way to read an array of integers, then use Kadane's algorithm to find the sum and indices. I believe the user wants clear output, including both the maximum sum and the subarray values. I'll ensure the function handles all edge cases, like all negative numbers or ties, efficiently.**Developing Output Format**\n\nI need to figure out how to structure the output for the program that finds the maximum sum of a contiguous subarray. I should display the total maximum sum and the corresponding subarray. While a simpler output with just the maximum sum might be okay, I'll aim for something more complete, including the subarray elements. \n\nMy function will return a structure containing the sum and indices. I\u2019ll also handle cases like dynamic allocation and negative sizes to ensure robustness.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq32UyxMAveUa3VrpQZoXqSM7sohfuaoZnggi8lZsm5H0xUkR8n3QjzeT8Leuk59ldw2V0idU1alSlcnxX8QGaFFv3lkW-lKcuLA7NlHJpIPxIxEG9D0KhQPKakLclL_9RGMt6KqPfYSAPrL59HEfVFY8083FPZGiUOwusgtHByUJz49cPk1W0_GIbppZMFWMQ6h4Y2LqRD-gqS2nHBc7GLu2r63b9ORQyDGs_URZv0jpVCzDLGY83V5JPmCmRCYUJxUgLLSt5I3sHr2vBcH23EBx8eTEHJebDCRRkbSTktsK96H2jKcVwUGGAaWimLI8Cn-FpCEnY3k80GapLKDzDpxCsfmxDCcGkdCidsctLurnOysPLfCjtqPv56obBOqHHF4nd4RcyOeDi9buTaJvVCTunzEe71Yfjg2wcqEx4TnvKfQ770fatOZPfErYb0xnbp--cfhwOwVflHJvPee8Ltu25qqEsdHzgoM1QAu7elA8Xe7IEdLsx4RDPPIEJZMnzH_xdDHJ_WZI584xBLKSANoboaI7N9m_Q0nIFOnv1ryE4-sW6ZlVkLICmRN_eEwuH1WY8XMcpD8cZDiVrPK-2X7DezGTsZ56tPwwvdpTm7ScYsypmg9IghyGTFwNWmt2lcia3AXRdcsLnpZaneog_4QgDem7OgcDnR1KUZbckn2ecHMUxi2fs6GkiYx65-dS2N1aHWAcDgmLB6z2BLRpvL22YQublBceXBwFJN4pt2FxmpOv-JLrVyDs9SMD_YnyIwC4D1oBkTfqeoUXthDQoAIRpAFFM1ZSu2KA4xnYfyKiZfyd9I-BlCB6dRwkQsmKhB19Gq_rOkR8bS14JuJ7G6gPN3Hk3dwTOcvpMI93gbd_XEf4CvOm3WpoTZ6eJdlt4MZxFFRzp8XNseTeNi7rWLXTcAbMoMDkl6iJeKTlvNFjE4yjzfAsqDiLYQrPV65UpjdddJAasKqYUvk8Gd22aQN_4msca9V9x_fJsCirXIRpHSLtsaDCYDgAXPS3P15jolyZDC2mh9vZwRAbLYz-m2rKCAdFzifln_7AGxj4JMxbeNZV7DehTxsm2ARpVfgY0hEqsIbn3J3maDTDSXePRdhNedxrxbR906B6pJVLQ13ib2CnoZLYgk9r1lkCr5SVXjvEcXfIn4DkFxn4cx4K1e20v9r0JQkqnGpmI9sL2rWW5L7pO-yM38YmdY5yzJZ84oR8KRXFTIqZMp8s_JGbd3Lv50l9H7B3gmq0zdjBiS_h8XgO3rc1cd079ZpB26P-szV1Lv2w1LuqyzacbJ4Tyjb3IyB1iKeUWU92KZd5gG2ChaTJ1KusccA_DGu35-ifKUo3HFwd86emEBuWrLT83Gb3jmCs5gD4cxk8J9I-cNXlqJPTI2NsIMJTveT13Fv3ICXn3vGuC8DcoVeFaVkrO2jZRShkJnb9SVxxMOUbFY0620tZFVQRKnrEfI-cUZC5FGhheIwO4OSlM_mYqGftybB3Wfcx3ig8xekpksjaEZrRe9rW-c_qAdVrvoyvufoH38rGvIpqvZFMV6dP9aktK3Rp1FIv6ZKV7gHK1xzxGV9GPALejkwFmd-1Ha376weFVmnKbfx7yK_P3PJCTygDJj2-OH4yGPG1RjgWzH4fxdV2L3BdxDMbIgsBoJ9ubcxJ_O4pMGIyq1DcptiE0r-j26hGs0hRvmMQ7kgwxtkp0PwHtXyAcbuhYaQuWarajERDpNH6B10eQlBd0F1vLCfor3eWJlyU9OXAwGo8c9667QuD-l-31WDN30j00btK1BPkcqKNN5veZxbyXpW-d68DTLqCEabEMs9b1Rl2GiXgpXr4VBj2aiVizWvQcKO0InK4eirMfeRu_YCkPC1YvIvTOf9t0czM_TjVkt221XRzZvlPxxBzJIRJTcFQDvT8SzDmhnRYX3aBj2olCQhf2-sRYPnXD69N9t0HZALDjhq2GGPJAA8NcXgjf_qFHt-kp0a6PpD5tMPy0MuyUNRJTX2I_zYeAr-ZpyDZKMcYCQQTcoUnclOJ-EmfVAEA_taKzmtuStYnj4B7U0QMBvvml-6zIPgQiQ6b9YQsVGZX90-gsq9rp_ChXMVjtM3Qfs1qABK3bL-ezwtiTzObRgG4DC1rpMPe-8az2FQVlKKtphvquUb7UYa-RMy8e9L3OXVi76K3ASv-hpWRcywSF6cl-UX_gsswKOne-V3tfjZzjNBJ1AW7zO1rwzRzjwgForyou_Lc_Tqo8hYMZPlgK0tqMx7J1Rzsp9wROl42AQQS9zFgjvpVVnNo7GI1jVIGN0jTwmOR1hT6JjYruh7Qz4GOX5ZH1Zf8q38u9IWQqxDtfgf-DolyXo1Uy8T8pUdTQHtgmxGlkWukpuuxuEFd_ZKf9zoGyh8vwLSpq7pi65wG3zlVz92dDysN7fNFY6zRPc1S-DIOBTXNywZvOHZVXzmlmevlTu3te5F-ZpBNpMRgMKKW0PMQYIyD27ye2iqQoTDEtseXgRffwkTGmeij4Qx0xhsCyvUHDDeWZPG7FLz986v4y9HcW8rI-A97GSo9haB8Mrh4TODmxqi1DB-o-p-zzSWAxWkuuMzeVqwkLOAOPpUyvDUTtR4-HCcBXy8N6Qk92jxUR1BXvEEIoA5lKpQY6X8ywcTYNPLwz97lLQ-os0iz01LgFSwVRK4g12tXi0X2LwBRKCKVkXKMpU4UZgCaZKlYkqMfYWjp6bifu4rAjVBMo69_sSyUEwP7Uudf5CtuITuoEP6Olt3LfUwJz2BR6qDpViG36LKsDZz3KYTKRMYAu4wCGix62V_Vhol1Kl6jQMLKIAuFBAKjBFKYG0W8u_Y2fo5l1qeGOQWbjZSHECrzHWxKkEgsk_G8XrYwByVTLycN_dN3vtEDCnWVAIhkP_8oSqt6mfPa54bhTThOGCiqz_VZdD2vofGSxjZa9DrzazIzJpUxQwGFK9va9wrDdzUQ8-ntBZlyNJptX7yCf0Qy2ERqOsmfuLZqP8pww2eGgkzFzMtNleXi91q2th2VPsm1ypUZhg4WaPZDzB8f-5UQZPN19fSJSjtr27Nj5xjw6UpPV4pBm3Y5yLfjI5UhdjkGMFnPw2QHAywKUCLVPAzAeaMYFel0bmiC2_QlJasvR91uYK8GDdhPWaQBOumoJ5kax7nLX9iJBGdHZ7SOLwJGlsSoH-2R-EJtIJYWPMOLvPkjEX0PoAwo6LpOk0rPndoPVtZbbOnB-6uZ8TnKyD0mAHCKZyaNafOWWCXMH26I_W48m3UBGKF2Wy7K7Bgu9J3U_ar0np7df8skAWejejNiIZ7q1uSap5EvuxVyB8xx6unEHcccPo-co9FNW-f4C7Vdtlvir-oRejgdIlADcY1WNtfHYjcDavQvSMqfzmVQI2kGuw6kgruW2ANLs7-4UksrI6RXfDJE34xNTGDlUk1ZwbbCAFXb2gHJYMHQ7NiqFyPimyxslXPqCxxT_dOgV6GncBMwt-T4KF9Un1wo8rXOPAizMm7e_wRNObRKvJNbWDg_WeTRpQhL0s7txcR8iWAZxVhljn7qo-lPNxyuyRgiopciEaYRfEDTyg5DsFck-Fgs-vAkO1nxpnLPLqUQ4HcF_SFM4axPlQ2lw5_-H7TpYMDGxj43kSavzOsTX_uM5B8WwlyrmbECGIzBoT0Wap0BvoMVHAx8BEGt9J6ToMg4LPDZJ4ESg9DvS-XalwGjODpW7Wv-ykOCuHMf_lpkPmgRe6ejpQOLlOt0fwNe_t3Qh2JF7u6NbMkmwH90sauaGOb_IG-Zaplwoyys-FN-qC1cWC4412d_IVLXA6k20o6mQ0O1yFZ5irJtZ1uriR6TbUpwsXNOGwfE88VXMgi-3Apz9MjRt-ig9wSurPypPUqvnQ5mVFQGxaEgqL9tMR6RTya9uIMgRkhbrxp0ah0F84jaOQcXnTVvSfQn1Ar1Ch1TOmMOSEjEGr0fVXGaEpoEQvTjIb228v6cML0bO10QJconX03zmEizDBUo_F7REexl6e2SvR32r7iDF5A9xzQW20hFBVlWynmBtzfyOD-NwVlghKH9lVPs30LQLPMYPIRvW6srAcAkuiQSyZeDQ0uVOhG4STFvxVdsWTmDzGOZtFSe6EzUsIaMhF2XL8WSjg73CgCzgrLMNrv6qq5AzGxINiAuK1HNTlUe5UGs_EEZ9lhGC-fGqWvEKNGrEHm9_pvGu9ARQys3wSkjfW70getzcqpOMdZgPD7x_I4zgh5BDT4fy9Hvw6bnvo8oIGrE2K-sFOpN1vwfANUzbhdmPJ1iDAJjx8OH9No46N8zMlqyzoVw97uJxw1GYlHPd1BeOV-wQjnYuNHRbqffYbAx0g-yvqE3XLWnCmmPxxiqJgotKDpUnIxshaWkzFjMtTkjo11gbRGamkUC0MPA7i2H-VxFBTzgu24BlWA1A35-_aYxk1A3kiZJ_1iQUD3XkSjYZlaItvYUgfcQkx6KDPbwhWNzhKgTWZiKJ4Km8wYwO5nH-78_nXG82EI3kBvUQ5GxzWNtGk_dLJ5-nfgP-mlNRgtDX79iHxATTAQGfiuhTy78FX05EzOppBXN9Xh9zXczFA_hJd8sqAFxgyzoU6p-qSuI9Z6GYCUnCwYejFr_5CKe_EVgowFmbW6ggFSfBdcShp4uLgGryHuJP2QRkA2sX40MtYTZl5ZOYBw-X1wqt3jmESDhGUo_kwxm_pu2YBu1spg0nwWK0yAMIEyVdkMUB7cji9-m2zYNFzpCE9nPxJ28MgQYsBcaYBV7CCoQpWK5LgvMJ3xPZQEqETb91mAXyRIYnMU-D0DRS0zKpWMskew2SFc2E0BPZ77jdupWMhbh1GVI5FPwxuoUq4HPtIP35A3IxktWEq97YHR8j8KMTKMQ1DAdpCactU2VLG-LHcwCvjV3U2tCrCKtWiT6QH04-UKUonKXNXkduyAgyRAINoxfl1kuRyvJLqNQpDYFMOC15IRWOPNB6DuSWiY9YvY7hrpQthrdrYarf72u5DFHLyj297Kz6TCRLa5dNKCEALBX7VHQGyYEKLpnQ6qOU_L8kCoCaYVTX4BpHcAm8kVOIDJOBhCNO_aBPshhUL9JTf1Q7lQKF_4MH_oRNz9RWVmm_t2jBijUKqdYuiP7Kz_ApYD_vS_Y8kDuCxnPlKKP5nOfQ-F7P6q3E7LWdJ_r-2tDKiJ8qUWwoLjTvDgceoLj-zOAMBgQW1Gk73ZAf_hZbgErB1o8pGSDqZwETqoE70-KginLATDwTOVf_YiLTwKe4CIjBCKhKg9EtWT12CMWH9cDr_KE-2WpgvgvAYw7S4PukuL43MsxhmUlFwq6drMnHyaSdyETY8wKIKmhqBh4woZuha--3NU_4sRPhh88HrTurfAaGNx3tk2VAsAjUZFzYxM1VIcGojlHdca5zDw7CKI3xqYzvlmIhhuN068A9__Y3SJ_X3e0nhPCKkzM8vcCyMTR40CwRimWTrO1NmwhGWuVQ6GyqQ_bOCA1w23lB8YTfLxUEBUK8A0rSvdUUryx_YScBg_gZgQTwPRvTlAlZyz2bQj5HUPFFsgia0Jg0cw6RWai2YR00iXg609pHTWL6JWuaMMV6F_dPMD_ulYe_XulpowYDgSDZOkULF_n8PH9hcH3eLq5nzPHpUmVmscDjKqr1zu8pROsh5IQftSjkYrsinJ-rbjbQj5NVSnfjDJsNRJc_1ZiPxpP6QNCQMmcrIfGVUAuOAygmKMUm96r4dq0eVrnHEiYG8Qls441I35u7P9UuxzZTB9Bxw3lEIyOrKiqwYEi0Q8KSq71UytEbp4MKdTUmKMttPKmtZrSYxYCR4ULnSqMPcqzXdawXcQXoPewT2BV6ONSv4Mwx4RMFCqW5crnvf82YsS9B9U_Vv_Ek0lbrcRKuSD2yF43EDYlKXFGqx8Vdj8QHkqrZSqLIluSEahq3kHgB-PgvPdJpG0WqxsN29bjQK3uyKQKnnP_buebZ59TNK3aQAvF6NJXttTQ3SjXuHCBwrz2hAs9gslttTFcLIKkOJL1IDOa6-V0Bz3EblIvBFx5MfFn80ANysb9P52yignwBAwOi1j7qREobEhbwOcrEM-cUlNdMVOa-Y7V-3t-ZpeTmW33yfDzPmnJxRKM0YuHig2CfcfNb6eksZ_Zje_vJmCIKbG8QsEtf3XUKXIohv5E6QGdZJ-HUhwzGaeZ5NDS1UY8ZsWdFhOjYvFhwfejrk6fI13hV13gEAbY4RW6GJcQJg6AB8pD6uNx69ug9X1GrYrJgrl6k2vC_UlZG8wjWXcCsK5ZiDK4mU-fC-IXpy_eTpP4EPRnipv9nRKhMRi-hzJGHuc8pwmRJj9_M5dnfvYTxn9Wrb2Wh6qSgADc1fSaHrH7u2jhnCNiZAvM2LdZDQtbRy0K6CpSsSA2GkifwZa9hgXmXTQFl3KPb6bVPkvsc-klXvCgnBzb6Z3nYK2SY4vLivLB0bZUr5x4_Nfy6tjdM1s40PDYNPPGMikQmYhIJLBzNltshS-_V2cVgt8jtNoiWzEOZQfETEYerrl30INjHca7UU3bhrvc5QeIqbwqGELFjzDwYWlct8Xll5PpcB4k=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0b2375b68e061702016adf652e2cfc87d1ab149e95394b458a",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 112,
+      "completion_tokens": 834,
+      "total_tokens": 946,
+      "cost": 0.0004282,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0004282,
+        "upstream_inference_prompt_cost": 1.12e-05,
+        "upstream_inference_completions_cost": 0.000417
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 388,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

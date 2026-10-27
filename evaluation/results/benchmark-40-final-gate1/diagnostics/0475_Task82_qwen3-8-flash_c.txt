@@ -1,0 +1,11 @@
+Task82_qwen3-8-flash_c.c:22:13: error: expected '}'
+   22 |     0x428a2f
+      |             ^
+Task82_qwen3-8-flash_c.c:21:31: note: to match this '{'
+   21 | static const uint32_t K[64] = {
+      |                               ^
+Task82_qwen3-8-flash_c.c:22:13: error: expected ';' after top level declarator
+   22 |     0x428a2f
+      |             ^
+      |             ;
+2 errors generated.

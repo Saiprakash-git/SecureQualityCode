@@ -1,0 +1,14 @@
+Task91_CLAUDE_claude-3-5-sonnet-20240620.c:39:20: error: expected ';' at end of declaration
+   39 |     int name_length', type='text')
+      |                    ^
+      |                    ;
+Task91_CLAUDE_claude-3-5-sonnet-20240620.c:39:33: warning: missing terminating ' character [-Winvalid-pp-token]
+   39 |     int name_length', type='text')
+      |                                 ^
+Task91_CLAUDE_claude-3-5-sonnet-20240620.c:39:35: error: expected '}'
+   39 |     int name_length', type='text')
+      |                                   ^
+Task91_CLAUDE_claude-3-5-sonnet-20240620.c:29:97: note: to match this '{'
+   29 | void parse_dns_query(uint8_t* buffer, struct dns_header* header, struct dns_question* question) {
+      |                                                                                                 ^
+1 warning and 2 errors generated.

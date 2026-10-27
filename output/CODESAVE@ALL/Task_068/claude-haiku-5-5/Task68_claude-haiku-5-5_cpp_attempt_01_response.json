@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793017610-T0mbIIYJ23k79rm4fKxX",
+  "finish_reason": "stop",
+  "input_tokens": 239,
+  "output_tokens": 3792,
+  "cost_usd": 0.0019199,
+  "raw_response": {
+    "id": "gen-1793017610-T0mbIIYJ23k79rm4fKxX",
+    "object": "chat.completion",
+    "created": 1793017610,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <ldap.h>\n#include <cstring>\n#include <iostream>\n#include <map>\n#include <sstream>\n#include <string>\n#include <vector>\n\nstatic std::string trim(const std::string& s) {\n    size_t b = s.find_first_not_of(\" \\t\\r\\n\");\n    if (b == std::string::npos) return \"\";\n    size_t e = s.find_last_not_of(\" \\t\\r\\n\");\n    return s.substr(b, e - b + 1);\n}\n\nstatic std::string urlDecode(const std::string& in) {\n    std::string out;\n    for (size_t i = 0; i < in.size(); ++i) {\n        if (in[i] == '+') {\n            out += ' ';\n        } else if (in[i] == '%' && i + 2 < in.size() && isxdigit((unsigned char)in[i + 1]) && isxdigit((unsigned char)in[i + 2])) {\n            std::string hex = in.substr(i + 1, 2);\n            out += static_cast<char>(std::stoi(hex, nullptr, 16));\n            i += 2;\n        } else {\n            out += in[i];\n        }\n    }\n    return out;\n}\n\n// Extracts username and dc from a request string such as\n// \"username=alice&dc=example.com\" or \"user=alice;dc=dc=example,dc=com\"\n// or from separate values (username, dc).\nstatic bool extractFromRequest(const std::vector<std::string>& args,\n                               std::string& username,\n                               std::string& dc) {\n    username.clear();\n    dc.clear();\n\n    if (args.size() >= 2) {\n        username = trim(args[0]);\n        dc = trim(args[1]);\n        return !username.empty() && !dc.empty();\n    }\n\n    if (args.size() == 1) {\n        std::string req = args[0];\n        std::string token;\n        std::vector<std::string> pairs;\n        for (char c : req) {\n            if (c == '&' || c == ';') {\n                pairs.push_back(token);\n                token.clear();\n            } else {\n                token += c;\n            }\n        }\n        pairs.push_back(token);\n\n        for (const auto& p : pairs) {\n            size_t eq = p.find('=');\n            if (eq == std::string::npos) continue;\n            std::string key = trim(p.substr(0, eq));\n            std::string val = urlDecode(trim(p.substr(eq + 1)));\n            if (key == \"username\" || key == \"user\" || key == \"uid\") {\n                username = val;\n            } else if (key == \"dc\" || key == \"domain\") {\n                dc = val;\n            }\n        }\n        return !username.empty() && !dc.empty();\n    }\n    return false;\n}\n\n// Converts \"example.com\" or \"dc=example,dc=com\" into \"dc=example,dc=com\"\nstatic std::string buildBaseDN(const std::string& dcInput) {\n    if (dcInput.find('=') != std::string::npos) {\n        return dcInput;\n    }\n    std::string result;\n    std::string part;\n    std::stringstream ss(dcInput);\n    while (std::getline(ss, part, '.')) {\n        part = trim(part);\n        if (part.empty()) continue;\n        if (!result.empty()) result += \",\";\n        result += \"dc=\" + part;\n    }\n    return result;\n}\n\n// RFC 4515 filter value escaping\nstatic std::string escapeFilterValue(const std::string& in) {\n    std::string out;\n    for (unsigned char c : in) {\n        switch (c) {\n            case '*': out += \"\\\\2a\"; break;\n            case '(': out += \"\\\\28\"; break;\n            case ')': out += \"\\\\29\"; break;\n            case '\\\\': out += \"\\\\5c\"; break;\n            case '\\0': out += \"\\\\00\"; break;\n            default: out += static_cast<char>(c);\n        }\n    }\n    return out;\n}\n\nstatic std::string buildFilter(const std::string& username) {\n    return \"(uid=\" + escapeFilterValue(username) + \")\";\n}\n\n// Searches LDAP on localhost and returns formatted user information.\nstatic int searchUser(const std::string& baseDN,\n                      const std::string& filter,\n                      std::string& output) {\n    LDAP* ld = nullptr;\n    int rc = ldap_initialize(&ld, \"ldap://localhost:389\");\n    if (rc != LDAP_SUCCESS || ld == nullptr) {\n        output = \"Failed to initialize LDAP: \" + std::string(ldap_err2string(rc));\n        return 1;\n    }\n\n    int version = LDAP_VERSION3;\n    ldap_set_option(ld, LDAP_OPT_PROTOCOL_VERSION, &version);\n\n    const char* bindDn = std::getenv(\"LDAP_BIND_DN\");\n    const char* bindPw = std::getenv(\"LDAP_BIND_PW\");\n\n    rc = ldap_simple_bind_s(ld, bindDn, bindPw);\n    if (rc != LDAP_SUCCESS) {\n        output = \"LDAP bind failed: \" + std::string(ldap_err2string(rc));\n        ldap_unbind_ext_s(ld, nullptr, nullptr);\n        return 1;\n    }\n\n    LDAPMessage* res = nullptr;\n    struct timeval tv = {10, 0};\n    rc = ldap_search_ext_s(ld, baseDN.c_str(), LDAP_SCOPE_SUBTREE,\n                           filter.c_str(), nullptr, 0, nullptr, nullptr,\n                           &tv, 0, &res);\n    if (rc != LDAP_SUCCESS) {\n        output = \"LDAP search failed: \" + std::string(ldap_err2string(rc));\n        if (res) ldap_msgfree(res);\n        ldap_unbind_ext_s(ld, nullptr, nullptr);\n        return 1;\n    }\n\n    std::ostringstream os;\n    int count = ldap_count_entries(ld, res);\n    if (count <= 0) {\n        os << \"No user found for filter \" << filter << \" under base \" << baseDN << \"\\n\";\n    } else {\n        int entryIndex = 0;\n        for (LDAPMessage* entry = ldap_first_entry(ld, res);\n             entry != nullptr;\n             entry = ldap_next_entry(ld, entry)) {\n            ++entryIndex;\n            char* dn = ldap_get_dn(ld, entry);\n            os << \"Entry \" << entryIndex << \"\\n\";\n            os << \"  dn: \" << (dn ? dn : \"\") << \"\\n\";\n            if (dn) ldap_memfree(dn);\n\n            BerElement* ber = nullptr;\n            for (char* attr = ldap_first_attribute(ld, entry, &ber);\n                 attr != nullptr;\n                 attr = ldap_next_attribute(ld, entry, ber)) {\n                berval** vals = ldap_get_values_len(ld, entry, attr);\n                if (vals) {\n                    for (int i = 0; vals[i] != nullptr; ++i) {\n                        os << \"  \" << attr << \": \"\n                           << std::string(vals[i]->bv_val, vals[i]->bv_len) << \"\\n\";\n                    }\n                    ldap_value_free_len(vals);\n                }\n                ldap_memfree(attr);\n            }\n            if (ber) ber_free(ber, 0);\n        }\n    }\n\n    output = os.str();\n    ldap_msgfree(res);\n    ldap_unbind_ext_s(ld, nullptr, nullptr);\n    return 0;\n}\n\nint main(int argc, char* argv[]) {\n    std::vector<std::string> args;\n    for (int i = 1; i < argc; ++i) {\n        args.push_back(argv[i]);\n    }\n\n    if (args.empty()) {\n        std::cerr << \"Usage: \" << argv[0] << \" \\\"username=<user>&dc=<domain>\\\"\\n\"\n                  << \"   or: \" << argv[0] << \" <username> <dc>\\n\";\n        return 1;\n    }\n\n    std::string username, dcInput;\n    if (!extractFromRequest(args, username, dcInput)) {\n        std::cerr << \"Error: could not extract username and dc from request.\\n\";\n        return 1;\n    }\n\n    std::string baseDN = buildBaseDN(dcInput);\n    std::string filter = buildFilter(username);\n\n    std::cout << \"Base DN: \" << baseDN << \"\\n\";\n    std::cout << \"Filter:  \" << filter << \"\\n\";\n\n    std::string output;\n    int rc = searchUser(baseDN, filter, output);\n    std::cout << output;\n    return rc;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "CAQSyRYKEAgTGAI4AUIIdGhpbmtpbmcSDPpLWt9gMujzDphVsRoMh340Ihh2JEI69P7/IjBYXs3hF1OCg/f1F1L/f0YRbvSskBR8Et2YYQyq5PeBhteslsvwAhesKnfczgkTQq8q5hX4rbfdjtiRCVHktTEaZMLFc1lUzS/1Xu9U4fqgeEtWc7RF5KkQxsnMFq/BlpF9/efjyMdE3zJtQckyw1eikmKfwSil+r4Teuox6RpyJGLCTOpmGQjsLzZISnVXKBq1s2HeO922J+EfWlNbx8Z5J3/1iAuc4abgcWSXcwYiRuOf1CRngTI5DY7zykWNoywjyP0GShccitKDPRH9C4j1K5xtHp4yBDpED/33yL7nlTmN2PSQ0wZT9/vyi524eb0/G0rZht2Ihe1d/l+IpVQxMkLq5uUhRv+tBxvCr6jGIgS06SxjmdDt5PC131i4OCqjoVAejEYuFfPyxWN/QpDPy9RlReaN3I0PgVY/CRyIGtTWG/DPQi5Ac4sCA5bNsCr68cH+14iSOiibgfq2yx2kEZnVInjWct1zBUwCQLiLzOaMlN9QPQ0aiOiui4T1YShvtGPdw/K09ZFZHUiw9F+QqkMAYJ2XFtWx/zd+GAr3meSsq9EjPUh6RvpA3mT+sGQylmyw5a9T+WhqPFyoGiwSYLwm3E3eoSNzIKHMWOdC9SMpdNYRYOdpQ0vsLS/SaILigU1wHqnetM8y2qrwEzrmdCmffxvKcet9aQWU8i6lr8tNKxuAjU9On4aPhHzHBEgres6JYh12tnadM6nIl9vxvMS+oUS7VkIZP0yhtdvWQm35XWfWhsIURfdC1W9WPxHWPu3RymVSwSvLe4jPI+fJMjZXfCGV7k50962K777U5pVyFnprDygADhrt0PT1X4MewAjzQzBznILbkoM9OIT8LiwAGxxQQXIrF9im84L5faDqdcf1DKfw/f2xOKyY85BjFHy9WZOgXx8S6sPbYdhAgwGAD8w03SUJgCskAk5ruGbJEJsf/7YVn4bVD5F74aN1HMN4/mZFDtm83xTVvqWW6LZynB9R8u/zbYjRC/EnLLsbOpjJGprGhPe/szovfi3viRD1M1YUTmv5JtPb5BAI3CsuidjFdR8YKMAkzvCt2tct1hlaOdlQArdUjCbEhxgqQA7zw7JnOPiLYrDfZpeBPwV5TfBb6ovWIP9tDKtJi03dFM8SxBe7xfb5t8WGBsAR2bcKTWMXptRCyQngoEKjVBscEothK9emdTUsAYR/CNHYrhcsTSOI191Ki0UGmIXfQYTVk88KI28HoITvnhJiWvyw1l5fedJ5nVoEk/j7/xIy4ddw11lq4AIHZXMAajh++kov40mVphC0Zjpb4VOVyymw/60tBnSbwDTvGzOzkOVOT4gpubMLtUoEEql05+Y+TW7RgwWXmmIcre0ybbOBG1VrPW6WhO5YqK0UcBlFY1BMdx6Slr1310qOdPLKAqWUBT4P4dBhzLHgdtuGieOn/q5WscuZQsKb13R6UiMJR6perPxG5e0TBjcEWr6O6ESzDZm/Zf+lSS8+GrWwQ4+2g/tA+NPrYyiubDowrwk5K6gWxFKchctaBmY4x/j70YR2ienQL8lIx5cKUhIE61oADPNT/ZV6l637wocS8RyIiEIgYrI4NLiL4SlF4YhWPZjuPKf1lA/v5XoMZ+yZMDg2lJokcrtd7nudccvTw8ojOU0HVD8LojZoS0EoDdIpqCIZPY++HYf66lQCNL/jFxagO62u1MRFwKZSJSn2bOKujJvYiPKXKJJP6P7F5uRfukExu8XfHDJlA4VpJQ0UP7JqynpQ+qcK6nIQM7GI18LpjSVTg9a8NkY4/QWw54QLROgu9dbEdZdA7fdnZxOM1H4XQ0mUP9ZRvgM2/R0vczOL7jc5MXm5xoHD3+517t+LoQsWoitz1MmGo7jfhwyxJCcjRz0HuE/JxY3RLayiaXlW+7He6XcntbIeUNpspOhuyWCdEutjH7yy5XrmM4cuWXvWMOsTd5g3gIQ4xSfk1LHzjZ9rtr9fgxJa63feYnK/Ryi2x2HT0/+6ajZzQaAIS1HwRv7Gt9CXSJ9/cdtDhCVD4fsYK5LSJN4tCXHYtQXV3FtqnVkDJMgtwbKPS/fEpxF0n4Ny9U2MApenpiWKtQyFkMIWLLVX93LQ7GvP72PhkDgopKmNl8XRe5WBBruyPOtpjmvqx16/zhoWiUMYzH9rcUTyzJKyVg3Fcqzn7/VAfdAG6AZCvzY+6FqhJ4rjPkZCDbRAmUfIQUoN9s3kYllojGs6sa9198OHYIipDgT2Qtws4ZaNNZzXdrPFb680dd5aLbdMp1Pq4c5OBJyMV7JEHcDgbmMnzKAkFdVgHwFUPB7L/9ovLTYT/N86CYDRM80jNDQSB3+vbMN0hW87LrpNi1EU+HozRxuDGg+AeRQzdP/gExxKUTMuVu5rxP7AdZum2xBe/VJ8xy/OmY4dOXjGtObcHnIDmTLko8Xdl+uNEyF9pjDC206TBaqGfMU/+iCP0Rb0QjvC7+XoxpR/0e57z48qOWn+lBj8F+zXC2FT8IJSpDhXAXQg/5mDEbbXKLTwRMc/ezHzX+yaGNSqlDpBq2BtYYPCxBLb1LcjLQulIfYJaA0zzXYeZdBlENQQdvGQaC6xcaVHVKCqLErz7tyIA1Gmqy5+P/zlsraugCW3z1LcdpnW4WZupz9UIQQiB/bhBhjzQThBFo7RytkciSmKvrEARRzK+rAY/y/CDWMiLWCDjcEQe9DgYwR0l+UaGqhZ5+tVFQhK2v3mRL/89jwn6HBJIr20X3TNFFqafR6t6o5bzeq0Ej+asYVdG+kAs91f7uK2q1kbnoXQBJi2giassyiuufah9bcSyk4czpRR3ZxXm7zubwTAv4LjA741VsGMDav7s/MJ3y+LjuyHC+/RWxGtkAw0UdA2UVKqNw2XhKUCZgCDjRy61aAM4DMZcNkC6K783TjWGf/bBupFKyqGVxsrX1bJYDsstBeH2gQJf0u2y9ZFDuF3tQoCMA5EWXhT1bV8UZmc6dKyoVSZQ+2fjKOuc2AHFsaKTjEDHGTtg6Qd+uy/gJB0XuVWGokJ3WrdfSNa+1vkfMmLuWYedgVFqBa4VBOlGvkWmVZ1tPAgp4nsDMTUrb9s6FFX8CHD+TNI+Ui22itqMphLZDahLdCBvbyCfy13njsEQFOuCh7pqlJJIGtJLS+/7BLZMotbYJbN8uXhnosI5Y4OmWnCo7cMGWUNw1KyOzaO3jk+Y++s/8+/ZWnhVZ4HPn4V8bwKShZsioP6KiS21GVFjuf/0W6Zeq50uPXpF+QgKT4GbP2zYiIfvehp3D+c1xZ1cJO2TTn3wBDZ2GyGvJTpzC7muROOBiq2v7C3xGL+A6fexlwNOZb9crFyr6edamhXo7IANlOkkiGh9jnBjbjOiLMnqeZOBTWMwnk0Ok5nEs+uDVK/HPhZD/ieQQZTJpfySKNU6Y85fjl8edO0Qa0pVEgYJtkjTO8d1Z+lcvLyTv/aeb6opbsRuBT5009Sdh+qv2oAsvY0O9ynXlOAzth7iJnZi37pbwS/WVT1t3lMpbygGaJxoViUC61HtwMv5pvtSy7vHWpYF3tLVnjAuORjXxGgdwEE1RYwSBaUi+1xK3AneVVAAsEW7vUkasxX7ilzumocXgcOCz3fsu4jn5qMFKRRLCc8GdL2zAZ5TjuhVzb1ts2oF31GSg8PcjixkROiPu6Wa59XJ2E0uNYfzjBNguMiz7PGkbi+yPakL5goj71wG8/5lyztn0JVoJOQoSrhYLP4YmAfbShUb2BvCmF5yFYV44wCPgCFjB6tZ2SX3VEOvCgeCRMiiExyE6gBhdUYAQ==.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 239,
+      "completion_tokens": 3792,
+      "total_tokens": 4031,
+      "cost": 0.0019199,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0019199,
+        "upstream_inference_prompt_cost": 2.39e-05,
+        "upstream_inference_completions_cost": 0.001896
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 959,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

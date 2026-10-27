@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793025379-4tn7JgIPYuOagXvJWYZs",
+  "finish_reason": "stop",
+  "input_tokens": 108,
+  "output_tokens": 725,
+  "cost_usd": 0.0003733,
+  "raw_response": {
+    "id": "gen-1793025379-4tn7JgIPYuOagXvJWYZs",
+    "object": "chat.completion",
+    "created": 1793025379,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "import java.util.NoSuchElementException;\n\npublic class Main {\n    public static class Stack<T> {\n        private static class Node<T> {\n            private final T value;\n            private final Node<T> next;\n\n            private Node(T value, Node<T> next) {\n                this.value = value;\n                this.next = next;\n            }\n        }\n\n        private Node<T> top;\n        private int size;\n\n        public void push(T value) {\n            top = new Node<>(value, top);\n            size++;\n        }\n\n        public T pop() {\n            if (top == null) {\n                throw new NoSuchElementException(\"Stack is empty\");\n            }\n            T value = top.value;\n            top = top.next;\n            size--;\n            return value;\n        }\n\n        public T peek() {\n            if (top == null) {\n                throw new NoSuchElementException(\"Stack is empty\");\n            }\n            return top.value;\n        }\n\n        public boolean isEmpty() {\n            return size == 0;\n        }\n\n        public int size() {\n            return size;\n        }\n    }\n\n    public static void main(String[] args) {\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Considering Java stack implementation**\n\nI need to provide a Java source code for a standalone stack class, possibly including a main method. The user mentioned implementing stack operations, so I'll build a self-contained source with functions that accept parameters and return outputs. \n\nI could create a generic stack class with methods like push, pop, and peek. Naming it Main with a nested generic Stack class could help with clarity. It seems like I need to focus on ensuring all functions meet the required specifications while keeping it simple.**Planning Java stack implementation**\n\nI\u2019m considering how to implement a self-contained stack program in Java that handles exceptions like NoSuchElementException for pop and peek when the stack is empty. I need to include methods for size and isEmpty, with the main method possibly being empty. \n\nThere\u2019s a chance the user expects command-line inputs, but no specifics are given. I might create a Main class that serves as the stack, using a nested static Stack class. However, it\u2019s tricky balancing generic types and ensuring the program meets expectations!**Designing Java stack classes**\n\nIt seems like the user is looking for a stack implementation with specific methods. I\u2019m thinking about creating a non-public class Stack<T> and making Main the runner class. It might be better to expose a public Main class with a nested public static Stack<T> class. I need to ensure the main method demonstrates functionality without side effects, testing methods like push, pop, and peek while handling underflow exceptions. Using linked nodes might work better than ArrayDeque for this implementation.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Considering Java stack implementation**\n\nI need to provide a Java source code for a standalone stack class, possibly including a main method. The user mentioned implementing stack operations, so I'll build a self-contained source with functions that accept parameters and return outputs. \n\nI could create a generic stack class with methods like push, pop, and peek. Naming it Main with a nested generic Stack class could help with clarity. It seems like I need to focus on ensuring all functions meet the required specifications while keeping it simple.**Planning Java stack implementation**\n\nI\u2019m considering how to implement a self-contained stack program in Java that handles exceptions like NoSuchElementException for pop and peek when the stack is empty. I need to include methods for size and isEmpty, with the main method possibly being empty. \n\nThere\u2019s a chance the user expects command-line inputs, but no specifics are given. I might create a Main class that serves as the stack, using a nested static Stack class. However, it\u2019s tricky balancing generic types and ensuring the program meets expectations!**Designing Java stack classes**\n\nIt seems like the user is looking for a stack implementation with specific methods. I\u2019m thinking about creating a non-public class Stack<T> and making Main the runner class. It might be better to expose a public Main class with a nested public static Stack<T> class. I need to ensure the main method demonstrates functionality without side effects, testing methods like push, pop, and peek while handling underflow exceptions. Using linked nodes might work better than ArrayDeque for this implementation.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq32VtByGbUgcpJRi1_QwWor1dDbvKkRKuNWqhTvTOE3FLjDLelFQ9U2UakU1FPnwVQ_A78py6DO-oLlZYnhpsRi5_NxPLU8SMOq04E6eU6Jt5oXvTz-fWWYfxsCHh6tq0gJDZQD6e3cZm6ylDTZL5P9xfY2dJRe-Wc_yWfeTH6St99_YaC23lVm5n2dgWKszwXhsOBxON9Tw9L0tsLy5zlzcmee8fUk95xbuoBj8WtPfYQ5lXQuIDtt_ama8ePiuvyqN3F6kGT9JRXZUUhmNzG0Q0H2R-_d8Jjl-Tfr_U-Y6PElcAh6Zi9OnqDmYdiV3ilEnVRThJ_t09lYEEJ5QTm7RsDWQzTztV5-wSyDi3ASm_Nrd4tEajNCBTISMMKj-hkYoTsoymJJWBYoodGfPbZB0jCBwQadMvIhDi1TtToaNiOIfkW07CLQ00CG49ssuc8cJi0Iul0a760BRylwbvq_2ww5FDE0RYRl_Tke15KUz5c17YPOCn6m9u7Oa8R6osEY9oJbukBOcvMZpMB1gCedktt7tOjCAo9rZqu5JE6FAAmHVt7BJIjh-777xfFNPjuWxEfixNbqAEptqjE1ch6wAWHe8VUNG2-10fO2NvaoaXtvIgnQjeA0y6j-5AyDUXLTSUljdmthjko3RYEk-l2dtuuOWnbew1Z-v7596YKMlsyofa56eEMw8B9ybzqw9movjaSq_9v7H8lJRZxJmvIDi0GheHBpOZyEA1Koykde26FVEuUBtxsJM392O4sUFY3anDYuwRhs5Z8L6x7FYp3rVe9_bxOlB2VnfFedRwtRXg0_BRNv7TwBzUhwWjlCiGntL3OdSRLz_y4qz8xK_eOJYebZA0adPKQXjTkCmBuXG3FUp_z5yClQBaMrWL2tgtuogv0xAj1yPa-Nbr4espuPQ2AQ5sfMWt73CuHOrpLpb4iJdjBxvAS19vIe_xuxd1uZL6vfwjnWwFkDb0nVUm5rsGwsDnqQEjwa2tHcdWIIbqBd-SESbzWynLzxKQ2KxURXUuLAQeC56U-isMf6Mjya4WyYl-rZwiuZy8oXPuHw4-nheBds2jR5Edo34zePXu_vFbtyqHhsSqiX8eAgEPr73bRJ14BROxv-lfEmRdLJc9bW4YWbWmN71c-jAAWxkLys4nBgBde_PnopEiX22JUKSaa14RcOe1or31zII0eaNXBZ0r9tu6rtm7DWTrctFTBVGjoRwa77URYtVktY_1kCws1BsnSEHQIj6_Hts7YLBQaxbjOgeWz8F-QRGenFh0b7MOvuIe_Gef19scTbPjDkcrBI27lGz5V_vaUCzgHMRzeh6LEjz-cTxvwkjsi6X6-Jit-KEobXXnUrSRli8We5tboUzr60ESk-WGMRwxQJQ5LL9yKbgvvV6FU8ZMwmL-lchIi4q7D8Qo64j55bObqsil7B_3xg8H-oT1gni3eSTblZIRzuli3yqtVkZ9w_fFwtMLty1XezvgMqI2ZXofMs54J6fzOsxqGJvGQpSh4hqwooU7HBOem7nt8OCpsmMABq6-_YK03ChU1hWK_3GCPFeY1j4gPjwZTn5-693VFY2OBprpiYdnkMtHkF4VefpM2uxy2NhhQkw4ekFueCJC7nONHCJhktf5R4WyvOvUz9LXM41xmCPtyiIRj--Sh9z1DSjDBQhynAAC28XEuqNwGIv9A3YtsNyeXx-Kh8Pfo7cQOLAGfB3iT3AXS95FzjmxZisV4tGRyfBzyoBsltA70nVztF-DqKNd2ns3Nc08fbNtgz0gW4ogBbnuUvBsXJebWf88DM2rxmBx7zyO5KOXYQLGAZjDu34iJFAHSH6APLwiRil7X5FZlwV_A6SI1KUEsPziCHh9Njdcoek3ISPIvgKLOWXoG7MV2i3WSOgwn-881DxAF3VS3xshGHZkjWDpF5CyzTA6CRDlY3y2_24IVD9qcLL2EnbcLOvOhmxxWrAIMuekzpIRzVF-uQB3vL0obAOwIpFXvEPIekrVn8OAp8KQMZP4AxfTYCooRQnYAWJ2IL_iZ4wr8TnQtB9Vx9Dw9EFSjdFVe-61_VHDbLfvDoDRjH3BQcSe_qkc-j5PO8e0Bhk-tM72GrJJApamL6GKxanaoNAhoa5P7I6nDvCH7e9r_YzSyoS_lGxBV7KAllGJHnr9yEHJHEKKWlHEfPqoE2VYDseJD6G6X0bf9OJmDglGEn-rBiSMXQVeBcmS3bGwtL06GXtYtbDtfVavZ3zLwhIg7ifdKuuYAcRwgFKMTlWqyvLBVr7tumPv-bHrqLXyu3rca1lt_HfqeaukrV-29Y-lFFMnoJrWRzlZo7o0OpnN-vB7nPAt3kbcZOpl2aitwQ2Wv_A6w9UKj7kARlFhrv8rmZUvhfbwJcImXlNNFriSkOVfzs_EUVExohEVJb-5B5W2cSppkFipqjdb0t0uoF-0isnvSXvwyVGfAHRSygRd_Em3gaUTIQxTdQYCzR2k1wQCxzutn8J7nwbDrA2O9PRMmQUxgeuVoMi83HrGTB4Acv1LP_9Ka7XKO4o68argdWYyFF4jTiZKN5_uKP-G5dY00z2hxoJj-pNWts4TX1ZeulSRurOLD-fyVDvgOIVuNSjgaop9yQ6EAnG-QvUk2XTvdcFEW-EAvjJESYn4ac7VmhPEUmtN9gE-xJ0sHlJF_qqbCazbfB2ktBTOTEZYfTZvHbiPW8CH8N6kb85c0YQoX9yIuXOgLrBrWSiipZHCrdHugesMNqMcXeyMGWBYYKUSur3J5kKL_xdMkiB-NXpnnQ4hYdoBO4UMvXVdrAw6KYwmSJUjA4F3R7x3e4_L6SODqQ44NrTcHlplzuZfARFPSnACVqhYYHf6T_hObZ7UeYboeQyHJRjykeYe7NRRm8iHzxDgj0IO0ZvOhK8esa5S7Ia7coCX1YV_vTQCLed7vt7zbQ94pvct9ljsX8udij5n-Vmd5MjXcKIvQFJ0nn2UdW4ieBSTdTQlFjc28n78pxF1yYLw5qNXLvmlSD03jTwCL6d_5Pq9UNF0tSw304GCHkqq_ymgO1TMxg048ksvHxak7WCEvNdQJdE3s5DMYEDXah9SXCovwzKoKwuxqBNzSi4g_gQ3dFTtvL64sjbP36BprPnsbg2LE0VbmBc6Af6tSCnUYaPYodkjtyzVh3KJSba5d-l-qffzBvp93bot4VfOTV-4Qg79HytihVputToM7rGVQM5dala5o4nmhowbYe9wg6z-DSeAQqGegYoCV1eziXSUopb2HCsUwwGXM62uh5pjE5-YcSHVxldMaOZYKeaDJDRWMlnH0zY6xF0VnIL3JDffzO11bXypKWiXwGvC0Hfkj2qQNuyLP8pBxxu9d57Nae8SxouTCofurXDIH6WFpb_k7BLM2sJJH_mZymzICfvP2EziubGd9nJkzbNns72g3hdzGWoKSrOFkXkY4Q9awqb_C3AJdNpmhTGgURGuB8Rqw8rffOMTHcC9mWs1IXYKaPqVGZLISDoORPNtmrkhumtLOOjCNuBveYqbxV8WD1HucjyLPlYcM4BiTPNV9M4vFNsqKe3_pKNjSx6FYNecu1Y2ZNaTWqlzouFfuKh2ZrGrt67kZNmmONYTCkjIcOs8nc6mpe_zHjnBFsJFsmA4Vnt1rodptWY6RXadcjYyEPvVpKlkaMEV_LcqINnzWpdWiLN9hSpp6pjhkwPxvXB32nhF4eWeKvuveqEWNDBXDwVonTgsQGMQKeLuy2j8l3qsQUB37YFs6jKY_Ocx-5a8cbeVcbStYd8aLDtalTBFs33fW1DUS9H4LjkTejk8_4bNsHlFV_ggh-6KYO3scpxpDMrrda1CMhCAYFw3AMHEhsxSKpsaZyrzyEVTwmlOKqWkgDR8rjsk1oaH5i2UwhI9rfNwD3ZRZxUkpxHB9-Q-S-P0XUfV_7Qg07gf0nXk4voopT_byI_8MKyTSUnsp8bsdPNZMblSwDZgL3FgzSXavrrGgPEUG5_NV-_9Pb34sMTlRagCr2MjxIKmk12tjnoZIlaD1Pqka3ezI7NbFpxya8xcjB1JP4PGmzSGSn1vluA3rGvMQeZLnqdmQWaMtwsCDdIKsHo7WVnMXgq7iZvAYxzMwpDRECmnywd6waRLdws4lHyWJ0cNUn3e4-1K_XPNukxA435dH5HDmkvQGkkfU-rw2B3_2IEFLcPNPazxQNeXTqa1OgAkbyat2ZOm7a3r9pEGx9CoHWaftlI1Kr1Ylo1MaGd3v1AtUIX0OXKl8s2Ubh3mKItqL4b3LHTG9XnHhNhQy6Pp8BrhQ0e0se_H4O5o4-9dSreRDTutnVhs-5_UWhzfjcv172FkSUYTA8unp5BO3mYakWJgnFQGj6Tj1B8mMEJkmvBPwzVNTfuFU5ZZMAHbPA3nN25KkRZBKDmq6conj1m_EeAfsiAXGWIwALqsIBzPhvuyNlcwBOVIXYXCz3uDckRBX85Qn6SqY6CtXbbU5bl3lTHpr2qcAqjaOPKxiXYbT0R5MKG1RDaLmI9bkcXU59onzyORMXcZqK606i8d-zZs2vzK6-EB1gSQjydtikLh_NVE2rahAGLSpM8VVlwwrMFl_svKcNEv2p-1CB5IELlVf_UyUyA6330fJkB0wKE-kQnv7PzqdQRN7MyDdQzyopVIAKVo772J4yTZ_5MJktsN0oXFVaVBt1oo-uO4JUKGx-Z8QrnnyJArmIW-pZ5ApWeyD4NOtBEscoziX59KebviJkcd4hh4J7ERTC5n4UPKu4V-6mTS4zTnxmXgWKFCORFmhux5IvQxDK99VF57Vb-jl01s53x3YT19k3UU2bq9QWAR9hqPOhu1Fl6gWQcz__WqFm1kCsxXEa6_TMjlNLCka5i4BCRTE15A-61Cn79868VasRsUl7XGZvNE6QR-nqLXLc38vgXemT_3D1uGbeXpMxbqenl7wQR1BpAPExvQOC-nI9hZukpiB0odcAdnQ77zB1kNqQCNMvgB7bnQT46ykmPY_tKj8vaVPOPBJcCk1DFQHP8VEhlbHO86JvbpRMc4ThYrLxX3BEnripH69Y_yiJmQIjmERaE8FjAadEb_2v3JisGH7C9bCLY69Apa4VnI4kSdeoiNVUvz3-Ud_vW85CW-_-zgU5nEbX0EngivkLgQ18lrxQFuVIjqud5423SP8srbSijjEbyetYrdvC7KwPrktVdLWMA0PiZj21324xRS8-85pwHJBVnPc3lGgMuH0XtrU7CywsBa6GMn7STVpGstqk7fw44cHZwje7JOc5y36wpyHLwekaysxz1jquJe3iDR2EVZF-2-w4M-dGnMjx651Mxa4CZzEtntAq0Uc5sepFoButvWx40D65iCQ8n6eT5ZsQWBsZ6QX8TpYJoYWqSuwhoCZBwPJgxDDFiPeksGCtCLbL1Ff1fyihFDZBZGVc11rRXd38dqqiie03ax34YBwud5K-C5XdUtdRW2CX3Ui2yYqYFulatbkU3LljBXD24tdkOb2uJuzUudCFN-wLEWti7UtZjS2q58UymHtLlEwZUH3CLLS5ELICgAAlSR54Lj67pUGt74NnNMt8NTCqN1jYN3R4V0AyIeHr37WU-ndmp1MdrWYAJdECs0BWf8Mgv9hSGeuztvtpf2yseuhPV6Wqj0PyO1ELHXXIN4dIZCHrwtngvrp5EQtCGPBvnUlSz75XUeLpX8VpLPiZecPD9tk7OV59LVWkcnHCNNIOsUp9okbK6pQ2A5_zHTFZAdx61HjerSJUTmCDv82Udfe8mdKZK61BFN5y7kyKscMJ2Z_TYHjR0ypnZSCLa438a4qjSl_HOOMeTqEMiZManKw97JhbFK0wLOKaUbIhGsLJA4bMU5X91OJlZu8cf-4vEq_kRytjknnAZQ7_SIaFDmFy39A2q9OWvQELzB0tNZX_DV4rC8vIsDWdSMIvk5gx_PVGHCmQLioFS8RmAMljSkkTgZwFr81oF7rmUHRlr2tG4ccGqY0Zp-bsVpSrXSqTJtRiFj5kussVPsHIZUah0VEu8q6haafkaPSS_aYTTT3n6qkqN0ODke8tEwDSLFIoa1vhtOOwIObK6-f2fmGmWHlCqovHFzsS9NIjQWbmw4afDsCqILgpM88zbqQGBwN6Pl3V97r6a6wp1N4ak84jfZALpLmlC4HBSTPNwxVkof-Dm7xZQnGWWRQPm_4b-jr6LlFsUQ_JuC7MerHP-73rur7hv5VHXr74lyOihE9kKLX3omz2l75-y09wwnyec3nnjYn2YOqumbRpZZ8hg2js6AXCDGTfl5C3hzn2_10FORHWSHlkTGt-rtKykz7wRd0JA6HWfp2dv6BpsmvjLOguYrNUdkEN0lCWoJZsgEKKrytbWVlYjlPZ05UTnX-00TUULD_4F19O7lnQW76eAYqh6OwT1Tu5j7sn5zRhd5KWRh_k0zdKs8f78RxMDHLlL4BxvB0zj1uRCjxgC4M3w-qkV8SEowk-mmq4pGr713IsWlf0FtSMJvLIrSAaEXAiA5Iq39wH5Qdp_H20oXS7hs5d6MHtWFpeENrkex_a-1-pkjlshe90DmRBSwm6Myf9TdcPippf6b4uMgAwSQCyd8Y0Xl3ZxdMBLHtIo9-icPIFaMUrSEeKhRKDvnVyTzBqIp-YKh8y2IbWsZ_2eGxlycDgD-M47wqsvdRZ-b1yZTIohW8fdDrmHHGCSjBw4DgGNBrj94ibUFQPW8Ir8gaS_LF_LtJJrMTwvwr6cm-TVxnlLdHunHEuCtqKiwObiAveD9fuNk_ke91hZ3HnmEpv04_8iLhXwpn4Sm54migDoZtEpwip9wRWvW1doLD1Slb-sWO6p9eELxmC-4L4yKZHyzZsnzZ-EoKRg0eqR4XwvlnPVeBH-c7p-KooskX4P3IDaw3HMcpZPSviQ89-iNmO_iQhQQ9gg7MjhP8kDsY_mcYL4lkBBeQQkS5zeCsWtCGmtQZvuD4zzQFF2gQ6oCS9O4LL6hvp_RbZJoVOYPSypf_xoiXsRp_TOG9awWB23mvqk9nChzeeyIKaFbqYDYUEpCxEqhFQpJeLYDZI2JTsIWbYhKiH_GC_Km9hmv2WdP8Xxm4MNfG9hFEyaaxDB_dZK1UUxYEVCd8hUGDQ18CjWm67fNnsCWRkWt6KLXIOPe3eoJ2fBDXTKQK7OWw9FkE36of0FHB-0P0gXqWF0JVdViBVAKySoFIM2WdAUipj6H-Qayv53YFYebQ7_xvQeNbjm_j8BjEVCKnMEYVLkSqgcPm1rxzicyisZ2X4oO5vaTLlPfYr7nXfWf6efd4mr2EAF8OUtTng31zwLkOQJ_-S3KkOQzukuJVIr07gLOPU2Iyldi2M78XNCUUHrV7D4wwxV5vEhATfwX0-pDIoi_-h8plppeAZl-wp4WGABd06MI_mcyBrby9L69YuLimIUPgFxjqHfrfeV19HLIVNJioo9up_I_pcw0GLMGm6Fl-etB4BVSSXa9_hDGgK0YNswkABd5td-Tk_01FoL5IbofHb40pPnVm31-QhF3lqy2dR5Tg--CdKYUEQmEsCRvDqr0s6RN9HVoGoc-5QmnLiWq1LcFqYpsugWbM_8icEnqsu4CuLEfU9zo4gFHobwyfQrjIwQ_zVZInGAyyI9W7HpQL80eYoytf3lRVHmV9_h0trvV-QVroc6UhdrFJ3h8hMZk7RNDz5E69v05kWo3Y-1rVCMnsM7QxK3yINjLN1ODu_qcBRdDGXpqSVyfZqYLKLkJNgLSejcR4jjoAVRZ9I2P1rmvb1MRNSp4MehYLsyAT586Js_CbPbCX99cn_m20bx8XIn9yvrCLs2Ct4r93Zmz1ISc0cT0Fk9ERlo1QJ7DSFGUkvkHJP9ffIAhEFGar_5Zh6pUKmGHE655Q-EFZ7UaahuhY-RPa2sX_sk_nivwFzPYRwtPsWGLfmiMgeRL46X41DT4snerPcm__p7oRcaX46W2aBgJEa_v7_kxnVMCdF7ii_llriezzbwfPgh1-DK5TzoqAvs4Euc9Xz4ipqLCOSPnG-1QIAMgpLiT393VC0GLYyQuL6bjJJCR6LTcOYTeJpCDYs2-AyiUm3LuF1ZqZ1LXD0fDeMdrcpwjh-ISaw==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0a918004cca3e66a016adf6565329c87d18886c537d1e66dd5",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 108,
+      "completion_tokens": 725,
+      "total_tokens": 833,
+      "cost": 0.0003733,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003733,
+        "upstream_inference_prompt_cost": 1.08e-05,
+        "upstream_inference_completions_cost": 0.0003625
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 486,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

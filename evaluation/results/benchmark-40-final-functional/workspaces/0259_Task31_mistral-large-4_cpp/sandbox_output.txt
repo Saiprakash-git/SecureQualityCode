@@ -1,0 +1,7 @@
+@@e3fa9b1b2738eac6 STEP 0 BEGIN@@
+
+@@e3fa9b1b2738eac6 STEP 0 END rc=0@@
+@@e3fa9b1b2738eac6 STEP 1 BEGIN@@
+All test cases passed!
+
+@@e3fa9b1b2738eac6 STEP 1 END rc=0@@

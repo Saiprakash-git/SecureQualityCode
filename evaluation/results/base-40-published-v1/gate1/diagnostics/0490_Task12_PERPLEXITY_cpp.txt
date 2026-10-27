@@ -1,0 +1,13 @@
+Task12_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp:10:11: error: no matching member function for call to 'erase'
+   10 |         s.erase(0, pos + 1);
+      |         ~~^~~~~
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libcxx\include/string:1616:47: note: candidate function not viable: 'this' argument has type 'const std::string' (aka 'const basic_string<char>'), but method is not marked const
+ 1616 |   _LIBCPP_CONSTEXPR_SINCE_CXX20 basic_string& erase(size_type __pos = 0, size_type __n = npos);
+      |                                               ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libcxx\include/string:1618:64: note: candidate function not viable: 'this' argument has type 'const std::string' (aka 'const basic_string<char>'), but method is not marked const
+ 1618 |   _LIBCPP_HIDE_FROM_ABI _LIBCPP_CONSTEXPR_SINCE_CXX20 iterator erase(const_iterator __first, const_iterator __last);
+      |                                                                ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libcxx\include/string:1617:64: note: candidate function not viable: requires single argument '__pos', but 2 arguments were provided
+ 1617 |   _LIBCPP_HIDE_FROM_ABI _LIBCPP_CONSTEXPR_SINCE_CXX20 iterator erase(const_iterator __pos);
+      |                                                                ^     ~~~~~~~~~~~~~~~~~~~~
+1 error generated.

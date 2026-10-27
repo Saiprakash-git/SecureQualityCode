@@ -1,0 +1,4 @@
+Task68_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp:3:10: fatal error: 'ldap.h' file not found
+    3 | #include <ldap.h>
+      |          ^~~~~~~~
+1 error generated.

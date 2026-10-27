@@ -1,0 +1,11 @@
+Task38_claude-haiku-5-5_cpp.cpp:211:48: warning: missing terminating '"' character [-Winvalid-pp-token]
+  211 |     return buildHttpResponse(404, "Not Found", "text/html; char
+      |                                                ^
+Task38_claude-haiku-5-5_cpp.cpp:211:48: error: expected expression
+Task38_claude-haiku-5-5_cpp.cpp:211:64: error: expected '}'
+  211 |     return buildHttpResponse(404, "Not Found", "text/html; char
+      |                                                                ^
+Task38_claude-haiku-5-5_cpp.cpp:203:51: note: to match this '{'
+  203 | std::string handleRequest(const HttpRequest& req) {
+      |                                                   ^
+1 warning and 2 errors generated.

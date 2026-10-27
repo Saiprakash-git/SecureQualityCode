@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "DNAStrand",
+   "target": "dnaComplement",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "bound by reviewer to dnaComplement: the artifact's single implementation of this task with a call-compatible signature",
+ "combo_index": 259,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_031/mistral-large-4/Task31_mistral-large-4_cpp.cpp",
+ "artifact_sha256": "8a2143e8418dda977ca4318c04bcec5ad058fc4aa9b8031727eacd6ac1c28ed7",
+ "oracle_test_path": "tests/claude/Task31_Test.cpp",
+ "oracle_test_sha256": "076d9c61d0801edb32c28b5ed7aa1beda29586604e361401934b445c0ef19deb",
+ "author": "functional.py draft_adapter (static)"
+}

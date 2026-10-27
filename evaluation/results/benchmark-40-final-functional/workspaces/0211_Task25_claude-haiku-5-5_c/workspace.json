@@ -1,0 +1,47 @@
+{
+ "language": "c",
+ "artifact_origin": "generated",
+ "artifact_sha256": "ae96d53fb53ff7a2d15f06eb46c4c548e5ff966f4a458b65a9c137fa8c29c5c7",
+ "oracle_test_path": "tests/gpt4o/Task25_Test.c",
+ "oracle_test_sha256": "7f99ce8f45821814c4a7f8665d837fd5da3647fa939e91c32a24aaf282e3e668",
+ "verdict_style": "exit_code_and_fail_lines",
+ "bindings": [
+  {
+   "canonical": "number",
+   "target": "number_lines",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "line": 11,
+   "removed": "#include \"../../source/output/gpt4o/c/Task25_OPENAI_gpt-4o.c\"  // Include the header for the function",
+   "inserted": "#include \"adapter.h\"  /* adapter */"
+  }
+ ],
+ "steps": [
+  [
+   "{cc}",
+   "-std=gnu17",
+   "-O0",
+   "-o",
+   "{exe:test_oracle}",
+   "test_oracle.c",
+   "-lm",
+   "-lpthread"
+  ],
+  [
+   "{run:test_oracle}"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "adapter.h": "aa528d6914055612c0c848658e301b10fde3e21c0e5dcf989855b6d900e56444",
+  "impl_under_test.c": "ae96d53fb53ff7a2d15f06eb46c4c548e5ff966f4a458b65a9c137fa8c29c5c7",
+  "test_oracle.c": "d966366b48e2dc9226315ae27f505c1c913ae98d94fb6243a4baefd9aadbb5fe"
+ }
+}

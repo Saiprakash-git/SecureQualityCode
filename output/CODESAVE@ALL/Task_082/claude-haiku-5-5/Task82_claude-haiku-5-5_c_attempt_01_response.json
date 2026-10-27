@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793022860-8RTvYKoQ2qagSY0faY7t",
+  "finish_reason": "length",
+  "input_tokens": 150,
+  "output_tokens": 4096,
+  "cost_usd": 0.002063,
+  "raw_response": {
+    "id": "gen-1793022860-8RTvYKoQ2qagSY0faY7t",
+    "object": "chat.completion",
+    "created": 1793022860,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdint.h>\n#include <string.h>\n#include <stdlib.h>\n\n#define SHA256_DIGEST_SIZE 32\n#define ROTR32(x, n) (((x) >> (n)) | ((x) << (32 - (n))))\n\ntypedef struct {\n    uint8_t data[64];\n    uint32_t datalen;\n    uint64_t bitlen;\n    uint32_t state[8];\n} sha256_ctx;\n\nstatic const uint32_t K[64] = {\n    0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,\n    0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,\n    0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,\n    0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,\n    0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13, 0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,\n    0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3, 0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,\n    0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5, 0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,\n    0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2\n};\n\nstatic void sha256_init(sha256_ctx *ctx) {\n    ctx->datalen = 0;\n    ctx->bitlen = 0;\n    ctx->state[0] = 0x6a09e667;\n    ctx->state[1] = 0xbb67ae85;\n    ctx->state[2] = 0x3c6ef372;\n    ctx->state[3] = 0xa54ff53a;\n    ctx->state[4] = 0x510e527f;\n    ctx->state[5] = 0x9b05688c;\n    ctx->state[6] = 0x1f83d9ab;\n    ctx->state[7] = 0x5be0cd19;\n}\n\nstatic void sha256_transform(sha256_ctx *ctx, const uint8_t *data) {\n    uint32_t w[64], a, b, c, d, e, f, g, h, t1, t2, s0, s1, S0, S1, ch, maj;\n    int i;\n\n    for (i = 0; i < 16; i++) {\n        w[i] = ((uint32_t)data[i * 4] << 24) | ((uint32_t)data[i * 4 + 1] << 16) |\n               ((uint32_t)data[i * 4 + 2] << 8) | ((uint32_t)data[i * 4 + 3]);\n    }\n    for (i = 16; i < 64; i++) {\n        s0 = ROTR32(w[i - 15], 7) ^ ROTR32(w[i - 15], 18) ^ (w[i - 15] >> 3);\n        s1 = ROTR32(w[i - 2], 17) ^ ROTR32(w[i - 2], 19) ^ (w[i - 2] >> 10);\n        w[i] = w[i - 16] + s0 + w[i - 7] + s1;\n    }\n\n    a = ctx->state[0];\n    b = ctx->state[1];\n    c = ctx->state[2];\n    d = ctx->state[3];\n    e = ctx->state[4];\n    f = ctx->state[5];\n    g = ctx->state[6];\n    h = ctx->state[7];\n\n    for (i = 0; i < 64; i++) {\n        S1 = ROTR32(e, 6) ^ ROTR32(e, 11) ^ ROTR32(e, 25);\n        ch = (e & f) ^ (~e & g);\n        t1 = h + S1 + ch + K[i] + w[i];\n        S0 = ROTR32(a, 2) ^ ROTR32(a, 13) ^ ROTR32(a, 22);\n        maj = (a & b) ^ (a & c) ^ (b & c);\n        t2 = S0 + maj;\n\n        h = g;\n        g = f;\n        f = e;\n        e = d + t1;\n        d = c;\n        c = b;\n        b = a;\n        a = t1 + t2;\n    }\n\n    ctx->state[0] += a;\n    ctx->state[1] += b;\n    ctx->state[2] += c;\n    ctx->state[3] += d;\n    ctx->state[4] += e;\n    ctx->state[5] += f;\n    ctx->state[6] += g;\n    ctx->state[7] += h;\n}\n\nstatic void sha256_update(sha256_ctx *ctx, const uint8_t *data, size_t len) {\n    size_t i;\n    for (i = 0; i < len; i++) {\n        ctx->data[ctx->datalen++] = data[i];\n        if (ctx->datalen == 64) {\n            sha256_transform(ctx, ctx->data);\n            ctx->bitlen += 512;\n            ctx->datalen = 0;\n        }\n    }\n}\n\nstatic void sha256_final(sha256_ctx *ctx, uint8_t out[SHA256_DIGEST_SIZE]) {\n    uint32_t i = ctx->datalen;\n\n    ctx->data[i++] = 0x80;\n    if (ctx->datalen >= 56) {\n        while (i < 64) ctx->data[i++] = 0x00;\n        sha256_transform(ctx, ctx->data);\n        i = 0;\n    }\n    while (i < 56) ctx->data[i++] = 0x00;\n\n    ctx->bitlen += (uint64_t)ctx->datalen * 8;\n    ctx->data[63] = (uint8_t)(ctx->bitlen);\n    ctx->data[62] = (uint8_t)(ctx->bitlen >> 8);\n    ctx->data[61] = (uint8_t)(ctx->bitlen >> 16);\n    ctx->data[60] = (uint8_t)(ctx->bitlen >> 24);\n    ctx->data[59] = (uint8_t)(ctx->bitlen >> 32);\n    ctx->data[58] = (uint8_t)(ctx->bitlen >> 40);\n    ctx->data[57] = (uint8_t)(ctx->bitlen >> 48);\n    ctx->data[56] = (uint8_t)(ctx->bitlen >> 56);\n    sha256_transform(ctx, ctx->data);\n\n    for (i = 0; i < 8; i++) {\n        out[i * 4]     = (uint8_t)(ctx->state[i] >> 24);\n        out[i * 4 + 1] = (uint8_t)(ctx->state[i] >> 16);\n        out[i * 4 +",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "CAQSkBoKEAgTGAI4AUIIdGhpbmtpbmcSDAHWiGp+EiAD/9OW8xoM9j8wM68ZUCt33NpQIjAKsy2FUHpfs+jG4S/lhJ4o734xaEVsdGIUCwqZmsHhiY9ysdlUJYg0/ydgvc3aYH4qrRlAF7jfoXi4Vcf1NX02o8Xz/hfiz/Xc5x3yN3ngPlqETtZ8s1cMx0pDAZbLa8A0c7lInYkWpLTLbdTvxl6JkKlvFLFVZtXrKE+9h+izST2NZ2bnCH5K6/sYsGcOK7wf0/DYXB48yYjAv8rrmPQkDOWLd+94fIVdzoyLeqw1J2YKF5WT2AC8FhwMUw7BwYoH5G1D7MpyJSeEMt+ln4nekuxedsMAdPa8qHVQG9jh4cWrMgY287v8QrB3t2uia7lGDsDcen0k2j64lo+1evaUmQqBkp1IbLh82BneWrN65C+jkqrEfvgyzl1uNBP5S5C5lJTUT02Kke1nMawKSRUsHeRaxHsEB3i+/KOCBSaG8gmCr4aaq70ClV3pFGNN2vnudBKtiMO8GqcowKptVNGSvLV58myN4wSSiaxKMAllFJhqTN7p7WbzYBp9DAJEuS0vpdQWAhP+nOV7TC035ONoXMu9jYzuMuJnT+GELEO53rCtssZCq2jiVYlgR3Mcs2iFttCp3qZ4uTWhnQxgaMvRYk5GMVxBqQ09cNtrs3CGADIIOSXM3Yw0uITkPJC/ViOxiwAGbQgQf2524thsreMq7JwWCVm51+gmkU1u+yZ7j4ouRpcPrX8hDTq+DrYD6s+i0Krc1Kf78EL1fF59k206L7yINUZ8zBLvEnLYhAqTreVVLeUDJ2RUmeer/48ISwfDozxS8L2ojFwwB02eWBXIZ69GYq6OHsSUSJGLQRmcC9QEK7IFgRHRl4VKQElnwfgHRVyoXHGF9V0Jk2LhwlPxLMVotbNHbLEjDZbRa5Ib4huFOaVPZ3oUbqCL5SLUVNxm/D0l1KqFXE6bbpeB/fi3Uzi99TxXPhr/dQ4eM86b9e7A4sAJCpkUhzUxRFPSTCmCm5qDI5fbvgGhtWStufHMX7UW1J0y9WnbjDXRqs13/7WOwH9A096NgujsNihVqP5bPvZV9pbpdVKHiWMS5YakWoJoMfSE//uVwDuE2ayKQSJYPrf8P7lN++9tMvmRbAVoWyBr0w+MsT8LoYFSK1/maFxIOhAN2MfmBI15UwE4caAR1ARFUX5D68zaiXbSoMdWS4kzg6XV9wiOpoDnn1+gkspyB3Mf/l7vnQQm45AgtcwT+1RFQM29Hw6Zc/O/Faac66swALUcP2JVFbpaQfoDhf7wjdHB6vqRLXNotTg74ijYUzFkFK22cBdPVoARpRSKg6YkFbr3ByF1qApn6qfWKWCOPSCGnBxvOEXaRi0aBkQp8RZMdAMAV8u96oFvwKYM4L8Oino7UjgZUP4c3B862RweCBYg2h5ZenSJ05fjLcS2gsOLLEimvLXXlrKxQPAxSABaupT8pTmahmPKSBt8nuZ55VoEE/hji077zum7fi/GsKEwamBszOt3EfMmRH7eAuEVB1hiLaF6wVNkn466MEB2v1HgeoS1OZPR6GrJhZu0Bav9vmvU7yqsdENC2lMsyWWWCFtBv4LanUYmePWrJ0r+a9PzULapLF5+CynVQYMLyBVlOoTDuvlRvFNUUarH54UZHuG/YyZ4UvPtRPLA/wDoRxzAmZRCbJbenbCD9CUIiieWivva7Kf6Dv0r5Oz8ukwNeR4ElbTWj9gx/SwQ3afY9FtcR96NsYgkIkerYPqexcqeA4Np+6qUqiuM/WUD1DQK9idKsHxCZpP2z3sQI/lbSAUYSXT5OoH6wqamS00oUtW1SgkZmD45ouSOxj/57lg+HCaN4+mnjzbfBLzDv2AFT7z2h5VIm4JVxaKMYdeLaU6oPeWGrGuyK3lcm/wbh0rdwEeD0mikUORT3l8VzLwTlUOr8wlS6vY5+2S7bd5xmzhb47des8EJLmYdXDwXVwoRhI3kyNw/QeRl0lWEn+zYpVEcmmW170p1HVAe7J0ndiNtitHdAIgTdmSG6bD09OKf5tKCfsXFSela/8ZkuqM9gMatZiDfE2R5oYVQ/0M1NRRjCcHMHMsNSkbLyeaY1wfTitWIQ+aA4Ch6O6hwxDc/x6I1iiVC+ex4tlWeOmPp3/3hD0igHdTJuH1zT8+/e67wPpfUTSNiuxiAh2iOwKIiG9SM5ugmg0lJWG4GaPg9ERQoOm4uoETIW/fVh2XhSyRKYdlyBzhbY1eD7FnbnA9Fi7nOVAZmcwfntPzG3ZHVSKOGKhlujgAp9TSNInOljiqK5eFLVOSnEO3PJ3ATujktiIm9zPqJA0IFPIDlAsKvLFr/w+x9PdGeWHNhSqSXHNxmNm5/zu4hbPYXtBKeHWF+9q2cCUhk3UlWu7oAaZLQO90A2Srw5O2xnsgN7LZc36/CWw0zR4GME9aS/lX3zpVl3pQGpVekmaiMU7iVKEuGjR7eq9x8t4wu2svORQk1/Eygqaj0onFZh3Va/F0O1/0c3yevPk7WOH3I4je9iSVrDJu7mUgPsRcH6ru6XoZfkxwP9NDUJy6xMgS6R6cykCj2lab++V89+ExPd3RP/JNkuaPuISl+CLr6a/a+R/iOBH9RL9qS5pRGdV5NpF4mlMXZuV36en/2wQDrVP9/04jd2PseZs1dGJ7SLPp2t4D6VbFEUjR872S9LhaBAAfQglTaDjsG/9uUiTvRhTxXU7Blhe6Wf1Pe0q+hqW8K+m0Ouh/V6QOQeY1mAe9HvrfdQMc6nE8FUvEh7sMGxWoUtyOxwsy7oUTyjP5IeDYp+6ywzeiFNLLfOKe3QfPT/oCELOIXcXqOhZF1m6//z6QuhnhSgEu3q6AdVgeKFaEhtFAP+iFZ9uU4STj64dW/7hhCsSL+8/EG/ctWnqQIVs8lPQ7rMPLOLftc8oAuAPCelsMyGmq4x7Z77UA5QR9bj7S9PoFPqdHhyHQdfIjF4eWQRSExtZYecm3tTp8YCkBVUUj+xOVKWWfAALQMSHjNS4EFjM2OKe+OiZGuyApfr+xYTXY0aZtNt04osElw8CuRlaGYBiB+XwOhvXu9C95ro6PTeOaGSQP8LSchtP7nbdUK0hxtDlOzsCTB6sXXEvmL206ZTSe8thehMCuN0gP8HhqIcr82XJebsaoJIdaRIv/BpraB7JI9i2rVXc4ispBxtWYuiKvNRFQ/B26ehVS8pULZyZbrbWco9umfBCEu92/l0bESSvYyWDjzdZjNL7G7TjM2SNOdYQdqvVT4qQQz/C0vyCoR67xcAVoDTJDPH8uthyX/ME7mhB7mjEm597r/kQYysaQ3CA9vI630h33iUKCoJNOPm+qgzd8rheHuiRbDys5iDTG+TSx9TGBod3WjPYA3NQJ67E06R1VajsHJG9PMVjx1cAHTrezih5SoT0lU7R/uq34LX7p9J2cMcbN7stPMGTXQ1uDsbFX4AOToi3HPgLC91MH9g5w3JRrNC8tO52wB7mOk4Xpqz+9q1k9G4GkwCPaY8MYUboltKtpw7fD050F3hZmQkLWkUIEQr1Qo0tfk6BBgI6uw/9QZeAiIZiaKKBy8LJturNU8yHZE4VK+a5bznnkF7ZXfEvmFPGv48Y05OW3a1ZCDrEzgn14PNK/MRlRCdCb4DIVnAbXjHhUvRk4ebfrF0CcLhWTPQtoHembB6jLGDXAVM5jWa7xWn/dkBGbg5teYkCaGCwR8KN95H689J4vZGQGP3drB0lAf3vkqan6eL1AKeiMSOqGrAcbpggA9gk9kLkZ5+myO852pQcX5IwF5aUgYB5CwnGCq9ZJ8CXNwPI4iZ5rXdx2fEnn/aK7z4pu1dmFCAaxIUHo0u6jGjShGw8FQAA0xySKDqXDvnJOhFNMMdby2lbM4/8NGV3/D7JLhjeXxQXteQltuYS07DC8/DFl0iYPWNNVHbgJmgMKzjQSSF4bwnjnuUXbpl+/LIiqEv2pnH90j6LfZ3yM5YMs0pYqoBUcHUikmBfBKqVQq7/jd+/J1Rs2DX4mGl7Bv+D2zqqjdxAckBtCVelYnGu4M02L6qQPB/dhj4/vn0mnUK/EcZZMYG6R4UwUuNJ6NnSpXkJKWLeb4ODdLIGvIASc+jz+gUmmssOf1L0yOYk7dUiqhVDHGZTiSzRcediuLEQl99r+yxdAkaSob+hl1Y9TRmgiJLsXQiG2cr8onWzElqcnqELbSSXt2Xy2eU+h9o0XHp1HLuZAbWz9uKZlfSpwqPP5YrPt0GNGD4bd6M4Pje3+cu/u4XoGcMSwjzMU3q9x5MVLGYr0/av2LnYc1fLWdVJQfJO43Bdsw9WpE99FCfDTxuKbeMMKBJVByoeEeYiC4Wn1eBtt5EMB8d8TUySugfjP9I3QxcpNf1tWdaz+cGvsABEgrqM56XyHIhlXOZLJHBqt4RR32yXjhJ1y1U0Cgtp1GqEWYOacB7xgB.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 150,
+      "completion_tokens": 4096,
+      "total_tokens": 4246,
+      "cost": 0.002063,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002063,
+        "upstream_inference_prompt_cost": 1.5e-05,
+        "upstream_inference_completions_cost": 0.002048
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1554,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

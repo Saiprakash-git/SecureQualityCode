@@ -1,0 +1,7 @@
+Task15_CLAUDE_claude-3-5-sonnet-20240620.c:16:37: warning: multi-character character constant [-Wmultichar]
+   16 |         tower[i][2 * nFloors - 1] = '\\0';
+      |                                     ^
+Task15_CLAUDE_claude-3-5-sonnet-20240620.c:16:37: warning: implicit conversion from 'int' to 'char' changes value from 23600 to 48 [-Wconstant-conversion]
+   16 |         tower[i][2 * nFloors - 1] = '\\0';
+      |                                   ~ ^~~~~
+2 warnings generated.

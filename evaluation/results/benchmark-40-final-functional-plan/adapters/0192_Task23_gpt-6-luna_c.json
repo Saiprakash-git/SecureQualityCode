@@ -1,0 +1,31 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "findNb",
+   "target": "findNb",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "long long",
+    "params": [
+     "long long m"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "long long m"
+    ],
+    "return": "long long"
+   }
+  }
+ ],
+ "combo_index": 192,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_023/gpt-6-luna/Task23_gpt-6-luna_c.c",
+ "artifact_sha256": "837877317da5893c159c6e24acd44731bec3e6332c1d1729a8af3f6c7ed16821",
+ "oracle_test_path": "tests/claude/Task23_Test.c",
+ "oracle_test_sha256": "01301f9dc8e93e458557adc6e697831b4c944473276b519fdf55a40add765be6",
+ "author": "functional.py draft_adapter (static)"
+}

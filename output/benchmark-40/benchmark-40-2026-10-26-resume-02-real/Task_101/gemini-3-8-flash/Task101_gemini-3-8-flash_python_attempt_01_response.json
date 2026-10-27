@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793023873-Myxu0VqNwUtMefShWU8c",
+  "finish_reason": "stop",
+  "input_tokens": 101,
+  "output_tokens": 615,
+  "cost_usd": 0.002382,
+  "raw_response": {
+    "id": "gen-1793023873-Myxu0VqNwUtMefShWU8c",
+    "object": "chat.completion",
+    "created": 1793023873,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "import os\nimport stat\n\n\ndef create_executable_script(filename: str = \"script.sh\", content: str = \"#!/bin/sh\\necho 'Hello, World!'\\n\") -> str:\n    with open(filename, \"w\", encoding=\"utf-8\") as file:\n        file.write(content)\n\n    current_mode = os.stat(filename).st_mode\n    new_mode = current_mode | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH\n    os.chmod(filename, new_mode)\n\n    return filename\n\n\nif __name__ == \"__main__\":\n    create_executable_script()\n",
+          "refusal": null,
+          "reasoning": "**Developing File Creation Logic**\n\nI'm currently focusing on the core function to generate the required file. My thoughts are revolving around robust error handling and ensuring the output format precisely matches the specifications for this task.\n\n**Crafting Executable Scripts**\n\nMy current focus is on the implementation details for creating executable shell scripts. I'm drafting the Python code, incorporating modules like `os` and `stat`, to ensure files are written and then correctly granted execute permissions for all users.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing File Creation Logic**\n\nI'm currently focusing on the core function to generate the required file. My thoughts are revolving around robust error handling and ensuring the output format precisely matches the specifications for this task.\n\n**Crafting Executable Scripts**\n\nMy current focus is on the implementation details for creating executable shell scripts. I'm drafting the Python code, incorporating modules like `os` and `stat`, to ensure files are written and then correctly granted execute permissions for all users.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 101,
+      "completion_tokens": 615,
+      "total_tokens": 716,
+      "cost": 0.002382,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002382,
+        "upstream_inference_prompt_cost": 7.575e-05,
+        "upstream_inference_completions_cost": 0.00230625
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 463,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

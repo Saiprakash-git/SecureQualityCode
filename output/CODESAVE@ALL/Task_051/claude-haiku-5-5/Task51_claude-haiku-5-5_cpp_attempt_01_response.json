@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792953162-TL61hG3iYE62ZHCdXH5m",
+  "finish_reason": "stop",
+  "input_tokens": 151,
+  "output_tokens": 745,
+  "cost_usd": 0.0003876,
+  "raw_response": {
+    "id": "gen-1792953162-TL61hG3iYE62ZHCdXH5m",
+    "object": "chat.completion",
+    "created": 1792953162,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n#include <vector>\n#include <cstdint>\n\nstd::string xorEncrypt(const std::string& text, const std::string& key) {\n    std::string result = text;\n    if (key.empty()) return result;\n    for (size_t i = 0; i < text.size(); ++i) {\n        result[i] = static_cast<char>(text[i] ^ key[i % key.size()]);\n    }\n    return result;\n}\n\nstd::string toHex(const std::string& data) {\n    static const char* digits = \"0123456789abcdef\";\n    std::string out;\n    out.reserve(data.size() * 2);\n    for (unsigned char c : data) {\n        out.push_back(digits[c >> 4]);\n        out.push_back(digits[c & 0x0F]);\n    }\n    return out;\n}\n\nstd::string hexToBytes(const std::string& hex) {\n    std::string out;\n    out.reserve(hex.size() / 2);\n    auto val = [](char c) -> int {\n        if (c >= '0' && c <= '9') return c - '0';\n        if (c >= 'a' && c <= 'f') return c - 'a' + 10;\n        if (c >= 'A' && c <= 'F') return c - 'A' + 10;\n        return -1;\n    };\n    for (size_t i = 0; i + 1 < hex.size(); i += 2) {\n        int hi = val(hex[i]);\n        int lo = val(hex[i + 1]);\n        if (hi < 0 || lo < 0) break;\n        out.push_back(static_cast<char>((hi << 4) | lo));\n    }\n    return out;\n}\n\nint main() {\n    std::string text, key;\n    std::cout << \"Enter text to encrypt: \";\n    std::getline(std::cin, text);\n    std::cout << \"Enter key: \";\n    std::getline(std::cin, key);\n\n    std::string cipher = xorEncrypt(text, key);\n    std::string hexCipher = toHex(cipher);\n    std::cout << \"Encrypted (hex): \" << hexCipher << \"\\n\";\n\n    std::string decrypted = xorEncrypt(hexToBytes(hexCipher), key);\n    std::cout << \"Decrypted: \" << decrypted << \"\\n\";\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 151,
+      "completion_tokens": 745,
+      "total_tokens": 896,
+      "cost": 0.0003876,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003876,
+        "upstream_inference_prompt_cost": 1.51e-05,
+        "upstream_inference_completions_cost": 0.0003725
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

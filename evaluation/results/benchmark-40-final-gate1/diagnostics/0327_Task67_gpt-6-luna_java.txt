@@ -1,0 +1,2 @@
+CustomerLookup.java:5:22: compiler.err.expected: ';'
+1 error

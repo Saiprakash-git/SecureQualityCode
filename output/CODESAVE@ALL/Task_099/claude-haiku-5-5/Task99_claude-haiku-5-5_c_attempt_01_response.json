@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793023819-G19OROZhl0eUu3gE1beI",
+  "finish_reason": "stop",
+  "input_tokens": 161,
+  "output_tokens": 1101,
+  "cost_usd": 0.0005666,
+  "raw_response": {
+    "id": "gen-1793023819-G19OROZhl0eUu3gE1beI",
+    "object": "chat.completion",
+    "created": 1793023819,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#define _POSIX_C_SOURCE 200809L\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <regex.h>\n\n#define PATTERN \"^[0-9]+.*\\\\.$\"\n\nint compile_pattern(regex_t *re, const char *pattern) {\n    return regcomp(re, pattern, REG_EXTENDED | REG_NOSUB) == 0;\n}\n\nint line_matches(const regex_t *re, const char *line) {\n    return regexec(re, line, 0, NULL, 0) == 0;\n}\n\nvoid strip_newline(char *line) {\n    size_t len = strlen(line);\n    while (len > 0 && (line[len - 1] == '\\n' || line[len - 1] == '\\r')) {\n        line[--len] = '\\0';\n    }\n}\n\nlong process_stream(FILE *in, FILE *out, const regex_t *re) {\n    char *buf = NULL;\n    size_t cap = 0;\n    ssize_t n;\n    long count = 0;\n\n    while ((n = getline(&buf, &cap, in)) != -1) {\n        strip_newline(buf);\n        if (line_matches(re, buf)) {\n            fprintf(out, \"%s\\n\", buf);\n            count++;\n        }\n    }\n\n    free(buf);\n    return count;\n}\n\nint main(int argc, char *argv[]) {\n    regex_t re;\n    FILE *in = stdin;\n    long count;\n\n    if (!compile_pattern(&re, PATTERN)) {\n        fprintf(stderr, \"Failed to compile regular expression.\\n\");\n        return EXIT_FAILURE;\n    }\n\n    if (argc > 1) {\n        in = fopen(argv[1], \"r\");\n        if (!in) {\n            perror(\"fopen\");\n            regfree(&re);\n            return EXIT_FAILURE;\n        }\n    }\n\n    count = process_stream(in, stdout, &re);\n    fprintf(stderr, \"Matched lines: %ld\\n\", count);\n\n    if (in != stdin) {\n        fclose(in);\n    }\n    regfree(&re);\n    return EXIT_SUCCESS;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 161,
+      "completion_tokens": 1101,
+      "total_tokens": 1262,
+      "cost": 0.0005666,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0005666,
+        "upstream_inference_prompt_cost": 1.61e-05,
+        "upstream_inference_completions_cost": 0.0005505
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 392,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

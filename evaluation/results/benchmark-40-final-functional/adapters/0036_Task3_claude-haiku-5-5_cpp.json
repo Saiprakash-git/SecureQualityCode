@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "isPangram",
+   "target": "isPangram",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 36,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_003/claude-haiku-5-5/Task3_claude-haiku-5-5_cpp.cpp",
+ "artifact_sha256": "c771ee18215fcafcd851fe7391d8ec5a5057ae0bb1967583e68d917593ab608c",
+ "oracle_test_path": "tests/claude/Task3_Test.cpp",
+ "oracle_test_sha256": "b94cad74ef9276969b78ec33968d6f4309c1b7706e8923d6048129b8d954a262",
+ "author": "functional.py draft_adapter (static)"
+}

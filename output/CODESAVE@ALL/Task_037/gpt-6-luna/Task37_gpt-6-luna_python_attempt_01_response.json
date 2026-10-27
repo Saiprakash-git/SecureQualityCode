@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1792943805-gwKaZrV0iL3ihbFyzEZP",
+  "finish_reason": "stop",
+  "input_tokens": 117,
+  "output_tokens": 401,
+  "cost_usd": 0.0002122,
+  "raw_response": {
+    "id": "gen-1792943805-gwKaZrV0iL3ihbFyzEZP",
+    "object": "chat.completion",
+    "created": 1792943805,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "import sqlite3\nfrom typing import Any, Optional\n\n\ndef get_user_info(username: str, database_path: str = \"users.db\") -> Optional[dict[str, Any]]:\n    \"\"\"Return the user record matching username, or None if no match exists.\"\"\"\n    with sqlite3.connect(database_path) as connection:\n        connection.row_factory = sqlite3.Row\n        row = connection.execute(\n            \"SELECT * FROM users WHERE username = ?\",\n            (username,),\n        ).fetchone()\n        return dict(row) if row is not None else None\n\n\ndef main() -> None:\n    username = input(\"Enter a username: \").strip()\n    user = get_user_info(username)\n\n    if user is None:\n        print(\"User not found.\")\n    else:\n        for key, value in user.items():\n            print(f\"{key}: {value}\")\n\n\nif __name__ == \"__main__\":\n    main()",
+          "refusal": null,
+          "reasoning": "**Generating SQL code**\n\nI\u2019m getting started on producing code for a secure SQL database connection using Python\u2019s sqlite3. I need to create a function that accepts parameters, connects to the database, and retrieves user info based on the username. It looks like I should use a parameterized query to avoid SQL injection issues. I\u2019ll ensure the function can handle missing data and returns the output as a list of dictionaries, while keeping everything simple and concise, without extra explanations. Let's keep it straightforward!**Managing SQLite connections**\n\nIt seems I need to ensure the SQLite connection is properly managed in Python. I should wrap the connection logic in a try-finally block to handle errors gracefully. This ensures that even if there's an error during execution, the connection will always be closed properly. I\u2019ll focus solely on producing the necessary code without any extra explanations. Keeping it simple and direct is the goal here, just pure code!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Generating SQL code**\n\nI\u2019m getting started on producing code for a secure SQL database connection using Python\u2019s sqlite3. I need to create a function that accepts parameters, connects to the database, and retrieves user info based on the username. It looks like I should use a parameterized query to avoid SQL injection issues. I\u2019ll ensure the function can handle missing data and returns the output as a list of dictionaries, while keeping everything simple and concise, without extra explanations. Let's keep it straightforward!**Managing SQLite connections**\n\nIt seems I need to ensure the SQLite connection is properly managed in Python. I should wrap the connection logic in a try-finally block to handle errors gracefully. This ensures that even if there's an error during execution, the connection will always be closed properly. I\u2019ll focus solely on producing the necessary code without any extra explanations. Keeping it simple and direct is the goal here, just pure code!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3ibEijdjrYfymoDlCMmALKgYnK3VQdOuFyoyVzrQN3aMq8F6PgC0-2l9o28GiTDghEf0lH1AlDfmdGHuV8oRMrbUGi7AtNrZhGYhSnea0-caIxPWXrPAVuTH0N-5ODzKyMjB87lB4wKKmDqObcYtpzW-gimmL0q5ipuB2js86AR5WJsZcTZz8R3nLnvzLYA-44R6oYLaj-sQjg9Wi5fe3_3DB33fWlcwmXuc9RSj1s8EjTGdm7Hl3i2lUvG4aG8E41AenfpUc5aSIlSw7QSri_xQF9nZHd9e8bSbxpDBJSqNtbymAmYbD7jNdDT_q8jFpODiLbQRaVmMA7rDSodt1vd4riXz6QFFlOcrJorfedXsUfsLiTj-_o1Zjhno4-Lnpvt3xJtRccHqbYLJZDXiYMEk8xMOiPdVpGI7gdSA8Uu-QlsBRTwa442voCU5QZVuSCqeUv9GB3wUEnBT6s8s8bbbZFhZ0r_KNqh0EpbTPJWL4ZcxZgEgsrWaCgicPewhtTIBG8b0bA0ODFQ4cuss9OBgjhCX2CVCBzyQY9nmvb7jF6LzyFeoOfucLu2MwmVM1DBqvyJxVu4Rh8mlFKeFHsap0wyL6g7rAXoDHiIF70XQWNTp8KaUdawtoaSC4lHcMQ4XdmDrCzvekZJWDG3tgVFAnunr9J3mB8hLFHRzpPEDgUdhAJxQ_f_0_yPak4aCjzwvE6G8eBneiRBkAelL1C9wnuA2ioC3xf89xEkXlQoJTcFIWUqX3LVMQl5RwxumHCnTja69HzbOCBBgYNHhife2E7CJ6fhrASVFYdb56nYhvC-eNr9jj55j9VFtvyvZ42dxfgeSZfX0KTK2zVm45FBtuUQCUeWtp77aZeV_zgxPnfErghnfm9fq4CLXT69WSqEzAD2283AfChYJlQix1RXEj75MjVFtpLXrjP2pDKgktDKI5zkZkK8_deaXJSX4UReAz30xTNEIaHF-aQdqK5WqAd27hlBIHqB1fRdPaUNstLmuIMHnr5P9skTqLK8KRja67IaYpiyah5tT-MXtvhNmUaybNMNByIrsPCKcjJwwgc_SA-Lz2qA518XslrcVhGLLxrog_uRlp-LLKyDpEg7wTHkzIaCxmfdaeKKOng_K8F7C7hxo6C38oh5K4MBw6PTBhjgX_bUnoBHsuSsH3AdiYhEJjuRJHGL1XsEteOomy_indppKj9BRd6ZPTVuR5lNicH33wmItl3Cw3XMOjIep8FNgQJB_x8RjkRpbB_LLGIgm0PcAHCnEvdlMQd0ZpYpzcETrNx2QDUPjsi2VdidGqQsPiG94RqkZX6wWbj1-OzdrO4UWMO1zK51JWq5mJvUivGfmcgAg-JQIhTNNO0yPLOTV0cI2oRZiV6FR57Mouc89wK7mqBBbJM1ySzEruKE6T96jq0jlBiK_GXnXg5L7-oXGkC7u6Ic5WudOb2ev2InEKNwoXVQCqjjp2rMEPdwas6Xl91W7nvXTSrjZcyj3rwtl1lwv8AXOrd1GLA2RHAc5CIdoLXEWwc9ebyt5QcFGxN5Bd98Sn96bDNHfke1ToBxpV0Tg4aLOvidvYg_TQcvlwONrbczMHTr_iqn3gcKtaT4lg0W8o_0vjQrHxlCnJD5cSOvakxU2Z1Mx8DqqLH8zGrfGv6WM09QwEqdr5G2O06a_IMMuNRPonWncCO5BpviePbqDoM13eVLtO6UELclLzYPe910KuR-5q-mBVsbbjYbmt03F7EMCAN2WP0JKhjDTnrk4FEK_zNVrytVtttJI0YgSCyGzFGujs8Z-TmvYgTmfrgEoSnda854lNxPMiU-MX3GwjQfzivU8RaUj0QvHA8V_mtsSJv6DvXg64DifMfC2l7SE9_jrBz1GVvSWCr72OILWS01XP02Y5bzC8m05qGxiGw18KCr2GkZ0l-1hjJJdHUkFs7b_QX2eb0Jl_uphRph8oKELiVHUxhmcQfmtnfuFEFyWd2SPPdocROfHoKb16ZbRujT1iqTwh8mTq-PCwO_Hl3NsdRZEYV85EaGJ3R0Ilyinv4IjyWhJ80mdBsUzXzyIn_TkIGCSSJpKSt4O4R_aCWG27sE3-v9sJTPrjQNAIDGYU1g7U8RvxlGbJmXnu_6JsjuaTTB4QdpWR4iCmJ9kl4qKKiRtSwC3BLNPXIEi_TTyCKzp3tlSE2bYN2r4U2oKQulY19Rjb4cVEML2-XNr46tEUXJWIiPFBNhHN4kpAFglcGyFHfhLNPYAYjoE1oyDnyg7U2yv4GIEpmMr9VgJS_nl9e8KFm5s0mJX_9TiuZUR47PlmqomkxygLXztzAhGzIM2KXMHFLmP860oUJuiQ4v_cXpUdXNNyvOFEIJXLXQiqs0YCSRddVqFuM6yYD69DL8kNJAJ1xp-IstWu4lJ5V4eN5NbZMbvDAh7zNVHkVnSAVHRLYumagsVZf20xyqqEz3U7dI2XfSJA9_oiZm3Pu1oy3Nhb5rgbdnYZZHA2JkzYRGdNWN4XbuNHrub51EfIk-p09W7J_nTsBpGAulQDthEi7snIvTDbKZOC5tfNMn4Ih3NdNxtf5IWnIO_pNVKht2Swfuv94suzZKcIauIj2471AKeqezZAcdyekmNCNNuuUnLaNkjsi_EP-7mB_yW9JbTSooOxQXriDInnBPHhU4-Mg_b6zeTesIOaAaEpNchmSAZ1KSlIzVsdsEVxVzvdP_gCJNQt7ite7yu8fBYznaXWM73W0cM-PfyJ8EJoJHi2Z394ZAT3LrgrrC6DKzNbfhRATrlQvJLCcwpYrKfp2cVWlTmrFH_WtXel-XFXk7thCjYBElP6VTUay7d0juxigRng675-wWr80l8gW8ABHyrG8WNLbp8qBgc2u1jz1YX6seO9rhgu6TWwTu00wB9Otxu_mRIEguxnuDlVjsz3yQyPvj-jr0-5u552N-DBpwhB2LMkO8y_ie0B3k_DWaUVs5ZIITUGNleK36kXmtvuWXqXPs4h9gdWi4Ez0BxfoEax8YMwvXF01hMeEiD9GW_HZj9z5ubaRFH2Lp20sG_7AtJ_Wf9TXOyGmBAUOnnN3EzU8dpcj4a9iXrG4sS_qQZKnflcdJ9stJNqtShQcPc_Ro-0lAu0BB3EGYU28sRm9v0YDF-UboLBrSCGV_U63WuT4qvIXHZkKJBCCmsQTPDEYLHuBNDRMDP57dW9m4B42-BO8gu8G5UCRLJrb795QGBX6Zcq_R7Ass4WW3K5n3xuxKwCkULorZCTzcMX4guQVnUoPu8lbsoBR9PSv1qK4O-qNSjVzZV9szwJRI5rQAWXB6ut0c1tE1E_CGW8Z21bciInho9fMAR3FREclBwbFfn2A-j6RiML1cfM1HSHHMvNLsoCqRTUIHKfcNYm5oPuvtzasmz2E0GghXpUGZ6FHFrpN9SHW3gJ_fgq0krNjX0fNoF3Lu8Pl7BV5RBTSlspGA3BfwkKHhs70JYLTmkPm9nIw9W7PgyRdQ2VTp5dwWQuG_qc-jmKRAvjrBD6MiMumd5piVsVxue9RR6G-svCyl6T-yhucv-LJk4bNX1s8WgWppjJI9Egr641qIQViK6UW9rxXMlyXad3Ccb1YGYeP9ZOVrUY23o_UJ12vhJzYz0wu0pIBPtVk6Ob17CVhM8P4kd6R1kjAm7U2mlDJysVl6qVvm3zEfRcRjc3vpb25d5ySDmW4GPxEdmdoeEH6qMwSPTOxHNC8RqMdEs_TjERinm46auInTo01BDuvVsN6AgSfIKbHZWolF5ymKcz-kE5n6XXK-KJ6mUWttuU1O-8snh691dWpGCR--GfhUmh2_fnycpXQ01T5LofVsdDCFZOsOwFC28oJYgS7k9IPPqXLcY9dnzY9ug12Cdi09jIKVysm2pJ-DgZAMA3CPEeGv96IrUusE1G1Pf-JdRya_TDjSVdYHVoqfDJfAseImu1nhIgtyKUJ2yrC4Mof91fS35TJHLyzhWQOXNWEqqYG7OQqOKWwNGmRFhkE69fzVRBP0x_LUJwYGdsnsSwLQkx_zlWeQi9sjqZD7Cn-oddOEtSHYJc81_nkj-bTGvdXWMvia29LIBpEjxif73_XEhq_yZkTYx_c2_rlNCUPMqIWtwNH-3N_HObosM-WJkjpHxFJSXklh0RIGxN_f64U3gNG2TX2Zh4TRFkug511SWV9n5xS0QIKbf7996IDweQM-1RvF8qAFg1qS4qIYfME3tbz05kTjjm5Jd7cBVwiDOv2L_xVoxbvCREdySjzKtdHlKXdq8yU2rQiP87wMukMpWcitFkJhlgdk_-t5pHSX8BLePoWDjrJzX9xNpamfTzCe_C6vg_tSSttv6W2JNJtsu-62rzq2-rSRAc_z6fZyov4OH-t8x-q6WYccozuP800c9-SM17V_rajq6I-BnUASC_aBKtKWYJ47nCv2LqMKznRvHN65H11UlDoPrahTtI9dzteB3AGAV5R00JKH3JQQ=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_08f5491096ab9e06016ade26c0a28887d1879df13476462c03",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 117,
+      "completion_tokens": 401,
+      "total_tokens": 518,
+      "cost": 0.0002122,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002122,
+        "upstream_inference_prompt_cost": 1.17e-05,
+        "upstream_inference_completions_cost": 0.0002005
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 212,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,33 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "findEvenIndex",
+   "target": "find_even_index",
+   "kind": "alias",
+   "name_match": "normalized",
+   "types_match": false,
+   "canonical_signature": {
+    "return": "int",
+    "params": [
+     "const int *arr",
+     "int length"
+    ]
+   },
+   "target_signature": {
+    "arity": 2,
+    "params": [
+     "const int *values",
+     "size_t length"
+    ],
+    "return": "int"
+   }
+  }
+ ],
+ "combo_index": 92,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_014/gpt-6-luna/Task14_gpt-6-luna_c.c",
+ "artifact_sha256": "89356d783041b40ef211c91e12aa6067ee3a745762b46a01443ec79d5953fc9d",
+ "oracle_test_path": "tests/claude/Task14_Test.c",
+ "oracle_test_sha256": "155b1c51302963f28dea7f748e566aa2b502ce7ed9c9faa1820d6ae62ab3630e",
+ "author": "functional.py draft_adapter (static)"
+}

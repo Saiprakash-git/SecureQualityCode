@@ -1,0 +1,20 @@
+{
+  "evaluator_version": "m1.0",
+  "evaluator_sha256": "523d84e06a62f511ea9572359242e18dd9ec87cc0a5bf1558b9a18a8c3e178be",
+  "driver_sha256": "ceb56ab377de59eedde9b6266a5b0f74d4613852e1d46bcceb75c8d869b9365a",
+  "toolchain_config": {
+    "target": "x86_64-linux-gnu",
+    "c_std": "gnu17",
+    "cpp_std": "gnu++17",
+    "timeout_seconds": 120
+  },
+  "versions": {
+    "python": "3.11.1",
+    "javac": "javac 21.0.6",
+    "java": "java version \"21.0.6\" 2025-01-21 LTS",
+    "zig": "0.15.2",
+    "clang": "clang version 20.1.2 (https://github.com/ziglang/zig-bootstrap 7ef74e656cf8ddbd6bf891a8475892aa1afa6891)"
+  },
+  "snapshot_id": "1736c9c488b27f236050049ffa3fb4a3bb7198c4259a97a9c958861f1593e4c9",
+  "generated_at": "2026-10-27T11:46:46"
+}

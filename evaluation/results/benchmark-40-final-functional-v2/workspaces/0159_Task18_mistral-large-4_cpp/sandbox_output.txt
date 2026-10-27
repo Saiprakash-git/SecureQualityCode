@@ -1,0 +1,7 @@
+@@69c8181ba0439d52 STEP 0 BEGIN@@
+
+@@69c8181ba0439d52 STEP 0 END rc=0@@
+@@69c8181ba0439d52 STEP 1 BEGIN@@
+All test cases passed.
+
+@@69c8181ba0439d52 STEP 1 END rc=0@@

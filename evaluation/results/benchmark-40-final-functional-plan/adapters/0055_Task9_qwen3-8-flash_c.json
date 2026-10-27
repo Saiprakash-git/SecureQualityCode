@@ -1,0 +1,33 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "odd_or_even",
+   "target": "odd_or_even",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "const char*",
+    "params": [
+     "int arr[]",
+     "int size"
+    ]
+   },
+   "target_signature": {
+    "arity": 2,
+    "params": [
+     "int *arr",
+     "int n"
+    ],
+    "return": "char *"
+   }
+  }
+ ],
+ "combo_index": 55,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_009/qwen3-8-flash/Task9_qwen3-8-flash_c.c",
+ "artifact_sha256": "88accac2dbc092dc1dcc7e2fa7c5cf7c279cdd82d736679020c841c126e71953",
+ "oracle_test_path": "tests/claude/Task9_Test.c",
+ "oracle_test_sha256": "8c5d75303fa54524247336c03d79eba8d81ac80c423b5ddc25539bd1c7ddd3cd",
+ "author": "functional.py draft_adapter (static)"
+}

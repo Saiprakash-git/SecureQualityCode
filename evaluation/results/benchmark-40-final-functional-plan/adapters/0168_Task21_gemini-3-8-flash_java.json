@@ -1,0 +1,32 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "Task21_CLAUDE_claude_3_5_sonnet_20240620.removeSmallest",
+   "target": "Solution.removeSmallest",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": false,
+   "canonical_signature": {
+    "return": "List<Integer>",
+    "params": [
+     "List<Integer> numbers"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "int[] numbers"
+    ],
+    "return": "int[]",
+    "static": true
+   }
+  }
+ ],
+ "combo_index": 168,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_021/gemini-3-8-flash/Task21_gemini-3-8-flash_java.java",
+ "artifact_sha256": "4d5ca5806f4889af8a52693e7b4bd0b30fe06ccf9079f77521661b6a01b45f1e",
+ "oracle_test_path": "src/test/java/claude/task21/Task21_TestCase.java",
+ "oracle_test_sha256": "8525df080ab2692e089029c27ebea0f317718a6a9e2fd1e62c8b5c43cd530aa2",
+ "author": "functional.py draft_adapter (static)"
+}

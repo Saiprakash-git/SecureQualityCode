@@ -1,0 +1,937 @@
+14,6,63,1,18,"validate_pin@3-20@src/c/0015.c","src/c/0015.c","validate_pin","validate_pin( const char * pin)",3,20
+16,6,103,2,16,"read_line_safe@8-23@src/c/0091.c","src/c/0091.c","read_line_safe","read_line_safe( char * buf , size_t size)",8,23
+7,3,70,3,7,"to_upper_copy@25-31@src/c/0091.c","src/c/0091.c","to_upper_copy","to_upper_copy( char * dst , const char * src , size_t dst_size)",25,31
+13,4,66,1,13,"count_words@33-45@src/c/0091.c","src/c/0091.c","count_words","count_words( const char * s)",33,45
+8,4,87,1,8,"reverse_string@47-54@src/c/0091.c","src/c/0091.c","reverse_string","reverse_string( char * s)",47,54
+13,7,66,1,13,"count_vowels@56-68@src/c/0091.c","src/c/0091.c","count_vowels","count_vowels( const char * s)",56,68
+23,2,164,0,28,"main@70-97@src/c/0091.c","src/c/0091.c","main","main()",70,97
+23,4,136,1,26,"shell_quote@5-30@src/c/0075.c","src/c/0075.c","shell_quote","shell_quote( const char * input)",5,30
+31,7,193,0,40,"main@32-71@src/c/0075.c","src/c/0075.c","main","main()",32,71
+14,5,85,2,14,"read_filename@6-19@src/c/0071.c","src/c/0071.c","read_filename","read_filename( char * buf , size_t size)",6,19
+29,7,173,3,29,"shell_quote@21-49@src/c/0071.c","src/c/0071.c","shell_quote","shell_quote( const char * in , char * out , size_t size)",21,49
+11,4,80,3,11,"build_command@51-61@src/c/0071.c","src/c/0071.c","build_command","build_command( const char * filename , char * cmd , size_t size)",51,61
+17,4,96,1,17,"display_file@63-79@src/c/0071.c","src/c/0071.c","display_file","display_file( const char * filename)",63,79
+13,3,65,0,17,"main@81-97@src/c/0071.c","src/c/0071.c","main","main()",81,97
+17,9,116,2,20,"read_into_buffer@7-26@src/c/0194.c","src/c/0194.c","read_into_buffer","read_into_buffer( char * buffer , size_t buffer_size)",7,26
+6,2,26,1,6,"get_buffer_length@28-33@src/c/0194.c","src/c/0194.c","get_buffer_length","get_buffer_length( const char * buffer)",28,33
+5,2,24,1,5,"print_buffer@35-39@src/c/0194.c","src/c/0194.c","print_buffer","print_buffer( const char * buffer)",35,39
+13,2,62,0,16,"main@41-56@src/c/0194.c","src/c/0194.c","main","main()",41,56
+6,3,40,1,6,"trim_newline@9-14@src/c/0155.c","src/c/0155.c","trim_newline","trim_newline( char * s)",9,14
+13,5,77,2,15,"read_line@16-30@src/c/0155.c","src/c/0155.c","read_line","read_line( char * buf , size_t size)",16,30
+4,1,19,1,4,"contains_forbidden@32-35@src/c/0155.c","src/c/0155.c","contains_forbidden","contains_forbidden( const char * s)",32,35
+16,8,101,1,20,"is_valid_name@37-56@src/c/0155.c","src/c/0155.c","is_valid_name","is_valid_name( const char * name)",37,56
+21,12,153,1,28,"is_valid_email@58-85@src/c/0155.c","src/c/0155.c","is_valid_email","is_valid_email( const char * email)",58,85
+4,1,17,1,4,"is_valid_password@87-90@src/c/0155.c","src/c/0155.c","is_valid_password","is_valid_password( const char * password)",87,90
+10,2,45,1,12,"hash_password@92-103@src/c/0155.c","src/c/0155.c","hash_password","hash_password( const char * password)",92,103
+12,4,76,2,15,"case_insensitive_equal@105-119@src/c/0155.c","src/c/0155.c","case_insensitive_equal","case_insensitive_equal( const char * a , const char * b)",105,119
+25,6,151,2,33,"user_exists@121-153@src/c/0155.c","src/c/0155.c","user_exists","user_exists( const char * email , const char * db_path)",121,153
+18,8,133,4,25,"register_user@155-179@src/c/0155.c","src/c/0155.c","register_user","register_user( const char * name , const char * email , const char * password , const char * db_path)",155,179
+25,4,144,0,31,"main@181-211@src/c/0155.c","src/c/0155.c","main","main()",181,211
+12,6,65,1,14,"validate_pin@4-17@src/c/0012.c","src/c/0012.c","validate_pin","validate_pin( const char * pin)",4,17
+20,6,128,1,20,"url_decode@8-27@src/c/0054.c","src/c/0054.c","url_decode","url_decode( const char * src)",8,27
+14,8,175,3,14,"html_escape@29-42@src/c/0054.c","src/c/0054.c","html_escape","html_escape( const char * src , char * dst , size_t dst_size)",29,42
+13,6,70,1,15,"validate_pin@4-18@src/c/0013.c","src/c/0013.c","validate_pin","validate_pin( const char * pin)",4,18
+16,7,150,3,16,"url_decode@13-28@src/c/0053.c","src/c/0053.c","url_decode","url_decode( char * dst , size_t dst_size , const char * src)",13,28
+32,8,174,3,32,"html_escape@30-61@src/c/0053.c","src/c/0053.c","html_escape","html_escape( char * dst , size_t dst_size , const char * src)",30,61
+25,9,198,4,28,"extract_field_value@63-90@src/c/0053.c","src/c/0053.c","extract_field_value","extract_field_value( const char * body , const char * key , char * out_val , size_t out_size)",63,90
+39,2,133,4,42,"build_response@92-133@src/c/0053.c","src/c/0053.c","build_response","build_response( const char * submitted_text , int has_input , char * response_buf , size_t buf_size)",92,133
+20,4,159,1,24,"handle_client@135-158@src/c/0053.c","src/c/0053.c","handle_client","handle_client( int client_fd)",135,158
+35,6,224,0,42,"main@160-201@src/c/0053.c","src/c/0053.c","main","main()",160,201
+29,4,125,1,34,"setup_database@13-46@src/c/0033.c","src/c/0033.c","setup_database","setup_database( sqlite3 ** db)",13,46
+35,7,306,3,43,"query_user_by_username@48-90@src/c/0033.c","src/c/0033.c","query_user_by_username","query_user_by_username( sqlite3 * db , const char * username , UserInfo * user)",48,90
+36,7,233,0,43,"main@92-134@src/c/0033.c","src/c/0033.c","main","main()",92,134
+21,10,135,3,28,"read_line@14-41@src/c/0193.c","src/c/0193.c","read_line","read_line( char * dest , size_t dest_size , FILE * stream)",14,41
+24,5,104,0,28,"main@43-70@src/c/0193.c","src/c/0193.c","main","main()",43,70
+17,4,95,2,17,"secure_random_bytes@45-61@src/c/0133.c","src/c/0133.c","secure_random_bytes","secure_random_bytes( unsigned char * out , size_t length)",45,61
+16,4,125,2,16,"generate_session_id@63-78@src/c/0133.c","src/c/0133.c","generate_session_id","generate_session_id( char * out_hex , size_t out_size)",63,78
+7,3,67,3,7,"constant_time_compare@80-86@src/c/0133.c","src/c/0133.c","constant_time_compare","constant_time_compare( const char * a , const char * b , size_t len)",80,86
+7,2,43,1,7,"init_session_store@88-94@src/c/0133.c","src/c/0133.c","init_session_store","init_session_store( SessionStore * store)",88,94
+13,5,140,2,13,"purge_expired_sessions_locked@96-108@src/c/0133.c","src/c/0133.c","purge_expired_sessions_locked","purge_expired_sessions_locked( SessionStore * store , time_t now)",96,108
+31,8,261,4,37,"create_session@110-146@src/c/0133.c","src/c/0133.c","create_session","create_session( SessionStore * store , const char * username , char * out_id , size_t out_id_size)",110,146
+31,11,251,4,34,"validate_session@148-181@src/c/0133.c","src/c/0133.c","validate_session","validate_session( SessionStore * store , const char * token , char * out_user , size_t out_user_size)",148,181
+24,8,205,2,27,"terminate_session@183-209@src/c/0133.c","src/c/0133.c","terminate_session","terminate_session( SessionStore * store , const char * token)",183,209
+17,12,162,4,18,"extract_cookie_value@211-228@src/c/0133.c","src/c/0133.c","extract_cookie_value","extract_cookie_value( const char * cookie_header , const char * key , char * out_val , size_t out_val_size)",211,228
+17,10,148,4,18,"parse_form_value@230-247@src/c/0133.c","src/c/0133.c","parse_form_value","parse_form_value( const char * body , const char * key , char * out_val , size_t out_val_size)",230,247
+12,8,60,1,12,"reg_status_message@31-42@src/c/0151.c","src/c/0151.c","reg_status_message","reg_status_message( RegStatus status)",31,42
+13,8,105,1,15,"is_valid_name@44-58@src/c/0151.c","src/c/0151.c","is_valid_name","is_valid_name( const char * name)",44,58
+23,14,190,1,27,"is_valid_email@60-86@src/c/0151.c","src/c/0151.c","is_valid_email","is_valid_email( const char * email)",60,86
+10,6,78,1,12,"is_valid_password@88-99@src/c/0151.c","src/c/0151.c","is_valid_password","is_valid_password( const char * password)",88,99
+7,3,70,3,7,"normalize_email@101-107@src/c/0151.c","src/c/0151.c","normalize_email","normalize_email( char * dst , const char * src , size_t dst_size)",101,107
+9,2,90,3,9,"bytes_to_hex@109-117@src/c/0151.c","src/c/0151.c","bytes_to_hex","bytes_to_hex( const unsigned char * in , size_t n , char * out)",109,117
+9,3,74,3,9,"hex_to_bytes@119-127@src/c/0151.c","src/c/0151.c","hex_to_bytes","hex_to_bytes( const char * hex , unsigned char * out , size_t n)",119,127
+13,3,96,1,14,"generate_salt@129-142@src/c/0151.c","src/c/0151.c","generate_salt","generate_salt( char * out_hex)",129,142
+17,5,98,3,18,"send_all@49-66@src/c/0132.c","src/c/0132.c","send_all","send_all( int fd , const * buffer , size_t length)",49,66
+23,6,118,2,26,"fill_random_bytes@68-93@src/c/0132.c","src/c/0132.c","fill_random_bytes","fill_random_bytes( unsigned char * buffer , size_t length)",68,93
+16,6,133,2,18,"random_hex@95-112@src/c/0132.c","src/c/0132.c","random_hex","random_hex( char * output , size_t hex_length)",95,112
+12,7,85,2,14,"is_hex_string@114-127@src/c/0132.c","src/c/0132.c","is_hex_string","is_hex_string( const char * value , size_t expected_length)",114,127
+14,3,75,1,15,"remove_expired_sessions_locked@129-143@src/c/0132.c","src/c/0132.c","remove_expired_sessions_locked","remove_expired_sessions_locked( time_t now)",129,143
+14,3,81,1,15,"delete_session_locked@145-159@src/c/0132.c","src/c/0132.c","delete_session_locked","delete_session_locked( const char * id)",145,159
+10,3,48,1,11,"find_session_locked@161-171@src/c/0132.c","src/c/0132.c","find_session_locked","find_session_locked( const char * id)",161,171
+39,18,270,1,48,"extract_session_cookie@173-220@src/c/0132.c","src/c/0132.c","extract_session_cookie","extract_session_cookie( const char * header , char output [ SESSION_ID_HEX + 1 ])",173,220
+8,2,64,3,10,"constant_time_equal@222-231@src/c/0132.c","src/c/0132.c","constant_time_equal","constant_time_equal( const char * a , const char * b , size_t length)",222,231
+45,9,308,3,54,"retrieve_user@4-57@src/c/0032.c","src/c/0032.c","retrieve_user","retrieve_user( sqlite3 * db , const char * username , FILE * output)",4,57
+19,4,114,2,22,"main@59-80@src/c/0032.c","src/c/0032.c","main","main( int argc , char ** argv)",59,80
+7,7,60,1,7,"hex_value@17-23@src/c/0051.c","src/c/0051.c","hex_value","hex_value( char c)",17,23
+17,10,179,3,17,"url_decode@25-41@src/c/0051.c","src/c/0051.c","url_decode","url_decode( const char * src , char * dst , size_t dstlen)",25,41
+26,11,181,3,26,"html_escape@43-68@src/c/0051.c","src/c/0051.c","html_escape","html_escape( const char * src , char * dst , size_t dstlen)",43,68
+26,10,221,4,28,"get_form_value@70-97@src/c/0051.c","src/c/0051.c","get_form_value","get_form_value( const char * body , const char * key , char * out , size_t outlen)",70,97
+22,1,41,2,22,"build_form_page@99-120@src/c/0051.c","src/c/0051.c","build_form_page","build_form_page( char * buf , size_t buflen)",99,120
+29,4,139,5,31,"build_result_page@122-152@src/c/0051.c","src/c/0051.c","build_result_page","build_result_page( char * buf , size_t buflen , const char * name , const char * email , const char * message)",122,152
+6,1,25,2,6,"build_not_found_page@154-159@src/c/0051.c","src/c/0051.c","build_not_found_page","build_not_found_page( char * buf , size_t buflen)",154,159
+9,3,61,3,9,"send_all@161-169@src/c/0051.c","src/c/0051.c","send_all","send_all( int fd , const char * data , size_t len)",161,169
+12,1,69,4,12,"send_response@171-182@src/c/0051.c","src/c/0051.c","send_response","send_response( int fd , const char * status , const char * body , size_t body_len)",171,182
+11,5,66,1,11,"parse_content_length@184-194@src/c/0051.c","src/c/0051.c","parse_content_length","parse_content_length( const char * headers)",184,194
+18,5,128,0,25,"main@7-31@src/c/0095.c","src/c/0095.c","main","main()",7,31
+21,15,135,2,26,"auth_username_length@34-59@src/c/0112.c","src/c/0112.c","auth_username_length","auth_username_length( const char * username , size_t * length)",34,59
+17,5,81,2,18,"auth_password_hash@61-78@src/c/0112.c","src/c/0112.c","auth_password_hash","auth_password_hash( const unsigned char * password , size_t password_length , const unsigned char salt [ AUTH_SALT_SIZE ] , unsigned char output [ AUTH_HASH_SIZE ])",61,78
+8,4,57,2,9,"auth_stored_username_matches@80-88@src/c/0112.c","src/c/0112.c","auth_stored_username_matches","auth_stored_username_matches( const AuthUser * user , const char * username)",80,88
+36,13,216,6,42,"auth_register@90-131@src/c/0112.c","src/c/0112.c","auth_register","auth_register( AuthUser * users , size_t * user_count , size_t capacity , const char * username , const unsigned char * password , size_t password_length)",90,131
+58,14,332,6,67,"auth_login@133-199@src/c/0112.c","src/c/0112.c","auth_login","auth_login( const AuthUser * users , size_t user_count , const char * username , const unsigned char * password , size_t password_length , size_t * authenticated_index)",133,199
+5,2,25,1,5,"auth_user_clear@201-205@src/c/0112.c","src/c/0112.c","auth_user_clear","auth_user_clear( AuthUser * user)",201,205
+16,5,86,3,17,"send_all@17-33@src/c/0052.c","src/c/0052.c","send_all","send_all( int fd , const char * data , size_t length)",17,33
+17,3,94,3,18,"send_response@35-52@src/c/0052.c","src/c/0052.c","send_response","send_response( int fd , const char * status , const char * body)",35,52
+11,1,51,3,12,"send_error@54-65@src/c/0052.c","src/c/0052.c","send_error","send_error( int fd , const char * status , const char * message)",54,65
+40,11,186,3,44,"html_escape@67-110@src/c/0052.c","src/c/0052.c","html_escape","html_escape( const char * input , char * output , size_t capacity)",67,110
+30,2,139,2,34,"render_page@112-145@src/c/0052.c","src/c/0052.c","render_page","render_page( int fd , const char * message)",112,145
+13,7,94,3,14,"find_header_end@147-160@src/c/0052.c","src/c/0052.c","find_header_end","find_header_end( const char * request , size_t length , size_t * end)",147,160
+37,14,268,3,47,"parse_content_length@162-208@src/c/0052.c","src/c/0052.c","parse_content_length","parse_content_length( const char * request , size_t header_end , size_t * content_length)",162,208
+26,12,256,4,30,"decode_component@210-239@src/c/0052.c","src/c/0052.c","decode_component","decode_component( const char * input , size_t length , char * output , size_t capacity)",210,239
+25,8,156,4,32,"extract_message@241-272@src/c/0052.c","src/c/0052.c","extract_message","extract_message( const char * body , size_t body_length , char * message , size_t message_capacity)",241,272
+75,19,450,1,85,"handle_client@274-358@src/c/0052.c","src/c/0052.c","handle_client","handle_client( int fd)",274,358
+29,16,192,3,36,"read_line@12-47@src/c/0192.c","src/c/0192.c","read_line","read_line( FILE * input , char * buffer , size_t capacity)",12,47
+22,4,111,0,28,"main@49-76@src/c/0192.c","src/c/0192.c","main","main()",49,76
+3,1,29,2,3,"rotr@49-51@src/c/0113.c","src/c/0113.c","rotr","rotr( uint32_t x , uint32_t n)",49,51
+6,2,36,2,6,"secure_zero@53-58@src/c/0113.c","src/c/0113.c","secure_zero","secure_zero( * ptr , size_t len)",53,58
+9,3,87,3,9,"secure_memcmp@60-68@src/c/0113.c","src/c/0113.c","secure_memcmp","secure_memcmp( const * a , const * b , size_t len)",60,68
+46,4,546,1,51,"sha256_transform@70-120@src/c/0113.c","src/c/0113.c","sha256_transform","sha256_transform( sha256_ctx_t * ctx , const uint8_t data [ 64 ])",70,120
+11,1,86,1,11,"sha256_init@122-132@src/c/0113.c","src/c/0113.c","sha256_init","sha256_init( sha256_ctx_t * ctx)",122,132
+15,3,147,3,16,"sha256_update@134-149@src/c/0113.c","src/c/0113.c","sha256_update","sha256_update( sha256_ctx_t * ctx , const uint8_t * data , size_t len)",134,149
+18,4,266,1,20,"sha256_final@151-170@src/c/0113.c","src/c/0113.c","sha256_final","sha256_final( sha256_ctx_t * ctx , uint8_t digest [ HASH_SIZE ])",151,170
+3,1,29,2,3,"rotr32@20-22@src/c/0153.c","src/c/0153.c","rotr32","rotr32( uint32_t x , uint32_t n)",20,22
+64,4,673,1,70,"sha256_transform@24-93@src/c/0153.c","src/c/0153.c","sha256_transform","sha256_transform( SHA256_Context * ctx , const uint8_t data [ ])",24,93
+11,1,86,1,11,"sha256_init@95-105@src/c/0153.c","src/c/0153.c","sha256_init","sha256_init( SHA256_Context * ctx)",95,105
+15,3,145,3,18,"sha256_update@107-124@src/c/0153.c","src/c/0153.c","sha256_update","sha256_update( SHA256_Context * ctx , const uint8_t * data , size_t len)",107,124
+6,2,36,2,6,"secure_zero@50-55@src/c/0111.c","src/c/0111.c","secure_zero","secure_zero( * p , size_t n)",50,55
+8,2,62,3,8,"ct_equal@57-64@src/c/0111.c","src/c/0111.c","ct_equal","ct_equal( const uint8_t * a , const uint8_t * b , size_t n)",57,64
+10,3,66,2,10,"random_bytes@68-77@src/c/0111.c","src/c/0111.c","random_bytes","random_bytes( uint8_t * buf , size_t n)",68,77
+8,1,92,1,8,"sha256_init@101-108@src/c/0111.c","src/c/0111.c","sha256_init","sha256_init( sha256_ctx * c)",101,108
+19,10,127,2,24,"safe_read_string@7-30@src/c/0094.c","src/c/0094.c","safe_read_string","safe_read_string( char * buffer , size_t buffer_size)",7,30
+12,6,90,3,14,"process_string@32-45@src/c/0094.c","src/c/0094.c","process_string","process_string( const char * input , char * output , size_t output_size)",32,45
+14,2,85,0,19,"main@47-65@src/c/0094.c","src/c/0094.c","main","main()",47,65
+27,12,158,2,35,"read_line@6-40@src/c/0092.c","src/c/0092.c","read_line","read_line( char * buffer , size_t capacity)",6,40
+4,1,15,1,4,"process_string@42-45@src/c/0092.c","src/c/0092.c","process_string","process_string( const char * input)",42,45
+22,3,108,1,27,"main@47-73@src/c/0092.c","src/c/0092.c","main","main( int argc , char * argv [ ])",47,73
+19,9,136,3,24,"read_line_into_buffer@7-30@src/c/0191.c","src/c/0191.c","read_line_into_buffer","read_line_into_buffer( char * buffer , size_t size , FILE * stream)",7,30
+4,1,21,2,4,"process_buffer@32-35@src/c/0191.c","src/c/0191.c","process_buffer","process_buffer( const char * buffer , size_t length)",32,35
+12,2,67,0,15,"main@37-51@src/c/0191.c","src/c/0191.c","main","main()",37,51
+16,5,114,2,20,"encrypt@5-24@src/c/0174.c","src/c/0174.c","encrypt","encrypt( const char * plaintext , const char * key)",5,24
+3,1,22,2,3,"decrypt@26-28@src/c/0174.c","src/c/0174.c","decrypt","decrypt( const char * ciphertext , const char * key)",26,28
+23,6,174,1,28,"main@30-57@src/c/0174.c","src/c/0174.c","main","main( int argc , char * argv [ ])",30,57
+12,3,77,1,12,"connect_database@12-23@src/c/0034.c","src/c/0034.c","connect_database","connect_database( MYSQL * conn)",12,23
+11,5,81,1,13,"display_file@11-23@src/c/0073.c","src/c/0073.c","display_file","display_file( const char * filename)",11,23
+18,4,100,0,23,"main@25-47@src/c/0073.c","src/c/0073.c","main","main()",25,47
+29,8,175,1,35,"shell_quote@9-43@src/c/0072.c","src/c/0072.c","shell_quote","shell_quote( const char * text)",9,43
+56,12,319,0,68,"main@45-112@src/c/0072.c","src/c/0072.c","main","main()",45,112
+41,9,251,2,50,"encrypt_string@6-55@src/c/0175.c","src/c/0175.c","encrypt_string","encrypt_string( const char * plaintext , const char * key)",6,55
+16,3,88,1,20,"main@57-76@src/c/0175.c","src/c/0175.c","main","main( int argc , char * argv [ ])",57,76
+13,3,114,3,15,"rc4_init@5-19@src/c/0173.c","src/c/0173.c","rc4_init","rc4_init( unsigned char * s , const unsigned char * key , size_t key_len)",5,19
+12,2,127,4,13,"rc4_crypt@21-33@src/c/0173.c","src/c/0173.c","rc4_crypt","rc4_crypt( unsigned char * s , const unsigned char * input , unsigned char * output , size_t len)",21,33
+11,3,86,2,12,"bytes_to_hex@35-46@src/c/0173.c","src/c/0173.c","bytes_to_hex","bytes_to_hex( const unsigned char * data , size_t len)",35,46
+20,5,132,2,23,"hex_to_bytes@48-70@src/c/0173.c","src/c/0173.c","hex_to_bytes","hex_to_bytes( const char * hex_str , size_t * out_len)",48,70
+20,5,137,2,26,"rc4_encrypt_string@72-97@src/c/0173.c","src/c/0173.c","rc4_encrypt_string","rc4_encrypt_string( const char * plaintext , const char * key)",72,97
+26,6,162,2,32,"rc4_decrypt_string@99-130@src/c/0173.c","src/c/0173.c","rc4_decrypt_string","rc4_decrypt_string( const char * hex_ciphertext , const char * key)",99,130
+21,3,115,0,26,"main@132-157@src/c/0173.c","src/c/0173.c","main","main()",132,157
+15,6,82,1,19,"validate_pin@5-23@src/c/0014.c","src/c/0014.c","validate_pin","validate_pin( const char * pin)",5,23
+16,9,117,2,19,"read_safe_string@8-26@src/c/0093.c","src/c/0093.c","read_safe_string","read_safe_string( char * buffer , size_t max_len)",8,26
+19,7,159,1,21,"process_string@28-48@src/c/0093.c","src/c/0093.c","process_string","process_string( char * str)",28,48
+12,2,69,0,15,"main@50-64@src/c/0093.c","src/c/0093.c","main","main()",50,64
+15,6,82,1,15,"validate_pin@6-20@src/c/0011.c","src/c/0011.c","validate_pin","validate_pin( const char * pin)",6,20
+8,3,78,0,8,"main@22-29@src/c/0011.c","src/c/0011.c","main","main()",22,29
+6,2,48,1,9,"display_file_contents@5-13@src/c/0074.c","src/c/0074.c","display_file_contents","display_file_contents( const char * filename)",5,13
+10,2,58,0,14,"main@15-28@src/c/0074.c","src/c/0074.c","main","main()",15,28
+8,2,65,4,8,"copy_column_text@12-19@src/c/0031.c","src/c/0031.c","copy_column_text","copy_column_text( sqlite3_stmt * stmt , int col , char * dest , size_t size)",12,19
+15,3,70,1,15,"init_schema@21-35@src/c/0031.c","src/c/0031.c","init_schema","init_schema( sqlite3 * db)",21,35
+35,8,259,3,40,"fetch_user_info@38-77@src/c/0031.c","src/c/0031.c","fetch_user_info","fetch_user_info( sqlite3 * db , const char * username , UserInfo * out)",38,77
+6,4,52,1,6,"trim_newline@79-84@src/c/0031.c","src/c/0031.c","trim_newline","trim_newline( char * s)",79,84
+44,8,275,1,50,"main@86-135@src/c/0031.c","src/c/0031.c","main","main( int argc , char * argv [ ])",86,135
+41,16,266,4,48,"read_line@19-66@src/c/0152.c","src/c/0152.c","read_line","read_line( const char * prompt , char * buffer , size_t size , int hide_input)",19,66
+11,6,90,1,13,"trim_whitespace@68-80@src/c/0152.c","src/c/0152.c","trim_whitespace","trim_whitespace( char * text)",68,80
+8,6,77,1,9,"valid_email@82-90@src/c/0152.c","src/c/0152.c","valid_email","valid_email( const char * email)",82,90
+22,3,83,1,23,"create_database@92-114@src/c/0152.c","src/c/0152.c","create_database","create_database( sqlite3 * database)",92,114
+47,12,373,4,53,"register_user@116-168@src/c/0152.c","src/c/0152.c","register_user","register_user( sqlite3 * database , const char * name , const char * email , const char * password)",116,168
+52,11,325,0,62,"main@170-231@src/c/0152.c","src/c/0152.c","main","main()",170,231
+11,5,66,1,13,"trim_newline@6-18@src/c/0035.c","src/c/0035.c","trim_newline","trim_newline( char * s)",6,18
+58,13,401,2,65,"retrieve_user_info@20-84@src/c/0035.c","src/c/0035.c","retrieve_user_info","retrieve_user_info( const char * db_path , const char * username)",20,84
+18,4,109,2,24,"main@86-109@src/c/0035.c","src/c/0035.c","main","main( int argc , char ** argv)",86,109
+8,9,94,1,8,"validate_email@18-25@src/c/0154.c","src/c/0154.c","validate_email","validate_email( const char * email)",18,25
+4,3,28,1,4,"validate_password@27-30@src/c/0154.c","src/c/0154.c","validate_password","validate_password( const char * password)",27,30
+9,8,84,1,9,"validate_name@32-40@src/c/0154.c","src/c/0154.c","validate_name","validate_name( const char * name)",32,40
+12,5,92,4,14,"register_user@42-55@src/c/0154.c","src/c/0154.c","register_user","register_user( const char * name , const char * email , const char * password , const char * db_filename)",42,55
+18,4,125,1,19,"display_users@57-75@src/c/0154.c","src/c/0154.c","display_users","display_users( const char * db_filename)",57,75
+23,5,176,0,30,"main@77-106@src/c/0154.c","src/c/0154.c","main","main()",77,106
+11,2,147,0,11,"xtea_encrypt_block@5-15@src/c/0171.c","src/c/0171.c","xtea_encrypt_block","xtea_encrypt_block( uint32_t v [ 2 ] , const uint32_t key [ 4 ])",5,15
+12,2,150,0,12,"xtea_decrypt_block@17-28@src/c/0171.c","src/c/0171.c","xtea_decrypt_block","xtea_decrypt_block( uint32_t v [ 2 ] , const uint32_t key [ 4 ])",17,28
+21,4,322,3,21,"xtea_encrypt_string@30-50@src/c/0171.c","src/c/0171.c","xtea_encrypt_string","xtea_encrypt_string( const unsigned char * in , size_t len , unsigned char * out , const uint32_t key [ 4 ])",30,50
+16,3,273,3,16,"xtea_decrypt_string@52-67@src/c/0171.c","src/c/0171.c","xtea_decrypt_string","xtea_decrypt_string( const unsigned char * in , size_t len , unsigned char * out , const uint32_t key [ 4 ])",52,67
+16,2,141,0,20,"main@69-88@src/c/0171.c","src/c/0171.c","main","main()",69,88
+24,10,187,4,30,"encrypt_caesar@6-35@src/c/0172.c","src/c/0172.c","encrypt_caesar","encrypt_caesar( const char * input , int shift , char * output , size_t output_size)",6,35
+28,8,188,1,35,"main@37-71@src/c/0172.c","src/c/0172.c","main","main( int argc , char * argv [ ])",37,71
+11,6,80,2,14,"read_user_input@6-19@src/c/0195.c","src/c/0195.c","read_user_input","read_user_input( char * buffer , size_t buffer_size)",6,19
+18,6,102,3,22,"process_user_input@21-42@src/c/0195.c","src/c/0195.c","process_user_input","process_user_input( const char * input , char * output , size_t output_size)",21,42
+17,3,84,0,20,"main@44-63@src/c/0195.c","src/c/0195.c","main","main()",44,63
+16,7,86,1,16,"Solution::validatePIN@2-17@src/java/0006.java","src/java/0006.java","Solution::validatePIN","Solution::validatePIN( String pin)",2,17
+5,1,45,1,5,"Solution::main@19-23@src/java/0006.java","src/java/0006.java","Solution::main","Solution::main( String [ ] args)",19,23
+32,7,281,1,37,"Main::main@16-52@src/java/0047.java","src/java/0047.java","Main::main","Main::main( String [ ] args)",16,52
+24,3,89,2,25,"Main::page@54-78@src/java/0047.java","src/java/0047.java","Main::page","Main::page( String name , String message)",54,78
+13,4,105,1,14,"Main::parseForm@80-93@src/java/0047.java","src/java/0047.java","Main::parseForm","Main::parseForm( String body)",80,93
+3,1,19,1,3,"Main::decode@95-97@src/java/0047.java","src/java/0047.java","Main::decode","Main::decode( String value)",95,97
+7,1,45,1,7,"Main::escapeHtml@99-105@src/java/0047.java","src/java/0047.java","Main::escapeHtml","Main::escapeHtml( String value)",99,105
+14,3,94,1,16,"Main::readBody@107-122@src/java/0047.java","src/java/0047.java","Main::readBody","Main::readBody( InputStream input)",107,122
+8,1,83,3,8,"Main::send@124-131@src/java/0047.java","src/java/0047.java","Main::send","Main::send( HttpExchange exchange , int status , String content)",124,131
+6,2,29,1,6,"Main::createBuffer@9-14@src/java/0186.java","src/java/0186.java","Main::createBuffer","Main::createBuffer( int size)",9,14
+14,5,114,2,14,"Main::storeInput@16-29@src/java/0186.java","src/java/0186.java","Main::storeInput","Main::storeInput( char [ ] buffer , String input)",16,29
+3,2,23,2,3,"Main::isTruncated@31-33@src/java/0186.java","src/java/0186.java","Main::isTruncated","Main::isTruncated( String input , int bufferSize)",31,33
+7,3,45,1,7,"Main::bufferContents@35-41@src/java/0186.java","src/java/0186.java","Main::bufferContents","Main::bufferContents( char [ ] buffer)",35,41
+15,3,136,2,15,"Main::processInput@43-57@src/java/0186.java","src/java/0186.java","Main::processInput","Main::processInput( String input , int bufferSize)",43,57
+3,1,16,1,3,"Main::readLineFromReader@59-61@src/java/0186.java","src/java/0186.java","Main::readLineFromReader","Main::readLineFromReader( BufferedReader reader)",59,61
+15,4,117,1,16,"Main::main@63-78@src/java/0186.java","src/java/0186.java","Main::main","Main::main( String [ ] args)",63,78
+26,5,193,1,31,"FileContentDisplayer::displayFileUsingSystemCommand@6-36@src/java/0069.java","src/java/0069.java","FileContentDisplayer::displayFileUsingSystemCommand","FileContentDisplayer::displayFileUsingSystemCommand( String filename)",6,36
+8,1,61,1,9,"FileContentDisplayer::main@38-46@src/java/0069.java","src/java/0069.java","FileContentDisplayer::main","FileContentDisplayer::main( String [ ] args)",38,46
+15,3,101,1,16,"Main::main@9-24@src/java/0087.java","src/java/0087.java","Main::main","Main::main( String [ ] args)",9,24
+17,7,108,2,19,"Main::readBoundedLine@26-44@src/java/0087.java","src/java/0087.java","Main::readBoundedLine","Main::readBoundedLine( BufferedReader reader , int maxLength)",26,44
+3,1,21,1,3,"Main::process@46-48@src/java/0087.java","src/java/0087.java","Main::process","Main::process( String input)",46,48
+7,1,40,1,7,"Main::main@9-15@src/java/0190.java","src/java/0190.java","Main::main","Main::main( String [ ] args)",9,15
+28,14,187,2,32,"Main::readIntoFixedBuffer@17-48@src/java/0190.java","src/java/0190.java","Main::readIntoFixedBuffer","Main::readIntoFixedBuffer( Reader reader , int bufferSize)",17,48
+4,1,19,0,4,"UserAuthenticationSystem::UserAuthenticationSystem@22-25@src/java/0107.java","src/java/0107.java","UserAuthenticationSystem::UserAuthenticationSystem","UserAuthenticationSystem::UserAuthenticationSystem()",22,25
+11,3,90,2,13,"UserAuthenticationSystem::register@27-39@src/java/0107.java","src/java/0107.java","UserAuthenticationSystem::register","UserAuthenticationSystem::register( String username , char [ ] password)",27,39
+14,7,114,2,17,"UserAuthenticationSystem::authenticate@41-57@src/java/0107.java","src/java/0107.java","UserAuthenticationSystem::authenticate","UserAuthenticationSystem::authenticate( String username , char [ ] password)",41,57
+5,3,26,1,5,"UserAuthenticationSystem::isValidNewPassword@59-63@src/java/0107.java","src/java/0107.java","UserAuthenticationSystem::isValidNewPassword","UserAuthenticationSystem::isValidNewPassword( char [ ] password)",59,63
+18,14,129,1,20,"UserAuthenticationSystem::normalizeUsername@65-84@src/java/0107.java","src/java/0107.java","UserAuthenticationSystem::normalizeUsername","UserAuthenticationSystem::normalizeUsername( String username)",65,84
+18,2,101,2,19,"UserAuthenticationSystem::deriveHash@86-104@src/java/0107.java","src/java/0107.java","UserAuthenticationSystem::deriveHash","UserAuthenticationSystem::deriveHash( char [ ] password , byte [ ] salt)",86,104
+4,1,34,2,4,"Credential::Credential@110-113@src/java/0107.java","src/java/0107.java","Credential::Credential","UserAuthenticationSystem::Credential::Credential( byte [ ] salt , byte [ ] hash)",110,113
+25,4,208,1,30,"FileDisplay::displayFileContents@8-37@src/java/0068.java","src/java/0068.java","FileDisplay::displayFileContents","FileDisplay::displayFileContents( String filename)",8,37
+13,3,96,1,13,"FileDisplay::main@39-51@src/java/0068.java","src/java/0068.java","FileDisplay::main","FileDisplay::main( String [ ] args)",39,51
+22,4,242,2,29,"Main::encrypt@19-47@src/java/0166.java","src/java/0166.java","Main::encrypt","Main::encrypt( String plaintext , String password)",19,47
+10,1,80,2,10,"Main::deriveKey@49-58@src/java/0166.java","src/java/0166.java","Main::deriveKey","Main::deriveKey( String password , byte [ ] salt)",49,58
+11,4,92,1,12,"Main::main@60-71@src/java/0166.java","src/java/0166.java","Main::main","Main::main( String [ ] args)",60,71
+6,2,49,2,6,"FileViewer::buildCommand@6-11@src/java/0066.java","src/java/0066.java","FileViewer::buildCommand","FileViewer::buildCommand( String filename , String osName)",6,11
+15,2,116,1,17,"FileViewer::runCommand@13-29@src/java/0066.java","src/java/0066.java","FileViewer::runCommand","FileViewer::runCommand( List<String> command)",13,29
+7,3,66,1,7,"FileViewer::displayFile@31-37@src/java/0066.java","src/java/0066.java","FileViewer::displayFile","FileViewer::displayFile( String filename)",31,37
+16,3,109,1,17,"FileViewer::main@39-55@src/java/0066.java","src/java/0066.java","FileViewer::main","FileViewer::main( String [ ] args)",39,55
+6,1,40,2,6,"Session::Session@26-31@src/java/0129.java","src/java/0129.java","Session::Session","SecureSessionManager::Session::Session( String id , String username)",26,31
+3,1,16,0,3,"Session::isExpired@33-35@src/java/0129.java","src/java/0129.java","Session::isExpired","SecureSessionManager::Session::isExpired()",33,35
+3,1,15,0,3,"Session::touch@37-39@src/java/0129.java","src/java/0129.java","Session::touch","SecureSessionManager::Session::touch()",37,39
+3,1,22,0,3,"Session::SecureSessionManager@42-44@src/java/0129.java","src/java/0129.java","Session::SecureSessionManager","SecureSessionManager::SecureSessionManager()",42,44
+3,1,26,0,3,"Session::cleanupExpiredSessions@46-48@src/java/0129.java","src/java/0129.java","Session::cleanupExpiredSessions","SecureSessionManager::cleanupExpiredSessions()",46,48
+9,2,61,0,9,"Session::generateSessionId@50-58@src/java/0129.java","src/java/0129.java","Session::generateSessionId","SecureSessionManager::generateSessionId()",50,58
+6,1,37,1,6,"Session::createSession@60-65@src/java/0129.java","src/java/0129.java","Session::createSession","SecureSessionManager::createSession( String username)",60,65
+11,5,69,1,11,"Session::getSession@67-77@src/java/0129.java","src/java/0129.java","Session::getSession","SecureSessionManager::getSession( String sessionId)",67,77
+5,2,22,1,5,"Session::destroySession@79-83@src/java/0129.java","src/java/0129.java","Session::destroySession","SecureSessionManager::destroySession( String sessionId)",79,83
+12,5,90,1,12,"Session::getSessionIdFromCookie@85-96@src/java/0129.java","src/java/0129.java","Session::getSessionIdFromCookie","SecureSessionManager::getSessionIdFromCookie( HttpExchange exchange)",85,96
+5,1,41,2,5,"Session::setSessionCookie@98-102@src/java/0129.java","src/java/0129.java","Session::setSessionCookie","SecureSessionManager::setSessionCookie( HttpExchange exchange , String sessionId)",98,102
+5,1,32,1,5,"Session::clearSessionCookie@104-108@src/java/0129.java","src/java/0129.java","Session::clearSessionCookie","SecureSessionManager::clearSessionCookie( HttpExchange exchange)",104,108
+8,1,71,3,8,"Session::sendResponse@110-117@src/java/0129.java","src/java/0129.java","Session::sendResponse","SecureSessionManager::sendResponse( HttpExchange exchange , int statusCode , String response)",110,117
+17,5,152,1,20,"LoginHandler::handle@121-140@src/java/0129.java","src/java/0129.java","LoginHandler::handle","SecureSessionManager::LoginHandler::handle( HttpExchange exchange)",121,140
+8,2,44,1,8,"LogoutHandler::handle@145-152@src/java/0129.java","src/java/0129.java","LogoutHandler::handle","SecureSessionManager::LogoutHandler::handle( HttpExchange exchange)",145,152
+4,1,26,0,4,"UserRegistrationSystem::UserRegistrationSystem@13-16@src/java/0149.java","src/java/0149.java","UserRegistrationSystem::UserRegistrationSystem","UserRegistrationSystem::UserRegistrationSystem()",13,16
+13,1,46,0,13,"UserRegistrationSystem::initializeDatabase@18-30@src/java/0149.java","src/java/0149.java","UserRegistrationSystem::initializeDatabase","UserRegistrationSystem::initializeDatabase()",18,30
+3,2,19,1,3,"PinValidator::validatePin@2-4@src/java/0009.java","src/java/0009.java","PinValidator::validatePin","PinValidator::validatePin( String pin)",2,4
+16,1,166,1,20,"SecureSessionApplication::main@33-52@src/java/0128.java","src/java/0128.java","SecureSessionApplication::main","SecureSessionApplication::main( String [ ] args)",33,52
+7,1,48,3,7,"Session::Session@61-67@src/java/0128.java","src/java/0128.java","Session::Session","SecureSessionApplication::Session::Session( String id , String userId , Instant createdAt)",61,67
+3,1,8,0,3,"Session::getId@69-71@src/java/0128.java","src/java/0128.java","Session::getId","SecureSessionApplication::Session::getId()",69,71
+3,1,8,0,3,"Session::getUserId@73-75@src/java/0128.java","src/java/0128.java","Session::getUserId","SecureSessionApplication::Session::getUserId()",73,75
+3,1,8,0,3,"Session::getCreatedAt@77-79@src/java/0128.java","src/java/0128.java","Session::getCreatedAt","SecureSessionApplication::Session::getCreatedAt()",77,79
+3,1,8,0,3,"Session::getLastAccessedAt@81-83@src/java/0128.java","src/java/0128.java","Session::getLastAccessedAt","SecureSessionApplication::Session::getLastAccessedAt()",81,83
+3,1,13,1,3,"Session::touch@85-87@src/java/0128.java","src/java/0128.java","Session::touch","SecureSessionApplication::Session::touch( Instant now)",85,87
+3,1,21,2,3,"Session::setAttribute@89-91@src/java/0128.java","src/java/0128.java","Session::setAttribute","SecureSessionApplication::Session::setAttribute( String key , Object value)",89,91
+3,1,22,1,3,"Session::getAttribute@93-95@src/java/0128.java","src/java/0128.java","Session::getAttribute","SecureSessionApplication::Session::getAttribute( String key)",93,95
+3,1,15,0,3,"Session::getAttributes@97-99@src/java/0128.java","src/java/0128.java","Session::getAttributes","SecureSessionApplication::Session::getAttributes()",97,99
+5,1,41,2,5,"SessionManager::SessionManager@109-113@src/java/0128.java","src/java/0128.java","SessionManager::SessionManager","SecureSessionApplication::SessionManager::SessionManager( Duration idleTimeout , Duration absoluteTimeout)",109,113
+6,1,43,1,6,"SessionManager::createSession@115-120@src/java/0128.java","src/java/0128.java","SessionManager::createSession","SecureSessionApplication::SessionManager::createSession( String userId)",115,120
+16,5,100,1,19,"SessionManager::getValidSession@122-140@src/java/0128.java","src/java/0128.java","SessionManager::getValidSession","SecureSessionApplication::SessionManager::getValidSession( String sessionId)",122,140
+6,2,28,1,6,"SessionManager::invalidateSession@142-147@src/java/0128.java","src/java/0128.java","SessionManager::invalidateSession","SecureSessionApplication::SessionManager::invalidateSession( String sessionId)",142,147
+12,4,81,0,12,"SessionManager::purgeExpiredSessions@149-160@src/java/0128.java","src/java/0128.java","SessionManager::purgeExpiredSessions","SecureSessionApplication::SessionManager::purgeExpiredSessions()",149,160
+3,1,12,0,3,"SessionManager::getActiveSessionCount@162-164@src/java/0128.java","src/java/0128.java","SessionManager::getActiveSessionCount","SecureSessionApplication::SessionManager::getActiveSessionCount()",162,164
+3,1,8,0,3,"SessionManager::getIdleTimeout@166-168@src/java/0128.java","src/java/0128.java","SessionManager::getIdleTimeout","SecureSessionApplication::SessionManager::getIdleTimeout()",166,168
+5,2,61,2,5,"SessionManager::isExpired@170-174@src/java/0128.java","src/java/0128.java","SessionManager::isExpired","SecureSessionApplication::SessionManager::isExpired( Session session , Instant now)",170,174
+5,1,41,0,5,"SessionManager::generateSecureToken@176-180@src/java/0128.java","src/java/0128.java","SessionManager::generateSecureToken","SecureSessionApplication::SessionManager::generateSecureToken()",176,180
+3,1,11,0,3,"SessionManager::shutdown@182-184@src/java/0128.java","src/java/0128.java","SessionManager::shutdown","SecureSessionApplication::SessionManager::shutdown()",182,184
+10,2,74,2,10,"UserRecord::registerUser@193-202@src/java/0128.java","src/java/0128.java","UserRecord::registerUser","SecureSessionApplication::UserManager::registerUser( String username , String rawPassword)",193,202
+8,2,61,2,8,"UserRecord::authenticate@204-211@src/java/0128.java","src/java/0128.java","UserRecord::authenticate","SecureSessionApplication::UserManager::authenticate( String username , String rawPassword)",204,211
+9,2,63,2,9,"UserRecord::hashPassword@213-221@src/java/0128.java","src/java/0128.java","UserRecord::hashPassword","SecureSessionApplication::UserManager::hashPassword( String password , byte [ ] salt)",213,221
+4,1,22,2,4,"LoginHandler::LoginHandler@228-231@src/java/0128.java","src/java/0128.java","LoginHandler::LoginHandler","SecureSessionApplication::LoginHandler::LoginHandler( SessionManager sessionManager , UserManager userManager)",228,231
+22,5,233,1,28,"LoginHandler::handle@234-261@src/java/0128.java","src/java/0128.java","LoginHandler::handle","SecureSessionApplication::LoginHandler::handle( HttpExchange exchange)",234,261
+3,1,13,1,3,"LogoutHandler::LogoutHandler@267-269@src/java/0128.java","src/java/0128.java","LogoutHandler::LogoutHandler","SecureSessionApplication::LogoutHandler::LogoutHandler( SessionManager sessionManager)",267,269
+12,2,95,1,15,"LogoutHandler::handle@272-286@src/java/0128.java","src/java/0128.java","LogoutHandler::handle","SecureSessionApplication::LogoutHandler::handle( HttpExchange exchange)",272,286
+3,1,13,1,3,"ProfileHandler::ProfileHandler@292-294@src/java/0128.java","src/java/0128.java","ProfileHandler::ProfileHandler","SecureSessionApplication::ProfileHandler::ProfileHandler( SessionManager sessionManager)",292,294
+26,4,177,1,29,"ProfileHandler::handle@297-325@src/java/0128.java","src/java/0128.java","ProfileHandler::handle","SecureSessionApplication::ProfileHandler::handle( HttpExchange exchange)",297,325
+3,1,13,1,3,"StatusHandler::StatusHandler@331-333@src/java/0128.java","src/java/0128.java","StatusHandler::StatusHandler","SecureSessionApplication::StatusHandler::StatusHandler( SessionManager sessionManager)",331,333
+14,4,94,1,18,"SafeStringProcessor::processString@5-22@src/java/0089.java","src/java/0089.java","SafeStringProcessor::processString","SafeStringProcessor::processString( String input)",5,22
+6,2,30,2,6,"SafeStringProcessor::isValidInput@24-29@src/java/0089.java","src/java/0089.java","SafeStringProcessor::isValidInput","SafeStringProcessor::isValidInput( String input , int maxLength)",24,29
+15,3,104,1,19,"SafeStringProcessor::main@31-49@src/java/0089.java","src/java/0089.java","SafeStringProcessor::main","SafeStringProcessor::main( String [ ] args)",31,49
+18,2,155,1,21,"DatabaseUserQuery::main@10-30@src/java/0029.java","src/java/0029.java","DatabaseUserQuery::main","DatabaseUserQuery::main( String [ ] args)",10,30
+20,3,139,4,24,"DatabaseUserQuery::fetchUserByUsername@32-55@src/java/0029.java","src/java/0029.java","DatabaseUserQuery::fetchUserByUsername","DatabaseUserQuery::fetchUserByUsername( String dbUrl , String dbUser , String dbPassword , String username)",32,55
+6,1,40,4,6,"UserRecord::UserRecord@63-68@src/java/0029.java","src/java/0029.java","UserRecord::UserRecord","DatabaseUserQuery::UserRecord::UserRecord( int id , String username , String email , String fullName)",63,68
+1,1,8,0,1,"UserRecord::getId@70-70@src/java/0029.java","src/java/0029.java","UserRecord::getId","DatabaseUserQuery::UserRecord::getId()",70,70
+1,1,8,0,1,"UserRecord::getUsername@71-71@src/java/0029.java","src/java/0029.java","UserRecord::getUsername","DatabaseUserQuery::UserRecord::getUsername()",71,71
+1,1,8,0,1,"UserRecord::getEmail@72-72@src/java/0029.java","src/java/0029.java","UserRecord::getEmail","DatabaseUserQuery::UserRecord::getEmail()",72,72
+1,1,8,0,1,"UserRecord::getFullName@73-73@src/java/0029.java","src/java/0029.java","UserRecord::getFullName","DatabaseUserQuery::UserRecord::getFullName()",73,73
+27,7,153,1,31,"Main::processString@6-36@src/java/0090.java","src/java/0090.java","Main::processString","Main::processString( String input)",6,36
+8,3,52,0,8,"Main::readUserInput@38-45@src/java/0090.java","src/java/0090.java","Main::readUserInput","Main::readUserInput()",38,45
+5,1,33,1,5,"Main::main@47-51@src/java/0090.java","src/java/0090.java","Main::main","Main::main( String [ ] args)",47,51
+11,1,118,1,14,"FixedSizeBufferHandler::main@6-19@src/java/0189.java","src/java/0189.java","FixedSizeBufferHandler::main","FixedSizeBufferHandler::main( String [ ] args)",6,19
+10,5,81,3,11,"FixedSizeBufferHandler::writeToBuffer@21-31@src/java/0189.java","src/java/0189.java","FixedSizeBufferHandler::writeToBuffer","FixedSizeBufferHandler::writeToBuffer( char [ ] buffer , int capacity , String input)",21,31
+7,3,52,2,7,"FixedSizeBufferHandler::readFromBuffer@33-39@src/java/0189.java","src/java/0189.java","FixedSizeBufferHandler::readFromBuffer","FixedSizeBufferHandler::readFromBuffer( char [ ] buffer , int length)",33,39
+6,3,35,3,6,"FixedSizeBufferHandler::isBufferFull@41-46@src/java/0189.java","src/java/0189.java","FixedSizeBufferHandler::isBufferFull","FixedSizeBufferHandler::isBufferFull( char [ ] buffer , int capacity , int used)",41,46
+9,4,63,2,9,"FixedSizeBufferHandler::clearBuffer@48-56@src/java/0189.java","src/java/0189.java","FixedSizeBufferHandler::clearBuffer","FixedSizeBufferHandler::clearBuffer( char [ ] buffer , int capacity)",48,56
+6,3,62,1,8,"Main::main@13-20@src/java/0170.java","src/java/0170.java","Main::main","Main::main( String [ ] args)",13,20
+16,1,204,2,23,"Main::encrypt@22-44@src/java/0170.java","src/java/0170.java","Main::encrypt","Main::encrypt( String plaintext , String password)",22,44
+11,1,68,2,13,"Main::deriveKey@46-58@src/java/0170.java","src/java/0170.java","Main::deriveKey","Main::deriveKey( String password , byte [ ] salt)",46,58
+11,2,103,2,11,"StringEncryptor::encrypt@8-18@src/java/0169.java","src/java/0169.java","StringEncryptor::encrypt","StringEncryptor::encrypt( String plainText , String key)",8,18
+11,2,104,2,11,"StringEncryptor::decrypt@20-30@src/java/0169.java","src/java/0169.java","StringEncryptor::decrypt","StringEncryptor::decrypt( String encryptedText , String key)",20,30
+8,1,61,1,10,"StringEncryptor::main@32-41@src/java/0169.java","src/java/0169.java","StringEncryptor::main","StringEncryptor::main( String [ ] args)",32,41
+6,1,43,1,6,"WebApp::main@19-24@src/java/0048.java","src/java/0048.java","WebApp::main","WebApp::main( String [ ] args)",19,24
+6,1,47,1,6,"WebApp::createServer@26-31@src/java/0048.java","src/java/0048.java","WebApp::createServer","WebApp::createServer( int port)",26,31
+11,2,85,1,13,"FormHandler::handle@35-47@src/java/0048.java","src/java/0048.java","FormHandler::handle","WebApp::FormHandler::handle( HttpExchange exchange)",35,47
+10,2,71,1,10,"FormHandler::readRequestBody@49-58@src/java/0048.java","src/java/0048.java","FormHandler::readRequestBody","WebApp::FormHandler::readRequestBody( InputStream inputStream)",49,58
+14,5,138,1,14,"FormHandler::parseFormData@60-73@src/java/0048.java","src/java/0048.java","FormHandler::parseFormData","WebApp::FormHandler::parseFormData( String formData)",60,73
+10,2,56,1,10,"FormHandler::escapeHtml@75-84@src/java/0048.java","src/java/0048.java","FormHandler::escapeHtml","WebApp::FormHandler::escapeHtml( String text)",75,84
+35,2,194,1,38,"FormHandler::generateHtmlPage@86-123@src/java/0048.java","src/java/0048.java","FormHandler::generateHtmlPage","WebApp::FormHandler::generateHtmlPage( String displayedText)",86,123
+8,1,73,3,8,"FormHandler::sendResponse@125-132@src/java/0048.java","src/java/0048.java","FormHandler::sendResponse","WebApp::FormHandler::sendResponse( HttpExchange exchange , int statusCode , String response)",125,132
+4,2,23,1,4,"SessionWebApp::SessionWebApp@27-30@src/java/0127.java","src/java/0127.java","SessionWebApp::SessionWebApp","SessionWebApp::SessionWebApp( boolean secureCookies)",27,30
+26,3,210,1,27,"SessionWebApp::main@32-58@src/java/0127.java","src/java/0127.java","SessionWebApp::main","SessionWebApp::main( String [ ] args)",32,58
+15,6,83,0,15,"SessionWebApp::configuredPort@60-74@src/java/0127.java","src/java/0127.java","SessionWebApp::configuredPort","SessionWebApp::configuredPort()",60,74
+57,13,288,1,63,"SessionWebApp::handle@76-138@src/java/0127.java","src/java/0127.java","SessionWebApp::handle","SessionWebApp::handle( HttpExchange exchange)",76,138
+11,4,72,2,11,"SessionWebApp::handleSession@140-150@src/java/0127.java","src/java/0127.java","SessionWebApp::handleSession","SessionWebApp::handleSession( HttpExchange exchange , String method)",140,150
+11,2,80,1,12,"SessionWebApp::createSession@152-163@src/java/0127.java","src/java/0127.java","SessionWebApp::createSession","SessionWebApp::createSession( HttpExchange exchange)",152,163
+8,2,47,1,8,"SessionWebApp::inspectSession@165-172@src/java/0127.java","src/java/0127.java","SessionWebApp::inspectSession","SessionWebApp::inspectSession( HttpExchange exchange)",165,172
+28,6,180,1,30,"SessionWebApp::rotateSession@174-203@src/java/0127.java","src/java/0127.java","SessionWebApp::rotateSession","SessionWebApp::rotateSession( HttpExchange exchange)",174,203
+8,3,49,1,8,"SessionWebApp::findIdForSession@205-212@src/java/0127.java","src/java/0127.java","SessionWebApp::findIdForSession","SessionWebApp::findIdForSession( Session session)",205,212
+17,3,93,1,18,"SessionWebApp::terminateSession@214-231@src/java/0127.java","src/java/0127.java","SessionWebApp::terminateSession","SessionWebApp::terminateSession( HttpExchange exchange)",214,231
+20,5,120,1,22,"SessionWebApp::findSession@233-254@src/java/0127.java","src/java/0127.java","SessionWebApp::findSession","SessionWebApp::findSession( HttpExchange exchange)",233,254
+11,3,75,2,11,"SessionWebApp::hasValidCsrfToken@256-266@src/java/0127.java","src/java/0127.java","SessionWebApp::hasValidCsrfToken","SessionWebApp::hasValidCsrfToken( HttpExchange exchange , Session session)",256,266
+6,1,40,4,6,"User::User@17-22@src/java/0028.java","src/java/0028.java","User::User","UserDatabaseApp::User::User( int id , String username , String email , String fullName)",17,22
+3,1,8,0,3,"User::getId@24-26@src/java/0028.java","src/java/0028.java","User::getId","UserDatabaseApp::User::getId()",24,26
+3,1,8,0,3,"User::getUsername@28-30@src/java/0028.java","src/java/0028.java","User::getUsername","UserDatabaseApp::User::getUsername()",28,30
+3,1,8,0,3,"User::getEmail@32-34@src/java/0028.java","src/java/0028.java","User::getEmail","UserDatabaseApp::User::getEmail()",32,34
+3,1,8,0,3,"User::getFullName@36-38@src/java/0028.java","src/java/0028.java","User::getFullName","UserDatabaseApp::User::getFullName()",36,38
+8,1,32,0,8,"User::toString@41-48@src/java/0028.java","src/java/0028.java","User::toString","UserDatabaseApp::User::toString()",41,48
+3,1,27,3,3,"User::createConnection@51-53@src/java/0028.java","src/java/0028.java","User::createConnection","UserDatabaseApp::createConnection( String url , String user , String password)",51,53
+18,2,113,2,21,"User::getUserByUsername@55-75@src/java/0028.java","src/java/0028.java","User::getUserByUsername","UserDatabaseApp::getUserByUsername( Connection connection , String username)",55,75
+20,3,189,1,23,"User::main@77-99@src/java/0028.java","src/java/0028.java","User::main","UserDatabaseApp::main( String [ ] args)",77,99
+14,6,136,1,17,"Main::encrypt@5-21@src/java/0167.java","src/java/0167.java","Main::encrypt","Main::encrypt( String text)",5,21
+7,2,55,1,8,"Main::main@23-30@src/java/0167.java","src/java/0167.java","Main::main","Main::main( String [ ] args)",23,30
+11,7,84,1,13,"Kata::validatePin@2-14@src/java/0007.java","src/java/0007.java","Kata::validatePin","Kata::validatePin( String pin)",2,14
+7,1,47,3,7,"UserRecord::UserRecord@42-48@src/java/0106.java","src/java/0106.java","UserRecord::UserRecord","UserAuthSystem::UserRecord::UserRecord( String username , byte [ ] salt , byte [ ] hash)",42,48
+4,1,40,0,4,"UserRecord::UserAuthSystem@56-59@src/java/0106.java","src/java/0106.java","UserRecord::UserAuthSystem","UserAuthSystem::UserAuthSystem()",56,59
+20,4,122,2,20,"UserRecord::register@61-80@src/java/0106.java","src/java/0106.java","UserRecord::register","UserAuthSystem::register( String username , char [ ] password)",61,80
+29,8,198,2,34,"UserRecord::login@82-115@src/java/0106.java","src/java/0106.java","UserRecord::login","UserAuthSystem::login( String username , char [ ] password)",82,115
+22,4,147,3,22,"UserRecord::changePassword@117-138@src/java/0106.java","src/java/0106.java","UserRecord::changePassword","UserAuthSystem::changePassword( String username , char [ ] oldPassword , char [ ] newPassword)",117,138
+4,2,27,1,4,"UserRecord::userExists@140-143@src/java/0106.java","src/java/0106.java","UserRecord::userExists","UserAuthSystem::userExists( String username)",140,143
+8,2,64,1,8,"UserRecord::exportCredential@145-152@src/java/0106.java","src/java/0106.java","UserRecord::exportCredential","UserAuthSystem::exportCredential( String username)",145,152
+3,2,23,1,3,"UserRecord::isValidUsername@154-156@src/java/0106.java","src/java/0106.java","UserRecord::isValidUsername","UserAuthSystem::isValidUsername( String username)",154,156
+13,12,123,1,13,"UserRecord::isStrongPassword@158-170@src/java/0106.java","src/java/0106.java","UserRecord::isStrongPassword","UserAuthSystem::isStrongPassword( char [ ] password)",158,170
+3,2,24,1,3,"UserRecord::normalize@172-174@src/java/0106.java","src/java/0106.java","UserRecord::normalize","UserAuthSystem::normalize( String username)",172,174
+5,1,26,0,5,"UserRecord::randomSalt@176-180@src/java/0106.java","src/java/0106.java","UserRecord::randomSalt","UserAuthSystem::randomSalt()",176,180
+12,2,87,3,12,"UserRecord::deriveKey@182-193@src/java/0106.java","src/java/0106.java","UserRecord::deriveKey","UserAuthSystem::deriveKey( char [ ] password , byte [ ] salt , int iterations)",182,193
+3,1,24,2,3,"UserRecord::constantTimeEquals@195-197@src/java/0106.java","src/java/0106.java","UserRecord::constantTimeEquals","UserAuthSystem::constantTimeEquals( byte [ ] a , byte [ ] b)",195,197
+5,2,26,1,5,"UserRecord::wipe@199-203@src/java/0106.java","src/java/0106.java","UserRecord::wipe","UserAuthSystem::wipe( char [ ] data)",199,203
+4,1,34,2,4,"UserCredentials::UserCredentials@26-29@src/java/0108.java","src/java/0108.java","UserCredentials::UserCredentials","UserAuthenticationSystem::UserCredentials::UserCredentials( byte [ ] salt , byte [ ] passwordHash)",26,29
+3,1,12,0,3,"UserCredentials::getSalt@31-33@src/java/0108.java","src/java/0108.java","UserCredentials::getSalt","UserAuthenticationSystem::UserCredentials::getSalt()",31,33
+3,1,12,0,3,"UserCredentials::getPasswordHash@35-37@src/java/0108.java","src/java/0108.java","UserCredentials::getPasswordHash","UserAuthenticationSystem::UserCredentials::getPasswordHash()",35,37
+17,7,129,2,21,"UserCredentials::registerUser@40-60@src/java/0108.java","src/java/0108.java","UserCredentials::registerUser","UserAuthenticationSystem::registerUser( String username , char [ ] password)",40,60
+17,7,136,2,22,"UserCredentials::authenticate@62-83@src/java/0108.java","src/java/0108.java","UserCredentials::authenticate","UserAuthenticationSystem::authenticate( String username , char [ ] password)",62,83
+17,7,129,3,21,"UserCredentials::updatePassword@85-105@src/java/0108.java","src/java/0108.java","UserCredentials::updatePassword","UserAuthenticationSystem::updatePassword( String username , char [ ] currentPassword , char [ ] newPassword)",85,105
+6,2,34,1,6,"UserCredentials::userExists@107-112@src/java/0108.java","src/java/0108.java","UserCredentials::userExists","UserAuthenticationSystem::userExists( String username)",107,112
+13,3,88,2,13,"UserCredentials::generateHash@114-126@src/java/0108.java","src/java/0108.java","UserCredentials::generateHash","UserAuthenticationSystem::generateHash( char [ ] password , byte [ ] salt)",114,126
+21,1,217,1,28,"UserCredentials::main@128-155@src/java/0108.java","src/java/0108.java","UserCredentials::main","UserAuthenticationSystem::main( String [ ] args)",128,155
+30,6,206,1,37,"Main::main@5-41@src/java/0070.java","src/java/0070.java","Main::main","Main::main( String [ ] args)",5,41
+5,1,31,3,5,"StoredCredential::StoredCredential@24-28@src/java/0110.java","src/java/0110.java","StoredCredential::StoredCredential","Main::StoredCredential::StoredCredential( String username , String salt , String hash)",24,28
+9,2,71,2,11,"StoredCredential::registerUser@31-41@src/java/0110.java","src/java/0110.java","StoredCredential::registerUser","Main::registerUser( String username , String password)",31,41
+12,3,81,2,15,"StoredCredential::authenticateUser@43-57@src/java/0110.java","src/java/0110.java","StoredCredential::authenticateUser","Main::authenticateUser( String username , String password)",43,57
+22,4,174,1,25,"UserRegistrationSystem::main@24-48@src/java/0147.java","src/java/0147.java","UserRegistrationSystem::main","UserRegistrationSystem::main( String [ ] args)",24,48
+13,1,48,1,14,"UserRegistrationSystem::initializeDatabase@50-63@src/java/0147.java","src/java/0147.java","UserRegistrationSystem::initializeDatabase","UserRegistrationSystem::initializeDatabase( Connection connection)",50,63
+30,7,243,4,34,"UserRegistrationSystem::register@65-98@src/java/0147.java","src/java/0147.java","UserRegistrationSystem::register","UserRegistrationSystem::register( Connection connection , String name , String email , char [ ] password)",65,98
+11,1,60,2,11,"UserRegistrationSystem::hashPassword@100-110@src/java/0147.java","src/java/0147.java","UserRegistrationSystem::hashPassword","UserRegistrationSystem::hashPassword( char [ ] password , byte [ ] salt)",100,110
+7,2,47,3,7,"UserRegistrationSystem::readLine@112-118@src/java/0147.java","src/java/0147.java","UserRegistrationSystem::readLine","UserRegistrationSystem::readLine( Console console , Scanner scanner , String prompt)",112,118
+8,3,63,2,8,"UserRegistrationSystem::readPassword@120-127@src/java/0147.java","src/java/0147.java","UserRegistrationSystem::readPassword","UserRegistrationSystem::readPassword( Console console , Scanner scanner)",120,127
+5,1,31,3,5,"User::User@32-36@src/java/0148.java","src/java/0148.java","User::User","UserRegistrationSystem::User::User( int id , String name , String email)",32,36
+3,1,8,0,3,"User::getId@38-40@src/java/0148.java","src/java/0148.java","User::getId","UserRegistrationSystem::User::getId()",38,40
+3,1,8,0,3,"User::getName@42-44@src/java/0148.java","src/java/0148.java","User::getName","UserRegistrationSystem::User::getName()",42,44
+3,1,8,0,3,"User::getEmail@46-48@src/java/0148.java","src/java/0148.java","User::getEmail","UserRegistrationSystem::User::getEmail()",46,48
+3,1,20,0,3,"User::toString@51-53@src/java/0148.java","src/java/0148.java","User::toString","UserRegistrationSystem::User::toString()",51,53
+5,1,31,3,5,"RegistrationResult::RegistrationResult@61-65@src/java/0148.java","src/java/0148.java","RegistrationResult::RegistrationResult","UserRegistrationSystem::RegistrationResult::RegistrationResult( boolean success , String message , User user)",61,65
+3,1,8,0,3,"RegistrationResult::isSuccess@67-69@src/java/0148.java","src/java/0148.java","RegistrationResult::isSuccess","UserRegistrationSystem::RegistrationResult::isSuccess()",67,69
+3,1,8,0,3,"RegistrationResult::getMessage@71-73@src/java/0148.java","src/java/0148.java","RegistrationResult::getMessage","UserRegistrationSystem::RegistrationResult::getMessage()",71,73
+3,1,8,0,3,"RegistrationResult::getUser@75-77@src/java/0148.java","src/java/0148.java","RegistrationResult::getUser","UserRegistrationSystem::RegistrationResult::getUser()",75,77
+4,1,17,1,4,"RegistrationResult::UserRegistrationSystem@80-83@src/java/0148.java","src/java/0148.java","RegistrationResult::UserRegistrationSystem","UserRegistrationSystem::UserRegistrationSystem( String dbUrl)",80,83
+16,2,73,0,17,"RegistrationResult::initializeDatabase@85-101@src/java/0148.java","src/java/0148.java","RegistrationResult::initializeDatabase","UserRegistrationSystem::initializeDatabase()",85,101
+3,1,17,0,3,"RegistrationResult::getConnection@103-105@src/java/0148.java","src/java/0148.java","RegistrationResult::getConnection","UserRegistrationSystem::getConnection()",103,105
+37,6,308,3,46,"RegistrationResult::register@107-152@src/java/0148.java","src/java/0148.java","RegistrationResult::register","UserRegistrationSystem::register( String name , String email , String password)",107,152
+12,2,84,1,13,"RegistrationResult::isEmailTaken@154-166@src/java/0148.java","src/java/0148.java","RegistrationResult::isEmailTaken","UserRegistrationSystem::isEmailTaken( String email)",154,166
+15,3,124,1,16,"RegistrationResult::getUserByEmail@168-183@src/java/0148.java","src/java/0148.java","RegistrationResult::getUserByEmail","UserRegistrationSystem::getUserByEmail( String email)",168,183
+12,7,83,3,12,"RegistrationResult::validateInputs@185-196@src/java/0148.java","src/java/0148.java","RegistrationResult::validateInputs","UserRegistrationSystem::validateInputs( String name , String email , String password)",185,196
+6,1,34,0,6,"RegistrationResult::generateSalt@198-203@src/java/0148.java","src/java/0148.java","RegistrationResult::generateSalt","UserRegistrationSystem::generateSalt()",198,203
+10,2,96,2,10,"RegistrationResult::hashPassword@205-214@src/java/0148.java","src/java/0148.java","RegistrationResult::hashPassword","UserRegistrationSystem::hashPassword( String password , byte [ ] salt)",205,214
+19,2,170,1,26,"RegistrationResult::main@216-241@src/java/0148.java","src/java/0148.java","RegistrationResult::main","UserRegistrationSystem::main( String [ ] args)",216,241
+11,2,90,1,13,"Main::main@17-29@src/java/0050.java","src/java/0050.java","Main::main","Main::main( String [ ] args)",17,29
+23,6,204,1,28,"FormHandler::handle@34-61@src/java/0050.java","src/java/0050.java","FormHandler::handle","FormHandler::handle( HttpExchange exchange)",34,61
+11,2,88,1,13,"FormHandler::readBody@63-75@src/java/0050.java","src/java/0050.java","FormHandler::readBody","FormHandler::readBody( HttpExchange exchange)",63,75
+23,8,185,1,29,"FormHandler::parseParams@77-105@src/java/0050.java","src/java/0050.java","FormHandler::parseParams","FormHandler::parseParams( String data)",77,105
+5,1,31,0,5,"StringEncryptor::generateKey@18-22@src/java/0168.java","src/java/0168.java","StringEncryptor::generateKey","StringEncryptor::generateKey()",18,22
+13,1,137,2,17,"StringEncryptor::encrypt@24-40@src/java/0168.java","src/java/0168.java","StringEncryptor::encrypt","StringEncryptor::encrypt( String plainText , SecretKey key)",24,40
+13,1,135,2,17,"StringEncryptor::decrypt@42-58@src/java/0168.java","src/java/0168.java","StringEncryptor::decrypt","StringEncryptor::decrypt( String encryptedTextBase64 , SecretKey key)",42,58
+13,2,90,1,15,"StringEncryptor::main@60-74@src/java/0168.java","src/java/0168.java","StringEncryptor::main","StringEncryptor::main( String [ ] args)",60,74
+20,7,120,2,20,"SafeStringProcessor::readBoundedLine@10-29@src/java/0086.java","src/java/0086.java","SafeStringProcessor::readBoundedLine","SafeStringProcessor::readBoundedLine( BufferedReader reader , int maxLength)",10,29
+27,9,254,1,28,"SafeStringProcessor::processString@31-58@src/java/0086.java","src/java/0086.java","SafeStringProcessor::processString","SafeStringProcessor::processString( String input)",31,58
+17,3,122,1,17,"SafeStringProcessor::main@60-76@src/java/0086.java","src/java/0086.java","SafeStringProcessor::main","SafeStringProcessor::main( String [ ] args)",60,76
+4,1,25,0,4,"UserAuthSystem::UserAuthSystem@21-24@src/java/0109.java","src/java/0109.java","UserAuthSystem::UserAuthSystem","UserAuthSystem::UserAuthSystem()",21,24
+4,1,22,2,4,"UserRecord::UserRecord@30-33@src/java/0109.java","src/java/0109.java","UserRecord::UserRecord","UserAuthSystem::UserRecord::UserRecord( String salt , String hash)",30,33
+13,3,95,2,16,"UserRecord::register@36-51@src/java/0109.java","src/java/0109.java","UserRecord::register","UserAuthSystem::register( String username , String password)",36,51
+15,4,94,2,18,"UserRecord::authenticate@53-70@src/java/0109.java","src/java/0109.java","UserRecord::authenticate","UserAuthSystem::authenticate( String username , String password)",53,70
+13,4,98,3,16,"UserRecord::changePassword@72-87@src/java/0109.java","src/java/0109.java","UserRecord::changePassword","UserAuthSystem::changePassword( String username , String currentPassword , String newPassword)",72,87
+6,2,35,2,7,"UserRecord::deleteUser@89-95@src/java/0109.java","src/java/0109.java","UserRecord::deleteUser","UserAuthSystem::deleteUser( String username , String password)",89,95
+3,2,19,1,3,"UserRecord::userExists@97-99@src/java/0109.java","src/java/0109.java","UserRecord::userExists","UserAuthSystem::userExists( String username)",97,99
+6,4,38,2,6,"UserRecord::isValidInput@101-106@src/java/0109.java","src/java/0109.java","UserRecord::isValidInput","UserAuthSystem::isValidInput( String username , String password)",101,106
+15,2,90,2,15,"UserRecord::hashPassword@108-122@src/java/0109.java","src/java/0109.java","UserRecord::hashPassword","UserAuthSystem::hashPassword( String password , byte [ ] salt)",108,122
+5,1,26,0,5,"UserRecord::generateSalt@124-128@src/java/0109.java","src/java/0109.java","UserRecord::generateSalt","UserAuthSystem::generateSalt()",124,128
+5,1,31,3,5,"User::User@24-28@src/java/0150.java","src/java/0150.java","User::User","Main::User::User( String name , String email , String passwordHash)",24,28
+3,1,8,0,3,"User::getName@30-32@src/java/0150.java","src/java/0150.java","User::getName","Main::User::getName()",30,32
+3,1,8,0,3,"User::getEmail@34-36@src/java/0150.java","src/java/0150.java","User::getEmail","Main::User::getEmail()",34,36
+3,1,8,0,3,"User::getPasswordHash@38-40@src/java/0150.java","src/java/0150.java","User::getPasswordHash","Main::User::getPasswordHash()",38,40
+5,1,37,1,5,"UserDatabase::UserDatabase@47-51@src/java/0150.java","src/java/0150.java","UserDatabase::UserDatabase","Main::UserDatabase::UserDatabase( String filePath)",47,51
+28,8,171,1,33,"UserDatabase::loadFromFile@53-85@src/java/0150.java","src/java/0150.java","UserDatabase::loadFromFile","Main::UserDatabase::loadFromFile( Path file)",53,85
+13,3,106,2,15,"UserDatabase::saveToFile@87-101@src/java/0150.java","src/java/0150.java","UserDatabase::saveToFile","Main::UserDatabase::saveToFile( Path file , List<User> usersToSave)",87,101
+3,1,26,1,3,"UserDatabase::encode@103-105@src/java/0150.java","src/java/0150.java","UserDatabase::encode","Main::UserDatabase::encode( String value)",103,105
+3,1,27,1,3,"UserDatabase::decode@107-109@src/java/0150.java","src/java/0150.java","UserDatabase::decode","Main::UserDatabase::decode( String value)",107,109
+8,3,37,1,8,"UserDatabase::userExists@111-118@src/java/0150.java","src/java/0150.java","UserDatabase::userExists","Main::UserDatabase::userExists( String email)",111,118
+11,4,65,1,14,"UserDatabase::addUser@120-133@src/java/0150.java","src/java/0150.java","UserDatabase::addUser","Main::UserDatabase::addUser( User user)",120,133
+3,1,15,0,3,"UserDatabase::getUsers@135-137@src/java/0150.java","src/java/0150.java","UserDatabase::getUsers","Main::UserDatabase::getUsers()",135,137
+4,1,26,2,4,"UserDatabase::readInput@140-143@src/java/0150.java","src/java/0150.java","UserDatabase::readInput","Main::readInput( Scanner scanner , String prompt)",140,143
+13,3,100,1,15,"UserDatabase::hashPassword@145-159@src/java/0150.java","src/java/0150.java","UserDatabase::hashPassword","Main::hashPassword( String password)",145,159
+22,8,160,2,27,"SafeStringProcessor::readBoundedInput@11-37@src/java/0088.java","src/java/0088.java","SafeStringProcessor::readBoundedInput","SafeStringProcessor::readBoundedInput( InputStream in , int maxLength)",11,37
+16,5,117,1,19,"SafeStringProcessor::processString@39-57@src/java/0088.java","src/java/0088.java","SafeStringProcessor::processString","SafeStringProcessor::processString( String input)",39,57
+10,2,78,1,10,"SafeStringProcessor::main@59-68@src/java/0088.java","src/java/0088.java","SafeStringProcessor::main","SafeStringProcessor::main( String [ ] args)",59,68
+17,3,135,4,22,"Main::getUserInfo@8-29@src/java/0030.java","src/java/0030.java","Main::getUserInfo","Main::getUserInfo( String jdbcUrl , String databaseUser , String databasePassword , String username)",8,29
+8,2,65,1,9,"Main::main@31-39@src/java/0030.java","src/java/0030.java","Main::main","Main::main( String [ ] args)",31,39
+10,2,56,1,10,"BoundedBuffer::BoundedBuffer@19-28@src/java/0188.java","src/java/0188.java","BoundedBuffer::BoundedBuffer","FixedSizeBufferHandler::BoundedBuffer::BoundedBuffer( int capacity)",19,28
+13,7,94,3,13,"BoundedBuffer::write@30-42@src/java/0188.java","src/java/0188.java","BoundedBuffer::write","FixedSizeBufferHandler::BoundedBuffer::write( char [ ] source , int offset , int length)",30,42
+13,7,94,3,13,"BoundedBuffer::read@44-56@src/java/0188.java","src/java/0188.java","BoundedBuffer::read","FixedSizeBufferHandler::BoundedBuffer::read( char [ ] destination , int offset , int length)",44,56
+5,1,39,0,5,"BoundedBuffer::drain@58-62@src/java/0188.java","src/java/0188.java","BoundedBuffer::drain","FixedSizeBufferHandler::BoundedBuffer::drain()",58,62
+3,1,8,0,3,"BoundedBuffer::getCount@64-66@src/java/0188.java","src/java/0188.java","BoundedBuffer::getCount","FixedSizeBufferHandler::BoundedBuffer::getCount()",64,66
+3,1,8,0,3,"BoundedBuffer::getCapacity@68-70@src/java/0188.java","src/java/0188.java","BoundedBuffer::getCapacity","FixedSizeBufferHandler::BoundedBuffer::getCapacity()",68,70
+3,1,10,0,3,"BoundedBuffer::isFull@72-74@src/java/0188.java","src/java/0188.java","BoundedBuffer::isFull","FixedSizeBufferHandler::BoundedBuffer::isFull()",72,74
+3,1,10,0,3,"BoundedBuffer::isEmpty@76-78@src/java/0188.java","src/java/0188.java","BoundedBuffer::isEmpty","FixedSizeBufferHandler::BoundedBuffer::isEmpty()",76,78
+24,7,177,2,29,"BoundedBuffer::processStreamWithFixedBuffer@81-109@src/java/0188.java","src/java/0188.java","BoundedBuffer::processStreamWithFixedBuffer","FixedSizeBufferHandler::processStreamWithFixedBuffer( InputStream input , int bufferCapacity)",81,109
+11,4,79,2,11,"BoundedBuffer::appendWithTruncation@111-121@src/java/0188.java","src/java/0188.java","BoundedBuffer::appendWithTruncation","FixedSizeBufferHandler::appendWithTruncation( BoundedBuffer buffer , String input)",111,121
+21,3,202,1,24,"BoundedBuffer::main@123-146@src/java/0188.java","src/java/0188.java","BoundedBuffer::main","FixedSizeBufferHandler::main( String [ ] args)",123,146
+16,7,86,1,16,"Solution::validatePin@2-17@src/java/0008.java","src/java/0008.java","Solution::validatePin","Solution::validatePin( String pin)",2,17
+3,1,17,1,3,"UserRegistrationSystem::connect@25-27@src/java/0146.java","src/java/0146.java","UserRegistrationSystem::connect","UserRegistrationSystem::connect( String url)",25,27
+12,1,46,1,12,"UserRegistrationSystem::initializeDatabase@29-40@src/java/0146.java","src/java/0146.java","UserRegistrationSystem::initializeDatabase","UserRegistrationSystem::initializeDatabase( Connection conn)",29,40
+12,5,69,1,12,"UserRegistrationSystem::validateName@42-53@src/java/0146.java","src/java/0146.java","UserRegistrationSystem::validateName","UserRegistrationSystem::validateName( String name)",42,53
+9,4,54,1,9,"UserRegistrationSystem::validateEmail@55-63@src/java/0146.java","src/java/0146.java","UserRegistrationSystem::validateEmail","UserRegistrationSystem::validateEmail( String email)",55,63
+15,8,95,1,15,"UserRegistrationSystem::validatePassword@65-79@src/java/0146.java","src/java/0146.java","UserRegistrationSystem::validatePassword","UserRegistrationSystem::validatePassword( String password)",65,79
+5,1,38,0,5,"UserRegistrationSystem::generateSalt@81-85@src/java/0146.java","src/java/0146.java","UserRegistrationSystem::generateSalt","UserRegistrationSystem::generateSalt()",81,85
+8,1,91,2,8,"UserRegistrationSystem::hashPassword@87-94@src/java/0146.java","src/java/0146.java","UserRegistrationSystem::hashPassword","UserRegistrationSystem::hashPassword( String password , String saltBase64)",87,94
+9,1,68,2,9,"UserRegistrationSystem::emailExists@96-104@src/java/0146.java","src/java/0146.java","UserRegistrationSystem::emailExists","UserRegistrationSystem::emailExists( Connection conn , String email)",96,104
+32,9,248,4,33,"UserRegistrationSystem::registerUser@106-138@src/java/0146.java","src/java/0146.java","UserRegistrationSystem::registerUser","UserRegistrationSystem::registerUser( Connection conn , String name , String email , String password)",106,138
+14,4,123,3,14,"UserRegistrationSystem::verifyLogin@140-153@src/java/0146.java","src/java/0146.java","UserRegistrationSystem::verifyLogin","UserRegistrationSystem::verifyLogin( Connection conn , String email , String password)",140,153
+42,9,362,1,45,"UserRegistrationSystem::main@155-199@src/java/0146.java","src/java/0146.java","UserRegistrationSystem::main","UserRegistrationSystem::main( String [ ] args)",155,199
+7,1,43,2,7,"FormServlet::doGet@13-19@src/java/0049.java","src/java/0049.java","FormServlet::doGet","FormServlet::doGet( HttpServletRequest request , HttpServletResponse response)",13,19
+9,1,61,2,9,"FormServlet::doPost@22-30@src/java/0049.java","src/java/0049.java","FormServlet::doPost","FormServlet::doPost( HttpServletRequest request , HttpServletResponse response)",22,30
+16,1,34,0,16,"FormServlet::generateFormHtml@32-47@src/java/0049.java","src/java/0049.java","FormServlet::generateFormHtml","FormServlet::generateFormHtml()",32,47
+15,1,44,1,15,"FormServlet::generateResultHtml@49-63@src/java/0049.java","src/java/0049.java","FormServlet::generateResultHtml","FormServlet::generateResultHtml( String input)",49,63
+10,2,56,1,10,"FormServlet::escapeHtml@65-74@src/java/0049.java","src/java/0049.java","FormServlet::escapeHtml","FormServlet::escapeHtml( String input)",65,74
+7,1,54,1,8,"Main::displayFile@6-13@src/java/0067.java","src/java/0067.java","Main::displayFile","Main::displayFile( String filename)",6,13
+10,2,69,1,10,"Main::main@15-24@src/java/0067.java","src/java/0067.java","Main::main","Main::main( String [ ] args)",15,24
+8,2,85,1,8,"Main::main@14-21@src/java/0046.java","src/java/0046.java","Main::main","Main::main( String [ ] args)",14,21
+23,5,187,1,25,"Main::handle@23-47@src/java/0046.java","src/java/0046.java","Main::handle","Main::handle( HttpExchange exchange)",23,47
+3,1,28,1,3,"Main::readBody@49-51@src/java/0046.java","src/java/0046.java","Main::readBody","Main::readBody( HttpExchange exchange)",49,51
+16,7,149,1,16,"Main::parseForm@53-68@src/java/0046.java","src/java/0046.java","Main::parseForm","Main::parseForm( String body)",53,68
+15,8,124,1,15,"Main::escape@70-84@src/java/0046.java","src/java/0046.java","Main::escape","Main::escape( String input)",70,84
+34,1,86,0,34,"Main::formPage@86-119@src/java/0046.java","src/java/0046.java","Main::formPage","Main::formPage()",86,119
+21,3,129,1,22,"Main::resultPage@121-142@src/java/0046.java","src/java/0046.java","Main::resultPage","Main::resultPage( Map<String,String> data)",121,142
+31,1,47,2,31,"Main::page@144-174@src/java/0046.java","src/java/0046.java","Main::page","Main::page( String title , String content)",144,174
+8,1,73,3,8,"Main::send@176-183@src/java/0046.java","src/java/0046.java","Main::send","Main::send( HttpExchange exchange , int status , String html)",176,183
+3,2,19,1,3,"Solution::validatePin@2-4@src/java/0010.java","src/java/0010.java","Solution::validatePin","Solution::validatePin( String pin)",2,4
+3,1,27,3,3,"UserLookup::connect@13-15@src/java/0026.java","src/java/0026.java","UserLookup::connect","UserLookup::connect( String jdbcUrl , String dbUser , String dbPassword)",13,15
+23,6,177,2,25,"UserLookup::findUserByUsername@17-41@src/java/0026.java","src/java/0026.java","UserLookup::findUserByUsername","UserLookup::findUserByUsername( Connection conn , String username)",17,41
+10,3,83,1,10,"UserLookup::formatUser@43-52@src/java/0026.java","src/java/0026.java","UserLookup::formatUser","UserLookup::formatUser( Map<String,Object> user)",43,52
+10,3,85,4,10,"UserLookup::lookup@54-63@src/java/0026.java","src/java/0026.java","UserLookup::lookup","UserLookup::lookup( String jdbcUrl , String dbUser , String dbPassword , String username)",54,63
+19,4,140,1,22,"UserLookup::main@65-86@src/java/0026.java","src/java/0026.java","UserLookup::main","UserLookup::main( String [ ] args)",65,86
+16,4,123,1,19,"Main::main@10-28@src/java/0027.java","src/java/0027.java","Main::main","Main::main( String [ ] args)",10,28
+7,3,43,1,7,"Main::requiredEnvironmentVariable@30-36@src/java/0027.java","src/java/0027.java","Main::requiredEnvironmentVariable","Main::requiredEnvironmentVariable( String name)",30,36
+21,3,118,2,23,"Main::retrieveUser@38-60@src/java/0027.java","src/java/0027.java","Main::retrieveUser","Main::retrieveUser( Connection connection , String username)",38,60
+9,2,92,1,10,"Main::main@8-17@src/java/0187.java","src/java/0187.java","Main::main","Main::main( String [ ] args)",8,17
+4,2,27,1,4,"Main::readInput@19-22@src/java/0187.java","src/java/0187.java","Main::readInput","Main::readInput( BufferedReader reader)",19,22
+5,1,46,2,5,"Main::storeInput@24-28@src/java/0187.java","src/java/0187.java","Main::storeInput","Main::storeInput( String input , char [ ] buffer)",24,28
+8,2,71,2,9,"get_user_info@5-13@src/python/0022.py","src/python/0022.py","get_user_info","get_user_info( username : str , database_path : str = 'users.db' )",5,13
+8,3,51,0,9,"main@16-24@src/python/0022.py","src/python/0022.py","main","main( )",16,24
+4,1,52,2,4,"hash_password@21-24@src/python/0101.py","src/python/0101.py","hash_password","hash_password( password , iterations = PBKDF2_ITERATIONS )",21,24
+12,3,89,2,12,"verify_password_hash@27-38@src/python/0101.py","src/python/0101.py","verify_password_hash","verify_password_hash( password , stored_hash )",27,38
+4,3,30,1,4,"validate_username@41-44@src/python/0101.py","src/python/0101.py","validate_username","validate_username( username )",41,44
+10,6,79,1,10,"validate_password@47-56@src/python/0101.py","src/python/0101.py","validate_password","validate_password( password )",47,56
+15,1,53,2,15,"__init__@60-74@src/python/0101.py","src/python/0101.py","__init__","__init__( self , db_path = ':memory:' )",60,74
+18,4,89,3,18,"register@76-93@src/python/0101.py","src/python/0101.py","register","register( self , username , password )",76,93
+35,7,172,3,36,"authenticate@95-130@src/python/0101.py","src/python/0101.py","authenticate","authenticate( self , username , password )",95,130
+14,3,83,4,14,"change_password@132-145@src/python/0101.py","src/python/0101.py","change_password","change_password( self , username , old_password , new_password )",132,145
+12,4,65,2,12,"validate_session@147-158@src/python/0101.py","src/python/0101.py","validate_session","validate_session( self , token )",147,158
+3,1,26,2,3,"logout@160-162@src/python/0101.py","src/python/0101.py","logout","logout( self , token )",160,162
+6,4,54,2,6,"logout_all@164-169@src/python/0101.py","src/python/0101.py","logout_all","logout_all( self , username )",164,169
+4,1,35,2,4,"_create_session@171-174@src/python/0101.py","src/python/0101.py","_create_session","_create_session( self , username )",171,174
+3,1,17,1,3,"close@176-178@src/python/0101.py","src/python/0101.py","close","close( self )",176,178
+27,1,80,1,27,"create_database@5-31@src/python/0023.py","src/python/0023.py","create_database","create_database( db_path : str )",5,31
+14,2,73,2,14,"get_user_by_username@34-47@src/python/0023.py","src/python/0023.py","get_user_by_username","get_user_by_username( db_path : str , username : str )",34,47
+17,5,85,0,21,"main@50-70@src/python/0023.py","src/python/0023.py","main","main( )",50,70
+6,4,50,1,6,"_validate_username@11-16@src/python/0104.py","src/python/0104.py","_validate_username","_validate_username( username : str )",11,16
+4,2,27,1,4,"_validate_password@18-21@src/python/0104.py","src/python/0104.py","_validate_password","_validate_password( password : str )",18,21
+4,1,49,1,4,"hash_password@23-26@src/python/0104.py","src/python/0104.py","hash_password","hash_password( password : str )",23,26
+9,2,78,2,9,"verify_password@28-36@src/python/0104.py","src/python/0104.py","verify_password","verify_password( password : str , stored_hash : str )",28,36
+9,4,71,3,10,"register_user@38-47@src/python/0104.py","src/python/0104.py","register_user","register_user( users : Dict [ str , str ] , username : str , password : str )",38,47
+8,3,83,4,10,"authenticate_user@49-58@src/python/0104.py","src/python/0104.py","authenticate_user","authenticate_user( users : Dict [ str , str ] , sessions : Dict [ str , str ] , username : str , password : str )",49,58
+2,1,28,2,2,"validate_token@60-61@src/python/0104.py","src/python/0104.py","validate_token","validate_token( sessions : Dict [ str , str ] , token : str )",60,61
+5,2,32,2,5,"logout_user@63-67@src/python/0104.py","src/python/0104.py","logout_user","logout_user( sessions : Dict [ str , str ] , token : str )",63,67
+9,4,81,4,10,"change_password@69-78@src/python/0104.py","src/python/0104.py","change_password","change_password( users : Dict [ str , str ] , username : str , old_password : str , new_password : str )",69,78
+16,4,99,2,19,"store_input@6-24@src/python/0182.py","src/python/0182.py","store_input","store_input( text , capacity = BUFFER_SIZE )",6,24
+3,1,29,1,3,"read_buffer@27-29@src/python/0182.py","src/python/0182.py","read_buffer","read_buffer( buffer )",27,29
+9,3,47,0,11,"main@32-42@src/python/0182.py","src/python/0182.py","main","main( )",32,42
+15,1,29,1,15,"initialize_database@14-28@src/python/0142.py","src/python/0142.py","initialize_database","initialize_database( db_path )",14,28
+7,1,26,2,7,"hash_password@31-37@src/python/0142.py","src/python/0142.py","hash_password","hash_password( password , salt )",31,37
+30,7,211,4,35,"register_user@40-74@src/python/0142.py","src/python/0142.py","register_user","register_user( name , email , password , db_path )",40,74
+15,3,89,3,17,"verify_password@77-93@src/python/0142.py","src/python/0142.py","verify_password","verify_password( email , password , db_path )",77,93
+7,1,50,4,8,"run_cli@96-103@src/python/0142.py","src/python/0142.py","run_cli","run_cli( input_fn , password_fn , output_fn , db_path )",96,103
+8,2,32,1,8,"create_buffer@1-8@src/python/0184.py","src/python/0184.py","create_buffer","create_buffer( size )",1,8
+12,4,99,2,15,"buffer_write@10-24@src/python/0184.py","src/python/0184.py","buffer_write","buffer_write( buffer , data )",10,24
+2,1,20,1,2,"buffer_read@26-27@src/python/0184.py","src/python/0184.py","buffer_read","buffer_read( buffer )",26,27
+3,1,13,1,3,"buffer_clear@29-31@src/python/0184.py","src/python/0184.py","buffer_clear","buffer_clear( buffer )",29,31
+2,1,15,1,2,"buffer_is_full@33-34@src/python/0184.py","src/python/0184.py","buffer_is_full","buffer_is_full( buffer )",33,34
+2,1,15,1,2,"buffer_remaining@36-37@src/python/0184.py","src/python/0184.py","buffer_remaining","buffer_remaining( buffer )",36,37
+15,2,81,2,17,"handle_user_input@39-55@src/python/0184.py","src/python/0184.py","handle_user_input","handle_user_input( buffer_size , user_input )",39,55
+12,2,72,0,15,"main@57-71@src/python/0184.py","src/python/0184.py","main","main( )",57,71
+11,4,114,2,14,"encrypt@5-18@src/python/0162.py","src/python/0162.py","encrypt","encrypt( text : str , shift : int = 3 )",5,18
+6,1,64,0,6,"main@21-26@src/python/0162.py","src/python/0162.py","main","main( )",21,26
+7,2,60,1,7,"read_with_system_command@6-12@src/python/0061.py","src/python/0061.py","read_with_system_command","read_with_system_command( filename )",6,12
+14,4,93,0,14,"main@15-28@src/python/0061.py","src/python/0061.py","main","main( )",15,28
+12,6,92,3,12,"build_page@50-61@src/python/0041.py","src/python/0041.py","build_page","build_page( name = None , email = None , message = None )",50,61
+7,2,72,0,7,"index@65-71@src/python/0041.py","src/python/0041.py","index","index( )",65,71
+2,3,32,1,2,"validate_pin@1-2@src/python/0003.py","src/python/0003.py","validate_pin","validate_pin( pin : str )",1,2
+15,1,42,1,15,"init_db@6-20@src/python/0143.py","src/python/0143.py","init_db","init_db( db_path : str = 'users.db' )",6,20
+3,1,25,1,3,"is_valid_email@22-24@src/python/0143.py","src/python/0143.py","is_valid_email","is_valid_email( email : str )",22,24
+2,1,16,1,2,"is_valid_password@26-27@src/python/0143.py","src/python/0143.py","is_valid_password","is_valid_password( password : str )",26,27
+10,2,61,2,10,"hash_password@29-38@src/python/0143.py","src/python/0143.py","hash_password","hash_password( password : str , salt : bytes = None )",29,38
+29,6,194,4,34,"register_user@40-73@src/python/0143.py","src/python/0143.py","register_user","register_user( db_path : str , name : str , email : str , password : str )",40,73
+17,2,94,2,17,"get_user_by_email@75-91@src/python/0143.py","src/python/0143.py","get_user_by_email","get_user_by_email( db_path : str , email : str )",75,91
+14,2,93,0,17,"main@93-109@src/python/0143.py","src/python/0143.py","main","main( )",93,109
+-1,1,25,2,61,"render_page@6-66@src/python/0043.py","src/python/0043.py","render_page","render_page( title : str , body_content : str )",6,66
+1,1,27,1,16,"render_form@69-84@src/python/0043.py","src/python/0043.py","render_form","render_form( action_url : str )",69,84
+-1,1,49,3,10,"render_result@87-96@src/python/0043.py","src/python/0043.py","render_result","render_result( name : str , message : str , return_url : str )",87,96
+6,1,65,1,6,"extract_form_values@99-104@src/python/0043.py","src/python/0043.py","extract_form_values","extract_form_values( body_bytes : bytes )",99,104
+6,1,45,1,6,"do_GET@108-113@src/python/0043.py","src/python/0043.py","do_GET","do_GET( self )",108,113
+9,1,86,1,9,"do_POST@115-123@src/python/0043.py","src/python/0043.py","do_POST","do_POST( self )",115,123
+8,2,52,2,8,"run_server@126-133@src/python/0043.py","src/python/0043.py","run_server","run_server( host : str , port : int )",126,133
+13,4,102,2,17,"read_fixed_bytes@4-20@src/python/0185.py","src/python/0185.py","read_fixed_bytes","read_fixed_bytes( size , prompt = None )",4,20
+6,1,44,0,8,"main@23-30@src/python/0185.py","src/python/0185.py","main","main( )",23,30
+2,3,29,1,2,"validate_pin@1-2@src/python/0002.py","src/python/0002.py","validate_pin","validate_pin( pin )",1,2
+13,2,82,1,15,"process_string@4-18@src/python/0085.py","src/python/0085.py","process_string","process_string( text )",4,18
+12,5,75,0,15,"main@21-35@src/python/0085.py","src/python/0085.py","main","main( )",21,35
+6,4,42,1,6,"validate_pin@1-6@src/python/0001.py","src/python/0001.py","validate_pin","validate_pin( pin )",1,6
+11,4,91,2,18,"read_bounded_input@4-21@src/python/0083.py","src/python/0083.py","read_bounded_input","read_bounded_input( prompt : str , max_length : int = 1024 )",4,21
+8,3,66,1,11,"process_string@24-34@src/python/0083.py","src/python/0083.py","process_string","process_string( text : str )",24,34
+8,2,66,1,11,"run_pipeline@37-47@src/python/0083.py","src/python/0083.py","run_pipeline","run_pipeline( buffer_limit : int = 256 )",37,47
+13,1,20,1,13,"init_db@9-21@src/python/0103.py","src/python/0103.py","init_db","init_db( conn : sqlite3 . Connection )",9,21
+12,6,94,1,12,"validate_password_strength@24-35@src/python/0103.py","src/python/0103.py","validate_password_strength","validate_password_strength( password : str )",24,35
+9,1,45,2,9,"derive_key@38-46@src/python/0103.py","src/python/0103.py","derive_key","derive_key( password : str , salt : bytes )",38,46
+18,4,103,3,21,"register_user@49-69@src/python/0103.py","src/python/0103.py","register_user","register_user( conn : sqlite3 . Connection , username : str , password : str )",49,69
+18,3,110,3,21,"authenticate_user@72-92@src/python/0103.py","src/python/0103.py","authenticate_user","authenticate_user( conn : sqlite3 . Connection , username : str , password : str )",72,92
+20,3,105,4,24,"change_password@95-118@src/python/0103.py","src/python/0103.py","change_password","change_password( conn : sqlite3 . Connection , username : str , old_password : str , new_password : str )",95,118
+2,1,24,1,2,"display_file@4-5@src/python/0062.py","src/python/0062.py","display_file","display_file( filename )",4,5
+3,1,15,0,3,"main@8-10@src/python/0062.py","src/python/0062.py","main","main( )",8,10
+16,1,28,1,16,"init_db@10-25@src/python/0141.py","src/python/0141.py","init_db","init_db( db_path = ':memory:' )",10,25
+6,4,39,1,6,"validate_name@28-33@src/python/0141.py","src/python/0141.py","validate_name","validate_name( name )",28,33
+6,4,40,1,6,"validate_email@36-41@src/python/0141.py","src/python/0141.py","validate_email","validate_email( email )",36,41
+8,6,56,1,8,"validate_password@44-51@src/python/0141.py","src/python/0141.py","validate_password","validate_password( password )",44,51
+5,2,54,2,5,"hash_password@54-58@src/python/0141.py","src/python/0141.py","hash_password","hash_password( password , salt = None )",54,58
+16,5,126,4,19,"register_user@61-79@src/python/0141.py","src/python/0141.py","register_user","register_user( conn , name , email , password )",61,79
+8,2,70,2,8,"get_user_by_email@82-89@src/python/0141.py","src/python/0141.py","get_user_by_email","get_user_by_email( conn , email )",82,89
+9,2,67,3,9,"verify_password@92-100@src/python/0141.py","src/python/0141.py","verify_password","verify_password( conn , email , password )",92,100
+5,1,31,1,5,"prompt_registration@103-107@src/python/0141.py","src/python/0141.py","prompt_registration","prompt_registration( input_func = input )",103,107
+14,5,89,0,14,"main@110-123@src/python/0141.py","src/python/0141.py","main","main( )",110,123
+13,2,64,1,15,"process_string_safely@1-15@src/python/0084.py","src/python/0084.py","process_string_safely","process_string_safely( input_string )",1,15
+7,1,52,0,7,"main@17-23@src/python/0084.py","src/python/0084.py","main","main( )",17,23
+4,4,40,1,4,"valid_pin@1-4@src/python/0005.py","src/python/0005.py","valid_pin","valid_pin( pin )",1,4
+16,1,30,1,16,"initialize_database@10-25@src/python/0145.py","src/python/0145.py","initialize_database","initialize_database( db_path = DEFAULT_DB_PATH )",10,25
+5,2,31,1,5,"validate_email@28-32@src/python/0145.py","src/python/0145.py","validate_email","validate_email( email )",28,32
+11,2,56,2,13,"hash_password@35-47@src/python/0145.py","src/python/0145.py","hash_password","hash_password( password , salt_bytes = None )",35,47
+12,2,56,3,14,"verify_password@50-63@src/python/0145.py","src/python/0145.py","verify_password","verify_password( password , stored_hash , salt_hex )",50,63
+41,10,187,4,50,"register_user@66-115@src/python/0145.py","src/python/0145.py","register_user","register_user( name , email , password , db_path = DEFAULT_DB_PATH )",66,115
+19,4,80,2,23,"get_user_by_email@118-140@src/python/0145.py","src/python/0145.py","get_user_by_email","get_user_by_email( email , db_path = DEFAULT_DB_PATH )",118,140
+20,3,91,3,23,"authenticate_user@143-165@src/python/0145.py","src/python/0145.py","authenticate_user","authenticate_user( email , password , db_path = DEFAULT_DB_PATH )",143,165
+14,3,95,0,18,"main@168-185@src/python/0145.py","src/python/0145.py","main","main( )",168,185
+2,2,22,1,2,"validate_pin@1-2@src/python/0004.py","src/python/0004.py","validate_pin","validate_pin( pin )",1,2
+13,5,113,2,16,"encrypt@5-20@src/python/0165.py","src/python/0165.py","encrypt","encrypt( text , key )",5,20
+13,5,113,2,16,"decrypt@23-38@src/python/0165.py","src/python/0165.py","decrypt","decrypt( cipher_text , key )",23,38
+2,1,21,1,2,"_digest_token@21-22@src/python/0121.py","src/python/0121.py","_digest_token","_digest_token( token )",21,22
+2,1,11,0,2,"generate_session_token@25-26@src/python/0121.py","src/python/0121.py","generate_session_token","generate_session_token( )",25,26
+2,1,29,2,2,"compute_csrf_token@29-30@src/python/0121.py","src/python/0121.py","compute_csrf_token","compute_csrf_token( secret_key , session_token )",29,30
+5,3,35,3,5,"verify_csrf_token@33-37@src/python/0121.py","src/python/0121.py","verify_csrf_token","verify_csrf_token( secret_key , session_token , provided )",33,37
+5,2,45,2,5,"hash_password@40-44@src/python/0121.py","src/python/0121.py","hash_password","hash_password( password , salt = None )",40,44
+6,1,49,4,6,"__init__@48-53@src/python/0121.py","src/python/0121.py","__init__","__init__( self , idle_timeout = IDLE_TIMEOUT_SECONDS , absolute_timeout = ABSOLUTE_TIMEOUT_SECONDS , clock = time . time )",48,53
+13,1,72,5,13,"create@55-67@src/python/0121.py","src/python/0121.py","create","create( self , user_id , username , ip = '' , user_agent = '' )",55,67
+15,5,93,2,15,"get@69-83@src/python/0121.py","src/python/0121.py","get","get( self , token )",69,83
+5,2,35,2,5,"destroy@85-89@src/python/0121.py","src/python/0121.py","destroy","destroy( self , token )",85,89
+9,5,72,3,9,"destroy_user_sessions@91-99@src/python/0121.py","src/python/0121.py","destroy_user_sessions","destroy_user_sessions( self , user_id , except_token = None )",91,99
+11,4,79,1,11,"purge_expired@101-111@src/python/0121.py","src/python/0121.py","purge_expired","purge_expired( self )",101,111
+4,1,25,1,4,"__init__@115-118@src/python/0121.py","src/python/0121.py","__init__","__init__( self )",115,118
+18,6,126,3,18,"register@120-137@src/python/0121.py","src/python/0121.py","register","register( self , username , password )",120,137
+12,6,111,3,12,"authenticate@139-150@src/python/0121.py","src/python/0121.py","authenticate","authenticate( self , username , password )",139,150
+10,4,53,1,10,"parse_session_cookie@153-162@src/python/0121.py","src/python/0121.py","parse_session_cookie","parse_session_cookie( cookie_header )",153,162
+5,2,43,3,5,"build_set_cookie@165-169@src/python/0121.py","src/python/0121.py","build_set_cookie","build_set_cookie( token , max_age , secure )",165,169
+5,2,44,3,5,"__init__@173-177@src/python/0121.py","src/python/0121.py","__init__","__init__( self , secret_key = None , secure_cookie = False )",173,177
+2,1,11,3,2,"make_handler.log_message@184-185@src/python/0121.py","src/python/0121.py","make_handler.log_message","make_handler.log_message( self , format , * args )",184,185
+14,2,118,4,14,"make_handler._send_json@187-200@src/python/0121.py","src/python/0121.py","make_handler._send_json","make_handler._send_json( self , status , payload , set_cookie = None )",187,200
+15,8,95,1,15,"make_handler._read_json@202-216@src/python/0121.py","src/python/0121.py","make_handler._read_json","make_handler._read_json( self )",202,216
+4,1,32,1,4,"make_handler._current_session@218-221@src/python/0121.py","src/python/0121.py","make_handler._current_session","make_handler._current_session( self )",218,221
+2,1,9,1,2,"make_handler._client_ip@223-224@src/python/0121.py","src/python/0121.py","make_handler._client_ip","make_handler._client_ip( self )",223,224
+8,1,28,1,45,"make_handler@180-224@src/python/0121.py","src/python/0121.py","make_handler","make_handler( state )",180,224
+16,1,40,1,16,"init_db@8-23@src/python/0144.py","src/python/0144.py","init_db","init_db( db_path = 'users.db' )",8,23
+3,1,21,1,3,"validate_email@25-27@src/python/0144.py","src/python/0144.py","validate_email","validate_email( email )",25,27
+10,5,69,1,10,"validate_password@29-38@src/python/0144.py","src/python/0144.py","validate_password","validate_password( password )",29,38
+5,2,58,2,5,"hash_password@40-44@src/python/0144.py","src/python/0144.py","hash_password","hash_password( password , salt = None )",40,44
+25,7,173,4,31,"register_user@46-76@src/python/0144.py","src/python/0144.py","register_user","register_user( name , email , password , db_path = 'users.db' )",46,76
+7,1,57,2,7,"get_user_by_email@78-84@src/python/0144.py","src/python/0144.py","get_user_by_email","get_user_by_email( email , db_path = 'users.db' )",78,84
+11,2,82,3,13,"verify_password@86-98@src/python/0144.py","src/python/0144.py","verify_password","verify_password( email , password , db_path = 'users.db' )",86,98
+16,3,93,0,21,"main@100-120@src/python/0144.py","src/python/0144.py","main","main( )",100,120
+24,1,26,1,24,"init_db@19-42@src/python/0123.py","src/python/0123.py","init_db","init_db( conn : sqlite3 . Connection )",19,42
+10,2,70,2,10,"hash_password@45-54@src/python/0123.py","src/python/0123.py","hash_password","hash_password( password : str , salt : Optional [ str ] = None )",45,54
+3,1,36,3,3,"verify_password@57-59@src/python/0123.py","src/python/0123.py","verify_password","verify_password( stored_hash : str , salt : str , password_attempt : str )",57,59
+2,1,25,1,2,"hash_session_token@62-63@src/python/0123.py","src/python/0123.py","hash_session_token","hash_session_token( token : str )",62,63
+2,1,16,2,2,"__init__@67-68@src/python/0123.py","src/python/0123.py","__init__","__init__( self , conn : sqlite3 . Connection )",67,68
+15,1,96,3,16,"create_session@70-85@src/python/0123.py","src/python/0123.py","create_session","create_session( self , user_id : int , duration_seconds : int = SESSION_DURATION_SECONDS )",70,85
+24,3,118,2,27,"validate_session@87-113@src/python/0123.py","src/python/0123.py","validate_session","validate_session( self , raw_token : Optional [ str ] )",87,113
+9,2,52,2,10,"terminate_session@115-124@src/python/0123.py","src/python/0123.py","terminate_session","terminate_session( self , raw_token : Optional [ str ] )",115,124
+6,1,35,2,6,"terminate_all_user_sessions@126-131@src/python/0123.py","src/python/0123.py","terminate_all_user_sessions","terminate_all_user_sessions( self , user_id : int )",126,131
+7,1,49,1,7,"cleanup_expired_sessions@133-139@src/python/0123.py","src/python/0123.py","cleanup_expired_sessions","cleanup_expired_sessions( self )",133,139
+11,4,91,1,11,"_parse_form_data@146-156@src/python/0123.py","src/python/0123.py","_parse_form_data","_parse_form_data( self )",146,156
+12,4,62,1,12,"_get_cookie_token@158-169@src/python/0123.py","src/python/0123.py","_get_cookie_token","_get_cookie_token( self )",158,169
+8,1,79,3,10,"_build_session_cookie@171-180@src/python/0123.py","src/python/0123.py","_build_session_cookie","_build_session_cookie( self , token : str , max_age : int )",171,180
+8,1,71,1,8,"_build_clear_cookie@182-189@src/python/0123.py","src/python/0123.py","_build_clear_cookie","_build_clear_cookie( self )",182,189
+9,3,142,5,32,"_render_page@191-222@src/python/0123.py","src/python/0123.py","_render_page","_render_page( self , title : str , body_html : str , status_code : int = 200 , headers : Optional [ Dict [ str , str ] ] = None )",191,222
+8,3,74,3,8,"_redirect@224-231@src/python/0123.py","src/python/0123.py","_redirect","_redirect( self , location : str , headers : Optional [ Dict [ str , str ] ] = None )",224,231
+31,4,111,1,43,"do_GET@233-275@src/python/0123.py","src/python/0123.py","do_GET","do_GET( self )",233,275
+32,8,251,1,38,"do_POST@277-314@src/python/0123.py","src/python/0123.py","do_POST","do_POST( self )",277,314
+68,1,6,0,68,"render_form@6-73@src/python/0045.py","src/python/0045.py","render_form","render_form( )",6,73
+1,1,30,2,65,"render_result@76-140@src/python/0045.py","src/python/0045.py","render_result","render_result( name , message )",76,140
+33,1,6,0,33,"render_not_found@143-175@src/python/0045.py","src/python/0045.py","render_not_found","render_not_found( )",143,175
+13,4,89,1,17,"get_form_data@178-194@src/python/0045.py","src/python/0045.py","get_form_data","get_form_data( environ )",178,194
+2,2,22,1,2,"has_form_data@197-198@src/python/0045.py","src/python/0045.py","has_form_data","has_form_data( form_data )",197,198
+7,1,45,2,7,"make_response@201-207@src/python/0045.py","src/python/0045.py","make_response","make_response( status , html_body )",201,207
+15,3,127,2,19,"app@210-228@src/python/0045.py","src/python/0045.py","app","app( environ , start_response )",210,228
+3,1,24,2,3,"run@231-233@src/python/0045.py","src/python/0045.py","run","run( host , port )",231,233
+13,3,64,2,16,"_derive_password_hash@12-27@src/python/0105.py","src/python/0105.py","_derive_password_hash","_derive_password_hash( password , salt = None )",12,27
+3,1,28,3,3,"_verify_password@30-32@src/python/0105.py","src/python/0105.py","_verify_password","_verify_password( password , stored_salt , stored_hash )",30,32
+7,3,41,1,10,"_normalize_username@35-44@src/python/0105.py","src/python/0105.py","_normalize_username","_normalize_username( username )",35,44
+9,4,58,2,13,"create_user@47-59@src/python/0105.py","src/python/0105.py","create_user","create_user( username , password )",47,59
+15,4,84,2,19,"authenticate@62-80@src/python/0105.py","src/python/0105.py","authenticate","authenticate( username , password )",62,80
+18,7,108,3,26,"change_password@83-108@src/python/0105.py","src/python/0105.py","change_password","change_password( username , old_password , new_password )",83,108
+9,3,37,1,11,"delete_user@111-121@src/python/0105.py","src/python/0105.py","delete_user","delete_user( username )",111,121
+6,2,26,1,7,"user_exists@124-130@src/python/0105.py","src/python/0105.py","user_exists","user_exists( username )",124,130
+26,3,130,2,40,"application@5-44@src/python/0044.py","src/python/0044.py","application","application( environ , start_response )",5,44
+8,2,59,2,8,"__init__@6-13@src/python/0183.py","src/python/0183.py","__init__","__init__( self , capacity : int )",6,13
+12,3,79,2,16,"write@15-30@src/python/0183.py","src/python/0183.py","write","write( self , data : bytes )",15,30
+11,4,95,2,13,"read@32-44@src/python/0183.py","src/python/0183.py","read","read( self , max_bytes : Optional [ int ] = None )",32,44
+7,2,58,1,8,"peek@46-53@src/python/0183.py","src/python/0183.py","peek","peek( self )",46,53
+4,1,23,1,5,"clear@55-59@src/python/0183.py","src/python/0183.py","clear","clear( self )",55,59
+2,1,11,1,2,"count@62-63@src/python/0183.py","src/python/0183.py","count","count( self )",62,63
+2,1,15,1,2,"free_space@66-67@src/python/0183.py","src/python/0183.py","free_space","free_space( self )",66,67
+2,1,15,1,2,"is_full@70-71@src/python/0183.py","src/python/0183.py","is_full","is_full( self )",70,71
+2,1,13,1,2,"is_empty@74-75@src/python/0183.py","src/python/0183.py","is_empty","is_empty( self )",74,75
+8,1,52,2,12,"process_user_input@78-89@src/python/0183.py","src/python/0183.py","process_user_input","process_user_input( user_line : str , buffer : FixedBuffer )",78,89
+6,2,52,2,7,"drain_buffer@92-98@src/python/0183.py","src/python/0183.py","drain_buffer","drain_buffer( buffer : FixedBuffer , chunk_size : int = 16 )",92,98
+41,8,258,3,49,"run_interactive_session@101-149@src/python/0183.py","src/python/0183.py","run_interactive_session","run_interactive_session( capacity : int , in_stream : TextIO = sys . stdin , out_stream : TextIO = sys . stdout )",101,149
+8,2,74,3,8,"derive_keystream@7-14@src/python/0161.py","src/python/0161.py","derive_keystream","derive_keystream( key : bytes , nonce : bytes , length : int )",7,14
+8,2,110,2,8,"encrypt@17-24@src/python/0161.py","src/python/0161.py","encrypt","encrypt( plaintext : str , password : str )",17,24
+12,3,130,2,12,"decrypt@27-38@src/python/0161.py","src/python/0161.py","decrypt","decrypt( token : str , password : str )",27,38
+9,4,89,0,9,"main@41-49@src/python/0161.py","src/python/0161.py","main","main( )",41,49
+2,1,12,1,2,"create_connection@6-7@src/python/0021.py","src/python/0021.py","create_connection","create_connection( db_path )",6,7
+25,2,78,1,25,"setup_database@10-34@src/python/0021.py","src/python/0021.py","setup_database","setup_database( conn )",10,34
+11,2,63,2,11,"get_user_by_username@37-47@src/python/0021.py","src/python/0021.py","get_user_by_username","get_user_by_username( conn , username )",37,47
+5,3,37,1,5,"format_user@50-54@src/python/0021.py","src/python/0021.py","format_user","format_user( user )",50,54
+22,9,119,1,23,"main@57-79@src/python/0021.py","src/python/0021.py","main","main( argv = None )",57,79
+5,2,32,1,5,"display_file@4-8@src/python/0064.py","src/python/0064.py","display_file","display_file( filename )",4,8
+17,5,125,1,19,"display_file_contents@6-24@src/python/0063.py","src/python/0063.py","display_file_contents","display_file_contents( filename : str )",6,24
+6,2,35,0,6,"main@27-32@src/python/0063.py","src/python/0063.py","main","main( )",27,32
+9,3,78,2,9,"encrypt@3-11@src/python/0164.py","src/python/0164.py","encrypt","encrypt( plaintext , key )",3,11
+9,3,70,2,9,"decrypt@13-21@src/python/0164.py","src/python/0164.py","decrypt","decrypt( ciphertext , key )",13,21
+5,3,36,2,5,"__init__@2-6@src/python/0181.py","src/python/0181.py","__init__","__init__( self , capacity )",2,6
+7,2,53,2,7,"write@8-14@src/python/0181.py","src/python/0181.py","write","write( self , text )",8,14
+2,1,14,1,2,"read@16-17@src/python/0181.py","src/python/0181.py","read","read( self )",16,17
+2,1,12,1,2,"clear@19-20@src/python/0181.py","src/python/0181.py","clear","clear( self )",19,20
+2,1,16,1,2,"is_full@22-23@src/python/0181.py","src/python/0181.py","is_full","is_full( self )",22,23
+2,1,12,1,2,"__len__@25-26@src/python/0181.py","src/python/0181.py","__len__","__len__( self )",25,26
+12,5,70,3,12,"read_into_buffer@29-40@src/python/0181.py","src/python/0181.py","read_into_buffer","read_into_buffer( buffer , prompt = '> ' , stop_word = 'quit' )",29,40
+9,1,57,1,9,"main@43-51@src/python/0181.py","src/python/0181.py","main","main( capacity = 256 )",43,51
+5,2,40,2,32,"render_page@9-40@src/python/0042.py","src/python/0042.py","render_page","render_page( message = '' , submitted = False )",9,40
+8,1,66,3,8,"send_html@44-51@src/python/0042.py","src/python/0042.py","send_html","send_html( self , status , content )",44,51
+2,1,15,1,2,"do_GET@53-54@src/python/0042.py","src/python/0042.py","do_GET","do_GET( self )",53,54
+24,5,144,1,27,"do_POST@56-82@src/python/0042.py","src/python/0042.py","do_POST","do_POST( self )",56,82
+2,1,21,3,2,"log_message@84-85@src/python/0042.py","src/python/0042.py","log_message","log_message( self , format_string , * args )",84,85
+9,3,49,2,9,"run_server@88-96@src/python/0042.py","src/python/0042.py","run_server","run_server( host = '127.0.0.1' , port = 8000 )",88,96
+9,4,63,2,11,"read_bounded_input@6-16@src/python/0082.py","src/python/0082.py","read_bounded_input","read_bounded_input( stream , max_length = MAX_INPUT_LENGTH )",6,16
+6,3,38,1,6,"process_text@19-24@src/python/0082.py","src/python/0082.py","process_text","process_text( text )",19,24
+7,2,41,0,8,"main@27-34@src/python/0082.py","src/python/0082.py","main","main( )",27,34
+2,1,35,2,2,"_rotl32@7-8@src/python/0163.py","src/python/0163.py","_rotl32","_rotl32( value : int , shift : int )",7,8
+9,1,173,5,9,"_quarter_round@11-19@src/python/0163.py","src/python/0163.py","_quarter_round","_quarter_round( state : list , a : int , b : int , c : int , d : int )",11,19
+20,3,223,3,22,"_chacha20_block@22-43@src/python/0163.py","src/python/0163.py","_chacha20_block","_chacha20_block( key : bytes , counter : int , nonce : bytes )",22,43
+9,3,108,4,9,"chacha20_crypt@46-54@src/python/0163.py","src/python/0163.py","chacha20_crypt","chacha20_crypt( data : bytes , key : bytes , nonce : bytes , counter : int = 1 )",46,54
+2,1,33,2,2,"derive_key@57-58@src/python/0163.py","src/python/0163.py","derive_key","derive_key( password : str , salt : bytes )",57,58
+8,1,74,2,8,"encrypt@61-68@src/python/0163.py","src/python/0163.py","encrypt","encrypt( plaintext : str , password : str )",61,68
+10,2,86,2,10,"decrypt@71-80@src/python/0163.py","src/python/0163.py","decrypt","decrypt( encrypted_payload : str , password : str )",71,80
+9,3,58,3,9,"__init__@20-28@src/python/0122.py","src/python/0122.py","__init__","__init__( self , lifetime_seconds = 3600 , max_sessions = 100000 )",20,28
+2,1,21,1,2,"_key@31-32@src/python/0122.py","src/python/0122.py","_key","_key( token )",31,32
+18,3,116,1,20,"create@34-53@src/python/0122.py","src/python/0122.py","create","create( self )",34,53
+13,5,75,2,13,"get@55-67@src/python/0122.py","src/python/0122.py","get","get( self , token )",55,67
+6,3,47,2,6,"delete@69-74@src/python/0122.py","src/python/0122.py","delete","delete( self , token )",69,74
+7,4,42,2,7,"_remove_expired@76-82@src/python/0122.py","src/python/0122.py","_remove_expired","_remove_expired( self , now )",76,82
+10,1,45,5,10,"__init__@86-95@src/python/0122.py","src/python/0122.py","__init__","__init__( self , lifetime_seconds = 3600 , max_sessions = 100000 , cookie_secure = True , cookie_name = 'session' , )",86,95
+26,6,151,3,29,"__call__@97-125@src/python/0122.py","src/python/0122.py","__call__","__call__( self , environ , start_response )",97,125
+17,3,87,3,19,"_create_session@127-145@src/python/0122.py","src/python/0122.py","_create_session","_create_session( self , start_response , previous_token )",127,145
+10,2,55,3,10,"_get_session@147-156@src/python/0122.py","src/python/0122.py","_get_session","_get_session( self , start_response , token )",147,156
+20,3,117,4,22,"_delete_session@158-179@src/python/0122.py","src/python/0122.py","_delete_session","_delete_session( self , environ , start_response , token )",158,179
+6,1,32,1,6,"_session_payload@182-187@src/python/0122.py","src/python/0122.py","_session_payload","_session_payload( session )",182,187
+11,4,66,2,11,"_read_cookie@189-199@src/python/0122.py","src/python/0122.py","_read_cookie","_read_cookie( self , environ )",189,199
+11,2,50,2,11,"_cookie_header@201-211@src/python/0122.py","src/python/0122.py","_cookie_header","_cookie_header( self , token )",201,211
+11,2,41,1,11,"_clear_cookie_header@213-223@src/python/0122.py","src/python/0122.py","_clear_cookie_header","_clear_cookie_header( self )",213,223
+14,2,99,4,14,"_respond@226-239@src/python/0122.py","src/python/0122.py","_respond","_respond( start_response , status , payload , extra_headers = None )",226,239
+12,1,40,4,12,"create_app@242-253@src/python/0122.py","src/python/0122.py","create_app","create_app( lifetime_seconds = 3600 , max_sessions = 100000 , cookie_secure = True , cookie_name = 'session' , )",242,253
+28,3,95,1,30,"initialize_database@7-36@src/python/0025.py","src/python/0025.py","initialize_database","initialize_database( db_path )",7,36
+21,3,101,2,24,"get_user_information@38-61@src/python/0025.py","src/python/0025.py","get_user_information","get_user_information( username , db_path = DEFAULT_DB_PATH )",38,61
+17,5,87,1,21,"main@63-83@src/python/0025.py","src/python/0025.py","main","main( argv = None )",63,83
+6,3,41,2,6,"validate_input@6-11@src/python/0081.py","src/python/0081.py","validate_input","validate_input( text , max_length = MAX_INPUT_LENGTH )",6,11
+11,1,72,1,11,"process_text@14-24@src/python/0081.py","src/python/0081.py","process_text","process_text( text )",14,24
+8,3,58,1,8,"read_input@27-34@src/python/0081.py","src/python/0081.py","read_input","read_input( max_length = MAX_INPUT_LENGTH )",27,34
+5,2,36,1,5,"format_results@37-41@src/python/0081.py","src/python/0081.py","format_results","format_results( results )",37,41
+10,2,57,0,10,"main@44-53@src/python/0081.py","src/python/0081.py","main","main( )",44,53
+2,1,12,1,2,"connect_database@3-4@src/python/0024.py","src/python/0024.py","connect_database","connect_database( db_name )",3,4
+24,3,86,1,24,"initialize_database@6-29@src/python/0024.py","src/python/0024.py","initialize_database","initialize_database( conn )",6,29
+7,1,39,2,7,"query_user_by_username@31-37@src/python/0024.py","src/python/0024.py","query_user_by_username","query_user_by_username( conn , username )",31,37
+15,2,90,0,18,"main@39-56@src/python/0024.py","src/python/0024.py","main","main( )",39,56
+5,1,47,1,5,"__init__@17-21@src/python/0102.py","src/python/0102.py","__init__","__init__( self )",17,21
+8,1,31,3,8,"_derive@24-31@src/python/0102.py","src/python/0102.py","_derive","_derive( cls , password_bytes , salt )",24,31
+9,5,71,1,11,"_normalize_username@34-44@src/python/0102.py","src/python/0102.py","_normalize_username","_normalize_username( username )",34,44
+10,4,47,2,10,"_password_bytes@47-56@src/python/0102.py","src/python/0102.py","_password_bytes","_password_bytes( cls , password )",47,56
+5,2,25,3,5,"_valid_new_password@59-63@src/python/0102.py","src/python/0102.py","_valid_new_password","_valid_new_password( cls , password , encoded )",59,63
+12,4,91,3,17,"register@65-81@src/python/0102.py","src/python/0102.py","register","register( self , username , password )",65,81
+15,5,117,3,19,"authenticate@83-101@src/python/0102.py","src/python/0102.py","authenticate","authenticate( self , username , password )",83,101
+26,8,166,4,32,"change_password@103-134@src/python/0102.py","src/python/0102.py","change_password","change_password( self , username , current_password , new_password )",103,134
+22,7,124,3,26,"delete_user@136-161@src/python/0102.py","src/python/0102.py","delete_user","delete_user( self , username , password )",136,161
+3,1,18,1,4,"user_count@163-166@src/python/0102.py","src/python/0102.py","user_count","user_count( self )",163,166
+23,6,95,1,26,"quoteForShell@5-30@src/cpp/0080.cpp","src/cpp/0080.cpp","quoteForShell","quoteForShell( const std :: string & filename)",5,30
+6,2,47,1,10,"displayFileContents@32-41@src/cpp/0080.cpp","src/cpp/0080.cpp","displayFileContents","displayFileContents( const std :: string & filename)",32,41
+14,3,73,1,17,"main@43-59@src/cpp/0080.cpp","src/cpp/0080.cpp","main","main( int argc , char * argv [ ])",43,59
+1,1,29,2,1,"sha::rotr@24-24@src/cpp/0156.cpp","src/cpp/0156.cpp","sha::rotr","sha::rotr( uint32_t x , uint32_t n)",24,24
+38,8,703,1,40,"sha::sha256Hex@26-65@src/cpp/0156.cpp","src/cpp/0156.cpp","sha::sha256Hex","sha::sha256Hex( const std :: string & input)",26,65
+9,2,74,1,9,"generateSaltHex@83-91@src/cpp/0156.cpp","src/cpp/0156.cpp","generateSaltHex","generateSaltHex( size_t bytes)",83,91
+8,2,70,2,8,"hashPassword@93-100@src/cpp/0156.cpp","src/cpp/0156.cpp","hashPassword","hashPassword( const std :: string & password , const std :: string & salt)",93,100
+8,1,85,1,8,"processString@6-13@src/cpp/0098.cpp","src/cpp/0098.cpp","processString","processString( const std :: string & input)",6,13
+12,2,71,0,14,"main@15-28@src/cpp/0098.cpp","src/cpp/0098.cpp","main","main()",15,28
+29,5,115,1,33,"initializeDatabase@13-45@src/cpp/0038.cpp","src/cpp/0038.cpp","initializeDatabase","initializeDatabase( sqlite3 * db)",13,45
+26,7,231,2,36,"getUserByUsername@47-82@src/cpp/0038.cpp","src/cpp/0038.cpp","getUserByUsername","getUserByUsername( sqlite3 * db , const std :: string & username)",47,82
+30,5,218,0,34,"main@84-117@src/cpp/0038.cpp","src/cpp/0038.cpp","main","main()",84,117
+23,6,161,1,23,"urlDecode@7-29@src/cpp/0059.cpp","src/cpp/0059.cpp","urlDecode","urlDecode( const std :: string & str)",7,29
+14,3,119,1,15,"parseFormData@31-45@src/cpp/0059.cpp","src/cpp/0059.cpp","parseFormData","parseFormData( const std :: string & data)",31,45
+14,7,85,1,14,"htmlEscape@47-60@src/cpp/0059.cpp","src/cpp/0059.cpp","htmlEscape","htmlEscape( const std :: string & str)",47,60
+51,12,486,0,58,"main@62-119@src/cpp/0059.cpp","src/cpp/0059.cpp","main","main()",62,119
+11,5,68,1,11,"validatePIN@5-15@src/cpp/0016.cpp","src/cpp/0016.cpp","validatePIN","validatePIN( const std :: string & pin)",5,15
+7,1,62,0,7,"main@17-23@src/cpp/0016.cpp","src/cpp/0016.cpp","main","main()",17,23
+4,2,25,1,7,"buildCommand@5-11@src/cpp/0076.cpp","src/cpp/0076.cpp","buildCommand","buildCommand( const std :: string & filename)",5,11
+3,1,23,1,3,"runCommand@13-15@src/cpp/0076.cpp","src/cpp/0076.cpp","runCommand","runCommand( const std :: string & command)",13,15
+15,3,93,0,18,"main@17-34@src/cpp/0076.cpp","src/cpp/0076.cpp","main","main()",17,34
+11,2,89,0,11,"HttpResponse::toString@41-51@src/cpp/0138.cpp","src/cpp/0138.cpp","HttpResponse::toString","HttpResponse::toString() const",41,51
+18,4,181,1,18,"SecureTokenGenerator::generateToken@56-73@src/cpp/0138.cpp","src/cpp/0138.cpp","SecureTokenGenerator::generateToken","SecureTokenGenerator::generateToken( size_t byteCount = 32)",56,73
+3,1,46,2,3,"SessionStore::SessionStore@84-86@src/cpp/0138.cpp","src/cpp/0138.cpp","SessionStore::SessionStore","SessionStore::SessionStore( std :: chrono :: seconds idleTimeout = std :: chrono :: seconds(900) , std :: chrono :: seconds absoluteTimeout = std :: chrono :: seconds(3600))",84,86
+13,1,94,1,15,"SessionStore::createSession@88-102@src/cpp/0138.cpp","src/cpp/0138.cpp","SessionStore::createSession","SessionStore::createSession( const std :: string & username)",88,102
+14,4,113,1,17,"SessionStore::getAndValidateSession@104-120@src/cpp/0138.cpp","src/cpp/0138.cpp","SessionStore::getAndValidateSession","SessionStore::getAndValidateSession( const std :: string & sessionId)",104,120
+4,1,34,1,4,"SessionStore::terminateSession@122-125@src/cpp/0138.cpp","src/cpp/0138.cpp","SessionStore::terminateSession","SessionStore::terminateSession( const std :: string & sessionId)",122,125
+19,2,137,1,23,"SessionStore::rotateSession@127-149@src/cpp/0138.cpp","src/cpp/0138.cpp","SessionStore::rotateSession","SessionStore::rotateSession( const std :: string & oldSessionId)",127,149
+11,4,92,0,11,"SessionStore::purgeExpiredSessions@151-161@src/cpp/0138.cpp","src/cpp/0138.cpp","SessionStore::purgeExpiredSessions","SessionStore::purgeExpiredSessions()",151,161
+6,2,60,1,6,"HttpParser::trim@166-171@src/cpp/0138.cpp","src/cpp/0138.cpp","HttpParser::trim","HttpParser::trim( const std :: string & str)",166,171
+14,3,113,1,14,"HttpParser::parseUrlEncoded@173-186@src/cpp/0138.cpp","src/cpp/0138.cpp","HttpParser::parseUrlEncoded","HttpParser::parseUrlEncoded( const std :: string & query)",173,186
+15,3,126,1,15,"HttpParser::parseCookies@188-202@src/cpp/0138.cpp","src/cpp/0138.cpp","HttpParser::parseCookies","HttpParser::parseCookies( const std :: string & cookieHeader)",188,202
+38,11,307,1,42,"HttpParser::parse@204-245@src/cpp/0138.cpp","src/cpp/0138.cpp","HttpParser::parse","HttpParser::parse( const std :: string & raw)",204,245
+3,1,29,2,3,"crypto::rotr@13-15@src/cpp/0118.cpp","src/cpp/0118.cpp","crypto::rotr","crypto::rotr( uint32_t x , uint32_t n)",13,15
+3,1,26,3,3,"crypto::choose@17-19@src/cpp/0118.cpp","src/cpp/0118.cpp","crypto::choose","crypto::choose( uint32_t e , uint32_t f , uint32_t g)",17,19
+3,1,32,3,3,"crypto::majority@21-23@src/cpp/0118.cpp","src/cpp/0118.cpp","crypto::majority","crypto::majority( uint32_t a , uint32_t b , uint32_t c)",21,23
+3,1,29,1,3,"crypto::sig0@25-27@src/cpp/0118.cpp","src/cpp/0118.cpp","crypto::sig0","crypto::sig0( uint32_t x)",25,27
+3,1,29,1,3,"crypto::sig1@29-31@src/cpp/0118.cpp","src/cpp/0118.cpp","crypto::sig1","crypto::sig1( uint32_t x)",29,31
+3,1,29,1,3,"crypto::theta0@33-35@src/cpp/0118.cpp","src/cpp/0118.cpp","crypto::theta0","crypto::theta0( uint32_t x)",33,35
+3,1,29,1,3,"crypto::theta1@37-39@src/cpp/0118.cpp","src/cpp/0118.cpp","crypto::theta1","crypto::theta1( uint32_t x)",37,39
+68,8,662,1,74,"crypto::sha256@60-133@src/cpp/0118.cpp","src/cpp/0118.cpp","crypto::sha256","crypto::sha256( const std :: vector<uint8_t> & data)",60,133
+19,3,209,2,22,"crypto::hmac_sha256@135-156@src/cpp/0118.cpp","src/cpp/0118.cpp","crypto::hmac_sha256","crypto::hmac_sha256( const std :: vector<uint8_t> & key , const std :: vector<uint8_t> & message)",135,156
+15,7,116,1,15,"htmlEscape@10-24@src/cpp/0058.cpp","src/cpp/0058.cpp","htmlEscape","htmlEscape( const std :: string & input)",10,24
+17,5,154,1,17,"urlDecode@26-42@src/cpp/0058.cpp","src/cpp/0058.cpp","urlDecode","urlDecode( const std :: string & input)",26,42
+13,3,107,2,13,"extractFormField@44-56@src/cpp/0058.cpp","src/cpp/0058.cpp","extractFormField","extractFormField( const std :: string & body , const std :: string & key)",44,56
+33,2,130,1,36,"generateHtml@58-93@src/cpp/0058.cpp","src/cpp/0058.cpp","generateHtml","generateHtml( const std :: string & userInput)",58,93
+34,4,208,1,37,"handleHttpRequest@95-131@src/cpp/0058.cpp","src/cpp/0058.cpp","handleHttpRequest","handleHttpRequest( const std :: string & request)",95,131
+48,8,345,1,57,"startServer@133-189@src/cpp/0058.cpp","src/cpp/0058.cpp","startServer","startServer( int port)",133,189
+4,1,16,0,4,"main@191-194@src/cpp/0058.cpp","src/cpp/0058.cpp","main","main()",191,194
+4,2,39,2,4,"columnText@14-17@src/cpp/0037.cpp","src/cpp/0037.cpp","columnText","columnText( sqlite3_stmt * statement , int column)",14,17
+35,5,222,2,40,"findUser@19-58@src/cpp/0037.cpp","src/cpp/0037.cpp","findUser","findUser( sqlite3 * database , const std :: string & username)",19,58
+41,9,278,1,45,"main@60-104@src/cpp/0037.cpp","src/cpp/0037.cpp","main","main( int argc , char * argv [ ])",60,104
+13,3,111,1,13,"processString@5-17@src/cpp/0099.cpp","src/cpp/0099.cpp","processString","processString( const std :: string & input)",5,17
+9,1,75,0,11,"main@19-29@src/cpp/0099.cpp","src/cpp/0099.cpp","main","main()",19,29
+20,7,109,3,26,"read_into_fixed_buffer@5-30@src/cpp/0200.cpp","src/cpp/0200.cpp","read_into_fixed_buffer","read_into_fixed_buffer( std :: istream & input , char * buffer , std :: size_t buffer_size)",5,30
+8,1,74,0,12,"main@32-43@src/cpp/0200.cpp","src/cpp/0200.cpp","main","main()",32,43
+4,2,39,1,4,"environment_value@12-15@src/cpp/0057.cpp","src/cpp/0057.cpp","environment_value","environment_value( const char * name)",12,15
+17,6,109,1,20,"parse_content_length@17-36@src/cpp/0057.cpp","src/cpp/0057.cpp","parse_content_length","parse_content_length( const std :: string & value)",17,36
+15,4,109,4,17,"read_request_data@38-54@src/cpp/0057.cpp","src/cpp/0057.cpp","read_request_data","read_request_data( const std :: string & method , const std :: string & query_string , std :: size_t content_length , std :: istream & input)",38,54
+12,7,66,1,12,"hex_value@56-67@src/cpp/0057.cpp","src/cpp/0057.cpp","hex_value","hex_value( char character)",56,67
+21,7,182,1,23,"url_decode@69-91@src/cpp/0057.cpp","src/cpp/0057.cpp","url_decode","url_decode( const std :: string & value)",69,91
+24,6,202,1,29,"parse_form_data@93-121@src/cpp/0057.cpp","src/cpp/0057.cpp","parse_form_data","parse_form_data( const std :: string & data)",93,121
+27,7,101,1,29,"html_escape@123-151@src/cpp/0057.cpp","src/cpp/0057.cpp","html_escape","html_escape( const std :: string & value)",123,151
+46,3,192,1,49,"render_page@153-201@src/cpp/0057.cpp","src/cpp/0057.cpp","render_page","render_page( const std :: map<std::string,std::string> & fields)",153,201
+19,1,124,1,23,"main@205-227@src/cpp/0057.cpp","src/cpp/0057.cpp","main","main( int argc , char * argv [ ])",205,227
+3,1,29,2,3,"rotl32@10-12@src/cpp/0178.cpp","src/cpp/0178.cpp","rotl32","rotl32( uint32_t x , int n)",10,12
+6,1,88,4,6,"quarter_round@14-19@src/cpp/0178.cpp","src/cpp/0178.cpp","quarter_round","quarter_round( uint32_t & a , uint32_t & b , uint32_t & c , uint32_t & d)",14,19
+6,1,69,1,6,"load32_le@21-26@src/cpp/0178.cpp","src/cpp/0178.cpp","load32_le","load32_le( const uint8_t * p)",21,26
+6,1,72,2,6,"store32_le@28-33@src/cpp/0178.cpp","src/cpp/0178.cpp","store32_le","store32_le( uint8_t * p , uint32_t val)",28,33
+35,3,442,3,40,"chacha20_block@35-74@src/cpp/0178.cpp","src/cpp/0178.cpp","chacha20_block","chacha20_block( const std :: array<uint8_t,32> & key , uint32_t counter , const std :: array<uint8_t,12> & nonce)",35,74
+22,5,229,4,25,"chacha20_process@76-100@src/cpp/0178.cpp","src/cpp/0178.cpp","chacha20_process","chacha20_process( const std :: vector<uint8_t> & input , const std :: array<uint8_t,32> & key , const std :: array<uint8_t,12> & nonce , uint32_t initial_counter = 1)",76,100
+7,2,67,1,7,"bytes_to_hex@102-108@src/cpp/0178.cpp","src/cpp/0178.cpp","bytes_to_hex","bytes_to_hex( const std :: vector<uint8_t> & data)",102,108
+7,1,81,3,7,"encrypt_string@110-116@src/cpp/0178.cpp","src/cpp/0178.cpp","encrypt_string","encrypt_string( const std :: string & plaintext , const std :: array<uint8_t,32> & key , const std :: array<uint8_t,12> & nonce)",110,116
+6,1,75,3,6,"decrypt_string@118-123@src/cpp/0178.cpp","src/cpp/0178.cpp","decrypt_string","decrypt_string( const std :: vector<uint8_t> & ciphertext , const std :: array<uint8_t,32> & key , const std :: array<uint8_t,12> & nonce)",118,123
+23,2,259,0,30,"main@125-154@src/cpp/0178.cpp","src/cpp/0178.cpp","main","main()",125,154
+3,1,14,1,3,"processString@4-6@src/cpp/0097.cpp","src/cpp/0097.cpp","processString","processString( const std :: string & input)",4,6
+9,2,53,0,11,"main@8-18@src/cpp/0097.cpp","src/cpp/0097.cpp","main","main()",8,18
+6,1,68,1,6,"toUpperCase@7-12@src/cpp/0096.cpp","src/cpp/0096.cpp","toUpperCase","toUpperCase( const std :: string & input)",7,12
+3,1,29,1,3,"reverseString@14-16@src/cpp/0096.cpp","src/cpp/0096.cpp","reverseString","reverseString( const std :: string & input)",14,16
+10,3,65,1,10,"removeWhitespace@18-27@src/cpp/0096.cpp","src/cpp/0096.cpp","removeWhitespace","removeWhitespace( const std :: string & input)",18,27
+10,7,72,1,10,"countVowels@29-38@src/cpp/0096.cpp","src/cpp/0096.cpp","countVowels","countVowels( const std :: string & input)",29,38
+9,1,85,1,9,"processInput@40-48@src/cpp/0096.cpp","src/cpp/0096.cpp","processInput","processInput( const std :: string & input)",40,48
+17,5,106,2,17,"readLineSafely@50-66@src/cpp/0096.cpp","src/cpp/0096.cpp","readLineSafely","readLineSafely( std :: istream & in , size_t maxLength)",50,66
+11,3,79,0,14,"main@68-81@src/cpp/0096.cpp","src/cpp/0096.cpp","main","main()",68,81
+12,3,53,1,12,"shellQuote@5-16@src/cpp/0077.cpp","src/cpp/0077.cpp","shellQuote","shellQuote( const std :: string & value)",5,16
+9,2,61,0,10,"main@18-27@src/cpp/0077.cpp","src/cpp/0077.cpp","main","main()",18,27
+31,10,199,3,38,"readLineToBuffer@14-51@src/cpp/0198.cpp","src/cpp/0198.cpp","readLineToBuffer","readLineToBuffer( std :: istream & input_stream , char * buffer , std :: size_t max_size)",14,51
+16,6,58,1,16,"resultToString@53-68@src/cpp/0198.cpp","src/cpp/0198.cpp","resultToString","resultToString( InputResult result)",53,68
+11,2,121,0,15,"main@70-84@src/cpp/0198.cpp","src/cpp/0198.cpp","main","main()",70,84
+6,2,44,1,6,"lower@47-52@src/cpp/0137.cpp","src/cpp/0137.cpp","lower","lower( std :: string value)",47,52
+8,2,63,1,8,"trim@54-61@src/cpp/0137.cpp","src/cpp/0137.cpp","trim","trim( const std :: string & value)",54,61
+20,6,119,2,22,"fillSecureRandom@63-84@src/cpp/0137.cpp","src/cpp/0137.cpp","fillSecureRandom","fillSecureRandom( unsigned char * buffer , std :: size_t length)",63,84
+14,3,107,1,15,"randomHex@86-100@src/cpp/0137.cpp","src/cpp/0137.cpp","randomHex","randomHex( std :: size_t byteCount)",86,100
+11,4,54,1,11,"isSessionToken@102-112@src/cpp/0137.cpp","src/cpp/0137.cpp","isSessionToken","isSessionToken( const std :: string & token)",102,112
+10,4,147,2,10,"constantTimeEqual@114-123@src/cpp/0137.cpp","src/cpp/0137.cpp","constantTimeEqual","constantTimeEqual( const std :: string & a , const std :: string & b)",114,123
+26,6,162,3,30,"SessionStore::create@127-156@src/cpp/0137.cpp","src/cpp/0137.cpp","SessionStore::create","SessionStore::create( const std :: optional<std::string> & previousId , std :: string & newId , std :: string & csrfToken)",127,156
+17,4,121,1,19,"SessionStore::touch@158-176@src/cpp/0137.cpp","src/cpp/0137.cpp","SessionStore::touch","SessionStore::touch( const std :: string & id)",158,176
+19,7,145,2,20,"SessionStore::eraseIfCsrfMatches@178-197@src/cpp/0137.cpp","src/cpp/0137.cpp","SessionStore::eraseIfCsrfMatches","SessionStore::eraseIfCsrfMatches( const std :: string & id , const std :: string & csrfToken)",178,197
+7,2,43,1,7,"SessionStore::erase@199-205@src/cpp/0137.cpp","src/cpp/0137.cpp","SessionStore::erase","SessionStore::erase( const std :: string & id)",199,205
+12,6,109,2,14,"encrypt@5-18@src/cpp/0177.cpp","src/cpp/0177.cpp","encrypt","encrypt( const string & text , int shift)",5,18
+6,1,31,0,6,"main@20-25@src/cpp/0177.cpp","src/cpp/0177.cpp","main","main()",20,25
+15,4,97,3,18,"readIntoBuffer@6-23@src/cpp/0199.cpp","src/cpp/0199.cpp","readIntoBuffer","readIntoBuffer( char * buffer , size_t bufferSize , size_t & bytesRead)",6,23
+4,1,42,2,4,"processBuffer@25-28@src/cpp/0199.cpp","src/cpp/0199.cpp","processBuffer","processBuffer( const char * buffer , size_t length)",25,28
+13,2,87,0,17,"main@30-46@src/cpp/0199.cpp","src/cpp/0199.cpp","main","main()",30,46
+3,1,30,2,3,"Crypto::rightRotate@13-15@src/cpp/0158.cpp","src/cpp/0158.cpp","Crypto::rightRotate","Crypto::rightRotate( uint32_t value , unsigned int count)",13,15
+78,8,857,1,89,"Crypto::sha256@17-105@src/cpp/0158.cpp","src/cpp/0158.cpp","Crypto::sha256","Crypto::sha256( const std :: string & input)",17,105
+12,2,91,1,13,"Crypto::generateSalt@107-119@src/cpp/0158.cpp","src/cpp/0158.cpp","Crypto::generateSalt","Crypto::generateSalt( size_t length = 16)",107,119
+1,1,10,0,1,"Database::Database@137-137@src/cpp/0158.cpp","src/cpp/0158.cpp","Database::Database","Database::Database()",137,137
+3,1,26,1,3,"Database::emailExists@139-141@src/cpp/0158.cpp","src/cpp/0158.cpp","Database::emailExists","Database::emailExists( const std :: string & email) const",139,141
+11,2,89,5,12,"Database::insertUser@143-154@src/cpp/0158.cpp","src/cpp/0158.cpp","Database::insertUser","Database::insertUser( const std :: string & name , const std :: string & email , const std :: string & passwordHash , const std :: string & salt , uint64_t & outId)",143,154
+8,2,46,2,8,"Database::getUserById@156-163@src/cpp/0158.cpp","src/cpp/0158.cpp","Database::getUserById","Database::getUserById( uint64_t id , UserRecord & outRecord) const",156,163
+3,1,13,0,3,"Database::count@165-167@src/cpp/0158.cpp","src/cpp/0158.cpp","Database::count","Database::count() const",165,167
+3,2,28,1,3,"RegistrationService::isValidName@181-183@src/cpp/0158.cpp","src/cpp/0158.cpp","RegistrationService::isValidName","RegistrationService::isValidName( const std :: string & name)",181,183
+4,1,30,1,4,"RegistrationService::isValidEmail@185-188@src/cpp/0158.cpp","src/cpp/0158.cpp","RegistrationService::isValidEmail","RegistrationService::isValidEmail( const std :: string & email)",185,188
+14,9,129,1,17,"RegistrationService::isValidPassword@190-206@src/cpp/0158.cpp","src/cpp/0158.cpp","RegistrationService::isValidPassword","RegistrationService::isValidPassword( const std :: string & password)",190,206
+21,6,155,5,27,"RegistrationService::registerUser@208-234@src/cpp/0158.cpp","src/cpp/0158.cpp","RegistrationService::registerUser","RegistrationService::registerUser( Database & db , const std :: string & name , const std :: string & email , const std :: string & password , uint64_t & createdUserId)",208,234
+25,5,151,4,30,"UserDatabase::registerUser@38-67@src/cpp/0160.cpp","src/cpp/0160.cpp","UserDatabase::registerUser","UserDatabase::registerUser( const std :: string & name , const std :: string & email , const std :: string & password , std :: string & errorMessage)",38,67
+3,1,34,1,3,"UserDatabase::emailExists@69-71@src/cpp/0160.cpp","src/cpp/0160.cpp","UserDatabase::emailExists","UserDatabase::emailExists( const std :: string & email) const",69,71
+8,2,50,0,10,"UserDatabase::getAllUsers@73-82@src/cpp/0160.cpp","src/cpp/0160.cpp","UserDatabase::getAllUsers","UserDatabase::getAllUsers() const",73,82
+3,1,15,0,3,"UserDatabase::userCount@84-86@src/cpp/0160.cpp","src/cpp/0160.cpp","UserDatabase::userCount","UserDatabase::userCount() const",84,86
+9,2,62,3,9,"openDatabase@15-23@src/cpp/0036.cpp","src/cpp/0036.cpp","openDatabase","openDatabase( const std :: string & path , sqlite3 * & db , std :: string & error)",15,23
+17,3,72,2,17,"initializeSchema@25-41@src/cpp/0036.cpp","src/cpp/0036.cpp","initializeSchema","initializeSchema( sqlite3 * db , std :: string & error)",25,41
+18,3,163,5,19,"insertSampleUser@43-61@src/cpp/0036.cpp","src/cpp/0036.cpp","insertSampleUser","insertSampleUser( sqlite3 * db , const std :: string & username , const std :: string & email , const std :: string & fullName , std :: string & error)",43,61
+27,4,228,3,30,"fetchUserByUsername@63-92@src/cpp/0036.cpp","src/cpp/0036.cpp","fetchUserByUsername","fetchUserByUsername( sqlite3 * db , const std :: string & username , std :: string & error)",63,92
+7,1,68,1,7,"printUser@94-100@src/cpp/0036.cpp","src/cpp/0036.cpp","printUser","printUser( const UserInfo & user)",94,100
+9,2,53,1,9,"readUsername@102-110@src/cpp/0036.cpp","src/cpp/0036.cpp","readUsername","readUsername( int argc , char * argv [ ])",102,110
+36,7,254,1,43,"main@112-154@src/cpp/0036.cpp","src/cpp/0036.cpp","main","main( int argc , char * argv [ ])",112,154
+6,3,63,0,6,"UserAuthentication::UserAuthentication@23-28@src/cpp/0117.cpp","src/cpp/0117.cpp","UserAuthentication::UserAuthentication","UserAuthentication::UserAuthentication()",23,28
+9,2,104,0,9,"UserAuthentication::~UserAuthentication@33-41@src/cpp/0117.cpp","src/cpp/0117.cpp","UserAuthentication::~UserAuthentication","UserAuthentication::~UserAuthentication()",33,41
+23,6,217,2,26,"UserAuthentication::register_user@43-68@src/cpp/0117.cpp","src/cpp/0117.cpp","UserAuthentication::register_user","UserAuthentication::register_user( std :: string_view username , std :: string_view password)",43,68
+31,9,252,2,35,"UserAuthentication::authenticate@70-104@src/cpp/0117.cpp","src/cpp/0117.cpp","UserAuthentication::authenticate","UserAuthentication::authenticate( std :: string_view username , std :: string_view password) const",70,104
+16,13,99,1,17,"UserAuthentication::valid_username@123-139@src/cpp/0117.cpp","src/cpp/0117.cpp","UserAuthentication::valid_username","UserAuthentication::valid_username( std :: string_view username)",123,139
+5,3,42,1,5,"UserAuthentication::valid_password@141-145@src/cpp/0117.cpp","src/cpp/0117.cpp","UserAuthentication::valid_password","UserAuthentication::valid_password( std :: string_view password)",141,145
+15,2,115,3,15,"UserAuthentication::derive@147-161@src/cpp/0117.cpp","src/cpp/0117.cpp","UserAuthentication::derive","UserAuthentication::derive( std :: string_view password , const std :: array<unsigned char,salt_size> & salt , std :: array<unsigned char,hash_size> & output)",147,161
+9,2,72,1,11,"trim@6-16@src/cpp/0100.cpp","src/cpp/0100.cpp","trim","trim( const std :: string & input)",6,16
+8,1,68,1,10,"toUpper@18-27@src/cpp/0100.cpp","src/cpp/0100.cpp","toUpper","toUpper( const std :: string & input)",18,27
+16,5,77,1,19,"countWords@29-47@src/cpp/0100.cpp","src/cpp/0100.cpp","countWords","countWords( const std :: string & input)",29,47
+6,1,53,1,7,"processInput@49-55@src/cpp/0100.cpp","src/cpp/0100.cpp","processInput","processInput( const std :: string & input)",49,55
+7,1,46,0,10,"main@57-66@src/cpp/0100.cpp","src/cpp/0100.cpp","main","main()",57,66
+8,1,71,1,8,"UserDatabase::hashPassword@21-28@src/cpp/0159.cpp","src/cpp/0159.cpp","UserDatabase::hashPassword","UserDatabase::hashPassword( const std :: string & password)",21,28
+17,14,145,1,17,"UserDatabase::isValidEmail@30-46@src/cpp/0159.cpp","src/cpp/0159.cpp","UserDatabase::isValidEmail","UserDatabase::isValidEmail( const std :: string & email)",30,46
+11,4,51,1,11,"UserDatabase::escapeField@48-58@src/cpp/0159.cpp","src/cpp/0159.cpp","UserDatabase::escapeField","UserDatabase::escapeField( const std :: string & field)",48,58
+6,2,53,1,6,"UserDatabase::UserDatabase@61-66@src/cpp/0159.cpp","src/cpp/0159.cpp","UserDatabase::UserDatabase","UserDatabase::UserDatabase( const std :: string & dbFile)",61,66
+17,7,115,1,18,"UserDatabase::userExists@68-85@src/cpp/0159.cpp","src/cpp/0159.cpp","UserDatabase::userExists","UserDatabase::userExists( const std :: string & email)",68,85
+34,7,264,3,42,"UserDatabase::registerUser@87-128@src/cpp/0159.cpp","src/cpp/0159.cpp","UserDatabase::registerUser","UserDatabase::registerUser( const std :: string & name , const std :: string & email , const std :: string & password)",87,128
+16,6,113,0,17,"UserDatabase::getAllUsers@130-146@src/cpp/0159.cpp","src/cpp/0159.cpp","UserDatabase::getAllUsers","UserDatabase::getAllUsers()",130,146
+14,3,159,0,15,"UserDatabase::displayUsers@148-162@src/cpp/0159.cpp","src/cpp/0159.cpp","UserDatabase::displayUsers","UserDatabase::displayUsers()",148,162
+6,1,37,1,6,"getInput@165-170@src/cpp/0159.cpp","src/cpp/0159.cpp","getInput","getInput( const std :: string & prompt)",165,170
+7,1,61,1,9,"registrationForm@172-180@src/cpp/0159.cpp","src/cpp/0159.cpp","registrationForm","registrationForm( UserDatabase & db)",172,180
+34,6,190,0,39,"main@182-220@src/cpp/0159.cpp","src/cpp/0159.cpp","main","main()",182,220
+4,2,39,2,4,"secure_wipe@14-17@src/cpp/0116.cpp","src/cpp/0116.cpp","secure_wipe","secure_wipe( * p , size_t n)",14,17
+3,2,32,1,3,"secure_wipe@19-21@src/cpp/0116.cpp","src/cpp/0116.cpp","secure_wipe","secure_wipe( Bytes & b)",19,21
+3,1,29,2,3,"rotr32@23-25@src/cpp/0116.cpp","src/cpp/0116.cpp","rotr32","rotr32( uint32_t x , unsigned n)",23,25
+8,3,86,2,8,"xorEncrypt@6-13@src/cpp/0176.cpp","src/cpp/0176.cpp","xorEncrypt","xorEncrypt( const std :: string & text , const std :: string & key)",6,13
+10,2,75,1,10,"toHex@15-24@src/cpp/0176.cpp","src/cpp/0176.cpp","toHex","toHex( const std :: string & data)",15,24
+17,10,178,1,17,"hexToBytes@26-42@src/cpp/0176.cpp","src/cpp/0176.cpp","hexToBytes","hexToBytes( const std :: string & hex)",26,42
+13,1,114,0,16,"main@44-59@src/cpp/0176.cpp","src/cpp/0176.cpp","main","main()",44,59
+11,6,61,1,13,"validatePIN@3-15@src/cpp/0020.cpp","src/cpp/0020.cpp","validatePIN","validatePIN( const std :: string & pin)",3,15
+11,6,61,1,11,"validate_pin@3-13@src/cpp/0018.cpp","src/cpp/0018.cpp","validate_pin","validate_pin( const std :: string & pin)",3,13
+3,1,8,0,3,"main@15-17@src/cpp/0018.cpp","src/cpp/0018.cpp","main","main()",15,17
+7,2,67,2,7,"encrypt@5-11@src/cpp/0179.cpp","src/cpp/0179.cpp","encrypt","encrypt( const std :: string & plaintext , const std :: string & key)",5,11
+3,1,26,2,3,"decrypt@13-15@src/cpp/0179.cpp","src/cpp/0179.cpp","decrypt","decrypt( const std :: string & ciphertext , const std :: string & key)",13,15
+16,2,152,0,19,"main@17-35@src/cpp/0179.cpp","src/cpp/0179.cpp","main","main()",17,35
+11,6,61,1,11,"validate_pin@3-13@src/cpp/0019.cpp","src/cpp/0019.cpp","validate_pin","validate_pin( const std :: string & pin)",3,13
+12,4,81,3,12,"readIntoBuffer@7-18@src/cpp/0196.cpp","src/cpp/0196.cpp","readIntoBuffer","readIntoBuffer( char * buffer , size_t size , const std :: string & input)",7,18
+3,2,34,2,3,"wasTruncated@20-22@src/cpp/0196.cpp","src/cpp/0196.cpp","wasTruncated","wasTruncated( const std :: string & input , size_t size)",20,22
+15,3,111,0,19,"main@24-42@src/cpp/0196.cpp","src/cpp/0196.cpp","main","main()",24,42
+8,3,59,1,13,"displayFileContents@5-17@src/cpp/0078.cpp","src/cpp/0078.cpp","displayFileContents","displayFileContents( const std :: string & filename)",5,17
+8,2,41,0,8,"main@19-26@src/cpp/0078.cpp","src/cpp/0078.cpp","main","main()",19,26
+6,1,68,1,6,"toLower@20-25@src/cpp/0056.cpp","src/cpp/0056.cpp","toLower","toLower( const std :: string & s)",20,25
+6,7,60,1,6,"hexValue@27-32@src/cpp/0056.cpp","src/cpp/0056.cpp","hexValue","hexValue( char c)",27,32
+17,8,168,1,17,"urlDecode@34-50@src/cpp/0056.cpp","src/cpp/0056.cpp","urlDecode","urlDecode( const std :: string & input)",34,50
+22,6,191,1,22,"parseFormData@52-73@src/cpp/0056.cpp","src/cpp/0056.cpp","parseFormData","parseFormData( const std :: string & body)",52,73
+15,7,98,1,15,"htmlEscape@75-89@src/cpp/0056.cpp","src/cpp/0056.cpp","htmlEscape","htmlEscape( const std :: string & input)",75,89
+28,1,78,2,28,"renderPage@91-118@src/cpp/0056.cpp","src/cpp/0056.cpp","renderPage","renderPage( const std :: string & title , const std :: string & bodyContent)",91,118
+14,1,58,0,14,"renderFormPage@120-133@src/cpp/0056.cpp","src/cpp/0056.cpp","renderFormPage","renderFormPage()",120,133
+13,3,92,1,13,"renderResultPage@135-147@src/cpp/0056.cpp","src/cpp/0056.cpp","renderResultPage","renderResultPage( const std :: map<std::string,std::string> & fields)",135,147
+5,1,14,0,5,"renderNotFoundPage@149-153@src/cpp/0056.cpp","src/cpp/0056.cpp","renderNotFoundPage","renderNotFoundPage()",149,153
+10,1,86,4,10,"buildHttpResponse@155-164@src/cpp/0056.cpp","src/cpp/0056.cpp","buildHttpResponse","buildHttpResponse( int statusCode , const std :: string & statusText , const std :: string & contentType , const std :: string & body)",155,164
+31,12,414,2,36,"parseHttpRequest@166-201@src/cpp/0056.cpp","src/cpp/0056.cpp","parseHttpRequest","parseHttpRequest( const std :: string & raw , HttpRequest & req)",166,201
+11,6,61,1,13,"validate_pin@3-15@src/cpp/0017.cpp","src/cpp/0017.cpp","validate_pin","validate_pin( const std :: string & pin)",3,15
+16,4,116,2,17,"Sha256::update@17-33@src/cpp/0157.cpp","src/cpp/0157.cpp","Sha256::update","Sha256::update( const std :: uint8_t * data , std :: size_t length)",17,33
+27,6,270,0,31,"Sha256::finish@35-65@src/cpp/0157.cpp","src/cpp/0157.cpp","Sha256::finish","Sha256::finish()",35,65
+3,1,32,2,3,"Sha256::rotateRight@68-70@src/cpp/0157.cpp","src/cpp/0157.cpp","Sha256::rotateRight","Sha256::rotateRight( std :: uint32_t value , unsigned int amount)",68,70
+73,4,718,1,79,"Sha256::transform@72-150@src/cpp/0157.cpp","src/cpp/0157.cpp","Sha256::transform","Sha256::transform( const std :: uint8_t * block)",72,150
+5,1,43,1,5,"sha256@161-165@src/cpp/0157.cpp","src/cpp/0157.cpp","sha256","sha256( const std :: vector<std::uint8_t> & data)",161,165
+22,3,267,2,23,"hmacSha256@167-189@src/cpp/0157.cpp","src/cpp/0157.cpp","hmacSha256","hmacSha256( const std :: string & password , const std :: vector<std::uint8_t> & message)",167,189
+16,3,169,2,17,"derivePasswordHash@191-207@src/cpp/0157.cpp","src/cpp/0157.cpp","derivePasswordHash","derivePasswordHash( const std :: string & password , const std :: array<std::uint8_t,16> & salt)",191,207
+8,2,84,2,8,"toHex@209-216@src/cpp/0157.cpp","src/cpp/0157.cpp","toHex","toHex( const std :: uint8_t * data , std :: size_t length)",209,216
+3,1,37,1,3,"encodeText@218-220@src/cpp/0157.cpp","src/cpp/0157.cpp","encodeText","encodeText( const std :: string & text)",218,220
+8,4,48,1,8,"lowerCase@222-229@src/cpp/0157.cpp","src/cpp/0157.cpp","lowerCase","lowerCase( std :: string text)",222,229
+8,4,39,1,8,"hasOnlyPrintableCharacters@231-238@src/cpp/0157.cpp","src/cpp/0157.cpp","hasOnlyPrintableCharacters","hasOnlyPrintableCharacters( const std :: string & text)",231,238
+1,1,19,1,1,"UserDatabase::UserDatabase@242-242@src/cpp/0157.cpp","src/cpp/0157.cpp","UserDatabase::UserDatabase","UserDatabase::UserDatabase( std :: string filePath)",242,242
+60,17,369,4,64,"UserDatabase::registerUser@244-307@src/cpp/0157.cpp","src/cpp/0157.cpp","UserDatabase::registerUser","UserDatabase::registerUser( const std :: string & name , const std :: string & email , const std :: string & password , std :: string & error) const",244,307
+10,2,69,1,10,"connectDatabase@13-22@src/cpp/0039.cpp","src/cpp/0039.cpp","connectDatabase","connectDatabase( const std :: string & dbPath)",13,22
+23,6,229,2,31,"getUserByUsername@24-54@src/cpp/0039.cpp","src/cpp/0039.cpp","getUserByUsername","getUserByUsername( sqlite3 * db , const std :: string & username)",24,54
+10,3,90,1,10,"displayUsers@56-65@src/cpp/0039.cpp","src/cpp/0039.cpp","displayUsers","displayUsers( const std :: vector<UserInfo> & users)",56,65
+14,2,82,0,18,"main@67-84@src/cpp/0039.cpp","src/cpp/0039.cpp","main","main()",67,84
+6,2,43,1,9,"displayFileContents@5-13@src/cpp/0079.cpp","src/cpp/0079.cpp","displayFileContents","displayFileContents( const std :: string & filename)",5,13
+7,1,36,0,7,"main@15-21@src/cpp/0079.cpp","src/cpp/0079.cpp","main","main()",15,21
+18,7,140,2,21,"encryptCaesar@4-24@src/cpp/0180.cpp","src/cpp/0180.cpp","encryptCaesar","encryptCaesar( const std :: string & plaintext , int shift)",4,24
+11,2,71,0,15,"main@26-40@src/cpp/0180.cpp","src/cpp/0180.cpp","main","main()",26,40
+15,4,91,2,17,"openDatabase@11-27@src/cpp/0040.cpp","src/cpp/0040.cpp","openDatabase","openDatabase( const std :: string & databasePath , sqlite3 ** database)",11,27
+21,5,99,1,25,"ensureSchema@29-53@src/cpp/0040.cpp","src/cpp/0040.cpp","ensureSchema","ensureSchema( sqlite3 * database)",29,53
+18,5,96,1,22,"seedSampleUser@55-76@src/cpp/0040.cpp","src/cpp/0040.cpp","seedSampleUser","seedSampleUser( sqlite3 * database)",55,76
+34,9,277,3,45,"fetchUserByUserName@78-122@src/cpp/0040.cpp","src/cpp/0040.cpp","fetchUserByUserName","fetchUserByUserName( sqlite3 * database , const std :: string & username , UserInfo & user)",78,122
+5,2,21,1,5,"closeDatabase@124-128@src/cpp/0040.cpp","src/cpp/0040.cpp","closeDatabase","closeDatabase( sqlite3 * database)",124,128
+33,6,204,0,40,"main@130-169@src/cpp/0040.cpp","src/cpp/0040.cpp","main","main()",130,169
+21,6,117,3,26,"readFixedLine@10-35@src/cpp/0197.cpp","src/cpp/0197.cpp","readFixedLine","readFixedLine( std :: istream & input , char * buffer , std :: size_t capacity)",10,35
+14,3,94,0,18,"main@37-54@src/cpp/0197.cpp","src/cpp/0197.cpp","main","main()",37,54

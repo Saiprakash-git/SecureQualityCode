@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793016696-XxzLYON17lhXvXUA2Bhz",
+  "finish_reason": "stop",
+  "input_tokens": 237,
+  "output_tokens": 242,
+  "cost_usd": 0.0001447,
+  "raw_response": {
+    "id": "gen-1793016696-XxzLYON17lhXvXUA2Bhz",
+    "object": "chat.completion",
+    "created": 1793016696,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "public class DnaStrand {\n    public static String makeComplement(String dna) {\n        StringBuilder complement = new StringBuilder(dna.length());\n        for (int i = 0; i < dna.length(); i++) {\n            switch (dna.charAt(i)) {\n                case 'A':\n                    complement.append('T');\n                    break;\n                case 'T':\n                    complement.append('A');\n                    break;\n                case 'C':\n                    complement.append('G');\n                    break;\n                case 'G':\n                    complement.append('C');\n                    break;\n                default:\n                    complement.append(dna.charAt(i));\n            }\n        }\n        return complement.toString();\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Producing Java Code**\n\nI need to create Java source code for a function related to Codewars DNA Strands. It looks like I should develop a self-contained class named DnaStrand with a method called makeComplement that accepts a String parameter. The expected Java signature is public class DnaStrand { public static String makeComplement(String dna) }. I also need to include any necessary character mapping while ensuring that the function returns the correct output.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Producing Java Code**\n\nI need to create Java source code for a function related to Codewars DNA Strands. It looks like I should develop a self-contained class named DnaStrand with a method called makeComplement that accepts a String parameter. The expected Java signature is public class DnaStrand { public static String makeComplement(String dna) }. I also need to include any necessary character mapping while ensuring that the function returns the correct output.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30N6mqDxGZFDmdsHd8r_HsTyzRUSZX3B6tr7O7b2yw5WTuGfKx79wAspbN5p_anWie6xEA4nGgfN7GLav6qGGyfDrlftenMJnjFB-L6eBYkCx_mecp7K52RToixBaHGUqyohdmpdZJ6kAWnjxOv_XueOTT2k5cx4BSVmYQ9z7B2df7GADWVUdaHwvPCHyR1LsglRRrXAFIflwhWQiGc-wGP9QGJr34R41C84ivLQcJbLgwcFEd7UfpkpRpeLJNHby5R-hM7l2L5iy0tJnpJgnZ4b9Biyssvi1bsUhltsKblP-lXNkCO3BoQPy_2T4WTmMWKJa9Q8WuAf-xtB-Sae6rpQPKIRy5xj8wotIE7_mKKTJPXJV4wZyW6dqtPBVQtRUJ5X11mdsnCXsX7HH559GAXtrsrqKH196b1H9Y7ZoFZUXXGhlGqKO1FEnguuzaiDudZVv0Vzs0Gb8wEUh6Ryd9YS8nADNNn2Tp1h-OTUeE5cqEdFzMERX6sgND8GEwUVKPNAVMkikp-pxbf6U4lIivmCFKtn-2iDrTDwrfpNOSe2gA5RhW-Yg4sR4eNyoWHjIHrGyECAdHvR-VCfwoTJSDxqvdXbg7h792og-RJoh1eBqGSi-G-VPgR2QFkOJ-3msgzs6BZ1DQfiRiH9pf6d9afVEwwPMCwyiefAEITLKfNWwbUQ4rur8T_H_NVlQQ5bCuKKUUgAGamo1bYwcAQbzw8TRhbxlDVlGBFGsD3fugK3wIdzwR5CRxGP5Tv4Pgh85GjCE5-OcOySCRfwNTnZipPvbGNnhXQdoDHXp1o2MGcZ4XdjConQzT5snAGSNf-HVsoVxkp8Esobvr4RnCgjKUqL2IxtSsSw8QzgtjJT3B-allhsmCSI9zXf0w-eZ4_UUpIkILdxW60SK5YVZiw0BBC1BLUzujRqnZ2MfEsyWAn-oXkO4AEcas1ur8rmdwxq5xaBMSeNhsbEGpL466ecqPijIMnKPhHDXZVkbzid6d4BfcqxlEK41LJ2Z11vgaKmzuczun_DOEdOQGguvenyEvDH44OBvXOkSRRYNZ0nxaDHkdCD2OM7iCbyrwOfBXXyGer-aE2cs2ouqUisu5AReJtMNMwo7K4IW-6FDmXFOaVyPvZiKCumMAE9gvLAwRNgVPBrcdHP9vOf914Buz--vH-2lUhv12nTnKNg6fH-q_PZiguZ6UIRFVa_hRqh5mjEHyN3cvS8xp82iovDV_KPOrvRYA9CWlLEpNzd3jWKiX4xvlpAiVOWLSVUh75Ls92O4dzN6iPGLv36zt0W5wRG_CVO2oSAi18ODimR_3Kjd4hdJHzMpwpx1RX-coBJPD0T_l6gsm9x_6YCfDRX6IRzE4NF7qpzrXPXMg26e7f4TEyGrG1eBXwlx1oQjiAYfAmtmVE9up978Nh3XCBLbHKiTNqFIdubUBBLJW3O0BUmvJyhO4Ix6-zlF268bD6VzYkgDWmYKuj9nyARWLhkvToDHDPLM1NK5dA1slPWltijlEddqokb1xg17Ljzthw9PqKn8qfboQ0y2UDn4pP2xLVGSwnbXuiGRFwf1Dj0IPnBYnplYiT_bl70XUTbLXICBI9MQh-QMJs4ZCF2GfgTcF0WgZNJaUFgYAYeyXujRF1fovjsfYz2cSj5djrXbY4EQ4ucG9hp2cxw_aXtLrkw1jSxJnbEDW95sw6uI1ZcAoS8ckhSIN0S4IFdcuL0_GGseeGt4w1_ZdMf26ZRiKv2Js87X4TkITms44pZunI34fMZTbP2_v4vb3S9MRixZAan4eGXYEkLAlcRwG0yNPlS86vwUSAybsFUZwPvntUcTh_QhanvqhIIK11CyE1Ta3uf03FBYaL52q1gp78hujGirEh8XP6UCgLpDzItrtLrdYanM7L1BKXnUZxXZcc2oXON-91STj7TzBaPa8YPfGLcGy4gWSumm4Xn4n96hqYx8GRK2YWm9OYEjjV22P5SGeLzAS72LHBW4jaiSZEYxsiUr4pT4O8xZkGKuG8B-VAmpbNvzomDTLgT4Ib3o3FlTwMpbfQgeU0U-wItN2V75ZBItbKYbiELN5Mzmw0jlEj6hWWqyHMkZNpPXkGgoPD2a1WXDv7WLhOOEeVIanKiVVruXJ9QEf0gGK3MuhD8UYC8YDQru_HMq97WxFNBnD66sviJaOj6VizzZhX4AE2-hC9XhmGe6neUaXWHTmgTwoZZy9rkkYKqyTNRLJF39fFM9MlOFXMwiaoNUbiFHK890LZxpw9y1P7jSgcTuSppoyN7Dp_8WYLqUcNqfvWg-PH_YShC8nYR6AH2mIVoFDj8fHtelgnFOHrLnYZtwyV5tYT4-2CE98HT8YhC310gv1FAl1VoK95OWX5a8nBX7fdKxiUZXHoB-WJ-88sG_P8rZUcqCzdg7xNnpyWSYGysbQa-Zmkyplm_ezblaVLqCg54o1_PKAB_DbFOUeJ5vsOt5Ac-1_LB7EFccrhxhUbae6A_hVuY6fa3jg2YD_pzPEih9-nh6UvlM4QS3oTqK-koV6UbqlmW8CZlT3gytuRdhRvlOp8MGBRPogcmkPDRYOzdDVSrVFs57mtH5lPBD183TM72AmXKLet8xd7tfF8mUDdo595ixAB1Gdx3fEB435Vb1iScWeofrZJGFJrixu0fGD9cJDkpBEH6oba0SrT8sPyWtePD5yzFUt1R38QmoI_r5kW5Uxms-88_-Ut7e6kJeVePME38hH0Z6IKrnKpQ7875Gs5_BwfC5uPT9vti86P9vOXsnc9ccDQmqn_sQwpINlkJji-NmBcsVhB6cDYDwQDKEGzP9WdhBzAoVPYhedHBJngRi9X3PWvzneu710zIRy8_1umPDA2CW4Ns7MQw-pAJN0jTsct4RX_U_g5SZBZ9_iqVoiQAzrVQVApiBG_na4qRzrPKjik5DKVvIlH4mE4OGvFh_6QLdY8E.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0baaee32285c0196016adf4379221487d1855e11a1cf072489",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 237,
+      "completion_tokens": 242,
+      "total_tokens": 479,
+      "cost": 0.0001447,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001447,
+        "upstream_inference_prompt_cost": 2.37e-05,
+        "upstream_inference_completions_cost": 0.000121
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 100,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,60 @@
+{
+ "language": "java",
+ "artifact_origin": "generated",
+ "artifact_sha256": "2f021dda7eb6d160c34e4ac840b975f2c09957f6041f03a50190a7d09313629c",
+ "oracle_test_path": "src/test/java/claude/task18/Task18_TestCase.java",
+ "oracle_test_sha256": "f0195e70dd268182eace3f4811cdde74f8ab97d14fcff62c6b4af38f22b26007",
+ "verdict_style": "junit_xml",
+ "bindings": [
+  {
+   "canonical": "Task18_CLAUDE_claude_3_5_sonnet_20240620.convertBinaryArrayToInt",
+   "target": "BinaryArrayToInteger.binaryArrayToInt",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "file": "BinaryArrayToInteger.java",
+   "change": "package claude.task18 prepended"
+  }
+ ],
+ "steps": [
+  [
+   "{javac}",
+   "-encoding",
+   "UTF-8",
+   "-proc:none",
+   "-d",
+   "classes",
+   "-cp",
+   "{junit_jar}",
+   "claude/task18/BinaryArrayToInteger.java",
+   "claude/task18/Task18_CLAUDE_claude_3_5_sonnet_20240620.java",
+   "claude/task18/Task18_TestCase.java"
+  ],
+  [
+   "{java}",
+   "-jar",
+   "{junit_jar}",
+   "execute",
+   "--class-path",
+   "classes",
+   "--select-class",
+   "claude.task18.Task18_TestCase",
+   "--reports-dir",
+   "reports",
+   "--disable-banner",
+   "--details=summary"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "claude/task18/BinaryArrayToInteger.java": "5702de031c66e8d5f843ad702e0591ae677c131d2566bbcc19319b8e41b8a23d",
+  "claude/task18/Task18_CLAUDE_claude_3_5_sonnet_20240620.java": "d01b41e2a5cbf92b503053e9d78a5f2072b73966a96077c7a3be0dd5502bc781",
+  "claude/task18/Task18_TestCase.java": "f0195e70dd268182eace3f4811cdde74f8ab97d14fcff62c6b4af38f22b26007"
+ }
+}

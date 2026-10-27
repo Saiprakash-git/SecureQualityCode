@@ -1,0 +1,4 @@
+Task124_MISTRAL_codestral-latest.cpp:3:10: fatal error: 'conio.h' file not found
+    3 | #include <conio.h>
+      |          ^~~~~~~~~
+1 error generated.

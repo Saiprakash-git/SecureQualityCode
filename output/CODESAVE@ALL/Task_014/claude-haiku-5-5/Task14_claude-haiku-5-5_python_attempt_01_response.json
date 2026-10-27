@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793008982-b7Kjg30mwawFl4Ak57F8",
+  "finish_reason": "stop",
+  "input_tokens": 645,
+  "output_tokens": 73,
+  "cost_usd": 0.000101,
+  "raw_response": {
+    "id": "gen-1793008982-b7Kjg30mwawFl4Ak57F8",
+    "object": "chat.completion",
+    "created": 1793008982,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "def find_even_index(arr):\n    total = sum(arr)\n    left = 0\n    for i, value in enumerate(arr):\n        right = total - left - value\n        if left == right:\n            return i\n        left += value\n    return -1",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 645,
+      "completion_tokens": 73,
+      "total_tokens": 718,
+      "cost": 0.000101,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000101,
+        "upstream_inference_prompt_cost": 6.45e-05,
+        "upstream_inference_completions_cost": 3.65e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

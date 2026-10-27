@@ -1,0 +1,60 @@
+{
+ "language": "java",
+ "artifact_origin": "generated",
+ "artifact_sha256": "494cf0a705f19ded48090f5d5779c161b1199dc3261aa1f6b5b5173d940758c4",
+ "oracle_test_path": "src/test/java/claude/task89/Task89Test.java",
+ "oracle_test_sha256": "49d39baec6147d2f7a25e8b63d0736bf59914e5dd1b9ca3c659f43355ea15852",
+ "verdict_style": "junit_xml",
+ "bindings": [
+  {
+   "canonical": "Task89_CLAUDE_claude_3_5_sonnet_20240620.checkPassword",
+   "target": "PasswordComparator.comparePasswordsSequentially",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "file": "PasswordComparator.java",
+   "change": "package claude.task89 prepended"
+  }
+ ],
+ "steps": [
+  [
+   "{javac}",
+   "-encoding",
+   "UTF-8",
+   "-proc:none",
+   "-d",
+   "classes",
+   "-cp",
+   "{junit_jar}",
+   "claude/task89/PasswordComparator.java",
+   "claude/task89/Task89Test.java",
+   "claude/task89/Task89_CLAUDE_claude_3_5_sonnet_20240620.java"
+  ],
+  [
+   "{java}",
+   "-jar",
+   "{junit_jar}",
+   "execute",
+   "--class-path",
+   "classes",
+   "--select-class",
+   "claude.task89.Task89Test",
+   "--reports-dir",
+   "reports",
+   "--disable-banner",
+   "--details=summary"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "claude/task89/PasswordComparator.java": "34e4d96d0cb94726e525bd41dbe394355da86afca97a53e418a0d1e60a4cc264",
+  "claude/task89/Task89Test.java": "49d39baec6147d2f7a25e8b63d0736bf59914e5dd1b9ca3c659f43355ea15852",
+  "claude/task89/Task89_CLAUDE_claude_3_5_sonnet_20240620.java": "1f460cce25a5dd93c6f6068a739f94d802c2870463a8e2d08d53f55c240c3fb2"
+ }
+}

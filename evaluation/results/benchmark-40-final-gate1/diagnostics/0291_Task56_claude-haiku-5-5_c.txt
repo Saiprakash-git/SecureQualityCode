@@ -1,0 +1,16 @@
+Task56_claude-haiku-5-5_c.c:32:32: error: expected expression
+   32 |         0x510e527f, 0x9b05688c,
+      |                                ^
+Task56_claude-haiku-5-5_c.c:32:32: error: expected '}'
+Task56_claude-haiku-5-5_c.c:30:21: note: to match this '{'
+   30 |     uint32_t h[8] = {
+      |                     ^
+Task56_claude-haiku-5-5_c.c:32:32: error: expected ';' at end of declaration
+   32 |         0x510e527f, 0x9b05688c,
+      |                                ^
+      |                                ;
+Task56_claude-haiku-5-5_c.c:32:32: error: expected '}'
+Task56_claude-haiku-5-5_c.c:29:84: note: to match this '{'
+   29 | static int sha256(const uint8_t *data, size_t len, uint8_t out[SHA256_DIGEST_LEN]) {
+      |                                                                                    ^
+4 errors generated.

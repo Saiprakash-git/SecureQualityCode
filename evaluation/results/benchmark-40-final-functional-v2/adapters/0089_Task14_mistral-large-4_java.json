@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "Task14_CLAUDE_claude_3_5_sonnet_20240620.findEvenIndex",
+   "target": "Solution.findEvenIndex",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 89,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_014/mistral-large-4/Task14_mistral-large-4_java.java",
+ "artifact_sha256": "d58c5acf3601fa669ee35ed45eddc443a27c3820c0668ebaf7ce68e02717faa3",
+ "oracle_test_path": "src/test/java/claude/task14/Task14_TestCase.java",
+ "oracle_test_sha256": "71bc41886605ae811a7d56d96332110f67dee8595fa0d7c4ab3617a6c8c73c5a",
+ "author": "functional.py draft_adapter (static)"
+}

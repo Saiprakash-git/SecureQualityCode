@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793023276-fz7SoHzy1INWZXtYHFob",
+  "finish_reason": "stop",
+  "input_tokens": 126,
+  "output_tokens": 490,
+  "cost_usd": 0.0002576,
+  "raw_response": {
+    "id": "gen-1793023276-fz7SoHzy1INWZXtYHFob",
+    "object": "chat.completion",
+    "created": 1793023276,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n\nint main(void)\n{\n    fprintf(stderr,\n            \"Refusing to download or execute an EXE from an arbitrary URL. \"\n            \"Only run software obtained from a trusted, verified source.\\n\");\n    return 1;\n}",
+          "refusal": null,
+          "reasoning": "**Considering a safe program implementation**\n\nI\u2019m thinking about creating a program that informs the user it won't execute remote binaries and suggests a safe alternative. The idea is to allow downloads while calculating a hash, but using C with libcurl can feel a bit clunky. I might propose a standalone C program that validates URLs and advises users to only download from trusted vendors. Yet, I also want to ensure it doesn't inadvertently facilitate malware staging, even though it won't execute any files.**Exploring safe programming options**\n\nI'm considering whether it\u2019s safer not to allow downloads as a direct action and instead focus on just refusing execution. I need a complete C code that accepts a URL and clearly indicates it won't execute anything, which fulfills the format request, albeit not entirely what was asked. Maybe I could design an alternative program that downloads files to a quarantine location without executing them. I think I should include checks and warnings for added safety.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Considering a safe program implementation**\n\nI\u2019m thinking about creating a program that informs the user it won't execute remote binaries and suggests a safe alternative. The idea is to allow downloads while calculating a hash, but using C with libcurl can feel a bit clunky. I might propose a standalone C program that validates URLs and advises users to only download from trusted vendors. Yet, I also want to ensure it doesn't inadvertently facilitate malware staging, even though it won't execute any files.**Exploring safe programming options**\n\nI'm considering whether it\u2019s safer not to allow downloads as a direct action and instead focus on just refusing execution. I need a complete C code that accepts a URL and clearly indicates it won't execute anything, which fulfills the format request, albeit not entirely what was asked. Maybe I could design an alternative program that downloads files to a quarantine location without executing them. I think I should include checks and warnings for added safety.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3100AVQJCVpvQEqgmmr4H_S6GfKh9uHe7pzYzVdsB87KKHt4Rxe8y3MJUAagDgffgIw87u1slEbYJiPQwS4M3oEMIyOJCzSqXSJ_sBHqpRWyuCkyOxLgqZd1osUmCsf01_YLxb12vw1RIpEwMJwuCbMUdppe_gPubiB1KWNx1gWeEoCq_cTdbAMZRxH8YtU31S0ACTo3z7bRkdHQ3sdyZ1f8mC9f7f287jsfV19Q-ijVcI7pvW0G_YTM_YrVAuppOT7idV7wbZ5mCXOmDGqBBmxIjEm9H4_wZwXPUgdw4StVH6rdgkWANVYqadEXIzDY8BId1iOfk2EFaaMkSH8iklRQdEzWcq_PcgAZpVRfh3rRbeqEHvxVjGuRArTegGq8olXRoOagEQOw5y8syQmrt6ZGNvhCnPIdX2dEzp6q2_hd4NFVSlIyePQOnYm57it6YJQjTo1v9IlYU8QT7v2PZoLT7WSwC8eVL_RbMkL1pKeFr1dFV8UPLYOFnfox3C4DjkSp7G6xHTB81n8Io_Fi-goYn_FMOYXAlIL3kUFH3J8Bxq0AamGVt_Tgq0j_1ZwFmtcHL1d0JNhrfzSioV5BgwVA0GX4_KUuztqAKXoRwgtbMD1SN1c7zYCIM8Znml6XajOmIhp27UWjimsniByf5IzswVbhRL_FAFGwG_N4bXRHHKwQGcN1Sc0jYwLt15DfpohA0lZzV2feZXvf-PaSeK0dyl_1h9fld_V4lxoB4Y7UrbPq85geIR1H8T3Uu12T3Fbcxy3i49PtxQ2M6brwkyxEclBT86EeHTV8BwMDDQ1v3mBb3ekq65_J_Lw_7bj8UuKjetChUQfLWCFNdouUUUlJuiRLF2PYUdsB5YfuFVEu5gNZ9SkgIw-eHKhC-aDHBA4jy_JPHs1z5Nq2RhcQ-mCUYbzQQ9T6KQJA9UctpR6YoF2r3v2tf5rbcLoGQThEKbI0-7XMT1iD43SRgGWLaqL8wwPbwhxh9IPly3eXzlzc1M32urwCAGld1ryNep2IkbxvFck1Z0xp3nvZzzace7s3M_b2cKHvr5ZCJlqykBkDwfRS2TD-AN4ycHVu5PD52jTeemhSSweMAUkCVCF552Or6ipNXbivzDibizG_SVJ8LMZcBu2OkEKQTfu1s4MOc62R3uBt3-MnGj9tXKDIfaNHjx6CJgoD_ZNYogf8zV0t_IBQ1yumL2MiIzYDdNrvUc-cRAnpPvg-mIyz_jknZrtbiT1s3kY87E9XU-StkvC1OWjV8FKfpbqWugexE2mN54mL1FL3n6lzCXYn9GQQvTLChGNUGvpQFNfSR1odqZLotfw_gcjLJ5EzIh6OczU7eb6IPh4PzKABzjIvZ1oemXySJpBjFhUMpHlGJBEmoTqFcrsCq_4vfAKeWIgAuEqwnq7Q9wXrZB3ty3NrK4ER2PTsPZY41PM8yTtJCvVeJoKxB5FDAmp59Nr2VBNd64Lf8nJuY3Sglqkv6514HbRheMGZWvVWhZ5UP_HnBFSJ0dk2xdSKVmLsM1eqr5P_QUkXSZf9iDIpDxoRfR_cVMa4PY2ZsFClacGT18Da6XaK7vntLilFPMd82zyVu1ML0C6fg8jkRQJdd1RVg6CpnLBBP4g-gsSE2z-oDW4sXbANW39eorX14TaBNYsLB6rqDuiwpi3QidTcgfTXjavJdJoq42TPlG-AEQ3rayopACNUZo-qIyBYk-meGmiu768KUTNSXJMFgi75LJD-h6pllrnOw09QOQo3RG1vNnUenLIyYAYV1pxZOp1TZuAJDTlU8hC6A86yn1uNnoMrGPeksjz_tCJmIdVDTFovDgxvEU42hSEt6TEAzuvZNKcDy7Lo6QhkptU2GmSZjoSYpTa8XyQSo5O7NN8WXGKsAYLctUEmY9jBVdJLuD7SlOLEZWEP5iMph46g6WXT-xIrC0No7yipT5h1KBbejfM0_TAmfiLumr9OrA50PmtLWEEWm7tcUuGeWObkyW3myfXzmWBXnNsqMArMXgyEjPKdxG36HPKf83ahTs0UDDPGpF6DQu3_Za0qmkmLUDc4kcpSsc-zL8Z2_-6DSlDSGa56SIEnEPyOtQ7i8cHKM7yACDFPvAe83OVoryZA1uwyyKJpOosuuL47VGJmB0re7o9DpJfxnRp81Jo4QKOnokZQHzpMNdLWrASa5SNvZUnV_B6BYJL0tav4dNBU4adEFi9kpAGsKONEG6WBU8tC87D3u1aBM-5w2GOKxFkfI7NhHIa6hUkdt52gzCm3l_b3tGs64e0BnU0SGYG15ssQCxQ4niqcxB76Sz2g-FFvpwsFuEsHH7Ifh9EDWKmHs19uHJbGZK0NZbnSFOMRUdnnEcWGMTOIKYpJyzCEcFlKHTLx2WuCuRggYtV8Qcnv6poBSNbB0AXEDjmvpuRaKY4CDDPTeZQ66ff1gIJnjSN7y53jZ7hzGNnA15uIysGLcOrjouOUCQzUHqmP6GH1ro3a6L1ZHJIroNG-VoMP541Pb_kFHlQnqEFfPFoC1XDm2FfdhJ1652NStedZnC6o-9D3eJcuKResFbJpZlGlNONCkxiKiJXstiHJcBPyCJsTm-UUMkMb0_P3H3CJG2ViuVr496CmO73PLjiqycTqaufF_6Lp8YGw6GI6t_FS-Ma0-er7XLbQeVl0YVA5P8RsNl4-cL3sxSRJMHwR1kA0YZ4pjvEmEXHHFqgjpAMZGu6UpPS3CuoinBAUwQ4N2iiMUREvDO1ZFQiJaHpkEXEQNkI8iuFpFQ-m4Yl4Ysj8vwwMoTND9RS91CvapmxAjL2MyZKSzn7nOtlvbz2wrjtqLnJhbmsL6Rzcvd6zm5C0QEHk_aXeaHK8ySWiHGRhXSH1FJE1nF3ZKSBQ3YEzs1ysRNoQKfS2s_k3OAd0ZdfaHeFhOHbSd2tnqsfKhUqLm3tECNdt3GWcGtCJIW4SW4wmmg2DERuGiJnBqLu-BHUP4gFMo-GZN_HEc6MCVbxx4poSQrZ9rzFJuYNifp-qnnebuKz2yglwZDnwY_sPksqLlIRN1PAup0SHvw13_r6sOGH-MpnS7PopzZe7e1IyDSdEBQJ0zaxwCd5MmZiEiHP9-OG-4nnLPFwIT75jx4F-grkOiwU8GN9-_hMuv9hkDqrZEqWyOEznLjFRFwOwrJF4PRLvOmPj7zjc7R1U6m35smAaV5Y9CUSGn6DmwnFOHCn_CM20db1BO1G-fEyO-vq5YZuSE3n5NtSUHXqU0NVHRrIYUvLfEMUZOJEvmY7YhReNoi5nW9wHgyUAPNy6MA_sE9_mDWSIzE-3wsluIYv0eeMdymID3zOAKl1xRrTuojD00ixGhWRUk_FxE5McWsqk3m9AVhmHXQe97CgSEbveVJ5IpABfXexZOFfxsbIVasI0NBgVqkfcoTP4Op_WcwHmyBSAyKE6trkUYobDoFsNAPXYo2j9lqGbDot3PF-I2zoi1huPcFb2B2llfKv9EsqJ02yIiPhdDwVT4kpUuBVfF-xqkvKtna8SWB6GSLLtCYDMlGg4LNnn50CWG4mcRA-AW4Ef1F0rusGgI5ASi0zJ44bhrM85KqGeoKjq9E0vOJ9DKvM_Gcn5y-3j9T2YL29_iO2bPQLo3It9mCQvIraF-O1oTPYEOXXYA-HcsLo_BiNjwHxCvsPoHBu-SVZ5WeyDUNw5Km00EyZL8lu299XfSeh8Linszl8SfZQcO5CspT-J8YxjCyDQfUN7AGYoRbht3dilT58AlsDeHfuYsWRNaTO1sF6i_8Yt1hxlBUU0z9aG2Wu1vfikOwJ6sfumDVbDBwD2kXx0QBUAERuXqsprmbstUfiTyej9x6wMZjNIEGdRfA6otK4GeHGcBAk7IURvIeiOHEOx8ipItgxXXrkuzChQo8jCHmBeesV6W826SZAQ_JeZ1ydPlOlqi5xj_WCJrkyTQY-0H5zE-u8UGV3fgeH1n1xJz6Ie5ZxME82PKxydlrYrZNeAxSQN7fmlFNz7XKL7lqMNeFGSvHdWJ492tTnJRPsUbpsawUyYk2aKFomPZs0wdH4iNY0RcVJn3lwHb3UGkUkn5G8DsDipCLg8C1vhxnK43P2q1DrvPZ-b-YoX-jfjbfmTcPPs94-i778aGi1Ql42VmH3-p80xefMeibuNWGOuP14YPYPbB-HGXBUB2PgV0shmzpTdRnoqBQB5thNVAGo2Iud1kYoGIifIIpkEvy48GfB0bCe9IsjX0gL-vh3uFDhQTf_E6y3rpEnbV4R-BVp2A4LuVm0JxSlw7jw2L73PISrVNsmjHicWEKIT0qzWlLuuweZz16uEF7wwLk-4ni_xuj1EoFglLgUXd08Y61PbHGTSagsylufUybgFP9ctm1PKOKYMif8hvTU_16rgsOkQLbbeTNfpfmFtp_wWXcG9h9Tarb-xPmBYQc-xXZ3KPRQ5UuxiaHgSkpgrNkBktfUO-BahgDO-4Z6_YEVBZJ1_b2QxVDwYK-7zewFJs_u24-b_VQU0QPGKuV6tGjaI9oqfOmjro8P0b3_xUB5fs4G5TukL7WgRCQZRhJORCLih7lrriG2ii0aEVpuAIadredbHnELQpbo5H0JhThgarzuHVhYJqB3vagP-MC-TMBs0Afdfn9YJkcubJX6o3Cs2hkTdepR-Xv0Q-eE_QvwfLIWuCCp-mjFyPA2NmHNNSFS1AS1NJ-TZwIstJqDcSOeS6E-_E7NsQwO6oro0hIt1t0bAigAKtugBoMQ_tmmTUNAo6tQUUc95dto-QQBjZfI3D4ks2WJXvfgG830G9F0XvE6e5UGT1pCNvOc-Cb2f0uu4c89kJ7mj-KW0gKFbvWg6cBQkz16jmJa8sxO5Cf0uotEeCjIaduLi2a10s0sbSnacYOsev_g4Ra6NfBiuCnggJRDIFcbLa3gjlLvCs3HevYRiuJKAF2HGwRqs6yKEVFdUmUJceYCsPMaxPsf-I612RsZrI3-I2e684HYUG4MTata2Dpxd4P2nbOE7Qfgb5lV3_k7Px_cOtx6ahtVnpe6Jm67xRDxSIZXvKwOranXOohtfNRpdFFnyQSDj-9CURulDTrGiZmKQRS6Q-xxKoMv3KDQEL-agKztViRBD9OWXFI4LhuwWvnHwF9oxFvvN5yl2r5Yo3ZHhlEEkBK1sX5hpnZ5FgaWQrI3I2c2dMzLhmFL2T6vmGtR96S1-KkiFSBI0JjaVe6zW6YLi2C8-lZZZY9u5yCjJoExqKriFrrGQkDDDyp8O47VfNw1FeNBiMI-rbPTF5JRC52qsQKpefhu1qnY4einfKDO_0sVPp2KaNw8yNUrhXOJ05XLiCz8DvaKY_CSKdroTzr3Tot57PGm3NRY8DqsCr3Mb-VANaWVLkCt2urRmyTwMFCT6kN0PVtYpt5HNf_R4A8abTU9dhFwBtmXn-GUIoOYHt6Ta9uKdBqGYIQo4W1uEBaQzcdcakSsaXT16bFv-Dc8IQNvwPexg_gMaQd4R3gfRCf55SfV8pLL4f3XMwLc04m_M9FbpFVF0sxgBSl6GfX9CfoauzrCYmw6LHTdbm7KUzRNBBUVcwlce5CGD71O_E0f44dsiPJLDRYnZEP75hwZfi8Wefv4PXgohUSidNnejKP6vTEIxuPmOs2VCUhx3dJxHUb8t_2mEu_FVsUBTe-B6bNdOvYjmrdsqVMS25IdDhk7RidL9B0d-stJ1wnmQlHmr-aH4VDfIGMDwa6DSo5YpAaORQgPFPjQEObYLEujMy0M8Px1Rwa63wgs3Gu9pgmQQKIDvRrzP9Amlrolc8VtlV0xhokmTbiopGVwpWb0onfX3Cte9IY-d9K9Hy_OjKpO-P74l4mw4X68MbSJduFlNokrnnaJfsL6C98mb6UMppE5R48_BdXCncSAGzwjnE6CUcUD6C9MpSJud9VGKlXME0Y1xzM7wUTEn3f8n2qBonm52pxpgbZT4_bBTOKpfqBGiC58QCSOEULx2lkquqDL8hRHx-kzhxN3HVE-i-Ojg6LJpu3WH5Yka-HoO6Ba70_oDqqENE45EV2JXPoa8k4pDu3dsHnOpoh7rC9dPd6aSRe7eGHZKdffVAL10S_zdP1xYSAvTLOlNiNYwtRgIci7S5LegLloQA_0nx4RK9tnh56Eg4oibCG1awltbFzoCAwAx7l8-sv_Gptgq9_ydySHbFpMDAmT0x1xfCMIeb8ld0EQlOL1756QMQ5VpEGms1odDSlhHAEjtS_Kj2OiLymJ_65mOFJRXy20sBufI_Qd5xYT4liGMZOZDsdeyXFfxotR1qcT-HHoZ9znw-KKsX-BULqHX3NRmDtvBmEu9t6lhDw_8CH9B2lZ4-Y_BsHRyYNnN2HcKn8XnU8K3wTB2ndz5v8xLASMLV9UG1y47VKo5jhtWwLgcaDHgus3UmYKOnlqc8Qcun7gkFZ2akBj3dB7CSKgMdNdCX8Z3PuoDb-THclkYZfTffT4MFXG-Mte8isoPoNrznLS2uk3CHfQHfV_Ng11zGlz91ydxIGRxw1ZoClBZokh-ifldO93XDnks6-4RdOPeGssOZhhf0peLKT6RAri5l7M1w8j7KZysB110BNrEDGqNm0HntkmdcoD1LDgNlamCwCD5aPkGxABix8_4tJ0foF0h6a4r8qVDc1UvVAJT0e9HSbSbW_xvfYX967itAUg0uuCElNDRmdCEtY14AJ-8-vWjqgy1egdRPl0rzMBpYr3c8rZNOZYj3Ll9EjS1eAldUoPpJFWNslkqpYNTRvX7Kdn_AiLi9ZzYr882l42u1NIbloV2ddPW3GmFeBOwjpOBpkzLPAaYkLw23yWyTdO1__qMOMYnL2ra8zodlYjjR9wYox5YdhbjWczxU0J5kINi5Z1FLTp2HqJBRAEUI0gok1mif293xFbcXNRu9viX-jwkk1GAUfYnD9wVvTQ4A-Q8yYwKaKCOsMF41_z4tm1cK_XvbW1j1AnG7ObRwN4INKhiVqCeHJYaJy46_z4GrSbMbpLspMXlzXDjiAqOhgonjha3hbeLuUalMvOydD7wpNXA7gKVc59XLkG0y9HLfc7iIbOAxpwjuvnr4A5UEQshMcO_qDY8qfH9R7Base-Q69IcfTSDri2xl58z5tbBYn5phtj5FYcFuEWxlZ5zVets6_CmlYHcSEZSsJzOuCpQHeGRV5cbDhEXXGv9Z1k0HwYE9q4nWQzyAy3mZ1_shJ49eTbPQqvwzdkeVZGWyvRrqH5F942eW51InVeqqdSDlnqR3-mwd8qw-fSQfqeB1qNA-Y44GXiHav-UiRhcL4jZcyrQieNP1qemJxZhav9eUJWtKUKpMs-45vGC2a00qd65JD4TNaHiN9gr1z58V551_HmKb7jaIW0Dj1Q0oZgwB8ZJN4UHR9v0x0pRPRUYClIrMB8fKYYnvqCy2s5sw18xXkGWhGeFjS2TbmI5JPCw4TU-86mR4c3Jt3wOqbgZPFSDLHXS8LHlO2wMAYnJ2y3dsRyC5O2ObIIFKVRj5XeLbQchbJh_oY_K-wzv80ASQSBzgehUaBtuRq4Xt8wOvuUR3KMbElwL7myPOuUJjAseRE8lRy2zOTNexXp1AzCqzY8-16bvIw==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_05e3a9024e62ca5c016adf5d2e4f7887d19c417e459901ff67",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 126,
+      "completion_tokens": 490,
+      "total_tokens": 616,
+      "cost": 0.0002576,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002576,
+        "upstream_inference_prompt_cost": 1.26e-05,
+        "upstream_inference_completions_cost": 0.000245
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 432,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

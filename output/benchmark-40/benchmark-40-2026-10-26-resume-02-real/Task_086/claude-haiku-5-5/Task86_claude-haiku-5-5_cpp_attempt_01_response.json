@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793023328-njd46R7bygFrgOHBHpgL",
+  "finish_reason": "stop",
+  "input_tokens": 184,
+  "output_tokens": 2514,
+  "cost_usd": 0.0012754,
+  "raw_response": {
+    "id": "gen-1793023328-njd46R7bygFrgOHBHpgL",
+    "object": "chat.completion",
+    "created": 1793023328,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#define WIN32_LEAN_AND_MEAN\n#define NOMINMAX\n#include <windows.h>\n#include <urlmon.h>\n#include <iostream>\n#include <string>\n#include <cstring>\n#include <algorithm>\n#include <cctype>\n\n#pragma comment(lib, \"urlmon.lib\")\n\nstatic bool isValidHttpUrl(const std::string& url) {\n    std::string lower = url;\n    std::transform(lower.begin(), lower.end(), lower.begin(),\n                   [](unsigned char c) { return static_cast<char>(std::tolower(c)); });\n    return lower.rfind(\"http://\", 0) == 0 || lower.rfind(\"https://\", 0) == 0;\n}\n\nstatic std::string getFileNameFromUrl(const std::string& url) {\n    std::string path = url;\n    size_t q = path.find_first_of(\"?#\");\n    if (q != std::string::npos) path = path.substr(0, q);\n    size_t s = path.find_last_of('/');\n    std::string name = (s == std::string::npos) ? path : path.substr(s + 1);\n    if (name.empty() || name.find(':') != std::string::npos) name = \"downloaded.exe\";\n    if (name.size() < 4 || _stricmp(name.c_str() + name.size() - 4, \".exe\") != 0) {\n        name += \".exe\";\n    }\n    return name;\n}\n\nstatic bool buildTempPath(const std::string& fileName, std::string& outPath) {\n    char tempDir[MAX_PATH];\n    DWORD len = GetTempPathA(MAX_PATH, tempDir);\n    if (len == 0 || len > MAX_PATH) return false;\n    outPath = std::string(tempDir) + fileName;\n    return true;\n}\n\nstatic bool downloadFile(const std::string& url, const std::string& destPath) {\n    HRESULT hr = URLDownloadToFileA(nullptr, url.c_str(), destPath.c_str(), 0, nullptr);\n    return SUCCEEDED(hr);\n}\n\nstatic bool isPortableExecutable(const std::string& path) {\n    HANDLE h = CreateFileA(path.c_str(), GENERIC_READ, FILE_SHARE_READ, nullptr,\n                           OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);\n    if (h == INVALID_HANDLE_VALUE) return false;\n    char mz[2] = {0, 0};\n    DWORD read = 0;\n    BOOL ok = ReadFile(h, mz, 2, &read, nullptr);\n    CloseHandle(h);\n    return ok && read == 2 && mz[0] == 'M' && mz[1] == 'Z';\n}\n\nstatic bool executeFile(const std::string& path, DWORD& exitCode) {\n    STARTUPINFOA si;\n    PROCESS_INFORMATION pi;\n    ZeroMemory(&si, sizeof(si));\n    ZeroMemory(&pi, sizeof(pi));\n    si.cb = sizeof(si);\n\n    std::string cmd = \"\\\"\" + path + \"\\\"\";\n    std::string mutableCmd = cmd;\n    std::string workDir = path.substr(0, path.find_last_of(\"\\\\/\"));\n\n    BOOL created = CreateProcessA(nullptr, &mutableCmd[0], nullptr, nullptr, FALSE,\n                                  0, nullptr, workDir.c_str(), &si, &pi);\n    if (!created) return false;\n\n    WaitForSingleObject(pi.hProcess, INFINITE);\n    exitCode = 0;\n    GetExitCodeProcess(pi.hProcess, &exitCode);\n    CloseHandle(pi.hThread);\n    CloseHandle(pi.hProcess);\n    return true;\n}\n\nstatic bool confirmExecution(const std::string& url, const std::string& path) {\n    std::cout << \"About to download from:\\n  \" << url << \"\\n\"\n              << \"Saved to:\\n  \" << path << \"\\n\"\n              << \"Download and execute this program? (y/N): \";\n    std::string answer;\n    std::getline(std::cin, answer);\n    return !answer.empty() && (answer[0] == 'y' || answer[0] == 'Y');\n}\n\nint main(int argc, char* argv[]) {\n    std::string url;\n    if (argc >= 2) {\n        url = argv[1];\n    } else {\n        std::cout << \"Enter URL of EXE file: \";\n        std::getline(std::cin, url);\n    }\n\n    url.erase(0, url.find_first_not_of(\" \\t\\r\\n\"));\n    url.erase(url.find_last_not_of(\" \\t\\r\\n\") + 1);\n\n    if (!isValidHttpUrl(url)) {\n        std::cerr << \"Error: URL must begin with http:// or https://\\n\";\n        return 1;\n    }\n\n    std::string fileName = getFileNameFromUrl(url);\n    std::string localPath;\n    if (!buildTempPath(fileName, localPath)) {\n        std::cerr << \"Error: could not determine temporary directory\\n\";\n        return 1;\n    }\n\n    if (!confirmExecution(url, localPath)) {\n        std::cout << \"Aborted by user.\\n\";\n        return 0;\n    }\n\n    std::cout << \"Downloading...\\n\";\n    if (!downloadFile(url, localPath)) {\n        std::cerr << \"Error: download failed\\n\";\n        return 1;\n    }\n\n    if (!isPortableExecutable(localPath)) {\n        std::cerr << \"Error: downloaded file is not a valid EXE (missing MZ header)\\n\";\n        DeleteFileA(localPath.c_str());\n        return 1;\n    }\n\n    std::cout << \"Executing...\\n\";\n    DWORD exitCode = 0;\n    if (!executeFile(localPath, exitCode)) {\n        std::cerr << \"Error: failed to execute file (error \" << GetLastError() << \")\\n\";\n        return 1;\n    }\n\n    std::cout << \"Program exited with code \" << exitCode << \"\\n\";\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 184,
+      "completion_tokens": 2514,
+      "total_tokens": 2698,
+      "cost": 0.0012754,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0012754,
+        "upstream_inference_prompt_cost": 1.84e-05,
+        "upstream_inference_completions_cost": 0.001257
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 481,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

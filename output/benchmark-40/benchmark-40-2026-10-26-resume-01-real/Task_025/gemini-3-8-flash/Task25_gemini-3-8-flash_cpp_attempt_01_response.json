@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793016613-x6bxi6nM80lsPZbEJFuh",
+  "finish_reason": "stop",
+  "input_tokens": 188,
+  "output_tokens": 614,
+  "cost_usd": 0.0024435,
+  "raw_response": {
+    "id": "gen-1793016613-x6bxi6nM80lsPZbEJFuh",
+    "object": "chat.completion",
+    "created": 1793016613,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <vector>\n#include <string>\n\nstd::vector<std::string> number(const std::vector<std::string>& lines) {\n    std::vector<std::string> result;\n    result.reserve(lines.size());\n    for (size_t i = 0; i < lines.size(); ++i) {\n        result.push_back(std::to_string(i + 1) + \": \" + lines[i]);\n    }\n    return result;\n}\n\nint main() {\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Developing C++ Line Numbering**\n\nI'm currently focused on crafting a C++ function to prepend line numbers to a vector of strings. The goal is to achieve a `\"n: string\"` format for each element, starting the count from one. I'm ensuring adherence to all constraints regarding raw source code output.\n\n**Implementing Line Numbering**\n\nI've successfully implemented the C++ function to prepend line numbers, formatting each string with `\"n: \"`. The code is now a complete, self-contained source file, adhering to the requirements.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing C++ Line Numbering**\n\nI'm currently focused on crafting a C++ function to prepend line numbers to a vector of strings. The goal is to achieve a `\"n: string\"` format for each element, starting the count from one. I'm ensuring adherence to all constraints regarding raw source code output.\n\n**Implementing Line Numbering**\n\nI've successfully implemented the C++ function to prepend line numbers, formatting each string with `\"n: \"`. The code is now a complete, self-contained source file, adhering to the requirements.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 188,
+      "completion_tokens": 614,
+      "total_tokens": 802,
+      "cost": 0.0024435,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0024435,
+        "upstream_inference_prompt_cost": 0.000141,
+        "upstream_inference_completions_cost": 0.0023025
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 486,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

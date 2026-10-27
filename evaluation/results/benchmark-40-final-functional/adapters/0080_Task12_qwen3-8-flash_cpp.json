@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "high",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 80,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_012/qwen3-8-flash/Task12_qwen3-8-flash_cpp.cpp",
+ "artifact_sha256": "06d22d18a320fc778173071947fc514bdfba80be37d997773b0920ce5e23e050",
+ "oracle_test_path": "tests/claude/Task12_Test.cpp",
+ "oracle_test_sha256": "9d008b64dabf200a083734c67970cbec882ae6f19246d7ee9da134e3f2fcd8d4",
+ "author": "functional.py draft_adapter (static)"
+}

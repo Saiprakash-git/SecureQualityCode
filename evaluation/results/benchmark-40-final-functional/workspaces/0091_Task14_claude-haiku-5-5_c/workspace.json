@@ -1,0 +1,47 @@
+{
+ "language": "c",
+ "artifact_origin": "generated",
+ "artifact_sha256": "e8c8f7673b1b44e460f9bb4143c95d24f02154f06ca8465e19a81a666bd078a6",
+ "oracle_test_path": "tests/claude/Task14_Test.c",
+ "oracle_test_sha256": "155b1c51302963f28dea7f748e566aa2b502ce7ed9c9faa1820d6ae62ab3630e",
+ "verdict_style": "exit_code_and_fail_lines",
+ "bindings": [
+  {
+   "canonical": "findEvenIndex",
+   "target": "find_equilibrium",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "line": 8,
+   "removed": "#include \"../../source/output/claude/c/Task14_CLAUDE_claude-3-5-sonnet-20240620.c\"  // Include the header for the function",
+   "inserted": "#include \"adapter.h\"  /* adapter */"
+  }
+ ],
+ "steps": [
+  [
+   "{cc}",
+   "-std=gnu17",
+   "-O0",
+   "-o",
+   "{exe:test_oracle}",
+   "test_oracle.c",
+   "-lm",
+   "-lpthread"
+  ],
+  [
+   "{run:test_oracle}"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "adapter.h": "b269001165ba30686dc290271c1617ab4cf405cfd128d74e356e76c49f6d8329",
+  "impl_under_test.c": "e8c8f7673b1b44e460f9bb4143c95d24f02154f06ca8465e19a81a666bd078a6",
+  "test_oracle.c": "2acc7350931db63d09bde6f17c2b20d60ff5d8cb2a79b0e5db200d608876b99a"
+ }
+}

@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793024058-VySJcJrE5I8Hytnb8BhY",
+  "finish_reason": "length",
+  "input_tokens": 152,
+  "output_tokens": 4096,
+  "cost_usd": 0.0020632,
+  "raw_response": {
+    "id": "gen-1793024058-VySJcJrE5I8Hytnb8BhY",
+    "object": "chat.completion",
+    "created": 1793024058,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "#define _POSIX_C_SOURCE 200809L\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <unistd.h>\n#include <netdb.h>\n#include <arpa/inet.h>\n#include <sys/types.h>\n#include <sys/socket.h>\n#include <openssl/ssl.h>\n#include <openssl/err.h>\n#include <openssl/x509.h>\n#include <openssl/x509v3.h>\n\n#define RESPONSE_CHUNK 4096\n\nstatic int tcp_connect(const char *host, const char *port)\n{\n    struct addrinfo hints, *res = NULL, *p = NULL;\n    int fd = -1;\n    int rc;\n\n    if (!host || !port)\n        return -1;\n\n    memset(&hints, 0, sizeof(hints));\n    hints.ai_family = AF_UNSPEC;\n    hints.ai_socktype = SOCK_STREAM;\n\n    rc = getaddrinfo(host, port, &hints, &res);\n    if (rc != 0) {\n        fprintf(stderr, \"getaddrinfo(%s): %s\\n\", host, gai_strerror(rc));\n        return -1;\n    }\n\n    for (p = res; p != NULL; p = p->ai_next) {\n        fd = socket(p->ai_family, p->ai_socktype, p->ai_protocol);\n        if (fd < 0)\n            continue;\n        if (connect(fd, p->ai_addr, p->ai_addrlen) == 0)\n            break;\n        close(fd);\n        fd = -1;\n    }\n\n    freeaddrinfo(res);\n    return fd;\n}\n\nstatic SSL_CTX *create_tls_context(const char *ca_file)\n{\n    SSL_CTX *ctx = SSL_CTX_new(TLS_client_method());\n    if (!ctx) {\n        ERR_print_errors_fp(stderr);\n        return NULL;\n    }\n\n    if (SSL_CTX_set_min_proto_version(ctx, TLS1_2_VERSION) != 1) {\n        ERR_print_errors_fp(stderr);\n        SSL_CTX_free(ctx);\n        return NULL;\n    }\n\n    if (SSL_CTX_set_cipher_list(ctx,\n            \"ECDHE+AESGCM:ECDHE+CHACHA20:!aNULL:!eNULL:!MD5:!RC4:!3DES:!DES\") != 1) {\n        ERR_print_errors_fp(stderr);\n        SSL_CTX_free(ctx);\n        return NULL;\n    }\n\n    SSL_CTX_set_verify(ctx, SSL_VERIFY_PEER, NULL);\n\n    if (ca_file) {\n        if (SSL_CTX_load_verify_locations(ctx, ca_file, NULL) != 1) {\n            fprintf(stderr, \"Failed to load CA file: %s\\n\", ca_file);\n            ERR_print_errors_fp(stderr);\n            SSL_CTX_free(ctx);\n            return NULL;\n        }\n    } else {\n        if (SSL_CTX_set_default_verify_paths(ctx) != 1) {\n            fprintf(stderr, \"Failed to load default CA paths\\n\");\n            ERR_print_errors_fp(stderr);\n            SSL_CTX_free(ctx);\n            return NULL;\n        }\n    }\n\n    return ctx;\n}\n\nstatic SSL *tls_connect(SSL_CTX *ctx, int fd, const char *host)\n{\n    SSL *ssl = NULL;\n    X509_VERIFY_PARAM *param = NULL;\n    unsigned char addr_buf[16];\n    long verify_result;\n\n    ssl = SSL_new(ctx);\n    if (!ssl) {\n        ERR_print_errors_fp(stderr);\n        return NULL;\n    }\n\n    if (SSL_set_fd(ssl, fd) != 1) {\n        ERR_print_errors_fp(stderr);\n        SSL_free(ssl);\n        return NULL;\n    }\n\n    /* Server Name Indication, only for hostnames (not IP literals) */\n    if (inet_pton(AF_INET, host, addr_buf) != 1 &&\n        inet_pton(AF_INET6, host, addr_buf) != 1) {\n        SSL_set_tlsext_host_name(ssl, host);\n    }\n\n    /* Hostname / IP verification against the certificate */\n    param = SSL_get0_param(ssl);\n    if (inet_pton(AF_INET, host, addr_buf) == 1 ||\n        inet_pton(AF_INET6, host, addr_buf) == 1) {\n        X509_VERIFY_PARAM_set1_ip_asc(param, host);\n    } else {\n        X509_VERIFY_PARAM_set_hostflags(param, X509_CHECK_FLAG_NO_PARTIAL_WILDCARDS);\n        X509_VERIFY_PARAM_set1_host(param, host, 0);\n    }\n\n    if (SSL_connect(ssl) != 1) {\n        fprintf(stderr, \"TLS handshake failed with %s\\n\", host);\n        ERR_print_errors_fp(stderr);\n        SSL_free(ssl);\n        return NULL;\n    }\n\n    verify_result = SSL_get_verify_result(ssl);\n    if (verify_result != X509_V_OK) {\n        fprintf(stderr, \"Certificate verification failed: %s\\n\",\n                X509_verify_cert_error_string(verify_result));\n        SSL_shutdown(ssl);\n        SSL_free(ssl);\n        return NULL;\n    }\n\n    return ssl;\n}\n\nstatic void print_connection_info(SSL *ssl)\n{\n    X509 *cert = SSL_get1_peer_certificate(ssl);\n    char *subject = NULL;\n    char *issuer = NULL;\n\n    printf(\"Protocol : %s\\n\", SSL_get_version(ssl));\n    printf(\"Cipher   : %s\\n\", SSL_get_cipher(ssl));\n\n    if (cert) {\n        subject = X509_NAME_oneline(X509_get_subject_name(cert), NULL, 0);\n        issuer = X509_NAME_oneline(X509_get_issuer_name(cert), NULL, 0);\n        printf(\"Subject  : %s\\n\", subject ? subject : \"(unknown)\");\n        printf(\"Issuer   : %s\\n\", issuer ? issuer : \"(unknown)\");\n        OPENSSL_free(subject);\n        OPENSSL_free(issuer);\n        X509_free(cert);\n    }\n}\n\nstatic int https_get(SSL *ssl, const char *host, const char *path,\n                     char **response, size_t *response_len)\n{\n    char request[1024];\n    size_t total = 0, cap = RESPONSE_CHUNK;\n    char *buf = NULL, *tmp = NULL;\n    int n, written;\n\n    if (!ssl || !host || !path || !response || !response_len)\n        return -1;\n\n    *response = NULL;\n    *response_len = 0;\n\n    written = snprintf(request, sizeof(request),\n                       \"GET %s HTTP/1.1\\r\\n\"\n                       \"Host: %s\\r\\n\"\n                       \"User-Agent: secure-tls-client/1.0\\r\\n\"\n                       \"Connection: close\\r\\n\\r\\n\",\n                       path, host);\n    if (written < 0 || (size_t)written >= sizeof(request))\n        return -1;",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "CAQS4R0KEAgTGAI4AUIIdGhpbmtpbmcSDK1Ba47ytOpkheRPBxoMTLBF0PSrwj3hcDA2IjDLtdwH+CyogSThHpI1yklCR7QUwXQzSF5fFwH28Uv9QVP2JyqzWDvT4oSG1wdT1Ksq/hxRnvM6e32AGu2jZJokFMvSJQzk3vu/+K8qx+cfv3VPmy9GORJU0eZWonqaAwabjB+4H6V3ziQrhP6Z6PhQcvOxE+Exu6HBJS2LfNMDrD3ocNftCisUywe56259eOcIjY+G4IaWYI5Xhjyn09IhDHWyZ77hiW/Xu305z1qOsAK9/eNfmLLFMW2rUhZ4qbYgADLT3Kpc8Cz8RD2fW7O7Czh20nFALgEwcsqgBTbde6sBhglOSTYJKTkpCcgBAj6esHb/9LeLoPgF4MXqxtVnYPLEJIa8TZ5Ggw2XenlgDJO417YRrMHxIHuRVSbM6UrmxHfJWBHTM+5lcYYxt1PvM0p8Zp4rjLnVHTLeRia4m1Ta6uQBcsYZqb0FcS7cCrw0qsUVw06b7pNKOWvzgDjwNVX1Tw0OQ5K5erTMmGnuKjNdc/Y4AqdvY/eArgkXjvdmxGWv2X5787Kco74V6M2rfgj+Al7FOZINB88x+Cr/SevbfUqeFmWHTU7RfqVJMgZlLnQN0rd0+g4YbZ5QqG9fBni6Y39De48ARd6f4IpfZj4sIrmNonGNPdXwnK1h3rshN+/8MDfhC3fEPtzr1aRruvO2L8Hg9a4Vl9IwhJdOrctREEJmqfZRd2fi6uCRM2SBcQWRbQCGG9zYI2je3jpgDkcCQmUPjP7x2AKbSPrn92ifKKrB291XxXrq/40RssRk4VMshpAZk2ZyMRaIYeaGuwYPGVrfvMCwtniRGljG6TiMoJy3OxSiJjhSWCXEOETE0szDeSuHgxEcP7PKGLsd1hhTXg4EBAGdvEjDwbh47X/vg4dE49J5gEetjTEHL6lfRtJg/13Y7aQ/f3JET6zglD6cn0bEXrjOI5SkW/k8fK+mfTgocztVzMnYMxlnyUY+zz6HFiYISnwPuAYvMfWq+xC6Hg+RWR+0ugUTal1WAaXNS/ayl+nwrD/hD3YioKZGaByXCAnQBItI2ifpMUpozgpMYxJciAGAAdAoDSCfHHaxeGhSLxQDAwxFHbEdtPkRuqSaAXZ1OukDQpn0ksS9omjD7a7Aw84uNEJMoolnNr7Prmrg9QKDQUTXDbWg3RAThNVwHCc1fQ7+mtREp5x3OxroedvAecWEGh/D8nAbmc+bqf2+ypggCyAuu51pqnaJ4z1iTQcl/YSigQ9+Ct7bsBpyK+ZO2mzY42Yo9RfsOAB9lDPOYxp4x79W5qltSVykSe9YGNcBRb66B6MAkT3SRS2aXedQRK29S6tLo9+i0o/3wfZYxmmGSm0BWlrhgNvwFubb/mEjndM+tzc8nJJOVeOn5c5KTVbvlX0xYemmq0VbBcTo01uekP33AAPswFLU94dxiuUajs+HODSipn9W/NwkETKFNpx3GUIHHA2Qcv+ltut6whNN7SkweEYR3Pd2zx3A5rjnL9PBWFFihtBjioRwEU+IikBjJkFWrpyXBNPzlGSSAY6vHoeInLVoD/FKklyYHpz7z4LPAjft2GfuMifoTVCLO2Af/FQlkT68x4P831hVZ06sbuxzxzvM0yqDal+9txjKZ5EdjV9xmaN1rsKvIhahPijnNxSjDLf7X2QyOFx1OMQTZ1qyEMUjtofu8zC2IfqGXDQSxyDLA1z0C3sUnpQoa13v9tH7p9z3pvVECEAU+oaPVOmzlkbu0cgCi4bCyRzLWhjmoEJ3WlGSuHet3giesFcn4JJbZSUrV5WjXwOvpt1hwBEHUArpDpYvFx1OhTU++KiGHId2fQmLBm7wMv9uEdOMdfu1AQkkqhP/iL7m0wnrbSSF8eV7pb/Vopzla8R14b2ZE9nJh0hQhb1HnvgBgdvlx1yoia9lhMj/uLxAa7SP19MXYqZ9QOSEWMEPyC+iODO+xNEhrKqHPkzkBhNCwkhQFgEWMtvWrpnRqh+zX6jOytqe67SYrt9UhjCEme4/K4cX7IYRNSJWR2+X+Mdg/o1XuIFJnQ9s/2u1LTXIRcmVNVCz+l0OcrJhuyLuV0I1Nz1dZN3YrjOmWHHU+JtWxczxxR6e1pvTMDm1ZM/OAp93mOw5xIOLj7H/TFtjlQvibaWJ7LUUrVxhuzKU6bMRr+gfstGzYZTAbvjg+tXPC8FUzwi1WaxSxGSx+G3/e152xkmu8q220U55jAWvi3B8n3ZnMY9R7n7akUzkHBlBv3ijlNZ5TdF8nmDoGjn7mZ0AB36hndrdv8yFA2UY17cTIlcLQ0BIdriGpReVZpLXN0mXiQ5mf1Mkyj/9hSbfHM6eESyXBCbUCuEew9mwy6wCgKImHMQ1LcRDeGF83nIB1kADeYBEX39lt/pzRcNSj6wRTEk17v167r+7eNT1UOjtay+jzlnS99akbK1WdbOPdy8vWaoBX6TD7Itw0g1th095sWklr/c9IURohi7PHutiwZJBfZWbHeO4LjlPi+rp5g5iMBt6vhYvu9b0x2ydIkMbjD1jn625amokgqKbdUGnTLGEbQbI9rso00BmsrXqhVGv2TxzqwZmeMTQMi2kNoAhdhLphu/iGE5WtBGHoNiK3EYfQHdf9jVeVT0PcGJvuhI3gG0nS9km2/SjuelkimLUoS8TTOyuYB4MNBL5e4OaYMTH0UxzHRbS6NtO98olKvs1g96OkXaDW3VFVrw6BIknQwXZc4J27kteFjUbnn7/VsHU3RJeHWbNwKgDQW+gId6qUulZE3/Z8trnz6iG46iVhDD3nzE9sjI4oaVqP8dDWwX3e6XCI+lrr+Y6GQqQ2uwhSAf32m8k2aWED/bs+ixTqxoGa+dzWi0p25UUtaUYKcZyUpH5EmtocLtM4KVNHE6b4evHHpC0TddRBc1zjEqig2sIK9YPW9+PL0r6nOTYbTr0eMRmrrsQaDpM5Wh6N+5PC2tw2ksBpWoMDCWIHlcNTxESl46dC8tvJvGWSbOUEJJpI44EiZj8EtLdME0orrXsS1+Pdzy0wQQqOFIp97RjBkiGOBV86d+SW2fTzmu/g+4ZtSQlwUjw1+HT6i3GymSXLaaPF3mNCvGzSrl+dZxLIVT2Mm0IuZuNhIBT+hVI8H0UEkPZkm4Skfj+fJZnx86en1AI1mJ7n7MkMKcUVyvNu1uWqEuZ4VtQaXn9HgO/Q3A0Zn1sgwjrUKGLsk9mF+r3/lR3TVJYaI1bsD4NlY9mnwKHPnf6nfnG3z/kTi1rOtC/vKf+wxA7Fz1p/7HcTOvzEy7iE0xjZmp3OjZRlvKS8OSE1P8qkkwBjhtHvXDhMelIgihRRyycmRsY9i3NYyhOVkChwDkvZ5lYMU1RLxl4aOCE850d6MPDb6uEgQULt6e4zQww2BFWkd+c2A1fdzQRYpSU7j8kr1edQz8r9Ws/8yuFCHANiZHsosCbKxSL5KLj6kwcixPrH44kktW+Dc4LltBZgElNYSavhMCZUXTesTV+D27uLWUHXmtALbFeYa9t4j6DJo58+7Z7k4XPHc258EX537GWIlKLbVAQSPnYDH2YTw6yiy3rSkAAIpBStjWjvmH8v/TPqWzse/LTM+Kg6Wyr64O2fMkc3xiCItxBWuwBYkalaY0jgZPQE8PGRdXqtTTejg4CrICICHlFoVgpErTS0WAK0axTGTJ92aFeXi3suhmlvC3YEWcnj9an/5MiYCoA/ma/P2fXEmVx4aRqasfvhxN/zUKETbGNVdGEHnqKUZqkrxbRciUDokvhGlXLBwLvjFkegnRKcF3iWmAQH6rZ7FFWzX+XJqQ865hplYzB28PXnZRTmf7F43HMBMxn6RSPZwGt9IuPsv1nhEOWtbcNcu4NIv4MpqWFwLlTNiR7aHDD4HoKKxoBGaRr9iKB0Y8DzVFSyVyUv/ROVtL10qxz5xCbo3Pl20bvLwnvpBAmlOAfpxjB5huZYuw1pEgO5yAOF4LeknAui2xQTi031t0D4dM+I8EyjKj/FnPZKZSqREq0miuxlJM/vm0GJcnlTOdPHvX/BJZ6MzTrgLYXDDEHzuxIbocikA8mXbp+cjmq3dADjzKqtZ7vA57epOrD39WmStumJRJp/SIgqpRx7YLF8JR4E40RVH8bFnHJyBwUs2wM2yuElcv6v3xW++kYzZVdtOF0zvK8r/Jr8Kxw9lnukG2BHlWZy52fhDYVo5sbIv5fdTCJR0IhvH9QzWUFI6u/R6hcfPn9YIPai+bzEi1H72Gg2FPwX0d/7+jeeL9oBrVHISruIJTsxL479ZLhl7V8KSQ3hUP1RR4Tf1+1MwoWsjvsuLBvIHSHvtcErZ8jZ55Y9SDw+QcmfuTL0sgl1ArCaJhqFB1HFtQnpC4h6tUqboYRtF9DaHGirDe9On1ieUc3MbTKEslWG8SviahUr+Re6rK/E6nPw0qftGFPB+zAeil+okK3rgNkjio6Ku7EwgtphadlrvT5pyKYdtgVS/9+vP/KoXmyEbJqKEIE3LLLFBjcFpasHnv56m5ucZ31NTduKEokO30PekfFTgBkxsoqY5TyUWPnnMI2L+eF9rMcqhdxnPP4sCkDKjfE+cKL7BneLLkHWUDXyURVEF1FvmB/R2VQjB/Yr02ZbeK/Tcc3XUeGxJ9TuxI6NWEJbQEi1D3v3TbGLRVtMrroRfyNq5gwkBokXf6vwaUTcN1zTa4Bhg/jVVurg+IDq+I3AepSI1CO6URAhrGXalRpHGMLn0MVCExzTyGh6HSuHylAygViNsWNeYIBFhBMwD+GYl5iQE3omjxS1ZRpiw4dycqKpmAFcn3l9zLm/cFhO/YlOkoEqu9TcqheeL3p/JeaMG25pJEtaK8NhcaGNSBEAR1llX6jjbkQGJffEzIYmNI6wvYBdfigmYtkzC9J9A4BreX4nnLzIYmjO8sToSLc1RH64PAWRhfYZniR2E7QS7lwR8NUrBQXI7K3Fyc78Ygtk8zE8wSp0bwEnAH+4snv4BK1BtdqcylyyHYpiOJYWyGeU2hsZvtTMfZ9QGeeOOfSh51g50o3NnRexhgB.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 152,
+      "completion_tokens": 4096,
+      "total_tokens": 4248,
+      "cost": 0.0020632,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0020632,
+        "upstream_inference_prompt_cost": 1.52e-05,
+        "upstream_inference_completions_cost": 0.002048
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1598,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

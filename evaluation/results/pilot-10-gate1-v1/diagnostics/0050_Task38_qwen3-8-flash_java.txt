@@ -1,0 +1,3 @@
+Main.java:111:17: compiler.err.unclosed.str.lit
+Main.java:111:33: compiler.err.premature.eof
+2 errors

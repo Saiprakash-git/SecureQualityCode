@@ -1,0 +1,19 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "Task84_CLAUDE_claude_3_5_sonnet_20240620.generateSessionId",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": [
+    "Main.generateSessionId"
+   ]
+  }
+ ],
+ "combo_index": 490,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-02-real/Task_084/qwen3-8-flash/Task84_qwen3-8-flash_java.java",
+ "artifact_sha256": "2c7dab8cc8cbe5d1e1aeed5bb5d6183a769ff973fb72b23cd4cae1de67d47422",
+ "oracle_test_path": "src/test/java/claude/task84/Task84Test.java",
+ "oracle_test_sha256": "24860944690fd532e775535b6c68a93388c8b4be2b89945f59a9dc2bd682e129",
+ "author": "functional.py draft_adapter (static)"
+}

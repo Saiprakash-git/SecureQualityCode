@@ -1,0 +1,23 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "processInput",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  },
+  {
+   "canonical": "validateInput",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 278,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_044/gemini-3-8-flash/Task44_gemini-3-8-flash_cpp.cpp",
+ "artifact_sha256": "59c879ebd201ca00af00f0b66bc1cfd6fddcf1bc2b7cad24e0976eac283febae",
+ "oracle_test_path": "tests/claude/Task44_Test.cpp",
+ "oracle_test_sha256": "044576b16f7dcc1fb8d212409a6b4dff835ead3ecffa4655ca779ee8c1fed15d",
+ "author": "functional.py draft_adapter (static)"
+}

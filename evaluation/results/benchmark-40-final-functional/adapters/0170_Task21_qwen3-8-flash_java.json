@@ -1,0 +1,18 @@
+{
+ "status": "rejected",
+ "bindings": [
+  {
+   "canonical": "Task21_CLAUDE_claude_3_5_sonnet_20240620.removeSmallest",
+   "target": "Solution.removeSmallest",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "artifact uses int[] in/out; test passes and compares List<Integer>",
+ "combo_index": 170,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_021/qwen3-8-flash/Task21_qwen3-8-flash_java.java",
+ "artifact_sha256": "9c7d8c519d67812448100882921c573817943359244cc2c3f6d3f46df3224a5a",
+ "oracle_test_path": "src/test/java/claude/task21/Task21_TestCase.java",
+ "oracle_test_sha256": "8525df080ab2692e089029c27ebea0f317718a6a9e2fd1e62c8b5c43cd530aa2",
+ "author": "functional.py draft_adapter (static)"
+}

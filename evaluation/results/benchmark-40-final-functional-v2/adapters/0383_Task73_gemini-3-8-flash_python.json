@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "is_valid_admin_password",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 383,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_073/gemini-3-8-flash/Task73_gemini-3-8-flash_python.py",
+ "artifact_sha256": "7e0ff7d9660f350270782e497b2047e9a0f61ac5a79d5a8f063f0bc540d903a9",
+ "oracle_test_path": "tests/claude/Task73_CLAUDE_claude_3_5_sonnet_20240620/Task73_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "eaf26011ecc17e40556420a9cef879c3acb288bc1d94c0cdbf2aee1dc478c515",
+ "author": "functional.py draft_adapter (static)"
+}

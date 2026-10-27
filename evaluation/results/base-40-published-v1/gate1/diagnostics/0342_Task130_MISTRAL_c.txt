@@ -1,0 +1,4 @@
+Task130_MISTRAL_codestral-latest.c:4:10: fatal error: 'onion/onion.h' file not found
+    4 | #include <onion/onion.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.

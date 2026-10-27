@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793025243-ZOlxawjqx9QOdsYOgiNK",
+  "finish_reason": "stop",
+  "input_tokens": 103,
+  "output_tokens": 663,
+  "cost_usd": 0.0025635,
+  "raw_response": {
+    "id": "gen-1793025243-ZOlxawjqx9QOdsYOgiNK",
+    "object": "chat.completion",
+    "created": 1793025243,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "import java.util.Arrays;\n\npublic class ArraySorter {\n\n    public static int[] sortAscending(int[] array) {\n        if (array == null) {\n            return null;\n        }\n        int[] sorted = array.clone();\n        Arrays.sort(sorted);\n        return sorted;\n    }\n\n    public static void main(String[] args) {\n        int[] numbers = {64, 34, 25, 12, 22, 11, 90};\n        int[] sortedNumbers = sortAscending(numbers);\n        System.out.println(Arrays.toString(sortedNumbers));\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Developing Sorting Logic**\n\nI'm currently focused on crafting a robust sorting algorithm. My primary objective is to implement a clean, efficient solution that handles integer arrays effectively, ensuring ascending order with minimal complexity.\n\n**Refining Sorting Mechanism**\n\nMy current focus is on solidifying the array sorting mechanism. I'm aiming to finalize a clean, efficient implementation that reliably orders integer arrays in ascending fashion, ensuring optimal performance.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Sorting Logic**\n\nI'm currently focused on crafting a robust sorting algorithm. My primary objective is to implement a clean, efficient solution that handles integer arrays effectively, ensuring ascending order with minimal complexity.\n\n**Refining Sorting Mechanism**\n\nMy current focus is on solidifying the array sorting mechanism. I'm aiming to finalize a clean, efficient implementation that reliably orders integer arrays in ascending fashion, ensuring optimal performance.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 103,
+      "completion_tokens": 663,
+      "total_tokens": 766,
+      "cost": 0.0025635,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0025635,
+        "upstream_inference_prompt_cost": 7.725e-05,
+        "upstream_inference_completions_cost": 0.00248625
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 513,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

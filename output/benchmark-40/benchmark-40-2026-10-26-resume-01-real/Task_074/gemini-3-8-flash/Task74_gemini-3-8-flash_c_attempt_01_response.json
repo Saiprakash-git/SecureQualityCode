@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793018001-W13CR5F3VbKj9BV5wDGf",
+  "finish_reason": "stop",
+  "input_tokens": 100,
+  "output_tokens": 1401,
+  "cost_usd": 0.00532875,
+  "raw_response": {
+    "id": "gen-1793018001-W13CR5F3VbKj9BV5wDGf",
+    "object": "chat.completion",
+    "created": 1793018001,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <libpq-fe.h>\n\nPGconn *create_postgres_connection(const char *host,\n                                   const char *port,\n                                   const char *dbname,\n                                   const char *user,\n                                   const char *password)\n{\n    const char *keywords[] = {\n        \"host\",\n        \"port\",\n        \"dbname\",\n        \"user\",\n        \"password\",\n        NULL\n    };\n\n    const char *values[] = {\n        host,\n        port,\n        dbname,\n        user,\n        password,\n        NULL\n    };\n\n    PGconn *conn = PQconnectdbParams(keywords, values, 0);\n\n    if (conn == NULL) {\n        fprintf(stderr, \"Memory allocation error while creating connection structure.\\n\");\n        return NULL;\n    }\n\n    if (PQstatus(conn) != CONNECTION_OK) {\n        fprintf(stderr, \"Connection to database failed: %s\", PQerrorMessage(conn));\n        PQfinish(conn);\n        return NULL;\n    }\n\n    return conn;\n}\n\nvoid close_postgres_connection(PGconn *conn)\n{\n    if (conn != NULL) {\n        PQfinish(conn);\n    }\n}\n\nint main(int argc, char *argv[])\n{\n    const char *host = (argc > 1) ? argv[1] : \"localhost\";\n    const char *port = (argc > 2) ? argv[2] : \"5432\";\n    const char *dbname = (argc > 3) ? argv[3] : \"postgres\";\n    const char *user = (argc > 4) ? argv[4] : \"postgres\";\n    const char *password = (argc > 5) ? argv[5] : \"\";\n\n    printf(\"Connecting to PostgreSQL at %s:%s, dbname=%s, user=%s...\\n\",\n           host, port, dbname, user);\n\n    PGconn *conn = create_postgres_connection(host, port, dbname, user, password);\n\n    if (conn == NULL) {\n        fprintf(stderr, \"Failed to establish PostgreSQL connection.\\n\");\n        return EXIT_FAILURE;\n    }\n\n    printf(\"Connection successfully established!\\n\");\n    printf(\"Server version: %d\\n\", PQserverVersion(conn));\n    printf(\"Protocol version: %d\\n\", PQprotocolVersion(conn));\n\n    close_postgres_connection(conn);\n    printf(\"Connection closed.\\n\");\n\n    return EXIT_SUCCESS;\n}",
+          "refusal": null,
+          "reasoning": "**Refining Code Logic**\n\nI'm currently focusing on ensuring all functions accept input strictly as parameters and return their output, as per the latest refinement. This strict adherence to parameter-based input and output is key to the modularity I'm aiming for in this C implementation.\n\n**Establishing Database Connection**\n\nMy focus has shifted to establishing a robust connection to the PostgreSQL database. I'm currently implementing a function that utilizes `libpq`, specifically `PQconnectdb`, to create and manage the `PGconn` object, ensuring proper handling of connection strings and status checks for a reliable link.\n\n**Implementing Connection String**\n\nI'm now integrating the `PQconnectdbParams` function, which allows for a more granular approach to connection parameters. My current task is to construct the `keywords` and `values` arrays for this function, enabling flexible connection string formation.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Refining Code Logic**\n\nI'm currently focusing on ensuring all functions accept input strictly as parameters and return their output, as per the latest refinement. This strict adherence to parameter-based input and output is key to the modularity I'm aiming for in this C implementation.\n\n**Establishing Database Connection**\n\nMy focus has shifted to establishing a robust connection to the PostgreSQL database. I'm currently implementing a function that utilizes `libpq`, specifically `PQconnectdb`, to create and manage the `PGconn` object, ensuring proper handling of connection strings and status checks for a reliable link.\n\n**Implementing Connection String**\n\nI'm now integrating the `PQconnectdbParams` function, which allows for a more granular approach to connection parameters. My current task is to construct the `keywords` and `values` arrays for this function, enabling flexible connection string formation.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 100,
+      "completion_tokens": 1401,
+      "total_tokens": 1501,
+      "cost": 0.00532875,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00532875,
+        "upstream_inference_prompt_cost": 7.5e-05,
+        "upstream_inference_completions_cost": 0.00525375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 814,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

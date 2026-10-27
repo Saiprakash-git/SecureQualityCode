@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "*",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 783,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-02-real/Task_149/gemini-3-8-flash/Task149_gemini-3-8-flash_python.py",
+ "artifact_sha256": "1c240d87836a00e0d8e7ae20364b04e6dbb3dafb4347d662e738645877b33e23",
+ "oracle_test_path": "tests/gemini/Task149_GEMINI_gemini_1_5_pro_001/Task149_GEMINI_gemini_1_5_pro_001.py",
+ "oracle_test_sha256": "888eed25f635e64aab435e0d6d919c818b6ffd17865ab3ecc91d491af8bc5df8",
+ "author": "functional.py draft_adapter (static)"
+}

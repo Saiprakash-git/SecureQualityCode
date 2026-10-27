@@ -1,0 +1,40 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "Task66_CLAUDE_claude_3_5_sonnet_20240620.executeCommand",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": [
+    "ExecutionResult.executeCommand"
+   ]
+  },
+  {
+   "canonical": "Task66_CLAUDE_claude_3_5_sonnet_20240620.validateCommand",
+   "target": "ExecutionResult.validateCommand",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "boolean",
+    "params": [
+     "String cmd"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "String command"
+    ],
+    "return": "boolean",
+    "static": true
+   }
+  }
+ ],
+ "combo_index": 308,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_066/gemini-3-8-flash/Task66_gemini-3-8-flash_java.java",
+ "artifact_sha256": "8b10a1e01dbb585cea03c92b5c2aab826153806a0dd647547507a384332a6e3d",
+ "oracle_test_path": "src/test/java/claude/task66/Task66Test.java",
+ "oracle_test_sha256": "5bf1a6cecc6d6f97290df97424cb7111f7c15c6bed1ec7acadc6ca9a6713580a",
+ "author": "functional.py draft_adapter (static)"
+}

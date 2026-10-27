@@ -1,0 +1,32 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "Task113_CLAUDE_claude_3_5_sonnet_20240620.main",
+   "target": "ConcatenateStrings.main",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "void",
+    "params": [
+     "String[] args"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "String[] args"
+    ],
+    "return": "void",
+    "static": true
+   }
+  }
+ ],
+ "combo_index": 626,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-02-real/Task_113/claude-haiku-5-5/Task113_claude-haiku-5-5_java.java",
+ "artifact_sha256": "b6d27ef8371d9495c02ae20067bfccb96633f883349cc26d778b2294ea659394",
+ "oracle_test_path": "src/test/java/claude/task113/Task113Test.java",
+ "oracle_test_sha256": "cd9f43ed8b73532596926c7ab1d02f9d295a4594966b5afdf0cf15ef77e17d9a",
+ "author": "functional.py draft_adapter (static)"
+}

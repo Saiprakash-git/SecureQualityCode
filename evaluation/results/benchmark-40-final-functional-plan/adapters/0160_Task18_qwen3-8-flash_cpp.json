@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "convertBinaryArrayToInt",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 160,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_018/qwen3-8-flash/Task18_qwen3-8-flash_cpp.cpp",
+ "artifact_sha256": "6716cb893d2b01b468612a0a2d72cb4a353153120337121f6ca587efd4395df6",
+ "oracle_test_path": "tests/claude/Task18_Test.cpp",
+ "oracle_test_sha256": "a9093b13a61fbc4fe95b0fa7591bc630262b29de872fea23d7c961db8fec61e8",
+ "author": "functional.py draft_adapter (static)"
+}

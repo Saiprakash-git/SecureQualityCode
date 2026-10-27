@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793022817-te7RWLRImY8qILi9x9bo",
+  "finish_reason": "stop",
+  "input_tokens": 108,
+  "output_tokens": 842,
+  "cost_usd": 0.0004318,
+  "raw_response": {
+    "id": "gen-1793022817-te7RWLRImY8qILi9x9bo",
+    "object": "chat.completion",
+    "created": 1793022817,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "import hashlib\nimport hmac\nimport secrets\nfrom typing import Optional, Union\n\nSalt = Union[str, bytes]\n\n\ndef hash_password(password: str, salt: Optional[Salt] = None) -> str:\n    \"\"\"Return a PBKDF2-SHA256 password hash that includes its salt.\"\"\"\n    if not isinstance(password, str):\n        raise TypeError(\"password must be a string\")\n\n    salt_bytes = secrets.token_bytes(16) if salt is None else (\n        salt.encode(\"utf-8\") if isinstance(salt, str) else salt\n    )\n    if not isinstance(salt_bytes, bytes):\n        raise TypeError(\"salt must be a string or bytes\")\n    if len(salt_bytes) < 16:\n        raise ValueError(\"salt must be at least 16 bytes\")\n\n    iterations = 600_000\n    digest = hashlib.pbkdf2_hmac(\n        \"sha256\", password.encode(\"utf-8\"), salt_bytes, iterations\n    )\n    return f\"pbkdf2_sha256${iterations}${salt_bytes.hex()}${digest.hex()}\"\n\n\ndef verify_password(password: str, encoded_hash: str) -> bool:\n    \"\"\"Check a password against the encoded value returned by hash_password.\"\"\"\n    try:\n        algorithm, iterations_text, salt_hex, digest_hex = encoded_hash.split(\"$\")\n        if algorithm != \"pbkdf2_sha256\":\n            return False\n\n        iterations = int(iterations_text)\n        if iterations <= 0:\n            return False\n\n        salt = bytes.fromhex(salt_hex)\n        expected_digest = bytes.fromhex(digest_hex)\n        actual_digest = hashlib.pbkdf2_hmac(\n            \"sha256\", password.encode(\"utf-8\"), salt, iterations\n        )\n        return hmac.compare_digest(actual_digest, expected_digest)\n    except (AttributeError, TypeError, ValueError):\n        return False",
+          "refusal": null,
+          "reasoning": "**Crafting Python password hashing**\n\nI need to create a Python script focused solely on password hashing functionality. I'm thinking of implementing a salted hash using `hashlib`'s `pbkdf2_hmac`. I want to make a function called `hash_password(password, salt=None)` that returns a hash. If no salt is provided, one should be generated randomly. I'd also like a `verify` function that checks the hash against the password, ensuring it's all self-contained and secure. I want to stick to the essential requirements!**Implementing password hashing functions**\n\nI'm crafting a Python function with the signature `hash_password(password: str, salt: bytes | None = None)`. It should return an encoded string that includes the salt, using PBKDF2 for security. I need to ensure compatibility with Python's optional types. The hash format should include iterations and utilize `hmac.compare_digest` for verification. I'll also create a `verify_password(password, encoded_hash)` function. I'll set the iterations to 600,000 as recommended by OWASP, outputting in the format `pbkdf2_sha256$600000$<salt hex>$<digest hex>`.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Crafting Python password hashing**\n\nI need to create a Python script focused solely on password hashing functionality. I'm thinking of implementing a salted hash using `hashlib`'s `pbkdf2_hmac`. I want to make a function called `hash_password(password, salt=None)` that returns a hash. If no salt is provided, one should be generated randomly. I'd also like a `verify` function that checks the hash against the password, ensuring it's all self-contained and secure. I want to stick to the essential requirements!**Implementing password hashing functions**\n\nI'm crafting a Python function with the signature `hash_password(password: str, salt: bytes | None = None)`. It should return an encoded string that includes the salt, using PBKDF2 for security. I need to ensure compatibility with Python's optional types. The hash format should include iterations and utilize `hmac.compare_digest` for verification. I'll also create a `verify_password(password, encoded_hash)` function. I'll set the iterations to 600,000 as recommended by OWASP, outputting in the format `pbkdf2_sha256$600000$<salt hex>$<digest hex>`.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq31tnbuc0xOdNnRNfOLx7_SJchAOq72O71jUtJ9UFmjWot1pn2y_Yp6g9HXAq5OhRiKp4lre4GElE5klJUN-MyFF4fjqbC8nML7iPlQfOe96ZsA5S5KHK53SLQVB1goIYAw-39AM8q3Yhnr6ydEv7IuVfkFSTJLPcRPuW_mA84I1TdguXAcQjvwLMAehBn4ZmWmHqtoLknzgZ0tFu173ByWUxeKqXcBNxyL0Iyzw_gx1k7sZ72XShoHlTEr4vsi2o8W5tbTANM6SIWpMZRIOEtSDRiPIxOdjHHNON2OC_htrjulh9ONs83uoRQtAl84sisIvVzLokos7_O2a_RDv8lx_ZSezlT9i5ZAe4o2LUc26r_XYFOtDyEXSMCsIgRm6_z1oKJISHHJld43ur1f5V90aTEocOKtpeamv8FrjA4yP5JOxtfMwE10NkvgFvw1PPMIqFzfu_ctC24S9uP05xTNZqf3eQDe8VVL92qsbQ0lxYSjYGccp39ZD5hxkxkgSMIa9HmRnsn00N8eACz8OG8uVXbQ9Sbh4P_DeY7htPmBn4_ATU_Z_cdXV7dS_IU8whVpyh9L4yuGhEvohGdYGDZLaWIkYeIyJ2pHYBlKta8yUIEGEce-M6GwC9kCrX58kyoQOVuoHUIE2Af6FKfQ7-LmgAcFzuBveKE2bHbN4YB3SA9qwU4o1ObZpDwFaHJwqNGhZE05E-8Hnr-pvofs4ENmWDsANwuqWoh5IhvX2q5HvyZmBbSmpaH8fDUqQ1DRS_oA_-Om6Mz8wUK73sZeVhQNUBpbCRoBsvnjbeTJqpuG4NQbCRp9q_obpfGcLdlGO4iRBS-3zzWvgL8rmBYEJW9Jwt8nZI1tc-gOuQQTinDRGeG1CMSTsV66ijTlSHsD8eXBH1yP_Uj4o32EBSdaH4frK7vbmrTUPEqkzvQ94lkAOdRJCJT5NLp5mVlT84TQwGF3v1KpJTEDKMAgMhQ56n27sSe2nwP9ZvB5phFv5_ozDnK3C3gYSsxzO6WARJfnuqyJJpsTIF1Txk4Nl9JtRnv95IAdb02b3cstxS6_ap_mdo2f7WRIk0ZBcPlgQx2NmkC6jE7-GUa14EciIISum46OZtlEjNWl3GOOuYmxb42zVUIZuuxtRbJ8E1YfdvylAxO2XT6tIjP8QEilyzc0pnbe0W80g2_gv5XILgCSDqceQ4uxaYmRz-JruDS-_AxF1TdEIStH-JeFCT5151z1UvHzTItyEMcPlbFe-W3qHKwCexTE9Brj7c8bmU96h3VSGfx8EN5s3nSdRFiypdTKtpsb-4KvLVonVTJsaBVjbIggVlO74pv15zQrSns9dSorPpJzDzzwK7BN1_YVnrABmMZUaPR9zXjE__e5NIHRmFpLzClT64bRw-fG-I1wj6c53SdN3F6cx2Qx2vsZFFsnY02PqxP5J4e_sVnUk4H32m6P5BDm7-Uq5S1J2-q8vGf55UMziyXcPu12uQiBefCTLXzXaXHJ34qTreFlO8fOsP3PZJCMf8ZZ8N7OgNEMd7p7IMjZ_wWoCtxeh8syVlfmJc60OXcqqCJb_QT_a_P_mB7AsiVlizR0ASCaBkacnBJNEgNLjA4CQwhTcKLPjPyTNNhIg6eehHgHfRjWtf8NNxJOeq0SKxld-aBWHHeYajJQeESlW_ljl38BOMdVIMdoRIj69MCl7ExQol-d4cNWS612AckvW-ynygY5cD-YNk4aTeOXHhoaPQ96gawgyDlebvUInD52xaKLROh8jOxL9xtzbX4NJbZZVTS8L7GZmWK3DDLSw7BH5R26yRdodG7JgfFqOnube8jSKVUhRgL1KP45ChWfb7vnrdqEYIaGsX8tBt7PWQGwY9H_aurDQaHAYPL9pBHn_ZE4G8iANzTqf2Z-KZx_XNElsbThPzsBaggEFXeiYvvw8dClM2mpuCeoQis8nv4SfCiS7fb97eU2Ro4wgEVHkoutfqh9_UeLpMgMASZ5LtuZOU_iBZISDvQYPvCvaDdBEK_Ao6UkO-XRwaBnn6XcHovlXYVRgbESG6itc-Vl4fYMKYJ2R8w7eCjYhb11TtkomvtGQUlpY5hDVu3l0c4h8wIDFLoTT4EH53MKwqc-9q7zKPdO2pc7tvgylEiDglBGyRBVGLZ--SGF8KxeSAB0vO56GEBDcdWdygeRI5-cbSDxKzQFBRW-TJLz_XMhGC-YJZYPMQGyUPzfPdfaDvMMhQQ-rOdl_-VevoUgl2LgbdJLpW8Obgx6qHV365BkEQFCujRp8kL1rB7IX3ZKQCANhgGVhAIfZI9xK2pweKnLhOkXMq6MLuYclfOxuuT1qOsm1VOLSIIjRre6opeaNup_pFykJ4DYmTM5vickyR6QaaYAWGF9ytwiNFeuR8mNi3vwS346JYv6tfZIVKegk03G4k3SrakZtSLOmTqQic3jPk1wv7CBh25-nT0oc_YDizRPqVt-qtum-TT98zUBGvO2WEbOxX-fJH_LEYrzQHEoy_LiMsA2_R3CIMfdC6Ee6m8GdHevPG-v7TZJhhL5QXmSLe8b7ey43Q21EPfhicryBoLg9iWgpI_ct_29W1dJKQ1r-KHK6w0gltXeeytGBKJO-5Xn60vTvuf8dlpa8nwWEA6o2b53L2OmzARu-GzJLvkJTFM6br9H-bGTDRUA-BuJIQDeX4j8Frp9lYMT2RtuwOgamWvMmgT4lFDUzwNxMT0q2SBuHKgfUn9GQRCUThLnq68To9mM3AhyBLxztFNBB7qSDntLss7CGvU7oxISLeeaZLqsDS7Zs2cGfYdEkBhQihjSPnbYWSm84m2Uhla624z0UfAEIyXIcq2zDFU45uMFuBGAdEOE52klFN3dVHd9An9vP5_xAZubh8NQnbLzS4k9qlof_Z9TkGNNclJFOOSIadEdT0763NkTsAEwDTHAQYX6KGuaVTAI0_4g-4EqMj7EXXJVgj4YwCgn_YjdM0ust2TreH7m7wH9A0eW9G5OjfTodDwmbNIycGchfhJtrb5IwPlUxOV8okTizH062BxO6zhxB2nQPgxt42paPHe8Golbs-PCbntbnjcF2gp9vvAmz6VuO10pOPUNHrZbntPa6ITxn7npwbPFAgaOz2lqGrdPZ_JMPBKbaYKU9CyUZve7Meih9hXLQtKcwLs35eOPd3wQYyAYHDuSO-PzFLnpkGGvhl43gr_qwNwBWbAL92p228zClZtZlPp_1iryBh53gB4-ZW-CzE_ZW97Ai-BxV8mcOwWKacAwHmV7_7BHHelV-nX7KGBRft4enqVGrzwz1wwXje0tztG1PQlD8i-PSw0ySWQyvOR8SLdzgiouP4DTs68KkEVKG6ICWuOFb5Q6_RKuy4ZydX65iyQdtGwYn3j7piRQxUfrNhP6a3UhPqYysegTfkYylaSdGeCwvotG7ml-r7OcE3qQQFcB9WI4z7f8FwAGhDQIhr_py2wQySr1DKZhPAvsNk-Whhf8HijV-3y_iX5XCStfx5GDvYfg6tO7vMpv7QByiEskYFa7NAu1I8ZcEDyj9GhwkosQhVupVLMFb6OKGxVyTozXV1d3es-cylAwNoEWr3VIVJJEkeVFlM7PXDdp2dd1yPicvcN7fLWiIQJx5YA9FdJx5qeNcC60K5LzMDALmkl6TF7gdm5ZN5XKcQtpKIrJwPbf8onHZ_RHwaxY5YQ5SFj7cOwo3PtP8TIjn9vE0xfhSmjrTjRdoDiiZeHBUBb8yzUjPI8ZOwiMb-sSYrf0Di4AlbyjU1_lHAttOzIWI7IShe4SRayVsm4ehhC7rQ1mq7oldGMLIwUJzUMWzjpfNbWiaViyVlgmVn26VgntE9W9tqIIZf8XVd660y1bm3lijxx62sZJJ0XuFEtDDkzlDhnlb8bFUt8mrcqvuR6bRHx5wP4x6L4vdsKkdKpWafXBfpvjSGOfVne7qe33dM1j95tITIsYUZvDFKfHr5I3NBMUUOkwzM4HLMj9Ql2dpvi4eIo2o2FcunqxMfJhDqjpueryQv2pbq8VSDJjW2xFFhBdoM6AwKM5EjYhregJGefzAngWw6tME0D8nBPz5nRJKsLY9LkAkGtyFn7tpm84at6BwdE6t_izIg8J2WrtgqxoybjmCkfh7D3XIMFUVNH74nBJmDMaErSV3BVueQk0EIwxr41d4IvEeK3AbLbtHnTXMx0Dx_KsBVfgzXmtJU2oJJRgI_TSbtvgEyrxnAjxLEFAjnQFlVkXtj4sSHxCjnzfRPB7qktn05eT2yDcmjhBghEW_acOh09bnMr_gfxRQa1WIM98bDKd3wrZtVlXaPXyez2ieS9PGW73gtunRyQ6_vT6JjVstadm3k9uyo2QeCIGvqgC29X8N59rrQKM2X98OA-oHvwqlZQyBXn_kleC2xzr8CrUtrlN8wmrR5U0SrmoDw08T4kFoQMuV8p-9v9wZmDqg7rNi_sLgPAMENT2Gls_8F9A3tBxToLbarDOAGWVnQxt0UqPaMvbLXUZOKz6t50e1C7uOXpZ1nPJZZCU5gYUWTmucxwrWQiUq9nGgYs8oRKlG6f5kIzT3wSxvFnJhol7TiCV_wEXbD5rDqxaYyYO80pbbWrX98kLrtdaLWgyU9W3h5ZjiPCvkqGG3ElQyoTjsaDEJqcbEcJkqVOx_BuoZIqUT2uKtBQLHeA2zblRrUthV-eMqwky-fOv5rWiyub58qambIsBwlk4qsVLiQO_tVIH_gYec473_PLd41xP3wpLcCu8F9mCTVPA0wDe2ELxmEmDClRzJ_AgUq2jo7UjfSd9UQ-v0kozbtGnH5WabjpUfgQ3wJocEqqeYYGLAVNiidiwuFhwMy71agv7WrPu2ihjWFfeKPz38hiyx-b694f7XNCQ5auZXbUFdETHzzGmAnZOF8wMLsQi3V5E4geGBAkCvexN6D1m9OLl26NDsaFBOOEZ9KJSP1xNJUQfHXsSu23PYJ2YfaRKJ-nL1w_CDvt_8eNxbKKUTF0GRv33RNsIjdcjQ9XCnYqBmc_YJFJE7VSL2k-mBQkrazwSGU_iJm29-pJYaclti87jSqbKzmHRmxCr0GMCwU98Ga64iUAWFjombW0vFKdx2pZWcpnnv0h9yLlGWqA0JYijh0HQZ-dfoi8hxYRZFSlRS_FqXqNGJORN_UwcxKuzR8seJvUwkVqtZB4_nwjw4B6IVXD1-Ho6XAuRlGB6lJI-DUmo-SwNJu5qR4lINE7uITY7TXnCW7sDHh9DROZWmE4OhKaOd_XTNx03J6GoWE3YyBsuDv-fwCnUrYMDxdqKZKJfW_MMR_tHe6Gltmp8rmskxFvDa8MblxkcUROnv0SPLhZO-yYYfqn_21ECYSUn-Tv9XR_VgBl0wDwEhwrvWyQF5V-UE1uggrPjWfg3CWYkz9CUalSuPU2gwuX-8YM6DO4Fzi1SITz7RH2uhah3iY0n8nFIWx3YsjbIzHWN3T9x1G7famGdNVieEOJOvhdPD0cUNo4mIcLgQOR8AKvPlXRBPmJ7xiHzq2A16zOTk8fBIcd7xlqMo6wT1kOuEvkZ0NR_dWzF_CiTFgCn3_DyneA0oFfulgaWzCbt53sAWv16sScCA2LvRdXIcYpJd6a0HsQOsh-y3YSErnQlam23MH-3IoQoe08xZ6ev6SgCwJ0K-GQ0Xcmyif03iOLxxoVQYH-QUReq233auzLdlat_Nf4ABtoYYgMLObTrFQHojBjP2tORLgVlikBQ12YTjAfbRwTWC2KdfEuH6ydCde56yqG9r5qcGDV8vDa9e_IpV9RP2Qx5w-kHXJSdIJ-tzdxmt4zIPiwct1ddcIX-rHhzz-M8fHqCNfKsha_BykX2Rg7iPkQ_0tzfyXS1O70tX7MNaol8W5c9Wjf3faXTRfNJuRgUCIFsgbsqqojzXJvgDml0zJJmBpILW2nhrYbC_6TBhDegPw0muReY1p_Bb6mVft2tn57o4fGtOTxOT5jGFzubXb2iBPpDMKdCwdfaT_yzP3LovEmJXto_QveZwDqSodQm8M650vlw0m8etUQLrqHHDv0Trir1tkiDILOmIHQ4Je78rUnPd_riJTpbirtr2RFRJJBN5RkV-XCH8tOqQCq0pcM-TeJkZPyf7YI8tyu9cBlJM8JA4Xfn6z2xRp-k-lUDzs1tIcH1yviXM47PZ1o9I6z4djEoxcljSWYqdZDk1z3pr2sr3JsUqMUXyJJ8Eslx5YSMxRIarqpTN0dZrFzpHavkSHNJgcYI3hf9YTb8YR_ArlBmLLMVCtbQdMrLCMKQfYSHq3lS5Wvo2d7C5r6da9hQ3YISU49nEGCVuw_wv9wfB-my_E2u5YU-sVrpNAyIUX-Yvjto7R_edywFveSOF2sAFPDkXCI6h2Fz_-5zg3bEOsnieci4Nmn7noP1vonhqsUBEpqwq-zH_kwF_QKQPELTxvpkA5Fp6YDrZJg9V3WBJqUGoR6-HhvQ1rsYKY1FELZvk7FKbMEszePRrhVFrh6xtoreW6yPcN0jhcXe1h3o0lc4vhbexmVV5d6-pc4gL6lO3kVYpE4PImQ-FEmjuTr85o-Hj2dFt0cpdd13sFKIUOUaN_F_dWDHkB4Q-Lk-JABnckLcyIeMAfTnfoG_PsUylOJY1J-AEEMwehe0_FnYTkp2UqblnBhXnqb-q7T3b6dutZATvjsodpjKBgS3_dH2KK1IML-1QVTcSY16VK4ScVHdN7dDzD9WUrlG4EMelUCyIpRRhtqXzACZVNspsmpcmaqsCw5n49WTmf3awZzMfJ03a0-D8JKM5RRX_lfurfqqTo5-NQREISMbqH21Nd0Qim5OEjN9VIB_yC79yIluuF7PLn8LSA_p4ntj38Qrg7VZqk3oETAlTh_h3Wki5TtAECxRqOa_PzZM6m5unL8kcYa2XSI6SICESR1zAfMx8HBZVHufkJKXmm3bdrUO2Fr4Yy0e49eZl-GSUPDg0NyvD6V4VbRDG2L6NY5IyLhDKde_sDBVZqtKh71ESMO1U6gG-NQSEyHDJb6h6WnAFfzWiB90IQuPGgNI85-V9C3n7kh9gW4lugrZC7Dm0Y9QhW5JJBxaubpNkSDCWcb_1mtMBd1lvQK3Gk38WnNZQQ_HMQhRfWQDAnIgSQXDss8yXlJy04iYeI4xOGImFJO40NOqmRSAwVvifBrznBVTrSrrEt7E2YUZrmt4yogIxFtSQxQQfjX5wgYUO7Ao5vPx9bYhaLtHs1AKEMFRU7tQE69J8NdBszXHDbh2RSfZEp2GItqw1nPFnATnXMqlzXTfCJNgh_1iBOfXI=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_026c183632c6292a016adf5b62049087d1a47b41fe5f94ee6e",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 108,
+      "completion_tokens": 842,
+      "total_tokens": 950,
+      "cost": 0.0004318,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0004318,
+        "upstream_inference_prompt_cost": 1.08e-05,
+        "upstream_inference_completions_cost": 0.000421
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 449,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

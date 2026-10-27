@@ -1,0 +1,30 @@
+Task132_mistral-large-4_cpp.cpp:76:38: error: expected '}'
+   76 |             case SeverityLevel::INFO:
+      |                                      ^
+Task132_mistral-large-4_cpp.cpp:59:22: note: to match this '{'
+   59 | class SecurityLogger {
+      |                      ^
+Task132_mistral-large-4_cpp.cpp:76:38: error: expected expression
+   76 |             case SeverityLevel::INFO:
+      |                                      ^
+Task132_mistral-large-4_cpp.cpp:76:38: error: expected '}'
+Task132_mistral-large-4_cpp.cpp:75:23: note: to match this '{'
+   75 |         switch(level) {
+      |                       ^
+Task132_mistral-large-4_cpp.cpp:75:16: warning: 4 enumeration values not handled in switch: 'LOW', 'MEDIUM', 'HIGH'... [-Wswitch]
+   75 |         switch(level) {
+      |                ^~~~~
+Task132_mistral-large-4_cpp.cpp:76:38: error: expected '}'
+   76 |             case SeverityLevel::INFO:
+      |                                      ^
+Task132_mistral-large-4_cpp.cpp:74:61: note: to match this '{'
+   74 |     std::string severityToString(SeverityLevel level) const {
+      |                                                             ^
+Task132_mistral-large-4_cpp.cpp:76:38: error: expected ';' after class
+   76 |             case SeverityLevel::INFO:
+      |                                      ^
+      |                                      ;
+Task132_mistral-large-4_cpp.cpp:64:10: warning: private field 'consoleOutput' is not used [-Wunused-private-field]
+   64 |     bool consoleOutput;
+      |          ^
+2 warnings and 5 errors generated.

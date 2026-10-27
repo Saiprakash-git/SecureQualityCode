@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793023833-j6oTxKteYZVUDzqpYVm3",
+  "finish_reason": "stop",
+  "input_tokens": 110,
+  "output_tokens": 1533,
+  "cost_usd": 0.00583125,
+  "raw_response": {
+    "id": "gen-1793023833-j6oTxKteYZVUDzqpYVm3",
+    "object": "chat.completion",
+    "created": 1793023833,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#define _POSIX_C_SOURCE 200809L\n\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <regex.h>\n\nstatic void trim_newline(char *str)\n{\n    if (!str) {\n        return;\n    }\n    size_t len = strlen(str);\n    while (len > 0 && (str[len - 1] == '\\n' || str[len - 1] == '\\r')) {\n        str[len - 1] = '\\0';\n        len--;\n    }\n}\n\nint process_file_regex(const char *filename, const char *pattern)\n{\n    FILE *fp = fopen(filename, \"r\");\n    if (!fp) {\n        perror(\"Error opening file\");\n        return -1;\n    }\n\n    regex_t regex;\n    int ret = regcomp(&regex, pattern, REG_EXTENDED);\n    if (ret != 0) {\n        char errbuf[256];\n        regerror(ret, &regex, errbuf, sizeof(errbuf));\n        fprintf(stderr, \"Regex compilation error: %s\\n\", errbuf);\n        fclose(fp);\n        return -1;\n    }\n\n    char *line = NULL;\n    size_t cap = 0;\n    ssize_t len;\n    int match_count = 0;\n\n    while ((len = getline(&line, &cap, fp)) != -1) {\n        trim_newline(line);\n        if (regexec(&regex, line, 0, NULL, 0) == 0) {\n            printf(\"%s\\n\", line);\n            match_count++;\n        }\n    }\n\n    free(line);\n    regfree(&regex);\n    fclose(fp);\n\n    return match_count;\n}\n\nint main(int argc, char *argv[])\n{\n    if (argc < 2) {\n        fprintf(stderr, \"Usage: %s <filename>\\n\", argv[0]);\n        return EXIT_FAILURE;\n    }\n\n    /* Pattern: Starts with one or more digits and ends with a literal dot */\n    const char *pattern = \"^[0-9]+.*\\\\.$\";\n\n    int matches = process_file_regex(argv[1], pattern);\n    if (matches < 0) {\n        return EXIT_FAILURE;\n    }\n\n    return EXIT_SUCCESS;\n}",
+          "refusal": null,
+          "reasoning": "**Developing C Program**\n\nI'm focused on creating a C program to parse files. My current effort centers on implementing robust regular expression matching to identify lines beginning with numerical digits and concluding with a period.\n\n**Parsing Files Now**\n\nMy current focus is on refining the C program for file parsing. I'm specifically working on compiling the POSIX regular expression to accurately identify lines that begin with numerical digits and end with a period, accounting for potential newline characters read from the file.\n\n**Refining Regex Pattern**\n\nI'm refining the regular expression to specifically capture lines that commence with one or more digits and terminate with a period, carefully considering edge cases like single digits followed by a dot. I'll be using `^[0-9]+.*\\\\.$` for a precise match.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing C Program**\n\nI'm focused on creating a C program to parse files. My current effort centers on implementing robust regular expression matching to identify lines beginning with numerical digits and concluding with a period.\n\n**Parsing Files Now**\n\nMy current focus is on refining the C program for file parsing. I'm specifically working on compiling the POSIX regular expression to accurately identify lines that begin with numerical digits and end with a period, accounting for potential newline characters read from the file.\n\n**Refining Regex Pattern**\n\nI'm refining the regular expression to specifically capture lines that commence with one or more digits and terminate with a period, carefully considering edge cases like single digits followed by a dot. I'll be using `^[0-9]+.*\\\\.$` for a precise match.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 110,
+      "completion_tokens": 1533,
+      "total_tokens": 1643,
+      "cost": 0.00583125,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00583125,
+        "upstream_inference_prompt_cost": 8.25e-05,
+        "upstream_inference_completions_cost": 0.00574875
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 966,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

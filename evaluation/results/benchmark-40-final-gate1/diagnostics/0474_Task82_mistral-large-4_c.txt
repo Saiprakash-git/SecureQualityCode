@@ -1,0 +1,11 @@
+Task82_mistral-large-4_c.c:25:66: error: expected '}'
+   25 |     0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0
+      |                                                                  ^
+Task82_mistral-large-4_c.c:21:31: note: to match this '{'
+   21 | static const uint32_t k[64] = {
+      |                               ^
+Task82_mistral-large-4_c.c:25:66: error: expected ';' after top level declarator
+   25 |     0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0
+      |                                                                  ^
+      |                                                                  ;
+2 errors generated.

@@ -1,0 +1,4 @@
+Task130_OPENAI_gpt-4o.cpp:2:10: fatal error: 'httplib.h' file not found
+    2 | #include <httplib.h>
+      |          ^~~~~~~~~~~
+1 error generated.

@@ -1,0 +1,115 @@
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.GeneralSecurityException;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.SecureRandom;
+import java.security.interfaces.RSAPrivateCrtKey;
+import java.util.Base64;
+
+public final class OpenSshRsaKeyGenerator {
+    private static final byte[] OPENSSH_MAGIC =
+            "openssh-key-v1\0".getBytes(StandardCharsets.US_ASCII);
+
+    private OpenSshRsaKeyGenerator() {
+    }
+
+    public static String generateOpenSshPrivateKey(int keySize, String comment)
+            throws GeneralSecurityException, IOException {
+        if (keySize < 2048) {
+            throw new IllegalArgumentException("RSA key size must be at least 2048 bits.");
+        }
+        if (comment == null) {
+            throw new IllegalArgumentException("Comment must not be null.");
+        }
+
+        KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA");
+        generator.initialize(keySize, new SecureRandom());
+        KeyPair keyPair = generator.generateKeyPair();
+
+        RSAPrivateCrtKey privateKey = (RSAPrivateCrtKey) keyPair.getPrivate();
+        BigInteger publicExponent = privateKey.getPublicExponent();
+        BigInteger modulus = privateKey.getModulus();
+
+        byte[] publicKeyBlob = encodePublicKey(publicExponent, modulus);
+        byte[] privateKeyBlock = encodePrivateKey(privateKey, comment);
+
+        ByteArrayOutputStream containerBytes = new ByteArrayOutputStream();
+        try (DataOutputStream container = new DataOutputStream(containerBytes)) {
+            container.write(OPENSSH_MAGIC);
+            writeString(container, "none".getBytes(StandardCharsets.US_ASCII));
+            writeString(container, "none".getBytes(StandardCharsets.US_ASCII));
+            writeString(container, new byte[0]);
+            container.writeInt(1);
+            writeString(container, publicKeyBlob);
+            writeString(container, privateKeyBlock);
+        }
+
+        String encoded = Base64.getEncoder().encodeToString(containerBytes.toByteArray());
+        StringBuilder result = new StringBuilder();
+        result.append("-----BEGIN OPENSSH PRIVATE KEY-----\n");
+        for (int offset = 0; offset < encoded.length(); offset += 70) {
+            result.append(encoded, offset, Math.min(offset + 70, encoded.length())).append('\n');
+        }
+        result.append("-----END OPENSSH PRIVATE KEY-----\n");
+        return result.toString();
+    }
+
+    private static byte[] encodePublicKey(BigInteger publicExponent, BigInteger modulus)
+            throws IOException {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        try (DataOutputStream output = new DataOutputStream(bytes)) {
+            writeString(output, "ssh-rsa".getBytes(StandardCharsets.US_ASCII));
+            writeMpint(output, publicExponent);
+            writeMpint(output, modulus);
+        }
+        return bytes.toByteArray();
+    }
+
+    private static byte[] encodePrivateKey(RSAPrivateCrtKey key, String comment)
+            throws IOException {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        try (DataOutputStream output = new DataOutputStream(bytes)) {
+            SecureRandom random = new SecureRandom();
+            int checkInteger = random.nextInt();
+            output.writeInt(checkInteger);
+            output.writeInt(checkInteger);
+            writeString(output, "ssh-rsa".getBytes(StandardCharsets.US_ASCII));
+            writeMpint(output, key.getModulus());
+            writeMpint(output, key.getPublicExponent());
+            writeMpint(output, key.getPrivateExponent());
+            writeMpint(output, key.getCrtCoefficient());
+            writeMpint(output, key.getPrimeP());
+            writeMpint(output, key.getPrimeQ());
+            writeString(output, comment.getBytes(StandardCharsets.UTF_8));
+
+            int paddingLength = (8 - (bytes.size() % 8)) % 8;
+            for (int i = 1; i <= paddingLength; i++) {
+                output.writeByte(i);
+            }
+        }
+        return bytes.toByteArray();
+    }
+
+    private static void writeMpint(DataOutputStream output, BigInteger value)
+            throws IOException {
+        if (value.signum() < 0) {
+            throw new IllegalArgumentException("SSH RSA mpint values must not be negative.");
+        }
+        writeString(output, value.signum() == 0 ? new byte[0] : value.toByteArray());
+    }
+
+    private static void writeString(DataOutputStream output, byte[] value) throws IOException {
+        output.writeInt(value.length);
+        output.write(value);
+    }
+
+    public static void main(String[] args) throws Exception {
+        int keySize = args.length > 0 ? Integer.parseInt(args[0]) : 2048;
+        String comment = args.length > 1 ? args[1] : "generated by Java";
+        System.out.print(generateOpenSshPrivateKey(keySize, comment));
+    }
+}

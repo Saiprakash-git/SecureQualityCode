@@ -1,0 +1,4 @@
+Task91_MISTRAL_codestral-latest.cpp:4:10: fatal error: 'ldns/ldns.h' file not found
+    4 | #include <ldns/ldns.h>
+      |          ^~~~~~~~~~~~~
+1 error generated.

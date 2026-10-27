@@ -1,0 +1,4 @@
+Main.java:31:36: compiler.err.unclosed.str.lit
+Main.java:31:37: compiler.err.premature.eof
+Main.java:17:9: compiler.err.try.without.catch.finally.or.resource.decls
+3 errors

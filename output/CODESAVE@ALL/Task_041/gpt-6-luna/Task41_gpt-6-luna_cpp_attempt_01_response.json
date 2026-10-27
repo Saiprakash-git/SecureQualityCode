@@ -1,0 +1,86 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1792946295-o0pJqGIwlVOLmKEx4jar",
+  "finish_reason": "stop",
+  "input_tokens": 115,
+  "output_tokens": 638,
+  "cost_usd": 0.0003305,
+  "raw_response": {
+    "id": "gen-1792946295-o0pJqGIwlVOLmKEx4jar",
+    "object": "chat.completion",
+    "created": 1792946295,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n\nstd::string processString(const std::string& input) {\n    return input;\n}\n\nint main() {\n    std::string input;\n\n    if (!std::getline(std::cin, input)) {\n        return 0;\n    }\n\n    const std::string processed = processString(input);\n    std::cout << processed << '\\n';\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Creating a safe C++ program**\n\nI need to write a self-contained C++ code that takes a string input, ensuring it's safe and can process it in unspecified ways. I\u2019ll likely use `getline` to read the input and make sure to handle string overflow safely with `std::string`. The processing could include trimming whitespace or reversing the string. Since the prompt is vague, I\u2019ll make sure the program can count characters and transform the string to uppercase as examples of processing.**Designing a simple C++ string program**\n\nI\u2019m considering creating a straightforward program that reads a string and prints it, potentially processing it by reversing the string too. I think a reasonable expectation is to read input using `std::getline` and then output something like \"You entered: ...\". \n\nI don\u2019t want to overcomplicate things, so I might also define a function that processes the string by trimming it or counting its characters. A safe function could return the reversed or uppercase string, providing a clear output.**Developing a string processing function**\n\nI think I\u2019ll create a straightforward function to remove leading and trailing whitespace. However, it feels a bit like a guess. I should read the string, print it, and let it echo back, since \u201cprocesses it\u201d is vague. \n\nI could also implement a `processString` function to convert it to uppercase, but that feels more like an unwanted transformation. Providing the length as an extra might be clearer, but simply returning the same input could be minimal processing. I'll use `getline` to output \"You entered: ...\" and stick with safe practices.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Creating a safe C++ program**\n\nI need to write a self-contained C++ code that takes a string input, ensuring it's safe and can process it in unspecified ways. I\u2019ll likely use `getline` to read the input and make sure to handle string overflow safely with `std::string`. The processing could include trimming whitespace or reversing the string. Since the prompt is vague, I\u2019ll make sure the program can count characters and transform the string to uppercase as examples of processing.**Designing a simple C++ string program**\n\nI\u2019m considering creating a straightforward program that reads a string and prints it, potentially processing it by reversing the string too. I think a reasonable expectation is to read input using `std::getline` and then output something like \"You entered: ...\". \n\nI don\u2019t want to overcomplicate things, so I might also define a function that processes the string by trimming it or counting its characters. A safe function could return the reversed or uppercase string, providing a clear output.**Developing a string processing function**\n\nI think I\u2019ll create a straightforward function to remove leading and trailing whitespace. However, it feels a bit like a guess. I should read the string, print it, and let it echo back, since \u201cprocesses it\u201d is vague. \n\nI could also implement a `processString` function to convert it to uppercase, but that feels more like an unwanted transformation. Providing the length as an extra might be clearer, but simply returning the same input could be minimal processing. I'll use `getline` to output \"You entered: ...\" and stick with safe practices.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3jB-48PQCrLP56l5EXO9v2bCOzOLNjRCFfVXK-nEz6BwJFZGqGNq5-iNxtVRgXrDWMt_qejeifi6s0ICTPe28kXN1Vb08Xflt8U2ZGlUjV2TdqRqf53tnmoQ5TLMHRzQYSpDn9IYfW2xgA8Jvz8qmQtiAnweFeYNL74a2HokALLKaE5zstwN9eQj_PJH8eng9DE2XevetDG39tcVxv_Qh0A-NeEkAUbLWvE_kGi7u8OPNPSKj7bRe6OixUmQG5SUfaPpk7iLvlnqu8LI0AOryxZDM4STELmZXcjWC8DIXBAW-97DzFU2bx-WhNYMx1sGWZBWNDFFOUDJGs8-qf-NHRo3iH7AgSLRnwnI4XKsenRBk5TSNy_dkD5-2ZJxRGUVwPj0N8cUbmzflUxae8A28relMnbZTY1P0oMaMJczG3lp5FCAWLjVUtRdTEnDM59KxtQzxqtLEjNSTjgNqBOTPYm-Rk8onPPjRBRirhluTxuyeO_i4pyQMP_w1a4tKCjJjwzQGLFa-ijO7CIHTPGiQO4bALozerD3xsEuTMfBtvPMYkpQoenP4-guPXKgnRdEmhpi0GzDpO-6t0MCmVymRwKj2qrfPjvUWmSealtpYCtpCHqDfV4u0iTDFIlpbVzRx282rEO3WK7SE42_bSr7CANuOsxH5L830Ghe2R9lUC1ZVUB8yaAJO92BjrOasgLpc0KTRVDw1FzswJhx1onRKSTsQRzzCkCdH3Fw0OV83L2CgIOSmhx28fRIia5zv8VvK8EZR5Wt2MCw84KhTpflba11NuBlJBX2Tg7m6YDyxAuvsj8t_b6DZRBj9CoDdHGrzkovLU2U0Bst4E_80i7ad-DC4H9Noeb6McaQ4E1GEyGfv0qHP_6giPpRpWqGQBF5jMw51cJ547F22BQ_6JpjS7ij7DXwJ-vB5CSDfwoqChgSKAkz3Sy-n9QXAARBu1PQyjMwwG5LAefebOgS1PdtR41TNsDlu6KOwsY3_LtAnshT5HWiOMOqK88os7UvAGzm4jhGoaRV4gBjGJmLuxQRjtSBG5xmiXe-lm7GxX07Hvi0Ferehl0mqofvHBSTGOcB6umLQs4qxqlMX9ps4aTRTjyeqILl7Xvu26SsdxxiRrEs7glMiBkR9YcLHXlUqn6gray1HLjTQgqCt2HiLgqWYeR0GkWYKl674xf-rKfgQripgT-QtgrZwsVYBGQvXhf3EnlKKTqOcTpR842Tx5Nvn3kaurcnOWKqaY7KEjqf2PzekEi_VnA0Si95xzQXVJ-jDAo1d1SfAcUaqVlx2XfVLdAcoZJqphBo3Uq9_sSBgjZxgjz2Ql4KrrK3TF-QcBTQ6gJo4ziln55kBhoz5qs6_FZZLULqeNZM7wUMok4bpDNZ100dDAueUC_LawtHvVXVFQL7JvT7mx7b-rWLy_bOrQ45PiOLs_c4kkiZOW2pXwgJeO5Qx8JlQtmOYH-A0UKkvOZUH7fQvtSxDPw2zTW8gAVT012WbFdAIQyLs3YqD9C4PWFzqX27JDJmHeGT1u9azCw1AvbewQnPC4GbtzNwGVfHAkfMSImI9413L4Fi_ouIJu8qXcrjjF2qS7Mb90HX8dMD12mLvcw91OghWufurB3z8JNO-RmmQHAVHplZ_8OYL5x7U4jjBfnBtW9SBzLIzZpO7LTbWR6jrfc_rQzTrdg3E87BEgMhuUiCoZWV_Sds8W15Whhvjh2GNISGF7X1nCpe_nWYcBHN1jHoDMoLS312od8Q8xbJQXbgfX-qK9t_ZjIU5i9zmNmA6TSZItTfGECqBpOEOsdbsz2wfoZH0WhlopZ8L6VUK1e6YGM139EEswVqsg-kde6SPM3KdOh6NZAXj5NOZm3FUGbLLbY_DL2wDsghMOEjr3g3w40YQ26S2rKBuoAFd-uY5AnYn9Sf2D1jN-OThUS2RjgLiQM3LkPZJPhICN9RrezWbB1ltvdwCV1WedzToOZk5s7vUIZMs6U2elU4l-VoeiwDag_p7YB0wP20g3QxwT94xIT7EtVIXu4y6DnfHl0eJasuBiFZJY_MLT2M9JdfYTsSCojKVN9XVvX1C7gG32M7EM4KOtFM9Y-0RqduweiNEVZLXW2HK8ueMNh2ufiHP2V8yrZ9DJCJeCQQb5ViZcCkOmDH5bxMUileRNPWC5m7a-K2elBQrL0SAQlSIzhqmOeEw9rUqKmCVvtEDF37N_pOE7QdilCsq_SUEJS5TPa4KNCB_Nwf7RzpuK_UTzriWuPhSAEvqfLKGLoIJOi8cuWTKBf_hUCH5N9lfb2-jvttH7QQWqCpzPL9z-iANeBQ369QJApYtkobSaOLAZu5pKKkZXN-0VnvdBgFKSPCNOx-RIwoZ6Dmh4SpSLW0I3yJSbQ_-EyK3yvYUIuyU8_9JGQsXYsXAPfY_AdE7KuDKf8sSDNdMoWWTcCIVho0tys4_1_euu6sI2mH5nazTVp4adgEjnBryqPuUI0CLzVJ8qeEABERMZQ87pDGL-xw5sd2XcGYLy5ttSmFbHXV0ecL2iKxgwlAmF92I2DHls81TYvJcX8xNBIo6boUGIQgeyfjnFQkGEmsCYhbZ2T0TtzQUFiNrcDrKZm6NeAAWp7KozLlrvTxHOar-wpcux9wCOm8sMiyiTK0YEITnfo1L9-a1ye-_eLu9d32xaKTLQN-ryyg4GDLFVESr1BnxgasLmG_YHkGtw7qxHPxHva_-Yf0wpN-nAAsOWP4eQJwq99LA7VNC1vNXOuQVSBB1kZEoY_wsIgExkjpzn1A7y1jzhhKbb_9sjILEvG4qY01noun0yCXQMpCSl0GeViy1T1tYjUDBb-haonnWYj3g8Ww8h9YVv6yogaNwxoiVCbzLib7ke3f3smAj5VvqQLtwWgJIF2r0-BgEbppk3iXZntDckuNfU6vucUG5-_OWrB3X1v6S_wGThRMjPGOWbccMJ_7azN3FcvtDX9z6g7kfAKwQeVOtY4oiXkk9WWAeibe9otqcyDIDjsCtLmSPB8_VDdx_U7JvfJrCvWtqr3xbzDrF5nhu1OFtUq66fqDH3t5DdCPi6wBbbFouP4wiSKwSUkqKlCynuN2JMoTSnHX-4o3PZFTlict_fPoUkMmiIG_ooP1OGQ8odDnYfa-yX48ARfrY7mz3ZfknQMb8qJiA1N2rS6VQJYpibte8U0EZNmYyfIUtE0DoPIWozhMyuXsOHgd6Y8Edltdg3ZiRhhXNXrq62dGZ4F-6799Ct-PdKYvGIESt0hmB39Jk-mRBetM0fAI56t53hFFlD9UG6i7MXdKENPeso64H5GtqbTWW7OHSpyCJErAeJsswnE4VdMaJ7ErVpdkL9KVIZ0ZMSMqQ3fw1spIBJxJGfTt6Ye-169BDEETDXvSY68l1oK2aq371NYKe5BResTchwmP26ASEaPH7Ilgwf4SinGjWVfkYO48ZukW3Z0K30Xj0aYcEXIW7gRVliHLBUjZzJuo5b0QcUoFqMvuhOoLVJdGXVLh31h2eic5aeKjVooQvhtKLpd7VFJ_i5R6g0y9-NOQYQY6bHbhS8A__lOgZuEujz3yD9qG17beSZyMcluWxtf-OGvFIE02axdfXegBBpLdPyDxo6AOxwFk_mSPM1EAfRxoAOmeEGOuIYS-39F-9rwmotEzcHaDHcq3JG8rbRuL-yKNHX86ZB7pU5PgaZmOqeVwUzLrh87df29sLdUWqfTu_5a2Q8rkiZh3uFHfFJEaodnfHq0E8G3ALYkpaUWFLbCZV2TwtnljQZ0LevEGjlw1DRNQpFxuKpv2Mqa7E2skAQRWCHaE8YeLA-jEHuT6HEND-KHDs_cqVi4smh-CBYxNFvjN8su6bfOWem9RTIAdjfh6wuENAzJJcLcaWWuWr9pfI2ylUczM6cmO4Tq_er04zD85cTw1FUMNqyACuxFZJJCv9ulHDzzIq1IEDOOeTXOZdiP4Km-VTgDUv-XG3Tr1yWvYlhhDsLUl9MzA48jrTeJ2UymdXC2NbiDQXi7TBnffL00-wyoocvYI9zerpMuVmk5aLt6s44zNikDHOU8YYZaLL5j0fZe7u1oFYiN6iuZZ7cF5ctj-ABTxpoBWyqFrXVmY6BAa6IHaWcibN7-dHOmg9QTVdCGCIy6z_7B9eUaAquiFvLAz-JR8h19pLlJvhZtfI4LeyJlHRHTzXe0TcH0GoQ3oww0LgBmikBTO50NojAP9jxNPL1j_mUoCl6IRz-u5aZFXuG7KnQHqnY_KmJRNjFsrl7zNQg7tB-AunSE95XiyZGSnNvSXDWOEPHzl1gYlkWvVEogfW79J8fLVHRtzRChpk3tiuwk4UfOjPUGQ9II6UnDFbYVPEoF2wLR9DSp_E5sh3ppPU2B3OkgvNHUObXvp_R6Du-pKzmrCPW7rn577tYU8RX1g_VomhERsgc3Ud3o8qGn7GV9XkluslzmP3C7Ca4oH3JngVpjje8G_GxKKQB-gJKFGWyXSQDeI8NUspNmt0FrdbLxXPm6Jn1y3uGVULkg7MhmZtkrINu1n7XDvAW5Na3i4OUB6J4Qo85dBLRFzQgI-Jdr4YmS4O9S2pKg5OwWrGeV5-QHZTTqHxShw-2zO-t4tOBHLtJHSU1oJwVCSai74Yp-dz47n4EosGDZgOyB-TcmberhMEo47yvVugA79xeiZr4idzKiH0eY3q7RaaWLciPY_5cJAWaic8LVY_fLQKEGH8Rrm2kVu_wmBO_aVwMCoZNjCJKalgmLJeEQaqqBwU96_jmqnMB5kH73-00zdAqozBFCu1o_QDcnx-VV3m4Hlaw_Zecdcsae3rYdyjdrEUWb3ayU8-T1mFuw8_bI0FefFtrCK_A031-ojs3BvfjXUg-IuUguYEyvQ_oB3aExRIcz6NIEUh2XHkHWb3RHoHCnQCgdFbQjQMPejlug749b8FCHO1xuCDcvTc8NTuIe9LyHvvjz_1z_OWxfDW9bx_ugyq6Ak3ckEH5Dj9MLg78axIT7uJuIbs9Had1zC7G8MXBXLOJlvNXD_U_UMpZuYAmEg3UnCEOaW_tBx81PzwPqxrASUo4VOXY40GsT24epz2-c_jC-XHHB3Kq09urKx0BFFHoIv1O3O1oXYaS1KowjzuLN04vu6-ce4Zo6yYcTYHyuSEusZ3Qj5MorDNJEbHKeAjKXrEkOv4iDp9Bqf9mnOmG64-7TFabrL0rJKFvmUe9Q-MqM0mbWeGKVyOZc-VSVe4xK9BY0SnmWD4Z-xwEsw1UJtXJR-arqoVENVXQkrtQN9oPyFxsnNULf2Rpl8ybaOYay9ueIqps2ht1xAFlHBD58fRHV7NgSDR8n-cqNyi8rXhwf6FHcLxvi5Z2MvvUdZXPpuf9QN3ZXFBZwa8bFI_V86LT4YuAqQNi6I3ZfqdBYbTA-gAU8CjsA3eLQpA3opkRtLu_D02NI-r10nd_bSMuFH_gyjQURZMw5TRU9hk1MnWiRsspqb70o_yIY_dm6IXFStviaduPUoPiBCvWaXpDEx9J6ye7NOCExDnG7GWi2uEqvqEFtfsjMa2P7VxjaOfxYEnLc8y9ckT1fHP4OFPdLPzAhifAzuY2dEjJVKQ_Qr3Q5RJdZWhnJeiOMGSTKa7ucFm6bwqIBzZYQPetWYe3vVunButo6yTV_b87IHKbgwyRU1OgjS9_vXYbNIYX1z9qikDDKj4yqWZwIt53LVY1cj1gsRjwIVLc5AjzC80mWBdHJcYCirUCTWCr0r3XdOJXutfubIHosVtNmxBGDMeIuNnh-qxXYsPFCRxFNYp47b7o0L7K9t0c132z15q6QOhRYCi-Gil1IVO7Fp-CPgaLYWgCYO7kSqAYV9pjD1oLzvqqwm1h4QE-4hFwHM29kERI9E6DRXaHDhpaBkeBPPUwE1kSjdhkd16umiX48ksVwZB4HCigCBYA2KCjSxigZvM_Z9fjFaBpEMlR-J9j4s0_p8fBYcEPv8PRb3UE4zPxshS3s2LKWWSfXQT6iOXCSHzv2T4rXHGaIyFEAJXNKCfcV0WKiUKhbHWi33cpC5ceE9ryS2kcgaaZEHTLHzgyRuGedOVLJMmWv3OVYVExM2T4yrmTsQePZxdWn4nOv6CxlcW09RxnRs-PeDbV2irD0e2K4ksesjTNB-g3bDoQ4alNKpYu4XXD1efCmeyDaUbp2L0sAPzok7-PbIgyQkZE28iX-TTW77xljE5p60EUmzxT5LkUSsYa-lbF_rK56b3Kx74mDcu3qdhgjpe4JFzHx33F_m2RrD3RY1rMrtpJUdKPdh-fgtiy1abWPXTQZNnvMrpmacmKvZWUmCcH001orxVl236ZmqJp0p1Uv-qqNtheX94UE-d7M46xH3-NHXu06hikKugqVPqEC_XdedRIkJGMT9gdARHko5PlKdcVP5Vx0rm-txltuLESzf4L4Fvdg_NMCHyfvjBwRx6DRwl3erQaxnYxv7W2KxFXohe1iNPte6pn7qesJ_r1TVgFZCHrJB5mDuuzsHNFB8GPc_6OglxCcn_FnGKvJbP9KYYsOKBpJZCkBgKZC6LdVU9rEoOa467MGEVFU2IDOLrLr6niF5TFJQP7-lJCasKswM_EpZIEypspKzQNZrkZMa00VO7h95iEeQOhYgDwy6rJ75AsUO7YtIS6mf9VJ-3mMkj-nM7vl7sq7N64jThbb4y-dcD2ElGpcWGjcQVe7Yf3bFvQ5rSGmY4WKo8Uumg4bdqtBSgy7W155OIaf-MhKNMYn6Y8zpc8RpGaQs2mXo40V06gLyxclMnp9pf0bwl8SZAYy4_-fszRCVgEzgzh4xRUunB8ASEyfOV7nLikDNAvnw-CtpATHYaWkWj0B8t3I4rbRdOgtPbNcEOwHBjvDG9IuYmxlbn6rUpOwwkW1vllfRimX9Rj4e5OnX6gMQMtb4TYz0G-76ER8wB95lQSEsom08tp0qCngJvB2bBEEWh2HvL0R-3Z8adHIKkBEUHaUuXGGYz6FqgNx_8F5xzyTsvOgFdK158TAMmsAEt5Sjgg-ysi56Oh_khDuE6LFuCu4nBqix-R21oq2VZIKmAjSEC8IC6dFLGFAP_1wiqB8S5PPKT98qWt614HokIhBpIi4D3WSgV85AiNS886Y7a4lXbZUBUCwkYlIOV8BAZuTrKeud8B3MC875lQImlkwopNiS3IZt96lMNwY0d8dOzbvFAUm1Oi6LEWbQgfllLX9_tK3yF6Bl43Ku-QdX0SGtAcHYtID_kKyaaAiKS8ZNVF_-XH7dIk0D0i7zKFZJhCNPoOcNLLCHWEQ7UP6h_8xhiebhNmMn-a0qgdtV7SBRZ0Ew4Si-NIg4P-10EuuISK_hdy5LwvmR1_bhlKSyFx2989-JpaBHkT_geBP3Syvq42Tv8SCoJqhrg1cYmYao_tHcGDuddZNIO7enHukH2QfcUTFMBrdCpSpWZ-tB1-8WW0_tZY3pkSF-ZmpOeQ9qAbbWb4GjMNhs4IVtYGBJJALGXc6HHP1lhuH3NLbJlkrzeDi-p78GBeGWsXBAFDxuiQqRsialdplojNlmIM2tLy6Hr5aNZ6ff8gx0Xf00-xuhj9zVb1H5i-bN68l_vakdJukkXU4ljn6B8xaRnq2W7WL7lcdfa-_uF1gKvAtbf-F7rsjlWb1l86Kqm3zKKb7HEzZG899WCqs45tAUPKduM55OntDyeWCztH9HVVfQ2g6ZvKFrsvEwvgMw62CmbXaX8kggnV166pGiA5VUcKD6Q6Uv8F-Nkj-H8MXbOcdaPj-Vfs4ieWXKOJGn5hXKNS8u1YNokSP3C0ceUNn5rwKWi_wCML_TnydwaXCPjo7R8_oJ7BFFK-WoyA0z134zdZCv-SzAeFfa3ku-k2mWfL6FKZZjXbVCd6s_xvEKO2fP1MuL9z6VXyAMT2BV0-34wW2O1pnZ9Zz9xaHa4S6Xy5Xs9_iSZDNZwmFe2zTEl0v6zdUUhA-9tOrrxEGGM9Hm82MOF0cbCmGutcyVPTE246SbT6tumJvgQ2HZWikFkGsOv_9P4h9Nwn-DnZFSxhh55lMFhQrKUiTaa0cd7owV979MquGX8EdQy5FzfmqYNQyIsyLKqva7W-lhAnAWJUXsi_yK5vKzwqZhvxYqfZShR2VieFZ5JucwmlwNJkVKUs9IicGOjJiXiQ3F056pTzLaf63kTmnUn3uLz6dZl7kki1TAyUm0SsaNeuIQ7XY-Z1A-sCnodVrvzEFXRmFCIvsgxOh4ljK4SMvHiTftksCYipXy8fR_hlEGOdibPtqSOrUvM-d4SDUhkqtla-8llUBCpNLpM8BLWUguhVQ04CdWKCU4TvWAtCGJH3X-guBhuW-cteD2QiNfjrqo66tNi2RNPvaXQBOFO85NZ13PPAgQ9AuG0r8FuD-1dKLJTM-wKUZmlSbFmXjXch8c3OKKHxDPU3X488ZHylShbMsk2kKlDFNpD6DilgsMeoPD9PgGdo1chCTAfZPsdq4VQ_bPUBh3Ixz5kKmjx-09w9Mj0Ljdc62kJTe-a3lzVIPURTwvDRJiSFh2zh3uebUHJzLqVSP6NyH1mrcHMCXNJhHjHoGqRgcI_9nHknI2yQ7OWthBw0qDfG9AAosgA56X0i-DX8cSjDxGWDZ0777BHe5SrcOfod9DC4GxjtA_B4coobfkiUFSeGk0.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_050754e8cc7c0df0016ade3078126c87d198529b9260791d5b",
+              "index": 1
+            },
+            {
+              "type": "reasoning.summary",
+              "summary": "**Considering output modification**\n\nI\u2019m thinking about how characters can be arbitrary and potentially appending length. I probably only need the source code for this. I could consider a safe trim to ensure nothing extraneous is included. I want to avoid any buffer in the output. So, it seems like I should return both the original output and its length. That way, I can provide a clear and concise response!",
+              "format": "openai-responses-v1",
+              "index": 2
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3jB-VztIGmSaClG32xA3v8iU6UjewcC21of7v69Yn8FN0xE6GudlQemF30l1UtPT9bmiKO7pK3DKhPDK2H5SihBVya57lneCqhxk4dOe9Urll7ibja7DEr2UCJ90C9pk-3C1ux5sRB91HvDqBZQ36TlxcNNDc1-1AGr4hAlLwGNuODHznp7NfrL4SK7R8RM2d56JrtqUjI9n219G6swTHZYnyGIDfkcVNa0uaev4M5HsqzWIO5ckilg2DO4cleaqeKoIvU-PV9SWuzFSW0rrrmKcSI4577wXEtviLtO_-TOOx9X8uwUlKcP0jUaQOw9_VKbStWSmLqMkHiJMBSW2OamSgtr2z9KZ3EOBcFVHcyf4AHbpMl2YfDxrXeZZZUG37UAq-OY4iD89kckY-83d0BLmr0blbNGSMR14mBCIkx3oLfHuyku1XsG4Tk7qaIkIIdYlov2rWCKkzn7bdVFmYhoWcgLHJ3JLAnexzfIlTaGpytNmmbKRCVAUto1sQ77mr1klOayhy9cI4XJoUYMlIVGTj2QX38Kqj7QisK3P4XPOnJvx928kzEWfHgHpj5Jjbu0KcS15-doNOdaCSOV8dNvv0JK3OcbFy_MzeB1-Ftw21GmDocj-DqVdLEDQXKzLQSNI0-3_9jLddq1esAhWKD1D4P6URt-37-v4KiWUtwqC0QnSLYxCq4KzGQK_ELxzNJ0WekI_0r_z267jG8YqwrzF075dHPOfS5W8L5HV-xb0J9Coho5ZHK4KHiBHljT452SORe4GH3JKg9HH8wZ2H02xQVc_ZTRdBKJDP7QaZ5fCsmHI_1jH5REqe0mAmN7H36V3u4CmheSW1w2Qvwdbkc4WCMVvXpczkZ7Rb-KsJEfjsnt-Pj3OHPsZpK6lQy-5MionjhUNbkFv2-iYbGdcwVwU7_2LGMD5NmeUaLIUSFsFtXmJAES6ABzSlrYaa_oeunc-f7OviNDY9so7j7lLjWFP45qPJtMpn0TpBamQBfjrfoUgc6W19F7hZ4FVofn2SvqV3xXyLEcaABo7VlzMsENAokGONsR_SgbIVN8XmQ1AV02Z9ArBEsFuucrDiZIsMS1cDZm_m0hZ4hRIbyjUcYENBqjWVyHXOTAddTQmaVnJjH4065TEr8sCdlhf0EjdOCrK6unqt_dVYIRd6zOSxbF6erOwNm4t2OS4kL6JVbWogpw5alI2e8D_J8FoliasOyeugXfy5tzDzVgUTlmcXFuXHmJB4DOBrRtgrxNlSg9mLPXrKVz54bCdVBEGzFk74oZMYFibkb_GLBW2XuYRVTMISf3_3UfNbgKaW4HWOyvpAA9ar-raDGOP-6mWKSfGZDkD3ZppFfcFVyUQxF_I5CsgvZ9YS2Vz0xKh723iX1pECikU2E9-XrhbpqF4RikK86UXyXhkaHSVlzlsTx-05DuiE1uGzhjzG-lGGoJ6ClF4dIAADRg0SmIQ8boqjQi9xIaMx4IKpF24k6zJJSLkzBJXxR8U3DuEneHkn8_bznyW2CqwoAOBhoNbyOjWZ6TJZi2i65_ylhiPP8BYGXOAruWbz5PxxjoDROCLQFVRVwZ8GChY0Sy-8FImQlQXx1I_KzP6pKLmWp1uliAXBvJz84fVzurM0KYjiuGhMvX6Ge7vXMrNbQLAoBwmg34hrTPsIUUTJjOYpG6L2MbIHVl_rWyhs82APFuI-_oVQYMalDOTafZcx8YgiBzKfluNffu28TIQoH6Y1wYmWeeyVsugtxJezd1Fyp319H_G_Y5KckJwhpaLntnI3l1vYNx-2dRXdWezpJW0XhP8DndcsctKQNvSxozfNNwnEqIOj4lNYmhX_dEt5FMS50797vSkudkfl88-K_HnqjnSEteO1JaoQIGAHb_nLVNret3mc0rW3iretZKERxVJZnlCVYI1Lhmr36dquInUgISb6tnkGkvsbDJAbZreKSlw1z4PcEhdfPsCuP4x9sw6rg74hfrbf1lIUPe0JaDeXYoeaeNtdAZzIUB_Kw==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_050754e8cc7c0df0016ade307e031087d1adf5734f80ca1800",
+              "index": 3
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 115,
+      "completion_tokens": 638,
+      "total_tokens": 753,
+      "cost": 0.0003305,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003305,
+        "upstream_inference_prompt_cost": 1.15e-05,
+        "upstream_inference_completions_cost": 0.000319
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 549,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

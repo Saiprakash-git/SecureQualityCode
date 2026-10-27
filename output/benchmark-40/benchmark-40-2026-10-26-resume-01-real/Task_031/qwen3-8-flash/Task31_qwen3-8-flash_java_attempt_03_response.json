@@ -1,0 +1,69 @@
+{
+  "attempt": 3,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1793017871-KvNOGq4wdBpKViNZMw4T",
+  "finish_reason": "stop",
+  "input_tokens": 312,
+  "output_tokens": 449,
+  "cost_usd": 0.000223526,
+  "raw_response": {
+    "id": "gen-1793017871-KvNOGq4wdBpKViNZMw4T",
+    "object": "chat.completion",
+    "created": 1793017871,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "public class Solution {\n    public static String dnaStrand(String d) {\n        if (d == null) {\n            return \"\";\n        }\n\n        StringBuilder result = new StringBuilder(d.length());\n\n        for (int i = 0; i < d.length(); i++) {\n            char c = d.charAt(i);\n\n            switch (c) {\n                case 'A':\n                    result.append('T');\n                    break;\n                case 'T':\n                    result.append('A');\n                    break;\n                case 'C':\n                    result.append('G');\n                    break;\n                case 'G':\n                    result.append('C');\n                    break;\n                default:\n                    result.append(c);\n                    break;\n            }\n        }\n\n        return result.toString();\n    }\n}",
+          "refusal": null,
+          "reasoning": "We need answer user's request: return ONLY raw source code in JAVA, no markdown fences, no explanations. Need produce self-contained source file. Problem DNA complementary strand. Need likely class Main? In coding platforms Java expects public class Solution? User says one complete self-contained source file in JAVA. All functions accept input as parameters and return output. Need likely include class with static method dnaStrand(String d). Could be public class Solution? Previous response invalid maybe because fences. Need only source. Need ensure valid Java. Since no package. Could define public class Main with public static String dnaStrand(String d). But if platform expects class Solution? The prompt from Codewars? DNA complement: \"Your previous response was not valid source code.\" Usually Codewars Java expects class Solution with static method dnaStrand. Need choose likely Solution. But user says self-contained source file; not specify class name. For Java, public class Solution is common. Could also include Main? If they run file, public class must match filename. Raw source file contents starting first line. To maximize acceptance, use public class Solution with static method dnaStrand(String d). Need handle null? DNA never empty but maybe null. Could return \"\" for null. Map chars. StringBuilder. Return.\n\nNeed no markdown. Final only code. Ensure no trailing prose.\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user's request: return ONLY raw source code in JAVA, no markdown fences, no explanations. Need produce self-contained source file. Problem DNA complementary strand. Need likely class Main? In coding platforms Java expects public class Solution? User says one complete self-contained source file in JAVA. All functions accept input as parameters and return output. Need likely include class with static method dnaStrand(String d). Could be public class Solution? Previous response invalid maybe because fences. Need only source. Need ensure valid Java. Since no package. Could define public class Main with public static String dnaStrand(String d). But if platform expects class Solution? The prompt from Codewars? DNA complement: \"Your previous response was not valid source code.\" Usually Codewars Java expects class Solution with static method dnaStrand. Need choose likely Solution. But user says self-contained source file; not specify class name. For Java, public class Solution is common. Could also include Main? If they run file, public class must match filename. Raw source file contents starting first line. To maximize acceptance, use public class Solution with static method dnaStrand(String d). Need handle null? DNA never empty but maybe null. Could return \"\" for null. Map chars. StringBuilder. Return.\n\nNeed no markdown. Final only code. Ensure no trailing prose.\n",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 312,
+      "completion_tokens": 449,
+      "total_tokens": 761,
+      "cost": 0.000223526,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 256,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000223526,
+        "upstream_inference_prompt_cost": 1.2496e-05,
+        "upstream_inference_completions_cost": 0.00021103
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 271,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

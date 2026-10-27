@@ -1,0 +1,41 @@
+{
+ "language": "python",
+ "artifact_origin": "generated",
+ "artifact_sha256": "082a1dfd33c69e82e68fa4c9c8167997f2b73f86a37e90ce287fda480cc43ee4",
+ "oracle_test_path": "tests/claude/Task3_CLAUDE_claude_3_5_sonnet_20240620/Task3_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "f28361a12e41e1396b4dc307d6faa5ca9476a5c994b29a0971829987d9a44dd7",
+ "verdict_style": "unittest",
+ "bindings": [
+  {
+   "canonical": "is_pangram",
+   "target": "is_pangram",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "line": 1,
+   "removed": "from output.claude.Task3_CLAUDE_claude_3_5_sonnet_20240620 import is_pangram",
+   "inserted": "from adapter_bindings import *  # adapter"
+  }
+ ],
+ "steps": [
+  [
+   "{python}",
+   "-m",
+   "unittest",
+   "-v",
+   "test_oracle"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "adapter_bindings.py": "8aa900894739ccf58da84a08427a8cbdcc7d1ca24f9208b85fcd57ec0707569a",
+  "impl_under_test.py": "082a1dfd33c69e82e68fa4c9c8167997f2b73f86a37e90ce287fda480cc43ee4",
+  "test_oracle.py": "94d1ce3101a59b817c78d92b692316b9b161ce2fd1a0c770fe1163a05e633818"
+ }
+}

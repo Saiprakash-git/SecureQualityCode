@@ -1,0 +1,4 @@
+Task72_gemini-3-8-flash_cpp.cpp:5:10: fatal error: 'openssl/evp.h' file not found
+    5 | #include <openssl/evp.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.

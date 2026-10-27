@@ -1,0 +1,126 @@
+{
+  "run_id": "benchmark-40-2026-10-26-resume-03-real",
+  "description": "Third resume of benchmark-40. resume-02-real paused at 21:44:13 (unknown_cost: one qwen request hit the 120 s read timeout). Reads all three real ledgers; the 46 unfinished combinations are all qwen3-8-flash. Same tasks, models, languages, settings, budget, prior_spend_usd and unreconciled_spend_usd. Only change besides resume bookkeeping: request_timeout_seconds 300 (qwen responses took up to ~210 s). The dry-run folder benchmark-40-2026-10-26-resume-01 is deliberately NOT listed.",
+  "phase": "benchmark",
+  "languages": [
+    "python",
+    "java",
+    "c",
+    "cpp"
+  ],
+  "temperature": 0.2,
+  "top_p": 0.95,
+  "max_tokens": 4096,
+  "max_attempts": 3,
+  "retry_max": 3,
+  "retry_delay_seconds": 5,
+  "sleep_between_requests_seconds": 2,
+  "budget_usd_hard_limit": 7.0,
+  "prior_spend_usd": 1.460938,
+  "unreconciled_spend_usd": 0.13,
+  "unreconciled_spend_note": "Counts toward the cap only. 0.072997 recorded in output/one-task-python-smoke-2026-10-23 (two real runs written into a dry-run folder, summary says $0) + upper bounds for 3 unrecorded in-flight requests: qwen3-8-max-0902 0.04966 (smoke 2026-10-24), gpt-6-luna 0.00353 (smoke 2026-10-23), qwen3-8-flash 0.00201 (pilot-10 combination 120 IncompleteRead) = 0.128197, rounded up.",
+  "expected_task_count": 40,
+  "expected_combinations": 800,
+  "resume_from_runs": [
+    "../output/benchmark-40/benchmark-40-2026-10-26-real",
+    "../output/benchmark-40/benchmark-40-2026-10-26-resume-01-real",
+    "../output/benchmark-40/benchmark-40-2026-10-26-resume-02-real"
+  ],
+  "concurrency": 3,
+  "rate_limits": {
+    "default": {
+      "max_concurrent": 1,
+      "min_interval_seconds": 1.0
+    },
+    "qwen": {
+      "max_concurrent": 1,
+      "min_interval_seconds": 4.0
+    }
+  },
+  "http_retry_max": 5,
+  "http_backoff_base_seconds": 2.0,
+  "http_backoff_max_seconds": 60.0,
+  "dataset_dirs": [
+    "..\\Repo\\SecureQualityCode\\code-llm-evaluation-dataset-main\\code-llm-evaluation-dataset-main\\dataset\\promptDescription-0XX",
+    "..\\Repo\\SecureQualityCode\\code-llm-evaluation-dataset-main\\code-llm-evaluation-dataset-main\\dataset\\promptDescription-1XX"
+  ],
+  "output_dir": "..\\output\\benchmark-40",
+  "models": [
+    {
+      "label": "claude-haiku-5-5",
+      "provider": "openrouter",
+      "model_id": "anthropic/claude-haiku-5.5",
+      "reserve_usd": 0.0035
+    },
+    {
+      "label": "gpt-6-luna",
+      "provider": "openrouter",
+      "model_id": "openai/gpt-6-luna",
+      "reserve_usd": 0.006
+    },
+    {
+      "label": "gemini-3-8-flash",
+      "provider": "openrouter",
+      "model_id": "google/gemini-3.8-flash",
+      "reserve_usd": 0.025
+    },
+    {
+      "label": "mistral-large-4",
+      "provider": "openrouter",
+      "model_id": "mistralai/mistral-large-4-0",
+      "reserve_usd": 0.03
+    },
+    {
+      "label": "qwen3-8-flash",
+      "provider": "openrouter",
+      "model_id": "qwen/qwen3.8-flash",
+      "reserve_usd": 0.0035
+    }
+  ],
+  "task_selection": {
+    "mode": "orig_id_list",
+    "orig_task_ids": [
+      0,
+      3,
+      9,
+      12,
+      14,
+      15,
+      17,
+      18,
+      21,
+      23,
+      25,
+      28,
+      31,
+      44,
+      56,
+      66,
+      67,
+      68,
+      72,
+      73,
+      74,
+      76,
+      78,
+      82,
+      84,
+      86,
+      89,
+      91,
+      99,
+      101,
+      105,
+      113,
+      114,
+      124,
+      130,
+      132,
+      143,
+      145,
+      148,
+      149
+    ]
+  },
+  "request_timeout_seconds": 300
+}

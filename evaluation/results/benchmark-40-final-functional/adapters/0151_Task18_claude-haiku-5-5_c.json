@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "convertBinaryArrayToInt",
+   "target": "binary_array_to_int",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "bound by reviewer to binary_array_to_int: the artifact's single implementation of this task with a call-compatible signature",
+ "combo_index": 151,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_018/claude-haiku-5-5/Task18_claude-haiku-5-5_c.c",
+ "artifact_sha256": "d9502b6d36d428d51e9d4159d41b44863399aa0739816dbdabc0558ad4c92ca8",
+ "oracle_test_path": "tests/claude/Task18_Test.c",
+ "oracle_test_sha256": "d1ceced5f0d84191a3d246d55ecea029da696332c9eab5848e99c290c516b0fb",
+ "author": "functional.py draft_adapter (static)"
+}

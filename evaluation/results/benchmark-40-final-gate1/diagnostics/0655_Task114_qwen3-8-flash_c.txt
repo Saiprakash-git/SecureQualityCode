@@ -1,0 +1,10 @@
+Task114_qwen3-8-flash_c.c:70:47: error: expected ')'
+   70 | char *concatenate(const char *a, const char *b
+      |                                               ^
+Task114_qwen3-8-flash_c.c:70:18: note: to match this '('
+   70 | char *concatenate(const char *a, const char *b
+      |                  ^
+Task114_qwen3-8-flash_c.c:70:47: error: expected function body after function declarator
+   70 | char *concatenate(const char *a, const char *b
+      |                                               ^
+2 errors generated.

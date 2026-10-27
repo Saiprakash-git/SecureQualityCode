@@ -1,0 +1,60 @@
+{
+ "language": "java",
+ "artifact_origin": "generated",
+ "artifact_sha256": "0ee4a43af6a95494db3775418227bfac6a45e5647827345b7fe78add8d2f3cd2",
+ "oracle_test_path": "src/test/java/claude/task15/Task15_TestCase.java",
+ "oracle_test_sha256": "f529ae1be44753f30a5c6e0a580c0af714bd84064bb724d388c29a2debed42dd",
+ "verdict_style": "junit_xml",
+ "bindings": [
+  {
+   "canonical": "Task15_CLAUDE_claude_3_5_sonnet_20240620.towerBuilder",
+   "target": "Main.buildTower",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "file": "Main.java",
+   "change": "package claude.task15 prepended"
+  }
+ ],
+ "steps": [
+  [
+   "{javac}",
+   "-encoding",
+   "UTF-8",
+   "-proc:none",
+   "-d",
+   "classes",
+   "-cp",
+   "{junit_jar}",
+   "claude/task15/Main.java",
+   "claude/task15/Task15_CLAUDE_claude_3_5_sonnet_20240620.java",
+   "claude/task15/Task15_TestCase.java"
+  ],
+  [
+   "{java}",
+   "-jar",
+   "{junit_jar}",
+   "execute",
+   "--class-path",
+   "classes",
+   "--select-class",
+   "claude.task15.Task15_TestCase",
+   "--reports-dir",
+   "reports",
+   "--disable-banner",
+   "--details=summary"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "claude/task15/Main.java": "e1e54306e30905a9086fec98b80131055d4ec771d4f278996ca86cc836c003cc",
+  "claude/task15/Task15_CLAUDE_claude_3_5_sonnet_20240620.java": "32f3be7e36a01bbd373b72049f23544e94807017af83368be3b4de7c4c91b93b",
+  "claude/task15/Task15_TestCase.java": "f529ae1be44753f30a5c6e0a580c0af714bd84064bb724d388c29a2debed42dd"
+ }
+}

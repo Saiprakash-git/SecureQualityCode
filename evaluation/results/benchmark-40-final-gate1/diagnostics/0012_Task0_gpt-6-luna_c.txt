@@ -1,0 +1,19 @@
+Task0_gpt-6-luna_c.c:320:68: error: expected '}'
+  320 |             fprintf(stderr, "Could not allocate thread handles\n");
+      |                                                                    ^
+Task0_gpt-6-luna_c.c:319:30: note: to match this '{'
+  319 |         if (threads == NULL) {
+      |                              ^
+Task0_gpt-6-luna_c.c:320:68: error: expected '}'
+  320 |             fprintf(stderr, "Could not allocate thread handles\n");
+      |                                                                    ^
+Task0_gpt-6-luna_c.c:317:27: note: to match this '{'
+  317 |     if (thread_count > 1) {
+      |                           ^
+Task0_gpt-6-luna_c.c:320:68: error: expected '}'
+  320 |             fprintf(stderr, "Could not allocate thread handles\n");
+      |                                                                    ^
+Task0_gpt-6-luna_c.c:252:1: note: to match this '{'
+  252 | {
+      | ^
+3 errors generated.

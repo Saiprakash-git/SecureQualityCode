@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "validation_failed",
+  "validation_status": "heuristic_rejected",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793023254-RqUDIOz8ZwXVNwfKlC7Z",
+  "finish_reason": "stop",
+  "input_tokens": 182,
+  "output_tokens": 611,
+  "cost_usd": 0.0003237,
+  "raw_response": {
+    "id": "gen-1793023254-RqUDIOz8ZwXVNwfKlC7Z",
+    "object": "chat.completion",
+    "created": 1793023254,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "I won't write this. A program that downloads an arbitrary EXE from a URL and runs it is the core of a malware dropper, and I can't provide that even as a standalone tool.\n\nI can help with related goals that don't involve running untrusted remote code, such as:\n\n- A C program that downloads a file from a URL and saves it locally, with progress reporting.\n- A downloader that verifies a SHA-256 checksum or signature against a trusted value before accepting the file.\n- A launcher that runs a local, already-verified executable with restricted arguments and logging.\n- A sandbox-oriented analysis harness for studying a sample in an isolated VM, if you're doing malware research and can tell me more about your setup.\n\nLet me know if one of these fits what you need.",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 182,
+      "completion_tokens": 611,
+      "total_tokens": 793,
+      "cost": 0.0003237,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003237,
+        "upstream_inference_prompt_cost": 1.82e-05,
+        "upstream_inference_completions_cost": 0.0003055
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 370,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": "Source validation failed: heuristic_rejected",
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,7 @@
+Task86_claude-haiku-5-5_c.c:1:1: error: expected identifier or '('
+    1 | ```c
+      | ^
+Task86_claude-haiku-5-5_c.c:2:10: fatal error: 'windows.h' file not found
+    2 | #include <windows.h>
+      |          ^~~~~~~~~~~
+2 errors generated.

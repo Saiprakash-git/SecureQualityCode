@@ -1,0 +1,35 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "remove_smallest",
+   "target": "remove_smallest",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": false,
+   "canonical_signature": {
+    "return": "int*",
+    "params": [
+     "const int* numbers",
+     "int length",
+     "int* new_length"
+    ]
+   },
+   "target_signature": {
+    "arity": 3,
+    "params": [
+     "const int *arr",
+     "size_t n",
+     "int *out"
+    ],
+    "return": "size_t"
+   }
+  }
+ ],
+ "combo_index": 171,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_021/claude-haiku-5-5/Task21_claude-haiku-5-5_c.c",
+ "artifact_sha256": "88dd57181b3d9cc5471417941d48478dca49185c4d67478e56f2196b77035321",
+ "oracle_test_path": "tests/claude/Task21_Test.c",
+ "oracle_test_sha256": "d02a00376478d65ee71a2daaa0cfbc96e847f6b0f93a4aea32dd298ef8a2d03e",
+ "author": "functional.py draft_adapter (static)"
+}

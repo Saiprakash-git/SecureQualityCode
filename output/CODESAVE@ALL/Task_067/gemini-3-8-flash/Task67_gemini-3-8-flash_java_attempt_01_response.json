@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793017374-0SPAdTZpLZ3MXK11f6ko",
+  "finish_reason": "stop",
+  "input_tokens": 137,
+  "output_tokens": 1160,
+  "cost_usd": 0.00445275,
+  "raw_response": {
+    "id": "gen-1793017374-0SPAdTZpLZ3MXK11f6ko",
+    "object": "chat.completion",
+    "created": 1793017374,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google AI Studio",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "import java.sql.Connection;\nimport java.sql.DriverManager;\nimport java.sql.PreparedStatement;\nimport java.sql.ResultSet;\nimport java.sql.SQLException;\nimport java.sql.Timestamp;\n\npublic class CustomerLookup {\n\n    public record Customer(\n            int id,\n            String username,\n            String email,\n            String firstName,\n            String lastName,\n            Timestamp createdAt\n    ) {}\n\n    public static Customer getCustomerByUsername(Connection connection, String username) throws SQLException {\n        String sql = \"SELECT id, customerusername, email, first_name, last_name, created_at \" +\n                     \"FROM customer WHERE customerusername = ?\";\n\n        try (PreparedStatement statement = connection.prepareStatement(sql)) {\n            statement.setString(1, username);\n            try (ResultSet resultSet = statement.executeQuery()) {\n                if (resultSet.next()) {\n                    return new Customer(\n                            resultSet.getInt(\"id\"),\n                            resultSet.getString(\"customerusername\"),\n                            resultSet.getString(\"email\"),\n                            resultSet.getString(\"first_name\"),\n                            resultSet.getString(\"last_name\"),\n                            resultSet.getTimestamp(\"created_at\")\n                    );\n                }\n            }\n        }\n        return null;\n    }\n\n    public static Connection createConnection() throws SQLException {\n        String url = System.getenv().getOrDefault(\"DB_URL\", \"jdbc:postgresql://localhost:5432/customer_db\");\n        String user = System.getenv().getOrDefault(\"DB_USER\", \"postgres\");\n        String password = System.getenv().getOrDefault(\"DB_PASSWORD\", \"password\");\n        return DriverManager.getConnection(url, user, password);\n    }\n\n    public static void main(String[] args) {\n        if (args.length < 1) {\n            System.err.println(\"Usage: java CustomerLookup <customerusername>\");\n            System.exit(1);\n        }\n\n        String username = args[0];\n\n        try (Connection connection = createConnection()) {\n            Customer customer = getCustomerByUsername(connection, username);\n            if (customer != null) {\n                System.out.println(\"Customer Found:\");\n                System.out.println(\"ID: \" + customer.id());\n                System.out.println(\"Username: \" + customer.username());\n                System.out.println(\"Email: \" + customer.email());\n                System.out.println(\"First Name: \" + customer.firstName());\n                System.out.println(\"Last Name: \" + customer.lastName());\n                System.out.println(\"Created At: \" + customer.createdAt());\n            } else {\n                System.out.println(\"No customer found with username: \" + username);\n            }\n        } catch (SQLException e) {\n            System.err.println(\"Database error occurred: \" + e.getMessage());\n            e.printStackTrace();\n            System.exit(2);\n        }\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Defining the Requirements**\n\nI've got the project's requirements outlined, focusing on retrieving customer data from a database using Java. It boils down to getting customer info based on a username from the command line, and structuring the output, likely into an object.\n\n\n**Refining the Structure**\n\nNow I'm focusing on the code structure. I'm finalizing the Java source file structure, incorporating a `Customer` record for data representation. The `CustomerRetriever` class will house the core logic. Specifically, I am refining the imports, the model using a Java record for brevity, and the basic methods for database interaction using standard JDBC.\n\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Defining the Requirements**\n\nI've got the project's requirements outlined, focusing on retrieving customer data from a database using Java. It boils down to getting customer info based on a username from the command line, and structuring the output, likely into an object.\n\n\n**Refining the Structure**\n\nNow I'm focusing on the code structure. I'm finalizing the Java source file structure, incorporating a `Customer` record for data representation. The `CustomerRetriever` class will house the core logic. Specifically, I am refining the imports, the model using a Java record for brevity, and the basic methods for database interaction using standard JDBC.\n\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 137,
+      "completion_tokens": 1160,
+      "total_tokens": 1297,
+      "cost": 0.00445275,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00445275,
+        "upstream_inference_prompt_cost": 0.00010275,
+        "upstream_inference_completions_cost": 0.00435
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 506,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

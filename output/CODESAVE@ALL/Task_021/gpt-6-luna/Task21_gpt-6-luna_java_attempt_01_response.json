@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793016454-MFpseMpKAjUEWH8XIL73",
+  "finish_reason": "stop",
+  "input_tokens": 328,
+  "output_tokens": 276,
+  "cost_usd": 0.0001708,
+  "raw_response": {
+    "id": "gen-1793016454-MFpseMpKAjUEWH8XIL73",
+    "object": "chat.completion",
+    "created": 1793016454,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "import java.util.Arrays;\n\npublic class Kata {\n    public static int[] removeSmallest(int[] numbers) {\n        if (numbers == null || numbers.length == 0) {\n            return new int[0];\n        }\n\n        int smallestIndex = 0;\n        for (int i = 1; i < numbers.length; i++) {\n            if (numbers[i] < numbers[smallestIndex]) {\n                smallestIndex = i;\n            }\n        }\n\n        int[] result = new int[numbers.length - 1];\n        System.arraycopy(numbers, 0, result, 0, smallestIndex);\n        System.arraycopy(numbers, smallestIndex + 1, result, smallestIndex,\n                numbers.length - smallestIndex - 1);\n        return result;\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Producing Java Source**\n\nI need to create a Java source code for the \"removeSmallest\" function, which is likely part of a class called `Kata`. The expected method signature is `public static int[] removeSmallest(int[] numbers)`. \n\nI'll ensure the code is self-contained and doesn't mutate the input array, plus it should handle potential null values appropriately. The method will take input parameters and return the adjusted output. So, I'll focus on writing the proper structure for the class and method. Let's get started!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Producing Java Source**\n\nI need to create a Java source code for the \"removeSmallest\" function, which is likely part of a class called `Kata`. The expected method signature is `public static int[] removeSmallest(int[] numbers)`. \n\nI'll ensure the code is self-contained and doesn't mutate the input array, plus it should handle potential null values appropriately. The method will take input parameters and return the adjusted output. So, I'll focus on writing the proper structure for the class and method. Let's get started!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30KJeTIPqQg7wuuZFa0VUw39TlpeU2McM8F1AJJVaAjkhP0jEBDihl1PEPICO-r7qju5xp2Z856gYjY0BP0iVddjZhCclfJAZ5UFasbjEksIk4ra0-NoPUAA5EVyjAQZZEJByE03_TUP8WykqiYqjJ_fo7jkSf549g0GhYf1V5cOjzNBJaMuU6UMdI32EmdxHgRwaEuUeGyqRYQEFJefBRwT6zMCivFqFu0B4b7-W0PDIsesTBWzzyqUqy4szzIaw5uy6fUdMiDHgWTkRxSnwW2Os6B6nqPn4FSXF7PHbu8xlio1AAOQ8kVadf_jySIeKsA65SuoWL1kJbIwFmXEE6yX3GkJ4JVJfTiO7lyK_3SYhP9jZQSfJMRFcQYs8nbPiUi01NUh8saySgQSc9TUHAkzI7iQXtJ08oT08ASSQSk5GvbtaKCse_C9eLzWlPT-kHoix-VC7S8L_zq5BqXW-BN38SorY9yRz9qDWP67tTS5FQK-qWGxHo6YnMzTjnDvMLxnfBgAUs1vLjGCtMw7uVbRluuP_Ux-X1wVq1iHZV5KnE6xbP_Py9zXCKEscBdfRp6IdY7gIRxvM26xUFc6o2N8bU3ZW6Cumc-FVxOmNYQVXC7oFLt8YfwBJNGnCJiFjmI6060eB7dmqQe1Gd9KoQ-K2UIZgJw9gm5GJHY4MV2eX8jOb4hq7Z-3dvJ0sE8AhuM-9DPkC104S6LN-FSXGN6ROI9QoOoJBK-lwMS5fzDphD4Mb8oX0s23_Z0GZxeAtiYlNoM2QNf3d7CNW9GXuh9KJz5FuH3lmifgzseEmOoiPnd4MlnSqWJlF-YEgiSsuzAZBQGZRpNvsxIBNOc5sRKvnhFoAa2MBdEwZhTTan1a-eIWGg3Ul-nnBcsVM4oEnjdj0y2G81V9nVjpooFkk_5aPrTLdY6yR8zN1Kha_fgw3b1_m4Wa9zLjjalVbyR_ORGBGCEtIF1XIeIXLSkCJR7vn-cCgs2Nh-zKnKZ4RtJme97v53DNFDsffH5sxq4hiUxAAZAZo6dO_nfF1yuCdR5_P0-l8C58z3YZHgEFBoXSXKSYYoptcJtBeTxhJlpw65kSI4_dRl6pt4z3u4q83NbQ0sTxLBm0t3iFCyNYlJcdwfVCkFID80BG8QcbgcyYokjgG5ihz1mEChfb7mpQQXogdSvNd_DDtpw1incU2ziAmedmHExMKAo_Tnirtre5snQGK0lj4BWkzr-iqpjgd__71Tf2Pq4YBnLiCvpOZuuhoH0nRpKCk_3pxGUcUAbeCipD60AGR5JwIx2jqtopPaa39xDDexZRTxqeIMwjfpUrHXdi7gI8gpUJxNxDb1L-KVmPMWPoYiQpC3tgvHLoQM7dYnGsiQfLf2sI7fjgNs6Khdh1SmPsjDPqws5TSlf9eFTmhk6Te58O3gZjuF3w1n4MmQ0dDLYLQvjEuTc74ByolHX8VN2mdTvd6kUmk4dduE6BfsS4Vl49ykUh6rJWamxoK_rWAa4qbT8qXc_YPkopTHXiOGGl-D49n2wELMbR661xZOpIcAQQWHxsakkykk-Kzb9pbjylqYvxirUUuFE01TCPNoSB9LrHd26478DaK-mVdHv0kz5AuSzFQPe50_La9SjlAccxlPYYBeOW-swNvPQ5-JulW0xCtjJaH_Ed28MwXZFjqppO0IXUCFnOgONCc6o39yHw323RiYW-FnkdHzusu5EAWPabV2V7rkF5s7DStVtUF5s5Npe-euRJoFxVKsOe-WVy05AiNXR3Orh9jtqTABWVVnSCguW_F7HY51uzofMe50NxwQbO3sNe8Ba6rGmUpKncaroWSETACt0u8Lo3QRlVz_l6zuUmlxn8-cyrG4lyJwPfI_8PxhJXYWJU14ftCHpvvXB7ZADecj_hYvUR7j7Sb5C05hrGz2GxicT2gP1pBvYI_ndPwBBK_cpb0AOes73PZDejL_t7Jix0HXqumMGFpJzf2yXt_4mg6XSlTVKMkIzqRuql-MPeCWDr_mjD2dqSPukAgYP9pLg8gSk26hhdzgLFUAwsqtJASerz7nt5-8eZzyHIEu8Bt6ZfrpF_ffYvY2cMY1NhufA1hfB41yOBoBdmVt-JeS6JB2jVOk1xGZb9MJ8E_aQTAnFBa-sG-5FWG8PH93Yz11yYMcXIW8wrY9Ph4iykptzy5oKNxKaolF_UYt8RvZ6uyNgvtP-I-fbhJesOoZhMtPX9EbNBcJaInOqqfsvJf1apxrGRuLz1vTrCJQ6B4kgOisARbuwBZFE17E4CFNJzO2YZtVLju_rVydNaY4lMXiW3vwWNsRbQW5nfNtslQdLgGetElEW1RLxpEHVtYwqxMDu1JIObZeSly4SI8EvTrK3OMiU6RuE54PneADEOXSod4F3wR9zv0DqTYKibHvV2voTgUDnN5C4DXUl7YscdJ0d0FdzWKuSXlG0p-JhVaUt42Z9t2k99GoQQ7bKgBsn6fYuUbcgUzfeAy2ewb6zk1QJ3ca_BFxn_E5hO1BwbVhm80dkAHoKrqMkjwRFuxf_2b-KP7gWaAKQ5orpXni2tDu_jUSNJp4__s4f_Xk_BpjOY94KH3zvcMpT7CGmcEyo2BnhFMgxk4pHkcFEVZPPrET2K3bXNBTijjV3uB224oY2_v5zj5Iom9C8i0X7NWgEOmiCPRodnJ0vKvO8RORoJ4pi8wEZsk_id7G0vhcU3a56L50ZYWXafFbv6v1lWDLP_emUGJbZSl5F72_Nnlb83Vl02prljs7SL6hRQk2zwAQZgr9eZYjprzxJBO9Y1U6JcUhmmjfYd-WHzZpu-bAlTuyQ3i2kQ-tPLlJJreirUaTfJwLUGE_-VHf97IF3bABGjR8v_bj-YmW3NLWuRAfBzRuh3GJqaABZI4s_VOvRXfYS-FFfmT3MypN-gBuC8h4RLM-cvTP46Du3plxl-gLLKbos_tfsaX093TqXfgg5kfGL--Mn6OMIPUyzAMnZ_ngwuqcq9ByJkmgku01D9mqdQdIAhSeVe8UuqN-eO0TpNrC1LlvEgKKt4P9ybgcJe4AEEPaxJTAf2t1s8bYphLzON8ZzgBy5YhvODSUvPpvnmH-fKxeZONA==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_004700098eb3d06d016adf4287a0a087d192691e63d7ca4a6d",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 328,
+      "completion_tokens": 276,
+      "total_tokens": 604,
+      "cost": 0.0001708,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001708,
+        "upstream_inference_prompt_cost": 3.28e-05,
+        "upstream_inference_completions_cost": 0.000138
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 113,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

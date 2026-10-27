@@ -1,0 +1,32 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "Task101_CLAUDE_claude_3_5_sonnet_20240620.main",
+   "target": "Main.main",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "void",
+    "params": [
+     "String[] args"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "String[] args"
+    ],
+    "return": "void",
+    "static": true
+   }
+  }
+ ],
+ "combo_index": 590,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-03-real/Task_101/qwen3-8-flash/Task101_qwen3-8-flash_java.java",
+ "artifact_sha256": "b34e95e33269e79d66f34fe4e2a911fb9171dfceeb6fa0f32e7ae009bfab9a3b",
+ "oracle_test_path": "src/test/java/claude/task101/Task101Test.java",
+ "oracle_test_sha256": "72eb034860f55c29a8aca1e93b6f1b0cbce47afb022847c28e4f884016e7d91c",
+ "author": "functional.py draft_adapter (static)"
+}

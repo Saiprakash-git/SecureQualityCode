@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793023918-Qw2a2oF749kfxCoaCe2T",
+  "finish_reason": "stop",
+  "input_tokens": 105,
+  "output_tokens": 332,
+  "cost_usd": 0.0001765,
+  "raw_response": {
+    "id": "gen-1793023918-Qw2a2oF749kfxCoaCe2T",
+    "object": "chat.completion",
+    "created": 1793023918,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <fstream>\n#include <sys/stat.h>\n\nint main() {\n    {\n        std::ofstream script(\"script.sh\");\n        if (!script) {\n            return 1;\n        }\n        script << \"#!/bin/sh\\n\";\n        if (!script) {\n            return 1;\n        }\n    }\n\n    return chmod(\"script.sh\", 0755) == 0 ? 0 : 1;\n}",
+          "refusal": null,
+          "reasoning": "**Writing C++ to create a script**\n\nI need to create a C++ program that generates a `script.sh` file and makes it executable. I\u2019ll likely use `chmod` to set permissions because this needs to be self-contained and portable. I should include necessary headers like `fstream` and `sys/stat.h` for file handling and permissions. The script could have a shebang line. The main function will accept parameters and check for errors, returning a code to indicate success or failure. I'll aim to create a valid shell script with an echo statement to make it useful.**Creating a simple executable program**\n\nThe user wants a program that creates a file and makes it executable, including a simple shebang line. I need to focus on generating source code that accomplishes this task efficiently. It should be straightforward, just generating the file and setting permissions correctly to make it executable. I\u2019ll ensure the code is clear and adheres to the request for simplicity, so the user can easily understand and use it.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Writing C++ to create a script**\n\nI need to create a C++ program that generates a `script.sh` file and makes it executable. I\u2019ll likely use `chmod` to set permissions because this needs to be self-contained and portable. I should include necessary headers like `fstream` and `sys/stat.h` for file handling and permissions. The script could have a shebang line. The main function will accept parameters and check for errors, returning a code to indicate success or failure. I'll aim to create a valid shell script with an echo statement to make it useful.**Creating a simple executable program**\n\nThe user wants a program that creates a file and makes it executable, including a simple shebang line. I need to focus on generating source code that accomplishes this task efficiently. It should be straightforward, just generating the file and setting permissions correctly to make it executable. I\u2019ll ensure the code is clear and adheres to the request for simplicity, so the user can easily understand and use it.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq31-zPW5ol6V_qZY8dYkSxG5h1kN937UVTRjSTrnUlhzNlXr14AgIYrhK87VGHBPsZ8ItS969RXKCXAdxwJEFhCq6FaqGp4PGasMEie6pKxS4zeRU5vujYhwKRhRJhFs7fPhcP1oT15IkKsEdrs-CZMNM8clHXAh0aTpWV0st20mBBHoVllS7nfWi88G0x14M-HRYuAy0n-U89QszQIEYj6R2rTlITUfSeBkn9T_hoOR8vX9BC_drhuKeNRykjSbQvnz4PDotwtfmWE2o9BlKtJzWfXih9OxLAevEi5qqUU3Yn8AhpUB79v1UG3WqFHRmN07_bb2plIsN3DmUsIkGM6wm4bzQbirM1QtDXGqOw6tZYucUubPH5UPgLEMg4b_hrzibXcG2goT0NBYA2-zrr8lqqVlhxl8Yfz34y4DFL5BDpdnEx6ZrsVvxudtWO0mTOAJX-6uXb0YUuoE6RosettDqpnJaSAoX4OykVFy-bwQXmE-f-YlzLvkTmrgjUyAcCuahJEJul6jAC85LfL6Vueoc3EKAPlmOvBxYAAvxC1V9XcXfdFI_Jac416uSJ9tgeXLSMaRnqkUv4xAnMuJy_cXK3CMg0YyNtSyZSLJ8WFn8HVcmQOntyts27oFlVl1uwa0dL6wTsdt6AsqdWsFjUXHbFO4dhb6gInRBbVQsbCuT9nS9cvybDYkkcoN1lokmz-IWNFFkCSL95REw5v_i963WsC6OO_yE_8rLk4bYdQHmd_jWBwN5HHknxfNkPeE9sOMYgzBVncl-DKsKVkEoff9O0M7hAS5bSS1-qE5B2jzotQEhJ6JXAn2KdOfjeFM0rC9YJXyYM-aq71HHFuPEVwRPBmUsSkLLuugssw7EZ21dMfsYrRN3eznsELi2vrIbf2IARpnPa0Isj1zvnnAEabfM8lfxdBirLtU_GboXO8M_5uRFer_w4l4fq4x0nfmXd2mqmU-k4ztg1x5vSvODNiiNbzeUxa4FOAk126f7Oi-TAi6XF81MjolKJineV_7Ut2CI_K_nAugJG_EuwptyTBEipjMGQ4rh6NsLjQmy8escmrdT6rEEBkpoqu2-rDJ-yX1SvDoN9Kn_SS1UbGuEDtOG-OZ7CP3pMluXDXaeFDxD1jnzB8yIOjiwRRqQzFt9XhqnFITyzOb5vWKQeWbv8EI-aVmxC_P9aRJlOJWiuT3rJ95xT2LBLauxNODPi28S6KZifmhLlgm1Xse_mNPARSxetriNxiLOXtCDwdKoyg-sCvI0dgE1qXS3dP_t7zzz6J9a-45hLk8-YOQkA-KBDYMi7bIQ3ILHZI5uY8LBJEVC1mJSXZqyxab0ufd8WhNPsE1SgQeqKBeU5AsZwA8kIUtgQlO0d0UnFZBR8jOSDXkOsOHcD9RMFwv0sci9WNFNJD7xSRIi4Psw59WSuwReTjZglprvqy3HNaE-EhIUV0slfKB-ViocyxFn0JHIcc7d1birw3qB0OSvnsk4UzbIUIg8vgzpVDbq1Qi0098P6h14dj4H79gYgsbst7aSnG7xRND7frN23oCyXeYpVyed5BozWF2vzjQ_dikgCbmQe625WlilhSzgR0EHLhOqTtJTsYqKjMIUdMmdvq_A0oOiE8mNloTM3VNeXVjGRT4PN8f7t0m8L0EfUthX3YfpnHKc1ZGaFpbAlbyPUrPECu9MfPrLrQ-ABVvS5jdveffmVXrk5jlQWbd-oUZm_c6ugJsfwckb9XysbJ3BOY2FF7FSUF7s4h1fOootGXsO9KI3Vi_1kH2wFOPDI1VDQJ_anoX_wo_phwo_1BnniAIubrqxFBK-_H3Kyg4WmupVgGFHyTx7TOtRNHhYIuuyyy30WFysjtc5_G4fJMGD20qPuhB6vVfew4MS_1TrPly7jy3r3LdeFrifARQMYZjNEB6uHY-uPTumNBaeI9_WCAfSElxv7drGDvUHdYy8Nj36ADhOK9bDnZsiM-gTpgI0PdXZO4EaLp3S1fsHLuXuFFcHbHDJMIlsBMUXi28wA-jgtJz766UWd_TIs49PPY2ph876NR97kUvhIyIsMC2kg1xXv6OBKg9jNq2mtMNwmP3CLKAsY_i6Xt7btEbVHfEGUG3fl9uM4b2OFl85yTd7o2sWk_fx1lGPcQiFQqFtX-DnZGH3WVZrpxNhD6hwHFDCx2qAm-LLTimMEE5M2fjAvhEbqZJNBseACXd5Crb86pv1q3aZz2xzSjUjxQbeQol5G1JoPwlErOdMym2eQwAPt3mCRLyiJssP5T8u0E6ThAsGpWfCZy5pwf1pVFaJD1cnUV3mxpMfvtWNjltzTdzH1QndCrDFy-_g4H0H5qbjYSudG-WB54kj-VEx_bscKvAx0hhdlDQg0TZAivMmdHhRuuuFL87gpn9s8IY0dOZ1gtHxddXzF9vxJbcOyuZEW6NKsSGQkL9k5cNVNvSMD93h5nqUGXh-ryGtNN1pNrmqLWvYovGWAiECOEoZPrAHf-NUMMT6s06dqYlJjdtug1KXPVgmhtQnQigasczBeIwGKlgFrNusdn-zqBFLTphjF8xfnA39XuNsFfTTI_dzL_Ib_G40qnaHwZSmNJWarkTIVupdmAYGujvMLE7xxL3KMl7z8e_EH2VDFnEeXPvbMyS34sd4xI_VnRGtwL-Pagg1vfXw9DFf9YxbF561Vo4ENzmzFwj-C1lIjM31rO-xL3skN0zkEzpIK5XwtTKEUAPH92LYgc9V6eHv0vTbn157sDee5eUOjZS9e86KqB2LDsWXWzhKEFPt-ypN3kRfNlwufR43-2E0vVSQ2GQqOBPGrvoFl2ukDH136jWD6zbr7yXHvjBBqGcjsO4y3AC4uOqEDRtiRLNCtV4TZVTNo4rJyXOx4hUmswAIIefEzX_JzwqaLouTvqr1Q9OmBApnRA7C91xIqGNWVUcXei5n4cfOKyoWDUff8q1ugBLq92uQ9s8NE4nqUwQTbJeVu_k1weYzM3tYVFkkrUWwgjNMRuHQm4KPUA9b5aLX4KfE0rdCS0YzmeXBd5AeYxfj9X9o9dYicqx67pKSRFIWt_YFydMET9codTxgMNs1kr2nlzDxQy5XcmOj1SkZk17tGuwOQ5P_JRqhjnDYQmfmZeGmWxC6ABQ5EUJzZG7aFs9U2ABjIzVGyYO63E5ObmSvVkCJ-_JXRPe51AH_5AmD2WTrY91TiNW9sP7fyW5Rl0U5F64CFGhz3A0vwGnkjdHDzutnrEgY_Lv3bBe1cIef0yKqdJFQPQqka_mdOmlchennuyyJJUClAYVF0Id3FWZ5BJUTMjdwkLySj_bQJLTHk3HamQ33N1bCu7WfV1k_8CSjIHz2nuIqma5ABCdHzd03y1f6Q-J1Id9yqm8VDPwODM479NXILl4lKHwKFYdJA2tnJlcr0MdSK4T2JB3hZGtwJIHYqh77HCws1zB8SvKhlD4y5aB1jHrn1lIfowualp3NpbjDKBAv35yEmMA5LCgxV6KvaTQEZqgapR1yAywAYTVDh-07rHw_cM_fAV9zxxMG6DgZtcJKK53CyVgj5J7fu0u7VjnbCDT2K6JNhGQkvV6oH9qQhkQRBT4icvJ6a3g6BIKVhkGBLKq2d4k8G3F0-2Ad6yxqZgnnLuz0aFIHUvcH2iJX9RdvfKxsyHBpH78_RZMEsYjgsUTCTYS-EB6h7wXwAK4PZo3VWRSoxFHdqrankyML-I_pwUbD14RSXfuYCv_dyPh7a3c0rPuozI0curdzNGmGwNY1mVwNx_yyq9HBQwGbNsgis-73GcdMmdv24dpKJ_ns2sUMcToX7DQH5HWFtZQXEejy2XHb8HOwEVrdur6QdW6-6yhwIr6r1pq-icGcP8I1uFV8uo_LnUDizOyuUGIpCZMv6f1MF5K_t1VBxlZGf6CMAJptTY66bAkhONbiTuMwrXV5FwbksPDgCbhXiUEHhdo7olhnulQH7MtSyqDgwD0sMmXELwZ_Rk_iRVj4-Tv_rPFQQkotcENnUNaQhPPyUwoEw2hKc0g58qPuLnkTfEInORqT4I_7GlReFOoRU_023U4MqW53gGRa77cjPpVA_DV9EIZVaDSS99eBVsM-1EQZ3Cv39OfgvoVMmRyJ2jmZfnN-0WytYDY61ncxfV8xrvE0NhHGd5Lq2k4lELxIv-50w_sbwarAnp_a3PVhy3K5prdk5MdzAJiO1pS_l3peyT8JeFY2khTfMJYGzyTSaHq5LE_TufAxoG0q4fJUZf4R9W8tob1fg-69IH8QAHu1YmdvL3aFsK_rVj1DcvWxgCwZVHvuieS78t1xKmWjtAKrv3BfNGyOUSaBhRYVZq4gv-fVgoaQ6Dm9DAu9W93htycawkAGP3z97KoYObJIZeOzYV0UaJoa_2O4OewXjoVpQ_vc98iw5EEowFHr-5BXu69_z6dJic49A2wld-5RwSjylVKJ4HwVw9SUKM4jsjfxfkQGvPYyUxdZdniGU1MfrMq39e2_fpUAIqJSJ2pAon_YUl1Jqz1sRHMKHXo32b3pF0gu2ClTheffZfsgUiNoC0tQynuM5EItLa0hEEQS1kOy37woogyRJQq2PVFJrDT_VxjExC71jpaKquXJh3QTubTUDSS70EPpiXtQ4sq1XBJCJIzLq4gqRi8e5U6n04jNNlk899rDEyvweUblabIGYA99Fq_5ov0JPjQzeEVqs2Zcez_uwN7DgVzrZHgKO5JJwbmCyNcmdZhEXT0=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0af98d9d37dbc395016adf5faed7d487d1943dea8910086026",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 105,
+      "completion_tokens": 332,
+      "total_tokens": 437,
+      "cost": 0.0001765,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001765,
+        "upstream_inference_prompt_cost": 1.05e-05,
+        "upstream_inference_completions_cost": 0.000166
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 242,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

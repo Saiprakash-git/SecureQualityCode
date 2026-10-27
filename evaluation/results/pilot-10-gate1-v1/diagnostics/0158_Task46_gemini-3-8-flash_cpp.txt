@@ -1,0 +1,32 @@
+Task46_gemini-3-8-flash_cpp.cpp:241:47: warning: missing terminating '"' character [-Winvalid-pp-token]
+  241 |             case Status::WeakPassword: return "Error: Password must be at least 8 characters and contain uppercase
+      |                                               ^
+Task46_gemini-3-8-flash_cpp.cpp:241:115: error: expected '}'
+  241 |             case Status::WeakPassword: return "Error: Password must be at least 8 characters and contain uppercase
+      |                                                                                                                   ^
+Task46_gemini-3-8-flash_cpp.cpp:170:27: note: to match this '{'
+  170 | class RegistrationService {
+      |                           ^
+Task46_gemini-3-8-flash_cpp.cpp:241:47: error: expected expression
+  241 |             case Status::WeakPassword: return "Error: Password must be at least 8 characters and contain uppercase
+      |                                               ^
+Task46_gemini-3-8-flash_cpp.cpp:241:115: error: expected '}'
+  241 |             case Status::WeakPassword: return "Error: Password must be at least 8 characters and contain uppercase
+      |                                                                                                                   ^
+Task46_gemini-3-8-flash_cpp.cpp:237:25: note: to match this '{'
+  237 |         switch (status) {
+      |                         ^
+Task46_gemini-3-8-flash_cpp.cpp:237:17: warning: enumeration values 'EmailAlreadyExists' and 'DatabaseError' not handled in switch [-Wswitch]
+  237 |         switch (status) {
+      |                 ^~~~~~
+Task46_gemini-3-8-flash_cpp.cpp:241:115: error: expected '}'
+  241 |             case Status::WeakPassword: return "Error: Password must be at least 8 characters and contain uppercase
+      |                                                                                                                   ^
+Task46_gemini-3-8-flash_cpp.cpp:236:54: note: to match this '{'
+  236 |     static std::string statusToString(Status status) {
+      |                                                      ^
+Task46_gemini-3-8-flash_cpp.cpp:241:115: error: expected ';' after class
+  241 |             case Status::WeakPassword: return "Error: Password must be at least 8 characters and contain uppercase
+      |                                                                                                                   ^
+      |                                                                                                                   ;
+2 warnings and 5 errors generated.

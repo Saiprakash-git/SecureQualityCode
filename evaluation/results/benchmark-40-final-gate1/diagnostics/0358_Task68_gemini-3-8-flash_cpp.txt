@@ -1,0 +1,4 @@
+Task68_gemini-3-8-flash_cpp.cpp:6:10: fatal error: 'ldap.h' file not found
+    6 | #include <ldap.h>
+      |          ^~~~~~~~
+1 error generated.

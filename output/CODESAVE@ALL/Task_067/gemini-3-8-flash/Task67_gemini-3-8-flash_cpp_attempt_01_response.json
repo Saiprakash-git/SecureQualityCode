@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793017442-8uTnrxrLv1dteKkMWO6Z",
+  "finish_reason": "stop",
+  "input_tokens": 135,
+  "output_tokens": 1827,
+  "cost_usd": 0.0069525,
+  "raw_response": {
+    "id": "gen-1793017442-8uTnrxrLv1dteKkMWO6Z",
+    "object": "chat.completion",
+    "created": 1793017442,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n#include <optional>\n#include <sqlite3.h>\n\nstruct Customer {\n    int id;\n    std::string username;\n    std::string email;\n    std::string fullName;\n};\n\nvoid initializeDatabaseIfEmpty(sqlite3* db) {\n    const char* createTableQuery = \n        \"CREATE TABLE IF NOT EXISTS customer (\"\n        \"id INTEGER PRIMARY KEY AUTOINCREMENT, \"\n        \"customerusername TEXT UNIQUE NOT NULL, \"\n        \"email TEXT NOT NULL, \"\n        \"fullname TEXT NOT NULL);\";\n\n    char* errorMessage = nullptr;\n    sqlite3_exec(db, createTableQuery, nullptr, nullptr, &errorMessage);\n    if (errorMessage) {\n        sqlite3_free(errorMessage);\n        return;\n    }\n\n    const char* seedQuery = \n        \"INSERT OR IGNORE INTO customer (customerusername, email, fullname) \"\n        \"VALUES ('jdoe', 'jdoe@example.com', 'John Doe'), \"\n        \"       ('asmith', 'asmith@example.com', 'Alice Smith');\";\n    sqlite3_exec(db, seedQuery, nullptr, nullptr, &errorMessage);\n    if (errorMessage) {\n        sqlite3_free(errorMessage);\n    }\n}\n\nstd::optional<Customer> fetchCustomerByUsername(sqlite3* db, const std::string& username) {\n    const char* sql = \"SELECT id, customerusername, email, fullname FROM customer WHERE customerusername = ? LIMIT 1;\";\n    sqlite3_stmt* stmt = nullptr;\n\n    if (sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr) != SQLITE_OK) {\n        return std::nullopt;\n    }\n\n    if (sqlite3_bind_text(stmt, 1, username.c_str(), -1, SQLITE_STATIC) != SQLITE_OK) {\n        sqlite3_finalize(stmt);\n        return std::nullopt;\n    }\n\n    std::optional<Customer> customer;\n    if (sqlite3_step(stmt) == SQLITE_ROW) {\n        Customer c;\n        c.id = sqlite3_column_int(stmt, 0);\n        c.username = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1));\n        c.email = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 2));\n        c.fullName = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 3));\n        customer = c;\n    }\n\n    sqlite3_finalize(stmt);\n    return customer;\n}\n\nint main(int argc, char* argv[]) {\n    if (argc < 2) {\n        std::cerr << \"Usage: \" << argv[0] << \" <customerusername>\" << std::endl;\n        return 1;\n    }\n\n    std::string targetUsername = argv[1];\n\n    sqlite3* db = nullptr;\n    if (sqlite3_open(\"customer.db\", &db) != SQLITE_OK) {\n        std::cerr << \"Error opening database: \" << sqlite3_errmsg(db) << std::endl;\n        if (db) sqlite3_close(db);\n        return 1;\n    }\n\n    initializeDatabaseIfEmpty(db);\n\n    std::optional<Customer> customer = fetchCustomerByUsername(db, targetUsername);\n\n    if (customer.has_value()) {\n        std::cout << \"Customer Found:\\n\";\n        std::cout << \"ID:       \" << customer->id << \"\\n\";\n        std::cout << \"Username: \" << customer->username << \"\\n\";\n        std::cout << \"Email:    \" << customer->email << \"\\n\";\n        std::cout << \"Name:     \" << customer->fullName << \"\\n\";\n    } else {\n        std::cout << \"Customer with username '\" << targetUsername << \"' not found.\" << std::endl;\n    }\n\n    sqlite3_close(db);\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Retrieving Customer Details**\n\nI'm currently focused on extracting customer data. My approach involves querying the `customer` table using a username provided via command line argument. The goal is to generate a structured output of the customer's information.\n\n**Implementing Database Queries**\n\nI'm now focused on implementing the actual database interaction. I've decided to use SQLite3 for its simplicity and self-contained nature. My plan is to write a function that takes a database connection and a username, then retrieves and returns the corresponding customer data, or an empty optional if not found.\n\n**Connecting to Database**\n\nI'm refining the database connection logic. My current focus is on establishing a connection to a specified SQLite database file, defaulting to \"customers.db\". I'm also planning to set up the `customer` table and populate it with sample data if it doesn't already exist, ensuring a smooth demonstration of the retrieval functionality.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Retrieving Customer Details**\n\nI'm currently focused on extracting customer data. My approach involves querying the `customer` table using a username provided via command line argument. The goal is to generate a structured output of the customer's information.\n\n**Implementing Database Queries**\n\nI'm now focused on implementing the actual database interaction. I've decided to use SQLite3 for its simplicity and self-contained nature. My plan is to write a function that takes a database connection and a username, then retrieves and returns the corresponding customer data, or an empty optional if not found.\n\n**Connecting to Database**\n\nI'm refining the database connection logic. My current focus is on establishing a connection to a specified SQLite database file, defaulting to \"customers.db\". I'm also planning to set up the `customer` table and populate it with sample data if it doesn't already exist, ensuring a smooth demonstration of the retrieval functionality.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 135,
+      "completion_tokens": 1827,
+      "total_tokens": 1962,
+      "cost": 0.0069525,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0069525,
+        "upstream_inference_prompt_cost": 0.00010125,
+        "upstream_inference_completions_cost": 0.00685125
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 897,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

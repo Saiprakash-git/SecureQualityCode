@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793016620-wmS7HEbxYLz0U0ZJfbm8",
+  "finish_reason": "stop",
+  "input_tokens": 268,
+  "output_tokens": 164,
+  "cost_usd": 0.0001088,
+  "raw_response": {
+    "id": "gen-1793016620-wmS7HEbxYLz0U0ZJfbm8",
+    "object": "chat.completion",
+    "created": 1793016620,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "def likes(names):\n    count = len(names)\n    if count == 0:\n        return \"no one likes this\"\n    if count == 1:\n        return f\"{names[0]} likes this\"\n    if count == 2:\n        return f\"{names[0]} and {names[1]} like this\"\n    if count == 3:\n        return f\"{names[0]}, {names[1]} and {names[2]} like this\"\n    return f\"{names[0]}, {names[1]} and {count - 2} others like this\"",
+          "refusal": null,
+          "reasoning": "**Figuring out function name**\n\nI need to focus on writing code for a function. It looks like the function name should be something like `likes(names)`. This is intended for a Codewars problem, so I'll set up the definition for it: `def likes(names):`. I\u2019ll ensure it returns the appropriate output based on the provided input. The goal is to meet the expectations for this task effectively!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Figuring out function name**\n\nI need to focus on writing code for a function. It looks like the function name should be something like `likes(names)`. This is intended for a Codewars problem, so I'll set up the definition for it: `def likes(names):`. I\u2019ll ensure it returns the appropriate output based on the provided input. The goal is to meet the expectations for this task effectively!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30Mu2OfFqzZ1ocBWx0bs0VhydRkqs8aLmOj_-FTxEJltlM4ogwQHR2BJWmLT0wp_JcADPKcsjiRrR3MSws_NvcWM6u49Y9wRbyVEoCO07IprTjDm-K27qxv3SCMnVhhb5ooeZ_OX0rDvk1PvsL6RrIyTuaiUtUXkjwXmphG70U9v6EVVOvk7YN5LtkfwcDTRRuIFEP7pm7QUsXLnd7v5-bY34hhe0UlZRYZmu74TeFF81dc2-UmAiSxP1LuY6kI8V36M_N5gki7TpCLyHKZYNs1OYAi_LxbKkTDUEjyytKSAeQKj52hJPln3PCjC3r44fJU1WDYo52NOJ09tAI79hU7hE38bPr86VfY-YnJHvIyELmvJHwnvanAEUjS0aOypG4TxLHurWR5sjlqmi1_8LrvaPLVFKSRgUu8nGZHeb5TvUdZTmJG5Zzwrt98AhpMaHMTFEOv7VcpR_CMJai_k2uvJKocuk1IS-5DQRF83GURZ4Xr8nKJwKpB-uhsRERHCVjSAijHHkuYyTixz-AF12wZfYr4Vys-r_1a76kR4sYAG5XVL1Nel0NCEbEsvI17UdYsdEcofIhTlRPJPUMI0TdkjWT6Gt2rJhYs34tvZ5Of1yVYN54gZd9xxWDvAjIE5bV4LqJqG47E-5SCr3ho72pMwcF-kqYNyudrJQE4q-o0z_4uJuf7-V_-ac8QUh_y5TkJ5acXThswMkqcLPhaiwtdCszB7rBja_9ML8wehcuvjJ34SxC-Syl_AK-ScpGeg_1YL0BJyKHXtxzv_jtO2CUT8DTXP50NIZkBxjocRd8w5h4JG7elC_6UjYPvQDy7ifcfBl_lADU7lXKLe2c-wVJxS1ULOZM28CWpPTRHb7ZiWInawgxht00_NbC8ESUaJzleaEDuhVxgdcZ9RSCOfFetd1qHnXcz5P2QCocNmpph6_g7Wk2-p2eSioXiF2XhEDmlsho2ic1Br0h0HxknSNqtRphmZobhVdpgvM5wnlXqK0s9nsIfwiw7nbfJUo_WOps-CpljDNth7fyBoDjLGnUQvSfc0sC895tq48J66W4ITMxkWXYipHIMhPevTcitCwpmEA4bwo6481M6a_qEUN37j4_2c5s59zCHtX7pygKW7J3grSkxjhsXCsun0NpAKQaeHMxBbeieBHuugr7Q3SMwSNAt8SB3DscD342OBbU4iIOvxJxMXMgBQA5Ugs653Jq-OlP_oIMRsThsA0skD4UiR18hjz2trPbUnEuQJrj_Gqug4vPyrnuToGGVHrNOMapCH5wKSgYjycdP0oSSPpr2Ai928TSlGxclnz29UqQZsIHPOx3yfcMOMZW37pY7ZQN4LnPo3-ifC4_uoQKwfYTVhGiVmfrVBr4Pd1466jPKwlxU806qT-Z7bI0r4sXqxbCWkoT_5ZvXvclkl0shr8UN9_D47llK0ysmo5e9OixcYAH5zklqPVK2GbHWvFk_gS3BORezDkfsgQHXi14pky_7Bby8dM9DL-8vXuI5BndQ_WTn_oH0yZ7QdXQeM269YLO657sV-dkho-5wxhIjLfzMvnJE_EBOoqs6Ucatzh7QFgBDGHCNGfAL5dgRQ7dWzFOXja89Goi-tZ9eTvUG4_kBbgaWdhx6MmcbzEc0X3hpsDJc10Hh0VfIZW5vs3pSl5231orK5ca_PsHBo5N5kYRFBPlnzf6FG0x5CV7wd-D5S_Kki2R063cQtBrO2vw8oGVCdKYn0O355h-d7RVHS3QXGUK74TW246eF2qthyw2nViqIqp_wN3_P16WRkz8s5Tz9lOy2_ofdCCELJpN_C6l-xkwqFHTctPW22kxX2A7tw-YQDzFaPulebr4DYTCNpKU5H88htlTPaIlnE0Ua3ekDy2fKqW_1ZA7Nhayh2tylOvhtNGJqK-Bj0NNTdWFF8qbdJLKJvlmM2_TBeHL92pAmhvcckgkdR20R7rJWvgjaugilmoBHMHMt2aApOShaWa-aLjjPqJV6MuhvnSOG0VGzicdQI1SeExB4q1LTAM2b62j0-rtzB4l_Kv0XsUHkUeYaaNihGCxcYCwLHB5TpwJAiKlAAqlSgRDxoKKKwhHbVIb4=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_08a53e66796d57f5016adf432d760c87d18206b63d136d28eb",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 268,
+      "completion_tokens": 164,
+      "total_tokens": 432,
+      "cost": 0.0001088,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001088,
+        "upstream_inference_prompt_cost": 2.68e-05,
+        "upstream_inference_completions_cost": 8.2e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 38,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

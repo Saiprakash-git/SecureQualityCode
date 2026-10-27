@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793016576-mAisAZJIuLJNBLBvCnVh",
+  "finish_reason": "stop",
+  "input_tokens": 266,
+  "output_tokens": 236,
+  "cost_usd": 0.0001446,
+  "raw_response": {
+    "id": "gen-1793016576-mAisAZJIuLJNBLBvCnVh",
+    "object": "chat.completion",
+    "created": 1793016576,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import java.util.ArrayList;\nimport java.util.List;\n\npublic class LineNumbering {\n\n    public static List<String> number(List<String> lines) {\n        List<String> result = new ArrayList<>();\n        if (lines == null) {\n            return result;\n        }\n        for (int i = 0; i < lines.size(); i++) {\n            result.add((i + 1) + \": \" + lines.get(i));\n        }\n        return result;\n    }\n\n    public static void main(String[] args) {\n        System.out.println(number(new ArrayList<>()));\n        List<String> sample = new ArrayList<>();\n        sample.add(\"a\");\n        sample.add(\"b\");\n        sample.add(\"c\");\n        System.out.println(number(sample));\n    }\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 266,
+      "completion_tokens": 236,
+      "total_tokens": 502,
+      "cost": 0.0001446,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001446,
+        "upstream_inference_prompt_cost": 2.66e-05,
+        "upstream_inference_completions_cost": 0.000118
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

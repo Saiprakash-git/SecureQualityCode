@@ -1,0 +1,7 @@
+@@0d9d3e6aed973094 STEP 0 BEGIN@@
+
+@@0d9d3e6aed973094 STEP 0 END rc=0@@
+@@0d9d3e6aed973094 STEP 1 BEGIN@@
+All tests passed!
+
+@@0d9d3e6aed973094 STEP 1 END rc=0@@

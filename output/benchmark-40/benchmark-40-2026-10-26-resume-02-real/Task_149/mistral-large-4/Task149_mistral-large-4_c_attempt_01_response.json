@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "mistralai/mistral-large-4-0",
+  "response_id": "gen-1793025547-7WWlYSCk9krG1mbRxLAi",
+  "finish_reason": "stop",
+  "input_tokens": 107,
+  "output_tokens": 1808,
+  "cost_usd": 0.00770296,
+  "raw_response": {
+    "id": "gen-1793025547-7WWlYSCk9krG1mbRxLAi",
+    "object": "chat.completion",
+    "created": 1793025547,
+    "model": "mistralai/mistral-large-4-0",
+    "provider": "Mistral",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n\n#define MAX_SIZE 100\n\ntypedef struct {\n    int items[MAX_SIZE];\n    int front;\n    int rear;\n    int size;\n} Queue;\n\nvoid init_queue(Queue *q) {\n    q->front = 0;\n    q->rear = -1;\n    q->size = 0;\n}\n\nbool is_empty(Queue *q) {\n    return q->size == 0;\n}\n\nbool is_full(Queue *q) {\n    return q->size == MAX_SIZE;\n}\n\nbool enqueue(Queue *q, int value) {\n    if (is_full(q)) {\n        return false;\n    }\n    q->rear = (q->rear + 1) % MAX_SIZE;\n    q->items[q->rear] = value;\n    q->size++;\n    return true;\n}\n\nbool dequeue(Queue *q, int *value) {\n    if (is_empty(q)) {\n        return false;\n    }\n    *value = q->items[q->front];\n    q->front = (q->front + 1) % MAX_SIZE;\n    q->size--;\n    return true;\n}\n\nbool peek(Queue *q, int *value) {\n    if (is_empty(q)) {\n        return false;\n    }\n    *value = q->items[q->front];\n    return true;\n}\n\nint main() {\n    Queue q;\n    init_queue(&q);\n\n    enqueue(&q, 10);\n    enqueue(&q, 20);\n    enqueue(&q, 30);\n\n    int val;\n    if (peek(&q, &val)) {\n        printf(\"Peek: %d\\n\", val);\n    }\n\n    while (dequeue(&q, &val)) {\n        printf(\"Dequeued: %d\\n\", val);\n    }\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "The user wants a C program implementing a queue data structure with enqueue, dequeue, and peek operations. The requirements are:\n\n1. Return ONLY raw source code (no markdown fences, no explanations)\n2. Write one complete self-contained source file in C\n3. All functions should accept input as parameters and return output if any\n4. Return only the source file contents, starting with the first source line\n\nI need to implement a queue. A queue is FIFO (First In First Out). I can implement it using either an array (circular queue) or a linked list. A circular array implementation is more efficient and common for basic queue implementations.\n\nStructure:\n- Define a Queue structure with an array, front index, rear index, capacity, and size (or just use front/rear with capacity)\n- Functions:\n  - create_queue (or init_queue) - to initialize\n  - enqueue - add element to rear\n  - dequeue - remove element from front\n  - peek - view front element without removing\n  - is_empty, is_full (helper functions)\n  - maybe destroy_queue to free memory\n\nSince the user said \"All functions should accept input as parameters and return output if any\", I should make sure functions take parameters and return values appropriately.\n\nLet me write a complete, self-contained C program:\n\n```c\n#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n\n#define MAX_SIZE 100\n\ntypedef struct {\n    int items[MAX_SIZE];\n    int front;\n    int rear;\n    int size;\n} Queue;\n\nvoid init_queue(Queue *q) {\n    q->front = 0;\n    q->rear = -1;\n    q->size = 0;\n}\n\nbool is_empty(Queue *q) {\n    return q->size == 0;\n}\n\nbool is_full(Queue *q) {\n    return q->size == MAX_SIZE;\n}\n\nbool enqueue(Queue *q, int value) {\n    if (is_full(q)) {\n        return false;\n    }\n    q->rear = (q->rear + 1) % MAX_SIZE;\n    q->items[q->rear] = value;\n    q->size++;\n    return true;\n}\n\nbool dequeue(Queue *q, int *value) {\n    if (is_empty(q)) {\n        return false;\n    }\n    *value = q->items[q->front];\n    q->front = (q->front + 1) % MAX_SIZE;\n    q->size--;\n    return true;\n}\n\nbool peek(Queue *q, int *value) {\n    if (is_empty(q)) {\n        return false;\n    }\n    *value = q->items[q->front];\n    return true;\n}\n\nint main() {\n    Queue q;\n    init_queue(&q);\n\n    enqueue(&q, 10);\n    enqueue(&q, 20);\n    enqueue(&q, 30);\n\n    int val;\n    if (peek(&q, &val)) {\n        printf(\"Peek: %d\\n\", val);\n    }\n\n    while (dequeue(&q, &val)) {\n        printf(\"Dequeued: %d\\n\", val);\n    }\n\n    return 0;\n}\n```\n\nWait, the user said \"Return only the source file contents, starting with the first source line.\" and \"Do not use Markdown fences.\"\n\nSo I should output just the raw C code without any ```c or ``` markers.\n\nAlso, I should make sure it's a complete program. The main function demonstrates usage, but the core is the queue implementation.\n\nLet me double-check the requirements:\n- Queue data structure with enqueue, dequeue, and peek operations\n- One complete self-contained source file in C\n- All functions accept input as parameters and return output if any\n- Return only raw source code\n\nThe code looks good. I'll use a circular buffer implementation as it's standard and efficient.\n\nOne small thing: I should include stdbool.h for bool type, or I could use int for boolean returns. But stdbool.h is standard C99, so it should be fine.\n\nActually, looking at the instructions again: \"All functions should accept input as parameters and return output if any.\"\n\nMy functions:\n- init_queue: takes Queue* parameter, returns void (no output needed)\n- is_empty: takes Queue*, returns bool\n- is_full: takes Queue*, returns bool\n- enqueue: takes Queue* and int value, returns bool (success/failure)\n- dequeue: takes Queue* and int* (output parameter), returns bool\n- peek: takes Queue* and int* (output parameter), returns bool\n\nThis satisfies the requirement.\n\nI should make sure there are no markdown fences. Just raw code.\n\nLet me write the final version:\n\n```c\n#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n\n#define MAX_SIZE 100\n\ntypedef struct {\n    int items[MAX_SIZE];\n    int front;\n    int rear;\n    int size;\n} Queue;\n\nvoid init_queue(Queue *q) {\n    q->front = 0;\n    q->rear = -1;\n    q->size = 0;\n}\n\nbool is_empty(Queue *q) {\n    return q->size == 0;\n}\n\nbool is_full(Queue *q) {\n    return q->size == MAX_SIZE;\n}\n\nbool enqueue(Queue *q, int value) {\n    if (is_full(q)) {\n        return false;\n    }\n    q->rear = (q->rear + 1) % MAX_SIZE;\n    q->items[q->rear] = value;\n    q->size++;\n    return true;\n}\n\nbool dequeue(Queue *q, int *value) {\n    if (is_empty(q)) {\n        return false;\n    }\n    *value = q->items[q->front];\n    q->front = (q->front + 1) % MAX_SIZE;\n    q->size--;\n    return true;\n}\n\nbool peek(Queue *q, int *value) {\n    if (is_empty(q)) {\n        return false;\n    }\n    *value = q->items[q->front];\n    return true;\n}\n\nint main() {\n    Queue q;\n    init_queue(&q);\n\n    enqueue(&q, 10);\n    enqueue(&q, 20);\n    enqueue(&q, 30);\n\n    int val;\n    if (peek(&q, &val)) {\n        printf(\"Peek: %d\\n\", val);\n    }\n\n    while (dequeue(&q, &val)) {\n        printf(\"Dequeued: %d\\n\", val);\n    }\n\n    return 0;\n}\n```\n\nThis looks correct. I'll output this without any markdown fences.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "The user wants a C program implementing a queue data structure with enqueue, dequeue, and peek operations. The requirements are:\n\n1. Return ONLY raw source code (no markdown fences, no explanations)\n2. Write one complete self-contained source file in C\n3. All functions should accept input as parameters and return output if any\n4. Return only the source file contents, starting with the first source line\n\nI need to implement a queue. A queue is FIFO (First In First Out). I can implement it using either an array (circular queue) or a linked list. A circular array implementation is more efficient and common for basic queue implementations.\n\nStructure:\n- Define a Queue structure with an array, front index, rear index, capacity, and size (or just use front/rear with capacity)\n- Functions:\n  - create_queue (or init_queue) - to initialize\n  - enqueue - add element to rear\n  - dequeue - remove element from front\n  - peek - view front element without removing\n  - is_empty, is_full (helper functions)\n  - maybe destroy_queue to free memory\n\nSince the user said \"All functions should accept input as parameters and return output if any\", I should make sure functions take parameters and return values appropriately.\n\nLet me write a complete, self-contained C program:\n\n```c\n#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n\n#define MAX_SIZE 100\n\ntypedef struct {\n    int items[MAX_SIZE];\n    int front;\n    int rear;\n    int size;\n} Queue;\n\nvoid init_queue(Queue *q) {\n    q->front = 0;\n    q->rear = -1;\n    q->size = 0;\n}\n\nbool is_empty(Queue *q) {\n    return q->size == 0;\n}\n\nbool is_full(Queue *q) {\n    return q->size == MAX_SIZE;\n}\n\nbool enqueue(Queue *q, int value) {\n    if (is_full(q)) {\n        return false;\n    }\n    q->rear = (q->rear + 1) % MAX_SIZE;\n    q->items[q->rear] = value;\n    q->size++;\n    return true;\n}\n\nbool dequeue(Queue *q, int *value) {\n    if (is_empty(q)) {\n        return false;\n    }\n    *value = q->items[q->front];\n    q->front = (q->front + 1) % MAX_SIZE;\n    q->size--;\n    return true;\n}\n\nbool peek(Queue *q, int *value) {\n    if (is_empty(q)) {\n        return false;\n    }\n    *value = q->items[q->front];\n    return true;\n}\n\nint main() {\n    Queue q;\n    init_queue(&q);\n\n    enqueue(&q, 10);\n    enqueue(&q, 20);\n    enqueue(&q, 30);\n\n    int val;\n    if (peek(&q, &val)) {\n        printf(\"Peek: %d\\n\", val);\n    }\n\n    while (dequeue(&q, &val)) {\n        printf(\"Dequeued: %d\\n\", val);\n    }\n\n    return 0;\n}\n```\n\nWait, the user said \"Return only the source file contents, starting with the first source line.\" and \"Do not use Markdown fences.\"\n\nSo I should output just the raw C code without any ```c or ``` markers.\n\nAlso, I should make sure it's a complete program. The main function demonstrates usage, but the core is the queue implementation.\n\nLet me double-check the requirements:\n- Queue data structure with enqueue, dequeue, and peek operations\n- One complete self-contained source file in C\n- All functions accept input as parameters and return output if any\n- Return only raw source code\n\nThe code looks good. I'll use a circular buffer implementation as it's standard and efficient.\n\nOne small thing: I should include stdbool.h for bool type, or I could use int for boolean returns. But stdbool.h is standard C99, so it should be fine.\n\nActually, looking at the instructions again: \"All functions should accept input as parameters and return output if any.\"\n\nMy functions:\n- init_queue: takes Queue* parameter, returns void (no output needed)\n- is_empty: takes Queue*, returns bool\n- is_full: takes Queue*, returns bool\n- enqueue: takes Queue* and int value, returns bool (success/failure)\n- dequeue: takes Queue* and int* (output parameter), returns bool\n- peek: takes Queue* and int* (output parameter), returns bool\n\nThis satisfies the requirement.\n\nI should make sure there are no markdown fences. Just raw code.\n\nLet me write the final version:\n\n```c\n#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n\n#define MAX_SIZE 100\n\ntypedef struct {\n    int items[MAX_SIZE];\n    int front;\n    int rear;\n    int size;\n} Queue;\n\nvoid init_queue(Queue *q) {\n    q->front = 0;\n    q->rear = -1;\n    q->size = 0;\n}\n\nbool is_empty(Queue *q) {\n    return q->size == 0;\n}\n\nbool is_full(Queue *q) {\n    return q->size == MAX_SIZE;\n}\n\nbool enqueue(Queue *q, int value) {\n    if (is_full(q)) {\n        return false;\n    }\n    q->rear = (q->rear + 1) % MAX_SIZE;\n    q->items[q->rear] = value;\n    q->size++;\n    return true;\n}\n\nbool dequeue(Queue *q, int *value) {\n    if (is_empty(q)) {\n        return false;\n    }\n    *value = q->items[q->front];\n    q->front = (q->front + 1) % MAX_SIZE;\n    q->size--;\n    return true;\n}\n\nbool peek(Queue *q, int *value) {\n    if (is_empty(q)) {\n        return false;\n    }\n    *value = q->items[q->front];\n    return true;\n}\n\nint main() {\n    Queue q;\n    init_queue(&q);\n\n    enqueue(&q, 10);\n    enqueue(&q, 20);\n    enqueue(&q, 30);\n\n    int val;\n    if (peek(&q, &val)) {\n        printf(\"Peek: %d\\n\", val);\n    }\n\n    while (dequeue(&q, &val)) {\n        printf(\"Dequeued: %d\\n\", val);\n    }\n\n    return 0;\n}\n```\n\nThis looks correct. I'll output this without any markdown fences.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 107,
+      "completion_tokens": 1808,
+      "total_tokens": 1915,
+      "cost": 0.00770296,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00770296,
+        "upstream_inference_prompt_cost": 0.00014552,
+        "upstream_inference_completions_cost": 0.00755744
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1409,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

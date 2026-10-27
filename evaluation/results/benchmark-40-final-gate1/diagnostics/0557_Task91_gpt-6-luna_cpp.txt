@@ -1,0 +1,14 @@
+Task91_gpt-6-luna_cpp.cpp:267:23: error: expected expression
+  267 |         if (received <
+      |                       ^
+Task91_gpt-6-luna_cpp.cpp:267:23: error: expected '}'
+Task91_gpt-6-luna_cpp.cpp:260:14: note: to match this '{'
+  260 |     for (;;) {
+      |              ^
+Task91_gpt-6-luna_cpp.cpp:267:23: error: expected '}'
+  267 |         if (received <
+      |                       ^
+Task91_gpt-6-luna_cpp.cpp:245:33: note: to match this '{'
+  245 | int main(int argc, char** argv) {
+      |                                 ^
+3 errors generated.

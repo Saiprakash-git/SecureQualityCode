@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793025348-xktmA4fFhA6pKLJq1vhX",
+  "finish_reason": "stop",
+  "input_tokens": 112,
+  "output_tokens": 480,
+  "cost_usd": 0.0002512,
+  "raw_response": {
+    "id": "gen-1793025348-xktmA4fFhA6pKLJq1vhX",
+    "object": "chat.completion",
+    "created": 1793025348,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\nlong long maxSubarraySum(const vector<long long>& values) {\n    long long current = values[0];\n    long long best = values[0];\n\n    for (size_t i = 1; i < values.size(); ++i) {\n        current = max(values[i], current + values[i]);\n        best = max(best, current);\n    }\n\n    return best;\n}\n\nint main() {\n    int n;\n    if (!(cin >> n) || n <= 0) {\n        return 0;\n    }\n\n    vector<long long> values(n);\n    for (long long& value : values) {\n        cin >> value;\n    }\n\n    cout << maxSubarraySum(values) << '\\n';\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Determining output format for C++ code**\n\nI need to produce C++ source code and infer the input format. The standard seems to be starting with \"n\" followed by \"n\" integers. The user is asking to find the contiguous subarray with the maximum sum, so I should decide whether to output just the sum or both the sum and the subarray itself. I could use Kadane's algorithm for this. Also, should I include indices? Since the user specifically asks for the subarray, it might be better to print the values too.**Clarifying code implementation**\n\nIn a typical coding prompt, I usually focus on implementing what the user desires. Here, I could set up the main function to read \"n\" and then the values, returning just the maximum sum instead of the entire subarray. While implementing the max sum is standard, returning both may not be necessary. I could create a function named maxSubarraySum that handles edge cases, like empty input, and aims to return a long long value for the sum. The source code will be straightforward, but I need to decide on printing options.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Determining output format for C++ code**\n\nI need to produce C++ source code and infer the input format. The standard seems to be starting with \"n\" followed by \"n\" integers. The user is asking to find the contiguous subarray with the maximum sum, so I should decide whether to output just the sum or both the sum and the subarray itself. I could use Kadane's algorithm for this. Also, should I include indices? Since the user specifically asks for the subarray, it might be better to print the values too.**Clarifying code implementation**\n\nIn a typical coding prompt, I usually focus on implementing what the user desires. Here, I could set up the main function to read \"n\" and then the values, returning just the maximum sum instead of the entire subarray. While implementing the max sum is standard, returning both may not be necessary. I could create a function named maxSubarraySum that handles edge cases, like empty input, and aims to return a long long value for the sum. The source code will be straightforward, but I need to decide on printing options.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq32VJInhUtkD3oLhfiGaK7imRDe9icV7MCRTr5v-RlqkhtnbmFIvijdplxtEQe7TdMqhRNk1jPkX8eVgdBploikhZ9azeYA80792LPWckl8tyH8WYJ-2OwG9gCAtJH-H5k32ELdJA2LJnpD8fU9qzx2a4HJL7HX3iKmadp6BewmDQSo2lsmbtZa6vfnkbCaDYieI_F9iTeftoPo7vF2SNh3NkmFZ_AODG2uRZKJ_7Hib6CusqvbC7odjV6LrkcF8C0vw_bcsMMOAcikpIbqC7fGnQHH10WEBNgK28ebmJNy1PsEenAPzqFbGQnUbUpYTgUfwpqUbkugWhTTyTVn4eisMlJd7lSstXJWtT0n81itHRkSroUUQTnOFDDNSCZVfVxi3U2Uz1znSm5HC0tHZKVbn4-9eEoF5cGtLZAI5KGS8UlCvzbEu6zAmkPv1Bg6a3PswpMBQprpUdGDv_KZ_hCRXw110ITcxUd9Pgx0J2vSv78RiQ97okpsR_nxKL5TLodnuEi_p4iowEhWf-oRMbwmmo656jt4DndtyUkPSwQqvf2WkOyiZj_ehBCUMN_CY02zGln4Q9wau9Zq-eKGjZoraRuakB_CA8ruCE_4AFGAwrc9gsocyvmW-I61dwfF7BANOekwL88M56OR8vQMCj3MTcYZOkdlm9tk9Rrvn6JfZpd3RBZ6L1HWuqABU_T4gHSmxQfZBxWaueFrNBwAQv6KRylu2Wv3rE8RJYLrILHTroUZDvRb4IA1sacURwWI151nLCxMFtePBjS4S32N5_gNpW_Fed3c3RBOCKtzOMLCyjcp8R2_7QC1dAL7-bgjn5zWtOo1OgFXQeanYYDoqnXk1rvohIgfghHjSHYY6hZIIDhw9E7i8LHOy911gfa5EsHseOXXWiDwaJcDYdtTVqh6otUrw9WYpV7nlDfyCkTfX_Adyf5-5qJbMsukkSMHEky-_LuCdnBytJnqqizLhmXZ4UD9YHL6QeGlKosITnlJQ5LrK94U8OoHFEjTxpvdKygf_2D31cd0J7HvX1Xt2zFZkmEzqst2kZc34boC57v_hof57opbi5eHR5vCPiyG7wx2efxDzcPlabZWW-IRRCwfbAJy8pcrZWxAlTjyNvsbIBqCX7tJQKffOf4PmdZe_qi5_Jewg7C6ZcmvmD7xE7yDfeHUNXR679soNdLVjCkGoFqOLPaN3qvRRnTnZA8BvoQPnoe2phbUpal0PRMQfbBbl1mKGuLVjRtGlE35t8co6o4p0Tsqr7PUW8Cz7HJkqkHaMDOj9bAl_AoV11mxBtMN0xmCX5rVzB9leJF-QShR8ytzdCVonrfrRdAG0-mexHxrcTh-YURuW0AGPPu6LLs2l1gBEkxAVR9NpoH98BW5URz8njGuD_qe0pHIN8ekcJO74lCzfWB9Cnkv67kVjwmULtDJIWpJ5F2tfaWJRPk6sIznuxgJnYzP60-wt8MclU1BzO9o0befSHQm_Q39QZ9I7X01eqCNNo1V28a7Iv2JUtz3MJn0GWxHMYHcQyiWOwBK5M3-J-q0AHshrDAOt1kv3F7Gr0gGoiaF5Sgi5xFOPxUfVSFs3IX6LYV7ypefiRahAynjs_9EZhh66kz-VZSKSyA_r3qzyNubwDDCZzmMZ56Vpcx1vfyswqWceVSVlQJPEsu0a1-vxqk1qE-A_DflntvgSqZU68Mc8QvoNRLT4c9FIlm0f-QC7tJFRNC88fvpc3oAOqPQXL7QWIVImu4pEznugCkI27ojpm-4BW30FPrtEgebRVVKudQVR5HemsAluQLNIkgj_qBgAHINUIcutSgpZrmYP0pCxKaL_JqdkVVbBi16IUT4sICmvj3ecfO6_ke_Vln_2ynG9cv5SElTuVePG3tvyGAx7tx92ZV9y_jZek_agzd1852fCsTY2h7YlNkEGcIoGs00SHYhBaYn69NlvpSD0JZCem7YcmjLmQCZzE3BXkKB0qcpSvxg32RkpNI6IXE3vcFGx5wQ40LEkLnjtZbDziXZsoHGyKM9Pa642VTAy3tzSyEXkHmheRLPTndjeTuvC02N0bvrg-sAnVHyrsf2xHx8tl3xF3ffMAQVvOGyB1yyelG787QxcJlSrvL-BYDWTZ3Rix4FkNTnCx8p-jMDOPrnjCFMCSER2LSZ1hz-gJ5MlDmvJnVHli_w7--4pIbijJ9gILD7QkDsso-afJ-NBnxGldwdNSyEQ1hoSz9m3iSzKyA7L9Z4rq1hWP8EJ4m8Yfqc8UGGTdn1zd9wtqk7Tg4ML96q8vmZpERXHvQgmnWY5YS-PyBy9eaWhN9EAOOAczvM4mg-AyZ14icEgNMOMtiLYMCTs5UfGZoNVMFdFa5OwFqYoAKnxn2ttYG9ZsTO1VuS_kZ61rd6zQ1U3wi-zbzgrXXKQ1evLJb8lIr4pEw7ZsImjOnvyxe-Mo5hhc3RaEwrgh-hOpWSMIcZhti_hwh7YKQDc5-gZ_AMrphDRIz7XYC0rz0unIb1SrtSBVulASZHYXLMeDZORg_Yd8SceH-Yck2WqbIapq1ZafhcBFn5fElyuQEkF2TaA0_nMnpTnfvy8Y5zt6urGuaiD_OI8oG-34JG0K6DbSJt7poqBTdxbv5QguNEi1C-l8yUfgb8ekm7lCMJGFOGEs3ssQWCwwt_y9AFTXz00acvvPBW55QXq7JYjOerOdVBQKzT5ku2syxxxkUjrO-YuB_EHytB2KD9pDAAq_ZIHXyLEfvAn7vXwx0dLM7q015TT2yBSbIvasYzxxHyMvMm7DEs_vzbHbzCxBuY-dxNpCVXI17xXGR1ZdYBaLqOkQjR4TSNXzPpvx2nv6E4BxyO8C-CnXtyM8EddlBi3Y_Yr-jQoRTtCQBaIW7YGVQihzPV6TcCxl-dVk56gHHvf1vPTE0asKiFklZG2ujPQRqenJEh6BugXl-JS7B29954OVv-g_XM5N4icDu8T3ki9dBN_dNyNyx4jpONL80K-JZxHKpIlrkOrbDLsxoOJe-BxKThnauwmaXU90AUeifPIc3cto3OX_h5Coip9IAbPa-F9ghX69EIw8OHzPSXDIjyxd4YxmhQst2S33mmI8GkaItJXWXlx7eYaA6bd9VyZ0qZRmI84AhzsLBW7L7vsogcWX0eaQDjQmbEPcyHP8GKpJMiWsn-RmWKYhlJQoYqfLoxrMuE9kzYmJMnpDJv1AG78gpy1Pdy8XF0VUyVYF365MK7GCsqHU5Lh4iVQotrvnNklVlUXzySP7x_tLRnqz0wsMVLRnHGrSnerhvbNeqoBLnFa6m2djetXSKGXgdwj0ePf0d1DFjmaaxyBz5HWjFlb5plspcSnC6R78DBc-efzwk1kFMrakW-8rbfwE2pHCydFzBBMie4oq_BSuSIB8qKoLEDCmFqG4zF0VPDDR99bLBmUoNvOoj8jXyldXrVlOOaLzKhMZSYVfhbArWdzpkBG_Bao25xG12wv3xXkf0HxP2GOaXY_UY87wMyyQHF-5aqpkRThTS8GN-uiH5foQb5ru2qVULyizbacdMI4YPJh6GVy2frmtjTisruygb9Q9Pt6vbGDigMGxMJRKAhNEbsPktsFQH_fP9n98D7xkI3t5FY0VS0e8WyC8OZJbB2vV_BC6z750OLHjFQ-9z3zOvwx3Z-Uo-FzKw3CVAaiUdISrHEbUx1o5ZkMUqXxbJefMC9EZgaiHgNnRa5LxoHbwZp9r8lAplAGn_2zV0MJOHh7XwtwB9zG10A49Qrg2vDKVwbsF91ZUL4Z9Pg2YY07WO7ti3wkXXb3WPlg_3MR8d1AnSz3LQczATgOe_l0XVNC0BNqW6cUySPYVjgdfZuPESiEJFEbAN6Mh1JnL2vvGk9OVQBVY4GduasZQxd5PREe1tzrc-USqpa1MENNiVZ-lsVeXXjWCnpXu13bgIzGclAuweqiTUQT3eV5kjRtS9mjG080IvWtbONLWgjgUxqsR5m79fqudk9yRv7mRRLOZJkrChV1k3JsErwbaLsgHnvPg1oJzLsZeJYN2KAJ-NDG0q32dF6A-vbsiiNTZvpYYZSaTJSHG2LEI9S1W9MI1lXW2c49xtycAm0jfmRHySCpwGc-nBlWgNRp4HTk9X--ZO7sTTp4XBU1aCEQ49JDli_hYtD3PiE8JLqMTFebTmWYAgjLpq_J4-aDj8KobvQlxNQZ0YZHQhzNfu_m5FB8NdXzUP_n0ueoEf6POy7VnyoIvw2OGXI_9mIxuh1foKvzPfLG6YTG3L_PMjFdvfBbv5mb5mpugEvjot3xbouZWFZjMjz-1m84jespYHta8nlMC6UN477CI7YSjfJTlxFjzvpxmx6jRs0E8cerkwmsK4bcx4HDtBoOq8rqqnvre64wZBOXA1S9thvfN6invbBIAWpMgtV_ZuFxZG6b46XGG7hrRs5WvKPFffy7Q8V0gfXOe8BMk0g8CxyflhwN_rEcbhOkdDlZFN3YUHmQP1g7fq7Ywy8Z4gmT5tX2kZY8w1g03-Yg_SlfbBFGDUDR7dN83CKRR2-JBdaaRxiHXMLFiYq837p8K1NcxG8wyEiVoFc86nQwjEm0OCp08WXmSfYAkI8jX43J38glAh1TL7gdCOEnelfeGTvICBNfLGlQtxueEHoZ1vN_1ZLMC1MZZPehLa_hEI_s-RwVuSYivdN8nIElNjzqGFQLCMoD9ScRIC7roNQapqmDtzz0XmxPPO7F3Puq2j6FmJWEYoF9_Nq0K3mlTcthmXkRbH-iIMLCSHPvMhKjRF7dy_jaZXHLfqKxWf4zyQDAheCcLnWFBt-vVpIM27JH-XTma77wLX1DpSTMPuKts4GYgA9oM9BfnjJfo0TwDBm-SvHg9M16vyHEIh-CGYfBr9h27-qH6wFxGhS_Zp5tSlzCjLCC15vPR7sgfqorcXphS8sXNQJ1KQLpWWzYTGzI-54awMMO8S89lneTxiIIardFRxuZhrf2JTOA43K0SXiL712iIamVdTiAkg0rgoe59HDxiMn7J5dpD8uYgOKuTx11BtGbRhgF3awBSfkl9qGw5rKBF2EH30xUnFScliTKgy-SdQCoCTAcsSz3TzV2md6r2pQ3BbgI2eVrXLk2JREO5GpmjxV-IFJYi4Yj2FLauX3UkxmbapKUfhkrp4-oko7N_fHqyyj2nagyAukXO9la5-AzvCRPNUSU_kDgccrd1LvHjJR9rM2iVZg6FYQELJAzqr3reZ7rOIQloen3o2gZn-XEc94osjBh1iuLlv8uTMIPOq0-DsfhekA8yJXlqoA4Sk5dmUlw1aXFf8f-0bF4BEs5CiyV0Zz5E8ug4p3QcJl1eFsZaa9228UkJbP-HMtWgSrriHHMICD4Is0oSBFouBhFPDhgOo1E6jv7xT-6SmLegbv2jbUXwJIBVzmNjEzSGus1FgFv9BhXU1dKsvyc47_eCqCkpD67-a6BDaFwp1vu71cNPNHTIQFCFs37P05DAWFOjAeEk4H6_sogyov6cQpxUtx5eLSAPyfrAg7-GT4aDc6GruNsmKoL_520IN5IHROv7aPGCHliW96V5WBeAK1rNjr1nvMpBBiufBrzUYxKqFIUUULp-mCXG1KYgqjkwrby95vZQmfTEmoqkEJvqtmj9TiA354bdk4pwRhR2q6ETwF78rn7b7Lh666ZKGuGXuQ==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0708a21678741c9f016adf6544ebf887d1bb23356f3b6dc68f",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 112,
+      "completion_tokens": 480,
+      "total_tokens": 592,
+      "cost": 0.0002512,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002512,
+        "upstream_inference_prompt_cost": 1.12e-05,
+        "upstream_inference_completions_cost": 0.00024
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 306,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

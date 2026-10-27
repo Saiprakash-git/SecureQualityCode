@@ -1,0 +1,11 @@
+Task130_claude-haiku-5-5_c.c:100:14: warning: missing terminating ' character [-Winvalid-pp-token]
+  100 |     dst[0] = '\0
+      |              ^
+Task130_claude-haiku-5-5_c.c:100:14: error: expected expression
+Task130_claude-haiku-5-5_c.c:100:17: error: expected '}'
+  100 |     dst[0] = '\0
+      |                 ^
+Task130_claude-haiku-5-5_c.c:97:81: note: to match this '{'
+   97 | static void join_list(char *dst, size_t cap, const char *const *list, size_t n) {
+      |                                                                                 ^
+1 warning and 2 errors generated.

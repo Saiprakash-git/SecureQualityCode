@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793018392-mhtmvtCvwlvIaNafESmg",
+  "finish_reason": "length",
+  "input_tokens": 167,
+  "output_tokens": 4096,
+  "cost_usd": 0.0020647,
+  "raw_response": {
+    "id": "gen-1793018392-mhtmvtCvwlvIaNafESmg",
+    "object": "chat.completion",
+    "created": 1793018392,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "```cpp\n#include <openssl/rsa.h>\n#include <openssl/bn.h>\n#include <openssl/rand.h>\n#include <openssl/err.h>\n\n#include <cstdint>\n#include <iostream>\n#include <memory>\n#include <stdexcept>\n#include <string>\n#include <vector>\n\nusing Bytes = std::vector<uint8_t>;\n\nstatic void put_u32(Bytes& b, uint32_t v) {\n    b.push_back(static_cast<uint8_t>((v >> 24) & 0xFF));\n    b.push_back(static_cast<uint8_t>((v >> 16) & 0xFF));\n    b.push_back(static_cast<uint8_t>((v >> 8) & 0xFF));\n    b.push_back(static_cast<uint8_t>(v & 0xFF));\n}\n\nstatic void put_string(Bytes& b, const Bytes& data) {\n    put_u32(b, static_cast<uint32_t>(data.size()));\n    b.insert(b.end(), data.begin(), data.end());\n}\n\nstatic void put_cstring(Bytes& b, const std::string& s) {\n    put_string(b, Bytes(s.begin(), s.end()));\n}\n\nstatic Bytes bn_to_mpint(const BIGNUM* bn) {\n    Bytes out;\n    if (BN_is_zero(bn)) {\n        return out;\n    }\n    int len = BN_num_bytes(bn);\n    Bytes raw(static_cast<size_t>(len));\n    BN_bn2bin(bn, raw.data());\n    if (raw[0] & 0x80) {\n        out.push_back(0x00);\n    }\n    out.insert(out.end(), raw.begin(), raw.end());\n    return out;\n}\n\nstatic void put_mpint(Bytes& b, const BIGNUM* bn) {\n    put_string(b, bn_to_mpint(bn));\n}\n\nstatic std::string base64_encode(const Bytes& data) {\n    static const char tbl[] =\n        \"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/\";\n    std::string out;\n    size_t i = 0;\n    while (i + 2 < data.size()) {\n        uint32_t v = (static_cast<uint32_t>(data[i]) << 16) |\n                     (static_cast<uint32_t>(data[i + 1]) << 8) |\n                     static_cast<uint32_t>(data[i + 2]);\n        out.push_back(tbl[(v >> 18) & 0x3F]);\n        out.push_back(tbl[(v >> 12) & 0x3F]);\n        out.push_back(tbl[(v >> 6) & 0x3F]);\n        out.push_back(tbl[v & 0x3F]);\n        i += 3;\n    }\n    size_t rem = data.size() - i;\n    if (rem == 1) {\n        uint32_t v = static_cast<uint32_t>(data[i]) << 16;\n        out.push_back(tbl[(v >> 18) & 0x3F]);\n        out.push_back(tbl[(v >> 12) & 0x3F]);\n        out += \"==\";\n    } else if (rem == 2) {\n        uint32_t v = (static_cast<uint32_t>(data[i]) << 16) |\n                     (static_cast<uint32_t>(data[i + 1]) << 8);\n        out.push_back(tbl[(v >> 18) & 0x3F]);\n        out.push_back(tbl[(v >> 12) & 0x3F]);\n        out.push_back(tbl[(v >> 6) & 0x3F]);\n        out.push_back('=');\n    }\n    return out;\n}\n\nstatic std::string generate_openssh_rsa_private_key(int bits, const std::string& comment) {\n    if (bits < 1024) {\n        throw std::invalid_argument(\"RSA key size too small\");\n    }\n\n    std::unique_ptr<RSA, decltype(&RSA_free)> rsa(RSA_new(), RSA_free);\n    std::unique_ptr<BIGNUM, decltype(&BN_free)> e(BN_new(), BN_free);\n    if (!rsa || !e) {\n        throw std::runtime_error(\"allocation failure\");\n    }\n    if (!BN_set_word(e.get(), 65537)) {\n        throw std::runtime_error(\"failed to set public exponent\");\n    }\n    if (RSA_generate_key_ex(rsa.get(), bits, e.get(), nullptr) != 1) {\n        throw std::runtime_error(\"RSA key generation failed\");\n    }\n\n    const BIGNUM *n = nullptr, *pub_e = nullptr, *d = nullptr;\n    const BIGNUM *p = nullptr, *q = nullptr;\n    const BIGNUM *dmp1 = nullptr, *dmq1 = nullptr, *iqmp = nullptr;\n    RSA_get0_key(rsa.get(), &n, &pub_e, &d);\n    RSA_get0_factors(rsa.get(), &p, &q);\n    RSA_get0_crt_params(rsa.get(), &dmp1, &dmq1, &iqmp);\n\n    const std::string keytype = \"ssh-rsa\";\n\n    // Public key blob\n    Bytes pubblob;\n    put_cstring(pubblob, keytype);\n    put_mpint(pubblob, pub_e);\n    put_mpint(pubblob, n);\n\n    // Private section (unencrypted)\n    Bytes priv;\n    uint8_t rnd[4];\n    if (RAND_bytes(rnd, sizeof(rnd)) != 1) {\n        throw std::runtime_error(\"RAND_bytes failed\");\n    }\n    uint32_t checkint = (static_cast<uint32_t>(rnd[0]) << 24) |\n                        (static_cast<uint32_t>(rnd[1]) << 16) |\n                        (static_cast<uint32_t>(rnd[2]) << 8) |\n                        static_cast<uint32_t>(rnd[3]);\n    put_u32(priv, checkint);\n    put_u32(priv, checkint);\n    put_cstring(priv, keytype);\n    put_mpint(priv, n);\n    put_mpint(priv, pub_e);\n    put_mpint(priv, d);\n    put_mpint(priv, iqmp);\n    put_mpint(priv, p);\n    put_mpint(priv, q);\n    put_cstring(priv, comment);\n\n    // Pad to multiple of cipher block size (8 for \"none\")\n    uint8_t padv = 1;\n    while (priv.size() % 8 != 0) {\n        priv.push_back(padv++);\n    }\n\n    // Assemble the openssh-key-v1 container\n    Bytes blob;\n    const std::string magic = \"openssh",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 167,
+      "completion_tokens": 4096,
+      "total_tokens": 4263,
+      "cost": 0.0020647,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0020647,
+        "upstream_inference_prompt_cost": 1.67e-05,
+        "upstream_inference_completions_cost": 0.002048
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1820,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

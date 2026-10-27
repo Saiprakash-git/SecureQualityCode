@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793024249-ZULrxTv0I7m4Entcm1pp",
+  "finish_reason": "stop",
+  "input_tokens": 160,
+  "output_tokens": 2167,
+  "cost_usd": 0.0010995,
+  "raw_response": {
+    "id": "gen-1793024249-ZULrxTv0I7m4Entcm1pp",
+    "object": "chat.completion",
+    "created": 1793024249,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "public class StringOperations {\n\n    public static String copy(String source) {\n        if (source == null) {\n            return null;\n        }\n        return new String(source.toCharArray());\n    }\n\n    public static String concatenate(String first, String second) {\n        if (first == null) first = \"\";\n        if (second == null) second = \"\";\n        return first.concat(second);\n    }\n\n    public static String concatenateAll(String separator, String... parts) {\n        if (parts == null || parts.length == 0) {\n            return \"\";\n        }\n        if (separator == null) separator = \"\";\n        StringBuilder sb = new StringBuilder();\n        for (int i = 0; i < parts.length; i++) {\n            if (i > 0) sb.append(separator);\n            if (parts[i] != null) sb.append(parts[i]);\n        }\n        return sb.toString();\n    }\n\n    public static String reverse(String s) {\n        if (s == null) return null;\n        return new StringBuilder(s).reverse().toString();\n    }\n\n    public static String toUpperCase(String s) {\n        if (s == null) return null;\n        return s.toUpperCase();\n    }\n\n    public static String toLowerCase(String s) {\n        if (s == null) return null;\n        return s.toLowerCase();\n    }\n\n    public static String capitalize(String s) {\n        if (s == null || s.isEmpty()) return s;\n        return Character.toUpperCase(s.charAt(0)) + s.substring(1).toLowerCase();\n    }\n\n    public static String substring(String s, int start, int end) {\n        if (s == null) return null;\n        int len = s.length();\n        if (start < 0) start = 0;\n        if (end > len) end = len;\n        if (start > end) return \"\";\n        return s.substring(start, end);\n    }\n\n    public static String insert(String s, int index, String toInsert) {\n        if (s == null) s = \"\";\n        if (toInsert == null) toInsert = \"\";\n        if (index < 0) index = 0;\n        if (index > s.length()) index = s.length();\n        return s.substring(0, index) + toInsert + s.substring(index);\n    }\n\n    public static String remove(String s, String target) {\n        if (s == null || target == null || target.isEmpty()) return s;\n        return s.replace(target, \"\");\n    }\n\n    public static String replace(String s, String target, String replacement) {\n        if (s == null || target == null) return s;\n        if (replacement == null) replacement = \"\";\n        return s.replace(target, replacement);\n    }\n\n    public static String trimAndCollapseSpaces(String s) {\n        if (s == null) return null;\n        return s.trim().replaceAll(\"\\\\s+\", \" \");\n    }\n\n    public static String repeat(String s, int times) {\n        if (s == null) return null;\n        if (times <= 0) return \"\";\n        StringBuilder sb = new StringBuilder(s.length() * times);\n        for (int i = 0; i < times; i++) {\n            sb.append(s);\n        }\n        return sb.toString();\n    }\n\n    public static boolean isPalindrome(String s) {\n        if (s == null) return false;\n        String cleaned = s.replaceAll(\"[^A-Za-z0-9]\", \"\").toLowerCase();\n        return new StringBuilder(cleaned).reverse().toString().equals(cleaned);\n    }\n\n    public static int countOccurrences(String s, String target) {\n        if (s == null || target == null || target.isEmpty()) return 0;\n        int count = 0;\n        int idx = 0;\n        while ((idx = s.indexOf(target, idx)) != -1) {\n            count++;\n            idx += target.length();\n        }\n        return count;\n    }\n\n    public static String caesarShift(String s, int shift) {\n        if (s == null) return null;\n        StringBuilder sb = new StringBuilder(s.length());\n        int k = ((shift % 26) + 26) % 26;\n        for (char c : s.toCharArray()) {\n            if (c >= 'a' && c <= 'z') {\n                sb.append((char) ('a' + (c - 'a' + k) % 26));\n            } else if (c >= 'A' && c <= 'Z') {\n                sb.append((char) ('A' + (c - 'A' + k) % 26));\n            } else {\n                sb.append(c);\n            }\n        }\n        return sb.toString();\n    }\n\n    public static String[] split(String s, String delimiter) {\n        if (s == null) return new String[0];\n        if (delimiter == null || delimiter.isEmpty()) {\n            String[] chars = new String[s.length()];\n            for (int i = 0; i < s.length(); i++) {\n                chars[i] = String.valueOf(s.charAt(i));\n            }\n            return chars;\n        }\n        return s.split(java.util.regex.Pattern.quote(delimiter), -1);\n    }\n\n    public static void main(String[] args) {\n        String original = \"  hello   world  \";\n        String copied = copy(original);\n        System.out.println(\"Original: '\" + original + \"'\");\n        System.out.println(\"Copied: '\" + copied + \"'\");\n        System.out.println(\"Concatenated: \" + concatenate(\"Hello, \", \"World!\"));\n        System.out.println(\"Joined: \" + concatenateAll(\", \", \"a\", \"b\", \"c\"));\n        System.out.println(\"Reversed: \" + reverse(\"abcdef\"));\n        System.out.println(\"Uppercase: \" + toUpperCase(\"java\"));\n        System.out.println(\"Lowercase: \" + toLowerCase(\"JAVA\"));\n        System.out.println(\"Capitalized: \" + capitalize(\"hELLO\"));\n        System.out.println(\"Substring(0,5): \" + substring(\"programming\", 0, 5));\n        System.out.println(\"Insert: \" + insert(\"Hello World\", 6, \"Java \"));\n        System.out.println(\"Remove 'l': \" + remove(\"hello\", \"l\"));\n        System.out.println(\"Replace: \" + replace(\"foo bar foo\", \"foo\", \"baz\"));\n        System.out.println(\"Trim & collapse: '\" + trimAndCollapseSpaces(original) + \"'\");\n        System.out.println(\"Repeat: \" + repeat(\"ab\", 3));\n        System.out.println(\"Palindrome 'A man, a plan, a canal: Panama': \"\n                + isPalindrome(\"A man, a plan, a canal: Panama\"));\n        System.out.println(\"Occurrences of 'ana' in 'banana': \"\n                + countOccurrences(\"banana\", \"ana\"));\n        System.out.println(\"Caesar shift 3: \" + caesarShift(\"Hello, World!\", 3));\n        System.out.println(\"Split by ',': \" + String.join(\"|\", split(\"a,b,,c\", \",\")));\n    }\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 160,
+      "completion_tokens": 2167,
+      "total_tokens": 2327,
+      "cost": 0.0010995,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0010995,
+        "upstream_inference_prompt_cost": 1.6e-05,
+        "upstream_inference_completions_cost": 0.0010835
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

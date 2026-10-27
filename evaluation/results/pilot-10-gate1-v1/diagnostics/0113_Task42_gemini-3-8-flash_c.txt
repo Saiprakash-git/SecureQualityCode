@@ -1,0 +1,10 @@
+Task42_gemini-3-8-flash_c.c:172:56: error: expected ')'
+  172 | static void hmac_sha256(const uint8_t *key, size_t key_
+      |                                                        ^
+Task42_gemini-3-8-flash_c.c:172:24: note: to match this '('
+  172 | static void hmac_sha256(const uint8_t *key, size_t key_
+      |                        ^
+Task42_gemini-3-8-flash_c.c:172:56: error: expected function body after function declarator
+  172 | static void hmac_sha256(const uint8_t *key, size_t key_
+      |                                                        ^
+2 errors generated.

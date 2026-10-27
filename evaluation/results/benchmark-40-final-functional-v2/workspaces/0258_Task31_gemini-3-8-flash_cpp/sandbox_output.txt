@@ -1,0 +1,7 @@
+@@c03eaf261c986cd1 STEP 0 BEGIN@@
+
+@@c03eaf261c986cd1 STEP 0 END rc=0@@
+@@c03eaf261c986cd1 STEP 1 BEGIN@@
+All test cases passed!
+
+@@c03eaf261c986cd1 STEP 1 END rc=0@@

@@ -1,0 +1,4 @@
+Task84_MISTRAL_codestral-latest.c:2:10: fatal error: 'uuid/uuid.h' file not found
+    2 | #include <uuid/uuid.h>
+      |          ^~~~~~~~~~~~~
+1 error generated.

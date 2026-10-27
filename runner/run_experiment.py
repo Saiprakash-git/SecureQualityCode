@@ -13,17 +13,25 @@ Reads run_config.json (or the file passed via --config) and:
   3. Extracts code per language and saves to output_dir/run_id/
   4. Writes a run manifest (JSON) and a cost ledger (JSONL) alongside
 
-Supported providers: openrouter, openai, anthropic, google, mistral
+Supported provider: openrouter. Combinations run on a bounded worker pool
+(config "concurrency") with per-provider pacing ("rate_limits"). A run can
+resume from earlier run folders ("resume_from_runs"); finished combinations
+are skipped by (task, language, model) key, not by position.
 """
 
 import os
 import sys
 import json
 import time
+import random
 import logging
 import argparse
 import datetime
 import re
+import threading
+import email.utils
+from collections import deque
+from concurrent.futures import ThreadPoolExecutor, FIRST_COMPLETED, wait
 from pathlib import Path
 from typing import Any
 
@@ -124,9 +132,33 @@ OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 class OpenRouterResponseError(RuntimeError):
     """An API response or transport failure with a preserved raw payload."""
 
-    def __init__(self, message: str, raw_response: Any = None):
+    def __init__(self, message: str, raw_response: Any = None,
+                 status_code: int | None = None, retry_after: float | None = None):
         super().__init__(message)
         self.raw_response = raw_response
+        self.status_code = status_code
+        self.retry_after = retry_after
+
+
+class MissingApiKeyError(RuntimeError):
+    """Raised before any request is sent, so it can never be billed."""
+
+
+def _parse_retry_after(value: Any) -> float | None:
+    """Parse a Retry-After header given as seconds or as an HTTP date."""
+    if value is None or str(value).strip() == "":
+        return None
+    try:
+        return max(0.0, float(value))
+    except (TypeError, ValueError):
+        pass
+    try:
+        when = email.utils.parsedate_to_datetime(str(value))
+    except (TypeError, ValueError):
+        return None
+    if when is None:
+        return None
+    return max(0.0, (when - datetime.datetime.now(when.tzinfo)).total_seconds())
 
 def build_instruction(languages: list[str]) -> str:
     """Build the generation instruction listing requested languages."""
@@ -144,14 +176,15 @@ def build_instruction(languages: list[str]) -> str:
 
 
 def call_openrouter(model_id: str, system_prompt: str, user_prompt: str,
-                    temperature: float, top_p: float, max_tokens: int) -> dict:
+                    temperature: float, top_p: float, max_tokens: int,
+                    timeout: float = 120) -> dict:
     """Call the OpenRouter API. Returns the full response dict."""
     import urllib.error
     import urllib.request
 
     api_key = os.environ.get("OPENROUTER_API_KEY", "")
     if not api_key:
-        raise RuntimeError("OPENROUTER_API_KEY environment variable is not set.")
+        raise MissingApiKeyError("OPENROUTER_API_KEY environment variable is not set.")
 
     payload = json.dumps({
         "model": model_id,
@@ -176,7 +209,7 @@ def call_openrouter(model_id: str, system_prompt: str, user_prompt: str,
         method="POST",
     )
     try:
-        with urllib.request.urlopen(req, timeout=120) as resp:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
             body = resp.read().decode("utf-8")
             try:
                 return json.loads(body)
@@ -190,8 +223,10 @@ def call_openrouter(model_id: str, system_prompt: str, user_prompt: str,
             raw_response = json.loads(body)
         except json.JSONDecodeError:
             raw_response = body
+        retry_after = _parse_retry_after(exc.headers.get("Retry-After")) if exc.headers else None
         raise OpenRouterResponseError(
-            f"OpenRouter HTTP {exc.code}: {exc.reason}", raw_response
+            f"OpenRouter HTTP {exc.code}: {exc.reason}", raw_response,
+            status_code=exc.code, retry_after=retry_after,
         ) from exc
 
 
@@ -235,11 +270,249 @@ def _raw_for_json(value: Any) -> Any:
         return repr(value)
 
 
+# HTTP statuses retried with backoff. They do not use up a generation attempt.
+RETRYABLE_HTTP_STATUS = {429, 500, 502, 503, 504}
+
+
+class BudgetExhausted(Exception):
+    """The next request's reservation would exceed the cumulative budget."""
+
+
+class RunPaused(Exception):
+    """Another request had an unknown cost; no new requests may be sent."""
+
+
+class TransportRetriesExhausted(Exception):
+    """HTTP 429/5xx persisted through every backoff retry, or a stop was requested."""
+
+    def __init__(self, message: str, transport: list, billing: str, provisional_usd: float,
+                 raw_response: Any = None):
+        super().__init__(message)
+        self.transport = transport
+        self.billing = billing
+        self.provisional_usd = provisional_usd
+        self.raw_response = raw_response
+
+
+class BudgetTracker:
+    """Thread-safe cumulative budget.
+
+    Each request reserves its worst-case cost before it is sent, so requests in
+    flight on other workers are already counted when the next one is checked.
+    `known` is reported cost; `provisional` holds reservations whose real cost
+    is unknown (lost responses, 5xx), so they still count toward the cap.
+    """
+
+    def __init__(self, limit: float, spent: float = 0.0):
+        self.limit = float(limit)
+        self.known = float(spent)
+        self.provisional = 0.0
+        self.reserved = 0.0
+        self.unknown_cost = False
+        self._lock = threading.Lock()
+
+    def committed(self) -> float:
+        with self._lock:
+            return self.known + self.provisional
+
+    def has_room(self, amount: float = 0.0) -> bool:
+        with self._lock:
+            return self._fits(amount)
+
+    def _fits(self, amount: float) -> bool:
+        used = self.known + self.provisional + self.reserved
+        return used < self.limit and used + amount <= self.limit
+
+    def try_reserve(self, amount: float) -> bool:
+        with self._lock:
+            if self.unknown_cost or not self._fits(amount):
+                return False
+            self.reserved += amount
+            return True
+
+    def settle(self, reserved: float, actual: float | None) -> None:
+        """Release a reservation. actual=None means the cost is unknown: the
+        reservation is kept as provisional spend and the run must pause."""
+        with self._lock:
+            self.reserved -= reserved
+            if actual is None:
+                self.unknown_cost = True
+                self.provisional += reserved
+            else:
+                self.known += actual
+
+    def settle_provisional(self, reserved: float) -> None:
+        """Release a reservation but keep it as spend (billing unclear, no pause)."""
+        with self._lock:
+            self.reserved -= reserved
+            self.provisional += reserved
+
+
+class ProviderLimiter:
+    """Per-provider pacing: a cap on concurrent jobs, a minimum gap between
+    request starts, and a cooldown shared by all workers after a 429/5xx."""
+
+    def __init__(self, max_concurrent: int = 1, min_interval_seconds: float = 0.0):
+        self.max_concurrent = max(1, int(max_concurrent))
+        self.min_interval = max(0.0, float(min_interval_seconds))
+        self.active = 0
+        self._next_start = 0.0
+        self._lock = threading.Lock()
+
+    def has_capacity(self) -> bool:
+        with self._lock:
+            return self.active < self.max_concurrent
+
+    def acquire_slot(self) -> None:
+        with self._lock:
+            self.active += 1
+
+    def release_slot(self) -> None:
+        with self._lock:
+            self.active -= 1
+
+    def wait_turn(self, stop_event: threading.Event | None = None) -> bool:
+        """Block until this provider may start a request. False if stopped first."""
+        while True:
+            with self._lock:
+                now = time.monotonic()
+                delay = self._next_start - now
+                if delay <= 0:
+                    self._next_start = now + self.min_interval
+                    return True
+            if stop_event is not None and stop_event.is_set():
+                return False
+            time.sleep(min(delay, 1.0))
+
+    def cooldown(self, seconds: float) -> None:
+        with self._lock:
+            self._next_start = max(self._next_start, time.monotonic() + seconds)
+
+
+def _sleep_unless_stopped(seconds: float, stop_event: threading.Event | None) -> bool:
+    """Sleep in short steps; return False as soon as a stop is requested."""
+    deadline = time.monotonic() + seconds
+    while True:
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            return True
+        if stop_event is not None and stop_event.is_set():
+            return False
+        time.sleep(min(remaining, 1.0))
+
+
+def _send_request(model_cfg: dict, prompt: str, params: dict, config: dict,
+                  budget: BudgetTracker, reserve: float, limiter: "ProviderLimiter | None",
+                  logger, stop_event: threading.Event | None = None) -> tuple[Any, list]:
+    """Send one generation request, retrying HTTP 429/5xx with backoff.
+
+    Every HTTP request reserves `reserve` dollars first and settles it exactly
+    once. Returns (raw_response, transport_retry_log).
+    """
+    transport: list[dict] = []
+    retry_max = int(config.get("http_retry_max", 5))
+    base = float(config.get("http_backoff_base_seconds", 2.0))
+    cap = float(config.get("http_backoff_max_seconds", 60.0))
+    retry_after_cap = float(config.get("http_retry_after_max_seconds", 300.0))
+    provisional_total = 0.0
+    for retry in range(retry_max + 1):
+        if budget.unknown_cost:
+            raise RunPaused("An earlier request has an unknown cost.")
+        if not budget.try_reserve(reserve):
+            if budget.unknown_cost:
+                raise RunPaused("An earlier request has an unknown cost.")
+            raise BudgetExhausted("Budget exhausted before the next request.")
+        if limiter is not None and not limiter.wait_turn(stop_event):
+            budget.settle(reserve, 0.0)
+            raise TransportRetriesExhausted("Stop requested before the request was sent.",
+                                            transport, "not_sent", provisional_total)
+        try:
+            raw_response = call_openrouter(
+                model_id=model_cfg["model_id"],
+                system_prompt="You are an expert software engineer. Return only raw source code.",
+                user_prompt=prompt,
+                temperature=params["temperature"],
+                top_p=params["top_p"],
+                max_tokens=params["max_tokens"],
+                # A read timeout makes the cost unknown and pauses the run, so slow
+                # reasoning models need a longer wait than the 120 s default.
+                timeout=float(config.get("request_timeout_seconds", 120)),
+            )
+        except MissingApiKeyError:
+            budget.settle(reserve, 0.0)
+            raise
+        except OpenRouterResponseError as exc:
+            _, _, error_cost = _usage_values(exc.raw_response)
+            if error_cost is not None or exc.status_code not in RETRYABLE_HTTP_STATUS:
+                budget.settle(reserve, error_cost)  # None: unknown cost, the run pauses
+                raise
+            if exc.status_code == 429:
+                # Rejected before generation; OpenRouter does not bill rate-limited requests.
+                billing = "not_billed"
+                budget.settle(reserve, 0.0)
+            else:
+                # 5xx billing is unclear: count the reservation as spend, keep running.
+                billing = "provisional"
+                budget.settle_provisional(reserve)
+                provisional_total += reserve
+            if exc.retry_after is not None:
+                delay = min(exc.retry_after, retry_after_cap)
+            else:
+                delay = min(cap, base * (2 ** retry)) * random.uniform(1.0, 1.25)
+            transport.append({
+                "status_code": exc.status_code,
+                "retry_after": exc.retry_after,
+                "delay_seconds": round(delay, 3),
+                "billing": billing,
+                "error": str(exc),
+                "raw_response": _raw_for_json(exc.raw_response),
+            })
+            if limiter is not None:
+                limiter.cooldown(delay)
+            if retry == retry_max:
+                raise TransportRetriesExhausted(
+                    f"{str(exc)} persisted after {retry_max} backoff retries.",
+                    transport, "provisional" if provisional_total else "not_billed",
+                    provisional_total, exc.raw_response,
+                ) from exc
+            logger.warning(f"  {model_cfg.get('label', model_cfg['model_id'])}: {exc}; "
+                           f"backing off {delay:.1f}s (retry {retry + 1}/{retry_max})")
+            if not _sleep_unless_stopped(delay, stop_event):
+                raise TransportRetriesExhausted(
+                    "Stop requested during backoff.", transport,
+                    "provisional" if provisional_total else "not_billed",
+                    provisional_total, exc.raw_response,
+                ) from exc
+            continue
+        except Exception:
+            budget.settle(reserve, None)  # transport failure after sending: cost unknown
+            raise
+        _, _, cost = _usage_values(raw_response)
+        budget.settle(reserve, cost)
+        return raw_response, transport
+    raise AssertionError("unreachable")
+
+
+def generation_params(config: dict, model_cfg: dict) -> dict:
+    """Effective sampling parameters: model entry, then run config, then default."""
+    return {
+        "temperature": model_cfg.get("temperature", config.get("temperature", 0.2)),
+        "top_p": model_cfg.get("top_p", config.get("top_p", 0.95)),
+        "max_tokens": model_cfg.get("max_tokens", config.get("max_tokens", 4096)),
+    }
+
+
 def generate(task: dict, config: dict, instruction: str, logger,
              model_cfg: dict | None = None, language: str = "python",
              spent_cost: float = 0.0, budget_limit: float | None = None,
-             dry_run=False, on_attempt=None) -> dict:
-    """Generate one task/language/model result with auditable attempts."""
+             dry_run=False, on_attempt=None, budget: BudgetTracker | None = None,
+             limiter: ProviderLimiter | None = None, start_attempt: int = 1,
+             stop_event: threading.Event | None = None) -> dict:
+    """Generate one task/language/model result with auditable attempts.
+
+    `start_attempt` > 1 continues a combination whose earlier billed attempts
+    were recorded by a previous run.
+    """
     model_cfg = model_cfg or config.get("model")
     if not model_cfg:
         raise RuntimeError("Configuration must define 'model' or non-empty 'models'.")
@@ -274,15 +547,19 @@ def generate(task: dict, config: dict, instruction: str, logger,
             "attempts": [{"attempt": 1, "status": "dry_run", "cost_usd": 0.0}],
         }
 
+    if budget is None:
+        budget = BudgetTracker(budget_limit if budget_limit is not None else float("inf"), spent_cost)
+    reserve = float(model_cfg.get("reserve_usd", config.get("reserve_usd_per_request", 0.0)))
+    params = generation_params(config, model_cfg)
     provider = model_cfg.get("provider", "openrouter")
-    for attempt in range(1, max_attempts + 1):
+    for attempt in range(start_attempt, max_attempts + 1):
         if cost_unknown:
             last_status = "cost_unknown"
             last_error = "Cost became unknown; retries stopped for budget safety."
             break
-        if budget_limit is not None and spent_cost + total_cost >= budget_limit:
-            last_status = "budget_exhausted"
-            last_error = "Budget exhausted before the next attempt."
+        if stop_event is not None and stop_event.is_set():
+            last_status = "paused"
+            last_error = "Run stop requested before the next attempt."
             break
 
         attempt_prompt = prompt
@@ -304,13 +581,9 @@ def generate(task: dict, config: dict, instruction: str, logger,
                 raise NotImplementedError(
                     f"Provider '{provider}' not implemented in this runner. Use 'openrouter'."
                 )
-            raw_response = call_openrouter(
-                model_id=model_cfg["model_id"],
-                system_prompt="You are an expert software engineer. Return only raw source code.",
-                user_prompt=attempt_prompt,
-                temperature=model_cfg.get("temperature", 0.2),
-                top_p=model_cfg.get("top_p", 0.95),
-                max_tokens=model_cfg.get("max_tokens", config.get("max_tokens", 4096)),
+            raw_response, transport = _send_request(
+                model_cfg, attempt_prompt, params, config, budget, reserve,
+                limiter, logger, stop_event,
             )
             last_raw_response = raw_response
             response_received = True
@@ -354,6 +627,9 @@ def generate(task: dict, config: dict, instruction: str, logger,
                 "cost_usd": attempt_cost,
                 "raw_response": _raw_for_json(raw_response),
                 "error": last_error,
+                "billing": "billed" if attempt_cost is not None else "unknown",
+                "provisional_cost_usd": reserve if attempt_cost is None else None,
+                "transport_retries": transport,
             }
             attempts.append(attempt_record)
             if cost_unknown and not source:
@@ -365,6 +641,40 @@ def generate(task: dict, config: dict, instruction: str, logger,
                 on_attempt(attempt_record)
             if source or cost_unknown:
                 break
+        except BudgetExhausted as exc:
+            last_status = "budget_exhausted"
+            last_error = str(exc)
+            break
+        except RunPaused as exc:
+            last_status = "paused"
+            last_error = str(exc)
+            break
+        except TransportRetriesExhausted as exc:
+            # Not a generation attempt: nothing was generated, so the
+            # combination stays incomplete and can be resumed later.
+            last_status = "rate_limited"
+            last_error = str(exc)
+            last_raw_response = _raw_for_json(exc.raw_response)
+            attempts.append({
+                "attempt": attempt,
+                "status": last_status,
+                "validation_status": "not_attempted",
+                "response_model_id": None,
+                "response_id": None,
+                "finish_reason": None,
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "cost_usd": None,
+                "raw_response": last_raw_response,
+                "error": last_error,
+                "billing": exc.billing,
+                "provisional_cost_usd": exc.provisional_usd or None,
+                "transport_retries": exc.transport,
+            })
+            if on_attempt is not None:
+                on_attempt(attempts[-1])
+            logger.warning(f"Task {task['task_number']} language {language}: {last_error}")
+            break
         except Exception as exc:
             last_status = "processing_error" if response_received else "api_error"
             last_error = str(exc)
@@ -382,6 +692,10 @@ def generate(task: dict, config: dict, instruction: str, logger,
                 # successful API return. Keep them on this attempt record for the
                 # audit trail only; they are NOT added to the totals again here.
                 error_input, error_output, error_cost = input_tokens, output_tokens, attempt_cost
+            if isinstance(exc, MissingApiKeyError):
+                billing = "not_sent"
+            else:
+                billing = "billed" if error_cost is not None else "unknown"
             attempts.append({
                 "attempt": attempt,
                 "status": last_status,
@@ -394,6 +708,8 @@ def generate(task: dict, config: dict, instruction: str, logger,
                 "cost_usd": error_cost,
                 "raw_response": _raw_for_json(last_raw_response),
                 "error": last_error,
+                "billing": billing,
+                "provisional_cost_usd": reserve if billing == "unknown" else None,
             })
             if on_attempt is not None:
                 on_attempt(attempts[-1])
@@ -568,6 +884,179 @@ def prepare_output_dir(out_base: Path) -> None:
 #  MAIN
 # ─────────────────────────────────────────────────────────────────────────────
 
+
+def combination_key(task_num: int, language: str, model_label: str) -> tuple:
+    return (int(task_num), language, model_label)
+
+
+_NOT_SENT_ERRORS = ("OPENROUTER_API_KEY environment variable is not set",)
+
+
+def _row_billing(row: dict) -> str:
+    """Billing class of a ledger row. Rows written before the `billing` field
+    existed are classified from the response id, cost and error text."""
+    if row.get("billing"):
+        return row["billing"]
+    if row.get("response_id") or row.get("cost_usd") is not None:
+        return "billed"
+    error = str(row.get("error") or "")
+    if error.startswith("OpenRouter HTTP 429"):
+        return "not_billed"
+    if any(error.startswith(text) for text in _NOT_SENT_ERRORS):
+        return "not_sent"
+    return "unknown"
+
+
+def load_prior_state(run_dirs: list[Path], model_configs: list[dict]) -> dict:
+    """Read earlier run folders (read-only) and summarise each combination.
+
+    Returns {"combos": {key: {"success", "billed_attempts"}}, "known_cost_usd",
+    "provisional_cost_usd", "rows", "summaries"}. Raises ValueError on anything
+    that would make a resume unsafe: missing ledgers, a success row without its
+    source file, a model ID that differs from the current config, or a pre-
+    `billing` row whose cost cannot be classified.
+    """
+    model_ids = {m.get("label", m["model_id"]): m["model_id"] for m in model_configs}
+    combos: dict[tuple, dict] = {}
+    known = provisional = 0.0
+    rows_read = 0
+    summaries = []
+    for run_dir in run_dirs:
+        ledger = run_dir / "cost_ledger.jsonl"
+        if not ledger.is_file():
+            raise ValueError(f"No cost_ledger.jsonl in resume folder: {run_dir}")
+        summary_path = run_dir / "run_summary.json"
+        if summary_path.is_file():
+            summaries.append(json.loads(summary_path.read_text(encoding="utf-8")))
+        for line_no, line in enumerate(ledger.read_text(encoding="utf-8").splitlines(), start=1):
+            if not line.strip():
+                continue
+            try:
+                row = json.loads(line)
+            except json.JSONDecodeError as exc:
+                raise ValueError(f"{ledger}:{line_no} is not valid JSON") from exc
+            rows_read += 1
+            label = row["model_label"]
+            if label in model_ids and row.get("requested_model_id") != model_ids[label]:
+                raise ValueError(
+                    f"{ledger}:{line_no}: {label} used {row.get('requested_model_id')}, "
+                    f"config now says {model_ids[label]}. Model selections must not change."
+                )
+            billing = _row_billing(row)
+            if billing == "unknown" and row.get("provisional_cost_usd") is None:
+                raise ValueError(
+                    f"{ledger}:{line_no}: request with unknown cost and no provisional amount. "
+                    "Reconcile it on OpenRouter and add it to prior_spend_usd before resuming."
+                )
+            known += float(row.get("cost_usd") or 0.0)
+            provisional += float(row.get("provisional_cost_usd") or 0.0)
+            key = combination_key(row["task_id"], row["language"], label)
+            state = combos.setdefault(key, {"success": False, "billed_attempts": 0})
+            if billing == "billed":
+                state["billed_attempts"] += 1
+            if row.get("response_status") == "success":
+                raw_path = Path(row["raw_response_path"])
+                stem = re.sub(r"_attempt_\d+_response\.json$", "", raw_path.name)
+                source = run_dir / raw_path.parent.parent.name / raw_path.parent.name / (
+                    f"{stem}.{_language_extension(row['language'])}")
+                if not source.is_file():
+                    raise ValueError(f"{ledger}:{line_no}: success recorded but source missing: {source}")
+                state["success"] = True
+    return {"combos": combos, "known_cost_usd": known, "provisional_cost_usd": provisional,
+            "rows": rows_read, "summaries": summaries}
+
+
+def acquire_run_lock(lock_path: Path, run_id: str) -> None:
+    """Create the shared lock file atomically; refuse if another run holds it."""
+    try:
+        fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+    except FileExistsError:
+        raise FileExistsError(
+            f"Lock file exists: {lock_path}. Another run may be using this output folder. "
+            "If you are sure none is running (for example after a crash), delete the file."
+        )
+    with os.fdopen(fd, "w", encoding="utf-8") as fh:
+        fh.write(json.dumps({"run_id": run_id, "pid": os.getpid(),
+                             "started": datetime.datetime.now().isoformat()}))
+
+
+class LedgerWriter:
+    """Serialised, fsynced JSONL writer shared by all workers."""
+
+    def __init__(self, path: Path):
+        self._fh = path.open("x", encoding="utf-8")
+        self._lock = threading.Lock()
+
+    def write(self, entry: dict) -> None:
+        with self._lock:
+            self._fh.write(json.dumps(entry) + "\n")
+            self._fh.flush()
+            os.fsync(self._fh.fileno())
+
+    def close(self) -> None:
+        with self._lock:
+            self._fh.close()
+
+
+def plan_jobs(selected: list[dict], model_configs: list[dict], languages: list[str],
+              prior_combos: dict, max_attempts: int, start_combination: int = 1) -> tuple[list, int]:
+    """Every plan combination that is not finished yet, in plan order.
+
+    A combination is finished when it has a saved source or has used all
+    billed attempts. Unfinished ones continue at the next attempt number.
+    """
+    jobs = []
+    skipped_complete = 0
+    for combo_index, (model_cfg, task, language) in enumerate(
+        generation_plan(selected, model_configs, languages), start=1
+    ):
+        if combo_index < start_combination:
+            continue
+        label = model_cfg.get("label", model_cfg["model_id"])
+        state = prior_combos.get(combination_key(task["task_number"], language, label))
+        billed = state["billed_attempts"] if state else 0
+        if state and (state["success"] or billed >= max_attempts):
+            skipped_complete += 1
+            continue
+        jobs.append({"combo_index": combo_index, "model_cfg": model_cfg, "task": task,
+                     "language": language, "label": label, "start_attempt": billed + 1,
+                     "provider": provider_key(model_cfg)})
+    return jobs, skipped_complete
+
+
+def _keep_system_awake(enable: bool) -> None:
+    """Ask Windows not to idle-sleep while a paid run is active. Sleep drops the
+    network, which turns in-flight requests into unknown-cost timeouts and
+    pauses the run. Lid close or a manual Sleep still suspend the machine."""
+    if sys.platform != "win32":
+        return
+    try:
+        import ctypes
+        es_continuous, es_system_required = 0x80000000, 0x00000001
+        ctypes.windll.kernel32.SetThreadExecutionState(
+            es_continuous | (es_system_required if enable else 0))
+    except Exception:
+        pass  # best effort: the run is still safe without it
+
+
+def provider_key(model_cfg: dict) -> str:
+    return model_cfg.get("rate_limit_key") or model_cfg["model_id"].split("/")[0]
+
+
+def build_limiters(config: dict, model_configs: list[dict]) -> dict[str, ProviderLimiter]:
+    limits = config.get("rate_limits", {})
+    default = {"max_concurrent": 1,
+               "min_interval_seconds": config.get("sleep_between_requests_seconds", 2)}
+    default.update(limits.get("default", {}))
+    limiters = {}
+    for model_cfg in model_configs:
+        key = provider_key(model_cfg)
+        if key not in limiters:
+            spec = dict(default, **limits.get(key, {}))
+            limiters[key] = ProviderLimiter(spec["max_concurrent"], spec["min_interval_seconds"])
+    return limiters
+
+
 def main():
     parser = argparse.ArgumentParser(description="MajorProject-VII Benchmark Runner")
     parser.add_argument("--config", default="run_config.json", help="Path to run_config.json")
@@ -597,8 +1086,8 @@ def main():
         print(f"[error] Preflight validation failed: {exc}")
         sys.exit(1)
 
-    # Resume support (minimal): skip combinations before start_combination (1-based,
-    # in generation_plan order). Skipped combinations make NO API call.
+    # start_combination (1-based, plan order) is kept for older configs.
+    # resume_from_runs is the key-based resume: finished combinations are skipped.
     start_combination = int(config.get("start_combination", 1))
     prior_spend = float(config.get("prior_spend_usd", 0.0))
     planned_total = len(selected) * len(model_configs) * len(config["languages"])
@@ -608,9 +1097,71 @@ def main():
     if prior_spend < 0:
         print("[error] prior_spend_usd must not be negative.")
         sys.exit(1)
+    concurrency = int(config.get("concurrency", 1))
+    if concurrency < 1:
+        print("[error] concurrency must be at least 1.")
+        sys.exit(1)
+    max_attempts = int(config.get("max_attempts", config.get("retry_max", 3)))
+    if not args.dry_run and not os.environ.get("OPENROUTER_API_KEY"):
+        print("[error] OPENROUTER_API_KEY is not set; no request was sent.")
+        sys.exit(1)
+
+    # ── shared locks: the output folder and the folder of every resumed run, so two
+    # runners (even with different output_dir values) cannot request the same work ──
+    out_root = (script_dir / config["output_dir"]).resolve()
+    out_root.mkdir(parents=True, exist_ok=True)
+    lock_dirs = {out_root} | {(script_dir / p).resolve().parent for p in config.get("resume_from_runs", [])}
+    held = []
+    try:
+        for lock_dir in sorted((d for d in lock_dirs if d.is_dir()), key=str):
+            acquire_run_lock(lock_dir / ".runner.lock", run_id)
+            held.append(lock_dir / ".runner.lock")
+    except FileExistsError as exc:
+        for path in held:
+            path.unlink(missing_ok=True)
+        print(f"[error] {exc}")
+        sys.exit(1)
+    if not args.dry_run:
+        _keep_system_awake(True)
+    try:
+        _run(config, args, script_dir, model_configs, selected, all_tasks, run_id, now,
+             start_combination, prior_spend, planned_total, concurrency, max_attempts, out_root)
+    finally:
+        if not args.dry_run:
+            _keep_system_awake(False)
+        for path in held:
+            path.unlink(missing_ok=True)
+
+
+def _run(config, args, script_dir, model_configs, selected, all_tasks, run_id, now,
+         start_combination, prior_spend, planned_total, concurrency, max_attempts, out_root):
+    resume_dirs = [(script_dir / p).resolve() for p in config.get("resume_from_runs", [])]
+    out_base = (out_root / run_id).resolve()
+    if out_base in resume_dirs:
+        print("[error] run_id must be new; it cannot also be a resume_from_runs folder.")
+        sys.exit(1)
+    try:
+        prior = load_prior_state(resume_dirs, model_configs) if resume_dirs else {
+            "combos": {}, "known_cost_usd": 0.0, "provisional_cost_usd": 0.0, "rows": 0, "summaries": []}
+    except ValueError as exc:
+        print(f"[error] Resume check failed: {exc}")
+        sys.exit(1)
+    # Spend known to exist but missing from the ledgers counted above (crashed or
+    # unrecorded requests). It counts toward the cap only.
+    unreconciled = float(config.get("unreconciled_spend_usd", 0.0))
+    if unreconciled < 0:
+        print("[error] unreconciled_spend_usd must not be negative.")
+        sys.exit(1)
+    for summary in prior["summaries"]:
+        if abs(float(summary.get("prior_spend_usd", prior_spend)) - prior_spend) > 1e-9:
+            print(f"[error] prior_spend_usd {prior_spend} differs from {summary.get('prior_spend_usd')} "
+                  f"in resumed run {summary.get('run_id')}; spend would be double counted.")
+            sys.exit(1)
+
+    jobs, skipped_complete = plan_jobs(selected, model_configs, config["languages"],
+                                       prior["combos"], max_attempts, start_combination)
 
     # ── output directory ──────────────────────────────────────────────────────
-    out_base = (script_dir / config["output_dir"] / run_id).resolve()
     prepare_output_dir(out_base)
 
     # ── logging ───────────────────────────────────────────────────────────────
@@ -621,15 +1172,26 @@ def main():
         handlers=[logging.FileHandler(log_file, encoding="utf-8"), logging.StreamHandler()],
     )
     logger = logging.getLogger("runner")
-    logger.info(f"Run ID: {run_id}  |  Dry-run: {args.dry_run}")
+    logger.info(f"Run ID: {run_id}  |  Dry-run: {args.dry_run}  |  Workers: {concurrency}")
     logger.info(f"Output: {out_base}")
-
-    # ── load and select tasks ─────────────────────────────────────────────────
     logger.info(f"Tasks loaded: {len(all_tasks)} total, {len(selected)} selected")
+    if resume_dirs:
+        logger.info(f"Resume: {prior['rows']} ledger rows read from {len(resume_dirs)} run(s); "
+                    f"{skipped_complete} combinations already finished")
+    if start_combination > 1:
+        logger.info(f"Resuming at combination {start_combination}; earlier combinations are skipped (no API calls).")
+    logger.info(f"To run now: {len(jobs)} of {planned_total} planned combinations")
+    cap_basis = prior_spend + prior["known_cost_usd"] + prior["provisional_cost_usd"] + unreconciled
+    logger.info(f"Spend counted toward the cap: ${cap_basis:.6f} "
+                f"(prior {prior_spend} + resumed ledgers {prior['known_cost_usd']:.6f} "
+                f"+ provisional {prior['provisional_cost_usd']:.6f} + unreconciled {unreconciled}) "
+                f"of ${config.get('budget_usd_hard_limit', 999):.2f}")
 
     if not selected:
         logger.error("No tasks matched the selection criteria. Check run_config.json.")
         sys.exit(1)
+
+    limiters = build_limiters(config, model_configs)
 
     # ── run manifest ──────────────────────────────────────────────────────────
     manifest = {
@@ -637,151 +1199,211 @@ def main():
         "start_time": now,
         "config": config,
         "model_ids": [m["model_id"] for m in model_configs],
+        "generation_params": {m.get("label", m["model_id"]): generation_params(config, m)
+                              for m in model_configs},
         "task_ids_selected": [t["task_number"] for t in selected],
-        "planned_combinations": len(selected) * len(model_configs) * len(config["languages"]),
-        "max_attempts": int(config.get("max_attempts", config.get("retry_max", 3))),
-        "retry_semantics": "max_attempts includes the initial request",
+        "planned_combinations": planned_total,
+        "max_attempts": max_attempts,
+        "retry_semantics": "max_attempts includes the initial request; HTTP 429/5xx backoff retries are not attempts",
+        "concurrency": concurrency,
+        "rate_limits": {k: {"max_concurrent": v.max_concurrent, "min_interval_seconds": v.min_interval}
+                        for k, v in limiters.items()},
+        "resume_from_runs": [str(p) for p in resume_dirs],
+        "skipped_complete": skipped_complete,
+        "combinations_to_run": [j["combo_index"] for j in jobs],
         "dry_run": args.dry_run,
     }
-    (out_base / "run_manifest.json").write_text(
-        json.dumps(manifest, indent=2), encoding="utf-8"
-    )
+    (out_base / "run_manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 
-    # ── ledger file (one JSON line per task) ──────────────────────────────────
-    ledger_path = out_base / "cost_ledger.jsonl"
-    ledger_file = ledger_path.open("x", encoding="utf-8")
+    ledger = LedgerWriter(out_base / "cost_ledger.jsonl")
 
-    # The budget is checked before each combination and each retry. A single
-    # in-flight request can still exceed the remaining budget.
+    # The cap covers earlier runs, every finished request in this run, and the
+    # reservation of every request in flight.
     budget_limit = config.get("budget_usd_hard_limit", 999)
-    # Previously recorded spend (from an earlier interrupted run) counts toward the cap.
-    total_cost = prior_spend
-    total_input_tokens = 0
-    total_output_tokens = 0
-    success_count = 0
-    error_count = 0
-    attempted_count = 0
+    budget = BudgetTracker(budget_limit, prior_spend + prior["known_cost_usd"] + unreconciled)
+    budget.provisional = prior["provisional_cost_usd"]
+    stop_event = threading.Event()
+    stop_reason = None
+    counters = {"dispatched": 0, "finished": 0, "success": 0, "error": 0,
+                "truncated_accepted": 0, "input_tokens": 0, "output_tokens": 0, "cost": 0.0}
+    overall_done = skipped_complete + (start_combination - 1)
 
-    # ── per-model/per-task/language loop ─────────────────────────────────────
-    planned_combinations = len(selected) * len(model_configs) * len(config["languages"])
-    total_attempts = planned_combinations
-    stop_requested = False
-    if start_combination > 1:
-        logger.info(f"Resuming at combination {start_combination}; earlier combinations are skipped (no API calls).")
-    for combo_index, (model_cfg, task, language) in enumerate(
-        generation_plan(selected, model_configs, config["languages"]), start=1
-    ):
-        if combo_index < start_combination:
-            continue
-        model_label = model_cfg.get("label", model_cfg["model_id"])
+    def run_job(job: dict) -> dict:
+        model_cfg, task, language, label = job["model_cfg"], job["task"], job["language"], job["label"]
         task_num = task["task_number"]
-        if total_cost >= budget_limit:
-            logger.warning(
-                f"Budget limit ${budget_limit:.2f} reached before scheduling "
-                f"{model_label} Task {task_num} {language}. Stopping."
-            )
-            stop_requested = True
-            break
-
-        attempted_count += 1
-        logger.info(
-            f"[{attempted_count}/{total_attempts}] {model_label} "
-            f"Task {task_num} {language}: {task.get('prompt_title', '')[:60]}"
-        )
-        safe_model_label = re.sub(r"[^A-Za-z0-9_.-]+", "_", model_label)
-        task_dir = out_base / f"Task_{task_num:03d}" / safe_model_label
+        safe_label = re.sub(r"[^A-Za-z0-9_.-]+", "_", label)
+        task_dir = out_base / f"Task_{task_num:03d}" / safe_label
         task_dir.mkdir(parents=True, exist_ok=True)
-        stem = f"Task{task_num}_{safe_model_label}_{language}"
+        stem = f"Task{task_num}_{safe_label}_{language}"
 
         def persist_attempt(attempt_record: dict) -> None:
             """Save one finished attempt (raw response + ledger line) immediately."""
             attempt_number = attempt_record["attempt"]
             raw_path = task_dir / f"{stem}_attempt_{attempt_number:02d}_response.json"
             _write_new_file(raw_path, json.dumps(attempt_record, indent=2))
-            ledger_entry = {
+            ledger.write({
                 "task_id": task_num,
                 "prompt_title": task.get("prompt_title", ""),
                 "tags": task.get("tags", []),
                 "language": language,
-                "model_label": model_label,
+                "model_label": label,
                 "requested_model_id": model_cfg["model_id"],
                 "response_model_id": attempt_record.get("response_model_id"),
                 "response_id": attempt_record.get("response_id"),
                 "finish_reason": attempt_record.get("finish_reason"),
+                "truncated": attempt_record.get("finish_reason") == "length",
                 "attempt": attempt_number,
+                "combo_index": job["combo_index"],
                 "input_tokens": attempt_record.get("input_tokens", 0),
                 "output_tokens": attempt_record.get("output_tokens", 0),
                 "cost_usd": attempt_record.get("cost_usd"),
+                "billing": attempt_record.get("billing"),
+                "provisional_cost_usd": attempt_record.get("provisional_cost_usd"),
+                "transport_retries": len(attempt_record.get("transport_retries") or []),
                 "response_status": attempt_record.get("status"),
                 "validation_status": attempt_record.get("validation_status"),
                 "error": attempt_record.get("error"),
                 "raw_response_path": str(raw_path),
-            }
-            ledger_file.write(json.dumps(ledger_entry) + "\n")
-            ledger_file.flush()
-            os.fsync(ledger_file.fileno())
+            })
 
         result = generate(
-            task,
-            config,
-            build_instruction([language]),
-            logger,
-            model_cfg=model_cfg,
-            language=language,
-            spent_cost=total_cost,
-            budget_limit=budget_limit,
-            dry_run=args.dry_run,
-            on_attempt=persist_attempt,
+            task, config, build_instruction([language]), logger,
+            model_cfg=model_cfg, language=language, dry_run=args.dry_run,
+            on_attempt=persist_attempt, budget=budget, limiter=limiters[job["provider"]],
+            start_attempt=job["start_attempt"], stop_event=stop_event,
         )
         if result["source"]:
             source_path = task_dir / f"{stem}.{_language_extension(language)}"
             _write_new_file(source_path, result["source"])
-            logger.info(f"  Saved: {source_path.name}")
-            success_count += 1
+            result["source_path"] = source_path
+        return result
+
+    def finish(job: dict, result: dict) -> None:
+        nonlocal stop_reason, overall_done
+        counters["finished"] += 1
+        counters["cost"] += result["cost_usd"]
+        counters["input_tokens"] += result["input_tokens"]
+        counters["output_tokens"] += result["output_tokens"]
+        tag = f"#{job['combo_index']} {job['label']} Task {job['task']['task_number']} {job['language']}"
+        if result["source"]:
+            counters["success"] += 1
+            overall_done += 1
+            last = result["attempts"][-1] if result["attempts"] else {}
+            if last.get("finish_reason") == "length":
+                counters["truncated_accepted"] += 1
+                logger.warning(f"  {tag}: accepted but finish_reason=length (possibly truncated)")
+            logger.info(f"  Saved: {result['source_path'].name}")
         else:
-            error_count += 1
-            logger.warning(
-                f"  {model_label} Task {task_num} {language}: "
-                f"{result['response_status']} / {result['validation_status']}"
-            )
-
-        total_cost += result["cost_usd"]
-        total_input_tokens += result["input_tokens"]
-        total_output_tokens += result["output_tokens"]
-        logger.info(f"  Cost so far: ${total_cost:.4f} / ${budget_limit:.2f}")
-
+            counters["error"] += 1
+            used = job["start_attempt"] - 1 + sum(1 for a in result["attempts"] if a.get("billing") == "billed")
+            if used >= max_attempts:
+                overall_done += 1  # all attempts used: finished, without a source
+            logger.warning(f"  {tag}: {result['response_status']} / {result['validation_status']}")
+        logger.info(
+            f"  [{counters['finished']}/{len(jobs)} this run | {overall_done}/{planned_total} finished overall] "
+            f"spent ${budget.committed():.4f} (+${budget.reserved:.4f} in flight) / ${budget_limit:.2f}"
+        )
         if result["cost_unknown"] and not args.dry_run:
-            logger.error("Cost metadata was missing; stopping before another paid request.")
-            stop_requested = True
-            break
-        if attempted_count < total_attempts and not args.dry_run:
-            time.sleep(config.get("sleep_between_requests_seconds", 2))
+            logger.error("Cost metadata was missing; pausing before another paid request.")
+            stop_reason = stop_reason or "unknown_cost"
+            stop_event.set()
+        elif result["response_status"] == "budget_exhausted":
+            stop_reason = stop_reason or "budget_exhausted"
+            stop_event.set()
 
-    ledger_file.close()
+    pending = deque(jobs)
+    active: dict = {}
+    pool = ThreadPoolExecutor(max_workers=concurrency)
+    try:
+        while pending or active:
+            while pending and len(active) < concurrency and not stop_event.is_set():
+                job = next((j for j in pending if limiters[j["provider"]].has_capacity()), None)
+                if job is None:
+                    break
+                reserve = float(job["model_cfg"].get("reserve_usd", config.get("reserve_usd_per_request", 0.0)))
+                if budget.unknown_cost:
+                    stop_reason = stop_reason or "unknown_cost"
+                    stop_event.set()
+                    break
+                if not budget.has_room(0.0 if args.dry_run else reserve):
+                    logger.warning(f"Budget limit ${budget_limit:.2f} reached before scheduling "
+                                   f"#{job['combo_index']}. Stopping.")
+                    stop_reason = stop_reason or "budget_exhausted"
+                    stop_event.set()
+                    break
+                pending.remove(job)
+                limiters[job["provider"]].acquire_slot()
+                counters["dispatched"] += 1
+                logger.info(
+                    f"[{counters['dispatched']}/{len(jobs)}] #{job['combo_index']}/{planned_total} "
+                    f"{job['label']} Task {job['task']['task_number']} {job['language']} "
+                    f"(attempt {job['start_attempt']}+): {job['task'].get('prompt_title', '')[:50]}"
+                )
+                active[pool.submit(run_job, job)] = job
+            if not active:
+                break
+            done, _ = wait(list(active), timeout=1.0, return_when=FIRST_COMPLETED)
+            for future in done:
+                job = active.pop(future)
+                limiters[job["provider"]].release_slot()
+                try:
+                    finish(job, future.result())
+                except Exception as exc:  # a bug or I/O failure in one job: stop safely
+                    counters["error"] += 1
+                    logger.exception(f"  #{job['combo_index']} failed inside the runner: {exc}")
+                    stop_reason = stop_reason or "runner_error"
+                    stop_event.set()
+    except KeyboardInterrupt:
+        stop_reason = "interrupted"
+        stop_event.set()
+        logger.warning("Interrupted: no new requests; waiting for in-flight requests to be saved...")
+        for future in list(active):
+            job = active.pop(future)
+            try:
+                finish(job, future.result())
+            except Exception as exc:
+                logger.exception(f"  #{job['combo_index']} failed while stopping: {exc}")
+    finally:
+        pool.shutdown(wait=True, cancel_futures=True)
+        ledger.close()
 
     # ── final summary ─────────────────────────────────────────────────────────
     summary = {
         "run_id": run_id,
         "end_time": datetime.datetime.now().strftime("%Y%m%d_%H%M%S"),
-        "tasks_attempted": attempted_count,
-        "planned_combinations": planned_combinations,
-        "tasks_success": success_count,
-        "tasks_error": error_count,
-        "total_input_tokens": total_input_tokens,
-        "total_output_tokens": total_output_tokens,
+        "tasks_attempted": counters["dispatched"],
+        "planned_combinations": planned_total,
+        "tasks_success": counters["success"],
+        "tasks_error": counters["error"],
+        "truncated_accepted": counters["truncated_accepted"],
+        "total_input_tokens": counters["input_tokens"],
+        "total_output_tokens": counters["output_tokens"],
         "start_combination": start_combination,
         "prior_spend_usd": prior_spend,
-        "total_cost_usd": round(total_cost, 6),
-        "stopped_early": stop_requested,
-        "budget_note": "A single in-flight request may exceed the remaining budget.",
+        "resume_from_runs": [str(p) for p in resume_dirs],
+        "prior_runs_cost_usd": round(prior["known_cost_usd"], 6),
+        "this_run_cost_usd": round(counters["cost"], 6),
+        "total_cost_usd": round(prior_spend + prior["known_cost_usd"] + counters["cost"], 6),
+        "provisional_cost_usd": round(budget.provisional, 6),
+        "unreconciled_spend_usd": unreconciled,
+        "cap_basis_usd": round(budget.committed(), 6),
+        "skipped_complete": skipped_complete,
+        "combinations_finished_overall": overall_done,
+        "combinations_not_finished": planned_total - overall_done,
+        "concurrency": concurrency,
+        "stopped_early": stop_reason is not None,
+        "stop_reason": stop_reason,
+        "budget_note": "Each request reserves its worst-case cost (reserve_usd) before it is sent.",
         "dry_run": args.dry_run,
     }
     (out_base / "run_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
 
     logger.info("=" * 60)
-    logger.info(f"DONE — {success_count}/{attempted_count} artifacts succeeded")
-    logger.info(f"Total tokens: {total_input_tokens} in / {total_output_tokens} out")
-    logger.info(f"Total cost:   ${total_cost:.4f}")
+    logger.info(f"DONE — {counters['success']}/{counters['dispatched']} artifacts succeeded"
+                + (f" | stopped: {stop_reason}" if stop_reason else ""))
+    logger.info(f"Finished overall: {overall_done}/{planned_total}")
+    logger.info(f"Total tokens: {counters['input_tokens']} in / {counters['output_tokens']} out")
+    logger.info(f"Total cost:   ${summary['total_cost_usd']:.4f} (provisional ${budget.provisional:.4f})")
     logger.info(f"Output dir:   {out_base}")
     logger.info("=" * 60)
 

@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "likes",
+   "target": "likes",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 238,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_028/gemini-3-8-flash/Task28_gemini-3-8-flash_cpp.cpp",
+ "artifact_sha256": "98755114e49e111fa987c215cee4953ee257b992870b13efb4ede8f7256a79c8",
+ "oracle_test_path": "tests/claude/Task28_Test.cpp",
+ "oracle_test_sha256": "77913705510812b0f1891753f39c2df01da0335ad8cff6630155cbc44ef34a65",
+ "author": "functional.py draft_adapter (static)"
+}

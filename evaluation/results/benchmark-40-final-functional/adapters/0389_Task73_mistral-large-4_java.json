@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "Task73_CLAUDE_claude_3_5_sonnet_20240620.isValidAdminPassword",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 389,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_073/mistral-large-4/Task73_mistral-large-4_java.java",
+ "artifact_sha256": "71b733654a695a45997af238a112be9d97faa6d52074ca0de250a2ca26239eeb",
+ "oracle_test_path": "src/test/java/claude/task73/Task73Test.java",
+ "oracle_test_sha256": "50ed19fca214d23a38121d0be7955dfcf17754044a40fb80a34f04411ccd73c0",
+ "author": "functional.py draft_adapter (static)"
+}

@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793009721-YZT95YKgDgVKZd8qkiph",
+  "finish_reason": "stop",
+  "input_tokens": 297,
+  "output_tokens": 294,
+  "cost_usd": 0.0001767,
+  "raw_response": {
+    "id": "gen-1793009721-YZT95YKgDgVKZd8qkiph",
+    "object": "chat.completion",
+    "created": 1793009721,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "def to_jaden_case(string):\n    if not string:\n        return None\n    return \" \".join(word.capitalize() for word in string.split())",
+          "refusal": null,
+          "reasoning": "**Defining to jaden case**\n\nI\u2019m thinking about how to define a function called `to_jaden_case`. The method `.capitalize()` will lowercase all the subsequent letters, which is something I need to consider, especially since I want to keep the first letter of each word capitalized. I\u2019ll definitely implement `split` and `join` to handle the words. But what about punctuation? I need to ensure that I capitalize the tokens correctly while managing internal punctuation. Let's work on that!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Defining to jaden case**\n\nI\u2019m thinking about how to define a function called `to_jaden_case`. The method `.capitalize()` will lowercase all the subsequent letters, which is something I need to consider, especially since I want to keep the first letter of each word capitalized. I\u2019ll definitely implement `split` and `join` to handle the words. But what about punctuation? I need to ensure that I capitalize the tokens correctly while managing internal punctuation. Let's work on that!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3yg-pIsLj6Id_SLimcm5489NiOOADS1AnMmLY1qE3u6yGp4SV07IP30aXkuOdI-h5-Epw4BvZD8LDiprM_SNvRgAVIAXdBeZwYuuEi2KSA-heWmHOk2CE1b36wCewFTKde_07madP99ePfiohi0mu6usuoP8GQyL5rn8BMJDImEHZ6zjAolKJq0RQqCia4gWWBVI9URGTcwHq5r3bnsbEqoNpudsQOCuDaaSCCZum0g6Yvkw1_hjjn2fQVZ6pnlfWsecfpxFMmazI88HVE2LthMl1DAGiLW30fmrfthUcS_JIewcLfyuXUGOEy-yXMT-_d2XmDb6Mm7NfMIYnleBhZuhdvc-38h7wfgohK__DRNViUqWFnDXeAhhWVdaTvMbYcbeOnUTIjoS8v3OO--tj20l1QB6yvi5Vrd6uDCO5R82d_x2v7qAJ0xerkGh_EY3aHdF8MnpYEtVFNeZ1Kle7pKD3BI3VJwjJ1_tDYieohRAZEPtzqN4DCf6kevlQlAB2TEcKp154byBR_MINTnl9U-X9QG4_kEYZjCbP86P4RnKvO1tu1jQIu6fXdRKkMZDeCEK8id-P4NCyhey5bUpKtGuC5gJK88-Q4tgBqy3MGJBdQTtNGeCt_PRE_8jojO3LFVhAFaAOirtBbu4xfPDA46SzmzkjgKGaHdl7ottWqBUlg5DIJWXarsT7Yo1o0LvOKjdZyqd2KF3qh5SGMANnWa18eCieYBvsjO43isJFvzLLdZUrXbg3mwneqnnxHwYsUsYg6FgzjIgwJY511Ms9tkEPu3R9OjNut3MAPSOWfSZ6HplPQ_89TTHeGfpV71a0cw3vbR0jfZZIRYpYrbaexap0OdIPKERCUcbfalIuS7Xf0SSFw4p6iGubfzESjlbMfHzbEIfa2kjLJbVIm7ctLZrOL6-t_WxqzYMy7DyqLpGTdK2jpAN4jK0uJtwmCxYqaDbsxcXa96rj84L7AnEfpAbzu-0iOA5T1HC1UuqsrtF0Gxd2Fc4zlKWd483BicDGJAWqONQCz7yc0skUIXHUu8T4c48vPRSfnAHpK34AZ_7L3wA3KtXfQI067rDquWjwk2ZMufkRCaJDauXXgr4FHQjF_D0suBYhDu1fJnS_7BBFK3ArMoAnBhrrZEprQtnE7H_kG87PhXlKlmZYf0PntkjRfoqCqnC4EbQzsg-8ryFv-OBQXUgH9th3OMIomPDAAloO_qirSl48B1ib-At7yxqWo3mKUi0GjnRaqVs89bvLPJ0qxluD91bCFkL89bxL-qne8g5AidTsTLwuRPot6N5zoi8oCGdYNziMQ3RpDadrn4ocmT8Y9X2JXaJEGrI_y3dDfIY-pTjMakAM_i9SdnNg_Xn8w7bOWrA4jzENJCZ_An7Q_9Uf-1NZSZkr6mdkPoKP4zxcFOTmcQAGSEknOXPAljbmSuRkGKCpI5kOJ5rKWuz5A72kal9KUx9g8KC55vFjmxmUEg3MV54oT8BUS8273j4qWFQUe3Gp1Nh_37O5Zh9gaGZe5eVTGBcPhVfNua1t8HGT3Pn_1ZG9hQeXiOInPLHSjQX1Yvt_bfDO-p1nVEKLGvyAMJb5VK51acUt4Gg4zi-LeYy5TEyr_9hzy1tRdAPWCjvsTndJ-rK39n8ltxyk3ofOxwzUvwC3dGh91faLZmoSJlvyz62QhfJOssvQ3MRgTkD4_r3zyh5K4-bCk2dQtJsk-zE60zROcLg-CPZXIb-vSH6ISVgwB80Tpn5WCBUW54kxooUx6pnlGXQ-cgpNdcqcIpeffQlmbBxA-SFTajXmKH4J9kbv_0NyCZrm3fI47bMzKORzuVH6R-qsAU4AHxunRc2gyLS9sJ6B7ppm7_iUKHnW6lHU5ahVCLgt40o6dlKRpX0l0xZLntFJ_693e4ZD0gvyIfhEQSPJGRqep8NkEq4tapsOn2RTmEZQAOjlf0-PexRiizIbDx39cdJ5Oh04QksM1bFMc30fqvnFpynDN2SUloL8NMnjxUIc6bC89v4HoTU6_KGg8PnK053OSJxU45jzl2EwZtIR-040IhSn1ovpOmEeqiwJ8fRQ_hqZDUcXRcdG__j2DZKJfLleAviNHYyfY_AIyzd-DlGDx979f3L40kE8BX4N9sycdJLI-QIcGjeQAJtKeC44Qaym8mHHmoOUJLaiW_UvBYL-9HE9tGH5qrnV6Ipxan2Dn4CXcrhpjF-SVVS0-6LLvCvELrkKP25IU9R1jCE6q2LPXTzzjbyLqyPWbo3IxwPW2LCLT3Upevt6SwK4gUKgSNUpeO-1b3j5JrUelsAecyMqPIQBxBvDmejis5tCEB6hd9osdxVfjmvC7_SQfwXMyaJ70LsS5C8ngTLH4kX8v7viZcw5nU2mP9U2Li3hfD-Y_tof2qzOovlQluUZQ2h5ZCjjS6twW1lBja-AGC1XiRuLBqgxbt1MivldZlUpnTfjWCdk0kSpmfby_yOeElJj5t3Cy2Wmw7U43OjAUVizMyrst5cy4gmInwXeWURC8F9IPlaXWquI55ZF7fhTGlzdirHZ8QKReLKg0b6ZznjLFqQTBVzw-m527-dwejxmhroEnLdLtymGJuR0TWqDSp1l1jrLDmlI3OO_FHnFucwcS3_xLLWTOTm4XhvfVgMw-dp4I5w8g8sujS2XaKYZGNZm0qgyN4JkT5qmip782PIBkEkG99maW2EarZuJ4RiU8Yy5M_81RZtvw2PtmHJI4FPPg-sIPAeqAAU4z7aooyuzu69wJcw9VZyUtr3-JMwoqc5qXmPVWQwOzWMud9Ttoq2H1pUad-719D0oNrpb5fGGtLV_wchpYbY4pq0psp5DKin-AKV-PBKuYZo-m5aKy2VHOv6OdZn0Uv-I2Z8493SQHg9w7iQv9F2z3mHR9KZLI0mXMZgCvk2eOg1mRpSfhR2OTxS-En5YmvsRFyeY1CEGcEMuagNJ1Rn1VixD45gOFGrLozZY4ZHx8rA2AtGdSfVjInYGjTy34nbCrxleds9Ce0Bw79mkjWfs0kFR3UYimXwLziFE3gMIuTxaR9EUCPuFz6KaJFxZmie8BhTNu5hWfTPuHKht0anR4gVogijj2IxDlewB7uJ6hgStnOpIETGiNCfb0fQFgbS4haWTSEllvnS23Ou2lWjIOYktxkN__50m0S3LWtvQW7ppO_YjhqLuqZg3oJwKHQruv6qDAOntxbBHrK-_X2C15Ma2_Lm75ym_q5yV0jWO0Kj4UtQ1S7PhSjOje12Zbv6-_3xrh2ZlAuYdw-kV7SFV3MSF32FocTVUHuHMGZr95QLJH3ezWrm7mdxfI4czvEFt3-UEgCFO0nWKpFYq0BnJnjy2FUjq728LK-WSJwCfG16Dl3PGrwC7v4zeZY32nj6e0XThDzkZGNtvpAaM5dy8L8xife1OwtG7AVhe8UL27a5QwONYWTwAnpNBaK15QcMNHBcaMHiZIz25UNxT844bwTtRqxh0pTgvKKG7E7zvTMudLsz6DU62SwYq1vm6KGyHaZDo41Zb3GY2CZ_RCmCeuhVWC5pFDNM-syMvPQZUOzbKvPAkAPrqBhhP32Y5_XXetlm2uyOyX_aK5_tcvdQt2R4Jr2JW36rvX0pKWuy6rOSxbtL6TYeWROx-favnUvrfpPhyHZcgI0qrQaXrIqhtdYbrQ7V2fGtzXyqCPJfhHZcg3tTNYHrzMBghvLhKkJzjD3OPvNnewqf5A4uY6hUNu0ar3BebLid70So1JYSxRqbRarKzQ_HsxN-TIq2AYAKeQ4gTT_L91NQ8JgFWV68FgY0gHjKJSGviVvXlOXQ8co87Iq7acKowiQnMU35ayiR0smNsVUYjKvY_0q56BWY4Ku9y1eNEaVwraee40YdnZmoT3VuIV0Ce0Lh4zJeghQw8NaQCd2sV6UHMay8iZEp6zU2Q9xg7cI6zputXMi-WSDzPkIFgBXsKxIYNn6J02vFjtiQt0M7uA--LFuWFr8AE9sSVVqTVQ9poPvN7XUoqKlGWpPK_kOlX24NT_Newt-9mdGQAUv-JSVZK5z7_Q4-caPPPGs3TPN-THz8gZwBwwhtNP8aeaFxjZsLCgvFXOmJk_tMwjprWMmmH6ubtHs9wvftUZYWlnCp49MZOZx5sJQzDQ83sFDl5cpFFDgHTUHJF1a52p77r6OQm-PS1zRrQLOvqFuoolyYhIS_4bg4Qqbk5UuhxddKMkc7TEp1ent2B64B6S7IWomS1L7sSU2DXbq2rxGwOMFpwifurCrrx8bB6oqKF_7o3pi56WfwbamNhhE-y4uods9p-J_zszEyKmmdfBP-x0WJTZQaZGxsyE2F2vtX0BOJNok7H-r8gxIScAdMMw_fGCvIUJC9JFNhGIJxu-_iW8EYpWpuk2Ps-J6XQLxINDEqKJ6rgrs3wKlJIy0SUE6d6JaTWvRVKSg4kN5Mu3j6mS4JwdEqHgSbIo9BFDjYe9dGzeaXtmOlJEP08OCUcMTSYfQQAxRTBI8j0RppfetM30INa2PMg4whXLd9fOaB6c6CwoEZni8Cr_S_7LMXT6MWl4mkQIGdiJZ_kVvWscAQBA1xe9K-D0axSHaDesYIhyVP7T_zvW0yhOxdQn8MAWgmkUFmlegdSJ_5IujSBpXkLPaVARM7FPowerAVYLkFnD4xyIXy_potRd942IQppMzJop_vTAQTZrbm1XHwya0RcvaMVSZutqx5sn6r7m5ZVzQ5ldaDi5tu3J8ZGDX8dn7YK8oQyFs9fEmDAvarrShHPnIVhtUKqcAdPAHLZasG1-CmiKX0s5-59uEKuvp7RTl27vFI06E6oElfLF3vhvMq76jEJXnHriC5Eq71vnmSgBwsZDE9-gNADmqG3XNAp-ZBmuVe1IEY-wD8JzJfqUp19Hks8w2y6rJvA6v23whG2o95A_9mkA8q2nX08ZvP5NEjZfZK_Puucmnm0WYJh0cG8jqcZ-8vDsxSOSo1YKlJ6jChn4R4mfXpEkFQYh_L5B30pTWUEM8_vVQ9RSGnOKyrr4SSUgwocxtQBiL2YmpOXt8aQcWYl_jLlmz-eGbwvwkEeGM5bVsJlk-5GUrV5cAMfBxrfNeWl7NubVJ9E1e6LemFEB3sjrObjTT5XU-Anl-KaeM0_4RAmdv1U3S-2WQch1RfB4w6JANfO6VEjUn7wU9OKB7w5PcFwQhXSqugs0NkDt77.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_05dba0fcba446428016adf283a3d4087d18ab131c55c58e952",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 297,
+      "completion_tokens": 294,
+      "total_tokens": 591,
+      "cost": 0.0001767,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001767,
+        "upstream_inference_prompt_cost": 2.97e-05,
+        "upstream_inference_completions_cost": 0.000147
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 258,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "tower_builder",
+   "target": "tower_builder",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 102,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_015/gpt-6-luna/Task15_gpt-6-luna_python.py",
+ "artifact_sha256": "0486af8a7f01e7fcb7140caecbf659f18a3936e6dfa6282f63e754ddc022b8ab",
+ "oracle_test_path": "tests/claude/Task15_CLAUDE_claude_3_5_sonnet_20240620/Task15_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "b4c823769ba8670a32703e0f94cc5d98b1dfcb3d5878a3aff554f9fd09606ae7",
+ "author": "functional.py draft_adapter (static)"
+}

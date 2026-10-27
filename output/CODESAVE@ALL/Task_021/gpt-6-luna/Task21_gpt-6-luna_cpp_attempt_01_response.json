@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793016492-hJzbFQgSwkMpslfHB0RV",
+  "finish_reason": "stop",
+  "input_tokens": 328,
+  "output_tokens": 164,
+  "cost_usd": 0.0001148,
+  "raw_response": {
+    "id": "gen-1793016492-hJzbFQgSwkMpslfHB0RV",
+    "object": "chat.completion",
+    "created": 1793016492,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <vector>\n#include <algorithm>\n\nstd::vector<int> remove_smallest(std::vector<int> numbers) {\n    if (numbers.empty()) {\n        return numbers;\n    }\n\n    auto smallest = std::min_element(numbers.begin(), numbers.end());\n    numbers.erase(smallest);\n    return numbers;\n}",
+          "refusal": null,
+          "reasoning": "**Generating CPP source code**\n\nI need to create a C++ function for Codewars, likely named `remove_smallest`. It should accept a parameter of type `std::vector<int>`. The function should be self-contained and not include a `main` function. I want to ensure that the original vector isn't mutated by passing the parameter by value. The implementation involves finding the minimum value's index and then erasing it from the vector. So, I\u2019ll just return the implementation in code format.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Generating CPP source code**\n\nI need to create a C++ function for Codewars, likely named `remove_smallest`. It should accept a parameter of type `std::vector<int>`. The function should be self-contained and not include a `main` function. I want to ensure that the original vector isn't mutated by passing the parameter by value. The implementation involves finding the minimum value's index and then erasing it from the vector. So, I\u2019ll just return the implementation in code format.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30KupLslOscIHAm0ehPn9YjoZmowBsNul5lqlztWoyA8Znya__PI_GrDJ_2JCyX4Q_9frWML23hpyugJvqIwc-vO94wRm51SU_-5NuWrYWdHzxX-tArgGnmgB-DYNxxD_y4U0tP01ovoUTXnF3fG7DUgpadvrqbtWifznt9Vg6hFYLStc6Rmz6NbthRTzmAjfP4baVsJ3No44cJ61Ao0DV4-c6KXrwdHBI19yHVYCK1fEJszOdvEKIXkiipxEgYSZ-JFr5tsX2hEUKqWVcjKQtTBHLi5unHMwYD8CnNZr8jYC92_AYMdsQnGmNa1UGC7tdkmLuCq91MleJ8X5Wpw1o_dl1I4xDbA55WNgTmQjLOlIEvoMhxfWANZh2kUOsn9GfkKs52d49evswNmfiZBAwaY44P23zvxo0dQJHHk7B_DwuWvbgn6CWjBvtvIi-FEDAbMdwa9dpAPmRBSFK5DSfhqJelwm_J2LQi1FXg4NEYrk_LAxlP_tbKezHLvOnIVjTVjXiMrlWmH0B3HXuOTSzeEHYvbgdw2e5b_ipJ9NWy3P3uQZOf5Dao7tN1d-aDhboHdgSynk3HmMU-tTJesQVk9mIHraWMUflpuXoM4yuxalW90MurSpicy1CRgqNpi5jL8jhqaFOr4KXz__ukLOLRt8SDDopLa5Zi8mqMGthMcd9UuQ7m1yT-9IKnJp6BMPafCOqY1KgG6oV5ZMqNHJRW5vj0QTj5RkZGEA_vd2ocGjer5jlaywCB6lCu_E5WrnvOXaSEjY1lISMhZ3ongSKrIAd3R_WvA9DM3Wofz-yYz4w4uG531WMWTgJH785s1M-5kdkEAXKGfBco4oNjC9JFNiJcbsJwceNxrxC9DAQboxDaYoFVnCT6LpdMTIlqpPW4bfw0VN7qv0sR9g2WLiIv0Q_j6_CsFB-ySpk-x3hzetKpXvSPpBVHjqryxgeTAL1dnVlGenz2l8hwFjXZXZq-7dC5037iIz-Gu-NJRQhyE2qhUuwKc1mF5lmCNK-mYEuaGPN7x46FesRyJSgOob95lmkzXWjCBpOZmbE8vFiIQdbFpqy7l4MbRGLy5UPnGMdnmN27UudZxX0fcPTSbRw4l4jjkF5eS30chC3J1KXPWq6j3wlE1Y6CIFZd1igtESQrUvLLd4gIuRx9TLDXiHwEo-S8uyW_5mHwfr4p86Pis0uBSaf5Jbm60UrG7rzcPA_u3k03nhQguQgAuU1h1Ti-2Vpj3vczZRj4zCY1Jd4vrVuLdO6vP_fpVzyf_qbgmuCSK6l1W9LLsSKnC2i-UkSOpEmV7ieC4jE-fSgqnbXxDABEL4LiFBUggTC_Ve1D52LBbjcznIdJTq-o-2SVXrjt5AC1kLqFM9JNHwzwIYSu68dkOXQUUS0Oi7ZnuArNmuRmDz0zPUzBq94ioVntLMCGoky-ZoUwt7dNsSTB3deMEytj3JKPhgpEAVlL3_yJ3MiY5Uro4eAK5thaBV0V1jCA2NQYRLVmqZKFX6yyrd-yq1jdzWLqbdcFWahmFKpFEreVy9mPKbXqog29NEgRC0cLTo5TiZreuTMP16Q9Y8RavMfy7BrHPv95Q8YpQTiKxWMd6tuPYF2HEfSSqRcZ0_yc7zFFR4UTLzY1LNJLqQRLUJJJ_VbPA7kVLgaAN31Q7FuPN9MpVYl0g-ELBwbPqcNWm3UEpx5o7zcxh0mpnGDhwrDom9vr0H1Pqo2WT6DlsAmGpcgs1uRCEwpbv8EtfMJeZzYjSOTJDNpBEf17eJ35S3J7jHFbv2B6Ei4nIdY-RhCNIdtfWxY8WXg_Gvy1H0kUJXW3BTe-OPWfROi_z0CrgpDRAedV23udZP4OIl3pM9jBZHSo5DauJI2LHmmFsNo_z2l34b4Rvl4oKSOqCXutvjb68Qnk19Mf5idfz3WQP3AiSFKl8vi2JtmAza3tc4NjYzUKoDXrPicVb9reLypl8UH-tbITwW9isJ_YC36YLYOvnK88esNSxStRErNAchx5rE_culay31hlsloImEtWtjbknK65j9zmPJp-PvmPt5_d2WFSUbE5US7YfPZNYfiQ5uLrxTuD24vsdYhgdmfD_qGPYbEL-fPo5lhIpqWgxmgsp1cp_jf7QZkYgz7Ty7N82lV58ovVikb5y5UJex-a_eGekPIHNMER9MrctsbW2H0Dpx9ivkwJsZRS_vxFPGysqVyjZKB8DjMCYWB50J37hDe1ibsH80WVKRcfQqZj9-bbZmLk8GTZ5x971HOBmSdD3GorpzFRa2Yd8i9BmeyiZvOi61WJA8l6x8YAB8ei5D7YrdYI6Ogoa_yuHdMHvzyXKDriztL3ZVk-0jvzvimAl-XaAJ2pMpJyupQudx-94MbtT63R343vhCc7ecozL3yKWhl2cj75pxx1V_N6iLiKLNDM5P9ZksiWfDOsccdrMENUT-6VBIkL1P7tdAH4877lG2BC4YZk3DZBacCplyozRQkOqhuswPew4KA0lW_XPouEI3SYs3fdb-AC4JF55bg9h8nObBxAH0NbCdO1q9dk8kxVwtenLrHRjXI_4d8eecJv_FPuXvNtnvPo2WUyBhKOg4Wu5iYQVZEJ4jfEKK8w0AXIvCGKWGIMhZyUf7uZpKlPHYA-F6nezT1oAH1lIO6Rng-A1NfkCt3cWxjee-aq-OGTlrO3JvQXRJcmguZagGZ0D4QL0TJ6QPby7n9uTpd-vCMdFNdKpNk1Lr6Q5hvAlIH1ktTJE9_hAqNCi9xCu21qCINqvoT-Ka-eHgSxHPyZaK_JehHaVT6Woejslg5_P1RUAp_rHLT_ZQDfDpHevuYSr4-lzR8fo1Z2YEUdiwltV6w==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_04c4607e7567cc52016adf42ace27c87d1bf9bcfb0c0e591fb",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 328,
+      "completion_tokens": 164,
+      "total_tokens": 492,
+      "cost": 0.0001148,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001148,
+        "upstream_inference_prompt_cost": 3.28e-05,
+        "upstream_inference_completions_cost": 8.2e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 95,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

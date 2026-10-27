@@ -1,0 +1,47 @@
+{
+ "language": "c",
+ "artifact_origin": "generated",
+ "artifact_sha256": "e83d224610256bca767ace7a238253901f208bf1f2d6917daea7775849b06d52",
+ "oracle_test_path": "tests/claude/Task18_Test.c",
+ "oracle_test_sha256": "d1ceced5f0d84191a3d246d55ecea029da696332c9eab5848e99c290c516b0fb",
+ "verdict_style": "exit_code_and_fail_lines",
+ "bindings": [
+  {
+   "canonical": "convertBinaryArrayToInt",
+   "target": "binary_array_to_int",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "line": 8,
+   "removed": "#include \"../../source/output/claude/c/Task18_CLAUDE_claude-3-5-sonnet-20240620.c\"  // Include the header for the function",
+   "inserted": "#include \"adapter.h\"  /* adapter */"
+  }
+ ],
+ "steps": [
+  [
+   "{cc}",
+   "-std=gnu17",
+   "-O0",
+   "-o",
+   "{exe:test_oracle}",
+   "test_oracle.c",
+   "-lm",
+   "-lpthread"
+  ],
+  [
+   "{run:test_oracle}"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "adapter.h": "6ef19ab5a9bcbcecb0c4ea910def3b3f5343aaf6e6bf52059cc913d45a0d6f71",
+  "impl_under_test.c": "e83d224610256bca767ace7a238253901f208bf1f2d6917daea7775849b06d52",
+  "test_oracle.c": "849e0b777112bf0bcbe719a6b35c13738450011b3b07c316d2a46791d2784f66"
+ }
+}

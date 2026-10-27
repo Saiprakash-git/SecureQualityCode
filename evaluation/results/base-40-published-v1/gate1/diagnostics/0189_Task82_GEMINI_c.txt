@@ -1,0 +1,4 @@
+Task82_GEMINI_gemini-1.5-pro-001.c:3:10: fatal error: 'openssl/sha.h' file not found
+    3 | #include <openssl/sha.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.

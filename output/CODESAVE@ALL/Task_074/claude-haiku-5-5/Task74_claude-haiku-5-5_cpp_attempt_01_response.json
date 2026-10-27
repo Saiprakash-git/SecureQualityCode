@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793018013-EorsQv75I1RW3hl1y0it",
+  "finish_reason": "stop",
+  "input_tokens": 149,
+  "output_tokens": 2054,
+  "cost_usd": 0.0010419,
+  "raw_response": {
+    "id": "gen-1793018013-EorsQv75I1RW3hl1y0it",
+    "object": "chat.completion",
+    "created": 1793018013,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <libpq-fe.h>\n\n#include <cstdlib>\n#include <iostream>\n#include <memory>\n#include <sstream>\n#include <stdexcept>\n#include <string>\n\nstruct ConnectionParams {\n    std::string host = \"localhost\";\n    std::string port = \"5432\";\n    std::string dbname = \"postgres\";\n    std::string user = \"postgres\";\n    std::string password;\n    int connect_timeout = 10;\n    std::string sslmode = \"prefer\";\n};\n\nusing PgConnPtr = std::unique_ptr<PGconn, void (*)(PGconn*)>;\n\nstd::string quote_conninfo_value(const std::string& value) {\n    std::string out = \"'\";\n    for (char c : value) {\n        if (c == '\\\\' || c == '\\'') {\n            out += '\\\\';\n        }\n        out += c;\n    }\n    out += '\\'';\n    return out;\n}\n\nstd::string build_conninfo(const ConnectionParams& p) {\n    std::ostringstream oss;\n    oss << \"host=\" << quote_conninfo_value(p.host)\n        << \" port=\" << quote_conninfo_value(p.port)\n        << \" dbname=\" << quote_conninfo_value(p.dbname)\n        << \" user=\" << quote_conninfo_value(p.user)\n        << \" password=\" << quote_conninfo_value(p.password)\n        << \" connect_timeout=\" << p.connect_timeout\n        << \" sslmode=\" << quote_conninfo_value(p.sslmode);\n    return oss.str();\n}\n\nPgConnPtr create_connection(const ConnectionParams& params) {\n    const std::string conninfo = build_conninfo(params);\n\n    PGconn* raw = PQconnectdb(conninfo.c_str());\n    if (raw == nullptr) {\n        throw std::runtime_error(\"Failed to allocate PostgreSQL connection object\");\n    }\n\n    PgConnPtr conn(raw, &PQfinish);\n\n    if (PQstatus(conn.get()) != CONNECTION_OK) {\n        std::string err = PQerrorMessage(conn.get());\n        throw std::runtime_error(\"PostgreSQL connection failed: \" + err);\n    }\n\n    return conn;\n}\n\nbool check_connection(PGconn* conn, std::string& server_version) {\n    if (conn == nullptr) {\n        return false;\n    }\n\n    PGresult* res = PQexec(conn, \"SELECT version()\");\n    if (res == nullptr) {\n        return false;\n    }\n\n    bool ok = PQresultStatus(res) == PGRES_TUPLES_OK && PQntuples(res) > 0;\n    if (ok) {\n        server_version = PQgetvalue(res, 0, 0);\n    }\n    PQclear(res);\n    return ok;\n}\n\nConnectionParams parse_params(int argc, char* argv[]) {\n    ConnectionParams p;\n    if (const char* env = std::getenv(\"PGPASSWORD\")) {\n        p.password = env;\n    }\n    if (argc > 1) p.host = argv[1];\n    if (argc > 2) p.port = argv[2];\n    if (argc > 3) p.dbname = argv[3];\n    if (argc > 4) p.user = argv[4];\n    if (argc > 5) p.password = argv[5];\n    return p;\n}\n\nint main(int argc, char* argv[]) {\n    try {\n        ConnectionParams params = parse_params(argc, argv);\n\n        PgConnPtr conn = create_connection(params);\n\n        std::string version;\n        if (check_connection(conn.get(), version)) {\n            std::cout << \"Connected successfully.\\n\";\n            std::cout << \"Server: \" << version << \"\\n\";\n        } else {\n            std::cerr << \"Connected, but health check query failed.\\n\";\n            return 1;\n        }\n\n        return 0;\n    } catch (const std::exception& ex) {\n        std::cerr << \"Error: \" << ex.what() << \"\\n\";\n        return 1;\n    }\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 149,
+      "completion_tokens": 2054,
+      "total_tokens": 2203,
+      "cost": 0.0010419,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0010419,
+        "upstream_inference_prompt_cost": 1.49e-05,
+        "upstream_inference_completions_cost": 0.001027
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 744,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

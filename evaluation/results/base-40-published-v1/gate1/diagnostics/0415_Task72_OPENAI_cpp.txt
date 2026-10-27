@@ -1,0 +1,4 @@
+Task72_OPENAI_gpt-4o.cpp:3:10: fatal error: 'openssl/evp.h' file not found
+    3 | #include <openssl/evp.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.

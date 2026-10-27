@@ -1,0 +1,4 @@
+Task74_gpt-6-luna_c.c:1:10: fatal error: 'libpq-fe.h' file not found
+    1 | #include <libpq-fe.h>
+      |          ^~~~~~~~~~~~
+1 error generated.

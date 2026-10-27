@@ -1,0 +1,17 @@
+@@5a0bf8711eeb6e18 STEP 0 BEGIN@@
+
+@@5a0bf8711eeb6e18 STEP 0 END rc=0@@
+@@5a0bf8711eeb6e18 STEP 1 BEGIN@@
+Test Case 1 passed!
+Test Case 2 passed!
+Test Case 3 passed!
+Test Case 4 passed!
+Test Case 5 passed!
+Test Case 6 passed!
+Test Case 7 passed!
+Test Case 8 passed!
+Test Case 9 passed!
+Test Case 10 passed!
+All test cases passed!
+
+@@5a0bf8711eeb6e18 STEP 1 END rc=0@@

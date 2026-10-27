@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "is_pangram",
+   "target": "is_pangram",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 24,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_003/mistral-large-4/Task3_mistral-large-4_python.py",
+ "artifact_sha256": "18aa6464167a424845019db042d8d77802a2d263154588ff8d009835c8ff70e8",
+ "oracle_test_path": "tests/claude/Task3_CLAUDE_claude_3_5_sonnet_20240620/Task3_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "f28361a12e41e1396b4dc307d6faa5ca9476a5c994b29a0971829987d9a44dd7",
+ "author": "functional.py draft_adapter (static)"
+}

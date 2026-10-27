@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793023023-7xRSbs8F4IB62xLFlJzz",
+  "finish_reason": "stop",
+  "input_tokens": 104,
+  "output_tokens": 1093,
+  "cost_usd": 0.0005569,
+  "raw_response": {
+    "id": "gen-1793023023-7xRSbs8F4IB62xLFlJzz",
+    "object": "chat.completion",
+    "created": 1793023023,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#define _POSIX_C_SOURCE 200809L\n\n#include <errno.h>\n#include <fcntl.h>\n#include <stddef.h>\n#include <stdio.h>\n#include <unistd.h>\n\nstatic int fill_random_bytes(unsigned char *buffer, size_t length)\n{\n    int fd = open(\"/dev/urandom\", O_RDONLY);\n    if (fd < 0)\n        return -1;\n\n    size_t offset = 0;\n    while (offset < length) {\n        ssize_t count = read(fd, buffer + offset, length - offset);\n        if (count < 0 && errno == EINTR)\n            continue;\n        if (count <= 0) {\n            int saved_errno = count == 0 ? EIO : errno;\n            close(fd);\n            errno = saved_errno;\n            return -1;\n        }\n        offset += (size_t)count;\n    }\n\n    if (close(fd) < 0)\n        return -1;\n\n    return 0;\n}\n\nint generate_session_id(char *output, size_t output_size)\n{\n    static const char hex[] = \"0123456789abcdef\";\n    static const char positions[] = {\n        0, 1, 2, 3, 4, 5, 6, 7,\n        9, 10, 11, 12,\n        14, 15, 16, 17,\n        19, 20, 21, 22, 23, 24,\n        26, 27, 28, 29, 30, 31,\n        32, 33, 34, 35\n    };\n    unsigned char random_bytes[16];\n\n    if (output == NULL || output_size < 37) {\n        errno = EINVAL;\n        return -1;\n    }\n\n    if (fill_random_bytes(random_bytes, sizeof random_bytes) < 0)\n        return -1;\n\n    random_bytes[6] = (unsigned char)((random_bytes[6] & 0x0f) | 0x40);\n    random_bytes[8] = (unsigned char)((random_bytes[8] & 0x3f) | 0x80);\n\n    size_t byte_index = 0;\n    for (size_t i = 0; i < 36; ++i) {\n        if (i == 8 || i == 13 || i == 18 || i == 23) {\n            output[i] = '-';\n        } else {\n            unsigned char value = random_bytes[byte_index / 2];\n            output[i] = hex[(byte_index % 2 == 0) ? value >> 4 : value & 0x0f];\n            ++byte_index;\n        }\n    }\n    output[36] = '\\0';\n\n    return 0;\n}\n\nint main(void)\n{\n    char session_id[37];\n\n    if (generate_session_id(session_id, sizeof session_id) < 0) {\n        perror(\"generate_session_id\");\n        return 1;\n    }\n\n    puts(session_id);\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Formulating session ID generator**\n\nI need to create a self-contained C source file that generates and returns a unique session ID. The function could be `generate_session_id(char *out, size_t out_size)` which prints a 128-bit hex ID. It should ideally use a robust random source, like Linux\u2019s `getrandom` or `/dev/urandom`, for cryptographic strength. Including handling for portability is essential, plus I might need to think about concurrency and ensure the ID remains unique. The main function would simply print the generated ID.**Ensuring unique session IDs**\n\nI should focus on generating a unique session ID that could be formatted as a UUID, ensuring randomness and uniqueness. For my Linux implementation, I\u2019ll include `_POSIX_C_SOURCE` and check for `getrandom` availability, with a fallback to `/dev/urandom` for robustness. The UUID v4 format will be 36 characters with hyphens, plus a null terminator, returning 0 on success or -1 on errors. The `generate_session_id(char *buffer, size_t buffer_size)` function will accept parameters without using global variables, and I'll ensure proper error reporting.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Formulating session ID generator**\n\nI need to create a self-contained C source file that generates and returns a unique session ID. The function could be `generate_session_id(char *out, size_t out_size)` which prints a 128-bit hex ID. It should ideally use a robust random source, like Linux\u2019s `getrandom` or `/dev/urandom`, for cryptographic strength. Including handling for portability is essential, plus I might need to think about concurrency and ensure the ID remains unique. The main function would simply print the generated ID.**Ensuring unique session IDs**\n\nI should focus on generating a unique session ID that could be formatted as a UUID, ensuring randomness and uniqueness. For my Linux implementation, I\u2019ll include `_POSIX_C_SOURCE` and check for `getrandom` availability, with a fallback to `/dev/urandom` for robustness. The UUID v4 format will be 36 characters with hyphens, plus a null terminator, returning 0 on success or -1 on errors. The `generate_session_id(char *buffer, size_t buffer_size)` function will accept parameters without using global variables, and I'll ensure proper error reporting.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq31w1zF8OsyqBlW7BOvuzdssgYzanbULcDAlRG_BOlV-DjPSFg9f613ApMkecAo5dIzFY93345or7ZEg2gpsACbjfIzJnqsIHUyVc9b6hcao9G7ap71X0t-aT1UwsfPQp1hp_MQt4bppRGZw-2izhXQ49LLNNk-YF6MdheXFcLKcn7ZF3sQrrHgQ-NwrjOKxSGU1ncRwNH16Dnw15HnX3Oo2erVdUecCSRvbmB-b7EDMCQSJIDaRCmDRePi-rYD4-51qJ7VLprfgrQ3EhhR7LlrKr1Dy9SXEETszv79BSrLI6O_EldbnoxOSJGohCHHIX2imYCEwVhdJTa7EEIqa460O9zK8dDecJdMNsUMhOFQLxU7vc0K0940Ha8RYRj8pHRl3qHh2Oe64-gpHaFJTvSgTFzHez88PU9L-MpGE5_eT2ZisO1VGlEMT_xOEXosboZ3QHiyzm5MNWtO82FgB_9DmeFO-bjWTgpQJkMmSMa17PDkaVGqoO6hNSyjTajcIo9vdiRs_O4ksC6ycSdc_yJ0LpwzUmYX0rJtsbSKjJCw6WtB0CMm0m60S5JjO08iR7cxVonvz7F9u1G3wZR-nhptv5BGeSZ8p4t4L5I5Dpd9iI_xndNWNcMVQ2wtJEmqjWPiXBivjZmPrAeuU_onxCxN--vSzheLM-AWaQFiZWb_AqrPVM94IlSidC2gDsjIKvddaCzcgCQOnNpE_mV_KLL_Qb-HVEqs_GCIfA_P1KKmUuUBzIuX8cG-CdWJ_xeITkcDhLPos1ypsdNK4mqEd0DFhOvTx-v7KoKuwlwUnSVNHHWMX2sGXXNfaBfxX6imRRMMwJnspDRdTEXDNNsg8KRdPXwymGUGXOSQtfEm9s4X2_oxFYFZw88gsZHENYwo8dx0rffyZTwlxiwXEyaUb--RRZkkIM7fsYEGT2kGvFIdnjrUw7ZnrO5RFWgHn548iNrmDgZCDCyc41EsarrnuLAOe3Xa_6kA8-HAIUXFDTsC0jI5qoufyMdO9wVhd1yctZqyN066G1F6Ni83B-xN0KAm-1dxDP5d_aSMgc6ollLqYSC2_wcDBgVfT7rngy2If_YUsOMujo7X5_lxGJd-LZGK0lxLVuVB6CNpeaxGhhNSZwgN6ZQx2DNM3eR9MlNluUZDMLdrvEC_YPdenVsKsOD1kVJ4h5mKSHNo8Y0-ZugFMUBHJ3UFnuGD5G26iXCuMqKHuCbQe6_roj7hoxby19d8_6hT_inGlYhcvFFLECjDQ2310Yuj9M1D1CBcIsfJQ-xPzhSaA4-dkRbIHrnwS_zOzsVVwSI-in4cVUoxbj307LK68TTW2AICqpA2Qc8W7C2HnG9Cxt-QyZ90Nb49EhvmSm2NAjPOgKbu_4tcHb4TfjwxTucMiBaYyM6omw3u580zw6t2_VfjizkSLIy-UX-2Yk-Cc9kHufJ2XmOHhrtCBZ7dlkGQuhB_Jk5qB6at8jGpiI_0uYerrFlAp1Bjw-B6a0Iio6Y3aTFiYFt0GLLKcYWlkKGMBoBYOmpspSdanRExDuepqvDBOivEeM_BxM8noz8qDnQA-CbGVCHILrMzBip8IirmMdwWrtaYu4jQ_azz9eU9j6cdYosmxkC8DntV5RKf1nxYxjxYWOmYt6yPGWveMsz_QV-dvrNgrg1aHLg6q6YT9oPGkB7QdNmHCOT3zHOV4MXcpw-zCA6HvxyXUJv6JkXsTfxvYYDJcizf6Wu554o0sVi9SkxjF2mYV_LKHvuHdJNitx8aUQTropKIiXCE0WRD6OlrsJNGriBaVY_gEt4JQZDnBifEzqa4zGLP5ZLSgWQ-LSquJeYYRhUpdXWpyHDHm68-KC-hixOKGGBtotnFQ_BiGH746YYuBF272siw_Zn7iHHrxobvpyDTZufZqklHw4WSFhMJgSTJutNfe6O8DV50-NEOMH2zcoedHjRkSRTGKRzte8GbAoMPDr7stpYvOHed9XOKKdmcFYoYdjGROz1OQEz5fVaumk5OtDJCkTuS-Jb9Cm0EZmf6EnBEx1W8TyGBYBCw3jqKK4T4wOwpDNpkEHdQNiAJr8ndssvyYkL2o0xDpjzi_YcOXHZxx20jdHspHgm2t3pb3lWALIaJcj5f5Zej-AZTvrtHEoQJOPpqQwDenXWFF7CegVbe_8poiyjlNwnLVy5xV639uW4ekYXxPF0HXekRiYUUIsOE37lFV_Ik1awCvoxDY-Q2FOx6iwcY_O2xeoXJ3N3G9U1_3M04Od915gEn9-W_zcRTRiS2ihAL5rHw5AZn6TDW6JPDPPcWyZpgAM1QMtCzGhtAIfnRxj4ub5XXlD5cZVA1jbiJ9qJ1e1hqaaC5RwQ0OCCXXYt0azVrXC4CH56wAKhbTJkohxFc-XHlgsJ6yWaTOYNYGFTdeq5JHSWhns7Hu6llwPEh9kPxvm_gcorPSIlyL793UXdsjeJ6fgwIELpEsKfR5eXaVNbLfTliXaYwpp3mTBzKyIRN6lHgnYAGP_f37bmJbwipFcHvwTFK6TIFnL7nGMvnaCR2VQpYbHYSlE-OmUuTuNgrJATyVEpNehuPf99OgUuyxkPWPqObVmhnXRyCfMp65w_f2GmFLC8V7WyXyvJ25hnL4wqGOzT0-nobzn1ivgPuh7heLTSxdDMaeyUVdc_Gwu481IvA3O6UC6PCbqWWGIfirLePuZ-dF72NwJOVIt6HEE_xu5pmUR-1TXqvgdDboGOmqKDa3iLKodNM54If7nkMOZkeC4pRD-eUtX2H5gBSEWbJqag254mfBopO9CVaQsQlFcrS2ZgmK5A49o5OvcdY7quZN2LFWTu8sj4W1soeWFPy_vmevmJ8Xv2VJadpNjOFlfKUERcuz06KWQDcQho8dXvnFhrWB2iBifS95JtQGlj_wNCzIhAffqgc2zpFnXMBHopY7lXeSbstrY-jQv2dENW47LeXC6peCGZUOSyXLJM74q2f1AgGqr8Sl6b8tMW91ausLmGg7LtgLEbMAJD-HAMgxeVmSS9VGP6_TWHnwxqDyxuIO8SzKDR_d-U6avkKp3GmzGZMXEaMxeHdBmxc6ohOn-rTxJduR_tt1awmsxJniKtq0y8ws0bqC0phrwQ4md966WU5vQ6TiR5NTsQKIXOemok4UooJsk8eJMR4H0pgfDNStXusB6OYTKc3spRWubNwXCMXvzSE8KRU_Q63jaRxycXwq6v3RpxGYjktYekyh2q0eE0vjBh6HI4cVto4cMESmB0S3Z0gMPmgycJTM_iLxZhTBVgqD1wmvWFhOhmbEOhOXNDA6xU8jHyLC-ecG9iqskxHwr0jVSdsA71irQCDnf7zDZb7TLO-XY_oJXRNTL-5E2hGcrTQhF11owHYW187jEGvBZB2m3eyI5R933xYzozswK-9hOWP5ajYEJany87F9SAhYcY1-AE-yvUaN6cbpoQ-VjBqzZnNoe0kh6sY9-NYavkOekqTQ1Wfdef0-4_WBeMU5QHEFrHrSClnjE6KEmUrGIVkLMwh85Ogqbg4S-m75aRCA37sIAQZOAgVmC1904I-0djrmg1PpscDmk1FcHjX-lgtpoVykMyzMiIUl9Ag2wXNsSIniCJaF4ReenE_5zUjbAflHj00axEt25VhcGORpWLls3_NrzwRqVMdFzNa38sOx3sICJmFDk2NdFDKkzY_b_Kq9YqGTN9dZ5GaBps5RxeKPqBCExR9MPicgmqv4yPEQ-UtE8uRODzZZ1hO9W9b2kXlV1fx9c38yKvis8S1WiPnIw4vWTV3FOE2gv2A7i9fdu73haeQEtv7ZOyM9zh4hxRrfc_-EJ5qUo7ZvQ4NiSYoi3QZZ5a-TERRGvRL4_5ry253QEwmquiiUTLfvWUq_MfO9FPT76w8j8xTnykkJau7ItRYi03ksCMJcWy3jUIxn3aQU_-Eze32isl6kn5tVeKvNBtDnWJV21LXfstsrZ8cHCHUQpSSljhIVP7yfAHFseFlmL5aaOs93VYq2oE6wTdlEA76zW0_d3iVjH5jkdqjhVHXMFZE4vpoiD0JNQAORPZ3IGeLKU1uQeEoT0cNbf_0rlrrazxoPK0-CwFBbUQdY-nJUQQVfBQL_ndkxzqaEvF1BXmYK0VpKMZPNPE1mxRDjXO-_sNTKvsLE5UgjkPp9n0XBhXxFHeGpcUHsQ-_dL7uY4fN0tb3XhEC2hrn6Xv4T0EdOQjV68W8aKD602m8x5G7XDmlQQtzO2ZL0siOeBoJAYNClMJMuD_KJ3mNWhL_X8B1kjnOTBgRaLF9pn5JOtDV6AVu9KlyCqBTB9jLB4kIV7NgKmFra33-NHH0ZzjRXYR67e5ENsOqoKghgB5XCMoexfo0zWS6Wcz900vEP8Z145Arw6YC3g-tUzv-5EZtfB0t5M3LdrsApa-1eqR6aR827XQiXCmAHAZ6qZT5UxN_52W_dQpzEonofYvpVmsILGqnKuO9FtN4iHOis9D98c62nmvjnxnulyVRJGx3N8VJTjM01Z8ua1Nufyi02_naeHOxoUUrgfNhy44Y6CjkoPrBNq1aN4-bvoXQ-CzElOGs_IoF9gvmr419CbxCCM3GxUF5DqRPQm4lng7CERMYczyKiaSNUqiwg0eijMvsMNJLzdKw4F_N4aU5xci383h8Bt9E2t6iifAeSn6sFAhyiQrVonC0QaNk8MhDoxahJVKBrsdz55z4EyobqwPEBZ6RgkbaMELhnY2lU3aj_gRxAmpOKnA_GD_zBiQlcHAB_LA2mtlSMjHZdYWb70PzZvoN4e_RoIQLOAMtQUa9lrzLX_WItOEvjpjRfpNthyBT6t3BFYacZ7YRigkVLqp4fd_YAZPfQ9amhK_bJ_YYJDz2ZizdgBb1QJmPueF7gm-B_O7rQJ2OxNcEjMnCjFGjloq5Lj-mw2yNBXfEzPMYJLXI1Ypi6p9TubXgkRXAk5kntLXjLqR-BXBr8eedxtTMyxtacXWSZEDcvU87YXs_DbBnE_-VNdV312AhDq3bHWHkZg6W-C26mcNZzFwZnlzHZf3K7iPFDHWq_DQ48lrdSMCQjJqVCeUDVUmt6Nq7vF751_EZoY3jutPUoeLFbmB6rHkbb1eBwiBSz1GeHGRC4Fr6IkoRFxqnDuLYAkptg7LBVs-CAgpstYbYhZfoqIcO1dI9SlJrcAV-VHOxqhxctNXqhWpI3mMNwvMi25zfzptaNRPVaobbsdDkw-8hzCvhbFAF5MgG5gAj7zRu9id7U7_-btBUKuZ0hV1gA2uSrsOVJg3ShRdcdo3PZFDOUAuIUcQjcemWsxdbtYP_sMp-cOGOZuPdR-DZ-wlKWtN0uGH5euV1w7Kgr2CmcMRZaK4Zs94gP2zpezdmWq9ai9QNTdnDnD23UUokt_adznK6lAdCxKCJD8JxDPHmpBS0BpRhTwpXLfqwxqzHBRBCfHKbz2zku8ZFEWSzDHtbB21dpfK0o0gbiMIQ2u61N8f150UCH8Fs6pBOw1F5lzmf4vF6pbpq8PCdEYfjF3_y5W1kbt6lCYi4_TcFavlGl-3zPnPReaPX6ukYYE_hkYHNMeYV771nmES_s5RojhVmnyOaFzRH12khLUWG59-cpAbTQ4_OKY76MK8T2ugVe9JAsoA9NTzVYbfGoEO5lmvgemknFX5KQ5yzkgzMX4kYqTaP9kMTatVDZtd0zsmQ-mcLQnt4kH-keYMbUAz7-yaBlxHIqXxTyR2O3KnY_73L5m1jTMn5yZPFhjB6dBxjYq6lSfc6MkwIXsjb9-K3feIqdsOgQiyhjbNUo5r0Bf49-Ojo3bVhAraAUkuHLeM4s3d89wsUbcP0-UyvIbD4DqLCvAKdiQ_wWsqBESBRvdWXEG7pc18JPHQ_bW8bk_Ww3cDlJA2PMCQVzzJZOTCkV6yuuV8-t2acKg7GEbGayNUd-i8wPuZxRjcClPXJGoVhaCnA43CAtKGYApSVkbvN1qECRhfQ2HYfSBTai2G9pXDN4AxOKqnP4BiK-57RgmMHHftRpEzXyasr0lgubIfCP_BF-gynkFVb-s9s-9ZvJs9iOopPpk5uCnyRCmmPp1Xs0xJOx9yfmlKhtv24w-lK7YxvE1CEIXiuSx1A5ggz-LRZtA05uz_OMQUQQuZ18Iob8TKBM0GV1B-dWisv1Xoin3_650d8GSlH7xjoDDCT_LK1czEEljjY3JNiUiLtJikaQSFhhWZTA-u-espMsLPP8NwfIaT6Dy3W7HlWsGUZV16YlEFe1NTkW2qNOLyoBZIzLE-KMQwMMivaUiMmMBMWcC8R9xw7ZUBo7ztrSE7Z-sI1wDZl52KNPuqszUMf2FdyOZfPUXC-HXHzY0AkwFlkudQpdmezsycsr4YECnSwaT2GYe83u-wlIKbgwjLYo3Q2vloBxf-QDVZvNpIH_bw3xDxoky-YNUQMd6CHmyf8JyYFJBebwcWrwhA2y6erQcHxxXsMZIQc7XbyPbtrGsj0E6_rKap8espJ2uKMbg4g1AQD1715cwD5Uz7EqE6U5emuqP3q_n0zZZFzJPDHrbMimqwIkbanBXYDHzftTv0vfOVDFoZsG87--Ck6LdQqEMII4EJJKDp142fSQWg6unkpIZ-Qt7Ub3r8ZEbkxMfQN_fopl1RXW0XHa325bHQVxvxdf8BEhH4zL7EERRcr-lM6fGB0Z3wWDIPaGjF1JL20INkha8FR3RTGTcIzNi0_F4agECol4m3UOzzvtMX1RY7OLYv_0MjvaKb5TnXJLW1NC6u-TzMr6me4QLQ9W5ovglcXAaNxWOo2rPj-DqHTJVIC2T3ngGu0eg00bLTuVfhh5KZqJ5fxvAvD-bbySnrOH9sPptGuohdAov-lDToP9JWBN52xBzlb7KPCGDXcYY0LPxyr5RDYeTjPj_1SCCnUvnLuNGfVss57K9al8okfHG7nBTxLuYjJ9xROO-KSgNYilb31RFGwBhZPKa2wM6dmxbwjXX5tnE0fNWYMRFcxnv1xX_JSAJRTn2aoLlVzEv7GGyDiksp9rOO0LiQNeyJanQPddnG3CC21HoY333XNKuFfca2RvoSMk9r9FwlXLkhN2skCES6A5bXil9BKdboYgqI5YZz1qOWqTQAts5G63ctd_eTutAwBCWncdsIqvQxOxUXCv5myiOA8L6I7ahXNndH1jO8CxzjLjEBfGNzgoLvzS7zOHS4EUpdu4822371rbTY3XvbrRiZQ==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_062119b2101800ed016adf5c309a0887d1ac978f4af2ff5534",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 104,
+      "completion_tokens": 1093,
+      "total_tokens": 1197,
+      "cost": 0.0005569,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0005569,
+        "upstream_inference_prompt_cost": 1.04e-05,
+        "upstream_inference_completions_cost": 0.0005465
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 447,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

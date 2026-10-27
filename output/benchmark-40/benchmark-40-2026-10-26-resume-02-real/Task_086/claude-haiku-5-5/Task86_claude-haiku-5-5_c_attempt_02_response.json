@@ -1,0 +1,69 @@
+{
+  "attempt": 2,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793023264-rGYl2lMgivdFI6AJSFsX",
+  "finish_reason": "stop",
+  "input_tokens": 219,
+  "output_tokens": 2988,
+  "cost_usd": 0.0015159,
+  "raw_response": {
+    "id": "gen-1793023264-rGYl2lMgivdFI6AJSFsX",
+    "object": "chat.completion",
+    "created": 1793023264,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```c\n#include <windows.h>\n#include <urlmon.h>\n#include <stdio.h>\n#include <string.h>\n\n#pragma comment(lib, \"urlmon.lib\")\n\nstatic int is_http_url(const char *url)\n{\n    if (url == NULL) return 0;\n    return _strnicmp(url, \"https://\", 8) == 0 || _strnicmp(url, \"http://\", 7) == 0;\n}\n\nstatic int confirm_execution(const char *url, const char *path)\n{\n    char answer[16];\n\n    printf(\"Source URL : %s\\n\", url);\n    printf(\"Local file : %s\\n\", path);\n    printf(\"Type YES to execute this downloaded program: \");\n    fflush(stdout);\n\n    if (fgets(answer, sizeof(answer), stdin) == NULL) return 0;\n    answer[strcspn(answer, \"\\r\\n\")] = '\\0';\n    return _stricmp(answer, \"YES\") == 0;\n}\n\nstatic int is_pe_file(const char *path)\n{\n    FILE *f = NULL;\n    unsigned char dos[64];\n    unsigned char sig[4];\n    long pe_offset;\n\n    f = fopen(path, \"rb\");\n    if (f == NULL) return 0;\n\n    if (fread(dos, 1, sizeof(dos), f) != sizeof(dos)) {\n        fclose(f);\n        return 0;\n    }\n\n    if (dos[0] != 'M' || dos[1] != 'Z') {\n        fclose(f);\n        return 0;\n    }\n\n    pe_offset = (long)dos[60] | ((long)dos[61] << 8) |\n                ((long)dos[62] << 16) | ((long)dos[63] << 24);\n\n    if (pe_offset <= 0 || fseek(f, pe_offset, SEEK_SET) != 0) {\n        fclose(f);\n        return 0;\n    }\n\n    if (fread(sig, 1, sizeof(sig), f) != sizeof(sig)) {\n        fclose(f);\n        return 0;\n    }\n\n    fclose(f);\n    return sig[0] == 'P' && sig[1] == 'E' && sig[2] == 0 && sig[3] == 0;\n}\n\nstatic int download_file(const char *url, const char *dest_path)\n{\n    HRESULT hr = URLDownloadToFileA(NULL, url, dest_path, 0, NULL);\n    if (FAILED(hr)) {\n        fprintf(stderr, \"Download failed (HRESULT 0x%08lX).\\n\", (unsigned long)hr);\n        return 0;\n    }\n    return 1;\n}\n\nstatic int build_local_path(char *out, size_t out_size)\n{\n    char temp_dir[MAX_PATH];\n    DWORD len = GetTempPathA(sizeof(temp_dir), temp_dir);\n\n    if (len == 0 || len >= sizeof(temp_dir)) return 0;\n\n    _snprintf(out, out_size, \"%sdownloaded_%lu.exe\",\n              temp_dir, (unsigned long)GetTickCount());\n    out[out_size - 1] = '\\0';\n    return 1;\n}\n\nstatic int execute_program(const char *path)\n{\n    STARTUPINFOA si;\n    PROCESS_INFORMATION pi;\n    char cmdline[MAX_PATH * 2];\n\n    memset(&si, 0, sizeof(si));\n    memset(&pi, 0, sizeof(pi));\n    si.cb = sizeof(si);\n\n    _snprintf(cmdline, sizeof(cmdline), \"\\\"%s\\\"\", path);\n    cmdline[sizeof(cmdline) - 1] = '\\0';\n\n    if (!CreateProcessA(path, cmdline, NULL, NULL, FALSE, 0,\n                        NULL, NULL, &si, &pi)) {\n        fprintf(stderr, \"Failed to execute program (error %lu).\\n\",\n                (unsigned long)GetLastError());\n        return 0;\n    }\n\n    printf(\"Program started (PID %lu). Waiting for exit...\\n\",\n           (unsigned long)pi.dwProcessId);\n\n    WaitForSingleObject(pi.hProcess, INFINITE);\n\n    {\n        DWORD exit_code = 0;\n        if (GetExitCodeProcess(pi.hProcess, &exit_code)) {\n            printf(\"Program exited with code %lu.\\n\", (unsigned long)exit_code);\n        }\n    }\n\n    CloseHandle(pi.hThread);\n    CloseHandle(pi.hProcess);\n    return 1;\n}\n\nint main(int argc, char *argv[])\n{\n    char local_path[MAX_PATH];\n\n    if (argc != 2) {\n        fprintf(stderr, \"Usage: %s <http(s)://url/to/program.exe>\\n\",\n                argc > 0 ? argv[0] : \"downloader\");\n        return 1;\n    }\n\n    if (!is_http_url(argv[1])) {\n        fprintf(stderr, \"Error: only http:// and https:// URLs are accepted.\\n\");\n        return 1;\n    }\n\n    if (!build_local_path(local_path, sizeof(local_path))) {\n        fprintf(stderr, \"Error: could not determine temporary directory.\\n\");\n        return 1;\n    }\n\n    printf(\"Downloading...\\n\");\n    if (!download_file(argv[1], local_path)) {\n        DeleteFileA(local_path);\n        return 1;\n    }\n\n    if (!is_pe_file(local_path)) {\n        fprintf(stderr, \"Error: downloaded file is not a valid Windows EXE.\\n\");\n        DeleteFileA(local_path);\n        return 1;\n    }\n\n    if (!confirm_execution(argv[1], local_path)) {\n        printf(\"Execution cancelled by user.\\n\");\n        DeleteFileA(local_path);\n        return 0;\n    }\n\n    if (!execute_program(local_path)) {\n        DeleteFileA(local_path);\n        return 1;\n    }\n\n    return 0;\n}\n```",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 219,
+      "completion_tokens": 2988,
+      "total_tokens": 3207,
+      "cost": 0.0015159,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0015159,
+        "upstream_inference_prompt_cost": 2.19e-05,
+        "upstream_inference_completions_cost": 0.001494
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1002,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

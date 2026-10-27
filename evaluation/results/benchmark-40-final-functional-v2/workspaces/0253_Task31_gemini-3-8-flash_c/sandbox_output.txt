@@ -1,0 +1,7 @@
+@@dc1da2657bdfb4c7 STEP 0 BEGIN@@
+
+@@dc1da2657bdfb4c7 STEP 0 END rc=0@@
+@@dc1da2657bdfb4c7 STEP 1 BEGIN@@
+All tests passed!
+
+@@dc1da2657bdfb4c7 STEP 1 END rc=0@@

@@ -1,0 +1,32 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "Task86_CLAUDE_claude_3_5_sonnet_20240620.main",
+   "target": "SafeExeDownloader.main",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "void",
+    "params": [
+     "String[] args"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "String[] args"
+    ],
+    "return": "void",
+    "static": true
+   }
+  }
+ ],
+ "combo_index": 507,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-02-real/Task_086/gpt-6-luna/Task86_gpt-6-luna_java.java",
+ "artifact_sha256": "774d4990cbc1154ef0ad02d85905143c347d7b01a206cdcad1585f17c8d51281",
+ "oracle_test_path": "src/test/java/claude/task86/Task86Test.java",
+ "oracle_test_sha256": "f9ce62afa1f6f54eccc69d3fb9877cc4e7e42f0daa4fa80708df6080d8a1a796",
+ "author": "functional.py draft_adapter (static)"
+}

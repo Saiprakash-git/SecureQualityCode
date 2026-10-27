@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793016581-y0AItVI2iMv4K61Ijmvg",
+  "finish_reason": "stop",
+  "input_tokens": 188,
+  "output_tokens": 260,
+  "cost_usd": 0.001116,
+  "raw_response": {
+    "id": "gen-1793016581-y0AItVI2iMv4K61Ijmvg",
+    "object": "chat.completion",
+    "created": 1793016581,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "import java.util.ArrayList;\nimport java.util.List;\n\npublic class LineNumbering {\n    public static List<String> number(List<String> lines) {\n        List<String> result = new ArrayList<>();\n        if (lines == null) {\n            return result;\n        }\n        for (int i = 0; i < lines.size(); i++) {\n            result.add((i + 1) + \": \" + lines.get(i));\n        }\n        return result;\n    }\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "AY89a181obAYdR8JKDaY4fv6eLTLKbbj1srR+SddW9deAsGt0Pu2/mKFCe64gaRMfSY/vUjLKggJqwMLAIlEBIov85VR2PP5SRMWUrNPqTnv7PJGe80i3k1lszvl6d9Ve9tN8Wyn7w3wzFHLOcbB1N3Qs+0IwK+TgD0RMNmBAWq8btRMoSpxFi4nmBDfiDOGX9+eCFtt6hMLEHdIp0PkxVZ/gHdXt+V8Q7NgyhenHTtLO/PfxhUP5szH4CR8outpGWAMS1dcg40+IieOvjkD+oRci81c7c6ocXdWrqh47FK1FOegUVZ7bGX/tjmiVpx1VNc6vpqv8MiOTN8Iki7BhFo5dWra8bhjyHtbz6Td8R7iS+PTogE8xltYGargb4V6vQ9CyXj0SxOEooTI3ao25490PfSRioIRaiE82/yGhfNZOm4/IiVONTl9WqlgzSS0kn1xHbps5F86qUujjMllv8ComZqAnexIO/NaTG94ppSxoeMw8XZ+oPxv1A+XOTAKna+IpS9WrPyCGXaCl+o0UxpXJQCdilxsI3mNAoG4b+Oxkv1XVE7PUcBfiRmfRJEFO7Spx1OI60wLMX4YxfXoltceHKdODI7kHacwKf0ikqcWkvfkHcJmrDROtiCGS5X4RAUrrzs0R+S20v3qOUXIBXxOQV6LAsu2nCRukiuMW+lDsI70g61anhUC6T82jOHjLansdAzba33oYRTpPXh7Qi4/ttO6JQ4PiV+MUkhFwWDoBCmv1TohAVB2C9OtcPbF+OPplgaHjHPBilPFFgQ1uYyEoBeoRiEgEA/OVvHMCqBRpTsPyyKFexmyuItZmVFMG6W4mZ0UCvYw/W+ZnRM0wOOyPcYuwl8xBispjfae+9jPY/Cq0g6c3lAEjQiqJzxvAovxf3hD/vZ/JnQap+NHdPoa6sNIF/6CoUTL",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 188,
+      "completion_tokens": 260,
+      "total_tokens": 448,
+      "cost": 0.001116,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.001116,
+        "upstream_inference_prompt_cost": 0.000141,
+        "upstream_inference_completions_cost": 0.000975
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 140,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

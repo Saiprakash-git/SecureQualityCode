@@ -1,0 +1,12 @@
+Task44_PERPLEXITY_llama-3-sonar-large-32k-chat.c:7:12: error: use of undeclared identifier 'true'
+    7 |     while (true) {
+      |            ^
+Task44_PERPLEXITY_llama-3-sonar-large-32k-chat.c:22:13: error: call to undeclared library function 'exit' with type 'void (int) __attribute__((noreturn))'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   22 |             exit(1);
+      |             ^
+Task44_PERPLEXITY_llama-3-sonar-large-32k-chat.c:22:13: note: include the header <stdlib.h> or explicitly provide a declaration for 'exit'
+Task44_PERPLEXITY_llama-3-sonar-large-32k-chat.c:39:5: error: call to undeclared library function 'free' with type 'void (void *)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   39 |     free(inputStr);
+      |     ^
+Task44_PERPLEXITY_llama-3-sonar-large-32k-chat.c:39:5: note: include the header <stdlib.h> or explicitly provide a declaration for 'free'
+3 errors generated.

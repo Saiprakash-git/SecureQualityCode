@@ -1,0 +1,47 @@
+{
+ "language": "cpp",
+ "artifact_origin": "generated",
+ "artifact_sha256": "4ad1facaf954db1df9e6efeb6e777a553246cd9ae101eebedb0236333c2c5978",
+ "oracle_test_path": "tests/claude/Task14_Test.cpp",
+ "oracle_test_sha256": "c28511e54a31b60e4bda5f1af23c9a249855e73f1e4032b57c71af5f576f7e37",
+ "verdict_style": "exit_code_and_fail_lines",
+ "bindings": [
+  {
+   "canonical": "findEvenIndex",
+   "target": "findEvenIndex",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "line": 13,
+   "removed": "#include \"../../source/output/claude/cpp/Task14_CLAUDE_claude-3-5-sonnet-20240620.cpp\"  // Include the header for the function",
+   "inserted": "#include \"adapter.h\"  /* adapter */"
+  }
+ ],
+ "steps": [
+  [
+   "{cxx}",
+   "-std=gnu++17",
+   "-O0",
+   "-o",
+   "{exe:test_oracle}",
+   "test_oracle.cpp",
+   "-lm",
+   "-lpthread"
+  ],
+  [
+   "{run:test_oracle}"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "adapter.h": "92bd7c9d268b80d7fa63ead892328de0dbbbb3e83a797c38f38c0d78f9356856",
+  "impl_under_test.cpp": "4ad1facaf954db1df9e6efeb6e777a553246cd9ae101eebedb0236333c2c5978",
+  "test_oracle.cpp": "7c4a1eea70bae87572133b0e8200f09d9adc8b44b10acaee623245f0e8928135"
+ }
+}

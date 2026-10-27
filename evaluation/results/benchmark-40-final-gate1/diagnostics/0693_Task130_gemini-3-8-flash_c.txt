@@ -1,0 +1,22 @@
+Task130_gemini-3-8-flash_c.c:218:74: error: no member named 'allowed_' in 'CorsConfig'
+  218 |         add_response_header(res, "Access-Control-Allow-Headers", config->allowed_
+      |                                                                  ~~~~~~  ^
+Task130_gemini-3-8-flash_c.c:218:82: error: expected ')'
+  218 |         add_response_header(res, "Access-Control-Allow-Headers", config->allowed_
+      |                                                                                  ^
+Task130_gemini-3-8-flash_c.c:218:28: note: to match this '('
+  218 |         add_response_header(res, "Access-Control-Allow-Headers", config->allowed_
+      |                            ^
+Task130_gemini-3-8-flash_c.c:218:82: error: expected '}'
+  218 |         add_response_header(res, "Access-Control-Allow-Headers", config->allowed_
+      |                                                                                  ^
+Task130_gemini-3-8-flash_c.c:217:34: note: to match this '{'
+  217 |     if (config->allowed_headers) {
+      |                                  ^
+Task130_gemini-3-8-flash_c.c:218:82: error: expected '}'
+  218 |         add_response_header(res, "Access-Control-Allow-Headers", config->allowed_
+      |                                                                                  ^
+Task130_gemini-3-8-flash_c.c:180:103: note: to match this '{'
+  180 | static void apply_cors_preflight(const CorsConfig *config, const HttpRequest *req, HttpResponse *res) {
+      |                                                                                                       ^
+4 errors generated.

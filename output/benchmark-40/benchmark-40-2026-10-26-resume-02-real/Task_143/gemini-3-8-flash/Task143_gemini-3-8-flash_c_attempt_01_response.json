@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793025255-TQIidTnVB4y7Clr60A2J",
+  "finish_reason": "stop",
+  "input_tokens": 103,
+  "output_tokens": 1491,
+  "cost_usd": 0.0056685,
+  "raw_response": {
+    "id": "gen-1793025255-TQIidTnVB4y7Clr60A2J",
+    "object": "chat.completion",
+    "created": 1793025255,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n\nstatic void swap(int *a, int *b) {\n    int temp = *a;\n    *a = *b;\n    *b = temp;\n}\n\nstatic int partition(int arr[], int low, int high) {\n    int pivot = arr[high];\n    int i = low - 1;\n\n    for (int j = low; j < high; j++) {\n        if (arr[j] <= pivot) {\n            i++;\n            swap(&arr[i], &arr[j]);\n        }\n    }\n    swap(&arr[i + 1], &arr[high]);\n    return i + 1;\n}\n\nvoid quick_sort(int arr[], int low, int high) {\n    if (low < high) {\n        int pi = partition(arr, low, high);\n        quick_sort(arr, low, pi - 1);\n        quick_sort(arr, pi + 1, high);\n    }\n}\n\nvoid sort_ascending(int arr[], size_t size) {\n    if (arr == NULL || size <= 1) {\n        return;\n    }\n    quick_sort(arr, 0, (int)size - 1);\n}\n\nint main(void) {\n    int n;\n\n    if (scanf(\"%d\", &n) != 1 || n <= 0) {\n        return 0;\n    }\n\n    int *arr = (int *)malloc((size_t)n * sizeof(int));\n    if (arr == NULL) {\n        return 1;\n    }\n\n    for (int i = 0; i < n; i++) {\n        if (scanf(\"%d\", &arr[i]) != 1) {\n            free(arr);\n            return 1;\n        }\n    }\n\n    sort_ascending(arr, (size_t)n);\n\n    for (int i = 0; i < n; i++) {\n        printf(\"%d%c\", arr[i], (i == n - 1) ? '\\n' : ' ');\n    }\n\n    free(arr);\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Exploring C Code Generation**\n\nI'm focusing on producing a self-contained C source file, ensuring all functions accept inputs as parameters and return values appropriately. This is the core of the generation process.\n\n**Implementing QuickSort Functionality**\n\nI'm now detailing the QuickSort algorithm, specifically focusing on crafting the `quicksort` and `partition` helper functions in C. My aim is to have these functions manage sorting an integer array passed as a pointer, ensuring they operate in-place.\n\n**Refining C Sort Logic**\n\nI'm now integrating the `sort_ascending` wrapper function and its dependency, `quick_sort`, ensuring they correctly handle array inputs and recursive calls for sorting. The `main` function structure for array processing is also being finalized.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Exploring C Code Generation**\n\nI'm focusing on producing a self-contained C source file, ensuring all functions accept inputs as parameters and return values appropriately. This is the core of the generation process.\n\n**Implementing QuickSort Functionality**\n\nI'm now detailing the QuickSort algorithm, specifically focusing on crafting the `quicksort` and `partition` helper functions in C. My aim is to have these functions manage sorting an integer array passed as a pointer, ensuring they operate in-place.\n\n**Refining C Sort Logic**\n\nI'm now integrating the `sort_ascending` wrapper function and its dependency, `quick_sort`, ensuring they correctly handle array inputs and recursive calls for sorting. The `main` function structure for array processing is also being finalized.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "AY89a1/ITlQoaBS3ErDeRySAAlLkz2qX2Y67dv68ostJMitud+v99d2r6XGuW/8W35KVe5e0gUj8iE3QcsY5enCV/lmiDC1bubb1LxoElay663RW/GIWnFbWM+l4YxB2Tq4YQEXPIztehUkXfznXhUB6YrD3W6gY+LESmogOTot1qSEBO2syiHIG4USAkY16n2AJuvPcOC7yLn9hvN9CwbhsvoC7UwCrukt4YZw5TzQpvEPLpcJwDVoWnd05dleuI/7NUlhzfIGyNe/RV6tGNaEeIRaQh24De/iEqor3n6mZLVrOMsEykkJAY2a3CM1687GNEP58sLw9rbHkc5z+tfhtz4JZ0npnuKmYB/7ElNWTFaXftQjNiCAS8sQKQZ5rrIk45IGDayZlrjGyYDPBnMHqzcriOJGyaRLtP2Z3pkeiJOIbfeAezJci5n/ptyf/iMa2IVXx2LdbtjHUvH4mupqWfjEWktNw3AQXUiddWecZR7ulZP8N+cMy2tPyzmtFQ9fOWGb9KfuhNfl1N1NV+rJ7M65iw2JxqcpExTOryFB5qBksy0VmIZIzTSKBzemrFujn3k0rOHW0ew1hfSdGcDCq0jvQF8b4YHvw2wtJ3c5Z6ZUEJ4YSYnPn/ZYLvKMP7P6oAL1hAhKJ1/xuE6tm37KEo4Me+ECS0dSQzJqpFFiMe+qd92SXZwD+mFpD1SwAYTovoAZcHVVmwzazeAPy59IAJ59tlT+040XjjpyhSminOJQK+3fRDov0D8HfFseHMdZVg/GgTjkHzB7QfTXHOrqnrRgiWU9iqrd7Uc2gUQNHVtE7a2TfNNr738nRI+ydcbzkmTzVrqKo4lcosPZdcr9khl65B5Z1Vl9NLgf2inEdsJKjEK+octH1Gs7+2IyJee3YvdyKXfpT1SWny1cNMKzTk1SxFp+lY7U1dVzXlH1o+nskCGS+kdSS3dG7mwgOqF9JFFi3l1EpMjS6ScvaLa9YLObBPRXiCjjj1ziYoDhBkO7uFg/hD7fPRlExT5xSP9qGTpMhQxINhOZiNQdAognwCJ2Z+P56xWVSu7uWhU4bGMMZha8DI4RoaHvVui5prlIRw1U+QDRqidNpvb0riq0RAxXg45PnsfQinUffJzomq3OGcG/oc/q0uDw7yFoS++BrATbylPuwxfVB+j7K5QQ5f22vAylIjBP/5JeQJ0hd2uv/2svAHaQsf1DTUq2Zo50JPq2OjWmkc2TvytAxHmemWrdpKVpE2x10TB4ZSmfBDYpAJZH2MDMqEcyzgN144qUit0OyN5k1MwfSgH52po3S47V/asSUnPt8EQ6mwkjRTKX1RaS7z55XqFAt/yGJ1iMF9qV81FZzJgteXlfhkjzGZMOuvWi1n+f5Ezhbh4RPk5/vuQSAs2NchyjeD4tcaWMKozb4kgB/7NtjOrVDUHMYRapUxbm/sKXYl4rpakq+a1rAs/Qs9NOLF0OPBbqUGe+LGQZEHolrsn+aiZGYk23J1mAjTApMj5eWDJ7cDTMpZZX79sE2mPt8uYMUs7+dGRqFC74PI9p0F+4zlpuRwa7pIWxMf0ksM1yyJkutE24ivHhn/zwFP3sANT6JVzS0lPibeDp6fAnLNncWHAK2cqJf+bbal+oatZSEevpWscI+4ezcfxK1TsJud6+ZRyBzHUW/wOb9zi3uv64Bkag/i2eD5rDB48LoT35zRAHZWgMd12PVQcrOgUMDXssVfzd7BJmzVL0uzvwm/85YAxqeiRFFduK+o8xS0L+6YesTk0hMXpNOb86TUZk8fh//4OHP6W3V3e6cn++AcLYpDehmK0cekm/kygsQlse+JNVyhSg22GAvcoiz4tNxy2G/mfpYRmnl8f+uMZI3BIVkC86qgnAsNB/UqExl/rR7Hd4jlfqCLE9gJD7r6VnAbE9Gg56P/TjgyjPbfY5jkSOD1le6vKyFxK04gvGWcHF1fcEOA4duw4BvysnTxhWcCWnuGuZ9rmERWwmp85XZJlNLyebOrmmU/WlVNoHy5mFimBz7nSgA/D3WqC9kHybUZIgAfIP83QlrUzegYlw8bJFkqwROuOvLTozacVroyN0m9t85lq0RPxuI9gdB8AZG3cYks/EUPtaZW7wuOyRL6bM+2likiz38IWcigiAtDyQXaNga7d4A+kD9Dpl5wykCBRBsgzSInPH9ZriohF3lcHrMTHSAu8jWNB8iNg1eQzR6iZHkX4tlz6Ju+PUl5YO5XzejVpH9sDT3/LGtvGe5jOXADN+Lb/KIlolXLwqPGYtTmCcomT/G7bLmF5MGhmaLwm21pURNY4VRB+9rk64FCpTc1GyYu+3e3yHYdF1SnHvEE5O7KHnI9AiTPO/NYCPyPFnK7TXCs8+OFmu3t0JLvJaIzKSUBEGNZAZWiVDOIDr9JNBNJbF7TBgKesIHlY7QVtwOXd27hAz1qsTgOcrVYUMk11Dch9pDGAYrXcJR+LqmSjQrTxbcXhmyTZCrz0JDaevGYH6boUC2jvK6a5hsYeKha/nObLJPO0zD/XGNp4RZKN7rj8yZTZLr7n8UEL3MgRvOOyyhX6iyvGAd6ayQb0vw4pmpqIPWfOJF7CqJ4NI+qkjxtvzGEYmgM5XlxGqN5R57ZeiFxlII621XKnRGLWdGUyKd3elsG0uP2CTQc6ndtjVrUcwg/6mRCn8ZQS+0+N4UmQGSKLhS8wcB1VPbO9HNDPwijfFsP5stcH6wrx8JOWbf9gnBcL+knNKqJdLxwwZE3jgVSKHX1zu5uDemGUr4oMf3PhBLtYHxcsr0hpu5JdqmwprXiI/RuDcJ1ioUcX3jN+zKeXpti0276b66T74TCjeTnWOqYo0KdDnUYuM8OVSzRGDdB/QxwK2D+ZI1EfBxDyDkx2A2tPJzofswxYJ2Xp3EmIJ+p2s5bryWhYEOfAcrtxomPGDIhpFcz/tKtBLjU39dy31wFkJCG6/twkdyip5E0sTvTav6dolRhH9HAdlmaqBconx70GO+ffEqH07V4NeBqDg5bAoAEHCozzPGykcFfIAYPfLNGLzymLdwdKkHkUbK43OD+D5UvYfqfPoFooYIysYsJ+tENs8oBdJ/2MQPWlKs0U0ANaTtDbA1wTYnIvhDZpDimsBjNzMF1HDQCr6s6G1RYrdtSI7y4cmPDQ5cYjkj/FpJjR+FHHd9aHYt7yIZIyF6TNxNPLJWrAcZff/F5ZdnnQ8i24agerjeaN5KhXl/v6folQIfZQdpqeCnSceoJYT5FEDaOshNeK20yxSHoOcJlSbG1gwZFvA3UEYbsWXlZhogkLyp/79uHqq2gIjn/JtnvG5V40Dmcm+/eYIjGvUTtHlSw6GZS69XxmYLB2wIP/X5nvRmeW2YGGDt+YDmPENayWGCUHWwAqQsU/VD7AubPbn3TK5jvhGNqMTPbWMsEEvtDEV7tbm0MqNkTVUVIF8JTPgreaGXECOHZvDmOWUEepOzx6ehnxFtM4ljkeogotkLfxegyf91DiwAxGWtOk3Do/F90G0zMK6WlH8sUSsFPuVybI/xvQcPvZR4AjYR1lNBtRqgetG/yTwnrpkY4KricB/4DTaWuFPDsuMZ4euyutfH61xc4DJ1OFl7CWroV+vuxXXjR9QqhEXvGljhAeY4xNm26qHVHdvXQnRRv5o/phBSNzD9zFtHZTyhnnSEEeqnLFKb1tP04zgFFhI7r42VuwYZuXTo6W7Vb43c2jG1wWWY7uQxYFYLRRka/TctplP34OfgMwPUVUFRN5e76Z0Sd3GOOtzSF8O4uKVX+xSsJ4BvCqZl5xteZbhtVHyaL/HwaEvQVf0zgbm6FFL8rvAcwrMTGSkwlJgNmbVOmqdADDs6ogZCKevK45dXwJE7C7t7kCemPHDraEK9aGKbAbDtflK+BiMZTIVh3fo6dLk/NY0YarG0gC/08j1epcBtbox9dEQHB0CaKDy/wseTesp5NUBF1DKxRZgAX7UB5bSAwtwhlQ8mwT8z8Cc1hcNdq0lmrDJ1ukBRsU1vaMC9GI4Rx6cnckPruOOcMw3X1HuqO70c1u+EyttKmDIpHUl5/++rYXSxiyXS7Yl5BTh9fGdyoCN41v57R6OzLxwy+FKF8rN+D3GLIUojd1m/y8MeWwTKbC097nDyqkzgTmD+GlFyb06UUQWgiKVPbTCQPc+7bgcJct9PYwQAg1Y/fWjtan+1VEmH/AlhrxYru0L80fiUMSx+1BJbbMmoCOPhhNgfmpA8wfFG24vRom/TV5VODLQ/w8+BA4OOl2HUorlpF3TIcFmJECr067MfOkkZA2WBUna7EoOJKqQ1dMNvGeQGYn593CZwFW2VxcwyjGHf4fdeaZFTyCZinIUudRLZfU6vpP4PGY84fnDNwTAI3EB0dz6vSqOpKPSjP0/pLBGQTyi0kZvMDeEpTWYsnxMaX3wj7lKEaQerdIHpTaMQhryYbjEZm6JBQsCPA3W4SxS/MJjVnZu6es75erfkUEonW3cacyKqqiGsYTjB9iNiFYnB16uV7vZHlt5Itoemu5Z61cBZNfkb+q5MGqqmwswuDnI7IYXB6ZS+vzgeWfPDxgDXJHyLl0J62Jh3JPCyiZTIa0BnnTSfcIV848IPgBAMFnR2MaJciEdZZ5t5Wax4mPllnowy4PHG9lcICgAkKqIDd/A/O6tRK+w/swAKpZ7ahamxPtK+Ws4bIHFN2C4xh4UeRl/f8sQxdmtsxujYAViI1m+ME4vl0tl0dPsqozo4GmL3F9mEDnRJDiU9xHvApHhg00fBpnzb63h/WGkuP8ydZCY3IdvEkMngesADawKxOSZ+rzW9FUegFpMNSJpF4eoyotjMELiDpRVX9dH2aB04Lvs05QPqHSDx3Y8rbKfCQvKhjSOMrW8gW9BrcVAQ7icHZu8NrdARtKaBoG10NpxXoaLTzqrF3n8+hMXFxwbNBRFwQ45JixnmPfgGGAUyW9cmE4Kw0MJ3t9Kf3XzOIzxe5/G78dwgKL3hFXWcEh1zx+7B6TkzuCfAdVAlpCp4m7nMMKIySahF++9hmfyl8hRZR1zeE6Wvwqa132bn1EOi7ZK95hsTAz4Z2J1WadwGgjHKeeWcGK3VFKsQmJ7aYI4T1ol7+M7WnV83WJm1E7oP+zXif1GtNUt92RLmIsn2lyEInPq14zLBZuVQD34svl18wubQA1MJTt0VfAHpcwoUgtzoSeeD0MM/T/HyQsw2knzvQQLHe9v2vM/O66CC12WC7/1BqBa3RywIA+NRhiKgbyQ022DxYa7hNduFT83J4V2Y9AzwfFMPwluZ+oRLQiDjrrEFrju0tZUdXc2P+t1LYT01BmdiQZZGrTQQNogztdsZJBkcef0VwBOsRi71Yk26jH/aNhvRnTRrzlToS8sl/FGCaMKPaSLL+PxraL4KhFzkxGJ0T3pFUnNyXQ==",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 103,
+      "completion_tokens": 1491,
+      "total_tokens": 1594,
+      "cost": 0.0056685,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0056685,
+        "upstream_inference_prompt_cost": 7.725e-05,
+        "upstream_inference_completions_cost": 0.00559125
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 986,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

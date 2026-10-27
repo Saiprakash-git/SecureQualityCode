@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793016917-kDlhoOqKRJoFDi0bV8L7",
+  "finish_reason": "stop",
+  "input_tokens": 110,
+  "output_tokens": 2721,
+  "cost_usd": 0.01028625,
+  "raw_response": {
+    "id": "gen-1793016917-kDlhoOqKRJoFDi0bV8L7",
+    "object": "chat.completion",
+    "created": 1793016917,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n#include <limits>\n#include <system_error>\n#include <charconv>\n#include <cctype>\n#include <algorithm>\n\nenum class OperationStatus {\n    Success,\n    Overflow,\n    Underflow,\n    DivisionByZero,\n    InvalidInput\n};\n\nbool parse_safe_integer(const std::string& input, long long min_val, long long max_val, long long& out_value) {\n    if (input.empty()) {\n        return false;\n    }\n\n    size_t start = 0;\n    while (start < input.size() && std::isspace(static_cast<unsigned char>(input[start]))) {\n        ++start;\n    }\n\n    size_t end = input.size();\n    while (end > start && std::isspace(static_cast<unsigned char>(input[end - 1]))) {\n        --end;\n    }\n\n    if (start >= end) {\n        return false;\n    }\n\n    std::string_view sv(input.data() + start, end - start);\n    \n    long long value = 0;\n    auto [ptr, ec] = std::from_chars(sv.data(), sv.data() + sv.size(), value);\n\n    if (ec != std::errc() || ptr != sv.data() + sv.size()) {\n        return false;\n    }\n\n    if (value < min_val || value > max_val) {\n        return false;\n    }\n\n    out_value = value;\n    return true;\n}\n\nbool sanitize_text(const std::string& input, size_t max_len, std::string& output) {\n    if (input.empty() || input.length() > max_len) {\n        return false;\n    }\n\n    std::string sanitized;\n    sanitized.reserve(input.length());\n\n    for (unsigned char ch : input) {\n        if (std::isalnum(ch) || ch == ' ' || ch == '_' || ch == '-') {\n            sanitized.push_back(static_cast<char>(ch));\n        } else {\n            return false;\n        }\n    }\n\n    if (sanitized.empty()) {\n        return false;\n    }\n\n    output = sanitized;\n    return true;\n}\n\nOperationStatus safe_add(long long a, long long b, long long& result) {\n    if ((b > 0 && a > std::numeric_limits<long long>::max() - b) ||\n        (b < 0 && a < std::numeric_limits<long long>::min() - b)) {\n        return OperationStatus::Overflow;\n    }\n    result = a + b;\n    return OperationStatus::Success;\n}\n\nOperationStatus safe_multiply(long long a, long long b, long long& result) {\n    if (a > 0) {\n        if (b > 0) {\n            if (a > std::numeric_limits<long long>::max() / b) return OperationStatus::Overflow;\n        } else {\n            if (b < std::numeric_limits<long long>::min() / a) return OperationStatus::Underflow;\n        }\n    } else {\n        if (b > 0) {\n            if (a < std::numeric_limits<long long>::min() / b) return OperationStatus::Underflow;\n        } else {\n            if (a != 0 && b < std::numeric_limits<long long>::max() / a) return OperationStatus::Overflow;\n        }\n    }\n    result = a * b;\n    return OperationStatus::Success;\n}\n\nOperationStatus safe_divide(long long a, long long b, long long& result) {\n    if (b == 0) {\n        return OperationStatus::DivisionByZero;\n    }\n    if (a == std::numeric_limits<long long>::min() && b == -1) {\n        return OperationStatus::Overflow;\n    }\n    result = a / b;\n    return OperationStatus::Success;\n}\n\nstd::string read_bounded_line(std::istream& in_stream, size_t max_chars) {\n    std::string line;\n    char ch = '\\0';\n    while (line.size() < max_chars && in_stream.get(ch)) {\n        if (ch == '\\n') {\n            break;\n        }\n        line.push_back(ch);\n    }\n    if (line.size() == max_chars && in_stream.peek() != '\\n' && in_stream.peek() != EOF) {\n        in_stream.ignore(std::numeric_limits<std::streamsize>::max(), '\\n');\n    }\n    return line;\n}\n\nint main() {\n    constexpr size_t MAX_INPUT_LEN = 128;\n    constexpr long long RANGE_MIN = -1000000000LL;\n    constexpr long long RANGE_MAX = 1000000000LL;\n\n    std::cout << \"Enter username (alphanumeric, spaces, '-' or '_', max 32 chars): \";\n    std::string raw_username = read_bounded_line(std::cin, MAX_INPUT_LEN);\n    std::string sanitized_username;\n\n    if (!sanitize_text(raw_username, 32, sanitized_username)) {\n        std::cerr << \"Error: Invalid username format or excessive length.\\n\";\n        return 1;\n    }\n\n    std::cout << \"Enter first integer [\" << RANGE_MIN << \" to \" << RANGE_MAX << \"]: \";\n    std::string raw_first = read_bounded_line(std::cin, MAX_INPUT_LEN);\n    long long val1 = 0;\n    if (!parse_safe_integer(raw_first, RANGE_MIN, RANGE_MAX, val1)) {\n        std::cerr << \"Error: First value is outside allowed range or not a valid integer.\\n\";\n        return 1;\n    }\n\n    std::cout << \"Enter second integer [\" << RANGE_MIN << \" to \" << RANGE_MAX << \"]: \";\n    std::string raw_second = read_bounded_line(std::cin, MAX_INPUT_LEN);\n    long long val2 = 0;\n    if (!parse_safe_integer(raw_second, RANGE_MIN, RANGE_MAX, val2)) {\n        std::cerr << \"Error: Second value is outside allowed range or not a valid integer.\\n\";\n        return 1;\n    }\n\n    std::cout << \"Enter operation (+, *, /): \";\n    std::string raw_op = read_bounded_line(std::cin, MAX_INPUT_LEN);\n    if (raw_op.size() != 1 || (raw_op[0] != '+' && raw_op[0] != '*' && raw_op[0] != '/')) {\n        std::cerr << \"Error: Invalid operation selected.\\n\";\n        return 1;\n    }\n\n    char op = raw_op[0];\n    long long result = 0;\n    OperationStatus status = OperationStatus::InvalidInput;\n\n    if (op == '+') {\n        status = safe_add(val1, val2, result);\n    } else if (op == '*') {\n        status = safe_multiply(val1, val2, result);\n    } else if (op == '/') {\n        status = safe_divide(val1, val2, result);\n    }\n\n    switch (status) {\n        case OperationStatus::Success:\n            std::cout << \"User: \" << sanitized_username << \"\\n\";\n            std::cout << \"Result of \" << val1 << \" \" << op << \" \" << val2 << \" = \" << result << \"\\n\";\n            break;\n        case OperationStatus::Overflow:\n            std::cerr << \"Error: Arithmetic overflow occurred.\\n\";\n            return 1;\n        case OperationStatus::Underflow:\n            std::cerr << \"Error: Arithmetic underflow occurred.\\n\";\n            return 1;\n        case OperationStatus::DivisionByZero:\n            std::cerr << \"Error: Division by zero is not permitted.\\n\";\n            return 1;\n        default:\n            std::cerr << \"Error: Operation failed.\\n\";\n            return 1;\n    }\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Developing Secure Code**\n\nI'm focused on building a robust C++ program. My current priority is to implement comprehensive input validation to safeguard against potential security vulnerabilities, ensuring user data is handled safely and reliably.\n\n**Refining Input Security**\n\nI'm now concentrating on the specifics of our processing utility, aiming to build a C++ program that rigorously validates both numeric inputs against overflow and text inputs with strict length and character set constraints to prevent common attack vectors.\n\n**Implementing Safe Operations**\n\nI'm now drafting specific C++ functions. My focus is on `parse_safe_int` and `safe_add`, incorporating checks for integer overflow and ensuring inputs are within defined bounds to prevent unexpected behavior and enhance security.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Secure Code**\n\nI'm focused on building a robust C++ program. My current priority is to implement comprehensive input validation to safeguard against potential security vulnerabilities, ensuring user data is handled safely and reliably.\n\n**Refining Input Security**\n\nI'm now concentrating on the specifics of our processing utility, aiming to build a C++ program that rigorously validates both numeric inputs against overflow and text inputs with strict length and character set constraints to prevent common attack vectors.\n\n**Implementing Safe Operations**\n\nI'm now drafting specific C++ functions. My focus is on `parse_safe_int` and `safe_add`, incorporating checks for integer overflow and ensuring inputs are within defined bounds to prevent unexpected behavior and enhance security.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 110,
+      "completion_tokens": 2721,
+      "total_tokens": 2831,
+      "cost": 0.01028625,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.01028625,
+        "upstream_inference_prompt_cost": 8.25e-05,
+        "upstream_inference_completions_cost": 0.01020375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 781,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

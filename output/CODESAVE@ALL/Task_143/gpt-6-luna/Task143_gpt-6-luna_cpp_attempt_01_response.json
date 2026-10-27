@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793025267-knf5W2BAt9vjJFDG7AFs",
+  "finish_reason": "stop",
+  "input_tokens": 108,
+  "output_tokens": 271,
+  "cost_usd": 0.0001463,
+  "raw_response": {
+    "id": "gen-1793025267-knf5W2BAt9vjJFDG7AFs",
+    "object": "chat.completion",
+    "created": 1793025267,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <algorithm>\n#include <iostream>\n#include <vector>\n\nstd::vector<int> sortArray(std::vector<int> numbers) {\n    std::sort(numbers.begin(), numbers.end());\n    return numbers;\n}\n\nint main() {\n    int size;\n    if (!(std::cin >> size)) {\n        return 0;\n    }\n\n    std::vector<int> numbers(size);\n    for (int& number : numbers) {\n        std::cin >> number;\n    }\n\n    numbers = sortArray(numbers);\n\n    for (int i = 0; i < size; ++i) {\n        if (i > 0) {\n            std::cout << ' ';\n        }\n        std::cout << numbers[i];\n    }\n    std::cout << '\\n';\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Building a C++ program**\n\nI need to create a standalone C++ program that takes an input array, which I\u2019m inferring will have a format of integers. I'll use a vector to sort these integers. The user mentioned that all functions should accept input as parameters and return outputs when applicable, so I'll follow that instruction closely. I plan to build a complete program using a function like `vector<int> sortArray(vector<int> nums)` and ensure there are no global variables.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Building a C++ program**\n\nI need to create a standalone C++ program that takes an input array, which I\u2019m inferring will have a format of integers. I'll use a vector to sort these integers. The user mentioned that all functions should accept input as parameters and return outputs when applicable, so I'll follow that instruction closely. I plan to build a complete program using a function like `vector<int> sortArray(vector<int> nums)` and ensure there are no global variables.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq32T2tvvhviDnBYA0Z3CrFByAEH3FH4vxWV77iiGV1Sn-49kD9b2VeW8uxXA3SMoB5CCqFo5n86KhgaYiD8uhZyj8D-PJutl4ZV1kLpS4gkGoYv6WNJde9ibLcEcYD2EcdpxJGrJqFMoX29zUv2QgHY_vHvaIyxzsMHZPVteEsue6-k4ma8hweZ4TyxWyZhWXjGVAl53G-1YDtaMRrs9COjD-bHKxjp5EVh2FTTSI7rA-xaAsamNmbcfi2C0CzBoPpcABVzxbunjC_6WT6QmtKrfo3x1-odmSsjM041Dci1i6RELRTmyJE1yzzMDqHJlfq6IJv4aKU_qMZAKdwdePVaXTw_uB26zFAYRvqjwfHKmvpBizw4pm1jb5-Ucep7jrnKY6AndGuaoaAzmf9ZNGoI5Wew8zFywYZPPZK7u1BrBavIt3pUrnwVGxUKGTnCheK-OCTSR6oQvc4DankmMV8A7rl28K4qoeSzihTcAEbVsexTTGpC4eopUBM_GV21GMwMlI0Tvsq0QRpCRf0gW8yXZW8SGBZGaLHhLH20BzZXH45TYI2Gcwc5Pu0hqUNZtbhWQGwcZJtUuiwCyVlSL7iHyJBnXvP1RQmvPf2-fAasCAAdFzbXnVkt7DSrdQuS_dyL4DdXhbsbLzB2jDbRJJwl_t_o_tyiTxHUOBSIPLGetTyYYcdUD_mANoZyzcBH9sL9_cqcdpTBcbNWzzSUWIc_SkDIdWS7IefSmKORpddo8IxqvsTE2LHvMD93Q0QYeOjxzD1-YOgZWg4EygfvsFDWaB6C5vYG9UcQ10ALZ7cXmiYMJ9sZEZJfNtX8Kf7hfu1war4tLXpuMQ6HLzYW9AUP19BUBK7uB94LTReP-RZgkxpRhlsto9hUXp2IMeuIvJFQXcG2DBWRJKkvlQgQPCLYnP-rLeYMT5x_rrWhfKmtstVfuADBwV5q3dodmo9PUa477N5gyX2yXniK3AxsGkNKgB3S5yIdaNg0rTIjmKuYrheHyuxpZh0ZGbt_w_UFCrXxaru574GywCRb2SC_lZ94dl9PhN-TshnkCBXXez1bRgdVddjT1YkKu_JPO8Q99lF8z4VAAGhSLvLAzTUp6EtXU2J50W44jJpfpO9EomBOSwNafZ9lsa6BXfd6BtqmHlUoWNWZAS3NIM_lXo83aulUgtprfL3bpNGK1ubattghu7LYCYv-FnuPgwKxekNEyqEsMxHh1yafvSesbQfjJCRypNpdbETPCZIZpGCBw15GFGPtKI-GRlh3bHyMxR1ZJs5aKUjN3CXVIhdSj15Py9__j1WCUzrI00QRUFD41GaHR-pJNVeMsY_nBAjzuv515ifunw2Zzm39j6T-4pYkR2C15qF6uXkK8BBVUoTMrkiAxpf_oaq413tUF7YuXhRt2N0lpPRNcD5C6-YRe6QsHSq5TShPQiSd7w4DSAxkuoGBmaj7H4x4qc5xnb_YVYa_gb8Tp-6LkpygI5gRx1e6ALKcUBk21IoWTuXVsYuEy2TCysQQPNcPv1HaAL6rfUa0nNyDkGde_8u6hyTba83D22CQV1f3oCyGM9vGPrLQt3PUSP3kC1yl6S9rRZeQVmwHKcC-vhy5EOQH4A9NxhXWwVShRRnIRiOMCNWRPe8Zg9GPDaD0cTXeHHLGg0gZutaM9Qz9QUagXURnjnleHd0ErW6SKBu6rl2HX_6IYWJRJAn6XAPCg7kYp_F_Zu1JvNZIwPsglfL3V1Id3ourRi1pv9KFXisHse6VHa65wPODb-bxrGSg_87RFIQ5SZpt2odJ5JZ6yFLx0CjB0GEFuaSLHOeLKlbFjADisyAN6TDUm6safHfOaYgOX1Jaz_HTSCY36-Lhf3yrSdIR4Eo8g_kSTc4v_lJk8DQa9z86brxcauVpUmidoHX-kAoSFtKmRFoRcpczGMzZI1Nmy_wwaz51Kd0NeP7at_LeFKAPXUjwBj394L4YFDL1H10B9mcyGSlIvNs3qFjBtEmJjIHhcUkr44byttbs8tn3zNyqWfiB7AZCmdD43Vz3TeilvgB8R3UiFvcarL-JXTTUbkod11_WNV8p_d_oVN4McuvDF8q0yCaK_e_wDxPZXnyebKZ5qcxuPZQl9Zji7Khrka6iZtZFUySSs391d1I4DyVQvItEUDVpDHO03sgIwoX9RJ6Aff2KZ3yBpTmcOwKphbNYWsFFOTH0MfPZPXtFppCe8K_Eu2zzURu6JYO5LGrQ1HnxRVFL4AEmurkMSEq8h-MBvJULWXugp0uatgdNVgZxQwX2f0Bd8N3iWuRFq2yWH_zIaEmjxbdV1YNxMRivADPNHtTvX52L3TRhbQi7zYZv1nagynTcTBtNCgw8CzHcveKF9RcCmE0y6zhfQAduU5UC_DS5eXMW0v26S1stutZ52t3DZ1TDbO_hEm-H1KgboVfxycadp346Gub4SThF23AYuSxHanyw6pVpvtjdSe9XVYVmqe4GE05OnRwQDfrflxcFbp82XBZoB4NbrXBwp1y3oTmReT9YxeZdk5PcX7MKgjvECHJ3TQRqhlCnug02JnuVfQJkV74U7FaZ9bnI32uDXAi1y-tihvCSk5hZ8gR6_4IiOQI89jaw_x8h643Y41YGuUoRFLBGo_y5N7z3CvOsdCh59W7bJnpEsK0oC9XN7G4KVvfXy35PKjM1nXz3EO2W5fJpTxrmakOB44NFfpJWyJJWpnYbkgOIcOsTW6iHqXJFRm4S0JimBCfGF_VABm6UU3IMzircIDm8pmANkvq7vzvjQDWNOqMgU1Q-rZK75JWpuZUXTWOnETzevgnlyBKmDjC3vfNKP1dWobqE1OLLz5vR-Z8yZIhuhJlc31Fj_PySOfc626YhMrcTBXcOhNo0zCsZeJXk_CNBnJ937E7v2EN78SvMM2dyI_xj5pmSxRu1b1idRq20cy8Q_tkiX0EvV03mVFyaEW.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_035252aca13199bc016adf64f4906087d1b4f956845a9b2ed4",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 108,
+      "completion_tokens": 271,
+      "total_tokens": 379,
+      "cost": 0.0001463,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001463,
+        "upstream_inference_prompt_cost": 1.08e-05,
+        "upstream_inference_completions_cost": 0.0001355
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 104,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

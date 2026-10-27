@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792952851-HwrUC7iZkMIDZ91pkRTO",
+  "finish_reason": "stop",
+  "input_tokens": 153,
+  "output_tokens": 733,
+  "cost_usd": 0.0003818,
+  "raw_response": {
+    "id": "gen-1792952851-HwrUC7iZkMIDZ91pkRTO",
+    "object": "chat.completion",
+    "created": 1792952851,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import base64\nimport hashlib\nimport os\nimport sys\n\n\ndef derive_keystream(key: bytes, nonce: bytes, length: int) -> bytes:\n    stream = bytearray()\n    counter = 0\n    while len(stream) < length:\n        block = hashlib.sha256(key + nonce + counter.to_bytes(8, \"big\")).digest()\n        stream.extend(block)\n        counter += 1\n    return bytes(stream[:length])\n\n\ndef encrypt(plaintext: str, password: str) -> str:\n    nonce = os.urandom(16)\n    key = hashlib.sha256(password.encode(\"utf-8\")).digest()\n    data = plaintext.encode(\"utf-8\")\n    keystream = derive_keystream(key, nonce, len(data))\n    cipher = bytes(p ^ k for p, k in zip(data, keystream))\n    mac = hashlib.sha256(key + nonce + cipher).digest()\n    return base64.b64encode(nonce + mac + cipher).decode(\"ascii\")\n\n\ndef decrypt(token: str, password: str) -> str:\n    raw = base64.b64decode(token.encode(\"ascii\"))\n    nonce = raw[:16]\n    mac = raw[16:48]\n    cipher = raw[48:]\n    key = hashlib.sha256(password.encode(\"utf-8\")).digest()\n    expected = hashlib.sha256(key + nonce + cipher).digest()\n    if mac != expected:\n        raise ValueError(\"Integrity check failed: wrong password or corrupted data\")\n    keystream = derive_keystream(key, nonce, len(cipher))\n    data = bytes(c ^ k for c, k in zip(cipher, keystream))\n    return data.decode(\"utf-8\")\n\n\ndef main():\n    if len(sys.argv) != 4 or sys.argv[1] not in (\"enc\", \"dec\"):\n        print(\"Usage: python script.py enc|dec <text> <password>\")\n        sys.exit(1)\n    mode, text, password = sys.argv[1], sys.argv[2], sys.argv[3]\n    if mode == \"enc\":\n        print(encrypt(text, password))\n    else:\n        print(decrypt(text, password))\n\n\nif __name__ == \"__main__\":\n    main()",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 153,
+      "completion_tokens": 733,
+      "total_tokens": 886,
+      "cost": 0.0003818,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003818,
+        "upstream_inference_prompt_cost": 1.53e-05,
+        "upstream_inference_completions_cost": 0.0003665
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,4 @@
+Task82_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp:5:10: fatal error: 'openssl/sha.h' file not found
+    5 | #include <openssl/sha.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.

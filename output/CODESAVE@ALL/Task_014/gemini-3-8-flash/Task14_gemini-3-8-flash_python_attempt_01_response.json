@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793008992-dpSURUazm0HxGAzrdtrA",
+  "finish_reason": "stop",
+  "input_tokens": 547,
+  "output_tokens": 340,
+  "cost_usd": 0.00168525,
+  "raw_response": {
+    "id": "gen-1793008992-dpSURUazm0HxGAzrdtrA",
+    "object": "chat.completion",
+    "created": 1793008992,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "def find_even_index(arr):\n    total_sum = sum(arr)\n    left_sum = 0\n    for i, num in enumerate(arr):\n        if left_sum == total_sum - left_sum - num:\n            return i\n        left_sum += num\n    return -1",
+          "refusal": null,
+          "reasoning": "**Exploring Array Balances**\n\nI'm currently evaluating array elements to pinpoint the equilibrium index. My focus is on iterating through potential indices, calculating left and right sums, and identifying the first instance where they match. This involves careful summation and comparison logic.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Exploring Array Balances**\n\nI'm currently evaluating array elements to pinpoint the equilibrium index. My focus is on iterating through potential indices, calculating left and right sums, and identifying the first instance where they match. This involves careful summation and comparison logic.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "AY89a19DIQMP4oH+CG4fI9QBe3N5goEwT0n5pMi9lOe906QuK0Fx3jZHhEW/AOF++2tPCIcpmZe71inqXC2Ig4xeeg5VE8NZ7ysCcJgGsuvE+wdn2mer1HRR8JvWdWnqdSGdvz2wKfIASRj8ia0XfCtgZGfCGtkMifqDJ/Ti2cfSNgUtBBzbvsFG/g7FcJ0Zv/YfV235M0ZOQ/yezpoU1f6i1eRZfK5zVGBm+whJIyDKM+tJP6KSPksTJ89NQw/QgNlt+Zs+iLDL3YdsN4Bl762b9ndlNCK62fE+L+JR9v6ElGbRuBg4LF+ibDmFb/zQf65C6/re+vceFghGJmO6tckNmVc5hvGGTTYICPMw8CeEl8zMoFrsV/BHc9I2G1p2Kr+4wGMSxl664mQWlQM82HowZ50uPbiR7uDvnnbn2Nq8K/rSJpWMs3r7WoRtMjSDmY6Vg7Tv2vlS5yYI+wqZhZZko3NNUhstPTv3pDSPo46g1ZsFRo37RdnbwsBe8UEvXB8/tf2x084jD5qWEsxHVXk6NLEioCFQ8FVGhcpYkXE556wCIDRrcBSYxZ/+6rrIKXFRSCY5ZaDmHqCU/b6k0KZ3mYRXpSchiJuKidgZve2zSKQs1c/nsXehXfKwal+KvmG4EropXOKWhn/Zun2KvPUB5CozsjqdwVRPSLASeh1eiJ7up5T/naPWfygTS1pJ8XdFgyPwSXt9Wl0ALCWRqQMyRl+3/kO4nP3WRLq4R+bgkXbYr9yKFQVYoUsa7cch6Ri27IPPEPTE1pyPnKs/ChKvaPFv5qK72Bfr+i/vDeV/jfto9GdgvQ5+FcjYsEr788DzxLywbMuR60hOs3xycf5IzWCGcTsvqz4cpns5ycuvC6S5vwayeYHBbPN8uq/fJooFVt8dnsJCIU7u6M34VeiVCRXax2t0qbb2J7spohGcJkXJE6598hY6Qn1/2sctNyYFNSKpk9RSaLJTGwgzArAUyTOOpyfvdwB/swc8e5Eif/9hbiFk1LebI18QB3NelZHuVsSd11CthrcDOQc+Jh9dJzU6ciBgr5Wmbm468blbL2KxWyiRyA4OnXGtrpdhWl05yC7U2ipsOhaGuqOyQ2L20Yy+uuokHWDfp5TlEI+r7ZqKoknlhWGOac4srucObPyKvDB7wfW5q4+AnEAvl/5Aa0u22zFbVVU3MTR8J00mSd7B4u28Ruaxs0L7q72AdFla9XAUPcu9od2znPyKqN3YOmUtETAjRJzHg2dEIHyy8GlJgnIDI5mPFHbj/nt2ofaAdTVQkLSgm3KeBmPcRcfA8cNqvVjmSguH4pvuWAyKTHPde8wBKVcr1xTIccy1se0cK4inVEKpEZlXEXiMKQXjHNztUEbBH0YUfON0Uw03Zy1rpxYXtXJVuZUXY6D0257IaDB6y9mlgXnf8WmODtc=",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 547,
+      "completion_tokens": 340,
+      "total_tokens": 887,
+      "cost": 0.00168525,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00168525,
+        "upstream_inference_prompt_cost": 0.00041025,
+        "upstream_inference_completions_cost": 0.001275
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 269,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

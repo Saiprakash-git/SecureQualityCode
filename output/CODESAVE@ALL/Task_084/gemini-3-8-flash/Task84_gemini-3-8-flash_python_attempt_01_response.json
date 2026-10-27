@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793022990-ceDCCExomOj87zNsK5zr",
+  "finish_reason": "stop",
+  "input_tokens": 99,
+  "output_tokens": 681,
+  "cost_usd": 0.002628,
+  "raw_response": {
+    "id": "gen-1793022990-ceDCCExomOj87zNsK5zr",
+    "object": "chat.completion",
+    "created": 1793022990,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "import secrets\n\n\ndef generate_session_id(nbytes: int = 32) -> str:\n    \"\"\"\n    Generates a cryptographically secure, random, and unique session ID.\n\n    :param nbytes: Number of random bytes to generate prior to base64 encoding.\n    :return: A URL-safe text string representing the session ID.\n    \"\"\"\n    return secrets.token_urlsafe(nbytes)\n\n\nif __name__ == \"__main__\":\n    session_id = generate_session_id()\n    print(session_id)",
+          "refusal": null,
+          "reasoning": "**Generating Unique Session IDs**\n\nI'm focusing on creating a robust Python function to generate random and guaranteed unique session IDs. My current efforts are directed towards exploring efficient hashing mechanisms and ensuring a broad range of possible IDs to prevent collisions.\n\n**Implementing Session ID Generation**\n\nI'm now concentrating on implementing a Python function, `generate_session_id`, leveraging the `secrets` module. My aim is to produce cryptographically secure, URL-safe session IDs, utilizing `secrets.token_urlsafe()` for robust and practically collision-proof generation.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Generating Unique Session IDs**\n\nI'm focusing on creating a robust Python function to generate random and guaranteed unique session IDs. My current efforts are directed towards exploring efficient hashing mechanisms and ensuring a broad range of possible IDs to prevent collisions.\n\n**Implementing Session ID Generation**\n\nI'm now concentrating on implementing a Python function, `generate_session_id`, leveraging the `secrets` module. My aim is to produce cryptographically secure, URL-safe session IDs, utilizing `secrets.token_urlsafe()` for robust and practically collision-proof generation.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 99,
+      "completion_tokens": 681,
+      "total_tokens": 780,
+      "cost": 0.002628,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002628,
+        "upstream_inference_prompt_cost": 7.425e-05,
+        "upstream_inference_completions_cost": 0.00255375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 559,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

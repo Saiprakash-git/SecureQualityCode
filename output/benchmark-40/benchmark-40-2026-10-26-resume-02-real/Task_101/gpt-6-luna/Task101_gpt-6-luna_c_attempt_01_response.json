@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793023900-i97kdGSIk7R7Xg1JufWS",
+  "finish_reason": "stop",
+  "input_tokens": 105,
+  "output_tokens": 452,
+  "cost_usd": 0.0002365,
+  "raw_response": {
+    "id": "gen-1793023900-i97kdGSIk7R7Xg1JufWS",
+    "object": "chat.completion",
+    "created": 1793023900,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <errno.h>\n#include <fcntl.h>\n#include <sys/stat.h>\n#include <unistd.h>\n\nint main(void)\n{\n    static const char contents[] = \"#!/bin/sh\\n\";\n    int fd = open(\"script.sh\", O_WRONLY | O_CREAT | O_TRUNC, 0644);\n    if (fd == -1)\n        return 1;\n\n    size_t written = 0;\n    while (written < sizeof(contents) - 1) {\n        ssize_t n = write(fd, contents + written, sizeof(contents) - 1 - written);\n        if (n == -1) {\n            if (errno == EINTR)\n                continue;\n            close(fd);\n            return 1;\n        }\n        written += (size_t)n;\n    }\n\n    if (fchmod(fd, 0755) == -1) {\n        close(fd);\n        return 1;\n    }\n\n    return close(fd) == -1 ? 1 : 0;\n}",
+          "refusal": null,
+          "reasoning": "**Producing C Source Code**\n\nI need to create a C source file that generates a script.sh and makes it executable. I should start with a proper shebang and ensure the script is robust. The functions should accept input parameters and avoid using global variables, which is an odd requirement. I'm considering using fopen and chmod to manage file permissions and ensuring the executable bits are set correctly. I\u2019ll handle errors appropriately and include necessary headers like stdio, unistd, and sys/stat. I want to ensure everything is well-structured and functional!**Ensuring File Mode Under Umask**\n\nI need to ensure that the file mode respects the umask settings, as fchmod can override these settings. I\u2019m focusing on writing code that properly takes this into account while creating files. It\u2019s important to check the permissions carefully to avoid any unintended changes. I want to make sure the code behaves correctly, so it\u2019s appropriate for my user's needs. I'm planning to keep the implementation simple but effective!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Producing C Source Code**\n\nI need to create a C source file that generates a script.sh and makes it executable. I should start with a proper shebang and ensure the script is robust. The functions should accept input parameters and avoid using global variables, which is an odd requirement. I'm considering using fopen and chmod to manage file permissions and ensuring the executable bits are set correctly. I\u2019ll handle errors appropriately and include necessary headers like stdio, unistd, and sys/stat. I want to ensure everything is well-structured and functional!**Ensuring File Mode Under Umask**\n\nI need to ensure that the file mode respects the umask settings, as fchmod can override these settings. I\u2019m focusing on writing code that properly takes this into account while creating files. It\u2019s important to check the permissions carefully to avoid any unintended changes. I want to make sure the code behaves correctly, so it\u2019s appropriate for my user's needs. I'm planning to keep the implementation simple but effective!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq31-iXBGrBh3Hxhq1Jy7agOCpCi3zT5fX5ySv4UByGAXqtZJdoE23hEqttE2NqGB_8uI0icYrCyNSJrbj2wzwCWAf1G9CUrXJmfuCMTfi--dtjf3-_MDjrdxZhAQ_nucimn90jAR45NRdyU2JcZlhKjN3w8auZRdmInQ-xM4IgeOx_HgU6HQntrVlBbuaj1jWLZr0EGsTpC7NVE6W6YcnqdjD1WePkt0JKw_YCqB8h77sAJgqfZ-BBN4O8WH_3dVPDOSq2gWdVTkbOYE6m8-7C7jX-pFTus4a-wY6AIQSEEYUHmzF56tDpEqnIvHFqMeHbCpnS0H5MCHZPkgRp0a_HsUtQ8vRHYv2ogTK5Cqfh6VIT3Cta34ZoIyZROAIqZc8MnY38uq_AoRCLE_pUrYEFzdOG22we3gBI4N25QzqgaqfXoCBv8AbIoJcZl_NNl09X0bW4_7ZgztS-GWbQLsjZPmQXiLsI2ZnfJ6VaYtdA2kTyzjI3TufTuUXaV3PMUNstCOwAz7C3mfgzivWC24SdUbZF8G9hl3dCYWZiH_-2XFgzA1T-ZyDztMMSYSkf0Q6USvmr03UulGg1ELtJMrMAnd2POTdWVy5qGuY9-ZcasxShPKjjiKJTr35A1eVIluRtoqg2I1cLKxX1-LzLkTJzdfE54Q11X7QjHBcQOKvsXMrjLU1cy5sv-EN4JbZ2Bd4GFuLFxtIEnA0pa8NbNpYSH5rDNPyx1laNpDVQrNTygQlofrngj27g0IAkM3HV2zumYvvcExpfxFfqYgm42KOppAlLAHcMYcJ8i_mhjA38K9Drm8PyKFC-d9vhXc_erHuW7_7hr4yOFiXNAhEekpls_V2rG6Fnu1fuc0zprRMcJtk6CQsm8Ka9x1Xl69ByQSpNBiIlJmctSyp8eP5mp7suPqbsLk9m_mxuS6nqLiNl_emKp5AHqeLBaRL97MATvoh9x6W-YeBB9FKh8FDq3h2U9q4VfVIH5GMmnRmnAFD-d6Nc2Dx40wd6TuwpknWui864gRxZQ6NdN9DGMTPpPycm0d4aAx8GJEDPKBv_BYHyko6Qt-SwQ8RFtHHhBeCZkP2GEP7Z5k-61QyFKbpX5r7qzh6JJTia2C1XpQbE1dCsQ03tjcKiGj3t_5RjkaBPcgqgRWi44Wr17Re_0voioqHH-lcxiNNUej5Zpm2R1adSEC9kjVeSG-vTtt63EizpZc6wp8gjKp0Vw-iubzzZ7DTQZKByoeNSzjGmYCTFmg2XrmVP5ne0aoo4A71ui09i0yuXVPi7fbYZ-_4rmRAQspoCtIXTNF43tsH0IghQSQmfszPJc0qWgervNju1qPZNkSBNkEiIIjC07RdQGvybUTFUCGpUVxkEZ3UxlY3m8sxj9NQys61cMTyOzFUaBGCBElXXiwTLJ5qByW7J17NMjqXGTORunwNLiecgmuqmCAyUJOdao2PFfQ-AmRcYutjvX8QYUPscwsz_kvoC9SOF0f_bjpnjuE0iVqvxNuYomsnsoalg2yjawPUqIkhtN6eMsO5nF1JgKX0vd097JzpIVsmfpDZ-GjxjQdRVFqFqIqw_Dr0zYVt2jx2CmvNC040-5M6WJx_7X_Mh9JIA17yzesh-CBLnvc3-pjg6YNSb1t58OtTSHolYqW6bjwCkdRC2LkANVuzDQl-oOJt8SHP3blsWPZqUAfB-xj-bRjr0s9POpGnPmzUnJq-oWwLClPa4RDShGb0sn-P_lct_M7ADWz8ienhC5-t5hLf62gyRzopTSuQseZHGVq-EM8NYRnG-703D_xxdc8ZBb7BHdp8TO17qvfOTO_KH81udWodEd2PEbPK-N6VUb3CNW7mPrOS9yloR9WLKiU4eQwzWPDeMPZOOTvJCQx9wZI32KxQ868y0gQ2voa3PzGNmhzm4q8siB7i2do6LTpsTnQpytTwnqS4KqtggBv-_dfBfWS78XAzIVbxI77wb48sj3wWxLHB5i3W08zaGpiTPMfDbaxIt1dOkF0HhIy7NEhubYrAI6x0hjWomcPUvTk4ig4xRUjOAf_sGnIgX9dtHa8c0zu7mJj9PMD0e9pV5D6Pryq-2vzOPUvPBOXD4bPt3W6RB_y1wXljX4WzD4F7B14poStHsojgeebkmPmDFvhUtKkh-O_PFBM6_QCrJR_cGEFqCFO9KSuVc_u25KARNCRaPMuWshDui8byQqfUCVh96-IpUtTWgi6mgTq60cdh1L8OwPefO9zb5FfS0Jd73A44Xd9tlQQRdHxK5Kc4j3bXBikUfIuiT5Tapj-SH8FX_RbA26S6qGk1XTqAQKD110FDEbbWb9s6amMwN1bTX6VfCopZje5Oz_Pw7FP-eJt5Smci-9DZMxFC8JgyLMFZtb_OvrFJi_aEqwdDuXt2_qnHKO9hjsS3U0Q4yz3ssfW9q1jgL4D2OajVV74JIsSysraIukrb6aXlraSqiOZ8MEqMVKpzNM7-jVuiznKlWHZ39G9JYP4PehhaSTCah_7uuweMMhPyH0WpPzE4FJHcLOqrl5D52fwfsR6xZeWl4wfI3xrtfk2fcGxCqBq5xGRNGkKr6LyBaFATUxoukqMyEt4bAvdj7fMgjEhh4NwB6TMFFfTSp_tkCjyvsheGVfP6Sl0ewGOIxrpXgUq43ee4Zn-DOb8WujXEbJBwRIz4KgxhyGQuEU7qsziJNtE0Axvwux5BBfzn3PHdYVCaUMRwOL7-2BjlAlohHuzBo0HbqXGMnHyZj3m3BmB2N2Uds7WK_7KxOe5mvY7v_DrsvFQlzjt2yR5zUK6gvEtCTLY2-xiXQc0-DpOPnei4Vny0Or7dp8yoavTXJTZvrUn7h99x7buNogAE2qqwatk_ceH1vpzjiY4t6mZ6b0n-ZY2q8xoxazzqizxc7dRzuIjoruFfeUzQ_hCZMcNrbcFr2lIHV_Bx24ZIjiQaKTgLS0niX0RY00cH96yQWkZZ_qXXCk6dvwMegORXdLdAWyOv1LiW0N2JauAFwxVZmMYsdIzsqSFzAxfdJYrcBdAeys6CFP6QTv6FlN29PNr89JAtFWrnG-y6_Z7SLKKvJeZ_H1_BX37ihgohCbZUrnNSLlJaMkECKZQNcX9BnQipp8xr3StOkdPwciRfjL7YTRqpSHfQ6g2jTTqJ_0Rp0mjtgx2eaig9YuB2sO9-gJHoyY9D9z02RzG7c6zvEex2KGIYhctkZpaBJat1k1oAG_5YR2Yy0WikhD_U_2GNd55s4GPQbT94EG5kI3mAoTuqpX-p3xubNxPotRIAajlRfroiGUhOhz_HlA4q7HbZaMmLqZESWT67bfPnLgh1exbhUMdQfsQPPCrsaztkFMvSs5AdOXLxUsO5w0L5DBYtiy3njOq8-Le9L15f5RmJIuZQNeTd7E0f1hzO4TfNM4EMzaaOdjZSfVEKNaTT8b-i5ivi489uy2mMf1zBksYos7Bsgjezi5rSlPt6PwvmG_c8PT2rvgpR2E0eicUtQmXd-SkjM0qfUI_19q54LLYtMzRF6pS7wJFnvF-z7wyRKzqT4NehLDM7ibrk4hpJ59ib0sS-8nC2HnBNAAzobstIzTxpXA56b6WJUGBxbNcz8_DsjRD4yeWKTQ7AtpaOj6ACpsQE7l3jy0a9w00Pu6ntHBN7ExKcRm-4Rw5D3Dp2yJ3P6FSkjahAzB9I77biXOcGsQjlUigG2ocK8s_VzylsG4XLp-ZMLvijTaWggFOeUVdZuDbg07rMIpTp79pClie3KF3SUPB4xp19vbkvLagr6KN0NHAP-4DoNQQTOwW-o8K1-ZQG2bbmH3raFCGPalpdYGYEp5w4yj6U_X84tgChlu0upeL-sCH5rLawqUaM80VMU9DbbTbABHOdl09LI5YCPyd_NjfmB8NnIW32V81Vo2M2X43SA0-8PhvQ8zyKrgFHNheu-BKq7ohGJdB-EkCNOooi3sklr3Mbp-xXICBoIwKKY1y7aaXIzgEa-nEyf0dB8gLTIk1w_E1Mb_pqQgmFf36xCgQy2pXWGyFh3n2dNZu0iwqk_dG8L1Y9UI96ziVU3ZFbgUiwYnSb5ND3BkTFxnr4zGeDg-H_M4GC_wgjy6NxzB7ki7Rtx_ysjAeY2aQSbALM4ARfefTREttEkiqskv2otzAU02Ks1zqJiHX-TwgrUqpAIixq3TSfWuk16lJKj5RqJELWwcRr5WDpnAAQ1sEPtkjydDrdtiPg7-OicyUkrth_Jc0MjQxPOA59bfSRPxVfeq_vBEDacuozq1vgjp7r4mxaaGhRyv9bkK1lPGGV8dI3BvaAk1QsoT0i8tvSyRAEKZxIZe484bJAwhWxrdfXupKzgLDlEtN-f7y9GnBjbxR0QasS6D4licO5I9Sqtj15YJPW__5qJEqEuTMHdcqkyu4X45KRrikMPAEeTOEOSuIO-JpsDm6V9V3EoGsAxIvWxaRYopB6q73Q80xSVLmbdm-LWqoeH3XGyft0_5Od1a5dVbQJsRidy8Yx3X76VA3PhZJzXAYBP9tFsWgqU2XkUe-_AtO7dNXxxICG18I9ppJjMn_IkAWdG49GHoEL_DkFqiHNYsmfR4SMuAWyXZQRpGKAVs1tI5y96f_Yg2-1LNIRRgAh.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0bd88ebcb701a884016adf5f9e262c87d1889e7c90bfece080",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 105,
+      "completion_tokens": 452,
+      "total_tokens": 557,
+      "cost": 0.0002365,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002365,
+        "upstream_inference_prompt_cost": 1.05e-05,
+        "upstream_inference_completions_cost": 0.000226
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 244,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

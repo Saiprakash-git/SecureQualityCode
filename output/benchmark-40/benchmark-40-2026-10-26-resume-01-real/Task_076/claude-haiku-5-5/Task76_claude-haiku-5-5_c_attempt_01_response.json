@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793018098-50xjvIz0yCMG5qGWwqtH",
+  "finish_reason": "stop",
+  "input_tokens": 207,
+  "output_tokens": 2231,
+  "cost_usd": 0.0011362,
+  "raw_response": {
+    "id": "gen-1793018098-50xjvIz0yCMG5qGWwqtH",
+    "object": "chat.completion",
+    "created": 1793018098,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#define _POSIX_C_SOURCE 200809L\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <ctype.h>\n#include <curl/curl.h>\n\ntypedef struct {\n    char *data;\n    size_t len;\n} Buffer;\n\nstatic size_t write_callback(void *contents, size_t size, size_t nmemb, void *userp) {\n    size_t total = size * nmemb;\n    Buffer *buf = (Buffer *)userp;\n    char *tmp = realloc(buf->data, buf->len + total + 1);\n    if (!tmp) {\n        return 0;\n    }\n    buf->data = tmp;\n    memcpy(buf->data + buf->len, contents, total);\n    buf->len += total;\n    buf->data[buf->len] = '\\0';\n    return total;\n}\n\nchar *fetch_url_content(const char *url) {\n    CURL *curl;\n    CURLcode res;\n    Buffer buf = {NULL, 0};\n\n    if (!url) {\n        return NULL;\n    }\n\n    curl = curl_easy_init();\n    if (!curl) {\n        return NULL;\n    }\n\n    curl_easy_setopt(curl, CURLOPT_URL, url);\n    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_callback);\n    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &buf);\n    curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);\n    curl_easy_setopt(curl, CURLOPT_TIMEOUT, 30L);\n    curl_easy_setopt(curl, CURLOPT_USERAGENT, \"Mozilla/5.0 (title-extractor)\");\n    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 1L);\n    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 2L);\n\n    res = curl_easy_perform(curl);\n    curl_easy_cleanup(curl);\n\n    if (res != CURLE_OK) {\n        free(buf.data);\n        return NULL;\n    }\n\n    if (!buf.data) {\n        buf.data = calloc(1, 1);\n    }\n    return buf.data;\n}\n\nstatic const char *find_ci(const char *haystack, const char *needle) {\n    size_t nlen = strlen(needle);\n    if (nlen == 0) {\n        return haystack;\n    }\n    for (; *haystack; haystack++) {\n        if (tolower((unsigned char)*haystack) == tolower((unsigned char)needle[0])) {\n            size_t i;\n            for (i = 1; i < nlen; i++) {\n                if (!haystack[i] ||\n                    tolower((unsigned char)haystack[i]) != tolower((unsigned char)needle[i])) {\n                    break;\n                }\n            }\n            if (i == nlen) {\n                return haystack;\n            }\n        }\n    }\n    return NULL;\n}\n\nchar *extract_page_title(const char *html) {\n    const char *start_tag, *content_start, *end_tag;\n    const char *s, *e;\n    char *title;\n    size_t len;\n\n    if (!html) {\n        return NULL;\n    }\n\n    start_tag = find_ci(html, \"<title\");\n    if (!start_tag) {\n        return NULL;\n    }\n\n    content_start = strchr(start_tag, '>');\n    if (!content_start) {\n        return NULL;\n    }\n    content_start++;\n\n    end_tag = find_ci(content_start, \"</title\");\n    if (!end_tag) {\n        return NULL;\n    }\n\n    s = content_start;\n    e = end_tag;\n    while (s < e && isspace((unsigned char)*s)) {\n        s++;\n    }\n    while (e > s && isspace((unsigned char)*(e - 1))) {\n        e--;\n    }\n\n    len = (size_t)(e - s);\n    title = malloc(len + 1);\n    if (!title) {\n        return NULL;\n    }\n    memcpy(title, s, len);\n    title[len] = '\\0';\n    return title;\n}\n\nint main(int argc, char *argv[]) {\n    int i;\n    int status = 0;\n\n    if (argc < 2) {\n        fprintf(stderr, \"Usage: %s <https-url> [more-urls...]\\n\", argv[0]);\n        return 1;\n    }\n\n    curl_global_init(CURL_GLOBAL_DEFAULT);\n\n    for (i = 1; i < argc; i++) {\n        char *html = fetch_url_content(argv[i]);\n        char *title;\n\n        if (!html) {\n            fprintf(stderr, \"Error: failed to retrieve %s\\n\", argv[i]);\n            status = 1;\n            continue;\n        }\n\n        title = extract_page_title(html);\n        if (title) {\n            printf(\"%s\\n\", title);\n            free(title);\n        } else {\n            fprintf(stderr, \"Error: no title found for %s\\n\", argv[i]);\n            status = 1;\n        }\n\n        free(html);\n    }\n\n    curl_global_cleanup();\n    return status;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 207,
+      "completion_tokens": 2231,
+      "total_tokens": 2438,
+      "cost": 0.0011362,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0011362,
+        "upstream_inference_prompt_cost": 2.07e-05,
+        "upstream_inference_completions_cost": 0.0011155
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 520,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

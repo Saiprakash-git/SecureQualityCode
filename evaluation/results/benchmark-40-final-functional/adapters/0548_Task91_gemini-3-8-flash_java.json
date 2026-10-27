@@ -1,0 +1,31 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "Task91_CLAUDE_claude_3_5_sonnet_20240620.DNSMessage",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  },
+  {
+   "canonical": "Task91_CLAUDE_claude_3_5_sonnet_20240620.createDNSResponse",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  },
+  {
+   "canonical": "Task91_CLAUDE_claude_3_5_sonnet_20240620.parseDNSQuery",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": [
+    "SimpleDnsServer.parseDnsQuery"
+   ]
+  }
+ ],
+ "combo_index": 548,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-02-real/Task_091/gemini-3-8-flash/Task91_gemini-3-8-flash_java.java",
+ "artifact_sha256": "4e10debcd5bbff26d94d9d876f728f5841b7b00be996c1d6df3c0926d6c8deb5",
+ "oracle_test_path": "src/test/java/claude/task91/Task91Test.java",
+ "oracle_test_sha256": "2c6b2637ba0c7c6cf465639805aa586122f50cee6d714bc85f7fd52ab1af440e",
+ "author": "functional.py draft_adapter (static)"
+}

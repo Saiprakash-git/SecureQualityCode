@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "Task143_CLAUDE_claude_3_5_sonnet_20240620.bubbleSort",
+   "target": "Main.sort",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "bound by reviewer to Main.sort: the artifact's single implementation of this task with a call-compatible signature",
+ "combo_index": 726,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-02-real/Task_143/claude-haiku-5-5/Task143_claude-haiku-5-5_java.java",
+ "artifact_sha256": "41c4ce6c3ae34ee2592f96ac323c6164edaa4f50eaa9558402eb75a37ec499da",
+ "oracle_test_path": "src/test/java/claude/task143/Task143Test.java",
+ "oracle_test_sha256": "c1ddc6c4ab55a9f9f417eb7956e2c4ec01c6ceb8fec6692fe39d93551db037d4",
+ "author": "functional.py draft_adapter (static)"
+}

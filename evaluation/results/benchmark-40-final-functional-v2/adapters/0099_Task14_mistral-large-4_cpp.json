@@ -1,0 +1,18 @@
+{
+ "status": "rejected",
+ "bindings": [
+  {
+   "canonical": "findEvenIndex",
+   "target": "findEquilibriumIndex",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "rejected after execution showed a build failure: the oracle test instantiates class Solution (Solution s; s.findEvenIndex), which the artifact does not declare",
+ "combo_index": 99,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_014/mistral-large-4/Task14_mistral-large-4_cpp.cpp",
+ "artifact_sha256": "89ce16f988fb5bb0d907c3281fe1fed0fe2f8d5887e766603a1efe89f2278d53",
+ "oracle_test_path": "tests/claude/Task14_Test.cpp",
+ "oracle_test_sha256": "c28511e54a31b60e4bda5f1af23c9a249855e73f1e4032b57c71af5f576f7e37",
+ "author": "functional.py draft_adapter (static)"
+}

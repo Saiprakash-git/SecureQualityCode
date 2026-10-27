@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "*",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 765,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-03-real/Task_148/qwen3-8-flash/Task148_qwen3-8-flash_python.py",
+ "artifact_sha256": "f9615c39b9458258faed1a2e347bc7bbd80e6881034385880ef55f053f10f3bd",
+ "oracle_test_path": "tests/gtp4o/Task148_OPENAI_gpt_4o/Task148_OPENAI_gpt_4o.py",
+ "oracle_test_sha256": "94214cf2be1c57c63f0ff80346cba07a8317f413a1ddade5c09a66950a7db3d0",
+ "author": "functional.py draft_adapter (static)"
+}

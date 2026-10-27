@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793023049-UJ4mBi6iKcZWhSRky3uC",
+  "finish_reason": "stop",
+  "input_tokens": 148,
+  "output_tokens": 548,
+  "cost_usd": 0.0002888,
+  "raw_response": {
+    "id": "gen-1793023049-UJ4mBi6iKcZWhSRky3uC",
+    "object": "chat.completion",
+    "created": 1793023049,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n#include <random>\n#include <unordered_set>\n#include <chrono>\n#include <sstream>\n#include <iomanip>\n\nstd::string generateSessionId(std::mt19937_64& rng) {\n    static const char charset[] =\n        \"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\";\n    const size_t charsetSize = sizeof(charset) - 1;\n    std::uniform_int_distribution<size_t> dist(0, charsetSize - 1);\n\n    std::string id;\n    id.reserve(32);\n    for (int i = 0; i < 32; ++i) {\n        id.push_back(charset[dist(rng)]);\n    }\n    return id;\n}\n\nstd::string generateUniqueSessionId(std::unordered_set<std::string>& existing, std::mt19937_64& rng) {\n    std::string id;\n    do {\n        id = generateSessionId(rng);\n    } while (existing.count(id) > 0);\n    existing.insert(id);\n    return id;\n}\n\nint main() {\n    std::random_device rd;\n    std::seed_seq seq{\n        rd(), rd(), rd(), rd(),\n        static_cast<unsigned int>(std::chrono::high_resolution_clock::now().time_since_epoch().count())\n    };\n    std::mt19937_64 rng(seq);\n\n    std::unordered_set<std::string> issuedIds;\n\n    std::string sessionId = generateUniqueSessionId(issuedIds, rng);\n    std::cout << sessionId << std::endl;\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 148,
+      "completion_tokens": 548,
+      "total_tokens": 696,
+      "cost": 0.0002888,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002888,
+        "upstream_inference_prompt_cost": 1.48e-05,
+        "upstream_inference_completions_cost": 0.000274
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

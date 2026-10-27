@@ -1,0 +1,26 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "likes",
+   "target": "likes",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": null,
+   "canonical_signature": {
+    "arity": 1
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": null,
+    "return": null
+   }
+  }
+ ],
+ "combo_index": 221,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_028/claude-haiku-5-5/Task28_claude-haiku-5-5_python.py",
+ "artifact_sha256": "07d90fd54cb7643d3d7f1e734351e6b4d3e79f618f5dabdca8b34212fac70fd5",
+ "oracle_test_path": "tests/claude/Task28_CLAUDE_claude_3_5_sonnet_20240620/Task28_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "ff8db6f2f47ab6fd32f89b80966d6764c09214b3ab9255a174c75d9d548b2585",
+ "author": "functional.py draft_adapter (static)"
+}

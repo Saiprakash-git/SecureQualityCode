@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793018086-XEBFBmhJQs7PWj6yhWMs",
+  "finish_reason": "stop",
+  "input_tokens": 137,
+  "output_tokens": 1716,
+  "cost_usd": 0.00653775,
+  "raw_response": {
+    "id": "gen-1793018086-XEBFBmhJQs7PWj6yhWMs",
+    "object": "chat.completion",
+    "created": 1793018086,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "import java.io.IOException;\nimport java.net.URI;\nimport java.net.http.HttpClient;\nimport java.net.http.HttpRequest;\nimport java.net.http.HttpResponse;\nimport java.time.Duration;\nimport java.util.regex.Matcher;\nimport java.util.regex.Pattern;\n\npublic class PageTitleExtractor {\n\n    private static final Pattern TITLE_PATTERN = Pattern.compile(\n            \"<title[^>]*>(.*?)</title>\",\n            Pattern.CASE_INSENSITIVE | Pattern.DOTALL\n    );\n\n    public static String fetchPageContent(String urlString) throws IOException, InterruptedException {\n        HttpClient client = HttpClient.newBuilder()\n                .connectTimeout(Duration.ofSeconds(10))\n                .followRedirects(HttpClient.Redirect.NORMAL)\n                .build();\n\n        HttpRequest request = HttpRequest.newBuilder()\n                .uri(URI.create(urlString))\n                .timeout(Duration.ofSeconds(15))\n                .header(\"User-Agent\", \"Mozilla/5.0\")\n                .GET()\n                .build();\n\n        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());\n        return response.body();\n    }\n\n    public static String extractTitleFromHtml(String html) {\n        if (html == null) {\n            return null;\n        }\n        Matcher matcher = TITLE_PATTERN.matcher(html);\n        if (matcher.find()) {\n            return matcher.group(1).trim().replaceAll(\"\\\\s+\", \" \");\n        }\n        return null;\n    }\n\n    public static String getPageTitle(String urlString) throws IOException, InterruptedException {\n        String html = fetchPageContent(urlString);\n        return extractTitleFromHtml(html);\n    }\n\n    public static void main(String[] args) {\n        if (args.length == 0) {\n            System.err.println(\"Usage: java PageTitleExtractor <HTTPS_URL>\");\n            System.exit(1);\n        }\n\n        String targetUrl = args[0];\n        try {\n            String title = getPageTitle(targetUrl);\n            if (title != null) {\n                System.out.println(title);\n            } else {\n                System.out.println(\"No title found.\");\n            }\n        } catch (Exception e) {\n            System.err.println(\"Error fetching page title: \" + e.getMessage());\n            System.exit(1);\n        }\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Processing Web Content**\n\nI've focused on building out the core functionality to fetch and then parse HTML. My current efforts are concentrated on refining the extraction of specific tags, ensuring robust error handling for network issues and malformed HTML.\n\n**Developing Title Extraction**\n\nMy current focus is on implementing a robust Java solution. I'm working on fetching HTTPS content and then using a regex to precisely extract the `<title>` tag, aiming for a self-contained class with a clear method signature.\n\n**Refining Title Extraction**\n\nI'm now focused on cleaning the extracted title content, specifically handling whitespace and HTML entities. My goal is to ensure the `PageTitleExtractor` class is self-contained, with robust error handling for common edge cases like missing titles or network failures.\n\n**Fetching Web Content**\n\nI've successfully implemented the core logic for fetching web page content via HTTPS, including setting timeouts and handling redirects. My next step involves refining the extraction of the title tag itself.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Processing Web Content**\n\nI've focused on building out the core functionality to fetch and then parse HTML. My current efforts are concentrated on refining the extraction of specific tags, ensuring robust error handling for network issues and malformed HTML.\n\n**Developing Title Extraction**\n\nMy current focus is on implementing a robust Java solution. I'm working on fetching HTTPS content and then using a regex to precisely extract the `<title>` tag, aiming for a self-contained class with a clear method signature.\n\n**Refining Title Extraction**\n\nI'm now focused on cleaning the extracted title content, specifically handling whitespace and HTML entities. My goal is to ensure the `PageTitleExtractor` class is self-contained, with robust error handling for common edge cases like missing titles or network failures.\n\n**Fetching Web Content**\n\nI've successfully implemented the core logic for fetching web page content via HTTPS, including setting timeouts and handling redirects. My next step involves refining the extraction of the title tag itself.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 137,
+      "completion_tokens": 1716,
+      "total_tokens": 1853,
+      "cost": 0.00653775,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00653775,
+        "upstream_inference_prompt_cost": 0.00010275,
+        "upstream_inference_completions_cost": 0.006435
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1157,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,7 @@
+@@6279a921d182a094 STEP 0 BEGIN@@
+
+@@6279a921d182a094 STEP 0 END rc=0@@
+@@6279a921d182a094 STEP 1 BEGIN@@
+All test cases passed.
+
+@@6279a921d182a094 STEP 1 END rc=0@@

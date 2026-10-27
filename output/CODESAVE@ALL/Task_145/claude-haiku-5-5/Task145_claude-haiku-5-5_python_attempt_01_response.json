@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793025279-uGZz9g7STj3JbOa5AC0s",
+  "finish_reason": "stop",
+  "input_tokens": 164,
+  "output_tokens": 345,
+  "cost_usd": 0.0001889,
+  "raw_response": {
+    "id": "gen-1793025279-uGZz9g7STj3JbOa5AC0s",
+    "object": "chat.completion",
+    "created": 1793025279,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "def max_subarray(nums):\n    if not nums:\n        return 0, []\n    best_sum = nums[0]\n    best_start = best_end = 0\n    cur_sum = nums[0]\n    cur_start = 0\n    for i in range(1, len(nums)):\n        if cur_sum < 0:\n            cur_sum = nums[i]\n            cur_start = i\n        else:\n            cur_sum += nums[i]\n        if cur_sum > best_sum:\n            best_sum = cur_sum\n            best_start = cur_start\n            best_end = i\n    return best_sum, nums[best_start:best_end + 1]\n\n\ndef parse_input(text):\n    tokens = text.replace(\",\", \" \").split()\n    return [int(t) for t in tokens]\n\n\ndef main():\n    import sys\n    data = sys.stdin.read()\n    nums = parse_input(data)\n    total, subarray = max_subarray(nums)\n    print(f\"Maximum sum: {total}\")\n    print(f\"Subarray: {subarray}\")\n\n\nif __name__ == \"__main__\":\n    main()",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 164,
+      "completion_tokens": 345,
+      "total_tokens": 509,
+      "cost": 0.0001889,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001889,
+        "upstream_inference_prompt_cost": 1.64e-05,
+        "upstream_inference_completions_cost": 0.0001725
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

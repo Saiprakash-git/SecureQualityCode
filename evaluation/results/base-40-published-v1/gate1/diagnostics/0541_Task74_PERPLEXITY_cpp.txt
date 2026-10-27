@@ -1,0 +1,4 @@
+Task74_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp:1:10: fatal error: 'libpq-fe.h' file not found
+    1 | #include <libpq-fe.h>
+      |          ^~~~~~~~~~~~
+1 error generated.

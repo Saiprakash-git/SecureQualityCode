@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793017663-4NlDUO8ZHmRFb4kNyXTf",
+  "finish_reason": "stop",
+  "input_tokens": 232,
+  "output_tokens": 1170,
+  "cost_usd": 0.0006082,
+  "raw_response": {
+    "id": "gen-1793017663-4NlDUO8ZHmRFb4kNyXTf",
+    "object": "chat.completion",
+    "created": 1793017663,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import sys\nfrom cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes\n\nSTATIC_IV = b\"0123456789ABCDEF\"\nAES_BLOCK_SIZE = algorithms.AES.block_size // 8\n\n\ndef create_static_iv() -> bytes:\n    return STATIC_IV\n\n\ndef initialize_cipher(key: bytes, iv: bytes) -> Cipher:\n    return Cipher(algorithms.AES(key), modes.CBC(iv))\n\n\ndef pad_data(data: bytes, block_size: int = AES_BLOCK_SIZE) -> bytes:\n    padding_length = block_size - (len(data) % block_size)\n    return data + bytes([padding_length]) * padding_length\n\n\ndef encrypt_data(data: bytes, key: bytes) -> bytes:\n    iv = create_static_iv()\n    cipher = initialize_cipher(key, iv)\n    padded = pad_data(data, AES_BLOCK_SIZE)\n    encryptor = cipher.encryptor()\n    return encryptor.update(padded) + encryptor.finalize()\n\n\nif __name__ == \"__main__\":\n    key = b\"0\" * 32\n    plaintext = sys.argv[1].encode() if len(sys.argv) > 1 else b\"Hello, World!\"\n    encrypted = encrypt_data(plaintext, key)\n    print(encrypted.hex())",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "CAQS0hEKEAgTGAI4AUIIdGhpbmtpbmcSDIxrN8slmYSJLco2khoM+20a7x5ofEFkqnsuIjARUkNc8YCtU7cDpWcY/cATGOBY0YAgEIxD44VfcysfcASu0VUF3wmTSsyAQbutA2Uq7xAuariiX+m1Fn5tz4/MFcNUUwifw1ZzABRILQD9b1e4lfPLflI4j+aPC5hC7OgUOt0WoQf/NIjwTnm/V9XUdqfKey752BOPNP/8xl9aZSvcE66W1ziVMINAMBsnqETFp6c79jziQV7aqMqPhgcG8v0WFlZguBm39lyBrMaq58hrdgJKPcaoh6SIRiZzmOKBL0hsw46I2F6Gfi5sYRNW3iHZYoRSx3hkTjRCuYnTuYLHR/ZFjBca7JIei3WHtKvF0rQHVBqhOLcrlxTWInSI6XTSXCtXdzcV6PFoGatR1izgIj8Ip9ATIyRiceK6S8Mksbn+Et/qdZL0D9w+fMPmalo2imKZCYASYwyTxrWcNxg85QA4Dm1SSAkREQ5RmniRKZjdyfYbVr+AV1ddD6qiApzS2xJHBYKxw9ACL3s8h0+L0ta3yC27KA35b3pjP/JuxOsVsbTYYUBuZ3Kn93zxBUqAkSud0F1zE/S5bK/JrMXjS/jTnghKfdi17LJGiGlg5Ei8f867timJ0ZaN8cKExNrtlP0V0eyQ4BK+TyrS5Q0cVKcXmpCuLlABkc9ZBhK7ovOEKfX2xXIbeXOnU3honarh90NxZTjtzLAzRW/NykzFExUQUW8yjhb2Sr0Fr5JbwaK+b7lSd461k+2xWYxOkNG5dXUCLawcpR1JpgZs74OoNdx2tasRPFf6azJQILtorJN1j+0l7qC3bJ2ga8p1TTXRuMAWvk1GD1IwLsB4VqPZgmhjEHzXRKxfnS/HmhJ3dSpFWVp9SZr50J1N92fxaxESa37SsMWC33UMjPIbp49B3NZ7AlOiC2K98ZJTpw21Nc7vFEItR130+Jt0RmpX10XFxWFMouBtCmSnJhBr8L90Ih4VSEUKcoKepYOZt37D4z8IXe7UDTF8jwTt5FcGOSFBs5K0IitJxGbursOT1bdSjERJeq54bbRF/jAaYgVpVA01NDzsm9u6PL65AuMmpU9b2x0UByh892bpXJ42kPT4oM34SCuXaCu++505bZUcOYD/IuafftB6fTD/jDE9I8CC8rgofLrtd3QObFi1t0B6Anpu5MA17XO+rVoDVifcB6JAIKrQpu+8jN7Lw1axC1hEkhUemp+i8El1SLvPHjUsCwA6YhSLa3tCR5g2J19/UbMq157jQafy1SaSOxjpk5n0mjSlaX2JZMyRPJ8SzyO1OT9q5AsHomvvtZqo0DJmDq6c63rH3aVvJKL6UqmekCzRCRG+wVYC929woQuW+j5iGzNzPFWdoJiNNWp5zxgsbXy9J2MO8itevTLU6XrMSaJJ1jIzsF2OHntqIraSSLjd3s67naQazyyvnwzwzStRJbikDysF8LVuEWZHysSbDL4i78dAsuDXtg530unsSLxxbnpguhzes0QsyHi3NxrEpPDnO/HWv+ONXEhsqYieTndx4Vk8A+HjIiE+hi2V0ePSvEQvddzoyzlJOCBxSwxr/VLenpXZR/j0dC7OEP3Z7WuIVdd3xCg9F+V6iIlOEICJUJg+KX5Y0nvzGUIxUkNEr2HOZNU3tvJ2OszorixrRU4ch6e7hLnAZ+jneb4+P9xmqXn2BymwlcN071LdX3x4s+10U7tZVAaiXrscFKaLc0HtjKKUvTByPwCgSB/dgZ5Qv3S6WIvRRD8IL5e85qRUkNVi3KaXWhmvT+0peLnOvsAZBipPfsQdrjYO5a5KWgyxcBEyA7FGyfKnVYdNC3G7OzP3ZCM0zalF0eK2DqB8C9YtOMAUCy+TxDipiHLDxQUDLGS/KeEmn4rC8yyTIIaQ0ZHZUznZ87nE6sVFwfxabAUI7Hc7C8NRbW4oVy+CRpVYup/1gDDpCo/Fi+eofp2NTvfDsg0MgFXw7D71WU1e1f02d9eFF4OujYhbtLbk0mxf6XkiLTgQRqx/4CF3zPpt16LqY2PnAwNstzOQh1lH6Etjx4mAad9NLw/2X879e0p2hN/v8+fhOKgS31hDaMoxVkhVrDf3SRsoTvLeDFnjsnT+ehMgJq31v7+7SHkTwYgavkgXReLRNIeYNXWf5LYtymRtfh7TiJJjYnIBVqvQSvB08Qt+UQBMOnzg8u31t4NYFr15qXt07hj+8mVb+uxI39gX5d27BF8k7Vj7YF6kPPcwEpv1MyCHbZkRp8DRUKsEW6oJfYsvJsIjXUE9QVmrLTHv1hpQJRrPpyI8GTqtpTqTb/DD9zhDgoRm52/UL7BODLBaz/6JONgAWVY0DPmi7Cl8pPoOZxA45QmTMirfhd0VdLyqXdIUi2qyESGL4v5Ip4Ci103flw72XuRGlmYThG6nbAeQeei6rULhUl3KlEQVMvrDNPuvR1XjA3qS8I4+O5uJd/ReBJtTmXHTwuQpavYMNeZH4qJWcIlT9mu5jJSJyNXxoXNn6kr++QW0dQKDTIK2f2ezHtB6SJHpJwTt1l6anj8sqeQUnuFQqwSkr8JmxGuLVJQSZJeh+/vrDGaK5jFEgC5p4FtGR0r3EAsiyvigVDbixYg1M6wlWfeTpvkpQIgPokzA+iAk1qAOXbkgjCEdK/W6STY1uXXfp08yMlF0c5u/8aHM7dU015FPfKiLFYVIn0bk2OzTNJv92iUhdpvf2aey5CkTL00XTZYINHRj09LTx8rHBTwyQ9JYqpmwTdMLXpbXL2Ol2oLunX2TwZJexcyGPtFMi/Rbc2hZyTpQGXONPWdHJPZGP2TaHD4XagURwERGcXgWEufEkj4Y2m5dwnsu0yUrPlgxR0IA5JmLHrDdAJTDynr7kZ5SG/NyMVyfwEGiNjXulcDSP4DmHO5Iuy2XAzCnYdMupdBIcgzfFJy7s8YCtcQNU6yu5EelCAJ71KgBipaSVGA+f8A/joBV0EJYxOy+6oVpMZBuChgB.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 232,
+      "completion_tokens": 1170,
+      "total_tokens": 1402,
+      "cost": 0.0006082,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0006082,
+        "upstream_inference_prompt_cost": 2.32e-05,
+        "upstream_inference_completions_cost": 0.000585
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 698,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

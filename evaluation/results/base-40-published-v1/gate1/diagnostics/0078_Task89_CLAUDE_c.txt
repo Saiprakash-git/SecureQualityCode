@@ -1,0 +1,7 @@
+Task89_CLAUDE_claude-3-5-sonnet-20240620.c:13:43: warning: multi-character character constant [-Wmultichar]
+   13 |     for (int i = 0; stored_password[i] != '\\0'; i++) {
+      |                                           ^
+Task89_CLAUDE_claude-3-5-sonnet-20240620.c:13:40: warning: result of comparison of constant 23600 with expression of type 'const char' is always true [-Wtautological-constant-out-of-range-compare]
+   13 |     for (int i = 0; stored_password[i] != '\\0'; i++) {
+      |                     ~~~~~~~~~~~~~~~~~~ ^  ~~~~~
+2 warnings generated.

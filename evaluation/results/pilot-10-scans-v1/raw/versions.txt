@@ -1,0 +1,7 @@
+semgrep 1.182.1
+bandit bandit 1.9.4
+flawfinder 2.0.20
+lizard 1.24.3
+cppcheck Cppcheck 2.13.0
+725e296a8b75b951619af243ec4ca47d06a56587ce19cc8bbf94a21135b0791d  rules/cwe-top-25.yml
+83d7cde9157b3c79cc5cfaea26e7bd2ba9c740f2ba07635ad475b2585556c32d  rules/security-audit.yml

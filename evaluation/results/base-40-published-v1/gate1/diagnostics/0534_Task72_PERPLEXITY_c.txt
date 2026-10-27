@@ -1,0 +1,4 @@
+Task72_PERPLEXITY_llama-3-sonar-large-32k-chat.c:3:10: fatal error: 'openssl/aes.h' file not found
+    3 | #include <openssl/aes.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.

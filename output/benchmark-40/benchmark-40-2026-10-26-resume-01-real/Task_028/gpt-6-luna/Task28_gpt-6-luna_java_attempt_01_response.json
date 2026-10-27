@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793016630-mt2KTNWLZ1zyoSYP9K8t",
+  "finish_reason": "stop",
+  "input_tokens": 267,
+  "output_tokens": 286,
+  "cost_usd": 0.0001697,
+  "raw_response": {
+    "id": "gen-1793016630-mt2KTNWLZ1zyoSYP9K8t",
+    "object": "chat.completion",
+    "created": 1793016630,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "public class Kata {\n    public static String whoLikesIt(String... names) {\n        int count = names.length;\n\n        switch (count) {\n            case 0:\n                return \"no one likes this\";\n            case 1:\n                return names[0] + \" likes this\";\n            case 2:\n                return names[0] + \" and \" + names[1] + \" like this\";\n            case 3:\n                return names[0] + \", \" + names[1] + \" and \" + names[2] + \" like this\";\n            default:\n                return names[0] + \", \" + names[1] + \" and \" + (count - 2) + \" others like this\";\n        }\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Exploring Java function signature**\n\nI need to return only the Java source code. I'm inferring the expected function signature, likely something like `public static String whoLikesIt(String... names)`, although it could also be `String[]`. The user mentioned the function takes an array. This is commonly seen in challenges like \"Who likes it?\" on Codewars. I should provide a complete self-contained source file defining the class `Kata` with the function. I also need to ensure null handling isn't specified, so I\u2019ll implement it accordingly.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Exploring Java function signature**\n\nI need to return only the Java source code. I'm inferring the expected function signature, likely something like `public static String whoLikesIt(String... names)`, although it could also be `String[]`. The user mentioned the function takes an array. This is commonly seen in challenges like \"Who likes it?\" on Codewars. I should provide a complete self-contained source file defining the class `Kata` with the function. I also need to ensure null handling isn't specified, so I\u2019ll implement it accordingly.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30M5jT9xKqYUV4XIHtCHGFniMV9jWZjGdMqEIWcKWhDzuiKfRLAAJRzDAIEt8OhSc30mEtbRuXTuyqmaFZuUavSNCS8TNrjdJwfrHmjgUPvA1_2WiV6dsIi3KWcW6_UJVKQRfhiqXdiNuKOjmIfTjUzfQ5NdbGtSvoPr88DcRzcZ9jwpWiOUguh_W794kjGP2xwBjfh0y2IuLohVu3cIwLaWOrvwMo9pB0JqEZggyCJQlHMS3Yfx-DRcLP7taP6GyWjs5AdqL0ISKMSabQ39NslJ6YUKZVC4J_AO8lQpkrwYYZ_aJRBET02DmxYkpHTP0Oq-5Ync7ugrQ2Y0Zg0mRDbCUSUMaTiG8iB3Ae75MRJyJZj9OyKjtzmr3jvi-hbXXeoXXrqwHuFwlhx_k5dopXR6JQudXd_cQXqSbs6_47RrYcAYTOXrkc8Qi3g93CBPiKD_RHNmx0e3gXw6bXY5NmBSULBOzLYzbCeaLZNtpU94_lST4UFaLhTtVxunryHLHnYKqbn1AZPnWv2GNKaCyA6b_Zm5wN-9Qk0spxFR0LjIBAIxaYpQhPTNpsIY-cIiiA9fC_zm7p87njqD1SioGWVs9ocya95gyWceXOPWqkgrBzLBeTfpZ4HUk6uCdmZEKjv498caL5_bI_ghcJUNpsXb7H2tEL-buve-tYWnLi8Z7dvrhUdjGsHxegYGwOcIGUyfUwn_xTrLumWq3rpti_VquMhp-kYZfJVafMLSTSpVpP6-e2jkfXJ1_eJEX0rvskybe2EfA8WtdLfbOrWwgq5XNhK_pQLkwGe30U8fPGfKdvWbmtqMq-UQoIf1uCrqBncNo9UXOU92LtfbCRVFahU4xwNsgpeFxQSS7SoZGHT0IoRAxCLkOFbsxI68U3i8DTXSilMwSD0UQb0skyVTGoiXSgKW9T-V0uHwB5OT11REe30tl2Tp_mDJbv13w69uFKFiOrvuO2sldiafzSD6-XkTjEoZe2zbmvwMKQLKliGjW7-GRG7LJZIHdmkhKft78tKJ6iNrLOvekfGB5hRqAh3ge3Ur9NY5RyBDppeAzW9BIdwWovKCOJDIbJoeZ4uG6haQBiu0imcKenGEWdHn3DwwJ66BxLlWpKjQ7vqiHKG9BuQqefKOuB4yNpZB3kb4XeQ8XaSRVcLq7LT3Cfz2P6iyCCRg91o2dV60CE19lf36vdW535fSIWMfBGXBd4h2TvYbEwn0ottmU-aqVdhYyf6gFrw1CV3hwfBfT-GzUkKLOgkGsN0YVuOUot_OGuHF6Z4_xy0Rqx8iOJxezYdyieysqMEnSo5Ify2tFB6apy98VRW_cTGWxrHnGfSlrtqp8VVsjitRcou9eBbjU7lL3K0q5PIP31jxRN8PTZuj-fZrIFTWqdSPGowtoeHbqaP5SDVg4QDin-rTirN7d24kkO35dXEoC6TQQ4GGd2974xrKk2XPJ2CQ6AholYqRao62Y9vPgo0W7xEynTOmHFK9UL1CbdRFlhtZg4FXJneHceiJ0iLpNJMmL_sAoVVwPl1cMWaqMtw_4gkj6yPmAjsl9kRG5ZW0L_gNs59N--xN582TJ4V0dKJ-yZvEOY8ho_euYT6nUrPn-UnR6f5pZMtj3hcajb4kpQJlrqavzDHo0SZ5628f7vjuYzWefrIfP70nchK7OgaYPoC-GEyxvpZV-wNNiOhkAblWu1ZDqrl9X5545k4wdLw90LhK61iWPEp3IEJC4KMNRS4FqfJCTo-DQMBCiO-fktxE3CHGdtoQbd7uJrkSUuDMPBFBj_GD3-6LWNK1t9AxbPPW9mSgy2QTtZ2Eprr785HMMbtTj6n_H0mBrrtNj_gr0xnKpL99TS6xbkr4lJFsGMrO5OMhsHn7_9aFtn6KMPbLd1lqmaLhFqfktXvlSJl-2hafteCtgaNTgELNHgwXKh6Qa5NoLyaVt7IMmFjC0isTOyR2zxdoQTSxvM4aaErqp6pvMybec1irtDCyfpVg-atl2m63iZDGDzQtGtQU9xWkOfW9ikZBljBq_mZxjKNsEbTgS1XMvjBr0BFAN1lAbiQrIfqoYDHgLGJTnr4PFluWo3lYNr0mpK2H1NJSN-I5Gis2ieJIMlWWRV4lVq0hAvbNpKvT4h1eF4B_4F6W5C8_wszpFtf0Z3sKvGSwLDLTsv1wB4g8uIjsLjaD56fAt91gpmWmpOQPn6KQTxBfVVofVy619tY5o4s13yPxhfbpagzXlzzTiqdZl1u7UxDIZiuZLx0whcxShi5NjGOT8mHwV7ZQ-CeTDC8Zd3QM7O2y5KU77GkuzUtsHwr-glZnhk9Q_FFhh7L_KX35ooVh7s0yQY66v_Atv6nhPjwyzfom6WCOSYd_FOxps81K6x9U8f5LIhxyg0r46s63JIDsIbvOEPftDNuKR9zHldEtDcmkDA3lm_o-dEONsZVmp4SJ1ojPGcw4GtncfS43rtg6klB867hBrK6Bepl35lF-VT8Qu5vd4K0drHVIYELyVIJw3jq9KkMI8qes9UsSPzqFoO9bmQQpX9VGiOT8XRHXKq9JEJYHgKRbd51IsviRbBdG9iv7yBnIk7GKPGEI74QIdNN3LXzjdSXHV0oBnS2EUJncsis7-id0ImSdogW7AKNSHPYKMFrwmGLzrBch31ie4PYRimunQoTBhRYK7X5DT1fCw_4CBLlTkX3PEQzA5JuZmBcG6ZS_JB9vtUv3HGPYfvjw2OkJiwr9eII_L1eNc8xz7PI1u1l-dMr7mwOL3xMmOpldT9IiuLrmDLuwTuEdcgYtNmdtKkm0PrdUMHRIs4GX0Pe2sIu0Z0VmMPQfQslgJ9TKa778rwLooGbLORXRLk2X0T7zYmncH9tJnsq7gKGdbDt37oxp8AY0c5IC_WC2xGhtEhWBAlFPx1gleOAC78A55NUxj8JhSu5BoIw9HUNkaBr9V9ovZhhlMWHchKBBOiOO-b0ePzeF648EEKRj9LoNIoa3EUKhsgizfNXNBwd-1UBu2kF6TgtTvdMzlW60JV1G3w4pslzExor0jRqR5PYWJJUM4-Yb83LFd9dkuPyquP4YmUVA0jQf8BMHKGtgPVv9wVvD-7j8xZYFo9sLDFTdl6o5IgGLQirkXPtEWaAWfl7oOCC4pW583Ph0yD3UUSkVwk9AF3kw6-JSqBmgY0Mcx5QAvumKOlbUb4ZBye4q7gz_wvR2qwy6GVRmqyXAJwePfDzh-jKKSnrHkUmnHJQsvf26PulioKAQxeg=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_03202d1334ac8f7c016adf4337f03487d1b770f4a221bb5627",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 267,
+      "completion_tokens": 286,
+      "total_tokens": 553,
+      "cost": 0.0001697,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001697,
+        "upstream_inference_prompt_cost": 2.67e-05,
+        "upstream_inference_completions_cost": 0.000143
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 125,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

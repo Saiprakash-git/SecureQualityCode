@@ -1,0 +1,16 @@
+Task72_claude-haiku-5-5_cpp.cpp:127:35: error: expected expression
+  127 |     out.insert(out.end(), padLen, static
+      |                                   ^
+Task72_claude-haiku-5-5_cpp.cpp:127:41: error: expected '}'
+  127 |     out.insert(out.end(), padLen, static
+      |                                         ^
+Task72_claude-haiku-5-5_cpp.cpp:124:72: note: to match this '{'
+  124 | static std::vector<uint8_t> pkcs7Pad(const std::vector<uint8_t>& data) {
+      |                                                                        ^
+Task72_claude-haiku-5-5_cpp.cpp:127:41: error: expected '}'
+  127 |     out.insert(out.end(), padLen, static
+      |                                         ^
+Task72_claude-haiku-5-5_cpp.cpp:9:19: note: to match this '{'
+    9 | namespace aes_cbc {
+      |                   ^
+3 errors generated.

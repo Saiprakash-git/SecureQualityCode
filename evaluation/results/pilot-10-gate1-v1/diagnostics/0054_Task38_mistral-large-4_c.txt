@@ -1,0 +1,11 @@
+Task38_mistral-large-4_c.c:55:12: warning: missing terminating '"' character [-Winvalid-pp-token]
+   55 |     printf("<
+      |            ^
+Task38_mistral-large-4_c.c:55:12: error: expected expression
+Task38_mistral-large-4_c.c:55:14: error: expected '}'
+   55 |     printf("<
+      |              ^
+Task38_mistral-large-4_c.c:44:72: note: to match this '{'
+   44 | void render_page(const char *name, const char *message, int submitted) {
+      |                                                                        ^
+1 warning and 2 errors generated.

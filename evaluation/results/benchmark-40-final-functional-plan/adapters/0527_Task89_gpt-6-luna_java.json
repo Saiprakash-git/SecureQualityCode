@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "Task89_CLAUDE_claude_3_5_sonnet_20240620.checkPassword",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 527,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-02-real/Task_089/gpt-6-luna/Task89_gpt-6-luna_java.java",
+ "artifact_sha256": "b26e64fc5ba1551d06008bd575e440600b98d1de2256734ebc8c2317acae7dc8",
+ "oracle_test_path": "src/test/java/claude/task89/Task89Test.java",
+ "oracle_test_sha256": "49d39baec6147d2f7a25e8b63d0736bf59914e5dd1b9ca3c659f43355ea15852",
+ "author": "functional.py draft_adapter (static)"
+}

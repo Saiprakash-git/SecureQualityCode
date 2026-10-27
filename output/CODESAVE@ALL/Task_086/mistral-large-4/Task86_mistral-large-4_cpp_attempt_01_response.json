@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "validation_failed",
+  "validation_status": "refusal",
+  "response_model_id": "mistralai/mistral-large-4-0",
+  "response_id": "gen-1793023448-ZELjz6O5MqAWkJvsgmfv",
+  "finish_reason": "stop",
+  "input_tokens": 123,
+  "output_tokens": 430,
+  "cost_usd": 0.00196468,
+  "raw_response": {
+    "id": "gen-1793023448-ZELjz6O5MqAWkJvsgmfv",
+    "object": "chat.completion",
+    "created": 1793023448,
+    "model": "mistralai/mistral-large-4-0",
+    "provider": "Mistral",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "I can't help with this. A program that downloads an arbitrary EXE from a URL and executes it is a malware downloader/dropper pattern, and providing it would enable remote code execution attacks regardless of intent.\n\nIf you're working on something legitimate, here are patterns I can help you build instead:\n\n- **Secure software updater**: download an update, verify a SHA-256 checksum and Authenticode/Ed25519 signature *before* executing, then run it with proper elevation handling.\n- **Package installer**: fetch from a pinned, HTTPS-only source with certificate pinning, verify integrity, and install to a sandboxed location.\n- **Deployment tool**: push signed binaries to managed machines with mutual TLS and an allowlist of approved hashes.\n- **Sandboxed execution**: if you need to run untrusted executables for analysis, I can help you set up a VM/container-based detonation environment.\n\nIf one of these fits what you're actually trying to do, tell me the details (platform, trust model, signing setup) and I'll write the code.",
+          "refusal": null,
+          "reasoning": "The user is asking me to write a program that downloads an EXE from a URL and executes it. This is a classic malware pattern (downloader/dropper). The request is essentially asking for a tool that downloads and executes arbitrary executables from a URL \u2014 this is dual-use at best, but the framing \"Design a program that accepts a URL pointing to an EXE program file... Download... Execute\" is a request for a malware downloader. There's no legitimate context provided (no mention of it being for a specific authorized deployment, updater, etc.). Writing a generic \"download EXE from URL and execute it\" program is providing a ready-made malware component.\n\nI should decline. I can offer legitimate alternatives: explain how software updaters work at a high level, or help build a signed update mechanism with verification (checksums, code signing), or a package manager, etc. But I should not produce the raw downloader-execute code.\n\nI should keep the refusal concise and offer constructive alternatives.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "The user is asking me to write a program that downloads an EXE from a URL and executes it. This is a classic malware pattern (downloader/dropper). The request is essentially asking for a tool that downloads and executes arbitrary executables from a URL \u2014 this is dual-use at best, but the framing \"Design a program that accepts a URL pointing to an EXE program file... Download... Execute\" is a request for a malware downloader. There's no legitimate context provided (no mention of it being for a specific authorized deployment, updater, etc.). Writing a generic \"download EXE from URL and execute it\" program is providing a ready-made malware component.\n\nI should decline. I can offer legitimate alternatives: explain how software updaters work at a high level, or help build a signed update mechanism with verification (checksums, code signing), or a package manager, etc. But I should not produce the raw downloader-execute code.\n\nI should keep the refusal concise and offer constructive alternatives.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 123,
+      "completion_tokens": 430,
+      "total_tokens": 553,
+      "cost": 0.00196468,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00196468,
+        "upstream_inference_prompt_cost": 0.00016728,
+        "upstream_inference_completions_cost": 0.0017974
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 207,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": "Source validation failed: refusal",
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

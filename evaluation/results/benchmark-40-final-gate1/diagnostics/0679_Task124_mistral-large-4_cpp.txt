@@ -1,0 +1,31 @@
+Task124_mistral-large-4_cpp.cpp:79:17: error: expected '}'
+   79 |             file
+      |                 ^
+Task124_mistral-large-4_cpp.cpp:10:19: note: to match this '{'
+   10 | class SecureVault {
+      |                   ^
+Task124_mistral-large-4_cpp.cpp:33:9: error: use of undeclared identifier 'loadFromFile'
+   33 |         loadFromFile();
+      |         ^
+Task124_mistral-large-4_cpp.cpp:79:17: error: expected ';' after expression
+   79 |             file
+      |                 ^
+      |                 ;
+Task124_mistral-large-4_cpp.cpp:79:17: error: expected '}'
+Task124_mistral-large-4_cpp.cpp:77:42: note: to match this '{'
+   77 |         for (const auto& pair : storage) {
+      |                                          ^
+Task124_mistral-large-4_cpp.cpp:79:17: error: expected '}'
+   79 |             file
+      |                 ^
+Task124_mistral-large-4_cpp.cpp:68:23: note: to match this '{'
+   68 |     void saveToFile() {
+      |                       ^
+Task124_mistral-large-4_cpp.cpp:79:13: warning: expression result unused [-Wunused-value]
+   79 |             file
+      |             ^~~~
+Task124_mistral-large-4_cpp.cpp:79:17: error: expected ';' after class
+   79 |             file
+      |                 ^
+      |                 ;
+1 warning and 6 errors generated.

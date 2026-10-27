@@ -1,0 +1,31 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "high",
+   "target": "high",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": false,
+   "canonical_signature": {
+    "return": "string",
+    "params": [
+     "const string &s"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "const std::string& s"
+    ],
+    "return": "std::string"
+   }
+  }
+ ],
+ "combo_index": 76,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_012/claude-haiku-5-5/Task12_claude-haiku-5-5_cpp.cpp",
+ "artifact_sha256": "21835191b613290b4caf2db6a43b6fc5a4ac10390c0644b4db9314d99941a64f",
+ "oracle_test_path": "tests/claude/Task12_Test.cpp",
+ "oracle_test_sha256": "9d008b64dabf200a083734c67970cbec882ae6f19246d7ee9da134e3f2fcd8d4",
+ "author": "functional.py draft_adapter (static)"
+}

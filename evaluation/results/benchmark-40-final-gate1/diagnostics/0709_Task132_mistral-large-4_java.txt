@@ -1,0 +1,2 @@
+SecurityMonitorSystem.java:85:43: compiler.err.premature.eof
+1 error

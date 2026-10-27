@@ -1,0 +1,4 @@
+Task91_PERPLEXITY_llama-3-sonar-large-32k-chat.c:26:12: error: use of undeclared identifier 'true'
+   26 |     while (true) {
+      |            ^
+1 error generated.

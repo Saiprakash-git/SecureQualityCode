@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793023869-n5QQdD0xnLtwyUcRJ67E",
+  "finish_reason": "stop",
+  "input_tokens": 106,
+  "output_tokens": 211,
+  "cost_usd": 0.0001161,
+  "raw_response": {
+    "id": "gen-1793023869-n5QQdD0xnLtwyUcRJ67E",
+    "object": "chat.completion",
+    "created": 1793023869,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "from pathlib import Path\n\nscript = Path(\"script.sh\")\nscript.write_text(\"#!/bin/sh\\n\")\nscript.chmod(0o755)",
+          "refusal": null,
+          "reasoning": "**Creating an executable script**\n\nI need to provide a Python script that creates a file named `script.sh` and makes it executable. I\u2019m considering using `pathlib` to write text and `os.chmod` for permissions. I wonder if the script should start with a shebang, which is practical for shell scripts. The user didn't specify contents, but I could add a basic shell script or leave it empty if necessary. I definitely need to ensure the file has executable permissions set to `0o755`.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Creating an executable script**\n\nI need to provide a Python script that creates a file named `script.sh` and makes it executable. I\u2019m considering using `pathlib` to write text and `os.chmod` for permissions. I wonder if the script should start with a shebang, which is practical for shell scripts. The user didn't specify contents, but I could add a basic shell script or leave it empty if necessary. I definitely need to ensure the file has executable permissions set to `0o755`.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq31-A2KPoB73iKGHiEBiXk-R2K8cHygQLIdDMQopluZ7pXkmyFPCoE64QrhaD9AufR0MZFIxlfWqfv484O-eG6f4gJDbj4QZUKPEsQR-xaHoK_Goav1KLdzLoIn5_quBp4wdoY-YE3dXmIfMQgIwTk_1SjINSajLAXCMof17WTZ29Y7-uSUIaEiy46axT3Bp_riOshRbB6_CeOYK-upw7ot-FCdtVF74_n_dYk1jQZmeq6NN2xYsjkXO8F1X2KD8xI_DN_Qa_k8JoRPdS_lqKOpk1lxAwU89aXpcxXXw77ZRKYdCBdW0-IIyCBLvIgCXctmlhxjBQiKpuqgjKwo7j4p_6qb7y-h3u9leFj2v9GgPbCmH3Jz3k4PevsJ-3s-UyDjIqdtZ2e6FzYWFhRYl0zUHuML23Dwnuv9SDHa7Zw92XjIiJEnaYilTTyCxbZEthHnLNVOUw6zPEdGrRhMOxLd5zxx2kIon4M9X7vD66CBi0-JBT_iMpCEBCKdHXhX17of67kvmXwv5QgeRVxXpQq-UmfJrj35uEaYmucFg6FYZFO7CZ_jZuheN-xH1_QUZPbssa6HJ68oxHHkLmd2DSKtpvFMYDrFAzdSgCWpeghoKwtAGUbcWMTw7iDSfFP8BS4FDI7WbHRvC1NC_atxl00mTWdPmJxU7gik7iqfQt9DIPnCTz-fbXoNV85tW5oIfQoKZmmIU-kIhVAnHxwQGtqODy2ePd8g1LA7TALf6nJVisdywmRtlARmD8P0D3z46tCVqfoNU7VtQO-3gw1qhLLy_rMz7fvBnkr_5e2DrOGTQgDQalH-FddfSvefq5Z6H9qXHgd6cyGwGNvcqC6Bs8G78myA3v9xmY2h62YKh7J1Obi90mGPr1zAJfwBxVeufhpLqLkg3Yslc9OKBcAZRupB5I11-76BUFQE42QPCIZ1jMTvG-6Fyvb81F7RIQ4yLNn5-nFc9WjAO7-jNEqbMHwXM4yflkGXMBPXVQcPBvga3zoDvD8OIrxVj9lvkC8zZJeeV3Lqp9bjJbVnQR01W8OfIF6K2K93QWS02D0FPDEaBNvDX6y96Nr3sqU0dNvBFl4dil8f6U8rRs9RrcQpQbvRCFupY_5RqDI1OJTmolksDKzUMyaZGmBLQ5_dAn95baUn8DP7ZWFvWi4xMBiLcri9vUeR0siHafi5_F4-CtKLKLbtBHCffzACl8Onetrj4awxlOmztkiQKENbyT93p6NbFkoFAHu5Q_bJ6fIqIG2eel5zFWHyTHzr9wiNQp8kNw48Ej6hLGecmvz_mtW2RstsoaCutpbQDQQ9Ek0qmBb0K9eKj_tW4LNIbCpQk9ES0nNihQuUapjkUVvbMz0d-fjamTMycG3wqGiPJ_5fLed1SjqdpwTqkCCyEbeVnKv6qBpRMeM-OjdZpmQIHSkxHFjwaIXIlnNtL8eqQJNxnSIuHfki5yf1H6443FEhf3Qne1fZtpepSLyq9FDE7TgUrUuvofk1aNzUjBB_DDK0XuPctW9JkGjJHbSmrGQ-k38evGksm0IFaGqlF8iSFx3C4CwA75Zpi8LxyRx94orUSp3TAgZe8fnXDcWH6FtbeSFyagsJaByYzDFR0nemH7KX_GBRWZdYWB21wR2FFT849wRd9R_zOXglIszRb3YlZ5NN2fhWHdCRGTpxtKtNVn6EOxRSRd5SVsF7IaiO_J3BWiemDQNH6BmKNqkZLKHW4cqdX9-jt-AqupmjCE37TXurmuj-A-1ElNaaj0dPI15DkdOYfjnhZtru0wwO_g_r35voWKuaIF59YV6S-F0wybd-aUqFxk1r_Kjerl-OXxKAhhtXuXDUTEw14qNz22rt0ClnrOrfjnVwvTT9bLG-JO1r1TmAXNky0GVazy1R3Iwj1i_4KXpuPRP5Y4I2VGPDSaZzACO7XG3jcp11n06s5GsRZlAg0yTYikp89zc_4SvbIQpZ3WQxRShzv78NTgiok3DP8-aOJ2j93zrcMmlfJCNmvfA2ygW8D4WvHRrcN4D5_T1dCh6I_v3Dc3Hl6h6TyWLRnxUYe233jnw6Z3DeqUGG7nou7mCHgiHFt-7A-W62z6ULBsLQG_5ZvLFPnePepN7lCIiPZMcClO-4iJABvkUyudF-N9UHSXiw9_TOOk-vSWtYBrbUMZob5GVQmas9ETEYhD8_7IjvHbDUGaTyIVp7_vFLPNOrPCzLg0Tif_9P2ztQyhAKeLWwXYcJCGDvh1QfFn3zJTOEMYmWNTFLfyP1UkkYi6PR42PHHKcxvFsyYIXZvu5yFHlCTM1MzNVgpo-y1VSjiry1gpdVqmWHiTg_H6wYbr02XQARLWobbVlNSs6ahQzKpOo-sY1xncxb4_xZISdv3Yrlhgy7v-INk_JAzLc5lWTFIYBCZqMKrUp6oE_cVwfyO8D6ik19dJ8blprWqlL6LHo5rIqlDh1qvEO3-A7X5puzjh9xxun-bkFe_4g_zfsgABHuIH-5G578Z5n_ibD0ao1BMPcWcxDBCaYXSFfqwJoYcH-x01zEt5dDaB5EvjCmclkDkBo0NCH1RM6qFKkKdrb0J-eBx9yJHBYSpE66ULDcEvyPiVCvjlMgQRAnWb1Opr62rVYElQ9e3-cAr98nkQ5CMYHc_cGQY4OFaD6DndJW-7KioRCrYz5Xpxn0-pVnD4TWLVVkW67Cj4lF1zxYayW4ZyNzuPO5eb-f4kfAxd-BKYkSeMEYr2LUzMByNwNOMAQcfzDZhsV8mvkyQdWF1OGlXPZiHE5NNFwG3sErai4dFcFppzIz5x01l8yTQJw8ha_gM43OPhqaSroUOhahhjfo81EyQ7h3gp25mAyb7albruXplIzTx7YDCy_Jat7gJpsrE1WYbnHeUzLUtm1tE48R468R0RUSXwTY8jFmKlqS1YVmdttPNRwwSxYZZbHBk3vayRsd0bJp7Lef4bs1vb3nwoLWdS-q_Lg_tVEMVSiMlBfdbkLw5GCZqaAKdSafA3pyqyD0t7zYI_CVdirMTrAwybImkCWxBz0eH3Vdd322WpI3SI95G4alh9F-iNV8IKYPMX2-1XNrq2lHV5WBwQeijl1QiI8I_DnZK3Ti49AtqCbvJtPXx0hACL_YFFcKa3U77oT4DvqWhO6OtXmXkR9n-OAGH9SSPFEtv_gjzs26jspc_vXdOYd1O4PubfB8PeI-jtED4Wl-ZBQs_aMovSEJK1TGyE7dVScynq6FG8j_v6uNQpatiobXF-wy9VVEBsfgREMZO_1GAi7IyPHHRqa9K0HSXghBrVP_3B18qkHiMHtTjLcKT0kA5nJQdX6QEAi2_0-TdkiyAWR67x-9VIX4RygEjuVz8tBuDv9slO0a44ZHVGhAa73Kv6ylC61kGJgRvr4Lvd-4C5Btp6VXfw5KfsLwTnSvpaQwj5bDafJpOVageBKvafEISOQO1n3JpNfIlgxJxmjFcQBj9totO4FZ1i3oSdJrQVePblqbW6x15izNCkRppjlEA3NId87H_4jl_BtVY2RwoMYUrg6fboSJABjQPfaP1JUNmXreQUgvWHzaohn5m3FmWhfi5Xx-4m7dneaXFzy3uotDCjGhUnMUgfjhPtQy9v4zaf1Sltrj3EJ3xKHFKZ1CoJpeXc2TLEjyLpn4XGpNtG_hzeOcFyOzVbbOeom2B8z_gE-B7g4W2zxSn29YuY1sXKd6KF22D_ZQ8rE3TttAsyhRjIu0L7QrNSXsS0s9NVrCh9uilSUGczaMbWo8gBAd3_zdJ2600qxcpd_O0NFzp_LLmtMnt4iUhthEpDvPaK2h3vwv3LSV9dOdotNIYzc3ASePh1fZytntevtQIeyUtuz9eNef3G1uzRzfpjzcC7N9hdPLBhHIbQnoHnXkO0KNOR6FVKDW0=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_08f301f30e11e30f016adf5f7e200487d187ca9d27004c2f05",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 106,
+      "completion_tokens": 211,
+      "total_tokens": 317,
+      "cost": 0.0001161,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001161,
+        "upstream_inference_prompt_cost": 1.06e-05,
+        "upstream_inference_completions_cost": 0.0001055
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 176,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,69 @@
+{
+  "attempt": 2,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793023093-CFCLPDGP03P4giN2y1W7",
+  "finish_reason": "stop",
+  "input_tokens": 223,
+  "output_tokens": 1888,
+  "cost_usd": 0.0009663,
+  "raw_response": {
+    "id": "gen-1793023093-CFCLPDGP03P4giN2y1W7",
+    "object": "chat.completion",
+    "created": 1793023093,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import os\nimport sys\nimport tempfile\nimport subprocess\nimport urllib.request\nimport urllib.parse\nfrom urllib.error import URLError, HTTPError\n\n\ndef validate_url(url):\n    if not isinstance(url, str) or not url.strip():\n        return False\n    parsed = urllib.parse.urlparse(url.strip())\n    return parsed.scheme in (\"http\", \"https\") and bool(parsed.netloc)\n\n\ndef derive_filename(url, default_name=\"downloaded_program.exe\"):\n    parsed = urllib.parse.urlparse(url)\n    name = os.path.basename(parsed.path)\n    if not name or not name.lower().endswith(\".exe\"):\n        return default_name\n    return name\n\n\ndef is_pe_file(path):\n    try:\n        with open(path, \"rb\") as f:\n            return f.read(2) == b\"MZ\"\n    except OSError:\n        return False\n\n\ndef download_exe(url, dest_dir=None, timeout=30, chunk_size=65536):\n    if not validate_url(url):\n        raise ValueError(\"Invalid URL: must be http or https with a host.\")\n\n    if dest_dir is None:\n        dest_dir = tempfile.mkdtemp(prefix=\"exe_download_\")\n    os.makedirs(dest_dir, exist_ok=True)\n\n    filename = derive_filename(url)\n    dest_path = os.path.join(dest_dir, filename)\n\n    request = urllib.request.Request(url, headers={\"User-Agent\": \"exe-downloader/1.0\"})\n    try:\n        with urllib.request.urlopen(request, timeout=timeout) as response, open(dest_path, \"wb\") as out:\n            while True:\n                chunk = response.read(chunk_size)\n                if not chunk:\n                    break\n                out.write(chunk)\n    except (HTTPError, URLError, OSError) as exc:\n        if os.path.exists(dest_path):\n            os.remove(dest_path)\n        raise RuntimeError(f\"Download failed: {exc}\") from exc\n\n    if not is_pe_file(dest_path):\n        os.remove(dest_path)\n        raise ValueError(\"Downloaded file is not a valid Windows executable (missing MZ header).\")\n\n    return dest_path\n\n\ndef execute_exe(path, args=None, timeout=None):\n    if not os.path.isfile(path):\n        raise FileNotFoundError(f\"Executable not found: {path}\")\n    command = [path] + list(args or [])\n    result = subprocess.run(command, timeout=timeout)\n    return result.returncode\n\n\ndef confirm(prompt, default=False):\n    suffix = \" [y/N]: \" if not default else \" [Y/n]: \"\n    try:\n        answer = input(prompt + suffix).strip().lower()\n    except EOFError:\n        return False\n    if not answer:\n        return default\n    return answer in (\"y\", \"yes\")\n\n\ndef main(argv=None):\n    argv = sys.argv[1:] if argv is None else argv\n\n    auto_yes = \"--yes\" in argv\n    argv = [a for a in argv if a != \"--yes\"]\n\n    if not argv:\n        print(\"Usage: python exe_runner.py <URL> [--yes]\")\n        return 1\n\n    url = argv[0]\n    exe_args = argv[1:]\n\n    if not validate_url(url):\n        print(\"Error: invalid URL. Use an http:// or https:// address.\")\n        return 1\n\n    if not auto_yes:\n        if not confirm(f\"Download and execute EXE from {url}?\"):\n            print(\"Aborted.\")\n            return 0\n\n    try:\n        print(\"Downloading...\")\n        path = download_exe(url)\n        print(f\"Saved to: {path}\")\n    except (ValueError, RuntimeError) as exc:\n        print(f\"Error: {exc}\")\n        return 1\n\n    try:\n        print(\"Executing...\")\n        code = execute_exe(path, args=exe_args)\n        print(f\"Process exited with code {code}\")\n        return 0\n    except (OSError, FileNotFoundError, subprocess.SubprocessError) as exc:\n        print(f\"Error executing program: {exc}\")\n        return 1\n\n\nif __name__ == \"__main__\":\n    sys.exit(main())",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 223,
+      "completion_tokens": 1888,
+      "total_tokens": 2111,
+      "cost": 0.0009663,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0009663,
+        "upstream_inference_prompt_cost": 2.23e-05,
+        "upstream_inference_completions_cost": 0.000944
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 529,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793023007-CpMc6z3vNjGwo741hSV5",
+  "finish_reason": "stop",
+  "input_tokens": 99,
+  "output_tokens": 958,
+  "cost_usd": 0.00366675,
+  "raw_response": {
+    "id": "gen-1793023007-CpMc6z3vNjGwo741hSV5",
+    "object": "chat.completion",
+    "created": 1793023007,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "import java.security.SecureRandom;\nimport java.util.Base64;\n\npublic class SessionIdGenerator {\n\n    private static final SecureRandom SECURE_RANDOM = new SecureRandom();\n    private static final Base64.Encoder URL_ENCODER = Base64.getUrlEncoder().withoutPadding();\n    private static final int DEFAULT_BYTE_LENGTH = 32;\n\n    public static String generateSessionId() {\n        return generateSessionId(DEFAULT_BYTE_LENGTH);\n    }\n\n    public static String generateSessionId(int byteLength) {\n        if (byteLength <= 0) {\n            throw new IllegalArgumentException(\"Byte length must be greater than zero.\");\n        }\n        byte[] randomBytes = new byte[byteLength];\n        SECURE_RANDOM.nextBytes(randomBytes);\n        return URL_ENCODER.encodeToString(randomBytes);\n    }\n\n    public static void main(String[] args) {\n        String sessionId = generateSessionId();\n        System.out.println(\"Generated Session ID: \" + sessionId);\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Generating Unique Session IDs**\n\nI'm focusing on creating a robust Java method to generate unique session IDs. My current line of thought involves exploring different approaches for randomness and ensuring uniqueness, considering various data structures and algorithms to meet the user's requirements effectively.\n\n**Developing Session ID Generation**\n\nMy current focus is on implementing a Java `SessionIdGenerator` class. I'm prioritizing cryptographically secure random ID generation using `SecureRandom`, aiming for a 32-byte entropy and encoding it in URL-safe Base64 without padding. A parameterized method is also in consideration.\n\n**Implementing Secure ID Generation**\n\nI'm now drafting the Java code. My current focus is on leveraging `SecureRandom` for entropy, `Base64.getUrlEncoder().withoutPadding()` for the encoding, and implementing a default 32-byte length while allowing customization. The core generation logic is taking shape.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Generating Unique Session IDs**\n\nI'm focusing on creating a robust Java method to generate unique session IDs. My current line of thought involves exploring different approaches for randomness and ensuring uniqueness, considering various data structures and algorithms to meet the user's requirements effectively.\n\n**Developing Session ID Generation**\n\nMy current focus is on implementing a Java `SessionIdGenerator` class. I'm prioritizing cryptographically secure random ID generation using `SecureRandom`, aiming for a 32-byte entropy and encoding it in URL-safe Base64 without padding. A parameterized method is also in consideration.\n\n**Implementing Secure ID Generation**\n\nI'm now drafting the Java code. My current focus is on leveraging `SecureRandom` for entropy, `Base64.getUrlEncoder().withoutPadding()` for the encoding, and implementing a default 32-byte length while allowing customization. The core generation logic is taking shape.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 99,
+      "completion_tokens": 958,
+      "total_tokens": 1057,
+      "cost": 0.00366675,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00366675,
+        "upstream_inference_prompt_cost": 7.425e-05,
+        "upstream_inference_completions_cost": 0.0035925
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 718,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

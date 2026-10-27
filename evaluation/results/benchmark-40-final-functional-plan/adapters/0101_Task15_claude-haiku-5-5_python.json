@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "tower_builder",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 101,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_015/claude-haiku-5-5/Task15_claude-haiku-5-5_python.py",
+ "artifact_sha256": "9989db5f9cfc05fb1b971106055e73c153550ffc10023a80b9c18fae6861fa9e",
+ "oracle_test_path": "tests/claude/Task15_CLAUDE_claude_3_5_sonnet_20240620/Task15_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "b4c823769ba8670a32703e0f94cc5d98b1dfcb3d5878a3aff554f9fd09606ae7",
+ "author": "functional.py draft_adapter (static)"
+}

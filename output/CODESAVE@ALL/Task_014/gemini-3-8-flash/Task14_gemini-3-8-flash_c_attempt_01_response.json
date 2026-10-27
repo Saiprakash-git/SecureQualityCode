@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793009107-6jiE57lQzO3zCnnkwuLe",
+  "finish_reason": "stop",
+  "input_tokens": 547,
+  "output_tokens": 737,
+  "cost_usd": 0.003174,
+  "raw_response": {
+    "id": "gen-1793009107-6jiE57lQzO3zCnnkwuLe",
+    "object": "chat.completion",
+    "created": 1793009107,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stddef.h>\n#include <stdio.h>\n\nint find_even_index(const int *values, int length) {\n    if (values == NULL || length <= 0) {\n        return -1;\n    }\n\n    long long total_sum = 0;\n    for (int i = 0; i < length; i++) {\n        total_sum += values[i];\n    }\n\n    long long left_sum = 0;\n    for (int i = 0; i < length; i++) {\n        long long right_sum = total_sum - left_sum - values[i];\n        if (left_sum == right_sum) {\n            return i;\n        }\n        left_sum += values[i];\n    }\n\n    return -1;\n}\n\nint main(void) {\n    int arr1[] = {1, 2, 3, 4, 3, 2, 1};\n    printf(\"%d\\n\", find_even_index(arr1, sizeof(arr1) / sizeof(arr1[0])));\n\n    int arr2[] = {1, 100, 50, -51, 1, 1};\n    printf(\"%d\\n\", find_even_index(arr2, sizeof(arr2) / sizeof(arr2[0])));\n\n    int arr3[] = {20, 10, -80, 10, 10, 15, 35};\n    printf(\"%d\\n\", find_even_index(arr3, sizeof(arr3) / sizeof(arr3[0])));\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Analyzing Array Equilibrium**\n\nI'm currently exploring algorithms to efficiently locate an array index where left and right sums balance. My focus is on optimizing for the specified array size constraints, aiming for a robust solution that handles edge cases gracefully.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Array Equilibrium**\n\nI'm currently exploring algorithms to efficiently locate an array index where left and right sums balance. My focus is on optimizing for the specified array size constraints, aiming for a robust solution that handles edge cases gracefully.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 547,
+      "completion_tokens": 737,
+      "total_tokens": 1284,
+      "cost": 0.003174,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003174,
+        "upstream_inference_prompt_cost": 0.00041025,
+        "upstream_inference_completions_cost": 0.00276375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 353,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

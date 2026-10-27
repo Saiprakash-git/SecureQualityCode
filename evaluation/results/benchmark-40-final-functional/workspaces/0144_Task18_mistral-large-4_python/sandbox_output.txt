@@ -1,0 +1,18 @@
+@@32a18f2eaa16f0e2 STEP 0 BEGIN@@
+test_basic_example1 (test_oracle.TestBinaryConversion.test_basic_example1) ... ok
+test_basic_example2 (test_oracle.TestBinaryConversion.test_basic_example2) ... ok
+test_basic_example3 (test_oracle.TestBinaryConversion.test_basic_example3) ... ok
+test_binary11 (test_oracle.TestBinaryConversion.test_binary11) ... ok
+test_binary15 (test_oracle.TestBinaryConversion.test_binary15) ... ok
+test_binary6 (test_oracle.TestBinaryConversion.test_binary6) ... ok
+test_duplicate_value (test_oracle.TestBinaryConversion.test_duplicate_value) ... ok
+test_longer_array (test_oracle.TestBinaryConversion.test_longer_array) ... ok
+test_single_bit0 (test_oracle.TestBinaryConversion.test_single_bit0) ... ok
+test_single_bit1 (test_oracle.TestBinaryConversion.test_single_bit1) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.001s
+
+OK
+
+@@32a18f2eaa16f0e2 STEP 0 END rc=0@@

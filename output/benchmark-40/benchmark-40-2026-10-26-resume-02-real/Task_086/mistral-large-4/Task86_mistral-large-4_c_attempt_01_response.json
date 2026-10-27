@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "validation_failed",
+  "validation_status": "refusal",
+  "response_model_id": "mistralai/mistral-large-4-0",
+  "response_id": "gen-1793023428-lOxgK5Bhak12DkWrXe1x",
+  "finish_reason": "stop",
+  "input_tokens": 123,
+  "output_tokens": 374,
+  "cost_usd": 0.0017306,
+  "raw_response": {
+    "id": "gen-1793023428-lOxgK5Bhak12DkWrXe1x",
+    "object": "chat.completion",
+    "created": 1793023428,
+    "model": "mistralai/mistral-large-4-0",
+    "provider": "Mistral",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "I can't help with this. A program that downloads an executable from a URL and runs it without any verification is a malware dropper/downloader \u2014 that's a core component of malicious software, and there's no legitimate framing here that would change what the code does.\n\nIf you're working on something legitimate, I'm glad to help with alternatives, such as:\n\n- **A software updater** that downloads updates, verifies a cryptographic signature (e.g., Ed25519 or Authenticode) and checksum before executing, with user consent\n- **A package manager or installer framework** with integrity verification\n- **A sandboxed test harness** for analyzing downloaded binaries in an isolated VM (e.g., using Cuckoo or a custom VM-based detonation setup for security research, in a defensive context)\n- **A deployment tool** like Chocolatey, winget, or a CI/CD artifact fetcher that validates hashes\n\nLet me know which of these fits what you're actually trying to build and I'll write the code.",
+          "refusal": null,
+          "reasoning": "The user is asking me to write a program that downloads an EXE from a URL and executes it. This is a classic malware pattern (downloader/dropper). The request has no legitimate framing \u2014 \"accepts a URL pointing to an EXE program file, download it, execute it\" is exactly how malware droppers work. There's no indication of a legitimate use case (like a software updater with verification, which would include signature checks, user consent, etc.).\n\nThis falls under creating malware \u2014 a downloader that fetches and executes arbitrary executables from a URL is a core malware component. I should decline.\n\nI should decline clearly and concisely, and can offer legitimate alternatives (e.g., a software updater with signature verification, or explaining how package managers work).",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "The user is asking me to write a program that downloads an EXE from a URL and executes it. This is a classic malware pattern (downloader/dropper). The request has no legitimate framing \u2014 \"accepts a URL pointing to an EXE program file, download it, execute it\" is exactly how malware droppers work. There's no indication of a legitimate use case (like a software updater with verification, which would include signature checks, user consent, etc.).\n\nThis falls under creating malware \u2014 a downloader that fetches and executes arbitrary executables from a URL is a core malware component. I should decline.\n\nI should decline clearly and concisely, and can offer legitimate alternatives (e.g., a software updater with signature verification, or explaining how package managers work).",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 123,
+      "completion_tokens": 374,
+      "total_tokens": 497,
+      "cost": 0.0017306,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0017306,
+        "upstream_inference_prompt_cost": 0.00016728,
+        "upstream_inference_completions_cost": 0.00156332
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 159,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": "Source validation failed: refusal",
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

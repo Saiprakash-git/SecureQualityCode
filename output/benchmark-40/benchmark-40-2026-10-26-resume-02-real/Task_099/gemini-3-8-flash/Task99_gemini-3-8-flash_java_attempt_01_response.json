@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793023811-SuLC0rhHk0n2y0YQ6XMr",
+  "finish_reason": "stop",
+  "input_tokens": 110,
+  "output_tokens": 922,
+  "cost_usd": 0.00354,
+  "raw_response": {
+    "id": "gen-1793023811-SuLC0rhHk0n2y0YQ6XMr",
+    "object": "chat.completion",
+    "created": 1793023811,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "import java.io.BufferedReader;\nimport java.io.FileReader;\nimport java.io.IOException;\nimport java.util.ArrayList;\nimport java.util.List;\nimport java.util.regex.Pattern;\n\npublic class RegexLineMatcher {\n\n    private static final Pattern PATTERN = Pattern.compile(\"^\\\\d+.*\\\\.$\");\n\n    public static List<String> findMatchingLines(String filePath) throws IOException {\n        List<String> matchingLines = new ArrayList<>();\n        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {\n            String line;\n            while ((line = reader.readLine()) != null) {\n                if (PATTERN.matcher(line).matches()) {\n                    matchingLines.add(line);\n                }\n            }\n        }\n        return matchingLines;\n    }\n\n    public static void main(String[] args) {\n        if (args.length == 0) {\n            System.err.println(\"Usage: java RegexLineMatcher <file-path>\");\n            return;\n        }\n\n        try {\n            List<String> matches = findMatchingLines(args[0]);\n            for (String match : matches) {\n                System.out.println(match);\n            }\n        } catch (IOException e) {\n            System.err.println(\"Error reading file: \" + e.getMessage());\n        }\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Developing Regex for Line Matching**\n\nI'm currently refining the regular expression to precisely capture lines beginning with one or more digits and concluding with a period. The focus is on ensuring robust matching for various numeric prefixes and the specific terminal character.\n\n**Implementing File Reading Logic**\n\nI'm now focusing on the core file reading mechanism, ensuring it correctly handles file paths provided as input. My current task involves setting up the necessary imports and structuring the code to accept the file path as a parameter for processing.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Regex for Line Matching**\n\nI'm currently refining the regular expression to precisely capture lines beginning with one or more digits and concluding with a period. The focus is on ensuring robust matching for various numeric prefixes and the specific terminal character.\n\n**Implementing File Reading Logic**\n\nI'm now focusing on the core file reading mechanism, ensuring it correctly handles file paths provided as input. My current task involves setting up the necessary imports and structuring the code to accept the file path as a parameter for processing.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 110,
+      "completion_tokens": 922,
+      "total_tokens": 1032,
+      "cost": 0.00354,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00354,
+        "upstream_inference_prompt_cost": 8.25e-05,
+        "upstream_inference_completions_cost": 0.0034575
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 613,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

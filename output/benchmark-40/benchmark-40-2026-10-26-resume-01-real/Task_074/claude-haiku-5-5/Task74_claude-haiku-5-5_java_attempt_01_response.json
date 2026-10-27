@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793017966-U5K79sqn1lqf0hepGQFj",
+  "finish_reason": "stop",
+  "input_tokens": 150,
+  "output_tokens": 544,
+  "cost_usd": 0.000287,
+  "raw_response": {
+    "id": "gen-1793017966-U5K79sqn1lqf0hepGQFj",
+    "object": "chat.completion",
+    "created": 1793017966,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import java.sql.Connection;\nimport java.sql.DriverManager;\nimport java.sql.SQLException;\nimport java.util.Properties;\n\npublic class PostgresConnectionFactory {\n\n    public static Connection createConnection(String host, int port, String database,\n                                              String user, String password) throws SQLException {\n        String url = \"jdbc:postgresql://\" + host + \":\" + port + \"/\" + database;\n        Properties props = new Properties();\n        props.setProperty(\"user\", user);\n        props.setProperty(\"password\", password);\n        return DriverManager.getConnection(url, props);\n    }\n\n    public static Connection createConnection(String url, String user, String password) throws SQLException {\n        Properties props = new Properties();\n        props.setProperty(\"user\", user);\n        props.setProperty(\"password\", password);\n        return DriverManager.getConnection(url, props);\n    }\n\n    public static void main(String[] args) {\n        String host = args.length > 0 ? args[0] : \"localhost\";\n        int port = args.length > 1 ? Integer.parseInt(args[1]) : 5432;\n        String database = args.length > 2 ? args[2] : \"postgres\";\n        String user = args.length > 3 ? args[3] : \"postgres\";\n        String password = args.length > 4 ? args[4] : \"\";\n\n        try (Connection conn = createConnection(host, port, database, user, password)) {\n            System.out.println(\"Connected: \" + !conn.isClosed());\n            System.out.println(\"Database product: \" + conn.getMetaData().getDatabaseProductName());\n        } catch (SQLException e) {\n            System.err.println(\"Connection failed: \" + e.getMessage());\n        }\n    }\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 150,
+      "completion_tokens": 544,
+      "total_tokens": 694,
+      "cost": 0.000287,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000287,
+        "upstream_inference_prompt_cost": 1.5e-05,
+        "upstream_inference_completions_cost": 0.000272
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

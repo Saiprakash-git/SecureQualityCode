@@ -1,0 +1,4 @@
+Task25_GEMINI_gemini-1.5-pro-001.c:9:9: warning: unused variable 'line_length' [-Wunused-variable]
+    9 |     int line_length = strlen(lines[i]);
+      |         ^~~~~~~~~~~
+1 warning generated.

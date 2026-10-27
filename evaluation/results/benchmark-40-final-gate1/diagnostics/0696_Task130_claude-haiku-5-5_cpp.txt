@@ -1,0 +1,8 @@
+Task130_claude-haiku-5-5_cpp.cpp:238:9: error: expected expression
+  238 |     if (
+      |         ^
+Task130_claude-haiku-5-5_cpp.cpp:238:9: error: expected '}'
+Task130_claude-haiku-5-5_cpp.cpp:204:12: note: to match this '{'
+  204 | int main() {
+      |            ^
+2 errors generated.

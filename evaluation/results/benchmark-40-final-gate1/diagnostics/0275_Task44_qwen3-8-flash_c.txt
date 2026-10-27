@@ -1,0 +1,20 @@
+Task44_qwen3-8-flash_c.c:7:9: warning: 'MAX_INPUT' macro redefined [-Wmacro-redefined]
+    7 | #define MAX_INPUT 256
+      |         ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\any-linux-any/linux/limits.h:11:9: note: previous definition is here
+   11 | #define MAX_INPUT        255    /* size of the type-ahead buffer */
+      |         ^
+Task44_qwen3-8-flash_c.c:175:15: error: expected expression
+  175 |         return
+      |               ^
+Task44_qwen3-8-flash_c.c:175:15: error: expected '}'
+Task44_qwen3-8-flash_c.c:173:86: note: to match this '{'
+  173 |     if (!parse_unsigned_decimal(line, &operation) || operation < 1 || operation > 3) {
+      |                                                                                      ^
+Task44_qwen3-8-flash_c.c:175:15: error: expected '}'
+  175 |         return
+      |               ^
+Task44_qwen3-8-flash_c.c:135:1: note: to match this '{'
+  135 | {
+      | ^
+1 warning and 3 errors generated.

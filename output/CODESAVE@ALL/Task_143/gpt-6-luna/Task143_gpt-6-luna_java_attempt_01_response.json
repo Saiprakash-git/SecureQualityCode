@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793025237-7d15HQXAsZqcGa2py290",
+  "finish_reason": "stop",
+  "input_tokens": 108,
+  "output_tokens": 611,
+  "cost_usd": 0.0003163,
+  "raw_response": {
+    "id": "gen-1793025237-7d15HQXAsZqcGa2py290",
+    "object": "chat.completion",
+    "created": 1793025237,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "import java.io.BufferedReader;\nimport java.io.InputStreamReader;\nimport java.util.Arrays;\n\npublic class Main {\n    public static int[] sortArray(int[] numbers) {\n        int[] sorted = numbers.clone();\n        Arrays.sort(sorted);\n        return sorted;\n    }\n\n    public static void main(String[] args) throws Exception {\n        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));\n        StringBuilder input = new StringBuilder();\n        String line;\n\n        while ((line = reader.readLine()) != null) {\n            input.append(line).append(' ');\n        }\n\n        String trimmed = input.toString().trim();\n        if (trimmed.isEmpty()) {\n            return;\n        }\n\n        String[] tokens = trimmed.split(\"\\\\s+\");\n        int start = 0;\n        int first = Integer.parseInt(tokens[0]);\n\n        if (first == tokens.length - 1) {\n            start = 1;\n        }\n\n        int[] numbers = new int[tokens.length - start];\n        for (int i = start; i < tokens.length; i++) {\n            numbers[i - start] = Integer.parseInt(tokens[i]);\n        }\n\n        int[] sorted = sortArray(numbers);\n        StringBuilder output = new StringBuilder();\n\n        for (int i = 0; i < sorted.length; i++) {\n            if (i > 0) {\n                output.append(' ');\n            }\n            output.append(sorted[i]);\n        }\n\n        System.out.println(output);\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Parsing with StringTokenizer**\n\nI\u2019m considering using BufferedReader and StringTokenizer for parsing. I want to determine if the first token matches the remaining count. If it does, I\u2019ll use that count; otherwise, I\u2019ll treat all tokens as an array. However, if the array starts with a number equal to the rest, it could create ambiguity. I think handling all tokens as raw data might be simpler since the user likely expects the first token to count. Also, if input is empty, it should return empty.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Parsing with StringTokenizer**\n\nI\u2019m considering using BufferedReader and StringTokenizer for parsing. I want to determine if the first token matches the remaining count. If it does, I\u2019ll use that count; otherwise, I\u2019ll treat all tokens as an array. However, if the array starts with a number equal to the rest, it could create ambiguity. I think handling all tokens as raw data might be simpler since the user likely expects the first token to count. Also, if input is empty, it should return empty.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq32TaRfFknmLpvFVhTmBZOTmdljYyPtbIH0xPxY3ytDz-ZhLsDu2mTGK0T0Ur1bVzTauoEVYcgxnH3UGAp0WGQ9AZ7KkdrC_MGzf6O-9HzBJveRogvO0Ls9rtc-5Jx3tol4WTp0Qx6WkdyhgPrLsadznVtyG8vOXRO_ewd0Cl37s7dJxh0Of7Vw-sPKKr3e6rGdmbmvIbRKF-ukvyKYwXhzTTik6kZS72pWFVJ7IyQNB57TDb3YqxvsO5Iz5XXHi5VGv6CI7faV9LBtxl8EZzKDzcQPXPg9ir44Dw_i-BCTaQtXbheraqIh24-nBA2watOdOERR_HyPzhyLR1wOuoHzsOOvC9-33Qq7Z2uSHfHE-FBBM7eV9-hqB6ZepUaeARohqUg0UoakA4HgYb3uzahOwth_wzmLBEIk-eJ5iVGiNpBMaVog0rfwMWfWGfDblqfbpJuGsLWmEz4DwIK8h6wTqJr-uhRw-X4FwbfInhw_1z03TP7CKnYnCcC7Swfz2qeGDEkpe5DKis-I9WxccPs9TkDs-cbnPIvIW282scR46lVHCQkjnU5ossX-bdx-m54SvDQKfQWBgFZI4iMhfq08SrYmQp37-0OjuwjYaHFeNddoQzpD8ROmhQYCRaMcxy2rtSiiRpN_HlcX5Akq4wXi8nlpUoxUL7oM02RI6_hFVDeuuK9wXmUWYZEbstd0HoZpe58oBF3YqVXqkxrcDo9wQupg3NtBbpHKOjoK0ZudDTfvpzUNwI88S21cTzdjannPLgCy6jJjG-_p1thZ2mcF-q0a04JBJ6WvTG4ANM71X4ucnNcKP3bOHKeo6racWoQreefMp436PnyUhMKVm_jiD66IqhTsKfpeqjusLXFEYg_d8o8emaFfWiDYIN2jfhnohQ9We7EYbK0KMIuO8jvsEn8IRsxpc6-KmLjTNf8bbaUx2usCMB7cqvrz2j1Df0p_95teinY0MHfWcR-bDZOZGk2k864lgRfDWRwHkDGXG0J0k0eehavV4l6jHi1rmT2LyxTaPpViofaXL5KqJsFx1adznQQagK-dov-5dfWf8XuVdWbYzc1VPFUgPbSSZtsG_jgXNnuahF85ttLk_MiN4MCMY2xUzWhOLkJUzRTXzDZj45nUr_2NTDE0wmhKosS_nKNjPMOL55zHVsbPo1ui2Dtne-XV7yS53RK7psRhNbNrkJ15jeyJFy2phL5tm7MyGoiPaKfdZlRXaNzz36Em7zDgKUmM5v9SCr6Hb887e5XM3ixeasNQdIbSL22l9sGE2KIA_CojAEl5OjJ1S0J_eiBml5en9fnNYMygC6fihqJUSwjaEX1yWBFGO49q9n-3Wu26U4v9CGv03FKzZm2JkbFahxSVkAQanlIrNI52nZp28dr680XQM2DCcnTMuLNSID1lgsgAzstCXgzgIOCb4ynrPrWeIctu1kSFpAoFiDluF7uPw3h3PafbZw3_itCdGfnwKa7RNnlzfflIlnGIMUlGo8R94NdXPkxvovH6-C6P_J7BML0o8rBautqW0G3y3wnlxcUM7__rQMVMA7NKAuwWrRNqOGt02AlwSSnj6DWPedz5iGBAzzsITrTD21IPWEeM6fwhYTHtFQX8XNyYFLYqCtCE11WWqTOFNMPcubRJ4dLl7uMRWvkZvmPTyX25rPVOaBceP7GUYUim7DPnIWqmYLze1ftGuBrm0YnnqGsY2cXSD6oFt30ZJ8AzIrbHCy1ZZNxakM8TCgpJ6DWJEm3FB0aS4BryyrJKZiUqtO6RfyoQsVtMWU_GvTEpe9FsHLs5vmrSoBkHMO5kvohb4XWgi4R1GIiHWz1be1xSw8QqmX3djGeM_OKxHktK_5fhbHavG7fy34Vr4cC0WgzY3_oKjmbMK4I0s1KDwd5e7xesEs_41PV8e903DN4mfeLVEUVH-jjYsnpaZMk5Xbsj_7y9sKV81WCMhP7ywK_TNPlhv5smkhVzXYPnr4IAxTHZHDbLfQJ_RWeqmgDLh6ILnD6hIpyv6pKGt4P5i-bAtJuYnchAf8D417nCRdHZ7zdQOM76wZ6ZUOPWZeQfG0C-65KSDgrSUZd4DmM5SnlSbrXZeLHbVsOryBoCK08uEpNdswkUVNR3OaxRIaOuZuY6H_k1Lakl-F3Yt6zln9NEsJRuczTwi6hGZ3QXBklPdW4Uy1ESy959T25huzwIhdu8T5dr0qW3LHd9t6XjoyNGDkTm42FMXv9O3LZ6k4aKDdhxaGn4y36MRs6ArHNMl6cwfhC-01WSAxycGqUzo2k6ozRTJhPiRggSHEBWlWIxDVNpZinOkZE7oDgJLdeeZazK0eW03RtG_Lle8QjXpvJ6WA8JKNtKfXlpjTiUEuG0nr8-7jmC_ZneuUoe7rZG6_iNphxA5hBBq20ZE-39ANHSPi6oe9ALLa3io6Naeh9iEnewsyMY1Drd-pzm3z4azDOxV_tzYV1se-as7wAcY4_JKpwkIGSXehi6-aVu3sW7RqIKck9xheCqBj6gxnnfUBeTGqLOeBozMPbPwK-m_pBhHgfq61yc1ZGFM4MN0GpewFnOIjCl0Y4nH3AlIiqvljaXtmKpaHdcgufjF8AIS0qQbJlCJAXbn7e5nV7BIPGRILROhPbhOqSIB7T6rb6OS1h9FHRaIw3bc6DDbQMuOkeXfF3W1J_gcnRSt0e-dYIH7UXqPojqwDQoMSk0f39-LDnPad-0ZapPzTp_GoqKeTXjQChlWThBx5YhStr9CmKQqRWZmC3niNKhcAvIUdo1G1ba6veerwjGXQVTlxQb_fgy6xq3QFi90VoQCAEtvRmA4BAvMux9_gltWlELWyD_DgShzoNFSdpbPup29anGAoZKtP_u-dIdv_YYA_gYJh4ivrsQEG6JzVq-M8pqGXGmdyC9zC0pe6-0PH2qdtqkH0jYuxQKugGWPTcMK6RaHBsXmQzqUQrgqwgqhC1aHRWGTuNDOhCze5VwK87je8rA-AazKCQo4JJ_iy-U7xvjdLjtiZRNQG_laHzixx3yy1ibb_LkMXnrNmBFeXNmUJvegGrRgLgUfQQdyCbOwL-yLYH7ddzxpSv2jJii0H9cG_mdVCjOITnRF1v2XDgyxDlGtgwecNZhRgbkEkjo8x2_9l2KXSI4tX5evKnzlhygBhx4Q4PQ4ryDXzA5Mp2oa-iAFnnSX-_AP-ysTSqWrtbhhA-od3cLhbsZ7F7mYjD6iTkQHIMmVpfhgPx0e3-uWxi5x8O0egXci4_0keR1aOegJDmq5JGg0K8-cQgVSItf29SSqLCUXHBRqEn0knNnXgIsixpoundP0iH9zBTXST7QDleroIfX3_tC_Q8KrEzybBhmctyzg0jKKYDj1YLTDJkePB2dGX_pq6wtCVMPGDlQJ7RMC5Kfx6xlvzK64mKtDFANoGBvDLCT_JBH1w0830FAV8mJ0a2604REJaxpRXQSCsfnPb3D73vCxX0mujLo8Ko1zkcYLVv6RIeuDSzwAkgsDWb3_VDzM1cnd4VW6fYgWIx3g-1v7eaGuG50ejCQbEojTLunOZCc5wzy7WgQb0aTVv-QnZFYKITn5CM0FCXVAd6kX3zo3FbjHJlhtDM3L5PUQ5MUxM4bidLMQ3EeItPwEVsSqlNjSccSgFBy-vLZaWmDgnVkYXUPQzvqaKa228ctq_lGgR73gX_IwicECWRHlTfpEcKDuAIE0X3V1_ZcAT8pE_0n_Aa6nC-UltP8Ug_UCXmB7vMSWChrExuKohWNfziHnnivJmeNO6-no4GOHEkHvOjWFpBENsfHGZ6XbM4Igl5eEL5U4ojT-bSu9_tZSCesyFMl6djidSxslKfG1Zp2xCPcETuMsu82aybsZy3Im9mU0sKeyUyxpBpfbxOHyVJ3002fXEY_JB1QV5CdW753Q849JzCDjYXRHhm4n3U6_Tt_uULVuOIO4lJLpK7nWQWGPQ0gbFrkOXMhowbmeliWXt9D0lgEyTPWEvLMWOr44l8cTsKVH6sND33K0amp-KaBazEbD94GMqDIqnJ4YcMfHnkEbNDCdET9j4kbZ81WqOqCWPx4EQWRNrLL2oaygjUuGWDku-nVKgvfwpFo3hkcbhv_AbMi694_SGO_U5pKtZmjZizSB0d1otBAi6273t2vZSK1K_EpgTlUC3kf3sxBmTX2WxI61OYHqtRD_khhHGPjs3ZXYNkVhTf-UKo5HemY4mNpeA4fA547dZs4uVILLZhRiIkeIPVTuQWsqJZFlyIREOQfFJZ_Ze-NmseZYxGBEupUbDDmhAucNN_Sw6B8W9eOKDJal9PLSq4_Gf8Irvb6anGV2uhNWkJQKsHdLHy1R71xuZoeQXFDrIRFmurTdMwVIqQH6E7E2Sfng6jut32-3D3fDN0DKtwwe4aWTKIAuGzRU7o95qocbROGNaiTWXvrEzaJ_QVYswJa_tafybzCh3rll3h4f3LxnPxN8frgDCoI8RLf4ICnA1o4p04A_Ez_Xw9YVa2k-5TpZ2W6MEf2_jFUlYiXfdVOtAMbtCfpLBXuE_1DSkSrxUamWmXL2O2HNbyHHdzDeEM0hqLMu61syyN1eL1QADCmg5FIpotW1zf3OPZu2NGF4usV-xJfA8iCGq0OAAq2fZ6AqzZ_fuQtX8MFB-6ZTSOtwY6CF1QemUUG9jcZnD0XCSvNJGAgagkDz2b6QH0DrcASGcdXTfniqc7OmESmYndga0skS9Nt3AcNvANzcdOO3xK0xFsYAjeLKttyepYBRo0_b4ftXo-0jnLvtWewjZ6w35b8VOb6niOrcZ0X_LcSLs_DSsx8Pio4J_MJuuoIDuSHjzkaNGKkebo1ugnZB_lZu87m2OQFhlNvMXHwFKHvKtwMqOFwh-0gIgX0GUHNdzSJyjfEaMZLKRmOfxfLR29A1pRWYWzJ3sTh5VFqVmS_bOLA5LdXoEpq7gzURxwlF2Gpgp5LkqmIOs0ZNpIN4YeNNkz9t8TEEpRHB3ZiXm1pGty8ZoN-MSh4ozXgwunJArstpvU8M-5EL5U-aSl_1J3OY0oXynd-cy4ag4OxqBImaLOWybW7rvA44IN5D1_V0x9pZ9SwhyZPUQ6_aIY5sF8NwryPezTARKmi0Q7bw_QXXQ9XZ7DW3v6sW-CYQ-PomQ8Glbflx0KoqxYNiIWIpXlT3PKyJu5nGlP9Bd-2Ll9aL0RirlKXNylGEWM-9JcQZRQS3KRG0AU7hTbcFb2eHkdpzeAoXJjGlINGhmCvLwYRSIbsHjKP5OXQX_YbR8WkMQs-mpm0WIzvu_4M_XDxf--brhwacr1ctkKbIi9IWZMbsZFq850DudObY62vsrhH6A2unm9BpvGu4p9AAi-sJhnjVpMD-Pwxj-ZrK8iR2u7Sfeeq2pStvOwGwRkLWwwqyIDIcwhtCfx5-zgqeYtdsvjmADkgts8KjKPJ-oBU5oTRRdHD1GBufxsEqp8hrub-O_eEnRzkVGHTDNO22PAmLZMlZ8liBHJa8DDg-wZ7O_Jw8g9zPWjIKmRGBaqrREG1GZWb9T7V13-LzHq_TyC8LYhjUPMM6ou8cIJlOvH7uEJv8YSM_V4aiYA5RpXNVu-v5_k49HUHEtew9k0A==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0041676af449a4b3016adf64d5ffb487d1b0bbecf51e14c0c7",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 108,
+      "completion_tokens": 611,
+      "total_tokens": 719,
+      "cost": 0.0003163,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003163,
+        "upstream_inference_prompt_cost": 1.08e-05,
+        "upstream_inference_completions_cost": 0.0003055
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 304,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

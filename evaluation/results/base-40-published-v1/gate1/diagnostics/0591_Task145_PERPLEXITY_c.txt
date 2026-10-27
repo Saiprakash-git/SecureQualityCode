@@ -1,0 +1,13 @@
+Task145_PERPLEXITY_llama-3-sonar-large-32k-chat.c:4:22: error: use of undeclared identifier 'maxGlobal'
+    4 |     int maxCurrent = maxGlobal = arr[0];
+      |                      ^
+Task145_PERPLEXITY_llama-3-sonar-large-32k-chat.c:7:26: error: use of undeclared identifier 'maxGlobal'
+    7 |         if (maxCurrent > maxGlobal) {
+      |                          ^
+Task145_PERPLEXITY_llama-3-sonar-large-32k-chat.c:8:13: error: use of undeclared identifier 'maxGlobal'
+    8 |             maxGlobal = maxCurrent;
+      |             ^
+Task145_PERPLEXITY_llama-3-sonar-large-32k-chat.c:11:12: error: use of undeclared identifier 'maxGlobal'
+   11 |     return maxGlobal;
+      |            ^
+4 errors generated.

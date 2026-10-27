@@ -1,0 +1,32 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "Task25_CLAUDE_claude_3_5_sonnet_20240620.number",
+   "target": "LineNumbering.number",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "List<String>",
+    "params": [
+     "List<String> lines"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "List<String> lines"
+    ],
+    "return": "List<String>",
+    "static": true
+   }
+  }
+ ],
+ "combo_index": 206,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_025/claude-haiku-5-5/Task25_claude-haiku-5-5_java.java",
+ "artifact_sha256": "8a27ba76f08dcab960aa84dbb62390cec93956f42f86e56fb7cc2919349bc2a8",
+ "oracle_test_path": "src/test/java/claude/task25/Task25_TestCase.java",
+ "oracle_test_sha256": "ed0922a65a6772fb4f0d282d3e527454dec4a258322c8a9f78cb754775346c98",
+ "author": "functional.py draft_adapter (static)"
+}

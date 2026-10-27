@@ -1,0 +1,31 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "dna_strand",
+   "target": "dna_strand",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "char *",
+    "params": [
+     "const char *dna"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "const char *dna"
+    ],
+    "return": "char *"
+   }
+  }
+ ],
+ "combo_index": 253,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_031/gemini-3-8-flash/Task31_gemini-3-8-flash_c.c",
+ "artifact_sha256": "f72f9d9fb00f6732e551ded4616b2ca6712b2d01ac30460b3f68d1a2408cc973",
+ "oracle_test_path": "tests/claude/Task31_Test.c",
+ "oracle_test_sha256": "078a5c93045110b5cefda3d0dcc11b9e3ef6e7b0bfc6ab98cd8bd63e456aa46f",
+ "author": "functional.py draft_adapter (static)"
+}

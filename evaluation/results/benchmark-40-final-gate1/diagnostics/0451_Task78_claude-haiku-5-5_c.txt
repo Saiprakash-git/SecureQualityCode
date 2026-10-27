@@ -1,0 +1,4 @@
+Task78_claude-haiku-5-5_c.c:5:10: fatal error: 'openssl/rsa.h' file not found
+    5 | #include <openssl/rsa.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.

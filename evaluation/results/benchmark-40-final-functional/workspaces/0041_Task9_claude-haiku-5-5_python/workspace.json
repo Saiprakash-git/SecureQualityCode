@@ -1,0 +1,57 @@
+{
+ "language": "python",
+ "artifact_origin": "generated",
+ "artifact_sha256": "f5f92462a01910e2da20de9bc25fa28222ebce527cf4f304f5924df43cbd08a9",
+ "oracle_test_path": "tests/gtp4o/Task9_OPENAI_gpt_4o/Task9_OPENAI_gpt_4o.py",
+ "oracle_test_sha256": "92c34449953b899de39f3e431054b643ff2359ad033d222902fdf51af687187d",
+ "verdict_style": "unittest",
+ "bindings": [
+  {
+   "canonical": "oddOrEven",
+   "target": "odd_or_even",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "line": 1,
+   "removed": "# from output.claude.Task9_CLAUDE_claude_3_5_sonnet_20240620 import odd_or_even as oddOrEven",
+   "inserted": "from adapter_bindings import *  # adapter"
+  },
+  {
+   "line": 2,
+   "removed": "# from output.codestral.Task9_MISTRAL_codestral_latest import odd_or_even as oddOrEven"
+  },
+  {
+   "line": 3,
+   "removed": "# from output.gemini.Task9_GEMINI_gemini_1_5_pro_001 import odd_or_even as oddOrEven"
+  },
+  {
+   "line": 4,
+   "removed": "from output.gtp4o.Task9_OPENAI_gpt_4o import sum_is_odd_or_even as oddOrEven"
+  },
+  {
+   "line": 5,
+   "removed": "# from output.llama3.Task9_PERPLEXITY_llama_3_sonar_large_32k_chat import odd_or_even as oddOrEven"
+  }
+ ],
+ "steps": [
+  [
+   "{python}",
+   "-m",
+   "unittest",
+   "-v",
+   "test_oracle"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "adapter_bindings.py": "1986a0ce30ce7cfa95b1249844e7bc02fd5610456fb5fad6b74bbaa6dab83079",
+  "impl_under_test.py": "f5f92462a01910e2da20de9bc25fa28222ebce527cf4f304f5924df43cbd08a9",
+  "test_oracle.py": "e6337d3dfb2771782977e0facc1409890227b80d706c08dbe5de835c596b3ed0"
+ }
+}

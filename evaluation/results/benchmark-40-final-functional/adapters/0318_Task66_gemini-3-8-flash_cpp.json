@@ -1,0 +1,51 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "executeCommand",
+   "target": "execute_command",
+   "kind": "alias",
+   "name_match": "normalized",
+   "types_match": false,
+   "canonical_signature": {
+    "return": "std::string",
+    "params": [
+     "const std::string& cmd"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "const std::string& cmd"
+    ],
+    "return": "ExecutionResult"
+   }
+  },
+  {
+   "canonical": "validateCommand",
+   "target": "validate_command",
+   "kind": "alias",
+   "name_match": "normalized",
+   "types_match": false,
+   "canonical_signature": {
+    "return": "bool",
+    "params": [
+     "const std::string& cmd"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "const std::string& cmd"
+    ],
+    "return": "ValidationResult"
+   }
+  }
+ ],
+ "combo_index": 318,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_066/gemini-3-8-flash/Task66_gemini-3-8-flash_cpp.cpp",
+ "artifact_sha256": "edb8fc1c10d89aa0d36c427eb49c30c60492e0498f49b2d97d3072df1eba3a2d",
+ "oracle_test_path": "tests/claude/Task66_Test.cpp",
+ "oracle_test_sha256": "6e80afc629baf93c3e374e875d0970d4a78ece6d879bddd43ccc1c4d97ba4d3f",
+ "author": "functional.py draft_adapter (static)"
+}

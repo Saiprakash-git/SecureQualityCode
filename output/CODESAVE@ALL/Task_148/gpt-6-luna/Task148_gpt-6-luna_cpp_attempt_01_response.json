@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793025444-f0csRRLG2d9R8595ZfHz",
+  "finish_reason": "stop",
+  "input_tokens": 108,
+  "output_tokens": 674,
+  "cost_usd": 0.0003478,
+  "raw_response": {
+    "id": "gen-1793025444-f0csRRLG2d9R8595ZfHz",
+    "object": "chat.completion",
+    "created": 1793025444,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <optional>\n#include <string>\n#include <vector>\n\nclass Stack {\npublic:\n    void push(int value) {\n        elements_.push_back(value);\n    }\n\n    std::optional<int> pop() {\n        if (elements_.empty()) {\n            return std::nullopt;\n        }\n\n        int value = elements_.back();\n        elements_.pop_back();\n        return value;\n    }\n\n    std::optional<int> peek() const {\n        if (elements_.empty()) {\n            return std::nullopt;\n        }\n\n        return elements_.back();\n    }\n\n    bool empty() const {\n        return elements_.empty();\n    }\n\n    std::size_t size() const {\n        return elements_.size();\n    }\n\nprivate:\n    std::vector<int> elements_;\n};\n\nint main() {\n    Stack stack;\n    std::string operation;\n\n    while (std::cin >> operation) {\n        if (operation == \"push\") {\n            int value;\n            if (std::cin >> value) {\n                stack.push(value);\n            }\n        } else if (operation == \"pop\") {\n            const auto value = stack.pop();\n            if (value) {\n                std::cout << *value << '\\n';\n            } else {\n                std::cout << \"EMPTY\\n\";\n            }\n        } else if (operation == \"peek\") {\n            const auto value = stack.peek();\n            if (value) {\n                std::cout << *value << '\\n';\n            } else {\n                std::cout << \"EMPTY\\n\";\n            }\n        }\n    }\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Designing a C++ Stack Implementation**\n\nI need to produce code for a self-contained C++ stack implementation. The Stack class will have push(int), pop(), and peek() functions. I should create an interface that handles inputs and outputs as expected. The functions should be able to process parameters and provide return values. It's likely I should set up a main function to read commands. I'll also ensure to implement this using a vector<int> and handle optional outputs properly. It sounds like a common coding challenge!**Defining a Stack Implementation**\n\nI need to create a stack implementation in C++. It should include a Stack class that uses std::optional<int> for functions like push, pop, peek, empty, and size. I'll aim for a standard command interpreter that reads commands until EOF, handling them in a case-insensitive manner. The commands, like push x or pop, will output the appropriate values or indicate if the stack is empty. I want to ensure all functions accept input parameters and return output correctly, while keeping it simple and efficient.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Designing a C++ Stack Implementation**\n\nI need to produce code for a self-contained C++ stack implementation. The Stack class will have push(int), pop(), and peek() functions. I should create an interface that handles inputs and outputs as expected. The functions should be able to process parameters and provide return values. It's likely I should set up a main function to read commands. I'll also ensure to implement this using a vector<int> and handle optional outputs properly. It sounds like a common coding challenge!**Defining a Stack Implementation**\n\nI need to create a stack implementation in C++. It should include a Stack class that uses std::optional<int> for functions like push, pop, peek, empty, and size. I'll aim for a standard command interpreter that reads commands until EOF, handling them in a case-insensitive manner. The commands, like push x or pop, will output the appropriate values or indicate if the stack is empty. I want to ensure all functions accept input parameters and return output correctly, while keeping it simple and efficient.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq32WpdXCgcOqPp5y-__4td4v23m9snzQqV_t7D32jhfglK3eGOIyYSRIQ2o4M_39sJkBVjHiG-if8yqJk-vfWQui9qZlMalfJtPtxU89g5acYVqp31Sg1s_9mGejGogCye5ZWivgrwrmS8Rj-AnhHFWubmaS48q8eyHFTypqWbhunfTm9u5BNfyxGgiJptsKrxgOEIUFBeRL4dZTXAJvNijYcQ56I7_EzFsAt08GvIgnFMc3gSM_LDEK3AylL-eaPgCWbQyufbOU-dyyt0BRsym-flIEZ-8Z7ZamvFxnBXwvnh37jPHUAp0MzLfUGm5Ol8BeXoiwAmJgnBIkVrtL5A9FNIIGurF5S7lTQYwT172y3Bkq5NJqkSJn9TBdPYXfXjXH7gzVqBgnh0k_Ggzx8OtnKWfVoOewBOatq0BkhHqhItHf6dzFpwHamyHWzmHK1gDnQ0nY8p3HUE2esdQ-7Z-CAJ07molmDiCU8FZj3zqgY7TPgltI0l8LkNPMW9D9k4U3BMr3DwQXwGbkCgdVLVhpinRNOKUZBWSXkqP7L9PmGr4YeDbWEukoqGiXQrvkiu3DsQvBGL7SQrJn7EPI65EE7GsYgSgnaU32XIq4Fn_4RlaMD9C66G6h10N18GWHfY6KEm5AhC1W7Bw94UT7lqLFnyKWggDohXmUKyUGSp2DTtyc9ZyASM3pFjEYLaa6Q_X2Mi6WDrJu7eU7sG6JBY9GZ5I8kpIFg4s25HKxg60UYZrDpHvF_qA1zhBchQ_lCBxLYkKwbNuzhu0Wjz0aXxfHcx-JpcXVIuK9s5B8gvH_Kcgk0I-p0K1fngAHAvtxhksi53Vu1ALXn0VvZm0Ej7KrVc_gq3rKntJJpO0o4U9kHBZS8kc9qXgZ_aLREX0Drt22pvdO0taha6lvIt0sIDNfMWvhkMlpWnJ4IPErgVqk0YXzDxWLBHqqZV_SpXCikv8D7aDdFeK8mIu3PS1AMZoYoTI0fte2qfrtVzyk2MIh9QK8uhthfVoIxQoBnoRQjnolf8rkXqVJ2rXsrmmoIwHdW_fYM-kc5N0rYico2I-ifsXu6R1NCGQiOuoAXAg7XKLilEj4FLVXBwfytFneMbmzW1A_JxOc6cnF2Z4poHzRdpfkNSyKmFEDmZrpAGRFfleIT4l2MhNapOK7sCuiol0AztnV0Xem_Y6YSD9fGf2whIeC9_idUSvZk_A5oI1w4swd7GXjA0ejzGHtXdpJT_DPCsYWX_wt2tBMbEPfu0uSHGD21k-a2Gq9gycqowIVTelciAbXOuLjnWgelbRF_Bcil3MHXQIz-h969WTc9mUga4q-Xunh3izOdMHwEkfE4D2R6BG0898GDlABMW3uEbMQWj26W9JjenLByAygWrVPxt7V8xsHkOKjKXh-XT7nYE_9egyPfHyb1Uxun0xAKqG5HXBmS_IwT8fi5s5BzDZa0iS-lKQW38mT_ydHvJRQoEL_HmPQz3GqFcHjHnIPMnlWGdMux0cXJSJl4V7_pzQUHZjQT_lC9_s8mqNKb5LkcF1p4fBPuxosQTtuPrmDzJHVVJCqOFpMuKB57gduhQng-3xGwXai-hq6ZKz1-of0U235q5tijkbtXQ2fnvkeh31uCgerZ0eJQ9m9xcSL9ZnPVcAhqJl2t0zFMtvf7wH3q09y8f57zLBXMIlMiv3-kRwsKXtQssZkAwwVrHOHsZUCY7E4rzBkmSHh6Ch2nx7wXOjX5L6VvhQ3vV78sgJrfiRMSmhaJicguOfYwQDQDuHpoa_fGlcRem6t0bvMKKUpjZrb6plpzvFMeiOfo82leL6XraiMjB5jGU_gCQIfqpTRPeF9SsVwg6cgjtC84rGHxfsS-1s4RVPjSFDw21JiVUoViINwVgp5Ml47a1uWXwulkyK8GYxuwN6ykmPCEdw7w0718sk4EH7SC71_M9pQmv2CeFi5xOnk9M3uoRMkoz3_U8wQ-FYxA49T2KQd1wMlfdVPS-rXxhgQDZolhPYSf2VnqooFtcXk8EPs5TOItbbYnFZSLlK7pl1fLSo0xHEPz6_eY_NRHztaCbfdQDy7Vl-TsPMaQIxQ6hPctdqc3zgT3HO6Sg4x5xpto0iN0WeW11mPo1SXzVzX9GfM1iq_GJjx-iltcR29ZqbnbW0M_Sa4MybpNCJJJVz2ouuxohDtEs1oXG5VP2eDIFSxav_4ST6woi9b1VyhNtWFTy0_7SOOYmZz1eaHa3S0BFguKfa6K2DM6Y-WGZNS5-Dvge67ahcfaadmek-ez0Wqpzb8WlUxSMPI_D_GUe19haG6Z8sbvNom09qghTarbKtQJ8Ge3WW-dpvnpZ0wjUcV6VYRrqcpQGe1VqdvDJFT03WdeGpkeiUHDISI8gHiFsusLddWoBSaRh_lAGHURGW8-2UzUR5MgRbzdJePKwppvwO5YRRCULwwur3yrEYYnv4vqPaKMpJzd0p9ucQxrRy7okJIDyLB3VvowALh-eswgmYjBvafiMpAaeD7saWq1vU57ddrYuZ_EwTF49h3mTAae41PiAGy8rtkml2MCxG_0QE3cjsK3LUsfHfhqkC_vbVAOVYx3FCjaHxryHuBNZUJ_PvNTuVoqbl5F6w-EbwS2TkOlUN19Y9uXAuJaTKN4DB0DaToBMImI_p-NPxbBo-_rN-DJst7FXzBNHfe-5bE58reKEYlw1zyF20w84cJnk79Grg9cemC6xzosgvu9Aj3CQ66hc_5cnWtG9yBOu5fcwqp6U5OttcZx13ECf3yFWhEdcngSbaQPxJQKAheciNQAB1IxG-PBw_XIwZGJceN4QdXrZs2B2rDi4P_UewjnypqQW8h4idlmfniyZqcnxMTIO45jEPaFF0Ixeaby_xgB1sCDjzJ58S-WlyRrnDZFLVGbVt-7xoJ8N7kC3mwPeTMC5hJ5OZr0dFUuhovUZcjceVOgzVVavfNoTufuztZP2Q7P0ppib9w9vQ6nPDcjQ5le-yam9AYX8dska7QNpOcQhu8zBtseaHZm6PukgKHCxjJnXvxJ7iVp0Eadc4G8H39AeEMusEEh0nq1gFyylqbfsC4AU5lafguBX-T9RiKsMryY-n0u1H0_eeaOuRNj2X5uQXpLsLecdZ0IObPN97xYEYOWatzSw2MvzYcxrTnNO11YnpJ3CMNBZ3L6YfA1NtGbqORwRv4HP-vNla2XDlHdCmEAcAhkll3_80GSCa51zj3FQXGfAF7zt0-aLbFhHghiRS64BTaUOUl_hZ1hS7s35JYhFde6wBW5lu9JTv0OuU2Qn6fvEpPDBEFUVZfhWXQZQT9rcKqmW5s10DryTWqvYh16nSfsq_IvBdnEqiGwe4ShnITc-Qv1jJQLbsg98PiZeA43VdGd-EL8g-W0ClAc3EiqTQycfMauHuaHdSWgzObAr-6_hhpDUwCWywOOik87m4mnc61ATIpxuZM50vDTkYAJeBTJ_DUY30DQ7clWFu7op7PvvdCi2jWgjOx6-wouhgVOhSDyu4EWLUEA6Selx4waU5fczEW4GGBxg7EzXNrN-prdWZsSI2obN0sS1GF_DH3LaGkKeESIai6RIf7qgHdKbQ4l-p1ILFbjFLgB8IihQY3fmFgVeFD33dD4GBFpky9LXoUTRVThf4RHudOlhzl9XKYzJ9EL_VuC_Eeh813paoqfotsZi4bNVmwz5LiwnRGSHwQc5eX5uKx5dzyUjKfbjN32xTnGVx3B7UooKAJszbAAT7VNxyqzWXdWpwwyuMv6H19R5YMnfy-wT_F-Ad1hNIsKiMZoeLvxY3XGHM27BtCOI6Pa3df2E2Wu1dXNhWaks5fyyQQlnqBzTHOktuobVKFC7pW-3FB9IdmjVAWiFcANTcPEiF9MA2mRNlhEwkZEjvWIbzOSbce_bnB60Xlh5LN8wZFzfZ8bp1ajxRum0Pt4xY-Inhe-0PWlxMD5DI9DaC9TvL_OJEIkAHVorFXN9QEnc-tgl74cdWezMhBgCa8sh92F9rN_KiB1rTuoKPYj9AexsOEfl2tNrqo04u6AYYA97CiqaTyjGvOlD3vOXjEV2ri4qIPlNfVz8eelSWDXTRDhVQ60Nnoc35lbFVh4fB6e-4TBzhY8QHHLg_kibeQ8w7z7s-fXqHpkrXn3PxUNF-1e0D-29m4DD0Z--CQ-WNXSnvK5jzOt58tFN40wDp0RHFN1s7Uo80TffH3XMxaXIRg9ccWUZpasZQ0CzD0VjEpwP2xGkgfaiT-dfVcO_RC7ibD_GRyx2fMlMUtyxOWEZoAcgQ9w80Dxby6vxoYMgxyuTJvzK28Ij0HQo_trBYo1Dkff3qfOcoHtBvcrzo3wMn8M9TgzQPgvofp1w1Bbri6QCSuTNKC9QX5Nlq8TrV_1nIzeWMD9o8uMPvKxG5J44sAvuhSYVrKkJ_pIy_0YUZU7wF2GKEb8pWTTNGf9PvqbVPVhPeHiZ7DK1pC27HPTM85NlYFYUOKHYI_kBfX0VcLNAB8TIiAApr73eZ6Z6YFBg7f6ZrvicmYj-wgT6Gvt_Z47Fibduj3HerZTOSXpQJU8aC-o81VYlZpMTKKFb86O_hEaSlVH6pI4DdNz9t9Wq4l-A2eCZopQB1eouVeWZ5g9FbG6ak-g8Lf9CktScMhzwSnaKYtaYUQoMl6BESoueAyDXyW7KetOEe7Der4zj8fTQLnfCbASvSk1KlDsfWVTDRfpJg94uFuPEN-IAJ4iKcxnn24EdemkjtAXtLK4Mr-Us17Vj-epPVxlS2brHnYvfgHkhYUxR3NbeAc79MFASyHPgyb4bR9iYC51SjkafLb-CY1H70lNmhYNqRJdsEtpfPD7F5WR0OOcWjGqxq-Za0A5lK41v1ZDnff7FURpI6gAKQufxn72CycViqSQ8uOJ1iKiaq7_pWTGqyWZhyK0e7Pb5KAWMyzBOS-1bWhI58lcgvlk6dAXqHMHQYaSjeoLbo2rHDYOe08pUWf1W8ERA6XERpwsIcAUKBBmfLP6c4EPQEcJ2U9W98zqaOG_npg8a4zbgks4Q8T48ilyPBAwDhs-OicDrRMz5L3BTWO77WtfAwrPrhjWVifVpwWR3ZeijnPL4KGSx2DuWvhcc8ZUhD7kzSHrSq2YSzszcJOP4Ulem23c0uoOGHHM_dYniyR_Nvrm1xBBIS5S23X-WeODN6PtxV_SDl_x_6iGUo9x4u2aDqcaBDOzrSkErPxqMhkaVsvev56iNfESZTUoWaFLHZqXnLGgLtEudJ3aS1qqsvQI9mZy5XBgXv2DRc_IuaJGDqL4IWE3mRWf-HHUyll4X6TCwcDswQxg2Gzmr0x1usj3AebGctVxgtHcCVXB5QKWj7jKym-9imbo5kXyYpOh-Z-WpeEjQgp4QeDfa-QVGw39K3H5RCUbDvX5yNUxTg9lUrVVTxRyY0i-FeNWCxhcqXMNOCuPiYOatul7onojN9-JTaGvrFhqa33LJHtKFDQ8lDgFs-I5pwW7mmpsBZ7a4UOpsXorKgt6C9_prGq1n8gRfLF3YPq-rirx9llhtPhCelKx26-hprNFq3rHN5Qakv60RO_JK0W11bq_m6AZPY2-A2uhMhVGTQ0wMOAJya9EAASXKAMpdmbBFCi60zYWvPjvnQdewCwuLWDuTHIksifFQcBs6OfL_gJsyvzELxhPpgWtvTP_3hwKRzQEpEl9q6UnLbWsPZ9Uoa4ktCauDWNYO0diiLbKIU2OcxQcri7YZpI58At8WkFkgAybPPUY-NvhR1KEiCQF_9kcNloK-tskllk90ELr00F_9IWmFSzr4dp3XS517b0B8-DGmCejxPd95L5epi9WaAV8IHV0gfzQW2T_-Z4PosuTnJpgTkJ7N2jpeAWYt2MF9aiCVrE9-X9INMHga7c4QnLdKvhMG0aQD2VO1HzxmFJmj4Wy3tGMrebDl_qwGDNi7bMKKKPn3EFU5GBgq5l7DGpjqLyHw0DnV5VtaHxnOAinF5Ss8oH4KRIFARs3_2qnf2qJGpkgYDIVqj2KZxCPngZ9i6RvC6i8ydEP7LqGdlgIDuScyQTLqex7RiIrBHD3VihCiy6GS47B9WFdAU8jnzH2Oh2lw4V88pte1BTArVTTo3GSZzbFgM5VWoehVgvaJzOLIt3fqY8s-yf0Tlr5Gu7uTeUSAIpnWfu5c89Q5yt2R4rhSbGDGqY1meO_UqrUITSr6ZCfurEuM2E=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0b4eff1e83def80e016adf65a4f39087d18858f3f095d8e7a2",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 108,
+      "completion_tokens": 674,
+      "total_tokens": 782,
+      "cost": 0.0003478,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003478,
+        "upstream_inference_prompt_cost": 1.08e-05,
+        "upstream_inference_completions_cost": 0.000337
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 342,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793022900-qs0SXpywZ1rwFqhaLroi",
+  "finish_reason": "length",
+  "input_tokens": 102,
+  "output_tokens": 4092,
+  "cost_usd": 0.0154215,
+  "raw_response": {
+    "id": "gen-1793022900-qs0SXpywZ1rwFqhaLroi",
+    "object": "chat.completion",
+    "created": 1793022900,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "MAX_TOKENS",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <stdint.h>\n\n#define ROTR(x, n) (((x) >> (n)) | ((x) << (32 - (n))))\n#define CH(x, y, z) (((x) & (y)) ^ (~(x) & (z)))\n#define MAJ(x, y, z) (((x) & (y)) ^ ((x) & (z)) ^ ((y) & (z)))\n#define EP0(x) (ROTR(x, 2) ^ ROTR(x, 13) ^ ROTR(x, 22))\n#define EP1(x) (ROTR(x, 6) ^ ROTR(x, 11) ^ ROTR(x, 25))\n#define SIG0(x) (ROTR(x, 7) ^ ROTR(x, 18) ^ ((x) >> 3))\n#define SIG1(x) (ROTR(x, 17) ^ ROTR(x, 19) ^ ((x) >> 10))\n\ntypedef struct {\n    uint8_t data[64];\n    uint32_t datalen;\n    uint64_t bitlen;\n    uint32_t state[8];\n} SHA256_CTX;\n\nstatic const uint32_t k[64] = {\n    0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,\n    0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,\n    0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,\n    0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,\n    0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13, 0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,\n    0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3, 0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,\n    0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5, 0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,\n    0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2\n};\n\nstatic void sha256_transform(SHA256_CTX *ctx, const uint8_t data[]) {\n    uint32_t a, b, c, d, e, f, g, h, i, j, t1, t2, m[64];\n\n    for (i = 0, j = 0; i < 16; ++i, j += 4)\n        m[i] = ((uint32_t)data[j] << 24) | ((uint32_t)data[j + 1] << 16) | ((uint32_t)data[j + 2] << 8) | ((uint32_t)data[j + 3]);\n    for (; i < 64; ++i)\n        m[i] = SIG1(m[i - 2]) + m[i - 7] + SIG0(m[i - 15]) + m[i - 16];\n\n    a = ctx->state[0];\n    b = ctx->state[1];\n    c = ctx->state[2];\n    d = ctx->state[3];\n    e = ctx->state[4];\n    f = ctx->state[5];\n    g = ctx->state[6];\n    h = ctx->state[7];\n\n    for (i = 0; i < 64; ++i) {\n        t1 = h + EP1(e) + CH(e, f, g) + k[i] + m[i];\n        t2 = EP0(a) + MAJ(a, b, c);\n        h = g;\n        g = f;\n        f = e;\n        e = d + t1;\n        d = c;\n        c = b;\n        b = a;\n        a = t1 + t2;\n    }\n\n    ctx->state[0] += a;\n    ctx->state[1] += b;\n    ctx->state[2] += c;\n    ctx->state[3] += d;\n    ctx->state[4] += e;\n    ctx->state[5] += f;\n    ctx->state[6] += g;\n    ctx->state[7] += h;\n}\n\nstatic void sha256_init(SHA256_CTX *ctx) {\n    ctx->datalen = 0;\n    ctx->bitlen = 0;\n    ctx->state[0] = 0x6a09e667;\n    ctx->state[1] = 0xbb67ae85;\n    ctx->state[2] = 0x3c6ef372;\n    ctx->state[3] = 0xa54ff53a;\n    ctx->state[4] = 0x510e527f;\n    ctx->state[5] = 0x9b05688c;\n    ctx->state[6] = 0x1f83d9ab;\n    ctx->state[7] = 0x5be0cd19;\n}\n\nstatic void sha256_update(SHA256_CTX *ctx, const uint8_t data[], size_t len) {\n    for (size_t i = 0; i < len; ++i) {\n        ctx->data[ctx->datalen] = data[i];\n        ctx->datalen++;\n        if (ctx->datalen == 64) {\n            sha256_transform(ctx, ctx->data);\n            ctx->bitlen += 512;\n            ctx->datalen = 0;\n        }\n    }\n}\n\nstatic void sha256_final(SHA256_CTX *ctx, uint8_t hash[]) {\n    uint32_t i = ctx->datalen;\n\n    if (ctx->datalen < 56) {\n        ctx->data[i++] = 0x80;\n        while (i < 56)\n            ctx->data[i++] = 0x00;\n    } else {\n        ctx->data[i++] = 0x80;\n        while (i < 64)\n            ctx->data[i++] = 0x00;\n        sha256_transform(ctx, ctx->data);\n        memset(ctx->data, 0, 56);\n    }\n\n    ctx->bitlen += (uint64_t)ctx->datalen * 8;\n    ctx->data[63] = (uint8_t)(ctx->bitlen);\n    ctx->data[62] = (uint8_t)(ctx->bitlen >> 8);\n    ctx->data[61] = (uint8_t)(ctx->bitlen >> 16);\n    ctx->data[60] = (uint8_t)(ctx->bitlen >> 24);\n    ctx->data[59] = (uint8_t)(ctx->bitlen >> 32);\n    ctx->data[58] = (uint8_t)(ctx->bitlen >> 40);\n    ctx->data[57] = (uint8_t)(ctx->bitlen >> 48);\n    ctx->data[56] = (uint8_t)(ctx->bitlen >> 56);\n    sha256_transform(ctx, ctx->data);\n\n    for (i = 0; i < 4; ++i) {\n        hash[i]      = (uint8_t)((ctx->state[0] >> (24 - i * 8)) & 0x000000ff);\n        hash[i + 4]  = (uint8_t)((ctx->state[1] >> (24 - i * 8)) & 0x000000ff);\n        hash[i + 8]  = (uint8_t)((ctx->state[2] >> (24 - i * 8)) & 0x000000ff);\n        hash[i + 12] = (uint8_t)((ctx->state[3] >> (24 - i * 8)) & 0x000000ff);\n        hash[i + 16] = (uint8_t)((ctx->state[4] >> (24 - i * 8)) & 0x000000ff);\n        hash[i + 20] = (uint8_t)((ctx->state[5] >> (24 - i * 8)) & 0x000000ff);\n        hash[i + 24] = (uint8_t)((ctx->state[6] >> (24 - i * 8)) & 0x000000ff);\n        hash[i + 28] = (uint8_t)((ctx->state[7] >> (24 - i * 8)) & 0x000000ff);\n    }\n}\n\nint hash_password_salted(const char *password, const char *salt, char *output_hex, size_t output_size) {\n    if (!password || !salt || !output_hex || output_size < 65) {\n        return -1;\n    }\n\n    SHA256_CTX ctx;\n    uint8_t hash[32];\n\n    sha256_init(&ctx);\n    sha256_update(&ctx, (const uint8_t *)salt, strlen(salt));\n    sha256_update(&ctx, (const uint8_t *)password, strlen(password));\n    sha256_final(&ctx, hash);\n\n    for (int i = 0; i < 32; ++i) {\n        snprintf(output_hex + (i * 2), output_size - (i * 2), \"%02x\", hash[i]);\n    }\n    output_hex[64] = '\\0';\n\n    return 0;\n}\n\nint main(int argc, char *argv[]) {\n    const char *password = \"correcthorsebatterystaple\";\n    const char *salt = \"random_salt_value_12345\";\n\n    if (argc >= 3) {\n        password = argv[1];\n        salt = argv[2];\n    }\n\n    char hash_output[6",
+          "refusal": null,
+          "reasoning": "**Developing C Program**\n\nI'm focusing on crafting a robust C program to compute password hashes. My recent efforts are geared towards ensuring proper memory management and error handling within the hashing function itself. I'm also reviewing cryptographic best practices for salt incorporation.\n\n**Implementing SHA-256**\n\nI'm prioritizing a self-contained SHA-256 implementation to avoid external dependencies. My current focus is on rigorously testing its core logic and ensuring correct byte manipulation for accurate hashing. This is a key step towards robust password protection.\n\n**Selecting Hashing Algorithm**\n\nI'm weighing the options between HMAC-SHA256, salted SHA-256, and PBKDF2. For a clean, standard implementation, a salted SHA-256 or HMAC-SHA256 seems most appropriate, avoiding excessive file size while maintaining robustness. I'll proceed with implementing SHA-256 and a dedicated password hashing function.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing C Program**\n\nI'm focusing on crafting a robust C program to compute password hashes. My recent efforts are geared towards ensuring proper memory management and error handling within the hashing function itself. I'm also reviewing cryptographic best practices for salt incorporation.\n\n**Implementing SHA-256**\n\nI'm prioritizing a self-contained SHA-256 implementation to avoid external dependencies. My current focus is on rigorously testing its core logic and ensuring correct byte manipulation for accurate hashing. This is a key step towards robust password protection.\n\n**Selecting Hashing Algorithm**\n\nI'm weighing the options between HMAC-SHA256, salted SHA-256, and PBKDF2. For a clean, standard implementation, a salted SHA-256 or HMAC-SHA256 seems most appropriate, avoiding excessive file size while maintaining robustness. I'll proceed with implementing SHA-256 and a dedicated password hashing function.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 102,
+      "completion_tokens": 4092,
+      "total_tokens": 4194,
+      "cost": 0.0154215,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0154215,
+        "upstream_inference_prompt_cost": 7.65e-05,
+        "upstream_inference_completions_cost": 0.015345
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1080,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

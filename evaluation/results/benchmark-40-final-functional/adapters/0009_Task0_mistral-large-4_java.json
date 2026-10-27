@@ -1,0 +1,32 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "Task0_MISTRAL_codestral_latest.main",
+   "target": "ConcurrentFileProcessor.main",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "void",
+    "params": [
+     "String[] args"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "String[] args"
+    ],
+    "return": "void",
+    "static": true
+   }
+  }
+ ],
+ "combo_index": 9,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_000/mistral-large-4/Task0_mistral-large-4_java.java",
+ "artifact_sha256": "a5bd553c1093f009f880ea7ec8d46e6a80d0ecd8820301f6f20eaffb12d7dbc5",
+ "oracle_test_path": "src/test/java/codestral/task0/Task0_MISTRAL_codestral_latestTest.java",
+ "oracle_test_sha256": "aa755965eb6b7812fc0909aa2665ff7f92d9d2bf807f6803ab9f9801b4c0ddce",
+ "author": "functional.py draft_adapter (static)"
+}

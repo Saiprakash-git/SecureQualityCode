@@ -1,0 +1,31 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "findNb",
+   "target": "findNb",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "static long long",
+    "params": [
+     "long long m"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "long long m"
+    ],
+    "return": "long long"
+   }
+  }
+ ],
+ "combo_index": 199,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_023/mistral-large-4/Task23_mistral-large-4_cpp.cpp",
+ "artifact_sha256": "738a06e7d516862986ef9035517bfc28056da3a8c75de2b9cdae8b32179a2f18",
+ "oracle_test_path": "tests/claude/Task23_Test.cpp",
+ "oracle_test_sha256": "f2fd718c48c84c7e5afc8362c3802f17ed1e98e68be17f595d4bf7314eaf86c0",
+ "author": "functional.py draft_adapter (static)"
+}

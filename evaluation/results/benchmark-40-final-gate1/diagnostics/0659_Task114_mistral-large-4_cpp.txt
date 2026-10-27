@@ -1,0 +1,12 @@
+Task114_mistral-large-4_cpp.cpp:211:54: error: expected expression
+  211 |     std::string sub = extractSubstring("Hello World",
+      |                                                      ^
+Task114_mistral-large-4_cpp.cpp:211:54: error: expected ';' at end of declaration
+  211 |     std::string sub = extractSubstring("Hello World",
+      |                                                      ^
+      |                                                      ;
+Task114_mistral-large-4_cpp.cpp:211:54: error: expected '}'
+Task114_mistral-large-4_cpp.cpp:146:12: note: to match this '{'
+  146 | int main() {
+      |            ^
+3 errors generated.

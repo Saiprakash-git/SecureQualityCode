@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793010237-l4DYIlqx0pQ9jNUbu9uB",
+  "finish_reason": "stop",
+  "input_tokens": 319,
+  "output_tokens": 741,
+  "cost_usd": 0.003018,
+  "raw_response": {
+    "id": "gen-1793010237-l4DYIlqx0pQ9jNUbu9uB",
+    "object": "chat.completion",
+    "created": 1793010237,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n#include <cctype>\n\nstd::string toJadenCase(std::string text) {\n    bool capitalize_next = true;\n    for (char &c : text) {\n        if (std::isspace(static_cast<unsigned char>(c))) {\n            capitalize_next = true;\n        } else if (capitalize_next) {\n            c = static_cast<char>(std::toupper(static_cast<unsigned char>(c)));\n            capitalize_next = false;\n        }\n    }\n    return text;\n}\n\nint main() {\n    std::string quote = \"How can mirrors be real if our eyes aren't real\";\n    std::cout << toJadenCase(quote) << std::endl;\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Processing C++ Jaden Case Conversion**\n\nI'm currently working through the C++ implementation for Jaden casing strings. The core logic involves identifying word boundaries, specifically after spaces or at the start of the string, to capitalize the initial character of each. I'm ensuring contractions are handled correctly, maintaining their casing after the apostrophe.\n\n**Refining C++ Jaden Case Logic**\n\nI'm continuing to refine the C++ Jaden case conversion. I've confirmed the function signature and am now focusing on robust handling of edge cases like empty strings and the proper application of `std::toupper`. The goal is a complete, self-contained file ready for compilation.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Processing C++ Jaden Case Conversion**\n\nI'm currently working through the C++ implementation for Jaden casing strings. The core logic involves identifying word boundaries, specifically after spaces or at the start of the string, to capitalize the initial character of each. I'm ensuring contractions are handled correctly, maintaining their casing after the apostrophe.\n\n**Refining C++ Jaden Case Logic**\n\nI'm continuing to refine the C++ Jaden case conversion. I've confirmed the function signature and am now focusing on robust handling of edge cases like empty strings and the proper application of `std::toupper`. The goal is a complete, self-contained file ready for compilation.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 319,
+      "completion_tokens": 741,
+      "total_tokens": 1060,
+      "cost": 0.003018,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003018,
+        "upstream_inference_prompt_cost": 0.00023925,
+        "upstream_inference_completions_cost": 0.00277875
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 554,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

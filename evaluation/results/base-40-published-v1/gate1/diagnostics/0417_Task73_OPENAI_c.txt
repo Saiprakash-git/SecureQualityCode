@@ -1,0 +1,4 @@
+Task73_OPENAI_gpt-4o.c:16:5: error: call to undeclared function 'gets'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   16 |     gets(inputPassword);
+      |     ^
+1 error generated.

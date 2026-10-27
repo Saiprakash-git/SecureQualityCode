@@ -1,0 +1,18 @@
+{
+ "status": "rejected",
+ "bindings": [
+  {
+   "canonical": "number",
+   "target": "number",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "parameter order swapped (size, lines)",
+ "combo_index": 212,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_025/gpt-6-luna/Task25_gpt-6-luna_c.c",
+ "artifact_sha256": "fbdb3a5f7c9c24bfd314f49f99da8a141501f87b3227e40aad2cb85bfc060fca",
+ "oracle_test_path": "tests/gpt4o/Task25_Test.c",
+ "oracle_test_sha256": "7f99ce8f45821814c4a7f8665d837fd5da3647fa939e91c32a24aaf282e3e668",
+ "author": "functional.py draft_adapter (static)"
+}

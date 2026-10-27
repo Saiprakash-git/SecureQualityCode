@@ -1,0 +1,10 @@
+Task91_gpt-6-luna_c.c:126:6: error: use of undeclared identifier 'cons'
+  126 |     *cons
+      |      ^
+Task91_gpt-6-luna_c.c:126:10: error: expected '}'
+  126 |     *cons
+      |          ^
+Task91_gpt-6-luna_c.c:43:1: note: to match this '{'
+   43 | {
+      | ^
+2 errors generated.

@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793018069-FjR9bInrl0473VVyd7hy",
+  "finish_reason": "stop",
+  "input_tokens": 210,
+  "output_tokens": 1587,
+  "cost_usd": 0.0008145,
+  "raw_response": {
+    "id": "gen-1793018069-FjR9bInrl0473VVyd7hy",
+    "object": "chat.completion",
+    "created": 1793018069,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import java.net.URI;\nimport java.net.http.HttpClient;\nimport java.net.http.HttpRequest;\nimport java.net.http.HttpResponse;\nimport java.time.Duration;\nimport java.util.regex.Matcher;\nimport java.util.regex.Pattern;\n\npublic class PageTitleFetcher {\n\n    private static final Pattern TITLE_PATTERN =\n            Pattern.compile(\"<title[^>]*>(.*?)</title>\", Pattern.CASE_INSENSITIVE | Pattern.DOTALL);\n\n    public static String fetchPageContent(String url) throws Exception {\n        if (url == null || !url.trim().toLowerCase().startsWith(\"https://\")) {\n            throw new IllegalArgumentException(\"URL must be an HTTPS URL: \" + url);\n        }\n\n        HttpClient client = HttpClient.newBuilder()\n                .followRedirects(HttpClient.Redirect.NORMAL)\n                .connectTimeout(Duration.ofSeconds(15))\n                .build();\n\n        HttpRequest request = HttpRequest.newBuilder()\n                .uri(URI.create(url.trim()))\n                .timeout(Duration.ofSeconds(30))\n                .header(\"User-Agent\", \"Mozilla/5.0 (PageTitleFetcher/1.0)\")\n                .GET()\n                .build();\n\n        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());\n\n        if (response.statusCode() >= 400) {\n            throw new RuntimeException(\"HTTP error \" + response.statusCode() + \" for URL: \" + url);\n        }\n\n        return response.body();\n    }\n\n    public static String extractTitle(String html) {\n        if (html == null || html.isEmpty()) {\n            return \"\";\n        }\n\n        Matcher matcher = TITLE_PATTERN.matcher(html);\n        if (!matcher.find()) {\n            return \"\";\n        }\n\n        String title = matcher.group(1);\n        title = title.replaceAll(\"\\\\s+\", \" \").trim();\n        title = title.replace(\"&amp;\", \"&\")\n                     .replace(\"&lt;\", \"<\")\n                     .replace(\"&gt;\", \">\")\n                     .replace(\"&quot;\", \"\\\"\")\n                     .replace(\"&#39;\", \"'\")\n                     .replace(\"&apos;\", \"'\")\n                     .replace(\"&nbsp;\", \" \");\n        return title;\n    }\n\n    public static String getPageTitle(String url) throws Exception {\n        String html = fetchPageContent(url);\n        return extractTitle(html);\n    }\n\n    public static void main(String[] args) {\n        if (args == null || args.length == 0) {\n            System.err.println(\"Usage: java PageTitleFetcher <https-url> [more-urls...]\");\n            System.exit(1);\n        }\n\n        for (String url : args) {\n            try {\n                String title = getPageTitle(url);\n                System.out.println(url + \" -> \" + (title.isEmpty() ? \"(no title found)\" : title));\n            } catch (Exception e) {\n                System.err.println(url + \" -> Error: \" + e.getMessage());\n            }\n        }\n    }\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 210,
+      "completion_tokens": 1587,
+      "total_tokens": 1797,
+      "cost": 0.0008145,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008145,
+        "upstream_inference_prompt_cost": 2.1e-05,
+        "upstream_inference_completions_cost": 0.0007935
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 549,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,177 @@
+{
+ "metr2025": {
+  "arxiv": "2507.09089",
+  "title": "Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity",
+  "authors": [
+   "Joel Becker",
+   "Nate Rush",
+   "Elizabeth Barnes",
+   "David Rein"
+  ],
+  "published": "2025-07-12",
+  "abstract": "Despite widespread adoption, the impact of AI tools on software development in the wild remains understudied. We conduct a randomized controlled trial (RCT) to understand how AI tools at the February-June 2025 frontier affect the productivity of experienced open-source developers. 16 developers with moderate AI experience complete 246 tasks in mature projects on which they have an average of 5 years of prior experience. Each task is randomly assigned to allow or disallow usage of early 2025 AI tools. When AI tools are allowed, developers primarily use Cursor Pro, a popular code editor, and Claude 3.5/3.7 Sonnet. Before starting tasks, developers forecast that allowing AI will reduce completion time by 24%. After completing the study, developers estimate that allowing AI reduced completion time by 20%. Surprisingly, we find that allowing AI actually increases completion time by 19%--AI tooling slowed developers down. This slowdown also contradicts predictions from experts in economics (39% shorter) and ML (38% shorter). To understand this result, we collect and evaluate evidence for 20 properties of our setting that a priori could contribute to the observed slowdown effect--for example, the size and quality standards of projects, or prior developer experience with AI tooling. Although the influence of experimental artifacts cannot be entirely ruled out, the robustness of the slowdown effect across our analyses suggests it is unlikely to primarily be a function of our experimental design."
+ },
+ "susvibes2026": {
+  "arxiv": "2512.03262",
+  "title": "Is Vibe Coding Safe? Benchmarking Vulnerability of Agent-Generated Code in Real-World Tasks",
+  "authors": [
+   "Songwen Zhao",
+   "Danqing Wang",
+   "Kexun Zhang",
+   "Jiaxuan Luo",
+   "Zhuo Li",
+   "Lei Li"
+  ],
+  "published": "2025-12-02",
+  "abstract": "Vibe coding is a new software development paradigm in which human engineers prompt a large language model (LLM) agent to complete complex coding tasks with little supervision. Although vibe coding is increasingly adopted, is the generated code really safe to deploy in production? To investigate this question, we propose SUSVIBES, a benchmark consisting of 186 feature-request software engineering tasks from real-world open-source projects, for which, human programmers committed vulnerable implementations. We evaluate 12 widely used coding agentic settings with frontier models on the benchmark. Disturbingly, all agents perform poorly in terms of software security. Although 57% of the solutions from SWE-Agent with Claude 4 Sonnet are functionally correct, only 11.8% are secure. Further experiments demonstrate that preliminary security strategies, such as augmenting the feature request with vulnerability hints, cannot mitigate these security issues. Our findings raise serious concerns about the widespread adoption of vibe coding, particularly in security-sensitive applications. The code and dataset are available at https://github.com/LeiLiLab/susvibes. The leaderboard is at https://leililab.github.io/susvibes-leaderboard."
+ },
+ "baxbench2025": {
+  "arxiv": "2502.11844",
+  "title": "BaxBench: Can LLMs Generate Correct and Secure Backends?",
+  "authors": [
+   "Mark Vero",
+   "Niels M\u00fcndler",
+   "Victor Chibotaru",
+   "Veselin Raychev",
+   "Maximilian Baader",
+   "Nikola Jovanovi\u0107",
+   "Jingxuan He",
+   "Martin Vechev"
+  ],
+  "published": "2025-02-17",
+  "abstract": "Automatic program generation has long been a fundamental challenge in computer science. Recent benchmarks have shown that large language models (LLMs) can effectively generate code at the function level, make code edits, and solve algorithmic coding tasks. However, to achieve full automation, LLMs should be able to generate production-quality, self-contained application modules. To evaluate the capabilities of LLMs in solving this challenge, we introduce BaxBench, a novel evaluation benchmark consisting of 392 tasks for the generation of backend applications. We focus on backends for three critical reasons: (i) they are practically relevant, building the core components of most modern web and cloud software, (ii) they are difficult to get right, requiring multiple functions and files to achieve the desired functionality, and (iii) they are security-critical, as they are exposed to untrusted third-parties, making secure solutions that prevent deployment-time attacks an imperative. BaxBench validates the functionality of the generated applications with comprehensive test cases, and assesses their security exposure by executing end-to-end exploits. Our experiments reveal key limitations of current LLMs in both functionality and security: (i) even the best model, OpenAI o1, achieves a mere 62% on code correctness; (ii) on average, we could successfully execute security exploits on around half of the correct programs generated by each LLM; and (iii) in less popular backend frameworks, models further struggle to generate correct and secure applications. Progress on BaxBench signifies important steps towards autonomous and secure software development with LLMs."
+ },
+ "sok2026": {
+  "arxiv": "2606.25195",
+  "title": "SoK: AI Secure Code Generation: Progress, Pitfalls, and Paths Forward",
+  "authors": [
+   "Rupam Patir",
+   "Keyan Guo",
+   "Haipeng Cai",
+   "Hongxin Hu"
+  ],
+  "published": "2026-06-23",
+  "abstract": "The increasing use of AI systems for code generation raises a central security question: what can today's models and coding agents actually do to produce secure code, where do they still fail, and what would move the field forward? Existing work has explored prompting, fine-tuning, reinforcement learning, and agentic workflows for secure code generation, but the field still lacks a systematic understanding of how these techniques improve security and why substantial failures persist. In this SoK, we systematize the progress, pitfalls, and paths forward for AI secure code generation. We introduce a three-level framework that measures models' natural-language understanding of secure coding principles, their code-level actuation of those principles during generation, and the knowledge--actuation gaps between the two. We instantiate this framework across models and coding agents on benchmarks covering both isolated function-level security and full web-application security. Our results show that secure-coding-principle understanding is a statistically strong predictor of code-level outcomes, including functional correctness, security, and joint functional-security correctness. Yet substantial knowledge--actuation gaps remain: models can recognize relevant security principles but still fail to translate them into secure and functional code. These findings offer a principle-centered account of where AI secure code generation stands today and identify concrete paths forward through principle-guided generation, evaluation, benchmarking, and agentic workflows."
+ },
+ "macot2026": {
+  "arxiv": "2605.24300",
+  "title": "Enhancing Reliability in LLM-Based Secure Code Generation",
+  "authors": [
+   "Mohammed F. Kharma",
+   "Mohammad Alkhanafseh",
+   "Ahmed Sabbah",
+   "David Mohaisen"
+  ],
+  "published": "2026-05-22",
+  "abstract": "Large language models (LLMs) are widely used for code generation, but their security reliability remains inconsistent across languages and prompting strategies. Existing prompt engineering improves functional correctness but rarely ensures consistent security outcomes. We introduce the \\textit{Mitigation-Aware Chain-of-Thought (MA-CoT)} framework, which embeds task-specific CWE mitigation guidance and language-aware safeguards to reduce recurring vulnerabilities in generated code. We evaluate MA-CoT across three LLMs (gpt-5, claude-4.5, gemini-2.5), three programming languages (C, Java, Python), and four prompting strategies (Vanilla, Zero-shot, CoT, MA-CoT) on a 200-task primary dataset, with external validation on LLMSecEval. Using static analysis with expert validation, MA-CoT reduces total security findings from 92 to 39 (57.6\\%) on the primary dataset and from 73 to 4 (94.5\\%) on LLMSecEval. High-severity findings (Blocker + Critical) drop from 90 to 39 (56.7\\%) and from 45 to 2 (95.6\\%), respectively. Across both datasets, MA-CoT is the only strategy that consistently improves security reliability; Zero-shot and CoT are less reliable and may increase vulnerability, especially in C. We further introduce a strict layered attribution of vulnerability drivers (language-core vs. stack layers) and show that residual risk concentrates in hardening-oriented patterns (e.g., OS- and toolchain-dependent), motivating secure-by-construction primitives alongside prompting."
+ },
+ "csdd2026": {
+  "arxiv": "2602.02584",
+  "title": "Constitutional Spec-Driven Development: Enforcing Security by Construction in AI-Assisted Code Generation",
+  "authors": [
+   "Srinivas Rao Marri"
+  ],
+  "published": "2026-01-31",
+  "abstract": "The proliferation of AI-assisted \"vibe coding\" enables rapid software development but introduces significant security risks, as Large Language Models (LLMs) prioritize functional correctness over security. We present Constitutional Spec-Driven Development, a methodology that embeds non-negotiable security principles into the specification layer, ensuring AI-generated code adheres to security requirements by construction rather than inspection. Our approach introduces a Constitution: a versioned, machine-readable document encoding security constraints derived from Common Weakness Enumeration (CWE)/MITRE Top 25 vulnerabilities and regulatory frameworks. We demonstrate the methodology through a banking microservices application, selected as a representative example domain due to its stringent regulatory and security requirements, implementing customer management, account operations, and transaction processing. The methodology itself is domain-agnostic. The implementation addresses 10 critical CWE vulnerabilities through constitutional constraints with full traceability from principles to code locations. Our case study shows that constitutional constraints reduce security defects by 73% compared to unconstrained AI generation while maintaining developer velocity. We contribute a formal framework for constitutional security, a complete development methodology, and empirical evidence that proactive security specification outperforms reactive security verification in AI-assisted development workflows."
+ },
+ "tessa2026": {
+  "arxiv": "2601.07084",
+  "title": "How Secure is Secure Code Generation? Adversarial Prompts Put LLM Defenses to the Test",
+  "authors": [
+   "Melissa Tessa",
+   "Iyiola E. Olatunji",
+   "Aicha War",
+   "Jacques Klein",
+   "Tegawend\u00e9 F. Bissyand\u00e9"
+  ],
+  "published": "2026-01-11",
+  "abstract": "Recent secure code generation methods, using vulnerability-aware fine-tuning, prefix-tuning, and prompt optimization, claim to prevent LLMs from producing insecure code. However, their robustness under adversarial conditions remains untested, and current evaluations decouple security from functionality, potentially inflating reported gains. We present the first systematic adversarial audit of state-of-the-art secure code generation methods (SVEN, SafeCoder, PromSec). We subject them to realistic prompt perturbations such as paraphrasing, cue inversion, and context manipulation that developers might inadvertently introduce or adversaries deliberately exploit. To enable fair comparison, we evaluate all methods under consistent conditions, jointly assessing security and functionality using multiple analyzers and executable tests. Our findings reveal critical robustness gaps: static analyzers overestimate security by 7 to 21 times, with 37 to 60% of ``secure'' outputs being non-functional. Under adversarial conditions, true secure-and-functional rates collapse to 3 to 17%. Based on these findings, we propose best practices for building and evaluating robust secure code generation methods. Our code is available."
+ },
+ "mtsec2025": {
+  "arxiv": "2510.13859",
+  "title": "Benchmarking Correctness and Security in Multi-Turn Code Generation",
+  "authors": [
+   "Ruchit Rawal",
+   "Jeffrey Yang Fan Chiang",
+   "Chihao Shen",
+   "Jeffery Siyuan Tian",
+   "Aastha Mahajan",
+   "Tom Goldstein",
+   "Yizheng Chen"
+  ],
+  "published": "2025-10-13",
+  "abstract": "AI coding assistants powered by large language models (LLMs) have transformed software development, significantly boosting productivity. While existing benchmarks evaluate the correctness and security of LLM-generated code, they are typically limited to single-turn tasks that do not reflect the iterative nature of real-world development. We introduce MT-Sec, the first benchmark to systematically evaluate both correctness and security in multi-turn coding scenarios. We construct this using a synthetic data pipeline that transforms existing single-turn tasks into semantically aligned multi-turn interaction sequences, allowing reuse of original test suites while modeling the complexity of real-world coding processes. We evaluate 32 open- and closed-source models, and three agent-scaffolding on MT-Sec and observe a consistent 20-27% drop in \"correct and secure\" outputs from single-turn to multi-turn settings -- even among state-of-the-art models. Beyond full-program generation, we also evaluate models on multi-turn code-diff generation -- an unexplored yet practically relevant setting -- and find that models perform worse here, with increased rates of functionally incorrect and insecure outputs. Finally, we find that while agent scaffoldings boost single-turn code generation performance, they are not quite as effective in multi-turn evaluations. Together, these findings highlight the need for benchmarks that jointly evaluate correctness and security in multi-turn, real-world coding workflows."
+ },
+ "scaffold2026": {
+  "arxiv": "2603.08520",
+  "title": "SCAFFOLD-CEGIS: Preventing Latent Security Degradation in LLM-Driven Iterative Code Refinement",
+  "authors": [
+   "Yi Chen",
+   "Yun Bian",
+   "Haiquan Wang",
+   "Shihao Li",
+   "Zhe Cui"
+  ],
+  "published": "2026-03-09",
+  "abstract": "The application of large language models to code generation has evolved from one-shot generation to iterative refinement, yet the evolution of security throughout iteration remains insufficiently understood. Through comparative experiments on three mainstream LLMs, this paper reveals the iterative refinement paradox: specification drift during multi-objective optimization causes security to degrade gradually over successive iterations. Taking GPT-4o as an example, 43.7 % of iteration chains contain more vulnerabilities than the baseline after ten rounds, and cross-model experiments show that this phenomenon is prevalent. Further analysis shows that simply introducing static application security testing (SAST) gating cannot effectively suppress degradation; instead, it increases the latent security degradation rate from 12.5% under the unprotected baseline to 20.8 %. The root cause is that static-analysis rules cannot cover structural degradations such as the removal of defensive logic or the weakening of exception handling. To address this problem, we propose the SCAFFOLD-CEGIS framework. Drawing on the counterexample-guided inductive synthesis (CEGIS) paradigm, the framework adopts a multi-agent collaborative architecture that transforms security constraints from implicit prompts into explicit verifiable constraints. It automatically identifies and solidifies security-critical elements as hard constraints through semantic anchoring, enforces safety monotonicity through four-layer gated verification, and continuously assimilates experience from failures. Comparative experiments against six existing defense methods show that the full framework reduces the latent security degradation rate to 2.1% and achieves a safety monotonicity rate of 100%."
+ },
+ "specdriven2026": {
+  "arxiv": "2606.00167",
+  "title": "Specification-Driven Development Benchmark: Security Knowledge Transition",
+  "authors": [
+   "Oleg Grynets",
+   "Andrii Salyk",
+   "Vasyl Lyashkevych",
+   "Oleh Kaskun",
+   "Danyil Zhuravchak"
+  ],
+  "published": "2026-05-29",
+  "abstract": "AI-assisted software development is shifting from isolated code completion toward specification-driven generation, where business requirements, technical specifications, and acceptance criteria become operational input for LLM-based development agents. This shift creates a security problem: functional behavior is described explicitly, while security behavior remains implicit, generic, or postponed to post-generation review, causing generated systems to satisfy visible functional requirements while failing to preserve authorization rules, ownership boundaries, input validation, token rejection, sensitive data handling, and abuse-case semantics. This paper proposes a security knowledge operationalization approach for AI-assisted specification-driven development, combining two contributions: a Multilayer Specification Security Model that represents security knowledge through traceable relations between system entities, threats, risks, requirements, implementation rules, controls, verification scenarios, and evidence; and a Security Knowledge Transition Method that transforms business and technical specifications into a validated security-enriched generation contract. We evaluate the approach through two empirical studies: a hidden-oracle study assessing whether an LLM-based pipeline can derive a structured security model from system context, and a backend generation study under three conditions: no explicit security requirements, ASVS-conditioned generation, and Multilayer Security Model conditioning. Evaluated against a hidden 221-test black-box API suite, modal failures decreased from 50 in the baseline to 42 with ASVS and 36 with the Multilayer Security Model, with the strongest improvements in application-specific categories such as business logic and admin safety."
+ },
+ "dai2025": {
+  "arxiv": "2503.15554",
+  "title": "Rethinking the Evaluation of Secure Code Generation",
+  "authors": [
+   "Shih-Chieh Dai",
+   "Jun Xu",
+   "Guanhong Tao"
+  ],
+  "published": "2025-03-18",
+  "abstract": "Large language models (LLMs) are widely used in software development. However, the code generated by LLMs often contains vulnerabilities. Several secure code generation methods have been proposed to address this issue, but their current evaluation schemes leave several concerns unaddressed. Specifically, most existing studies evaluate security and functional correctness separately, using different datasets. That is, they assess vulnerabilities using security-related code datasets while validating functionality with general code datasets. In addition, prior research primarily relies on a single static analyzer, CodeQL, to detect vulnerabilities in generated code, which limits the scope of security evaluation. In this work, we conduct a comprehensive study to systematically assess the improvements introduced by four state-of-the-art secure code generation techniques. Specifically, we apply both security inspection and functionality validation to the same generated code and evaluate these two aspects together. We also employ three popular static analyzers and two LLMs to identify potential vulnerabilities in the generated code. Our study reveals that existing techniques often compromise the functionality of generated code to enhance security. Their overall performance remains limited when evaluating security and functionality together. In fact, many techniques even degrade the performance of the base LLM by more than 50%. Our further inspection reveals that these techniques often either remove vulnerable lines of code entirely or generate ``garbage code'' that is unrelated to the intended task. Moreover, the commonly used static analyzer CodeQL fails to detect several vulnerabilities, further obscuring the actual security improvements achieved by existing techniques."
+ },
+ "cweval2025": {
+  "arxiv": "2501.08200",
+  "title": "CWEval: Outcome-driven Evaluation on Functionality and Security of LLM Code Generation",
+  "authors": [
+   "Jinjun Peng",
+   "Leyi Cui",
+   "Kele Huang",
+   "Junfeng Yang",
+   "Baishakhi Ray"
+  ],
+  "published": "2025-01-14",
+  "abstract": "Large Language Models (LLMs) have significantly aided developers by generating or assisting in code writing, enhancing productivity across various tasks. While identifying incorrect code is often straightforward, detecting vulnerabilities in functionally correct code is more challenging, especially for developers with limited security knowledge, which poses considerable security risks of using LLM-generated code and underscores the need for robust evaluation benchmarks that assess both functional correctness and security. Current benchmarks like CyberSecEval and SecurityEval attempt to solve it but are hindered by unclear and impractical specifications, failing to assess both functionality and security accurately. To tackle these deficiencies, we introduce CWEval, a novel outcome-driven evaluation framework designed to enhance the evaluation of secure code generation by LLMs. This framework not only assesses code functionality but also its security simultaneously with high-quality task specifications and outcome-driven test oracles which provides high accuracy. Coupled with CWEval-bench, a multilingual, security-critical coding benchmark, CWEval provides a rigorous empirical security evaluation on LLM-generated code, overcoming previous benchmarks' shortcomings. Through our evaluations, CWEval reveals a notable portion of functional but insecure code produced by LLMs, and shows a serious inaccuracy of previous evaluations, ultimately contributing significantly to the field of secure code generation. We open-source our artifact at: https://github.com/Co1lin/CWEval ."
+ },
+ "sastlabels2026": {
+  "arxiv": "2602.05868",
+  "title": "Persistent Human Feedback, LLMs, and Static Analyzers for Secure Code Generation and Vulnerability Detection",
+  "authors": [
+   "Ehsan Firouzi",
+   "Mohammad Ghafari"
+  ],
+  "published": "2026-02-05",
+  "abstract": "Existing literature heavily relies on static analysis tools to evaluate LLMs for secure code generation and vulnerability detection. We reviewed 1,080 LLM-generated code samples, built a human-validated ground-truth, and compared the outputs of two widely used static security tools, CodeQL and Semgrep, against this corpus. While 61% of the samples were genuinely secure, Semgrep and CodeQL classified 60% and 80% as secure, respectively. Despite the apparent agreement in aggregate statistics, per-sample analysis reveals substantial discrepancies: only 65% of Semgrep's and 61% of CodeQL's reports correctly matched the ground truth. These results question the reliability of static analysis tools as sole evaluators of code security and underscore the need for expert feedback. Building on this insight, we propose a conceptual framework that persistently stores human feedback in a dynamic retrieval-augmented generation pipeline, enabling LLMs to reuse past feedback for secure code generation and vulnerability detection."
+ },
+ "perry2023": {
+  "arxiv": "2211.03622",
+  "title": "Do Users Write More Insecure Code with AI Assistants?",
+  "authors": [
+   "Neil Perry",
+   "Megha Srivastava",
+   "Deepak Kumar",
+   "Dan Boneh"
+  ],
+  "published": "2022-11-07",
+  "abstract": "We conduct the first large-scale user study examining how users interact with an AI Code assistant to solve a variety of security related tasks across different programming languages. Overall, we find that participants who had access to an AI assistant based on OpenAI's codex-davinci-002 model wrote significantly less secure code than those without access. Additionally, participants with access to an AI assistant were more likely to believe they wrote secure code than those without access to the AI assistant. Furthermore, we find that participants who trusted the AI less and engaged more with the language and format of their prompts (e.g. re-phrasing, adjusting temperature) provided code with fewer security vulnerabilities. Finally, in order to better inform the design of future AI-based Code assistants, we provide an in-depth analysis of participants' language and interaction behavior, as well as release our user interface as an instrument to conduct similar studies in the future."
+ }
+}

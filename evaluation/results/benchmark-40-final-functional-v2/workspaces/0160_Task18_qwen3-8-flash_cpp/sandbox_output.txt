@@ -1,0 +1,7 @@
+@@039ae801b119bf02 STEP 0 BEGIN@@
+
+@@039ae801b119bf02 STEP 0 END rc=0@@
+@@039ae801b119bf02 STEP 1 BEGIN@@
+All test cases passed.
+
+@@039ae801b119bf02 STEP 1 END rc=0@@

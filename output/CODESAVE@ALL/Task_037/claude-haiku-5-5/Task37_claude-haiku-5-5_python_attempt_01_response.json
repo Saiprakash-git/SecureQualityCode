@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792943799-H1f3VwOEnC7LysGhysHJ",
+  "finish_reason": "stop",
+  "input_tokens": 166,
+  "output_tokens": 859,
+  "cost_usd": 0.0004461,
+  "raw_response": {
+    "id": "gen-1792943799-H1f3VwOEnC7LysGhysHJ",
+    "object": "chat.completion",
+    "created": 1792943799,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import getpass\nimport sqlite3\nimport sys\n\n\ndef create_connection(db_path):\n    return sqlite3.connect(db_path)\n\n\ndef setup_database(conn):\n    cursor = conn.cursor()\n    cursor.execute(\n        \"\"\"\n        CREATE TABLE IF NOT EXISTS users (\n            id INTEGER PRIMARY KEY AUTOINCREMENT,\n            username TEXT UNIQUE NOT NULL,\n            email TEXT NOT NULL,\n            full_name TEXT,\n            created_at TEXT DEFAULT CURRENT_TIMESTAMP\n        )\n        \"\"\"\n    )\n    cursor.execute(\"SELECT COUNT(*) FROM users\")\n    if cursor.fetchone()[0] == 0:\n        sample_users = [\n            (\"alice\", \"alice@example.com\", \"Alice Smith\"),\n            (\"bob\", \"bob@example.com\", \"Bob Johnson\"),\n            (\"carol\", \"carol@example.com\", \"Carol Williams\"),\n        ]\n        cursor.executemany(\n            \"INSERT INTO users (username, email, full_name) VALUES (?, ?, ?)\",\n            sample_users,\n        )\n    conn.commit()\n\n\ndef get_user_by_username(conn, username):\n    cursor = conn.cursor()\n    cursor.execute(\n        \"SELECT id, username, email, full_name, created_at FROM users WHERE username = ?\",\n        (username,),\n    )\n    row = cursor.fetchone()\n    if row is None:\n        return None\n    columns = [\"id\", \"username\", \"email\", \"full_name\", \"created_at\"]\n    return dict(zip(columns, row))\n\n\ndef format_user(user):\n    if user is None:\n        return \"No user found.\"\n    lines = [f\"{key}: {value}\" for key, value in user.items()]\n    return \"\\n\".join(lines)\n\n\ndef main(argv=None):\n    argv = sys.argv[1:] if argv is None else argv\n    db_path = argv[0] if argv else \"users.db\"\n\n    conn = create_connection(db_path)\n    try:\n        setup_database(conn)\n        while True:\n            username = input(\"Enter username (or 'q' to quit): \").strip()\n            if username.lower() == \"q\":\n                break\n            if not username:\n                print(\"Username cannot be empty.\")\n                continue\n            try:\n                user = get_user_by_username(conn, username)\n                print(format_user(user))\n            except sqlite3.Error as e:\n                print(f\"Database error: {e}\")\n    except KeyboardInterrupt:\n        print()\n    finally:\n        conn.close()\n\n\nif __name__ == \"__main__\":\n    main()",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 166,
+      "completion_tokens": 859,
+      "total_tokens": 1025,
+      "cost": 0.0004461,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0004461,
+        "upstream_inference_prompt_cost": 1.66e-05,
+        "upstream_inference_completions_cost": 0.0004295
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

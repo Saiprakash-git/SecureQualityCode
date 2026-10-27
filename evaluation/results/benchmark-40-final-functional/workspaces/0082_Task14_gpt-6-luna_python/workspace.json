@@ -1,0 +1,57 @@
+{
+ "language": "python",
+ "artifact_origin": "generated",
+ "artifact_sha256": "9c333ba4c0345d996876faac14db5055b2a003eeafeaf2dccce6cc22f0888773",
+ "oracle_test_path": "tests/claude/Task14_CLAUDE_claude_3_5_sonnet_20240620/Task14_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "589c14f0b88db89f0e2761dc9f3c899e65b9fd3e07b9503ca9b77fbe87503ce1",
+ "verdict_style": "unittest",
+ "bindings": [
+  {
+   "canonical": "find_even_index",
+   "target": "find_even_index",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "line": 1,
+   "removed": "# from output.claude.Task14_CLAUDE_claude_3_5_sonnet_20240620 import find_even_index as find_even_index",
+   "inserted": "from adapter_bindings import *  # adapter"
+  },
+  {
+   "line": 2,
+   "removed": "# from output.codestral.Task14_MISTRAL_codestral_latest import find_even_index as find_even_index"
+  },
+  {
+   "line": 3,
+   "removed": "# from output.gemini.Task14_GEMINI_gemini_1_5_pro_001 import find_even_index as find_even_index"
+  },
+  {
+   "line": 4,
+   "removed": "# from output.gtp4o.Task14_OPENAI_gpt_4o import find_even_index as find_even_index"
+  },
+  {
+   "line": 5,
+   "removed": "# from output.llama3.Task14_PERPLEXITY_llama_3_sonar_large_32k_chat import find_even_index as find_even_index"
+  }
+ ],
+ "steps": [
+  [
+   "{python}",
+   "-m",
+   "unittest",
+   "-v",
+   "test_oracle"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "adapter_bindings.py": "d008ebd20bf4475d3e9b73dfcead9970d7186518ac10ec641962013154f73393",
+  "impl_under_test.py": "9c333ba4c0345d996876faac14db5055b2a003eeafeaf2dccce6cc22f0888773",
+  "test_oracle.py": "e3ee9e716b94fdc35931555d8d697c7af1ddaf5884c6d684ca38c8cdcccf28fb"
+ }
+}

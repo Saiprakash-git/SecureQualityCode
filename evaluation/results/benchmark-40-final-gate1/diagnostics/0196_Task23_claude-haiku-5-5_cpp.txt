@@ -1,0 +1,14 @@
+Task23_claude-haiku-5-5_cpp.cpp:1:1: error: unknown type name 'Reading'
+    1 | Reading the task: write a C++ program with a function findNb taking m (long long), returning n or -1. Include a main that reads input and prints result to be a complete file. Keep it simple and correct.
+      | ^
+Task23_claude-haiku-5-5_cpp.cpp:1:12: error: expected ';' after top level declarator
+    1 | Reading the task: write a C++ program with a function findNb taking m (long long), returning n or -1. Include a main that reads input and prints result to be a complete file. Keep it simple and correct.
+      |            ^
+      |            ;
+Task23_claude-haiku-5-5_cpp.cpp:3:75: error: expected unqualified-id
+    3 | Sum of cubes 1..n = (n(n+1)/2)^2. Loop n from 1 while sum < m, increment; if sum == m return n; else -1.
+      |                                                                           ^
+Task23_claude-haiku-5-5_cpp.cpp:3:97: error: expected unqualified-id
+    3 | Sum of cubes 1..n = (n(n+1)/2)^2. Loop n from 1 while sum < m, increment; if sum == m return n; else -1.
+      |                                                                                                 ^
+4 errors generated.

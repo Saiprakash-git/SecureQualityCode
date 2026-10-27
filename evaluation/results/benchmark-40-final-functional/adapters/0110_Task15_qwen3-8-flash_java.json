@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "Task15_CLAUDE_claude_3_5_sonnet_20240620.towerBuilder",
+   "target": "Tower.towerBuilder",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 110,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_015/qwen3-8-flash/Task15_qwen3-8-flash_java.java",
+ "artifact_sha256": "d7f2da8c1592809bc847a7e8c841cae7ba867f9ba2163f8acdd2e20775db6a19",
+ "oracle_test_path": "src/test/java/claude/task15/Task15_TestCase.java",
+ "oracle_test_sha256": "f529ae1be44753f30a5c6e0a580c0af714bd84064bb724d388c29a2debed42dd",
+ "author": "functional.py draft_adapter (static)"
+}

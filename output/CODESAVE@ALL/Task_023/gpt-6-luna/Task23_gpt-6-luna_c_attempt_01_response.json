@@ -1,0 +1,89 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793016532-J8NeZ8iG0E1uz1NS1CJo",
+  "finish_reason": "stop",
+  "input_tokens": 356,
+  "output_tokens": 691,
+  "cost_usd": 0.0003811,
+  "raw_response": {
+    "id": "gen-1793016532-J8NeZ8iG0E1uz1NS1CJo",
+    "object": "chat.completion",
+    "created": 1793016532,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <limits.h>\n\nlong long find_nb(long long m)\n{\n    if (m <= 0)\n        return -1;\n\n    long long sum = 0;\n\n    for (long long n = 1; ; ++n) {\n        long long remaining = m - sum;\n\n        if (n > remaining / n / n)\n            return -1;\n\n        long long cube = n * n * n;\n        sum += cube;\n\n        if (sum == m)\n            return n;\n    }\n}\n\nlong long findNb(long long m)\n{\n    return find_nb(m);\n}",
+          "refusal": null,
+          "reasoning": "**Implementing function for cubes**\n\nI'm considering the Codewars \"Pile of Cubes\" task, which uses the C signature `long long find_nb(long long m)`. I think the function should be named `find_nb`, and I need to implement it carefully while including `limits.h` to avoid overflow issues with increments. There might be a benefit in creating an alias like `findNb` to avoid ambiguity, so I could provide both wrapper names if necessary. Let's get this function set up!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Implementing function for cubes**\n\nI'm considering the Codewars \"Pile of Cubes\" task, which uses the C signature `long long find_nb(long long m)`. I think the function should be named `find_nb`, and I need to implement it carefully while including `limits.h` to avoid overflow issues with increments. There might be a benefit in creating an alias like `findNb` to avoid ambiguity, so I could provide both wrapper names if necessary. Let's get this function set up!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30LaKyl-NW2Q85AvyizDjoTR6MHD12CetnucJWaB_u0jysb8x3D7xMR3DjEUQdJ-j1cNipQrAYDXG_W41-P3vgQk-PC1-5DVvDlJ4Y0ojnBqpWeaf97S7bGwrHoEjtftThMFf6GU6VWRMP5XYvrLrElC76gvQ6_igp7ujopfxIgfWAn94Wtqz1YWMA5SYWA6cFo-70c1qpk5mFvylyk2uSwcKQKHxZXGpgRCIAfemVgeWQF436NvdN_JOdZq-8dsoIXq9_dSvcN_z0UKO3jsn69tetRtT33S5SUh3AqUrXjWGSwND4VnG6W87A2sP9Lh0nO_IKlB6kNNZz83JiZ_e_ON5dacUkeNrYNmhpvfYWxeIosuTfszrhrdXYYpDypaqyhZtT3RCijqhSIpYrWTl3Jx__lDPHbsSSSqx0Ewe1YC-lU4RXJ4iseli96_yYq4VzVtT07v9jRuoYASrqOMqoMGWWZcofIS8Ksxnxa3gfuXKGyOarFYDPEOnJusuPxW_lDQ5RBWc6TWWc9jZ2LUX3pg_PxRNsScoSy5JM7GW_Ux_jP5b40H2L4_rxxF41wZACZAk8zPIhx5WpouRUp4bd7Js_n6T5ThLlqtVO6UC-U-GFxiBQbYHMATvLCYz-3Fs0pu7-YiVicORvwNXzyTFUwabtToVGOo1HLGb8_S1GfU6xlWugwDd9bgXG0gi8RuG6dveipf3v8jSrcXnmbsO6icPVMYZDtD1mlii4_FTSp3eZD5wxjOHH7VwRHw7VfoHXPQEw_dFnWmVUgee4Ds0IYpr-hsoax8CKQm3b20z7XL1vQAPg_u8GvnI3ZPrYXVnwasyUPQJnuuofDTANV7eL9KqHkfT2v1GUglXGL2V2H2ziUcBKiOH4cIYZ3imcMpBHcLv87o3PH58jEweJVa9UzmZXFikqOJ8h240DQ8szHLo0KEtf7GE3t32Dwt4faizIY6QOJOjVFj-WOC1TpPOwb108SFXpRFLueFLP6xs9EOdVtPIkd5vEPP6sd3QLRPWgLAYzdVw8apyLwDyBZhaZJprm5yvhjIk65cD6cAQTDeh1mul9taQaFpTarjTgr7u8b-dH0koirYcpZocLwoP_rnkgFzdwStDw3MWMrZbH1o1A_tL4U-9jNh-7HhYdzZPnVoJ5Ds965cKc0yHEFkn2m_7B6NtQrxd8342YDZx3GMh1GMpS2ytYk12oeP565HWjwVtwrH6CEEd4AXrwNdDjb8aCB017EpPKPn8IMVL55QEIZF6R5wpsv1uTRPfJ93AClawOX12UydZJt_YxAu-09Yv-bAbzcRNPNl__7ytpWft0frTvJF5Ggd3t78hO7AFocmOvCEr5eVmSDIwTSfWuIP5D6cbp3pzBRnRA5-x_x1lfvTuliNVfCah1Xb-QNA7pwVXNdgTF79iJJIDqEtcyihRxkHsYMg0npPHBCaDo8Q55XB35wx5acbRFEjeiZGUB1KHEcfqBjQj-SLUlC8a5fmlutGqsM9IIEkoSPEMafR43UVhh6njaJBpmvQtqqRBXG_JDruADRZwBCnu5FmvDeEfRsX-Ok_CIFjxgSEhmzAHD_3JyAMBJ7iYdmjHTcnG3IAmk-mrTKNdjKcrgWiJ-NRNCoXLDZJcVZkz09YhaO8PzoXHCxfZ16PmpfoQVu-hL5CEsN6boy9OuX_LuzfT56tuMaSPn5z4hEEFQNW0iBA-j8i00wwJIfJc-LYSWEDyeL7qXdSbVM6sl7QBx7CJZ1hNuYf3Q7HZKESstPwAyC-WodmiLLRv3PnmJ8lhPpbKJ4zOkOxMniSJKx9uOGW6jutmOuwqLSnilgn72WYG9rywUpF4J_iiH4jKmycFnqCqHcOsGeb0DWrkIYe2t9pY-ieFrJpH_mQdfG-EPLV9xTN5acjlMilmFvM729HYrtw-I8hCHpogiFem9N7Rz4Rn8mhWojuVk0QLUr1foGggE92CPGzL04cmcs-O7YmuFVzRhblTjtuocW6TcuUO688j6yPmK4Nej4tMI4Jko4j7p2_IUZElBOVreLc7xziRPVr6coi-9Bsi1EDGLEKH5laTFH1mc0NwPD9YQD1qS1hazGl5URgCpqCQVr1fwQnQNew7ZAstKSNuPFPQaJANBPRSv1YwpCHDvUhFL_YjUOQztHqoKOHJRPPo_laPbV882oaCBtmYR3wOpm539RQhi0F1LYq06on2bcdmn-I9rNbxwvu7gmCbaohE15gwSYW5ku0C97uyBxK0D3RivvR1ZEr2TAvhYQ9IR23RltA1Z9Z4ZbeQF6wDFSvhQNAkaRSwC-7NjzPl4Sn1l3OJSSSpHc2vvcvJ5G4J5bgRC2M0wiV-RWadkxvn_j79ed2oSu_Jfcq1xTwbyKywNcI0ZpAvGb_h4IolH0MmdpCoLErjBF710uBPh6imV4MAjJaL5UVLg26XSmgQXqseTH2cxFbqOHfNxsFK5WumjITJdHt2BerQjGBtEY0aK1oXi3PJ6DP-zlV1niH_xDF1db3w8SO0R6WSSfRRQyExGJITFTznXumfmhHfNd62fEnrLLA6eFld1ST96-taClJqQtCdo_UC1_2EHKGfs1_g7d-h1OYbQnbWR04rApROSHh6ZSYK0WViH9p5GRacRDqa1kjUpJoz6m5AL4QEoaswYHm4yFDuiYx8ZVu8Q2zGKwS-Cz8P6wGZpYavwjDF28kSqSDz1gnLidZCChMrL2YAcLqtVViebbmi08VUUMoXp1pNKiKSWNarGSEhDmdvKa1i28bhNasxuuwc_pjaTETRZ273S6Q43OK22cduIgeQkz6rP70y1Z2ZcjiW7AWM-0XhfM_Bu2kjFZ8DqEpoKJVeguVtJBM3RaqH7wLwmX4Y7bXKYab9-0JV3bO8jlaPOLpAksrTxCtx_KyJPMcpWq-rpseuF0dTuuGlaWtD4pSZ0Px0H3qcGEGzXpPT9aSx1pAjP9Jqx28niIWe1SNcTuccPEFbz9uu2ShkzMRYK7Jlwd1Uro70yIjB4poo261atHe30bHhV3sqeT_uL0sPdmOIBkoL09UetGYSTUEpE-VJcCviWMSZeGY8ZArmgM7QpRAbVoRBm06OTPaDM_GuvfB7snYz33klHi8yTlbM6dFhk41QUYvLs8YZZmX8KDhM2ryBs2vZpB-LTNTc59oXNAuupkgkxGl_7SWcuzrYtnLo5BMG99B6T-k9puHJFxtF-R-f_8poFnESDDZtcoBkArK4gNOWVlvc89Rb9AvY7h24GzyuBMx9f0RKmjE8-ObhZ71tjxI_N1R0I-0EhCNnk_Z_x2T6yXC6-iSsCKcbCcZSZPVy5I_LS5teeWWlthHUADiXzZG5cS3C-9ZgnnwgPCZ8K8CRJoWuizjTECtMzP1Y8rPUfrfVkcInLzpnpn-raC1ySNoA46tjNII_XK5p_MUlBlYWahqemz09_HjZUCEJ4LlsegBnq1uROpzalt5M1uCP6cqI7QqjQxwgAHiry5Xt3ZIq9EgN67Vgx6P9oDJ-CEbuzAdA95UN02u2nj6on2DYzEks8VL1YOeYbFzRKh6NM_1wdTGANeLNhQtoXQdfUFYEERyEdN9s0v2qdMmyHtf41eZGHEerz7ZPJWLYx5uswVU-ZgHFpZxPEkWx_ZbpT3QmsKZckZAowEUzTMUwG4dcyihTZxLPsX3Snxrsa2b7w_VIyDL9QtsuUciWerm-fGjY4EXMpeNa2LEnGPQl8vVGGF4kvGA5SiL8u0Lfxsozu29BjgrUGOITd1sXjgKtB7hf0sZVwjn1rg84KdCeCnZp4huFj1OBSEb5SrdqyCBQZ5rAwYVlpR1kwvXY3pZCtPajQCFP0h2-zLqJdIGm_2GYcVZeylHP5G6Ha2VfiprHJsxCuMVA8ZUPDoIcL6ARLxfb_8JWmvHoj26ecTO24PXbVEmxZQ2jCEodQx8Ez9H0n67mUHRmV1gzrshhyzPunIS7xPR1MrnC1qyFQ3IS72RaoE6w3sAauGc7zeIaJs32VdhBqdOcvZtb5diDhryTkyQLEDczqNkth5P9tTgYz7hkQPSWTiZWp3jkWDn2ChjDcUwkN1Ap6i71XJ4N93EGdAyzV8h2_PcrmNidbQcsTPebZuVnUWykwuL7LxhnZaCW2k38_E0B6WzqHO4AraTZsxQrSGoISgNolrdnxhopurauyV-pGqgjrGNHcHqkFldhmmymz1nu6r9P5nkaijMxd05Me9ly6-42K6q2B__p0icXGIb5uTvxk_UytrMzXRMr_Olu70avBifPDnkCz2bfbsQ11BHbFqArNta8jpO6_Fugo9LF9dzz4ZCJatyXbbrkyOpiu6mIlpuxPO7L5XHb9jw88kpRakRUbKZG5sq-G1ywCsvTBQAKi-xNdaq53fRtJvGmBJtjXEEfdRmlwhinpYp7uKqMWekWhcfMbkQvFh4RWlAC-WVwfcw61GTD6QAu4NLVNX4vidZXLl0eDfAMNMEn1eKAf1xUO4WeClPiVy04lJx_zxzWiXtnKBtOd3h5ZpgrGwa6Cm7qTwGz6SqkMMGHBt2yKMU7JRnBFuanuhU4PV0l3Q6STpCrx1-ZkJncdqUBuP0Mhgqiur5arFDkxFM-wbbpGEjlmGBBaQEiMT9wWf-WHjHV5mbFFSltCH2ZK4zuEoWhEDgZbPpo9fqyqEqq7BBsYD2zoZxOVdxEe0MEywgIJwpqZtKm6qiPuW8zrj1Zb4xlracaVJSUmu-DOfrjsxFVJ6Y7yVLLy4U9d5u8t41vROb4h9C0AEbN5fLHOxbnG8LZy-IjEmOE13cKLP_EmoYJOdm3DcEhkEnaVNNpwhMG0AUsYq9YHiIKSLbpqtaXKDtzt6XP9xDa7bHRnxYSf22OB2Tn-NcC6eccrQ8NF2fbm7JOihlGPYCwiGQpnEpeUmiDNBc4LAqWKMPKR2HuS4Naa4LANEqfBulr4QNCiGr2Om9O2w66q-PDCVPOssc0ILbuQ4V3u-XaUciNI6XNOoPLtSrUbP9S30B-v7WQhWz2or8YcyM-L7IJ3Zj7r5GKdTyKx5J0WLEgZPbFcMyljWFIX53dvJ2BUIiwXzcY09wscbnYbV-MBdBXXV32HwMjJKaIH74i0oooehY2uj3gA69ktpQcfe7OnPwKuXIQq51L2SwvfZtFR6WbHiUuL2mfwti2mIokb_cJ2_kDtXU0vo3OPFUe9vHDEj6IePCsA_knKd9tCXMIEII5xXRkPJswujvtx3hjleSx5LHOsi0siQCPq59o9Pq-z3504mJrCbc5QXVr-0UffrPp4MuqYxLOx6Drqz32R69jRgdKlpzlLnxXYKRc0tVQBEUISVDCCBnZQpeNR1rIOxWAjPeL8EWr4t_dTSNEljBkV469lN7f3AgS9D2ZsxlSHO-WICS-uEKODoXw4aB74MujVQdZxp4Gj8Ph-N7X1AQ_3xHnxQ7JTTIl3S2Fos0WofrNsOulm4oFR1K4Cg6cDCtAaj9G1cW2apFTQlPUXhz-n3H7TCvj8PnYepREviOeDUPbUXn3ZHPq-ymF6rShlgwoeJ36X3f7RY0Y9b0BUMHgVaqfTc-Yx-p_DiQJTOxlQfLlnFlY1fFy6thlPhnM7ZRatc9YhxPC0bmPbH6vcJtmSKVMxgIn5cFZQqffEzdkmH2Sp5kdI37ZbTJMnA1BDS4TbppWlk2Kp6_sjtOxvduopSF2FM8A1FglcY7GFApLjd0OaizoV2_i4JcBG5e7JMLUmQHl-D_zARkLWr44ma894Gfioc9hSTtbpQZwPrkIzFpSgORrMn_nt2zsqtBChQZgO-IdkXpESCskIavbq2-__g6s_zLbZt4MiH6yGdfBq5jaijG2OzMcHmE4rLpW9MEPhXNnw7xfPs6uZAjiEjxgmhNQCMO1WBsXAtQKSfUT8fhRF8WxcuEjuyMpQwdc1omdxs4srQMOdZbkfDaCiA_0SKoYmO6g2OHxYbakFmoRdJq86AwZPJdyUsDGEXCj2qnmAZApfrFTmrWnZTRAEUX5bZi70vAF0I2mTf6MTuynnxAsOuLepxBbv1nYjx6D6Jz5KyEKnDJQCnIH6XWA4xo9MqO0jVGlNvn5w7eJmB5OjwDdygH_mvO-GhQNvTuA8Z6iJDvzY2G9i_dpW2wVgLf2THEBwlCVhojA_nQUxxJTh6JqswhbQioB5gRG5MeLs32TB2m9XxUiTsfh3t6cy9eyTNYYdcgeNA19AtuqR2fGq4p2i4bGFi86rolE5opN6p80ddmNZQBVrT91aHUzSOKyvHHxmPQcf-2ljb0gu7evTxIyIFDP6kHVR0utD6gArz_u6HYqfxC4kFQfcpEHnYSsV3yeZbbXhuQ6AyFJ5MJNeek0YxI92o7ia4slE_g6YUCPYvK9CAgHSWxu31r035pV_JZHVE1AZbTPFotGBOQtRRu0aYoy9yAoRmkJ2aP0y5dN4mlRyHUDQTnr4g3gbbwCQpatqaTFTX8vK8XnlTeuLhz5OfjzA9MT7azb_Wvz51frnT2mmvz4ZGPQutcz_sXvgB_ZkqWzGD0zzdUhMBw52Xu05EVLmgtTGNyb2H4COt3TrK2dJ5yA8Xgoqik3zhwaJ6k4OgU801GQ1zu7NbP85CbqWHySKFoxoE0lXJp675C-a-VE1w5bifz8D_l9loAl9svqPX3M3AwcH2JN0mjdT0Cr1QkbjBNH45-xOA25bsUAbLOuPBriDXn1KlJ-xaQYdwXtdfBS-_-I0pB1Ei7q22DW0_Lu_ZX24xaFMHGdxJCp9qNhKcYuLRULDXPoCYY1jPnxkmxEwwpjiwBKl7V8pgWe3YrKgG0eNKsMMPsGQtwl7dD1-AloB_28pSQ2ZTsqn1EdZ2FE8X9V_rAM9QoJrIHM3mKcMwCHLIkSHTSR0TKr16MXvtZjR0AiHVdgfGeNi-km9K2d3xjQlii85vtwJqvWusoD4eVlfQhVSHOL4e9hGfln8EPH4JrjUV4JxP2b3CdT1yFtYb5mv384zZj_RIlOYYH_yLfg20jQpY0yWdN3cCHhLufacjapvp7bJY6QGisHtZhL0-J1qRmfrmTEP2YlsX78WaJuJ6O_nH9l3FNb_xkzD8SijmU7Gn0FKZOCZFDa3cZZCh9-iJ9_DC6_JHXPBpIq7Hqpri5tQ0olozK7eEbEr5hs6YlGpkBfl9dwhqozP6wAfx-2-8lnYT02NEsHPmsJhnvOT-SAAycHQOjBtnxhEJ8x46F8XilTjBwWW6I5cwe-l-ufVxyK72vdF2LwkPrh3IyGMEC0GyJCnXgduCYiFVOlZdhoz51Yr2M4dOt1WH-80_X0jZgPEQ_iqQ5QMELMxoN5ZN4_IuiE_rMoczkfsW0WB0Kr9ls6oGDx1raS4R86yXGrYNOqmPdYM1ZNCZ2a6p_3eisewZKHyOCccV_kPkqjU6OYBdb8f3Aa6Wsuh28D2JP_x7Dbq2pAnEFVCZMezOngEPXooAPRxyJUs5ynUv5nATg5OfufV2XgtYnqtfga-NMu-vllBPDql6ZHSmHklBc1Z3KHbpvoJw9oCiKkLLxu23LyqCKlckL3uawYaGBGvl35rWhn7XG_QUKh8scnrnjHAqmX6TzNu_9tUAj6Lni6ep_cNwrh8mzq0KCLw7C4VzCpOgi7OjylmW7nBTSgSm50lHZW84B8VFJbzeAmB31k-wIcfLTK6vcVQeqHj2_FgLGtt0kRX-_sncNeE-jIPAJjdrfF2yXcETC23eiGXphW_CjfLLohIbLsnmwsQTDs_af__kXa-QMsAvUJO2o29o-tqVzEE8gZHFNZwnK5NQPEce-JPbToMn4Y6bTxH5_U7BedrMqd8AWCu4V.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_039878268c6dec24016adf42d5570487d1970cd01b19c8cfb1",
+              "index": 1
+            },
+            {
+              "type": "reasoning.summary",
+              "summary": "**Evaluating function structure**\n\nI\u2019m considering creating two functions, one named `find_nb` and the other `findNb`, to keep things clear. They might be harmless and generic, with no conflicts between them. I think this distinction could help maintain clarity in the code. The focus is on ensuring the C source is complete while sticking to these names, possibly just needing a wrapper. Overall, it seems like a straightforward task to implement.",
+              "format": "openai-responses-v1",
+              "index": 2
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30Lc3v0PXsgARJfYU_xnQvD-zX8_vvN7vOIgEhUq8tJj1SYU4XqXz1MRsq-pIjpPrnYe7bQLYfjBdpCkB2hG0Gp7W8iEZdYDStJLvHFhm9ybfNakQSQeoshgG54dr1rTbwl-_bZORuARgK5VHm6EPDUeSyrEDvmy3eJUjXcAPKzrpZ5D3hnsbD5v6cgmFNT1_QTDCoQ0H9cW6kaN7c98ukgTcWZ1FfAThr2_ey62ryke0ex9rKlY9gxP8bYjj2_JTIaOYwqZi6lFRqh083DsPqmxyNUGdkED2RPxOdsjcZhWv2zRrgNoxftrjhxeMdtbR7um_7gcK-kc98q20MywxIqtuqs9x_M5bGfGAlBp-_LPbh-kF9Za35Tcmiy2M9whsP_292OBoQmuVnASJmDwr2hVH5T-9NsJj0frtsKLQRMrEfMa03rjaJOCyGHlAX4GY9Y5dpqRXQWoDsL7clehcUJ6eRAFzXfasSv_N7IiYk4-w3CjdkxGtd4fkPxrlFGna29bdVe5qCddgqBOIHZn6xS5BvZSfASqfD4nhJCyMQ8vY6qLLOwiKDbwAf62pvJmCng8WNR4y9kQGe4kusZccYUEYCZ0TJRx4UgAgnEET38rnwobE1S5TnrOm-8pZNs_mM7yBHqN4dgJ-F4kjGOCzmZAH9xLm4bKQSJmudOI8Zbg3hw3ZQHLdczXCT5pn3JaIXo13Vx5o4qdB6dtITIWZlMr7Dc5c6meOPOJ7M49x1zdXVkMdEiIOTLRfudQv1GMzQXEuHBNW_yS31jJVZM9_RgfXGUZPS6zqXIunKnIpzEYcIBPly9oimlpx9y_OOs1ZZb2wh4OXj6GtiS_XWNE29a4K7CKC9sKqLxtihkBWcvCh4s_PY-EQNoeWadtShp_fpvglZCq9_KaO0BUf3qJCOppQtRQaxnvkA1eUen_TkX7pBohbUtxeOuSoSnjH5qgitO9FjKiZoBoJ2jjUfWBVgbqxJPVm_BQtBrfw7DBTUidykeQYuMa6I0MP8wlupFPLS9j4KZ6M1v7LNwuRwOFolYp68AqRPvofaYv4DipeUo4tc__ejwr0KbE09_nVZs02uRupRT6nc76vQAD_0z3o5G33obAOtDhJc_htmoS3IMJ0875yJEcdVSbHYzfx05eH5VdOpTHG_Xow4E-AJhROY3NZzdPlydY5QBiJ8R6RErUIxTJDpnUAjCrTCc882E6sBgTwS3yGqKxhsV-wvtPn0FRfhqeojtP3qDC-s6WO6Lj8gHW-ln-WHDRux7Xm11LihHDUiheDOHCX3FFKPHC4DdTJ73aWjbwnyZkVvivpELBV70OwspnKTW6D8hn6V4JfjqMg4yXN8NebtsKSJXHddoppUEIISQlEWqZ5PGDdGg3UXaQ5t5PUqDw-mMPWICWox5wCneFXvt1B8WmiiGrOzqxdDYj5kpVt5-Vd3jNSFrxqDOXQfG5GqofhnbrwjLkzVBqWcasT13pQzVf6u_-LvBLzmeIlbEDoRChaAVV48R2qQKFfgrafafC5OjHCPc4RQWg_N-CDq4ChOw_MTshI7OGtnC3X0Uhuie3VXvfHkSw8rwH0BH2lM12SXlnNO9WGErpq8PcMM1PY6GPB0DwABfIUnqdC3iniNQAxR0x3QSw4-MbcpyZrjazvy42p1EihwS2dZ2-RIbyS6hxBk_aJ6dWkApynu_mIXzghFW2Oa0V2x_X2xeM23q8zgV272rIV9E8LSN0DZHKiOa0ro2Tx3tCthW-Wvg4TyKhoOEZFUjk2RvybkXDrSQKey9hb5v3c2D6KI8LxWOsOD4SVNivx5wC-OFLTm_Ft7GD7kUkxU0_4ntucSgoW74FqBjYGEwtLF6AvednGsgxNl1G8_DznBUyBJI4b1yXHSweOByb2Ew6GCYHnKZ2q6mH-e7Bqn5RD7HIIR_F4yN3szJBegjsr07fDe2dTuzXrNbxoaYlwXSASVdhdxLkWnwo48TKlBxsT2-n9CwRGukwR1lfD26jxx4GfAEj3Bos-NYJRtdMeov144YwBqHQatjaPQGBIr3S3WjcIL0sbjIwNsBIin-Ss-OykRiSDE0Al63Buwz-xsVkk9Q2dm0wTqwWlQyM3rCfrAogVdR1W9svrMnVdPMbPxIN0mrj4G92VD0u0yRudrmgFYc=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_039878268c6dec24016adf42dafac887d1908cb2b7fb4bcba1",
+              "index": 3
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 356,
+      "completion_tokens": 691,
+      "total_tokens": 1047,
+      "cost": 0.0003811,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003811,
+        "upstream_inference_prompt_cost": 3.56e-05,
+        "upstream_inference_completions_cost": 0.0003455
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 564,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

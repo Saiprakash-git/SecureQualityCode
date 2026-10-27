@@ -1,0 +1,16 @@
+Task91_claude-haiku-5-5_cpp.cpp:1:1: error: expected unqualified-id
+    1 | ```cpp
+      | ^
+Task91_claude-haiku-5-5_cpp.cpp:72:51: error: expected '}'
+   72 |     if (off + 2 > buf.size()) return std::nullopt;
+      |                                                   ^
+Task91_claude-haiku-5-5_cpp.cpp:71:77: note: to match this '{'
+   71 | std::optional<uint16_t> read16(const std::vector<uint8_t>& buf, size_t off) {
+      |                                                                             ^
+Task91_claude-haiku-5-5_cpp.cpp:72:51: error: expected '}'
+   72 |     if (off + 2 > buf.size()) return std::nullopt;
+      |                                                   ^
+Task91_claude-haiku-5-5_cpp.cpp:26:15: note: to match this '{'
+   26 | namespace dns {
+      |               ^
+3 errors generated.

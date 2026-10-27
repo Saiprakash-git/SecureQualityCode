@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793008112-MgTx8lvPBLaMAjNsrqVp",
+  "finish_reason": "stop",
+  "input_tokens": 261,
+  "output_tokens": 356,
+  "cost_usd": 0.0002041,
+  "raw_response": {
+    "id": "gen-1793008112-MgTx8lvPBLaMAjNsrqVp",
+    "object": "chat.completion",
+    "created": 1793008112,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <ctype.h>\n#include <string.h>\n\nint is_pangram(const char *s) {\n    int seen[26] = {0};\n    int count = 0;\n    for (size_t i = 0; s[i] != '\\0'; i++) {\n        unsigned char c = (unsigned char)s[i];\n        if (isalpha(c)) {\n            int idx = tolower(c) - 'a';\n            if (idx >= 0 && idx < 26 && !seen[idx]) {\n                seen[idx] = 1;\n                count++;\n            }\n        }\n    }\n    return count == 26;\n}\n\nint main(void) {\n    char buffer[4096];\n    if (fgets(buffer, sizeof(buffer), stdin) == NULL) {\n        return 0;\n    }\n    size_t len = strlen(buffer);\n    if (len > 0 && buffer[len - 1] == '\\n') {\n        buffer[len - 1] = '\\0';\n    }\n    printf(\"%s\\n\", is_pangram(buffer) ? \"True\" : \"False\");\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 261,
+      "completion_tokens": 356,
+      "total_tokens": 617,
+      "cost": 0.0002041,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002041,
+        "upstream_inference_prompt_cost": 2.61e-05,
+        "upstream_inference_completions_cost": 0.000178
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

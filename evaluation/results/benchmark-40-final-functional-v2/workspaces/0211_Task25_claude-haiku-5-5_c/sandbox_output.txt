@@ -1,0 +1,33 @@
+@@6690e4fd6b1c184a STEP 0 BEGIN@@
+In file included from test_oracle.c:11:
+test_oracle.c: In function ‘testNumbering’:
+adapter.h:5:16: warning: ‘number_lines’ reading 8 bytes from a region of size 0 [-Wstringop-overread]
+    5 | #define number number_lines
+test_oracle.c:20:22: note: in expansion of macro ‘number’
+   20 |     char** result1 = number(input1, input1Count);
+      |                      ^~~~~~
+adapter.h:5:16: note: referencing argument 1 of type ‘const char * const[0]’
+    5 | #define number number_lines
+test_oracle.c:20:22: note: in expansion of macro ‘number’
+   20 |     char** result1 = number(input1, input1Count);
+      |                      ^~~~~~
+In file included from adapter.h:3:
+impl_under_test.c:5:8: note: in a call to function ‘number_lines’
+    5 | char **number_lines(const char *const lines[], size_t count) {
+      |        ^~~~~~~~~~~~
+
+@@6690e4fd6b1c184a STEP 0 END rc=0@@
+@@6690e4fd6b1c184a STEP 1 BEGIN@@
+Test Case 1 passed!
+Test Case 2 passed!
+Test Case 3 passed!
+Test Case 4 passed!
+Test Case 5 passed!
+Test Case 6 passed!
+Test Case 7 passed!
+Test Case 8 passed!
+Test Case 9 passed!
+Test Case 10 passed!
+All test cases passed!
+
+@@6690e4fd6b1c184a STEP 1 END rc=0@@

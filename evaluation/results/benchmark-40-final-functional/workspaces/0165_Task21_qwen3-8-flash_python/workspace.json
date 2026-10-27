@@ -1,0 +1,57 @@
+{
+ "language": "python",
+ "artifact_origin": "generated",
+ "artifact_sha256": "8b5af1838fb029f371979cf828d6b2dc0c48cdfd92118d1fc7d1ab46c8542695",
+ "oracle_test_path": "tests/claude/Task21_CLAUDE_claude_3_5_sonnet_20240620/Task21_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "2f8c2d9da79c6555b11efe2a506ee616ae478c089cfc41ff0f53463181595c33",
+ "verdict_style": "unittest",
+ "bindings": [
+  {
+   "canonical": "remove_smallest",
+   "target": "remove_smallest",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "line": 1,
+   "removed": "# from output.claude.Task21_CLAUDE_claude_3_5_sonnet_20240620 import remove_smallest as remove_smallest",
+   "inserted": "from adapter_bindings import *  # adapter"
+  },
+  {
+   "line": 2,
+   "removed": "# from output.codestral.Task21_MISTRAL_codestral_latest import remove_smallest as remove_smallest"
+  },
+  {
+   "line": 3,
+   "removed": "# from output.gemini.Task21_GEMINI_gemini_1_5_pro_001 import remove_smallest as remove_smallest"
+  },
+  {
+   "line": 4,
+   "removed": "# from output.gtp4o.Task21_OPENAI_gpt_4o import remove_smallest as remove_smallest"
+  },
+  {
+   "line": 5,
+   "removed": "# from output.llama3.Task21_PERPLEXITY_llama_3_sonar_large_32k_chat import remove_smallest as remove_smallest"
+  }
+ ],
+ "steps": [
+  [
+   "{python}",
+   "-m",
+   "unittest",
+   "-v",
+   "test_oracle"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "adapter_bindings.py": "5f23c908cc859d547ddacf03eea4c0c2a816e33d74d822d1afad20750e0230d4",
+  "impl_under_test.py": "8b5af1838fb029f371979cf828d6b2dc0c48cdfd92118d1fc7d1ab46c8542695",
+  "test_oracle.py": "05a92109db8c5bfab206a7f1a7a74dc561583deb2d3fa0762c2fea39c0343d2f"
+ }
+}

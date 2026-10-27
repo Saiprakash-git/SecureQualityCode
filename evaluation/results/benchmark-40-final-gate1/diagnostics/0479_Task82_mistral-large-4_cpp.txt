@@ -1,0 +1,34 @@
+Task82_mistral-large-4_cpp.cpp:26:75: error: expected '}'
+   26 |             uint32_t s1 = rotr(w[i-2], 17) ^ rotr(w[i-2], 19) ^ (w[i-2] >>
+      |                                                                           ^
+Task82_mistral-large-4_cpp.cpp:8:14: note: to match this '{'
+    8 | class SHA256 {
+      |              ^
+Task82_mistral-large-4_cpp.cpp:26:75: error: expected expression
+   26 |             uint32_t s1 = rotr(w[i-2], 17) ^ rotr(w[i-2], 19) ^ (w[i-2] >>
+      |                                                                           ^
+Task82_mistral-large-4_cpp.cpp:26:75: error: expected ';' at end of declaration
+   26 |             uint32_t s1 = rotr(w[i-2], 17) ^ rotr(w[i-2], 19) ^ (w[i-2] >>
+      |                                                                           ^
+      |                                                                           ;
+Task82_mistral-large-4_cpp.cpp:26:75: error: expected '}'
+Task82_mistral-large-4_cpp.cpp:24:39: note: to match this '{'
+   24 |         for (int i = 16; i < 64; i++) {
+      |                                       ^
+Task82_mistral-large-4_cpp.cpp:26:75: error: expected '}'
+   26 |             uint32_t s1 = rotr(w[i-2], 17) ^ rotr(w[i-2], 19) ^ (w[i-2] >>
+      |                                                                           ^
+Task82_mistral-large-4_cpp.cpp:19:45: note: to match this '{'
+   19 |     void processBlock(const uint8_t* block) {
+      |                                             ^
+Task82_mistral-large-4_cpp.cpp:26:75: error: expected ';' after class
+   26 |             uint32_t s1 = rotr(w[i-2], 17) ^ rotr(w[i-2], 19) ^ (w[i-2] >>
+      |                                                                           ^
+      |                                                                           ;
+Task82_mistral-large-4_cpp.cpp:11:14: warning: private field 'H' is not used [-Wunused-private-field]
+   11 |     uint32_t H[8];
+      |              ^
+Task82_mistral-large-4_cpp.cpp:13:14: warning: private field 'totalLen' is not used [-Wunused-private-field]
+   13 |     uint64_t totalLen;
+      |              ^
+2 warnings and 6 errors generated.

@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793008285-ek2iEBPoLeniL8TCI1mY",
+  "finish_reason": "stop",
+  "input_tokens": 257,
+  "output_tokens": 209,
+  "cost_usd": 0.0001302,
+  "raw_response": {
+    "id": "gen-1793008285-ek2iEBPoLeniL8TCI1mY",
+    "object": "chat.completion",
+    "created": 1793008285,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "public class OddOrEven {\n    public static String oddOrEven(int[] array) {\n        if (array == null || array.length == 0) {\n            return \"even\";\n        }\n        long sum = 0;\n        for (int v : array) {\n            sum += v;\n        }\n        return (sum % 2 == 0) ? \"even\" : \"odd\";\n    }\n\n    public static void main(String[] args) {\n        System.out.println(oddOrEven(new int[]{0}));\n        System.out.println(oddOrEven(new int[]{0, 1, 4}));\n        System.out.println(oddOrEven(new int[]{0, -1, -5}));\n    }\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 257,
+      "completion_tokens": 209,
+      "total_tokens": 466,
+      "cost": 0.0001302,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001302,
+        "upstream_inference_prompt_cost": 2.57e-05,
+        "upstream_inference_completions_cost": 0.0001045
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

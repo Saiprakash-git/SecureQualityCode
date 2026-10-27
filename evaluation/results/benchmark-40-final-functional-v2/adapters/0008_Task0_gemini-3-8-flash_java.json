@@ -1,0 +1,32 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "Task0_MISTRAL_codestral_latest.main",
+   "target": "ProcessingResult.main",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "void",
+    "params": [
+     "String[] args"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "String[] args"
+    ],
+    "return": "void",
+    "static": true
+   }
+  }
+ ],
+ "combo_index": 8,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_000/gemini-3-8-flash/Task0_gemini-3-8-flash_java.java",
+ "artifact_sha256": "a48a9418ccc976ed02f4e87c16269af44ee7f0b5725684fa62a8fa08991d60a3",
+ "oracle_test_path": "src/test/java/codestral/task0/Task0_MISTRAL_codestral_latestTest.java",
+ "oracle_test_sha256": "aa755965eb6b7812fc0909aa2665ff7f92d9d2bf807f6803ab9f9801b4c0ddce",
+ "author": "functional.py draft_adapter (static)"
+}

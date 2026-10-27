@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1793032346-tQ2doKG44pUsUbigl6HY",
+  "finish_reason": "stop",
+  "input_tokens": 152,
+  "output_tokens": 529,
+  "cost_usd": 0.00027143,
+  "raw_response": {
+    "id": "gen-1793032346-tQ2doKG44pUsUbigl6HY",
+    "object": "chat.completion",
+    "created": 1793032346,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "import java.io.File;\nimport java.io.FileWriter;\nimport java.io.IOException;\n\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        File file = new File(\"script.sh\");\n\n        try (FileWriter writer = new FileWriter(file)) {\n            writer.write(\"#!/bin/sh\\n\");\n            writer.write(\"echo \\\"Hello from script.sh\\\"\\n\");\n        }\n\n        file.setExecutable(true, false);\n    }\n}",
+          "refusal": null,
+          "reasoning": "We need answer user's request: return only raw source code, no markdown fences, no explanations. Need write one complete self-contained source file in JAVA. Program creates file named script.sh and makes it executable. Need likely public class Main? Since self-contained source file in JAVA. Could be public class Main { public static void main... }. Need ensure executable. Use java.nio.file.Files, Path, PosixFilePermissions? But making executable on Windows may fail. Could use File.setExecutable(true). Create file with content maybe #!/bin/sh\\necho Hello\\n. Need only source code. No fences. Starting first source line. Need maybe imports. Ensure if file exists? Could create. Use try catch? main throws Exception. Need maybe use File.setExecutable(true, false) to make executable for all? On POSIX, setExecutable(true, false) makes owner and others? Actually setExecutable(boolean executable, boolean ownerOnly) if ownerOnly false sets for all? Java doc: if ownerOnly false, applies to all users. But on Windows no effect. Could also use Files.setPosixFilePermissions if supported, but may fail on Windows. Better use File.setExecutable(true, false). Need create file script.sh. Maybe write content using Files.writeString. Need import java.io.File; import java.nio.file.*; import java.nio.charset.StandardCharsets; Could just use File and FileWriter? Simpler:\nimport java.io.File;\nimport java.io.FileWriter;\nimport java.io.IOException;\n\npublic class Main {\n public static void main(String[] args) throws IOException {\n  File file = new File(\"script.sh\");\n  try (FileWriter writer = new FileWriter(file)) { writer.write(\"#!/bin/sh\\necho \\\"Hello from script.sh\\\"\\n\"); }\n  file.setExecutable(true, false);\n }\n}\nNeed raw source only. Ensure no markdown. Could include package? no.\n\nPotential issue: user says all functions should accept input as parameters and return output if any. But main is entry point. Fine.\n\nNeed final only code. No fences.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user's request: return only raw source code, no markdown fences, no explanations. Need write one complete self-contained source file in JAVA. Program creates file named script.sh and makes it executable. Need likely public class Main? Since self-contained source file in JAVA. Could be public class Main { public static void main... }. Need ensure executable. Use java.nio.file.Files, Path, PosixFilePermissions? But making executable on Windows may fail. Could use File.setExecutable(true). Create file with content maybe #!/bin/sh\\necho Hello\\n. Need only source code. No fences. Starting first source line. Need maybe imports. Ensure if file exists? Could create. Use try catch? main throws Exception. Need maybe use File.setExecutable(true, false) to make executable for all? On POSIX, setExecutable(true, false) makes owner and others? Actually setExecutable(boolean executable, boolean ownerOnly) if ownerOnly false sets for all? Java doc: if ownerOnly false, applies to all users. But on Windows no effect. Could also use Files.setPosixFilePermissions if supported, but may fail on Windows. Better use File.setExecutable(true, false). Need create file script.sh. Maybe write content using Files.writeString. Need import java.io.File; import java.nio.file.*; import java.nio.charset.StandardCharsets; Could just use File and FileWriter? Simpler:\nimport java.io.File;\nimport java.io.FileWriter;\nimport java.io.IOException;\n\npublic class Main {\n public static void main(String[] args) throws IOException {\n  File file = new File(\"script.sh\");\n  try (FileWriter writer = new FileWriter(file)) { writer.write(\"#!/bin/sh\\necho \\\"Hello from script.sh\\\"\\n\"); }\n  file.setExecutable(true, false);\n }\n}\nNeed raw source only. Ensure no markdown. Could include package? no.\n\nPotential issue: user says all functions should accept input as parameters and return output if any. But main is entry point. Fine.\n\nNeed final only code. No fences.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 152,
+      "completion_tokens": 529,
+      "total_tokens": 681,
+      "cost": 0.00027143,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00027143,
+        "upstream_inference_prompt_cost": 2.28e-05,
+        "upstream_inference_completions_cost": 0.00024863
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 426,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

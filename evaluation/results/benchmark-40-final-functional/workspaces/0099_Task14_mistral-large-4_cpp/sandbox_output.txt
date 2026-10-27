@@ -1,0 +1,10 @@
+@@3cbfc3f6a2291dde STEP 0 BEGIN@@
+test_oracle.cpp: In function ‘void assertTestCase(const std::vector<int>&, int, const std::string&)’:
+test_oracle.cpp:22:5: error: ‘Solution’ was not declared in this scope
+   22 |     Solution solution;
+      |     ^~~~~~~~
+test_oracle.cpp:23:18: error: ‘solution’ was not declared in this scope
+   23 |     int result = solution.findEvenIndex(arr);
+      |                  ^~~~~~~~
+
+@@3cbfc3f6a2291dde STEP 0 END rc=1@@

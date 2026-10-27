@@ -1,0 +1,4 @@
+Task67_MISTRAL_codestral-latest.c:2:10: fatal error: 'sqlite3.h' file not found
+    2 | #include <sqlite3.h>
+      |          ^~~~~~~~~~~
+1 error generated.

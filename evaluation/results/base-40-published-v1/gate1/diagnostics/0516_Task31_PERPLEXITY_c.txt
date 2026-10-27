@@ -1,0 +1,5 @@
+Task31_PERPLEXITY_llama-3-sonar-large-32k-chat.c:4:31: error: call to undeclared library function 'malloc' with type 'void *(unsigned long)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    4 |     char* complement = (char*)malloc((strlen(dna) + 1) * sizeof(char));
+      |                               ^
+Task31_PERPLEXITY_llama-3-sonar-large-32k-chat.c:4:31: note: include the header <stdlib.h> or explicitly provide a declaration for 'malloc'
+1 error generated.

@@ -1,0 +1,31 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "likes",
+   "target": "likes",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": false,
+   "canonical_signature": {
+    "return": "std::string",
+    "params": [
+     "const std::vector<std::string>& names"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "const vector<string>& names"
+    ],
+    "return": "string"
+   }
+  }
+ ],
+ "combo_index": 240,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_028/qwen3-8-flash/Task28_qwen3-8-flash_cpp.cpp",
+ "artifact_sha256": "9e5d765824370df7791da76e684207c40086e44d2a2b5c4cf61d14ea2c5e5a65",
+ "oracle_test_path": "tests/claude/Task28_Test.cpp",
+ "oracle_test_sha256": "77913705510812b0f1891753f39c2df01da0335ad8cff6630155cbc44ef34a65",
+ "author": "functional.py draft_adapter (static)"
+}

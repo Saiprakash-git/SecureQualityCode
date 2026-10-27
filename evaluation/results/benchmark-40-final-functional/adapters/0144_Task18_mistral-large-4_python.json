@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "convert_binary_array_to_int",
+   "target": "binary_array_to_number",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 144,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_018/mistral-large-4/Task18_mistral-large-4_python.py",
+ "artifact_sha256": "b9a2062f8ddee1ddd51127504fd629d0e5cab9cb8f69cf0cd7c9bd0ad800a95f",
+ "oracle_test_path": "tests/claude/Task18_CLAUDE_claude_3_5_sonnet_20240620/Task18_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "b624677fc4177398a90e1fb710d4cc55668f24b5567d2770a3b4f340599173e8",
+ "author": "functional.py draft_adapter (static)"
+}

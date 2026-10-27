@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793016503-3Ok7GUeF6WRmmfTxJY9k",
+  "finish_reason": "stop",
+  "input_tokens": 357,
+  "output_tokens": 242,
+  "cost_usd": 0.0001567,
+  "raw_response": {
+    "id": "gen-1793016503-3Ok7GUeF6WRmmfTxJY9k",
+    "object": "chat.completion",
+    "created": 1793016503,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "from math import isqrt\n\ndef find_nb(m):\n    if m < 0:\n        return -1\n\n    total = isqrt(m)\n    if total * total != m:\n        return -1\n\n    discriminant = 1 + 8 * total\n    root = isqrt(discriminant)\n    if root * root != discriminant:\n        return -1\n\n    n = (root - 1) // 2\n    return n if n * (n + 1) // 2 == total else -1",
+          "refusal": null,
+          "reasoning": "**Creating output code**\n\nI\u2019m focusing on outputting code for the function find_nb as expected in a coding platform like Codewars. I think I might implement a loop or a formula that relates to summing cubes and checking triangular numbers. I want to utilize Python's integer handling features and math.isqrt for efficient calculations. I should validate if the input is negative and ensure the function handles the necessary checks for perfect square conditions. It's all about getting it clean and functional without distractions!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Creating output code**\n\nI\u2019m focusing on outputting code for the function find_nb as expected in a coding platform like Codewars. I think I might implement a loop or a formula that relates to summing cubes and checking triangular numbers. I want to utilize Python's integer handling features and math.isqrt for efficient calculations. I should validate if the input is negative and ensure the function handles the necessary checks for perfect square conditions. It's all about getting it clean and functional without distractions!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30K6zazos5lwiNTHYzZAVzQQfhmCHBho89fZQ8Yr4qJFjrfTpX2SB6-1oO49LakJ8R55VeN-kjo6WKy7fs7DK1oDp0y-JzF15DZJWK80l-BC98PoVXMsXPi3YcTre_2za8no3pe8DDWN57jd54FXzuTMNmOkVtNPCH09KsdRCz_EYd1vNaoOEyJ81lqA8II1XmcdYrhuzXE0xNt_lIXh3h1Dpz9zeuHtgsd_ViiDLq3lD-tMW82QQ1WlbVWGiloPx7WwmhTa5h4dacexVx3FXQDeV26XEg4ths0xjF5jcu6-H_0yKaogkYwZ6-mMWTXLnfVAjqipBIBha2iiGLCuFjLKOHE5n6qsT4G_pS6VG_OIRXzGf1DwRd7mRhWWdP0PKBDzlqctnpLiAV4akZ8Wot0KsWJih3E34uRKN9Y32UvTMh0dRMbMAtPfIEjNONG99Q1EuGrckvJiTZ-ookl-gd_TWbJ_hk0sthwhSIjbD3qNVYwuh6qFRCr3FkcDQOULPbll46Zkf6wHG_a1EeUC6h4YkRrZQXieUJ-N6Tst4VJdmS61R6o1AF2Y1JQvav02mVR83AXxdHtpnpcOSN_2QxCYyuiLLOFiFnHvMZS7kj4h9LBh9_L53kYXInlzl25dW-WaHaBXKyb6V-thiZ32HRSr4SnrVzF09wFWq24A6ds_sm0tjUCi9NL9K25ObPWHIopumeRfPQTJzZs6PbEFSurV9yc9OtqP4VUAMQa9R8Sk4tt0IALnniQRQEgH4Xd61FZRbjNriSyFKYdt25-yOaPzJRMj-bXb-6BaZ_gVTCGIVRAmEndnh2-7Jk5R1p8U7e9KE5vosJCHsLgU8PN_U5uDMN_YxsFpjkiYDaJt7Qp_A0cuPwb2nw0V_9a_mdfa-bHoV2yimsiQ-N2iGMsr1my8M9LDcevvICbj-eS2wAfVVSnmsacFSKwIFIVpWvkqT7vOGN955r2I9YihqX9_XOpqWQZ9b5FqC0X9pIyteuGpkcRduFbdu0vB5X_CaOiYC7vYiYzvQvF4mn8soK1bvruw2_cHvyl9kXQsNmsS_-O8Dszz8kIQPxx4QYsZM0jA0rF-bWel6LrNZkSnqTRTKT4KR5bE6Vh8qlPz8gnO_xOlqv9HAXlskqqaZyIh9bXXqh9aQ50qn1ajgRzo0s9gkIpO8apfM907Iy_K4KXvqvh5g_bHfgPRaqXSqq5I38jb6Mb7n9oHTT2WAYBHNkhMS-iWBicBDUWlfA0G6SCqlX0C2o-PWQ7WnnYYrj18rOSL_zjO8xV45ASgZqAZax3OQpR5NDCd8BwklBwXh5IbNF4S10D8YLsLP0bKon3RUXXMLeUIHKT4Mz5TQ2ZM3P43LZExA1Fx9DgBBQaP69Hgu2iYaZ8mNoBc-QHN227Eyj4R2sg88fEzGArGhwhYSp9CZ4vLH6dQvQhbaBa_C_nc9ouCqRAW_oXqgK_Q_8_8_yorS1Wo1DTlWaBIrObjHsew6PnZwNx3XkKHHaR-TCK31k0zaDhcESbBkau3LL7ePyu5zzkM8sEHFQBSKYozr1HNIQN70cAATIrs7JT2-ASl5B08ova6wURH_2xTC5bRpdoKf9VamQG10IcMl6qO5s71ckaqvW0ITIV91ttxnwSCXm6Js-yKzZSbU2w4nfq5pOrgVqdgQOC14OybJfdZ_KGYoi9-ojx_Y9RXOJG31WgfIm0rPUWprujvT3BuhMlhT1xQaloGhrUHGi90Q-_cKVNblOnHtdHQOO5Ug5W3RxYceJcIqkvVT35Oga-2eIzWikuYDQkZvedKVT9z9jPHI6eLtVYH0_RnspHI_oE5MlO5-Kf07cEzNzbp4fBo6a_5hQ4HCFKcSZFnNdpWLhFXS04Z9joWiZE9-hjUeQeM_MmQ7AR1vRKEooYyLbSNj35lc87hioJN5AjlelGgTijHfbU4JxcX0Klc1WfMBLLC6nVldthBepSp_J_DUiie8U2TZIPiddxj5HRw4hFndMK9Vm-Gf2hoGH20sygUHuy_SXtn1mkXNE5dSoG7eEP4AL8A75ownY3L-nwdN7ztccZOkBNROmRiKLQqGyPa919Mz_quW0HK-nz7YEKKDEqTp3tj3QwKpD8PW8CwCu_EQ0ax2Vt7OjG0QXCPJZSy0dMunttFkQWOskI2nu4JVyeT4uzJYTYc2gysaH3E2Bzy78TFEQvntsDV5caGy5rUOy-t_x1h-y2K6l1SlrH1OhJ9-0ukssJJYiEifpfXEp5O3mvk03Vm6S0PfcSUFfic_kVKuQQWUl9460gGQvVVieFuREhc7dvW-BmDonn388-P3IswowlXxR8mynfLuE3kjRAWGMelyJwrO3pH8VpEFWRsdUu3yYQs7op0dbfqjlzvjZ82JaifpkhkIKuA0dtYxCwFVvmT0KVNlFul6YKSsXxNQEIk1qgoH2hZhHAUqyGT-7RxYH-nsTo4qYC2LT8cIpgR0_u26trqkHhCepqy4FRj35yQqGdpZkQwh1DOTLTq2WyIlGTGNIvnh7yzTCPjryLlZrKD9J5flY7BpZEKrBo6HbocI2c1GkSrzjJ1uQgNGmyQN1ecBTf2QsG27EIYGz5wqzv7coWZ62xf7t_xjWr8LqgGiGgBk-jrivNZF5ERDNhGbWPQAHV0vrfP7HvL9A10GB18GmhTI7OBcpX14FkFPWLp9CGp5o1votsRqGQj-DYfo0RsGaX0iXuW8rHZP9c0BFCUXX_qnVxCT5stsLHA_5UORL2Mw8esBa4Q6hDqcEXHf1lIqPAUqkDGlbeMzt0rL803GgDksMxlIUQkqwpjzO_l8hwGcWCGUb4bAHUOUaZQkm_Qk7P0ZAvZB2OGeLV6TU_3ScB-yGZxvaAZUEM27h4XVoMSbaWqw-7_q7cnLOBnvPA1Bo2hBcrgTr9aGo5oRujVaTQ9VB4WpUq54rbaIXh0-Zd8Z6zUZSLrVv2gWbpqJ5Pf2QMVY4LKcb5MGY-r90DXq7gs3rWpbm6Yja4he659O8ZSkvDOKc9vTs0aFcFze2paGabkOXLDXcx_0Z36j3Y5E9TCSBqlUewaNI9QJ2as9I8bS1EwuSMLs3SL7adhAl50DtM6Nttkf6rbivhUQMgCZ4Oo5ac=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_00552e7fbacfbaee016adf42b87db887d1a02942d49ae21ca0",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 357,
+      "completion_tokens": 242,
+      "total_tokens": 599,
+      "cost": 0.0001567,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001567,
+        "upstream_inference_prompt_cost": 3.57e-05,
+        "upstream_inference_completions_cost": 0.000121
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 125,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

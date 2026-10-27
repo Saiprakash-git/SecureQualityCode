@@ -1,0 +1,37 @@
+CHECK default_user_not_root PASS evalrunner
+CHECK no_sudo PASS 
+CHECK no_windows_drive_mounts PASS count=0
+CHECK no_other_windows_fs_mounts PASS count=0
+INFO known_mount drivers /usr/lib/wsl/drivers 9p ro,nosuid,nodev,noatime,aname=drivers;fmask=222;dmask=222,cache=5,access=client,msize=65536,trans=fd,rfd=8,wfd=8
+CHECK interop_binfmt_absent PASS register status 
+CHECK no_windows_path PASS /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib
+CHECK no_windows_exes_on_path PASS 
+CHECK systemd_off PASS pid1=init(eval-sandb
+CHECK toolchain_not_writable PASS root 755
+INFO kernel 6.6.87.2-microsoft-standard-WSL2
+INFO os Ubuntu 24.04.5 LTS
+INFO max_user_namespaces 30545
+INFO apparmor_restrict_unprivileged_userns n/a
+CHECK control_runs PASS rc=0 hello ['ok.txt'] 
+CHECK no_root_no_caps_nonewprivs PASS uid=1000 cap=0000000000000000 nnp=1
+CHECK network_blocked PASS IF ['lo'] blocked 1.1.1.1 101 blocked 8.8.8.8 101 blocked 172.17.0.1 101 dns blocked 
+CHECK vsock_blocked PASS vsock blocked 97 
+CHECK filesystem_confined PASS w /usr/bin/evil False w /evil False w /opt/junit/x False w /src/x False w /etc/x False w /proc/x False home False mnt False shadow False wsl_drivers [] init False dev ['core', 'fd', 'full', 'null', 'ptmx', 'pts', 'random', 'shm', 'stderr', 'stdin', 'stdout', 'tty', 'urandom', 'zero'] 
+CHECK writable_space_capped PASS ws=255MB:ENOSPC tmp=60MB:ENOSPC
+CHECK env_cleared PASS ENV ['HOME', 'LANG', 'PATH', 'PWD', 'PYTHONDONTWRITEBYTECODE', 'TMPDIR'] 
+CHECK pid_isolated PASS procs 2 kill blocked 3 
+CHECK memory_limited PASS memory limited 
+CHECK process_limited PASS fork limited after 14 11 
+CHECK filesize_limited PASS fsize limited 27 5242880 
+CHECK output_capped PASS size=2097152
+CHECK tmp_private PASS host_tmp False 
+CHECK wall_timeout PASS rc=124 elapsed=3s
+CHECK cpu_timeout PASS rc=124 elapsed=3s
+CHECK no_survivors PASS left=0
+CHECK windows_exe_blocked PASS control=0 rc=2
+CHECK gcc_works PASS rc=0 c ok
+CHECK gxx_works PASS rc=0 cpp ok
+CHECK java_works PASS rc=0 java ok
+CHECK junit_works PASS rc=0
+CHECK python_works PASS 3.12.3 
+INFO bwrap 0.9.0 gcc 13.3.0 python 3.12.3 java 21.0.12.1 junit 1.11.4

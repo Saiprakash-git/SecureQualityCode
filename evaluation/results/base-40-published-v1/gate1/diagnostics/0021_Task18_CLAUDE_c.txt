@@ -1,0 +1,7 @@
+Task18_CLAUDE_claude-3-5-sonnet-20240620.c:11:26: warning: multi-character character constant [-Wmultichar]
+   11 |     binaryString[size] = '\\0';
+      |                          ^
+Task18_CLAUDE_claude-3-5-sonnet-20240620.c:11:26: warning: implicit conversion from 'int' to 'char' changes value from 23600 to 48 [-Wconstant-conversion]
+   11 |     binaryString[size] = '\\0';
+      |                        ~ ^~~~~
+2 warnings generated.

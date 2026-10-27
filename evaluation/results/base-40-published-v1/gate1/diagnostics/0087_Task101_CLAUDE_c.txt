@@ -1,0 +1,5 @@
+Task101_CLAUDE_claude-3-5-sonnet-20240620.c:8:50: error: expected ';' at end of declaration
+    8 |     const char* content = "#!/bin/bash\\necho \\"Hello, World!\\"";
+      |                                                  ^
+      |                                                  ;
+1 error generated.

@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793025344-M9OuOlVO6YwYS0z5kMP7",
+  "finish_reason": "stop",
+  "input_tokens": 162,
+  "output_tokens": 729,
+  "cost_usd": 0.0003807,
+  "raw_response": {
+    "id": "gen-1793025344-M9OuOlVO6YwYS0z5kMP7",
+    "object": "chat.completion",
+    "created": 1793025344,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <vector>\n#include <sstream>\n#include <string>\n#include <limits>\n#include <algorithm>\n\nusing namespace std;\n\nstruct MaxSubarrayResult {\n    long long maxSum;\n    size_t startIndex;\n    size_t endIndex;\n};\n\nMaxSubarrayResult findMaxSubarray(const vector<long long>& nums) {\n    MaxSubarrayResult best{numeric_limits<long long>::min(), 0, 0};\n    if (nums.empty()) {\n        best.maxSum = 0;\n        return best;\n    }\n\n    long long currentSum = nums[0];\n    size_t currentStart = 0;\n    best.maxSum = nums[0];\n    best.startIndex = 0;\n    best.endIndex = 0;\n\n    for (size_t i = 1; i < nums.size(); ++i) {\n        if (currentSum < 0) {\n            currentSum = nums[i];\n            currentStart = i;\n        } else {\n            currentSum += nums[i];\n        }\n        if (currentSum > best.maxSum) {\n            best.maxSum = currentSum;\n            best.startIndex = currentStart;\n            best.endIndex = i;\n        }\n    }\n    return best;\n}\n\nvector<long long> parseIntegers(const string& line) {\n    vector<long long> result;\n    istringstream iss(line);\n    long long value;\n    while (iss >> value) {\n        result.push_back(value);\n    }\n    return result;\n}\n\nint main() {\n    cout << \"Enter integers separated by spaces: \";\n    string line;\n    getline(cin, line);\n\n    vector<long long> nums = parseIntegers(line);\n\n    if (nums.empty()) {\n        cout << \"No input provided.\" << endl;\n        return 0;\n    }\n\n    MaxSubarrayResult result = findMaxSubarray(nums);\n\n    cout << \"Maximum subarray sum: \" << result.maxSum << endl;\n    cout << \"Subarray: \";\n    for (size_t i = result.startIndex; i <= result.endIndex; ++i) {\n        cout << nums[i];\n        if (i < result.endIndex) cout << \" \";\n    }\n    cout << endl;\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 162,
+      "completion_tokens": 729,
+      "total_tokens": 891,
+      "cost": 0.0003807,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003807,
+        "upstream_inference_prompt_cost": 1.62e-05,
+        "upstream_inference_completions_cost": 0.0003645
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

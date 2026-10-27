@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1793036513-IHHjE2bMElMbBfi7BEty",
+  "finish_reason": "stop",
+  "input_tokens": 155,
+  "output_tokens": 1685,
+  "cost_usd": 0.0008152,
+  "raw_response": {
+    "id": "gen-1793036513-IHHjE2bMElMbBfi7BEty",
+    "object": "chat.completion",
+    "created": 1793036513,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n\ntypedef struct {\n    int *items;\n    size_t top;\n    size_t capacity;\n} Stack;\n\nbool stack_init(Stack *stack, size_t initial_capacity) {\n    if (!stack || initial_capacity == 0) {\n        return false;\n    }\n\n    stack->items = malloc(initial_capacity * sizeof(int));\n    if (!stack->items) {\n        return false;\n    }\n\n    stack->top = 0;\n    stack->capacity = initial_capacity;\n\n    return true;\n}\n\nbool stack_push(Stack *stack, int value) {\n    if (!stack || !stack->items) {\n        return false;\n    }\n\n    if (stack->top == stack->capacity) {\n        size_t new_capacity = stack->capacity * 2;\n        int *new_items = realloc(stack->items, new_capacity * sizeof(int));\n\n        if (!new_items) {\n            return false;\n        }\n\n        stack->items = new_items;\n        stack->capacity = new_capacity;\n    }\n\n    stack->items[stack->top] = value;\n    stack->top++;\n\n    return true;\n}\n\nbool stack_pop(Stack *stack, int *value) {\n    if (!stack || !stack->items || !value || stack->top == 0) {\n        return false;\n    }\n\n    stack->top--;\n    *value = stack->items[stack->top];\n\n    return true;\n}\n\nbool stack_peek(Stack *stack, int *value) {\n    if (!stack || !stack->items || !value || stack->top == 0) {\n        return false;\n    }\n\n    *value = stack->items[stack->top - 1];\n\n    return true;\n}\n\nvoid stack_free(Stack *stack) {\n    if (stack && stack->items) {\n        free(stack->items);\n        stack->items = NULL;\n        stack->top = 0;\n        stack->capacity = 0;\n    }\n}\n\nint main(void) {\n    Stack stack;\n\n    if (!stack_init(&stack, 4)) {\n        fprintf(stderr, \"Failed to initialize stack.\\n\");\n        return 1;\n    }\n\n    printf(\"Pushing 10, 20, and 30...\\n\");\n\n    if (!stack_push(&stack, 10) ||\n        !stack_push(&stack, 20) ||\n        !stack_push(&stack, 30)) {\n        fprintf(stderr, \"Push failed.\\n\");\n        stack_free(&stack);\n        return 1;\n    }\n\n    int value;\n\n    if (stack_peek(&stack, &value)) {\n        printf(\"Peek: %d\\n\", value);\n    }\n\n    if (stack_pop(&stack, &value)) {\n        printf(\"Pop: %d\\n\", value);\n    }\n\n    if (stack_peek(&stack, &value)) {\n        printf(\"Peek after pop: %d\\n\", value);\n    }\n\n    if (stack_pop(&stack, &value)) {\n        printf(\"Pop: %d\\n\", value);\n    }\n\n    if (stack_pop(&stack, &value)) {\n        printf(\"Pop: %d\\n\", value);\n    }\n\n    if (!stack_pop(&stack, &value)) {\n        printf(\"Stack is empty.\\n\");\n    }\n\n    stack_free(&stack);\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "We need answer user's request: Return ONLY raw source code, no markdown fences, no explanations. Need write C self-contained source file implementing stack with push, pop, peek. Need likely include main? Program. Need ensure functions accept input as parameters and return output if any. Could implement dynamic stack. Need only source lines. Need think about exact code. Since user says \"Write a program that implements a stack data structure with push, pop, and peek operations.\" In C. Self-contained. Functions accept input as parameters and return output if any. Could include struct Stack, init, push, pop, peek, free, main demo. Need raw source no fences. Ensure no prose. Need maybe avoid global. Let's craft robust C code.\n\nPotential issue: \"All functions should accept input as parameters and return output if any.\" That means no functions that rely on globals? main can call. Use Stack* passed. push(Stack* stack, int value) returns bool or int. pop(Stack* stack, int* out) returns bool. peek(Stack* stack, int* out) returns bool. Use stdbool.\n\nNeed include stdio, stdlib, stdbool. Dynamic array.\n\nCode:\n#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n\ntypedef struct { int* items; size_t top; size_t capacity; } Stack;\n\nbool stack_init(Stack* stack, size_t initial_capacity) { if (!stack || initial_capacity==0) return false; stack->items = malloc(initial_capacity * sizeof(int)); if (!stack->items) return false; stack->top=0; stack->capacity=initial_capacity; return true; }\n\nbool stack_push(Stack* stack, int value) { if (!stack || !stack->items) return false; if (stack->top == stack->capacity) { size_t new_cap = stack->capacity * 2; int* new_items = realloc(stack->items, new_cap * sizeof(int)); if (!new_items) return false; stack->items = new_items; stack->capacity = new_cap; } stack->items[stack->top++] = value; return true; }\n\nbool stack_pop(Stack* stack, int* value) { if (!stack || !stack->items || !value || stack->top == 0) return false; *value = stack->items[--stack->top]; return true; }\n\nbool stack_peek(Stack* stack, int* value) { if (!stack || !stack->items || !value || stack->top == 0) return false; *value = stack->items[stack->top - 1]; return true; }\n\nvoid stack_free(Stack* stack) { if (stack && stack->items) { free(stack->items); stack->items=NULL; stack->top=0; stack->capacity=0; } }\n\nint main(void) { Stack stack; if (!stack_init(&stack, 4)) { fprintf(stderr, \"Failed to initialize stack.\\n\"); return 1; } printf(\"Pushing 10, 20, 30...\\n\"); if (!stack_push(&stack, 10) || !stack_push(&stack,20) || !stack_push(&stack,30)) { fprintf(stderr, \"Push failed.\\n\"); stack_free(&stack); return 1; } int value; if (stack_peek(&stack, &value)) printf(\"Peek: %d\\n\", value); if (stack_pop(&stack, &value)) printf(\"Pop: %d\\n\", value); if (stack_peek(&stack, &value)) printf(\"Peek after pop: %d\\n\", value); if (stack_pop(&stack, &value)) printf(\"Pop: %d\\n\", value); if (stack_pop(&stack, &value)) printf(\"Pop: %d\\n\", value); if (!stack_pop(&stack, &value)) printf(\"Stack is empty.\\n\"); stack_free(&stack); return 0; }\n\nNeed raw source only. Ensure no markdown. Could maybe use size_t from stdlib. Good.\n\nNeed consider instructions: \"All functions should accept input as parameters and return output if any.\" main returns int. Good.\n\nFinal only code. No fences.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user's request: Return ONLY raw source code, no markdown fences, no explanations. Need write C self-contained source file implementing stack with push, pop, peek. Need likely include main? Program. Need ensure functions accept input as parameters and return output if any. Could implement dynamic stack. Need only source lines. Need think about exact code. Since user says \"Write a program that implements a stack data structure with push, pop, and peek operations.\" In C. Self-contained. Functions accept input as parameters and return output if any. Could include struct Stack, init, push, pop, peek, free, main demo. Need raw source no fences. Ensure no prose. Need maybe avoid global. Let's craft robust C code.\n\nPotential issue: \"All functions should accept input as parameters and return output if any.\" That means no functions that rely on globals? main can call. Use Stack* passed. push(Stack* stack, int value) returns bool or int. pop(Stack* stack, int* out) returns bool. peek(Stack* stack, int* out) returns bool. Use stdbool.\n\nNeed include stdio, stdlib, stdbool. Dynamic array.\n\nCode:\n#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n\ntypedef struct { int* items; size_t top; size_t capacity; } Stack;\n\nbool stack_init(Stack* stack, size_t initial_capacity) { if (!stack || initial_capacity==0) return false; stack->items = malloc(initial_capacity * sizeof(int)); if (!stack->items) return false; stack->top=0; stack->capacity=initial_capacity; return true; }\n\nbool stack_push(Stack* stack, int value) { if (!stack || !stack->items) return false; if (stack->top == stack->capacity) { size_t new_cap = stack->capacity * 2; int* new_items = realloc(stack->items, new_cap * sizeof(int)); if (!new_items) return false; stack->items = new_items; stack->capacity = new_cap; } stack->items[stack->top++] = value; return true; }\n\nbool stack_pop(Stack* stack, int* value) { if (!stack || !stack->items || !value || stack->top == 0) return false; *value = stack->items[--stack->top]; return true; }\n\nbool stack_peek(Stack* stack, int* value) { if (!stack || !stack->items || !value || stack->top == 0) return false; *value = stack->items[stack->top - 1]; return true; }\n\nvoid stack_free(Stack* stack) { if (stack && stack->items) { free(stack->items); stack->items=NULL; stack->top=0; stack->capacity=0; } }\n\nint main(void) { Stack stack; if (!stack_init(&stack, 4)) { fprintf(stderr, \"Failed to initialize stack.\\n\"); return 1; } printf(\"Pushing 10, 20, 30...\\n\"); if (!stack_push(&stack, 10) || !stack_push(&stack,20) || !stack_push(&stack,30)) { fprintf(stderr, \"Push failed.\\n\"); stack_free(&stack); return 1; } int value; if (stack_peek(&stack, &value)) printf(\"Peek: %d\\n\", value); if (stack_pop(&stack, &value)) printf(\"Pop: %d\\n\", value); if (stack_peek(&stack, &value)) printf(\"Peek after pop: %d\\n\", value); if (stack_pop(&stack, &value)) printf(\"Pop: %d\\n\", value); if (stack_pop(&stack, &value)) printf(\"Pop: %d\\n\", value); if (!stack_pop(&stack, &value)) printf(\"Stack is empty.\\n\"); stack_free(&stack); return 0; }\n\nNeed raw source only. Ensure no markdown. Could maybe use size_t from stdlib. Good.\n\nNeed consider instructions: \"All functions should accept input as parameters and return output if any.\" main returns int. Good.\n\nFinal only code. No fences.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 155,
+      "completion_tokens": 1685,
+      "total_tokens": 1840,
+      "cost": 0.0008152,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008152,
+        "upstream_inference_prompt_cost": 2.325e-05,
+        "upstream_inference_completions_cost": 0.00079195
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 889,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

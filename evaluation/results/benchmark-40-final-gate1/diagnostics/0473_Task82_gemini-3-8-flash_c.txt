@@ -1,0 +1,15 @@
+Task82_gemini-3-8-flash_c.c:165:23: error: expected ']'
+  165 |     char hash_output[6
+      |                       ^
+Task82_gemini-3-8-flash_c.c:165:21: note: to match this '['
+  165 |     char hash_output[6
+      |                     ^
+Task82_gemini-3-8-flash_c.c:165:23: error: expected ';' at end of declaration
+  165 |     char hash_output[6
+      |                       ^
+      |                       ;
+Task82_gemini-3-8-flash_c.c:165:23: error: expected '}'
+Task82_gemini-3-8-flash_c.c:156:34: note: to match this '{'
+  156 | int main(int argc, char *argv[]) {
+      |                                  ^
+3 errors generated.

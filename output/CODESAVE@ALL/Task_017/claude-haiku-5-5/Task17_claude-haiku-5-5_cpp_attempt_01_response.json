@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793010224-NQiXZy4Griqt1qRQ0bFO",
+  "finish_reason": "stop",
+  "input_tokens": 446,
+  "output_tokens": 564,
+  "cost_usd": 0.0003266,
+  "raw_response": {
+    "id": "gen-1793010224-NQiXZy4Griqt1qRQ0bFO",
+    "object": "chat.completion",
+    "created": 1793010224,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n#include <cctype>\n\nstd::string toJadenCase(const std::string& phrase) {\n    if (phrase.empty()) {\n        return \"\";\n    }\n    std::string result = phrase;\n    bool startOfWord = true;\n    for (size_t i = 0; i < result.size(); ++i) {\n        unsigned char c = static_cast<unsigned char>(result[i]);\n        if (std::isspace(c)) {\n            startOfWord = true;\n        } else {\n            result[i] = startOfWord\n                ? static_cast<char>(std::toupper(c))\n                : static_cast<char>(std::tolower(c));\n            startOfWord = false;\n        }\n    }\n    return result;\n}\n\nint main() {\n    std::string line;\n    if (std::getline(std::cin, line)) {\n        std::cout << toJadenCase(line) << std::endl;\n    }\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "CAQS+goKEAgTGAI4AUIIdGhpbmtpbmcSDFde/1IaOm9/Ra8+qxoMdKEfLUgTcv/5jAQPIjDmXNa8JrplPtmXy7YJf8g0lBmx3EVne8zTZ2+y970d1pmh0exltMm901nVgJpjAdUqlwo9PGKJgCTSCum7MVYACGtR9RPJyrOwrxh4rHfkaWQMgEFaJkONL46smLzC+cAQUWTqaFmAnAezmgiyuinNVc9voUTx6+Y0CkJ1nBRqsGlsJjefGpDjfAGZzg9vCCiMj/EGruzGy4H+YsNhEY7LGRCwNgxmcoY/2dA8VKr5+I2tBz3ZbvxpBQ1xV6Z4llX5uBABwIfWgPJmlDYbxTpCD39BZb9R9jooeukX5ZDj7VqJUOxPL64hr53sSGcDWYYVwSHCcdLRFjRdfe5u9O02ZHOiKxNmaBZP8SdsBLD4Fp/vqKt549jIF7czqhMwr2TX8Nzkh8RdvFbMTHU+JZAfDB5jrXD8E3o3owWe7cEm3N2WeNfVeblEohgdEPQfAbqg8LpumrDb0E9xTdBwIS9vlX/eGVhqlptFLpDCV5F7r/Llf0Nxo6gS0BEfrkNIl2Fv8VcDeR1Rtf6n/8DPdWNmHbpMhsA5O5EJMOntIiaHqA0EE3zy6wUTxLnqInzuZ9NrrNzVjxpiksXlZExZB497qUf+xmYxTkrleNpVx+Bmh9Hdy3ULBXyCTrpR9NH0cagJqh8FGZACIlM1p45a/tCV8okmVe9SiN2e5BajVwJeioduiIOZQafH2Ddzpjc7h6nfpo8/Q00/Hf8LziLzR7Angz29CKom4q3/7THdGbLJQxxUc+hEu2c82EdxEowiVXJdSvVC8tzZaFZStpGXdGyHrPeAIoZCvLLp9cnV77/S7Fwr9q43xb/hfYB6o8fDc7Vw0Nao7Jw/kE5aZo7GSKrwOd6D8B4J4EnPSG0YXfMK6gsxyikIKhXCzrq8hvhdKbS3YtxafZcXXJGE9i97G+HiBK6jKGmDkNlUqImCFoknkAbz1RacW44Yy+KbGiBOMDwTHxS2qyznYOV0mr5vIQ2nEAr9D4ye9tjOnQ3R9HfyBxqPl0EUJCx3bnsDHkxtZz3tIYJ6aiVvxogv3YsgngfasngNdNjeT33Q9xmxUMp9+j+28vEoOW+101F5yJ6w9P9A1vs3MnFxur+K2lytKj/nWwp50NOqGU4kZEa3obqNwQOSofLZox9PN9h6NBpoB9pe+9jDwmYuMMBhc/LEG9zwks2RLdbXn+YjEuvuXF5RoCwvulwuU4nP2FY+0Jj5PmiB/XkEMc07VmblUSDOG9WCedvtBcYNgr7uKO+pxeQEt+FGrht5mIx3VqeNg8MbvdW4/IgfpgZpDQmsQYNkgoLDE8qmM42OB9oeidbmC0+fFX5efAksF61OYOcne3lMuSUFSP6namYX7uhV8ritlhh/CmZPuAVC83BTgjWI0RxZqnrRpxV9wx4/txwE+l+xjh6DjpSjCAKYcWuxy4ZxkN1HqnpXxNZt8ROqrNbM4iYJC0P1xBEEunvfGy1C45KUX13L6rVuOxdSYBHrfw552aT93ozAy5YUBKeEXU0SOhvDSgaov4iAgGGNCb4l76B6/WC0iCz7H+cgAZQx/ighRW4MlwAkKvbe5tsrjs1Th4JoBVyb57XEzBEOVkI0lWod/nZBDWk00OLSJ460pNmf1bUfwTItqxGHnmcSMs+ZQ9y4OH+97pOAxXqNe30CjnHmG/2i+3cV4Z/tHeG2f1no/n5p+4qc1Y8TT97zrefJ2PFVTb0K4i4UP3NijM3NWf3g4YeS0LB9ihWzfOm6IOeIBr2dMRdK7Q7BVZVYKGXpEfhMOmIU9noJBZP3OiD/vGTNatLwHGIl6eusV+d2GAE=.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 446,
+      "completion_tokens": 564,
+      "total_tokens": 1010,
+      "cost": 0.0003266,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003266,
+        "upstream_inference_prompt_cost": 4.46e-05,
+        "upstream_inference_completions_cost": 0.000282
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 260,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

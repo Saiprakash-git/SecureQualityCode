@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793017422-x531wQvUrheDsKdFkJWI",
+  "finish_reason": "stop",
+  "input_tokens": 199,
+  "output_tokens": 1748,
+  "cost_usd": 0.0008939,
+  "raw_response": {
+    "id": "gen-1793017422-x531wQvUrheDsKdFkJWI",
+    "object": "chat.completion",
+    "created": 1793017422,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n#include <optional>\n#include <sqlite3.h>\n\nstruct Customer {\n    std::string customerUsername;\n    std::string firstName;\n    std::string lastName;\n    std::string email;\n    std::string phone;\n    std::string address;\n};\n\nstatic std::string columnText(sqlite3_stmt* stmt, int index) {\n    const unsigned char* text = sqlite3_column_text(stmt, index);\n    return text ? std::string(reinterpret_cast<const char*>(text)) : std::string();\n}\n\nstd::optional<Customer> fetchCustomerByUsername(sqlite3* db, const std::string& username) {\n    const char* sql =\n        \"SELECT customerusername, first_name, last_name, email, phone, address \"\n        \"FROM customer WHERE customerusername = ?;\";\n\n    sqlite3_stmt* stmt = nullptr;\n    if (sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr) != SQLITE_OK) {\n        std::cerr << \"Failed to prepare statement: \" << sqlite3_errmsg(db) << \"\\n\";\n        return std::nullopt;\n    }\n\n    sqlite3_bind_text(stmt, 1, username.c_str(), static_cast<int>(username.size()), SQLITE_TRANSIENT);\n\n    std::optional<Customer> result;\n    int rc = sqlite3_step(stmt);\n    if (rc == SQLITE_ROW) {\n        Customer c;\n        c.customerUsername = columnText(stmt, 0);\n        c.firstName        = columnText(stmt, 1);\n        c.lastName         = columnText(stmt, 2);\n        c.email            = columnText(stmt, 3);\n        c.phone            = columnText(stmt, 4);\n        c.address          = columnText(stmt, 5);\n        result = c;\n    } else if (rc != SQLITE_DONE) {\n        std::cerr << \"Query execution error: \" << sqlite3_errmsg(db) << \"\\n\";\n    }\n\n    sqlite3_finalize(stmt);\n    return result;\n}\n\nvoid printCustomer(const Customer& c) {\n    std::cout << \"Username : \" << c.customerUsername << \"\\n\"\n              << \"First    : \" << c.firstName << \"\\n\"\n              << \"Last     : \" << c.lastName << \"\\n\"\n              << \"Email    : \" << c.email << \"\\n\"\n              << \"Phone    : \" << c.phone << \"\\n\"\n              << \"Address  : \" << c.address << \"\\n\";\n}\n\nint main(int argc, char* argv[]) {\n    if (argc < 2) {\n        std::cerr << \"Usage: \" << argv[0] << \" <customerusername> [database_path]\\n\";\n        return 1;\n    }\n\n    std::string username = argv[1];\n    std::string dbPath = (argc >= 3) ? argv[2] : \"database.db\";\n\n    sqlite3* db = nullptr;\n    if (sqlite3_open(dbPath.c_str(), &db) != SQLITE_OK) {\n        std::cerr << \"Cannot open database '\" << dbPath << \"': \" << sqlite3_errmsg(db) << \"\\n\";\n        sqlite3_close(db);\n        return 1;\n    }\n\n    std::optional<Customer> customer = fetchCustomerByUsername(db, username);\n    sqlite3_close(db);\n\n    if (!customer) {\n        std::cout << \"No customer found with username '\" << username << \"'.\\n\";\n        return 2;\n    }\n\n    printCustomer(*customer);\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 199,
+      "completion_tokens": 1748,
+      "total_tokens": 1947,
+      "cost": 0.0008939,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008939,
+        "upstream_inference_prompt_cost": 1.99e-05,
+        "upstream_inference_completions_cost": 0.000874
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 565,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,18 @@
+Task132_gpt-6-luna_c.c:302:18: error: expected ';' after expression
+  302 |         (*cursor)
+      |                  ^
+      |                  ;
+Task132_gpt-6-luna_c.c:302:18: error: expected '}'
+Task132_gpt-6-luna_c.c:300:27: note: to match this '{'
+  300 |     if (**cursor != '\0') {
+      |                           ^
+Task132_gpt-6-luna_c.c:302:18: error: expected '}'
+  302 |         (*cursor)
+      |                  ^
+Task132_gpt-6-luna_c.c:285:1: note: to match this '{'
+  285 | {
+      | ^
+Task132_gpt-6-luna_c.c:302:10: warning: expression result unused [-Wunused-value]
+  302 |         (*cursor)
+      |          ^~~~~~~
+1 warning and 3 errors generated.

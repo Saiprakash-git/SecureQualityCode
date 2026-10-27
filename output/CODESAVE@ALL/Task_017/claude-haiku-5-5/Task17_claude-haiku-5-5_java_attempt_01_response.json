@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793009770-7rsjQbIHn7w8pi498oCi",
+  "finish_reason": "stop",
+  "input_tokens": 447,
+  "output_tokens": 638,
+  "cost_usd": 0.0003637,
+  "raw_response": {
+    "id": "gen-1793009770-7rsjQbIHn7w8pi498oCi",
+    "object": "chat.completion",
+    "created": 1793009770,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import java.util.Scanner;\n\npublic class JadenCase {\n\n    public static String toJadenCase(String phrase) {\n        if (phrase == null || phrase.isEmpty()) {\n            return null;\n        }\n        String[] words = phrase.split(\" \", -1);\n        StringBuilder result = new StringBuilder();\n        for (int i = 0; i < words.length; i++) {\n            String w = words[i];\n            if (!w.isEmpty()) {\n                result.append(Character.toUpperCase(w.charAt(0)));\n                result.append(w.substring(1));\n            }\n            if (i < words.length - 1) {\n                result.append(' ');\n            }\n        }\n        return result.toString();\n    }\n\n    public static void main(String[] args) {\n        String sample = \"How can mirrors be real if our eyes aren't real\";\n        System.out.println(toJadenCase(sample));\n    }\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 447,
+      "completion_tokens": 638,
+      "total_tokens": 1085,
+      "cost": 0.0003637,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003637,
+        "upstream_inference_prompt_cost": 4.47e-05,
+        "upstream_inference_completions_cost": 0.000319
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 346,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793023423-M32GnlEXSI7xJuB5hAMh",
+  "finish_reason": "stop",
+  "input_tokens": 120,
+  "output_tokens": 777,
+  "cost_usd": 0.0004005,
+  "raw_response": {
+    "id": "gen-1793023423-M32GnlEXSI7xJuB5hAMh",
+    "object": "chat.completion",
+    "created": 1793023423,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "import java.io.BufferedReader;\nimport java.io.Console;\nimport java.io.IOException;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Path passwordFile = Path.of(args.length > 0 ? args[0] : \"password.txt\");\n\n        try {\n            String storedPassword = readStoredPassword(passwordFile);\n            String enteredPassword = readEnteredPassword();\n\n            System.out.println(passwordsMatch(storedPassword, enteredPassword)\n                    ? \"Password matches.\"\n                    : \"Password does not match.\");\n        } catch (IOException e) {\n            System.err.println(\"Unable to read the password file: \" + e.getMessage());\n        }\n    }\n\n    private static String readStoredPassword(Path file) throws IOException {\n        try (BufferedReader reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {\n            String password = reader.readLine();\n            if (password == null) {\n                throw new IOException(\"The password file is empty.\");\n            }\n            return password;\n        }\n    }\n\n    private static String readEnteredPassword() {\n        Console console = System.console();\n        if (console != null) {\n            char[] password = console.readPassword(\"Enter password: \");\n            return password == null ? \"\" : new String(password);\n        }\n\n        System.out.print(\"Enter password: \");\n        try (Scanner scanner = new Scanner(System.in)) {\n            return scanner.nextLine();\n        }\n    }\n\n    private static boolean passwordsMatch(String storedPassword, String enteredPassword) {\n        if (storedPassword == null || enteredPassword == null) {\n            return false;\n        }\n\n        boolean matches = storedPassword.length() == enteredPassword.length();\n        int length = Math.min(storedPassword.length(), enteredPassword.length());\n\n        for (int i = 0; i < length; i++) {\n            if (storedPassword.charAt(i) != enteredPassword.charAt(i)) {\n                matches = false;\n            }\n        }\n\n        return matches;\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Considering password comparison logic**\n\nI'm thinking about a method to compare stored and entered passwords, checking each character without stopping early, just to ensure thoroughness. It's clear I need to implement a loop that checks character by character, managing a mismatch flag and ensuring length checks are accounted for. I\u2019ll allow console input while providing a file path argument, likely defaulting to \"password.txt.\" It\u2019ll be essential to handle exceptions properly and clearly output whether access is granted or denied!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Considering password comparison logic**\n\nI'm thinking about a method to compare stored and entered passwords, checking each character without stopping early, just to ensure thoroughness. It's clear I need to implement a loop that checks character by character, managing a mismatch flag and ensuring length checks are accounted for. I\u2019ll allow console input while providing a file path argument, likely defaulting to \"password.txt.\" It\u2019ll be essential to handle exceptions properly and clearly output whether access is granted or denied!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq313EaLmbbWNSN3JQKe3mkKL1fbY-pPzN65Wmy3oaM9-AWm_befJzORK0WwrTriQNMTUWUm09C2WRBkg7jgUKPDYJejiHl5ZMVLcYr58yRrh75VWhV9Bt5dLiMVOjEWhG5ThgBr0NahLtA6NJzHbo2691ll_kSsiPzIIRtJl5t4udb4CX55cGWK8l4WShuZLjZhsihXt5VpcRv7LiRJSblsglfl0Nj2-OFtQ3GNAmmvXeaNoOZVqo31QwDqH7eOn75Cksx9e1Ys_6f6pyvJAE5woFgRjP4OiV6_bYhcBuE8m3_-dLVGhtUDmee5sS0Q1WxuYdn-ke8T-KiidHbvGM8sOZnDj-co2uwOU1c4QddPdQceslFd0YYkMIizOXnOjb21feehL1cUUI78bNy1t4-nhipSTHoHp1Ir5-XRg1uJLQW0YG2i22h5FVMZ92JcaRCspkAmnMxQygvGG-70l5VCV_GHNUP6jQ_RpN-LJbZ7OQ2XleeKqc17KhEQwrhP56N_wuoDVLfQ1e57arz48gghwEDBp--uua77LdYKeKUhu39NV3ELz2_4iKuzzgM3K06K-Ejtw24O8LAqBOfz7pFIOk_K7JwErnV6-5QlRPAu0V87w64iC0iRtaOdDPTDmy0kzWWwd-ZKsXQXTBZ2O9Z3UaS8PbeKVThnNb9nwDol-ChI__VFXhesAz4CPUXSmQNEcsPBIpnlg9UxCeQac-kFdp8d96Rc5SHylRIU-1mniYEiC8xT8bWSwNDE6Ep-cpHBI77ZkkcCjIJGMnLWDVvBCg3vxgavs-5aLovRu0vx2JebHy71-2ahIH7X9ibEITd2ipgc3LtvRXy-8aRXxEdaxira-aGmrTg9M5VJXXXVoq_-VwKRz3b3REGolRZV8FsYvx--lbraWubb6oCJkXS2j-wXjnOaBpWApAu66xxdAQkDLmIIgDauDGoViyto2HoiuAY1JIrNM7fhfCbIesa9dkpiV_whXLYVJjblVc1wjemhJlfJ72B1uPSNxFkIB4cMvrTCh-qi1_JVErFaJcTjQMblasip-nSHfkTHnAivAcXm_yM6NCU11xvdGpNAg5VoV9SLYo7DZcAFuKduDZWzY6SUyl8EZ4IcOyXtMDsD9hxM9z3t8nNp-IQCiJCtX5yWrhOMKA-LtKKlR6c2v95Ss4PMDHBPW44CPG0blNsDAKQaRrZTcbMxD-pOMB0ooTqpy5S8c8gsOXH6i8H-lIDVmB3x39oeE8VpE8s2cRO7eAPFYcs7Ups-cqBDZSPRNHFDLADFcA2qZwk1nP7B3w2S_lbmGd7Nv_f4aRbsDYhJU4IW5qVOLkSJJSEj18EmYFInYhHzEBJgMwtTdj4LJYhaSSB3UWUm8XZVXIZJoMw47fUB4V6WyIOC9d8-GZ_Tz-cKjPSliiA7EyolKqwpQm6w14bhHvkD1270w9WhSWAVl_TYmDCw8vzmYQ-IYlCf8ZDK-804oJ1tFwiwWFMYNXZ11owLQR7dWKe0855D5mcPiPbeM3dvXLt0gnqj4DxygVAVMjo8TP-He0tZRLW406vppF8QKbQ0jfVf-4RNdqbNVn9iyRiBeTPopYT7cpVUzSDn9ko0V3IXYWNwv3dwy_aOUYoAQ0PcIx78jiL5ClFj0jz8JB-58KD7gwnkDTVJKw5UtisD6kf00U7Vqk1MmCHFJHz0Ad18KCd2ypSOCdoWSp7yldG_LWHQVIMPA4uGwauKqwHeT2zxhcjXtUp4pgQ30JREvlLEREU1DWi54DHPthojwWR6uRBmWytZfNdlaV2mQqxyodSSDt4sc5vKL8xS98J6mpJiW8kiW1qc35g_d5BihlDOoGo7QL-UsTLbA0mitG20PM0IkHlDvS6WbWc21P8PxjLWJ6mTEfZkAIyvKZcDLqxa8frzoQggrez0Pff_cVwmdCZjEGP2Iml-NDX4pEPc4D8Jk2oUlDk4rOjDLrwmusIQJcXR2dlTPNbkXxDndmctymsjxt8qPYJrjPVxy8u9q4qZnB-HyL7mPj9KNfQKofSTkwmzU7q-l9PE9BcRmqFvsgYarlpkiHNyYVnaVqwnVgtmvgy5tG-FyFADckXW0h9u9lRGQhLXkhBOBqYgoQ28evnXy93dSZIe2PJbpFAp-J1tWvIuqadP3h2Fi43C8REpobuB0jzk0Sku83xbxR6Kp5PxQBO-9EiJB4FxF3XVzDm5vf5NFt7CKnEVViAcXevcj2EoXXE_bcLfKJTMU_Mhqi2Fk8FbsXTdvhKmOnzUGqEWjBfwKjh1zTnD53hHDc_8UAeAhdAF7rxYrqd3TExepf43DhSe0mrE3SvdEuVuN5Qgu-ksilXp2DrSvIKsi3zlUmOfwJhIeXKdpT1etvqzvKpFSw2EgtFdALjFwdI7nA0AZTweL6laYyp76_9PuI5JSHDdjb3uNAoBW5h8j6IkMtY2iiZrwFTGpYUzA4KuZLBJ8ZEf2gD8J9lvAyypMWstLCRpgWo0U6ZMmx5kdROo505u9yUkyTE0wF6p3R4M4-Pbe1U-NIDN6uVIYd-XaDwYv99RFpUf9SbSYuuwVX5mdpBgxFbjwB4s3OzXsPjBcSsLTKZwKqJU2qArqxyb3Jd8MJwkaOW25-hwvzLCthLa2OVbrfofua4bq0DHehRKi4pMvWaslWrY8nJ0P0TXgu2iuXyRGdwcwMVX75jftHSnD246ci0pa7Tgonf6sCodH26l7FhcNglVUPoZ7-yVqxMgNu8gtO4IB4exF8q0SuKL0heq1G63EBa-VeRMD2uGdKWJyFd1ZkBUYdzVPVHBCCqsLR5pkwSCE2AU5iKaw6Ou_kw5YOk8kn7TNmnrYRJlWoDU1xggBGlgT50CDq0nsZkf526-dUTpXpVZ4oJxtbbqOIp03Ux-Y1JNewuVd3o8gHuP6TFHrofGnZjPN2ZUOuiczfT5WQ9Gc4hJVVybhmEtKLhBDk7V0qSqLZqisevb8mJvvwKAUdw346HOBRJOEMpYZFb0-gxz2AM0dVtLlgb1JkOLwAyLAJAkO-TfD4tAILCmK-pPKIRepYXUF2KeuHCqMi-mtJnCV1nB9fSu4JVygJWjxXPdPIdaLZ0J4i5OoHMxrNb6LFks4DvwW2aG_zKikKu9lcwIZ0jbqQpyYKYQio_9xg76DGb4GwK2Qv2i4cSVsuhpfARBLKQTJEU82dnb30HYqGeMkzIsl72KbbK5ApPrvargPk-44BPPF-G9EswHSvFYMcZdfpqz0hqChZD7n4iu0JpdnU5zekZj__fCB2SfYWOa0Fbo83A8N_ZEKqEK-aeKQ-C8Y_HsiLiiDJuM1JWKRJ1BpappuEe90-u7Oe81bAuj4gXM2dvDaf5i0JWW-9n7axsk2cJI-OHDw-A5Mkj4f3dsybxG25IuHJOTCwkT2d3b9yjtcykOZeWyCFUSiZnIW2J_xwObf_ioVGuj8WPQLWIOGnK0ivPm69lSnJFNQQ981wFQR0n0faEhY5_zsA_7CvqiCaEGiNvz4pnhJeWjLGrWYEVUWa0NgWBwftM6p8CH6RKB1TCiFYC07yy7SctLj-KkimRG1eafDnXf8skQ5hF2zzagCqr0wU_C8d5ROvbz3Jc-wlzbZ__7pnV5qkMZQVHOobYIdhrvAQW23XMAST4bnjF1cSzye8bE7rgk8I7MLDKifPUmcIrCwU8Ns7NLOHlRTgrUa_0XUhqkFUtDXHSXEVbfQg_2uHeTc9Hu0cS2JaRCB8q4pyV4YjBg8HW2muQpYe19a-sX1Ueqa1lMspxif2ME9E4ugcM5TzHq9C1lebtU-9ljM3ff9kJYOnYTgHzp_K4TOGGqGHgIB_2l3jcXLG4fw0kkO_aYogazVSQktuBdgx6Azbn2klA_iO-8dte6XqLrcbzZvrlp-jz6APm2i8GfvXLBvaTwlwnYRgv6bp_ebEIERu_Ch3_sSqZi4_7jBPrxUNRL_io886OGswJbsNegTJJFGPPfO4C9ESaYsa8hQPKOjAtgsrnhGrmN1Eppi3QZ6-c7aZJyhxHfT_qe9tzBh-k2HWbbWpu1VpVruwEqAbteqdByxHBnnAXqcrGQJMtMP70WAwHWIiflpMK9Rq9dNV9hNcZPneddLMYcjCguYyQGGHqsAeLyPXbLDlumGJl_k1-0JQk0702nq7I1i2cQb6RkMrSz1BB6EEimYujhUTFu5SvYWE4pkBJIU4QZiLL-laLBNB5cm-TtuR12KSRmvz3RHSnN1voZe_zNR0E4oNSci6r4WkYD9s41QBdYmhjGKDuwZz4h4_qugkHeBUaPbUZOKnpw-o7rIMzkOJB0qt6JafKbD10ArqYOtWp2v1aFT6yaGNticNmKbVSNGllwNfBN0mFsiGpf9OaJs6bWfhwLIv48E7-w6KLlzkT9L5DCuxLbIjmR2_nxLbfGZ0bsLsk7fDmZwN9H7ikFGi1jzvEk9w5fYiQnw0CD6-GvP6e-Hw6zl3rYCXuTNMLzAmlMz1ywkPdr-1SN9XaM8IVK7ZlnadwyFJJuOhfgUjCEfcnViNf4T0bBYgo-Dzh8kTk2zzcIIEaxjJQx3b_rMcSEt9X7o8iJZY2VG5lXATudpIFbfDUJoB5GWrhwLZ4TYFndIchRxB_3ISrshoUb-jGJuxZIWlp5B_m9YvsUKhPJLh3cNiFLZVcmbynQvJS-opD_RHFMn55RP0uDyc-6i4ZhPEiQKUv40OAciHZIeRDfgy1vc46PP0l42jw2TwKYrsP9mU2JhBABOwag6UK8QQ3z_AzjaIzp9Tyf2l0VJOsgYjT9wwEsXt_H6zV14bqnnwpNa81EbZjPheK9vVd2KtKRDiPN1B5KRcpSOCbMsaXGx6cyniaX87IocfukIqe_78uChLa1D7F_CI_BGssQUfx5-M-zJSpFWqby3QqN7Ex_uj7vKQLOMRxqS_lTdo3iHUgnhbil9jitlO2kI97NYjd6GJw7v4gTYMwHPXTKyXZfxfNzbvIHYnIpHHfqgupqWYtA1BBMX1_P8krXqMoT0rfnFSLaPF4QdGP7JGasFf-vUA9DLcssjS4NiexIP1EO4xu93vzkhCgERNZp4q9XCm2i-ajcGuEYNMP1RQb8jxFtpxasj_FN3xa6QGJwxmu-HYObCDfzOjUoUpXOcY06kMKuPnhsKigdJ54uHIZmP--aPhVIiQKcOJEZr8BcScoo3IswJBvpi0SFPGlR64fxsp1q_lvSoMpUYWVO8icHUwVsVzr_C71Xu5989hsRyMUuF_xlffI4wuF8BuVzWErb7GMe2Uq2E5wCS6go33lKPoUubbWqmzr5vC2B2nFUrWaGj3DvNy1QeGZUsLCYb1rUTX9QTnbqazKVHXdILd8Qci0gioWynfgxsZ3qcK5sXb1FiYm8TIUqehR30xmH1vtPKfYE10bhzu3mdFX1fzIICn8GyYVdBepasDVdLOFQMTJDWwOAfymVx52ICF5WC9TdrR6jg11zwZ-26JwoREjlVoHFdeVmeAbcmyW-fKEdvqFPJO-HZtzBgx45j4iilzoVrhld17Ra6wynyclQlx1T__ukRGHxcBYDe411vhl2xsy6isjg0sVP7SH58f2FGndooPx-7tDiv-PRLiMf_g4awBIBBec9HU2mmtFyOx7yUz1lLQSbCvNR1suKnMM5oQkignmJRwXXDeOy7og_enhwQyk1J4HQx3HbH04V9Zz9yp_SJl-ldhBTARJpwE0ia7G_ON1ZVhzJFtIWl0bG_TaHee96LcCV1URXJYyBBtTzy_c-rVDZPad57zrfy9gyUr5A83cq5aV1pl9eHz6SyLbRXKctdSLaJ8_Nu108ighp4nai4bNFye1-EOG-Lgyou0lWrrSo-eSFQ-blQ5cTDwZMSoRuu1hnvI_8EGXXjS3CSXLBCT2-BMZhGgy4jCYg3Y4Vg7BhS4rODtCuBzu8Yembr0AEdiTr0IxVf_Yyq2r7NkB5lCJCcAB16D918aDVMOJvNpscJJazdO51W3I5L0c7k80vT7--tbBgs8ILN5oQju2W_n4tqNJHCKaMoi7Eh9y70A-_Or6xoCsrm9eNAStyL-XErnN0fOZb2etaaU5w3zocvzSgtzk_xkz2zvg_veH1OtEmillcZJjUfZz4IQlVKq9K2NGkONHZ9kXie7_lEqdrnPUEdyhZTznGrbcVEhWf72-WulhKElGYcZasDQbVtPBu3PAKz_AnME0bVPLGpatB1LLgqMMCizKn_KI9Xay6HcKi3NtiSSBJe7TLl8tj5e39HK2MMpqFuZQIJBSJO31FSmeYf0d5QAW3KFQ2vXK0e8TKtjQUePAs4D_9_sJNRWin3_qKchhrl9tw0hAVH6QIMftYc98Id4hZAiwmzXTqXduX9bgFa68OwWlN4CfDUZMDSwrcrGpoM=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0356a380c7d86a15016adf5dc054f487d1a377e7738f5b8cc1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 120,
+      "completion_tokens": 777,
+      "total_tokens": 897,
+      "cost": 0.0004005,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0004005,
+        "upstream_inference_prompt_cost": 1.2e-05,
+        "upstream_inference_completions_cost": 0.0003885
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 350,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

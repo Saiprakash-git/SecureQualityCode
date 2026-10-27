@@ -1,0 +1,4 @@
+Task74_qwen3-8-flash_cpp.cpp:1:10: fatal error: 'libpq-fe.h' file not found
+    1 | #include <libpq-fe.h>
+      |          ^~~~~~~~~~~~
+1 error generated.

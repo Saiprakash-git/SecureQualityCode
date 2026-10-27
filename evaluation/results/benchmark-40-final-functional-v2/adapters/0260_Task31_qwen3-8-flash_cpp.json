@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "DNAStrand",
+   "target": "DNAStrand",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 260,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_031/qwen3-8-flash/Task31_qwen3-8-flash_cpp.cpp",
+ "artifact_sha256": "9bd2b38eb6cc627786b643dd1670afd13151e3f7a565091844cfc2f04a8d8156",
+ "oracle_test_path": "tests/claude/Task31_Test.cpp",
+ "oracle_test_sha256": "076d9c61d0801edb32c28b5ed7aa1beda29586604e361401934b445c0ef19deb",
+ "author": "functional.py draft_adapter (static)"
+}

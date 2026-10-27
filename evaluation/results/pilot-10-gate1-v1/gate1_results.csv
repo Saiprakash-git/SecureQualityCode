@@ -1,0 +1,201 @@
+combo_index,task_id,language,model_label,inventory_status,gate1_status,integrity_failures,integrity_warnings,has_entrypoint,syntax_status,syntax_message,build_status,build_error_count,build_warning_count,missing_dependencies,third_party_imports,first_error,java_file_name,source_sha256,diagnostics_path
+1,24,python,claude-haiku-5-5,generated,pass,,,False,ok,,ok,0,0,,,,,90bbfe1976158b896fd86322d8c106078d61699143c8b103008b5147314dc852,
+2,24,python,gpt-6-luna,generated,pass,,,False,ok,,ok,0,0,,,,,1719f77b47e13ab125033498cf0f87ee769c02c94d8bf099393349ddfb888b03,
+3,24,python,gemini-3-8-flash,generated,pass,,,False,ok,,ok,0,0,,,,,c4bf5d6d5f9f4d5c56fa4649a589f562eebf45a86410db7e6a32a89b63bd8cb9,
+4,24,python,mistral-large-4,generated,pass,,,False,ok,,ok,0,0,,,,,0bc43510a194aa62da66ef13e088ef8d8cc5ca09ddada4ea6b47dc62e530f689,
+5,24,python,qwen3-8-flash,generated,pass,,,False,ok,,ok,0,0,,,,,418fb3610d624eabac4f4a0ca962588106b43f2dd8c0fd438ec362b58caadf1b,
+6,24,java,claude-haiku-5-5,generated,pass,,,True,ok,,ok,0,0,,,,Solution.java,6705f755c821f8de7dea7f7636e888bfe5374ab3970579339fe677b1f810f684,
+7,24,java,gpt-6-luna,generated,pass,,,False,ok,,ok,0,0,,,,Kata.java,3cc07f25f52f29ed2d55888af1df28bc0ada6720ca092fd7980773fb7c3b043e,
+8,24,java,gemini-3-8-flash,generated,pass,,,False,ok,,ok,0,0,,,,Solution.java,cbac1b3278adcb8c0b80ce4128787dbca753427811d8a376cc56b65bb4738698,
+9,24,java,mistral-large-4,generated,pass,,,False,ok,,ok,0,0,,,,PinValidator.java,ffe980d0039731dae144152975131e259df002edb590800ddd031e7268bda68e,
+10,24,java,qwen3-8-flash,generated,pass,,,False,ok,,ok,0,0,,,,Solution.java,7158aecb6bb0ad54f66eb9534faecd098be43396ab1b8cb02ab162ca638fd514,
+11,24,c,claude-haiku-5-5,generated,pass,,,True,n/a,,ok,0,0,,,,,e0b0efa990c180b51f6d0a8cc8dd910d68c478dfde105c0d97938fe258bed48c,
+12,24,c,gpt-6-luna,generated,pass,,,False,n/a,,ok,0,0,,,,,4b8e2ca84e937f313f80ae833d21e027c67756edc050c8e27094757b96096112,
+13,24,c,gemini-3-8-flash,generated,pass,,,False,n/a,,ok,0,0,,,,,e72105586abb360d894518f162cf9126c6fd9d19eac786fca8228f61583014df,
+14,24,c,mistral-large-4,generated,pass,,,False,n/a,,ok,0,0,,,,,d704ffa1ebf97cbd34bfd30d1b65736d48e100b8f6749ce9ff175ad320dbf6aa,
+15,24,c,qwen3-8-flash,generated,pass,,,False,n/a,,ok,0,0,,,,,ba2ec99aebd131b0b888e7ca4e80e5706a18f8c4066ddb31e7aacad586606d9e,
+16,24,cpp,claude-haiku-5-5,generated,pass,,,True,n/a,,ok,0,0,,,,,43662cd9400830919f83f1aa401f8a59569a10c7aa18a5462eba19c9e4a4461d,
+17,24,cpp,gpt-6-luna,generated,pass,,,False,n/a,,ok,0,0,,,,,c85b51797955a5d2c03c8be7ad3b9ec4560023af4a16e70d72e1e37ba4fdaaed,
+18,24,cpp,gemini-3-8-flash,generated,pass,,,True,n/a,,ok,0,0,,,,,41abebce9f4b2491b06d0dbba3858972ff13e362b365d0b80604af48d283d098,
+19,24,cpp,mistral-large-4,generated,pass,,,False,n/a,,ok,0,0,,,,,184bbfb474be61d138a7dbb342ac06e27f07d1386711741cb07291a975399f7d,
+20,24,cpp,qwen3-8-flash,generated,pass,,,False,n/a,,ok,0,0,,,,,547b83b531db0de484469b7676aa9b248c77d7c6e964a49f28cf648ee9952317,
+21,37,python,claude-haiku-5-5,generated,pass,,,True,ok,,ok,0,0,,,,,04efd5e62031838da7408d3f101da29cd0263b37a5cc0b4f2adeff59c089f065,
+22,37,python,gpt-6-luna,generated,pass,,,True,ok,,ok,0,0,,,,,2dc8bb60a01c29d0275adbcbbf7ecd989b63091a155860ec665da92e63ba7fe4,
+23,37,python,gemini-3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,,8ceb75dad0ca02d45a87ded240eb9cbfb2048ba83eb2377202f6e1291f63d379,
+24,37,python,mistral-large-4,generated,pass,,,True,ok,,ok,0,0,,,,,ed4dfaadedee04f47bd93b641cf58e7ae694f44737eef3b3e69273695e9fe762,
+25,37,python,qwen3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,,7ce7fb59b58ff22c063d08bd6bfa1c2228955bda1b3c14d87cd004d9467f2564,
+26,37,java,claude-haiku-5-5,generated,pass,,,True,ok,,ok,0,0,,,,UserLookup.java,61676fcb04f9e162e29694aa3db3feac91661a94a5109aee9f163706b4450e5a,
+27,37,java,gpt-6-luna,generated,pass,,,True,ok,,ok,0,0,,,,Main.java,bf001dbba2ccc72c45446c61960776cf7f6017faa2da2c49df337ab28a80f304,
+28,37,java,gemini-3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,UserDatabaseApp.java,313c1656fc5b7d5d148fdf406654a61917a383b4b145c3a10f311d1f74f80c9e,
+29,37,java,mistral-large-4,generated,pass,,,True,ok,,ok,0,0,,,,DatabaseUserQuery.java,ef4075063d8f09dc7b3bd15e7ab20e0134fb9cf6433fc26366a3fd9bde8e3172,
+30,37,java,qwen3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,Main.java,70c80dde006496256055964bdaa27350375ec18306b0f7facdb85b02927d21fd,
+31,37,c,claude-haiku-5-5,generated,blocked_dependency,,,True,n/a,,blocked_dependency,1,0,sqlite3.h,,line 3: 'sqlite3.h' file not found,,4f9ea1d7f050e9e7e855126c6ae21378e345921007bc1c4e3164f99fa0fcdfbb,diagnostics/0031_Task37_claude-haiku-5-5_c.txt
+32,37,c,gpt-6-luna,generated,blocked_dependency,,,True,n/a,,blocked_dependency,1,0,sqlite3.h,,line 2: 'sqlite3.h' file not found,,611be60ec0338e8b8878f2155b05721b17c356eb74f8fd028ae35deb13787835,diagnostics/0032_Task37_gpt-6-luna_c.txt
+33,37,c,gemini-3-8-flash,generated,blocked_dependency,,,True,n/a,,blocked_dependency,1,0,sqlite3.h,,line 4: 'sqlite3.h' file not found,,9c8fabe273585785e13ba31bf2ed4590358d254ea8d8985a276372ae3510f6bf,diagnostics/0033_Task37_gemini-3-8-flash_c.txt
+34,37,c,mistral-large-4,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,False,n/a,,blocked_dependency,1,0,mysql/mysql.h,,line 4: 'mysql/mysql.h' file not found,,3e63dafb033cbf97a00affe87ccb4dfa681513ec56e640fe7f07bb2cef60b3a3,diagnostics/0034_Task37_mistral-large-4_c.txt
+35,37,c,qwen3-8-flash,generated,blocked_dependency,,,True,n/a,,blocked_dependency,1,0,sqlite3.h,,line 4: 'sqlite3.h' file not found,,004d3e2edf547d9c8b6115cf19d0d75afb99a1ac1c6a272f0da4eb7a58b1d361,diagnostics/0035_Task37_qwen3-8-flash_c.txt
+36,37,cpp,claude-haiku-5-5,generated,fail_integrity,markdown_fence_residue,,True,n/a,,blocked_dependency,2,0,sqlite3.h,,line 1: expected unqualified-id,,147edfbeb0f41c56848b2532678538f1c7d8e50ba3a7c3dd2a7901fc3c794e8d,diagnostics/0036_Task37_claude-haiku-5-5_cpp.txt
+37,37,cpp,gpt-6-luna,generated,blocked_dependency,,,True,n/a,,blocked_dependency,1,0,sqlite3.h,,line 5: 'sqlite3.h' file not found,,5f91a9e424ad089d2995226400ff383ef7185a89de97eb13e2db1ab01dcb19a9,diagnostics/0037_Task37_gpt-6-luna_cpp.txt
+38,37,cpp,gemini-3-8-flash,generated,blocked_dependency,,,True,n/a,,blocked_dependency,1,0,sqlite3.h,,line 4: 'sqlite3.h' file not found,,9a9fc98bcdee8dd519f483c2223c6a56ca0de8f9b9a4bd7c6bf684af6ff0bec3,diagnostics/0038_Task37_gemini-3-8-flash_cpp.txt
+39,37,cpp,mistral-large-4,generated,blocked_dependency,,,True,n/a,,blocked_dependency,1,0,sqlite3.h,,line 4: 'sqlite3.h' file not found,,8b40eb81b6b3485bdad52b5fab3476ce62fd74e46a898924d28084e1cf277a07,diagnostics/0039_Task37_mistral-large-4_cpp.txt
+40,37,cpp,qwen3-8-flash,generated,blocked_dependency,,,True,n/a,,blocked_dependency,1,0,sqlite3.h,,line 3: 'sqlite3.h' file not found,,e00fbe6e4ed996a2c4d0fed79c7c9aca6deb66c585c3fd9bfcd88f43930d4ba0,diagnostics/0040_Task37_qwen3-8-flash_cpp.txt
+41,38,python,claude-haiku-5-5,generated,pass,,,True,ok,,ok,0,0,,flask,,,8e167f571e4633b9caa46d75f51568113b83c5f33adcec2dfe814fb2f39981bb,
+42,38,python,gpt-6-luna,generated,pass,,,True,ok,,ok,0,0,,,,,c5511d6f4ff50335458e0a5de2b5706ff36116fe9c4ddcba0cab864f08bc8872,
+43,38,python,gemini-3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,,d5ebd09a86e08db4bf66916e0ca9977633a0b676afdd622c5f048dc9c09c38b6,
+44,38,python,mistral-large-4,generated,pass,,,True,ok,,ok,0,0,,,,,aea2b0fabf57f1cf5dc5a65eb59739339ebe63e7068d1d0778fd0ec14bac14fd,
+45,38,python,qwen3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,,1df6cd2411ae7231911c2b083abe53dcfa261e7eaa177e2a3ab12fa1b90547cc,
+46,38,java,claude-haiku-5-5,generated,pass,,,True,ok,,ok,0,0,,,,Main.java,add9e378714070d243b70f8e56fe253c0a3a8eec6019c87bc16000a1cb0c0926,
+47,38,java,gpt-6-luna,generated,pass,,,True,ok,,ok,0,0,,,,Main.java,32cc9bb0c663209cb346e8fcc4e704b2b4d57420fe22673016ed979fa0b2cfbb,
+48,38,java,gemini-3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,WebApp.java,5d160007193adc4e67a13df3e59cfc1e7d859c9d3e1480a5a2915ed3f6bd461c,
+49,38,java,mistral-large-4,generated,blocked_dependency,,,False,ok,,blocked_dependency,15,0,jakarta.servlet;jakarta.servlet.annotation;jakarta.servlet.http,,line 1: doesnt.exist jakarta.servlet,FormServlet.java,4c63fcd4b9e47825d567fef860aaae5e3ea20dbdc67ffabcb5b653cab786fbbe,diagnostics/0049_Task38_mistral-large-4_java.txt
+50,38,java,qwen3-8-flash,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,True,error,line 111: unclosed string literal,error,2,0,,,line 111: unclosed.str.lit,Main.java,9fe3382b388d6130bca0019b576ddc210145355501d7548a2f2ad96481b7afa0,diagnostics/0050_Task38_qwen3-8-flash_java.txt
+51,38,c,claude-haiku-5-5,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,False,n/a,,error,1,0,,,line 199: expected '}',,3215230b63daa8cd9c0b2fcba265fa50475b43045123800e64d84363fa39b135,diagnostics/0051_Task38_claude-haiku-5-5_c.txt
+52,38,c,gpt-6-luna,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,True,n/a,,error,2,0,,,line 385: expected expression,,1007abad4d03e1b30d8ce65226dae4b33aa189cb0e4aa88005b5cca161e2c27c,diagnostics/0052_Task38_gpt-6-luna_c.txt
+53,38,c,gemini-3-8-flash,generated,pass,,,True,n/a,,ok,0,0,,,,,065059092b0f878e2ddb144c0a480115b9eccc678c1b8f81a60a41130552d1ed,
+54,38,c,mistral-large-4,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,False,n/a,,error,2,1,,,line 55: expected expression,,e528c50218b47ddd2c9e846383948ce2adf9d87195ca1d3e6d217e0dea332af7,diagnostics/0054_Task38_mistral-large-4_c.txt
+55,38,c,qwen3-8-flash,failed,no_artifact,,,,,,,,,,,,,,
+56,38,cpp,claude-haiku-5-5,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,False,n/a,,error,2,1,,,line 211: expected expression,,c156df7276bd88e6ca2304402e5f944b628936bf0654ab519d1d3b212852a777,diagnostics/0056_Task38_claude-haiku-5-5_cpp.txt
+57,38,cpp,gpt-6-luna,generated,pass,,,True,n/a,,ok,0,0,,,,,48a2f2995dde47e34db733fef24f25a8666accaa4b23cc716b2c087d9c60ab20,
+58,38,cpp,gemini-3-8-flash,generated,pass,,,True,n/a,,ok,0,0,,,,,fce5b4acb6085e7f7b6bb3245e1de88408384ecbe1849e4c1eabe640d1d2fa72,
+59,38,cpp,mistral-large-4,generated,pass,,,True,n/a,,ok,0,0,,,,,447e432daf6c2d5fd835b21cc64ff4dc53c07b2d392d519ef148782a446ec23d,
+60,38,cpp,qwen3-8-flash,failed,no_artifact,,,,,,,,,,,,,,
+61,39,python,claude-haiku-5-5,generated,pass,,,True,ok,,ok,0,0,,,,,fb72e0ae37929762ca91908a9b27e2e1ef72da205b89219178510c0c8373dfe5,
+62,39,python,gpt-6-luna,generated,pass,,,True,ok,,ok,0,0,,,,,8bba02b9ce0e39340fbbf7fbe14d7cf8c9a15ffbe430813afeda3af6a9e56503,
+63,39,python,gemini-3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,,9d46153b3431dc70dae6f7f60873e1e5f0f940c88bed11b4acb78ff56e501db6,
+64,39,python,mistral-large-4,generated,pass,,,False,ok,,ok,0,0,,,,,8d08fa0985d822876726eeda732ade046894554f1702c48151f2251ea29abde3,
+65,39,python,qwen3-8-flash,generated,pass,,,False,ok,,ok,0,0,,,,,7caeef1d50c8da8799c7eea90ddeb5dc6994ae547ae3d85f80e3c7e8135572ac,
+66,39,java,claude-haiku-5-5,generated,pass,,,True,ok,,ok,0,0,,,,FileViewer.java,c20c9a433f680c00423370431a9f10aef8b1339e815e74b64e3d72fc26af754f,
+67,39,java,gpt-6-luna,generated,pass,,,True,ok,,ok,0,0,,,,Main.java,017ff2b58dca0c43105c35d12afca0978b6ce30f195db9ca2fef307e73d6213c,
+68,39,java,gemini-3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,FileDisplay.java,1f2464a9fa0145780e145f9a77bb3910101433ebe860a16a5818524e5731359a,
+69,39,java,mistral-large-4,generated,pass,,,True,ok,,ok,0,0,,,,FileContentDisplayer.java,590b58c81bf194151d41012d4bdd4824ed5446c0ed142dcf6010784e17854a33,
+70,39,java,qwen3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,Main.java,19f88e8ff1a2d6fd1d5853a0d137773f2d5e0017700b66dedf9d9f15791a2719,
+71,39,c,claude-haiku-5-5,generated,pass,,,True,n/a,,ok,0,0,,,,,35f0053e17e6a686ed259b6c06f6a046fb32aa6ee703402f3354e9eca418b1b3,
+72,39,c,gpt-6-luna,generated,pass,,,True,n/a,,ok,0,0,,,,,75a34d1177e4dc999e94b71ec62f0b9a0f90cf1c6db7eb56ce4dcef194f34183,
+73,39,c,gemini-3-8-flash,generated,pass,,,True,n/a,,ok,0,0,,,,,69cfff22b999c50ba8c19624faa630e4d7c8819e41d384f610d6e0fa09f755cb,
+74,39,c,mistral-large-4,generated,pass,,,True,n/a,,ok,0,0,,,,,8fc035cd8525f551346e830b465cc9d92d7719647fdab6e593ffdec316ef90af,
+75,39,c,qwen3-8-flash,generated,pass,,,True,n/a,,ok,0,0,,,,,aa1c8050d9114ada6f31a9d522f5b055040b4cfcc6bb998cc645fb2baa7ff0fa,
+76,39,cpp,claude-haiku-5-5,generated,pass,,,True,n/a,,ok,0,0,,,,,c773be06cfd7e3698740976c5fc0715833511d620b066d1d49e822b91c5b2e25,
+77,39,cpp,gpt-6-luna,generated,pass,,,True,n/a,,ok,0,0,,,,,93de04f8b14377a1ba12ad85fc1066db6155fc2c040f79c7a6510c4632622be8,
+78,39,cpp,gemini-3-8-flash,generated,pass,,,True,n/a,,ok,0,0,,,,,77930748c2565aff9bccbb494c36384f342736785da6d74c6cc08065a220613b,
+79,39,cpp,mistral-large-4,generated,pass,,,True,n/a,,ok,0,0,,,,,3854cfcd3cf4ed9bd3f7b68e5e3c88bdebec15cbbc834b3e53bea1249858dd3d,
+80,39,cpp,qwen3-8-flash,generated,pass,,,True,n/a,,ok,0,0,,,,,eb29c1d4c38cc132cd39e6267cee6f7e0817f96d7ff6187d1382da8ce443db89,
+81,41,python,claude-haiku-5-5,generated,pass,,,True,ok,,ok,0,0,,,,,0ac28a7e01791531b129fa3b90cf9fd23d1a065201df9ad925a8abdd6324f252,
+82,41,python,gpt-6-luna,generated,pass,,,True,ok,,ok,0,0,,,,,6db03b46577a47a919d741f8d2972bf0cb37f2abb90003eda4022d6c41af1ef0,
+83,41,python,gemini-3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,,366df75d0186b4d4639294b537beaf5f9291acb63e0a66a645c09e15a91ad919,
+84,41,python,mistral-large-4,generated,pass,,,True,ok,,ok,0,0,,,,,dfa8c913f93801b84215a162a57058eef06e810ca49c5f21096dbd552329cac7,
+85,41,python,qwen3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,,d3d3405ad5e97c64af231f4574253175e28d501140a14e5297e5f3cb894b149e,
+86,41,java,claude-haiku-5-5,generated,pass,,,True,ok,,ok,0,0,,,,SafeStringProcessor.java,ed4c3a2166f9954f6e2b78fc836ff3a12b1da92e5a3f69a683ad30a419493952,
+87,41,java,gpt-6-luna,generated,pass,,,True,ok,,ok,0,0,,,,Main.java,58eae8f8ff5768a7f5ae696381313603d8b36c984c3b6ac1c2a1bb4a200a8bd8,
+88,41,java,gemini-3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,SafeStringProcessor.java,b004b68da1ea2b2decc5c601b9e04b6d3a68f4341b0a075a67e0515e4c397191,
+89,41,java,mistral-large-4,generated,pass,,,True,ok,,ok,0,0,,,,SafeStringProcessor.java,d8c567f759b5536ddc39212013b28a67698ce0a23b610abeca3747e7d55815a8,
+90,41,java,qwen3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,Main.java,3c357e5abd034ff147cf6fd3a8555cb7b50ebd5132ad1330cb632a24b20736eb,
+91,41,c,claude-haiku-5-5,generated,pass,,,True,n/a,,ok,0,0,,,,,5cd58b35bf28374647fa29e09450eeace84255662dbd0cc427bca9180318c549,
+92,41,c,gpt-6-luna,generated,pass,,,True,n/a,,ok,0,0,,,,,2d8bffc09a9db204cebcfe6314d077eb8751bf23df55dbdfa5b22c7dd09b70c3,
+93,41,c,gemini-3-8-flash,generated,pass,,,True,n/a,,ok,0,0,,,,,8494d2a9ccb2b542ff781c2e0d5688f83eb13c0906a1dc733a4987ee696d5253,
+94,41,c,mistral-large-4,generated,pass,,,True,n/a,,ok,0,0,,,,,b3ea7d4b3613f522f076d236386da6c9e69ea8a8aa1040d26aef071bb3932501,
+95,41,c,qwen3-8-flash,generated,pass,,,True,n/a,,ok,0,0,,,,,0e057a36f906769ce9f2284a640878c0a2487b760e7fff9f055ccbf2b94418d2,
+96,41,cpp,claude-haiku-5-5,generated,pass,,,True,n/a,,ok,0,0,,,,,667f16f713120acba55dc6f1cc304910ad778a32dadba455266fe0c6462295c0,
+97,41,cpp,gpt-6-luna,generated,pass,,,True,n/a,,ok,0,0,,,,,cec57eb871d67fe26f9beca6b3b349892d02afbd3cf8a88150f8dc2f005cb1da,
+98,41,cpp,gemini-3-8-flash,generated,pass,,,True,n/a,,ok,0,0,,,,,a3e7534185351097a9720d41de90f4b38710abab867056172c11c0c7ed863c37,
+99,41,cpp,mistral-large-4,generated,pass,,,True,n/a,,ok,0,0,,,,,175ed4ade8d544b3b23cb5af16410d1ba22c4565c1ec937e379f233049331307,
+100,41,cpp,qwen3-8-flash,generated,pass,,,True,n/a,,ok,0,0,,,,,174d6fb703f49ec72cb6c90634fc0dc59d70d1b198831d4ca220855f1de4b8c5,
+101,42,python,claude-haiku-5-5,generated,pass,,,True,ok,,ok,0,0,,,,,26a730ac6949e3b79131edd7535dbba7210b5cb412f96e70b647e15ff1a61a35,
+102,42,python,gpt-6-luna,generated,pass,,,False,ok,,ok,0,0,,,,,c016b4ef6fcb53f737967e075883234b889794ec52cd0fae22020e42044c4ed2,
+103,42,python,gemini-3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,,f4386bc9792a49c0936fa86b5b29f62b9b6ce20fb9c322cde25f8c824f00c41f,
+104,42,python,mistral-large-4,generated,pass,,,False,ok,,ok,0,0,,,,,f615929ee0f9de83c561e21373ed3b4bbefb6965cda441e93632e08326cfb311,
+105,42,python,qwen3-8-flash,generated,pass,,,False,ok,,ok,0,0,,,,,0a407e28b31c354a9ef6a2e4b481a66349e681bb58200b0b6e8e479fa35e8ef2,
+106,42,java,claude-haiku-5-5,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,True,error,line 214: reached end of file while parsing,error,1,0,,,line 214: premature.eof,UserAuthSystem.java,be1e14af71ce32dcaf98e874b990148145b62b58764a05ee0735c178ec347c89,diagnostics/0106_Task42_claude-haiku-5-5_java.txt
+107,42,java,gpt-6-luna,generated,pass,,,False,ok,,ok,0,0,,,,UserAuthenticationSystem.java,348fc8b7520fd7302c1a0fdff56a7cebccdfff033904fe5b53a8abbaa37c1129,
+108,42,java,gemini-3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,UserAuthenticationSystem.java,39c0bad1b728ce71ea5f15e59f6105cfd5ba389b97fc41d92e54996c6e0a35ab,
+109,42,java,mistral-large-4,generated,pass,,,False,ok,,ok,0,0,,,,UserAuthSystem.java,4df46cb191aad4aea04463e2b9985bfc6fec703e7e0a326142df91051beb713d,
+110,42,java,qwen3-8-flash,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,False,error,line 57: reached end of file while parsing,error,1,0,,,line 57: premature.eof,Main.java,07b5c6566fde0a759fa0af6b24a62dffe08c898609aa9369e96cae6de3aa7297,diagnostics/0110_Task42_qwen3-8-flash_java.txt
+111,42,c,claude-haiku-5-5,generated_truncated,fail_integrity,truncated_finish_length;markdown_fence_residue,unbalanced_delimiters,False,n/a,,error,1,0,,,line 1: expected identifier or '(',,c426fe81262ab5505ed2aee91e684a90d760642358b04298d5ec4c3e9f60a5f2,diagnostics/0111_Task42_claude-haiku-5-5_c.txt
+112,42,c,gpt-6-luna,generated,blocked_dependency,,,False,n/a,,blocked_dependency,1,0,openssl/crypto.h,,line 4: 'openssl/crypto.h' file not found,,a5ff20cdd5044fbe382aeeeab38df60bf5f2d601ba1c38577702c60948964372,diagnostics/0112_Task42_gpt-6-luna_c.txt
+113,42,c,gemini-3-8-flash,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,False,n/a,,error,2,0,,,line 172: expected ')',,1bf46b27ddb317afabd6a5d2f864154daf842f628066cb6fc04b50015b0dbe5c,diagnostics/0113_Task42_gemini-3-8-flash_c.txt
+114,42,c,mistral-large-4,failed,no_artifact,,,,,,,,,,,,,,
+115,42,c,qwen3-8-flash,failed,no_artifact,,,,,,,,,,,,,,
+116,42,cpp,claude-haiku-5-5,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,False,n/a,,error,3,0,,,line 55: expected ';' at end of declaration,,f5702b76fe35124650fb24239e58af0e58b1514e22cb7429b1d15c7362455d2d,diagnostics/0116_Task42_claude-haiku-5-5_cpp.txt
+117,42,cpp,gpt-6-luna,generated,blocked_dependency,,,False,n/a,,blocked_dependency,1,0,openssl/crypto.h,,line 9: 'openssl/crypto.h' file not found,,80dca85bf3b528613b7a1f44d37bc88383514abecd0f735edc79834b7d465633,diagnostics/0117_Task42_gpt-6-luna_cpp.txt
+118,42,cpp,gemini-3-8-flash,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,False,n/a,,error,6,0,,,line 172: use of undeclared identifier 'uint8_',,840a0c850d4f81101432961594579a3cf268c6ddbef58089da6d74abcd0cbdf3,diagnostics/0118_Task42_gemini-3-8-flash_cpp.txt
+119,42,cpp,mistral-large-4,failed,no_artifact,,,,,,,,,,,,,,
+120,42,cpp,qwen3-8-flash,incomplete,no_artifact,,,,,,,,,,,,,,
+121,43,python,claude-haiku-5-5,generated_truncated,fail_integrity,truncated_finish_length,,False,ok,,ok,0,0,,,,,227481d5a7b38c17ec98cc92c0d0b38320e47829f1d40d949ebbfd902bb059a3,
+122,43,python,gpt-6-luna,generated,pass,,,True,ok,,ok,0,0,,,,,6e1cd7704756dcb3bd248f4707eb7542c3d15eaebff07bf5c7ed81e24271d90c,
+123,43,python,gemini-3-8-flash,generated_truncated,fail_integrity,truncated_finish_length,,False,ok,,ok,0,0,,,,,8f5e560aa310e7a51742fb6ae448d038a9d17ecdda2a0c3e8969d6ac0c68dff8,
+124,43,python,mistral-large-4,failed,no_artifact,,,,,,,,,,,,,,
+125,43,python,qwen3-8-flash,failed,no_artifact,,,,,,,,,,,,,,
+126,43,java,claude-haiku-5-5,failed,no_artifact,,,,,,,,,,,,,,
+127,43,java,gpt-6-luna,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,True,error,line 273: reached end of file while parsing,error,1,0,,,line 273: premature.eof,SessionWebApp.java,965c3854166b77367ab2e39dac496582fccc82429ff2a18542da235defa39296,diagnostics/0127_Task43_gpt-6-luna_java.txt
+128,43,java,gemini-3-8-flash,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,True,error,line 338: reached end of file while parsing,error,1,0,,,line 338: premature.eof,SecureSessionApplication.java,53aa198b94c3b04f17a1289bdd4fd928fa33def4d24a149bd430fc6202e74cb1,diagnostics/0128_Task43_gemini-3-8-flash_java.txt
+129,43,java,mistral-large-4,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,False,error,line 172: unclosed string literal,error,2,0,,,line 172: unclosed.str.lit,SecureSessionManager.java,92134ad73e02645d0c7283f7a46f3cffd076bef25fc903f9cb0bd34639db2aae,diagnostics/0129_Task43_mistral-large-4_java.txt
+130,43,java,qwen3-8-flash,failed,no_artifact,,,,,,,,,,,,,,
+131,43,c,claude-haiku-5-5,failed,no_artifact,,,,,,,,,,,,,,
+132,43,c,gpt-6-luna,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,False,n/a,,error,2,0,,,line 247: expected '}',,fdc026b27f3453b9ea6024ddf0640248ba65783d84aa18a3c7c94aff8c0d1e87,diagnostics/0132_Task43_gpt-6-luna_c.txt
+133,43,c,gemini-3-8-flash,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,False,n/a,,error,2,0,,,line 283: expected identifier or '(',,6eb932e86f1c36bdbc255cf860d7a89dea732db3696dd1fa97d12c3cc749e9af,diagnostics/0133_Task43_gemini-3-8-flash_c.txt
+134,43,c,mistral-large-4,failed,no_artifact,,,,,,,,,,,,,,
+135,43,c,qwen3-8-flash,failed,no_artifact,,,,,,,,,,,,,,
+136,43,cpp,claude-haiku-5-5,failed,no_artifact,,,,,,,,,,,,,,
+137,43,cpp,gpt-6-luna,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,False,n/a,,error,26,4,,,line 213: expected '}',,d6b06cf539612acdd00b8c077f7676a7090baf6240dfbc632b72097fb5cc15ca,diagnostics/0137_Task43_gpt-6-luna_cpp.txt
+138,43,cpp,gemini-3-8-flash,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,False,n/a,,error,6,3,,,line 257: expected '}',,652a1b74026ca340ce50232d6b29f3cd74502828119658f0b564f416117f238f,diagnostics/0138_Task43_gemini-3-8-flash_cpp.txt
+139,43,cpp,mistral-large-4,failed,no_artifact,,,,,,,,,,,,,,
+140,43,cpp,qwen3-8-flash,failed,no_artifact,,,,,,,,,,,,,,
+141,46,python,claude-haiku-5-5,generated,pass,,,True,ok,,ok,0,0,,,,,1eed1895e90da45e72cf0fb12cb8c03fdbaf774fba5b61c9ed9845bec75f0b2b,
+142,46,python,gpt-6-luna,generated,pass,,,True,ok,,ok,0,0,,,,,6645b0075827999e3941dbe7dcc9ccf61747ed6e906621d4da5bcbcf1f6b3c39,
+143,46,python,gemini-3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,,d134608fee12b379d7f5b43ab13f99aaa1590a280b6c6d46e93990e3f7a09579,
+144,46,python,mistral-large-4,generated,pass,,,True,ok,,ok,0,0,,,,,d66b3c85945b7e9c1a6aea641bcdd7487a22ebbeb0fc1a230d608ae8ecd802f2,
+145,46,python,qwen3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,,3ffae00e773139a4744048ff987d774f7d7565e29aa0bfa83c1e201e77d13cdd,
+146,46,java,claude-haiku-5-5,generated,pass,,,True,ok,,ok,0,0,,,,UserRegistrationSystem.java,1d1818aa23958076d55e5b972eb56405d3d75974256253ef6f84fcbf6ac6f1a2,
+147,46,java,gpt-6-luna,generated,pass,,,True,ok,,ok,0,0,,,,UserRegistrationSystem.java,0295aff32cef4e5db29ec45e55651146a10334273241cb818279bc92376fd0de,
+148,46,java,gemini-3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,UserRegistrationSystem.java,c42cd948e8d170332aa892e070ee3fb4ae3beab7cb7e80464342333911203223,
+149,46,java,mistral-large-4,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,False,error,line 32: reached end of file while parsing,error,1,0,,,line 32: premature.eof,UserRegistrationSystem.java,2af841db579abe87af7583da3397d1e52872101c9d587c6acf4d56644062afd2,diagnostics/0149_Task46_mistral-large-4_java.txt
+150,46,java,qwen3-8-flash,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,False,error,line 171: unclosed string literal,error,2,0,,,line 171: unclosed.str.lit,Main.java,34a8f6c578584f889875e837ba526ed46756da9ed6778de9139c553777d39928,diagnostics/0150_Task46_qwen3-8-flash_java.txt
+151,46,c,claude-haiku-5-5,generated_truncated,fail_integrity,truncated_finish_length;markdown_fence_residue,,False,n/a,,error,1,0,,,line 1: expected identifier or '(',,eed6ddaaea6cbe1592226e6a98a8a14a49572cb1833e1a2697413f1ea7456a1d,diagnostics/0151_Task46_claude-haiku-5-5_c.txt
+152,46,c,gpt-6-luna,generated,blocked_dependency,,,True,n/a,,blocked_dependency,1,0,sqlite3.h,,line 5: 'sqlite3.h' file not found,,468ad3d92d6b7dd7feb4dbcdb16f7b895c4e2447bd8435702622508dff712658,diagnostics/0152_Task46_gpt-6-luna_c.txt
+153,46,c,gemini-3-8-flash,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,False,n/a,,blocked_dependency,1,0,sqlite3.h,,line 6: 'sqlite3.h' file not found,,5af228d77eb63ed5987bb70da9be950f6a7ab6cb1ba4878be4d50c23c0152ec8,diagnostics/0153_Task46_gemini-3-8-flash_c.txt
+154,46,c,mistral-large-4,generated,pass,,,True,n/a,,ok,0,0,,,,,f7e70aa20f21b560b894f7f06a1d3e8178b06c63b40aa5af9d69edcb06c706f5,
+155,46,c,qwen3-8-flash,generated,pass,,,True,n/a,,ok,0,0,,,,,334aae417a5e5f4f4058af2a3c1734136203d30ca89ab8138ad9f1fdd0c92a9d,
+156,46,cpp,claude-haiku-5-5,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,False,n/a,,error,2,0,,,line 103: use of undeclared identifier 'size',,197676a63f2d6cab9f0d7fbd1265ef31050fa7c78cbbaf594f9da36b7ef56505,diagnostics/0156_Task46_claude-haiku-5-5_cpp.txt
+157,46,cpp,gpt-6-luna,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,False,n/a,,error,11,1,,,line 329: expected '}',,c107b0ee14878cad55ed877480edb29a6b8cc362f50cb3471ddf2da4a3d8709a,diagnostics/0157_Task46_gpt-6-luna_cpp.txt
+158,46,cpp,gemini-3-8-flash,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,False,n/a,,error,5,2,,,line 241: expected '}',,964e11a3c2918d7a385b2b5cebe6adfa8c4e0f7569f368b8fd3e95e31be4e3ca,diagnostics/0158_Task46_gemini-3-8-flash_cpp.txt
+159,46,cpp,mistral-large-4,generated,pass,,,True,n/a,,ok,0,0,,,,,e33575274a7ca8e44c2f6fdc5bded95c3b14b7a6cd9e72582a3fe6e9cc17dbc7,
+160,46,cpp,qwen3-8-flash,generated_truncated,fail_integrity,truncated_finish_length,unbalanced_delimiters,False,n/a,,error,3,0,,,line 98: no viable conversion from 'const std::string' (aka 'const basic_string<char>') to 'std::size_t' (aka 'unsigned long'),,bae1ebb5811a954e8f1326d2fa321a9575d1aac13353d45caff829c25eb8af8a,diagnostics/0160_Task46_qwen3-8-flash_cpp.txt
+161,51,python,claude-haiku-5-5,generated,pass,,,True,ok,,ok,0,0,,,,,27f054ba1a37d35a05a1a110ad078065132064aef42cb351e679de7822f4e69e,
+162,51,python,gpt-6-luna,generated,pass,,,True,ok,,ok,0,0,,,,,4125c3ce014939661983839c11c45ceddd4649302c623edebd5100ca364b1595,
+163,51,python,gemini-3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,,ca2ff1b86857c2b8aab889c3babde4adba225ee58dc60c3e7741c264d4679dcf,
+164,51,python,mistral-large-4,generated,pass,,,True,ok,,ok,0,0,,,,,71547901462cc590e25e64fa3141c6f2c29abea6565bec754ea282fadf6934bd,
+165,51,python,qwen3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,,e25a11258df091eb9bfad64c76c563814d23ca65ce04d7848343438579128c14,
+166,51,java,claude-haiku-5-5,generated,pass,,,True,ok,,ok,0,0,,,,Main.java,8fca6f09e11d98db8fd48b410e568052ed914bc8204ad407612607aa5476654a,
+167,51,java,gpt-6-luna,generated,pass,,,True,ok,,ok,0,0,,,,Main.java,8c21565821c6a23970e74d4f6c3f5273ef142ce13b9a7213de324f9d51b17d71,
+168,51,java,gemini-3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,StringEncryptor.java,b72879965bbab380685559e952c11f665671bb712c13c628bc36257d5574451d,
+169,51,java,mistral-large-4,generated,pass,,,True,ok,,ok,0,0,,,,StringEncryptor.java,a33ef552c83da6d00de2ff9a245a81555dff348a5f04ca04a250959f1444e387,
+170,51,java,qwen3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,Main.java,c633dda1f157119aecda5fe790b72efc5562317d7a6302f42704e5a43bda7d5c,
+171,51,c,claude-haiku-5-5,generated,pass,,,True,n/a,,ok,0,0,,,,,c65b8d876d2a44634f92ccde4d6d6895501c2de29a28155d4f1b85d5593c2e2e,
+172,51,c,gpt-6-luna,generated,pass,,,True,n/a,,ok,0,0,,,,,1fc93dfe021ed8a3fa94bf26a899145f5705828438f1a8f733d397a7e31787b8,
+173,51,c,gemini-3-8-flash,generated,pass,,,True,n/a,,ok,0,0,,,,,5828e30de73fe912757d3263df2ccf9a1b5a423ba6a69a6eada7e6cda7918d64,
+174,51,c,mistral-large-4,generated,pass,,,True,n/a,,ok,0,0,,,,,28706eac212bed0c1b59c52975e4d8ddea3ebe734b2aa6666283b66e57462a0f,
+175,51,c,qwen3-8-flash,generated,pass,,,True,n/a,,ok,0,0,,,,,5f2f8a2c3ae21f8199fb3324cc15e9c87d9f351a9dbdf6227e62a2c058979aaa,
+176,51,cpp,claude-haiku-5-5,generated,pass,,,True,n/a,,ok,0,0,,,,,3c52bd11aebfbb4660d097e7171ca2b7918317a3e27ba9b5d0dfd82c7d4f11db,
+177,51,cpp,gpt-6-luna,generated,pass,,,True,n/a,,ok,0,0,,,,,58e2b332ed52a1d1ac02d1e4b0a8f7d3d346c2734649b80e5e8986865afbda3d,
+178,51,cpp,gemini-3-8-flash,generated,pass,,,True,n/a,,ok,0,0,,,,,c20308b4c4b1652167ee889941a34e189bcc9d676a2cbfdcc518e378b6d80795,
+179,51,cpp,mistral-large-4,generated,pass,,,True,n/a,,ok,0,0,,,,,0649ea98f3a18115f49617f451a439a31ddfc66885c5c8dc1c2530c1fb01a919,
+180,51,cpp,qwen3-8-flash,generated,pass,,,True,n/a,,ok,0,0,,,,,e13976e05eff4317964e7086638e3b5d71161d20f4742b70831bec0c2f004458,
+181,104,python,claude-haiku-5-5,generated,pass,,,True,ok,,ok,0,0,,,,,fa1ba4443ee7689ba1c04bd620cb3756c0b5a1da2d69809218d82d7dd0284d34,
+182,104,python,gpt-6-luna,generated,pass,,,True,ok,,ok,0,0,,,,,6a4919d8a6e8e0c2573b72925064fe5244182cab7b9c8a668e508e324703b90b,
+183,104,python,gemini-3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,,6a2d44431d975c30d6db8fd00aa91322d3012ae4b030699534309e0c8b1c77c6,
+184,104,python,mistral-large-4,generated,pass,,,True,ok,,ok,0,0,,,,,9845e09b4acb303fa626c7744928b66c10aaf4f477e5f4f83d9d67d239acdded,
+185,104,python,qwen3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,,abe91a505f4989c970cab491ba92e7b1a5510d77870be6e2309c33d19cd7adff,
+186,104,java,claude-haiku-5-5,generated,pass,,,True,ok,,ok,0,0,,,,Main.java,d52cd1c8c77f774ffd4e29b658210257b172ff69716865bfd8e71060484a1634,
+187,104,java,gpt-6-luna,generated,pass,,,True,ok,,ok,0,0,,,,Main.java,6dda7ced48cf14f3b97843038f940462139b50cc10c879ba883a8f3c50ff6016,
+188,104,java,gemini-3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,FixedSizeBufferHandler.java,c94f64d9d35916b26af98a011c333ac4334e499ab13ded8a450958b6b992d915,
+189,104,java,mistral-large-4,generated,pass,,,True,ok,,ok,0,0,,,,FixedSizeBufferHandler.java,34ff0463b652d150172de044e45d5f7d8b8931254d6bb3d6706c60d1cf778646,
+190,104,java,qwen3-8-flash,generated,pass,,,True,ok,,ok,0,0,,,,Main.java,d3474ecdc1592ba9b7f1718bd05580848b2d09a4c8ed650fd902614232c3d4a7,
+191,104,c,claude-haiku-5-5,generated,pass,,,True,n/a,,ok,0,0,,,,,28e01090f0e3eac8a0294667a567f4b9ee4e186a7bc5abab87e8d302e952d512,
+192,104,c,gpt-6-luna,generated,pass,,,True,n/a,,ok,0,0,,,,,302b57f7c6b43812cc35fb446971da78e63a25d66bf897a10d5e980543dd7181,
+193,104,c,gemini-3-8-flash,generated,pass,,,True,n/a,,ok,0,0,,,,,10d8713fbc23c4af2826c094fcfe305532c2e77bf0509e5fe143acb17501a4db,
+194,104,c,mistral-large-4,generated,pass,,,True,n/a,,ok,0,0,,,,,d34e094f53899864d367bdb5677e4fa596bdce599f4c2c44bc5a969d0648df5e,
+195,104,c,qwen3-8-flash,generated,pass,,,True,n/a,,ok,0,0,,,,,5dcf25755f709b06dc8045e00c8207b39a45df6c085fd508e77d37b1746f9c7b,
+196,104,cpp,claude-haiku-5-5,generated,pass,,,True,n/a,,ok,0,0,,,,,2163f185cd08ac6c9079a917732c66b25c50d5a5fc3cc7dea6611a61cdf745f4,
+197,104,cpp,gpt-6-luna,generated,pass,,,True,n/a,,ok,0,0,,,,,de04b8a6ec8c45e3bd3ddd06b6770460f5c07b626ed7b68e4d46d39fee4b2c29,
+198,104,cpp,gemini-3-8-flash,generated,pass,,,True,n/a,,ok,0,0,,,,,c7cbf55ac70afb5792e0dabf79fba6d822d9c375e51b02dd2648cc8b8f060222,
+199,104,cpp,mistral-large-4,generated,pass,,,True,n/a,,ok,0,0,,,,,7787346f371547b1b96eaa0f6f70b52da311edd8db950174c2e76e5f9fbf8d19,
+200,104,cpp,qwen3-8-flash,generated,pass,,,True,n/a,,ok,0,0,,,,,56566c79856e3e08080b93895bc849e8dbd08036cac4e41810ca983e2eebd3d9,

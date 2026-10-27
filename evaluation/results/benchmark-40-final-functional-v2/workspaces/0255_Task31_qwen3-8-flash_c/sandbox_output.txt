@@ -1,0 +1,7 @@
+@@c604dc6bb135fb0f STEP 0 BEGIN@@
+
+@@c604dc6bb135fb0f STEP 0 END rc=0@@
+@@c604dc6bb135fb0f STEP 1 BEGIN@@
+All tests passed!
+
+@@c604dc6bb135fb0f STEP 1 END rc=0@@

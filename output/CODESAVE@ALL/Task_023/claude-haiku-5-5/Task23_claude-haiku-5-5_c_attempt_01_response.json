@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793016530-VWDp2y8UkYTgllotMpbE",
+  "finish_reason": "stop",
+  "input_tokens": 472,
+  "output_tokens": 154,
+  "cost_usd": 0.0001242,
+  "raw_response": {
+    "id": "gen-1793016530-VWDp2y8UkYTgllotMpbE",
+    "object": "chat.completion",
+    "created": 1793016530,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n\nlong long findNb(long long m) {\n    long long n = 0;\n    long long sum = 0;\n    while (sum < m) {\n        n++;\n        sum += n * n * n;\n    }\n    if (sum == m) {\n        return n;\n    }\n    return -1;\n}\n\nint main(void) {\n    printf(\"%lld\\n\", findNb(1071225));\n    printf(\"%lld\\n\", findNb(91716553919377LL));\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 472,
+      "completion_tokens": 154,
+      "total_tokens": 626,
+      "cost": 0.0001242,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001242,
+        "upstream_inference_prompt_cost": 4.72e-05,
+        "upstream_inference_completions_cost": 7.7e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

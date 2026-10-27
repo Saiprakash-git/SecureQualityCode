@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793017926-IPwfFvpdpKsNnSdtJVxJ",
+  "finish_reason": "stop",
+  "input_tokens": 147,
+  "output_tokens": 1511,
+  "cost_usd": 0.0007702,
+  "raw_response": {
+    "id": "gen-1793017926-IPwfFvpdpKsNnSdtJVxJ",
+    "object": "chat.completion",
+    "created": 1793017926,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n#include <vector>\n#include <algorithm>\n#include <cctype>\n\nstruct PasswordResult {\n    bool valid;\n    std::vector<std::string> errors;\n};\n\nstd::string toLower(const std::string& s) {\n    std::string out = s;\n    std::transform(out.begin(), out.end(), out.begin(),\n                   [](unsigned char c) { return static_cast<char>(std::tolower(c)); });\n    return out;\n}\n\nbool hasRepeatedRun(const std::string& pwd, size_t maxRun) {\n    size_t run = 1;\n    for (size_t i = 1; i < pwd.size(); ++i) {\n        if (pwd[i] == pwd[i - 1]) {\n            ++run;\n            if (run > maxRun) return true;\n        } else {\n            run = 1;\n        }\n    }\n    return false;\n}\n\nPasswordResult validateAdminPassword(const std::string& password,\n                                     const std::string& username) {\n    PasswordResult result{true, {}};\n    const size_t minLength = 12;\n    const size_t maxLength = 128;\n\n    if (password.size() < minLength) {\n        result.errors.push_back(\"Password must be at least \" + std::to_string(minLength) + \" characters long.\");\n    }\n    if (password.size() > maxLength) {\n        result.errors.push_back(\"Password must not exceed \" + std::to_string(maxLength) + \" characters.\");\n    }\n\n    bool hasUpper = false, hasLower = false, hasDigit = false, hasSpecial = false, hasSpace = false;\n    for (unsigned char c : password) {\n        if (std::isupper(c)) hasUpper = true;\n        else if (std::islower(c)) hasLower = true;\n        else if (std::isdigit(c)) hasDigit = true;\n        else if (std::isspace(c)) hasSpace = true;\n        else if (std::isprint(c)) hasSpecial = true;\n        else {\n            hasSpecial = true;\n        }\n    }\n\n    if (!hasUpper) result.errors.push_back(\"Password must contain at least one uppercase letter.\");\n    if (!hasLower) result.errors.push_back(\"Password must contain at least one lowercase letter.\");\n    if (!hasDigit) result.errors.push_back(\"Password must contain at least one digit.\");\n    if (!hasSpecial) result.errors.push_back(\"Password must contain at least one special character.\");\n    if (hasSpace) result.errors.push_back(\"Password must not contain whitespace.\");\n\n    if (hasRepeatedRun(password, 2)) {\n        result.errors.push_back(\"Password must not contain three or more identical characters in a row.\");\n    }\n\n    std::string lowerPwd = toLower(password);\n    std::string lowerUser = toLower(username);\n\n    if (!lowerUser.empty() && lowerPwd.find(lowerUser) != std::string::npos) {\n        result.errors.push_back(\"Password must not contain the username.\");\n    }\n    if (lowerPwd.find(\"admin\") != std::string::npos) {\n        result.errors.push_back(\"Password must not contain the word \\\"admin\\\".\");\n    }\n    if (lowerPwd.find(\"password\") != std::string::npos) {\n        result.errors.push_back(\"Password must not contain the word \\\"password\\\".\");\n    }\n\n    result.valid = result.errors.empty();\n    return result;\n}\n\nint main() {\n    std::string username;\n    std::string password;\n\n    std::cout << \"Enter admin username: \";\n    std::getline(std::cin, username);\n\n    std::cout << \"Enter admin password: \";\n    std::getline(std::cin, password);\n\n    PasswordResult result = validateAdminPassword(password, username);\n\n    if (result.valid) {\n        std::cout << \"Password is VALID for admin user.\\n\";\n        return 0;\n    }\n\n    std::cout << \"Password is INVALID for admin user:\\n\";\n    for (const auto& err : result.errors) {\n        std::cout << \" - \" << err << \"\\n\";\n    }\n    return 1;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "CAQSwwkKEAgTGAI4AUIIdGhpbmtpbmcSDBiK7fHQu/GpNwQyXBoMkY1wSry8UN8tE0LOIjBil2H0NhsNnTaRBpD3/Zsfds86YTjSKQTftKJFRlvn6ZzC7q+hJkLtSdU9vM1oZuwq4AgCQGByW9F0wQa8vuQtT8rttNZPYkZCZPBEEVsEONI4O5cN0pBNbRQdliSPHAL1LEcTlR4BQMfA5IjTuaOQDkMr4gt0NOjyZE5JzdSYl9C5X+0B6UTvoJ8iKvt5rfHdxs/XMKtCR63tfRTK+k9xmJKe3jJjFwzS1kZOKjYmD74oZzj9LQKjJC6w7hqEpVkmuEDt65YzUWY/zPVMPrVR+Ztc2Rn35Xnrc+wzk1FSh3WfBhulTd6JQcuR0Km3XFjzMKw8TeW9t2xkLRRwmuca92CwCbuYf+46xCVniYPJekWbxUlw/On/OmpijUM5oIrdSgZVhfOjlUvhWfaabpU7ApwWkXiv59SB8ooUPliV6bny706/SdmKAasC0+qCuCe7MfwidteeBX2i+z+9AeBmjwiIrdLwpIp12S35Rb6BDTnl6dGdtZP54v5wvcQZzkdGWoEv1ZQboWQLc9czdC9H+6QdfYdfy5B3Hz4obTRLaU4AV7Ah6Vs+PXGXSFaRkSmmoJo2gR56IfIIt128GQM02bLffAuS2TDrqwQkwcpgK4n0lmKkPeWnXMNhJbRAYhm/Zhu8Fs+8FVZ50m88PPwUm6UgnPAGf26jU/XngVPuJ/rRH7yXJWYpF1PA0tqtPd2bH+5SfFe6lXD8r6Mpf8ENBXJFSXVIOYLiUtlrfPT/fIVPFpd9OG994ecNvsFa4w81dIMvVIO0TP1Yxb1FRGCC2U8XvIEJVfMZR35kMxXWKnwCYcHnc5g8+riq6DwLLz7VRP8xCZvq1wUqxg7XzPNNcJWraGkNwA8kk0JyrrzayjBFfr/MWWHRSGPsxRTQ+O/ejczf+0L+ObY0R9KfchI8LO9HUYMF+g56W5KsaB/IY7WTLtjG1A4uLF+tdVtt7uJnJ0/3TSGIEOBgv1VCFNlEyLaG+MFf7saBRRTT8lhn1yCdfTEjDyc69P9ODUKNDxjn1Wclh1swLYDRk+RRE8EmuPHZYVcBiaTO5VUXV1nXfq11BqaBBIeYNQJN1kYrp9egC47p72i+ibS0Scd2clB9F77iBc+bWwKEMB9Q7zFSXhfsevtWxrT1TzKFpcvTTu3F8MdylJ+cR67wz514wWNRz/R/nY64eY++X7SK9XlpLUkNQ/IrFai6aOjyzzCDoOMs6N5b/cMQikDVKEABppxfG+LNPtewv6cLkhSytaTmIH/E5tE/3HoM6iGr4KPo65VS1NJJMahlabpvJ3Q3OVr5zX/mgf/CbsdWGtDfyS5qiMJ9HTDqGNA7oIXrS8LfcMJaCLhorChjjizHTTJMh29ABIyteMAUFh4O58+etd/PfC1oLt3crj8bDLaJwRiqDIurct0OZmru6B96nBTRws+7H08S7YiawHu1SBWRP9DQi2wjtKLojvENLUrRcxT63isLRAzr+5VDnc9P+3exRj8IIxNUoSs5z+PrPQcaZoHCm/KN//fD/JYbq6SqtVzdiPmQ3SYp/hAWJ+oLMLgmr6qd4AHdGAE=.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 147,
+      "completion_tokens": 1511,
+      "total_tokens": 1658,
+      "cost": 0.0007702,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007702,
+        "upstream_inference_prompt_cost": 1.47e-05,
+        "upstream_inference_completions_cost": 0.0007555
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 186,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

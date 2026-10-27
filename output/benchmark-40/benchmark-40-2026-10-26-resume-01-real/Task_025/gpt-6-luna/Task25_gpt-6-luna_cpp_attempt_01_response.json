@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793016609-MN9vsaFS724Jk6vYHfWc",
+  "finish_reason": "stop",
+  "input_tokens": 186,
+  "output_tokens": 195,
+  "cost_usd": 0.0001161,
+  "raw_response": {
+    "id": "gen-1793016609-MN9vsaFS724Jk6vYHfWc",
+    "object": "chat.completion",
+    "created": 1793016609,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <string>\n#include <vector>\n\nstd::vector<std::string> number(const std::vector<std::string>& lines) {\n    std::vector<std::string> result;\n    result.reserve(lines.size());\n\n    for (std::size_t i = 0; i < lines.size(); ++i) {\n        result.push_back(std::to_string(i + 1) + \": \" + lines[i]);\n    }\n\n    return result;\n}",
+          "refusal": null,
+          "reasoning": "**Creating line numbering function**\n\nI need to produce C++ source code for a function that numbers lines in a given vector of strings. It looks like the function should be defined as `number(const vector<string>& lines)` and return a `vector<string>`. To implement this, I'll include the necessary headers like `<vector>` and `<string>`, and use the `std` namespace. I'm considering how the numbering should be formatted. Let's get started on that code!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Creating line numbering function**\n\nI need to produce C++ source code for a function that numbers lines in a given vector of strings. It looks like the function should be defined as `number(const vector<string>& lines)` and return a `vector<string>`. To implement this, I'll include the necessary headers like `<vector>` and `<string>`, and use the `std` namespace. I'm considering how the numbering should be formatted. Let's get started on that code!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30MkLXc9Y_XMLlD1QW9KS5jJKcO240cxyitB3XRm6YS6UzkmuLZhToZLSimAlrEYaoLaOweIXVB5jvboTLgId8dMO9N1VbVk96zF0L4n0MTGR3cONXMspSjPn0GSqTXTZ5UqrpJjOopmQFnTyOPLP_wESik1_GB5KYzA8OqapvVsoYzTQWCGPSZRAyi5pdrF1rWUWvvYL8Ha5EYdf4qBXckn95zN8THe_sRxoQSNCJR6Mm2nezyawhbPB0lzMrBKiEwlUThr51ELbJLotix73CMo2MVmv-ythhbQ05qCcIJ0gO5wQKgNhDOo6YDz0RJ58wan1BW6-2gKuY3SUz3iIE9RT75tV2plre1ZK1DBB8Qj6J0NdhzbHu_eBMR5SvD_KsRMtpTb9V7JNA5lKGalLwq5-AwwYMaiseWwyn-MsXDbDiFP6nWh6Pkfb5-3VyfVLwJO7cpMuiuscyHtzq355ll9Os0Z44BVuwu1V3qXq86muq1c8WNE73wNreiEjG_lvUj60q-fdfXIRSoaW2mO-Fzoqf2Q5Y6bpAAMJkOSW9zsK1PQu8JVgDqJxJImjxsST6Npm3okDjaDlc3HN4q9AwiNR3yrp8U83KBBLnbQ2Ib85noU3bOtr8-q2bwLpbtAaXUh8DZjNNDJ6SgLb_B2YY2dnvSjZTZSm_JSwaM1wl4sx4OopwBZK9XHAcZPMFRvb-lvvXMR6U03NIVrVPoLLdaPud8xsMqY_MBrnIpYChH4WYvlCgBSG-4xq9imCG1H1zCtioIhqvVUKYDmDH6oGobgYWT1Cj7uJ5ybcr8DpA2sIsAg62J9AIJWN45wmU6wMypnuyzbRT0qMd_R_MDh9R2NigNtKokelptOKHtsf-6OIwkBYwDJZIsxlgiiJMNEZZaN8n5V5glxnilJ4ozQNfQkzYk9BEuWy_HF3kPjAKzqXXLzZrrNZSDPg2U292z-ch6mICjXI1q0M0Usuw8QV8qL9chGpmY0tu11TzrIM7acNXoBo72YpRk3mdZflR-OQDFB5etUfEtH1h6jpRSEjfRpCE1tTOlojIMGn27tCM-KUWYadfNQ45_vX5ZM2zrnXe6kTMUae9GJGnXSbCVFBcJGz8_k0pr9DskZyNMhnF-7I7ChSYY-ilCodaYMbdr9A5kg-X5bDBkXfWYbnnw2OG3FIQcW080yGQSI39bnl8p0_D2K3ZWhQ6A8_eF48O9KAMdGTAvxT8Kju_Eqf5ZvXhYZx9iV88jYf5FdVT8-LGfIo4zoGX5yGAdp2ZdjmOoc6r2LIL0hRzuxf7U4WdUJhX5IQwq1o5GkniPDKAmsWqSDoVDqZy8rI5yS97SVB4_d3JAoDvm2_9_ln9ev9Bee4LOlcD8zK13yQz9RQDGlEKFR3zir6IT3yWhCOcjq4r4VoDy4G30VENaru6skuMQeWRFUxDCsDNlVCuQMwmuIEE7Lvw_1yL9ZwDn-7mBs8okODLXAA0plzuJOsbqm7VNTdiZfT3vWXf13bzxacazIQboenIDHC_ZSXKr21UVn-IIJJq1CEoWXUMMl4JEihUinFAjtLcxYdKuosAqeUUvH2DaZ-yHuRSy_UeR-rJ4JLnSC-cZEQEMvHQlQ5Y1rArOZhj4f3n8JG4gdSf9pHUCJHkQaPlZyhyWQBpcUUYziJQ8HGPb1jMvh6KaSeXdGUTxNLEGmwQ2rium0ONtEvT7NcPZmec7Obns8LOk-9yWgTap8HqaOgZPZ1vszIFJJp9XG0ToWwPzzJoll85pNzgdyTPYar8Zlo6crSj-EKyOF73QthnPmrWLAk51tdLAk_pUO1yd-GluBXlbaGSc_bUUWYRmvmSxoh9ClrCBLt4UTwQiS1mYp3ZCYXOsiURqob65z3g68kquSsZ1rvOHvfYDayuuLF8mGza-9FmNlXPwazH2KE5cpocxBPn-AGlQjSZxIP9r2W6vakyqN-2UQ_wiL-5179DY7u0l8H_QP4nfOOHCRIsKB_gkBY8nlhXrzmd3XyKoN7clU9nQBnOxSzUz2gpaIfqUz8ScJHnvuLAeNNLwKUCUL9d9dNzxG4AVlm0paZ1Ga71dezA2i9ClRthXl864J96YdzvQy0ySIzDb5qNFxLYFZS0JhDpebr-dMV6AzDY3JR4AeXG2pebJVWM4gE-U1eu4L5rgQyOp8uTfl87ccuOADCjsxrsLabRGoLnZURY6kNS-LOGHyfM2gfiHu3gIgf9QLsB_SyOk9cLl2fdncfns4Gj14Gehi5H54Hj4R00SYH2qxAyTFXNnD2QUKRPl8D_wmCn6seqHeiBR9KQtrbCm9wXhKzVaZ8ysOEJNXF6UeFuW4pqk1-2Lga97oifIH3qyuw13qNVNYsPc1Ito6t-wi9eoURLOvfJrbGHcDDExUbL8OobeMz3xalR_pJn1WfzMdGkVYtnGtCc8cNOzMahjWTYlUFBSh-C9L6wE2KGsdYGg_Vae9Xe5AjybLk4pHYbMhQq_nNnGTpQCTi5kH3tE-_QEWQbOPAJnHELFH6cDBQLctpQA9l53PKoPniykIvz7Fo8oz6NroH7-o4FJduUXlZVkp0c4Kl5agbAgF4wICwJLm18jPYQi5BeYEkE-3z8z8xJ_zkn93bQMcoMBG_TupYdbR-bjG7pyUCUs_W1ZvBxYh1gIgT6_H8OMti_aEU7-yvJ2130o24_1OjdQ9YzE6IBWqn-lQxpu_w2E41rHFZnxgoSDRwYR6xrZnm2fh5CEatZh2Oy-nHvOJRzoZU8LKBxVWvEOmembhXBfGpofAt3NQpbZ5P7KZgHL-8wNOL45_1FOHu4zHlME29dGxehHAHX8URBCaBddoz5M7rEWQV7vrvTPFMFsVgzIAJQUQA-IRKhwDuE5XowsF6TSSTeks.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_02b41fbce295b73c016adf432276e887d1bca69c80d02484da",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 186,
+      "completion_tokens": 195,
+      "total_tokens": 381,
+      "cost": 0.0001161,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001161,
+        "upstream_inference_prompt_cost": 1.86e-05,
+        "upstream_inference_completions_cost": 9.75e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 98,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

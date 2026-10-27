@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "Task28_OPENAI_gpt_4o.likes",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 227,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_028/gpt-6-luna/Task28_gpt-6-luna_java.java",
+ "artifact_sha256": "640c9a2c1ecf0a2d5a3bda104e1b39a142b0a71ecf4544cfff7fee562486fcf7",
+ "oracle_test_path": "src/test/java/gtp4o/task28/Task28Test.java",
+ "oracle_test_sha256": "745f1150682a1c6d2af77293a114fb821a13a595b74872b36e386e506b517c6c",
+ "author": "functional.py draft_adapter (static)"
+}

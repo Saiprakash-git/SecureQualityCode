@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793025219-VNHKQXWS3BW5K4lM8xCm",
+  "finish_reason": "stop",
+  "input_tokens": 109,
+  "output_tokens": 164,
+  "cost_usd": 9.29e-05,
+  "raw_response": {
+    "id": "gen-1793025219-VNHKQXWS3BW5K4lM8xCm",
+    "object": "chat.completion",
+    "created": 1793025219,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "def sort_array(numbers):\n    return sorted(numbers)",
+          "refusal": null,
+          "reasoning": "**Developing Python code**\n\nI need to produce a Python program that takes an array as input and sorts it in ascending order. A typical function for this is `sort_array(nums): return sorted(nums)`. I should ensure the function accepts parameters and returns output without any extraneous details. The user might expect a complete source, so it could help to read input from stdin and consider defining a main function for clarity. I\u2019ll keep it simple with type annotations if needed and focus on creating a self-contained solution.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Developing Python code**\n\nI need to produce a Python program that takes an array as input and sorts it in ascending order. A typical function for this is `sort_array(nums): return sorted(nums)`. I should ensure the function accepts parameters and returns output without any extraneous details. The user might expect a complete source, so it could help to read input from stdin and consider defining a main function for clarity. I\u2019ll keep it simple with type annotations if needed and focus on creating a self-contained solution.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq32TGFVYz7BhSMrhqErEZaq1oB6TScWv9-xsBeorW_o79Z404kp-3XsU3XkL6Za72FA7KJPJQoE-l4BBLmypnbrpEJfMAasMdpB8aqrHD1qr71evwvX6Wy2_DTmXOd6yBca3NmZrPZQKNgXDBBvCOiqHfGwmopqUllZigMUvzp-BSPDHypxVEG0KmII_XKgcjEtj02-xf8Kxc9FWN6AIcWidH_samm0hlfhtZAjZ-CQacppyZeeI-mcF1HtKzEs4yNcMuVeXWEyr35zxDL_ACwQOytVh-46GvAd7GYrnpFz_MpSj3dDkI7YHBBmdrmajitzszK9CnDrUgV1tVo8j9tXT1rS4NXG6PJrMsnM21lfVQmgziToXoC72rB2lSTWDeNwbEpbela0Foyf_vRTNdcfsq3Ft7HxUzHjYja9GVlvslCCakighp7AFwZ9Tnz7sjcL1cCv_UVI_WnoLUcvlz1jCs0XoPgOHt2hONAInSUSrcTSwqyNB98vJx71NY65ymCiuu3Np8xUaXFetf7vJx9xp5RGKtaI-S9YIaM4TYekvFHrNu0BotxRXsMqE0d7BqCpnm1KZLlLDrhx50Q0m6wVC8Ajw0XTIo13t3DygklbSln-39DP2D2-Hac4jR269KbgDKDbthv8__s0nmL-rWNuNT5W4NKWhN0rUaYlTSuj69tuInpzriKL_Ptz9o8v8aNuykT3qLLbsKwo77UjAZCCbIYsIfhL1qv1zArXxwaMkBNtedK2KzYT7hUQ0swx3uVt_PYmndK9P4hsnc0JXyvmSHb0jw_7zsS4rDqSiF1VGpb5LgK5K50kp5eure4tXpLH8UOa8rhiSWE5UrBcFL8YTzHFYdZSk_KwDN0zqz5CYBploxKHqfG4d7qBPbLhiyq76FPJIMX0RhKqPUTq9X4E8rXbEuiAdUFSohflZpb9I6KbPOfCRpIReg5iWHPS6Ves_BL5xyElGFz7kdcGOY45KWttFbyfcaLejl8xcvs_Hcv2MEpVCa79AUK2EBO-05DMvSxUvg7DflFqafdIdB885o-fpcDhAOyOLgAhq1fvl4SWOPqTCN0wwoNhrnbktFXKrUc0ZD36rFQKMi7ngFWtWtYeSu-QXkqKIVcdwSwA0rqQeJGX0JIhRfEFTF-e1ojGBPVlfm_A0JVN4IsHFtaiFedrIo2fzgkB463vi288zvZGbSHABSZnz56B-06FzoAv4FqrfFRsKCZWX-IIy53itJIYzpDfXQ8sft_xljOP8CjSvHu-g2lulNqHlK8p5cSQ5tocgDZOP6RMLMXs3vibnwzsc4y3ntLyL670_gMvp7PJZ2WVUJLpv_0F0i3yDC50weAkmlqR2gWBIQMW_qP9NZhExwZ2YDp7ovzDlfQv98tVjRk_Er2pC1kzlKbfmfkNbzKJE7QGo4I7w5vN2fMnx1F4f7b7PL-d5CEcVrIthi6aQiDxpuOgO3Tq_lp3WsdmlFPekbvljOWjvBv5ApJ1TwLTW-ihvtf0lx9LuwReXCm_uGIqBJEa0nQh9ajS0wVAXcGbWbP4EIEbxSwfEmmj57RetrjYkjidZ_8kk7dm1CUOs327SWuZbIAH3A9NlYnEFL2O6ThHdU5jHZQTz65S4i_UtYcd9nGBh1t8v_okUsh7DvyKL_YYp89D_eHqYP9cRdOfaqfoNyW6j4bPsV7yOZkuaKpbbL15p6LnQNc9u6o0m1WYN-_6bEXVEjzpAaxLR6TqfIf_1W3GNPuALzVYx57ydMUaJ58R5h4wwxsfhxiKYuN6JCtEy5xKlCxyD75nStiQeqiUABGYf544Q1pGEUK3J6DXruK7528_hvAhmcdCfEMOq-wLXr4YzCuKbmY2NhYX7zPUZ0a3lb__oES8ttbxjZIRzvbaIk9sC6EW2IYOagOOxNXeG08SSr6BTR8y13rnCpUa0Xpb6q9FAcYRyWdK7kiCT_L1FeRTp1CqNdccxOCoSSCIkJlx2LilaByto4J9eNBUma-TTnZpMSyY7XDtkZEFadrFNkk48T9hGNIj6Ard6ktng_xUOktdia3y8p7ynkTK7-CjDsJ1Pjz4DH-62wsrcfsSVQpcGmBXd2OOr05Th0c8N8lNxNKqQ_eVvxf3I72qRj7U7WRc8uCV-ZVlyup3THvK_8IPkCScti-d6Udb_YfHJzUtrBdYdVup6q2j-C13SyZ47d0b20uXDMwJMVg6w3qRQHfuMvypidgJWMnwRemU5A7EKOtZ5uB8UGmgLFCtdK5PxDWtbwWXYWmw7hBIWWB5ADDK8UkoXVyzJWEFwgLu9nxQb12KKHPUxoidi7s1mcOYUiSkwdj1a-ucvIesHwuPMuFyMrgMPxQclZm7NuuHfx3sW55Q5kNU5inigHHupGxPriQpAM_ofiPvvGWpX0bQH_Untvp-PTldwC-iXQKMva5vIklsOZAN2Fifb7_b7bNLI7O3PCeBmb8lVpZbxvc-Y6iACVwofF_tqZ-7SQxzX7_3N_8xft_9BDXutpEr8MSPpLQb8itC22Xj8YggCXzvhFskExa5Pe3muqjp5wmgeP9paD3pQVT_GYntUwY1FQtwTlBjJpgLYzl92pjsI1Or1GFvwKfAunriTOIYhsQs4TPFPGy7_6ki2DQRxzaqovbByE-JD588IYZS0ZAY63PwuxE6IjYazJu55VH6SE1SSGnKqomAEIl86OW8IR7B9yM-RGSfYBQjDZa4vqpaMadb916u5uiOWR8IAtbzTITkPU3U9UlX3BCZ0ecXFEsALayr-Qhkcbnr3mglaJFxLJ8zwJFFi3cObh4FIRbgznC1PqzgkK3yVigM0rduEYGeoB-cmhp8bx8F9JnmyiZO9pRNayFQmtNwG4PeQjWMr2Zcc8Tp9edSVYsmRsd8w2NqjFfA2uO0d3bnJN6EA3FCGdBN_e8akCekIL93PG4Pn4fXYFN1Pj5QxLJ38-6XTvEKVCAvMViJmiYXR2B3HIE3zyJsphBMMUsdi-n-ub4UzWSnoBW3ocU-n-n1lf8sAxxnSQn-IBkj1hrrBvT0ZTkPZMlHqUYZXj0FhMWjKUtxxIIOvD-HDbGV-PhMAANEciO5QkzIFBH51YH8EoAyqSj6qPGxUrwegJF6EoaUNIfRwZ-pJbXi-LWWXOpDMjszOfwxHRhLleVfUipsz7f1tJCbjNxU2IOJw7UhGusqZ_Ld6JYIApzj6hDisJBRtbTJWKrzNMdmtQoKEL23yTIBq7occVn176b8TMoVxgYpiVzukJs7WgG91PJ0pp8G4xn6160yexO3UwRH7ar2XwKxrW_3L8YrAV1leMwjNEat5UI30M2rCUkGY3dKLfUGshIXiFk1o1C7He3XDvcttd9Zni6l35qwOCTacKM54rFkSI4ptt5yfcdwmPkecTGTz6mSlocgTl50t1Sr68IdI8kynMiObTDcsyqaAuTXAuavTJWIhb7RZdOt5w-FIKPOracH8F4u5MgarV9sXwSozfst5Zv-uVtV4V2gAuLiZeISlybPBWYYZN3FNTdl2P3McUNHCTaumT56JbjXzn98wytQJ8_Swar2K5ojZBtEuehzPXoTLEncAmohAbt9Quv1Ap75OR_jp_jA-0kPvSdbn7jpFXRqMbLak2U4ytCf_Xru0=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_04f921a8bdbfbc74016adf64c40c7087d1a5ae59bfae2f8537",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 109,
+      "completion_tokens": 164,
+      "total_tokens": 273,
+      "cost": 9.29e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 9.29e-05,
+        "upstream_inference_prompt_cost": 1.09e-05,
+        "upstream_inference_completions_cost": 8.2e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 148,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

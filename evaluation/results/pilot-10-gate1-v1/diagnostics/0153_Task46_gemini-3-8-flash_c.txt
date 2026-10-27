@@ -1,0 +1,4 @@
+Task46_gemini-3-8-flash_c.c:6:10: fatal error: 'sqlite3.h' file not found
+    6 | #include <sqlite3.h>
+      |          ^~~~~~~~~~~
+1 error generated.

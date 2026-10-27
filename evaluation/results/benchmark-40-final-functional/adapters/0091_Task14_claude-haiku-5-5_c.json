@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "findEvenIndex",
+   "target": "find_equilibrium",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "bound by reviewer to find_equilibrium: the artifact's single implementation of this task with a call-compatible signature",
+ "combo_index": 91,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_014/claude-haiku-5-5/Task14_claude-haiku-5-5_c.c",
+ "artifact_sha256": "e8c8f7673b1b44e460f9bb4143c95d24f02154f06ca8465e19a81a666bd078a6",
+ "oracle_test_path": "tests/claude/Task14_Test.c",
+ "oracle_test_sha256": "155b1c51302963f28dea7f748e566aa2b502ce7ed9c9faa1820d6ae62ab3630e",
+ "author": "functional.py draft_adapter (static)"
+}

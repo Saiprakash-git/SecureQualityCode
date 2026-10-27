@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "Task15_CLAUDE_claude_3_5_sonnet_20240620.towerBuilder",
+   "target": "Main.buildTower",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "bound by reviewer to Main.buildTower: the artifact's single implementation of this task with a call-compatible signature",
+ "combo_index": 106,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_015/claude-haiku-5-5/Task15_claude-haiku-5-5_java.java",
+ "artifact_sha256": "0ee4a43af6a95494db3775418227bfac6a45e5647827345b7fe78add8d2f3cd2",
+ "oracle_test_path": "src/test/java/claude/task15/Task15_TestCase.java",
+ "oracle_test_sha256": "f529ae1be44753f30a5c6e0a580c0af714bd84064bb724d388c29a2debed42dd",
+ "author": "functional.py draft_adapter (static)"
+}

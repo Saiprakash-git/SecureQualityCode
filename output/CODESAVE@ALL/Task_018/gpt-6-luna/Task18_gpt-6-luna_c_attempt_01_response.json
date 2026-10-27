@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793010382-pqML1Xm8enJkvzuotZiw",
+  "finish_reason": "stop",
+  "input_tokens": 299,
+  "output_tokens": 380,
+  "cost_usd": 0.0002199,
+  "raw_response": {
+    "id": "gen-1793010382-pqML1Xm8enJkvzuotZiw",
+    "object": "chat.completion",
+    "created": 1793010382,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stddef.h>\n\nint binary_array_to_number(const unsigned char *arr, size_t len)\n{\n    int value = 0;\n\n    for (size_t i = 0; i < len; ++i) {\n        value = value * 2 + arr[i];\n    }\n\n    return value;\n}",
+          "refusal": null,
+          "reasoning": "**Developing binary accumulator**\n\nI'm implementing an accumulator function with the formula `result = result * 2 + arr[i]`. I want to ensure it's robust, although handling null inputs isn't strictly necessary. The standard signature that I think will pass is `int binary_array_to_number(const unsigned char *arr, size_t len)`. I need to validate the inputs and make sure the code works properly. So, I'll focus on getting this function to return the correct output based on the binary array.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Developing binary accumulator**\n\nI'm implementing an accumulator function with the formula `result = result * 2 + arr[i]`. I want to ensure it's robust, although handling null inputs isn't strictly necessary. The standard signature that I think will pass is `int binary_array_to_number(const unsigned char *arr, size_t len)`. I need to validate the inputs and make sure the code works properly. So, I'll focus on getting this function to return the correct output based on the binary array.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3yrTZp8cR-GyHRku2g0IPdS2IlvMxIhAqc4YEOdmgM1vgJ3XegaooA2rHUJc7JSSfhBLFl9vRa2m-dbuUeioN-IWOt8_Rm1_U7JWaFoh5RJjyq5xrIjH5Qt6Y699QvfL5sjrJp3JU4vzokVurD2U-gVmVDcDVtJLfgS-mgOZMeZsqZuWqiSXu7BzqxdzQImo1gqaIS3WT8R4I5LUIGj7SXoQAP1vm8cnISU-UIEAlnDVQoqy0dpdGUQJD9NFhjNLJfyuSPzY4bqowSqa3Z0pj1BMFo32P4tyUWQGtGTUSjpj3naVCt3v_lMQ1dtzT9TsJoVd-4uONSajMCnetyrpIlXvnV2O8BD0XmFS9qr_502gp0XrOyvMKOnB8bCtyBFxXZsqUS_ciWmwJ1Ywm8AlgkH40X-u7Z-o1iG2y9BiGkxPDFHh_WLT-LeSJtJT7JaYIb6y9YFPEjwT5Z2O-kmQQhR0zaH8PKOM3GUkr5XK90SSfEqDLtJNAEacUG-xvSgfSwDxpTdn5t42pRBFTT6H2KLcIPjyjyDDf3nFD6LCO9tuz_1tUXnufeTI0MlMwlrpA79r2u58VCTZ_Kko2bMT1RfdLZFcSrScRllF3UwcMJEm5kbYtNHPCpacJ58HeU1-mSghVibR0Cw1ZERM2Kzw4E_iR6CJYqGEKMvFP7-qYaoXQBrI1MEdbtqTP4oXC0hcWBfaILJkaSL8Arem1mtU21Q1zROkVFpy2LKpp0AjB2WTT1Qr4uH_jsl01FsYXKeI_cOwwaypctUUorcK2TCwxxZipBsxh_Fs1OogbU6TEyAyYAWWUnDmvOzlYcPTQMQwbtvdKxpxlFugrQL1_gol7FMB7-VCVEt1DwYzo4yow2dPXtJnVmcT0DoBeLPv7pA6eSl8PEWk7QkAsGM2gl-6bSFXLD44NmQ8XliKnLwEsF9gfDZ8DuOAe7jtPUnxLW1_bF3WgIHC5wDWRJfgI-CkOwpkaYn0uaW3oe8HrfOf-wjUsKgeF3Nnum0Sa7EEnAuJZ28jxTJBT5j4CSf34PCGaQq2q4wBk5cq5p1v4juu-_mMosmGi61BqjOOmsBjFvRMp_NtRPcCeWg-ItgrjVBOEeblQXOFy0TbOOlkb9ZhTXKeANcjriE6O4LZoK8Mpfk7C7PsoBumdsFfLWohJk96mNUjrXbDqV6sMBASPoQ3UAUunO34ah6HO4eijuWs4Fhu7kJ_sIr8uZ2S__597EN-sNnRwz2R01HdC_oa2eEi00lTMohmiWQs-yrqTZtPGFxmQox7uTv9nqTUsEwTQo1yhqdUXX9V9L82wUI3hEfsWgLzkM-nhZ7JOMAg1raOM7pDMckLtS77coKs5UCyBM1S8z7OXryQsh4ql3vlqFdZKCxyEdWH5D1YSsd8Zh7JAhQCi0axb7h2Bi7NquuoCtUQhpPKvbDmWQrj1fEPplqRrkwHywd47GlREkjtZ108Ir7_2lhC87aemMxzD9hpf6egrNA0Gm8R83NWQPfHKD03c5oFSDxGJwLrxUKcg977qWb1aSu5quO5qErNYGMW7PDxad8WEvOf5aGQGJZPXNgcqck2b1sktIR8y9kP5jG1534SNvvVyTjmau8aQWWP4hg4qNi_Ho7Gk55OJLFFS3tqIwX0rl_7NeCQGpSyGMpL7AM16jS_RTLSpkEE90THeYFICpBD59cUhWkXw7ICyOiSAHY_0F4ni-QZuPDYP1ODUdMMZ0gZaWMjlnkGi0VDLyunpUr4AFGwe0j0hwuvV2RGmsIGK1QKUBVB_BOni1zyUMf_Pag5z5z_py-gDH9oy7GCPyfCN5cHe3rg6mo_Y6WrLtlxrqe9sg7_9Q55Bqpi7MksAzFSN7yxyYgZdKcYHl7fhGW3YDfIG0ZPuQpi9jkQGrfMn2RDhpHIoMoqcoLJff7DIlqB7wbWAqKiYwV15CnwNAbYcAIUcH6Cz6NKGm8Bb-uuAEtVEjrfOuyalM5dMjdyDm-J-nZ-IDs73AZEpFdcxgGEm8EjHZ2YuYKGqsyvdqZsdXfg4MlXsB7K1vR0el7UnsxsAPY64OLGSut6zGQlvgsg3nbiKNW-CyVlyKi61-crkeKeCQlwYo9_6gcr86dQsahuSV2IdKCZbRHCeXyukAkjPVWyAsXyM5NQsnO2OcP3f6YJZ895TN-2S_Cm_KqZUeRWavu4jCk6ua-hJw2QhOFi4Fl-P6NcF6_5R6LVmQ8jFmaENdAhzTphxdJYPr1KwgvF_agM7WzhekS8qCZwkRq5MdCGBJFzaGSdp51R0MSVyNxklOAx3QDytg109LZPrTseBwihDqIu2j-AABG0uiUWVrL6Nv5HD95hAN-226Gs-7Jj_fny8Jyh7S-QblFJ3vsYo_WyiuTzRlPG9F36rjxi2pnXOzLhBfKuK2qJ0jL6o2Hobbs_tVl8tP3yUibL86RvLItaFSx8uke2jInlcZ41Fljq7XhwV4QD3CFbq87JgQn1baNXIoNFdJX5Q45s5C8xoUzloDrAz3M1CgAKOyY-O7mQP0lUISkl_nOhrIEQ1Ha5QlOTLt_Y13VZfGKLGBTlmfb_xXnOcG3P5kXRkOWxy7EXPNyxnxZsdqQWVK9jiV-BB5wALFtP-GQj2d5AKTSAWhajvDATz3iEBVvhuBdPTSt75Mt_Hh4phsvMMnspRhj1W9oujhtECyAHKR91tklS0vkWW4Efz0RiKl-6j0Dz1CHHF_Kg964ePUpnhYTpI7_4bajSVsyMi9HyrqLTlpy0I_KBi_EfKTBtMXvLyQGKlosClqhTzmlygLzU5fYGtPOTe0l0Nuuq7-DBHASsCvtDeXD0WBkg-PMEJWueaSpwwRmnjWmfphAAnMoMWvGQRszUfAIIDmp7i9B87pf1mZBLUizO6ThZkvIUoHXFo-qMvcCMrbTeXHLMATzuPPJjNrdFoAkrkPmSYfVOmbZlxDClbB3TZYlI0xC7RE7Pc3XdMp7JYvYXsr5fkBfkHUZ6QLfQl0vI2SK2C9lqc_LdkgRmijcYa4BTULAWo5N2FyKefUNd5wfPu80YQbH_P3jbWyfBlpmd5ZJug27VhncD-ziio5RHBnjziT8H1d6VlC1AN7JzPu4Z8aT0cmHQqhCLtuvSZ48zUt6L2U1MQF8v38FFgzS77SqAo98Rgbmb1S0tbaL5AXpWuczVIgXFZ8uZEllZuQYNXDzEbcDvr_0TZlQsJEBVc-49RETKkWEUsRZuONs_I7uijQgyyH2erVrU5o2BEsKXFWTovH0YtzsIS_U53snsl9D94BlmJe7dU_5LnwIaTk3VIz081UA0l-cvdgDSsAzGwf-W9ghjzpIFyuIDVmxX3cX56Nb34MLSlRxZf1AGyYUKrdJezZeGbKMLirhIbdG7e0v5ZW1IjS0MdsN7nnGOiGqAlT0kgoLD_v0Vx5X5CSWBSBSTJX676h-Koynto8YqIuhuFi25F4H132gx-vOPJda9a3h9ffs_Wc67-UqmqQ5RHALrXAPUJWKo-Qp45pGToI9XssVO9Q2ln3PAU6Nu5yAOiQL3lplpAXsikUSB8BZXWr_DHtzNSnc56azY8jFAZhe1d7xBYzncqjqXNZ0eO4v5NuVhNXDf9SEGTFzfafFdNtHb6-K-dC50opDd7zfe6DlQC3oaBA0W5jWo_EtDJPOaSEjVmBIXIDn-MssLKIqjz-NHvLZ36_ok4PdaOqHTULslqrdJmRdxMjkwP7nzSl8qa81C5CA3f4-3QyWj57yLLg2EFLJ7T2GBsoIq4DFYVrMjYyuJ6UFb6ZSQqWzG_TsmzVrbhD5UWSDhI-0UeHk33tT86_dy1Nhc6ldDmi4nWAirKXsst6Ca9e7hLmK9D-hAqHLo2eYcjOVqVD_f-zWVTrePOYVaV7rclqTY73k37mhkzXbutS-rdHPnAOAO8CNh-XqlUUfQui5NTISjGrbMG1-ByFSjYOBfZHQ9U3L38yY2qSf0i4bGp4658__DPDVlCMAdmDwdIrjZel7vRb0PyThdMi7FG5YiW-QDb7Adhffc2gny5GfvdYOW-jAVggwRlKHjLFeAg2jtA1LBiI2gRfzh9eBo-6heUyAzz9nbi4G9DnXnwU5wuFQH2krVnC0gAaOdoR_Fyc2dtguyAWthsHMJnAitB4Tiea1OLH1vidY2a7CtUd84Jn-PvbLvHwNAZG8YEtREPH5L7wyx9tEeulfZzr6YtxxUfd9qvsPrNolfXDjLxWIGE7pqlB515LIq-vjQ604Gryp5g5F_9VliHhgt58R_--sb-c99niETRSRjukFwBE0xJjpK4htP1SIbYH0Z6eu69jfpAVq18CSxTtl00JUqO-2Sk5mb-L6RKkEzihMTYJl686zLQHWKPcUsIW5Qt_amO9ns72o9l-UiLSCr130_HDIR1TuG_6JyEnD-xxixZAcOCKaOhTLfIny6XT5vcfcr2OQ3hv5AIxEL-S5-2WFvEot4Wjw1kowV39ZouAq6VJCFK58nM1sQ2JTAcTwOSOtezSNZpwOgDOu8h8qHwtzV3un0OVjYRtx23xL-OteLNLQjCIGiE922dFzIML98KF5Gl0iXBhEII26y17SWx7S1GNVnKMTI-Kjip_spUdEBd_bLggxPoOUNhEUKncl7EgSoKfVlVK_X-k74iBa5sG9nKSkfv1CF-3Sj8OFxIyeiSCiYCTelkUuA66JrnlcWsTW-kn_HHsOOXNTMbK75VcS7RX9aC5p2iqRuTEUbez8TYPzBSTocOKtaXuUwAgmN2DkgOHnLCmc441Q32Gbv8jl8oK_fA_3OoKTEmP5un-ZK36wctXvRHlXnuw_1jbSAlH4LluG6Z2zgb6uB8UZId2vA1Ayouk3Cw_DkYlOSHRzW1xHh-svdANJl_FsXf2-0dPFUS3veA64rJfLKdGcy7_5Yp8bgViYB21Duez-sa0LWUpB-OxUgcWe0zHvox-HJtl8kAH9rGUD9cGD9ju9SR7cWzdmdJaM40-hM98a2bUY0KqJ12I2MsquHG_u64a_Z6UWJDRzaWMi75mzsp539sYWJhm8vmwseIfNjOo3wQlMgALd0W32RolDv49ooggpKXWnYcDJ52odQW2qfWLpYqeZlU1aZk3oW3T0gxi9Kgh9dNHxvyYviDxubg-7slFsGJjWHMCqvfOaXraguv-luZsAvnSXc-TZBNOxz8NCioLRWGOOI7pzyzhifkrhwRPUM83xsKBQg8UFLEC32oafPrqyL__wkE9fx1N5FdH28UqZnL2adCt-UJ7Xox10cBAt7LEyjXxnThekxHvAX6Oo2OZ7b3g8oD3IPAiKzygAv6JO-ii3QFGlxhmsl3-WLgADTR4wCfEFBc5tnG6ndsVKMWJkE-Pdrensu0-Tsl4uZyvvL-RAOg2kCeQfcVIH1k3sO0z6MAYWFcE8_TAu_Ej0WMLPBkzVGy4sY9f1tCgwDivUFbpq10HczqLOIzPj5yNI6wHSyDgaTn16zWj47iot1Cld1cct5XPc3-bxuHJ66KiZzuyvy3rLvCKvRqpY6fG6CdsA_CMmPzQ==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0ed8e0a128d092e6016adf2acf546c87d192ed86a512064715",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 299,
+      "completion_tokens": 380,
+      "total_tokens": 679,
+      "cost": 0.0002199,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002199,
+        "upstream_inference_prompt_cost": 2.99e-05,
+        "upstream_inference_completions_cost": 0.00019
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 310,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

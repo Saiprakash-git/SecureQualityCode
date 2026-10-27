@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793008666-IwKCYFgFoJGwQiv2NXYK",
+  "finish_reason": "stop",
+  "input_tokens": 200,
+  "output_tokens": 418,
+  "cost_usd": 0.000229,
+  "raw_response": {
+    "id": "gen-1793008666-IwKCYFgFoJGwQiv2NXYK",
+    "object": "chat.completion",
+    "created": 1793008666,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdlib.h>\n#include <string.h>\n\nchar *high(const char *str)\n{\n    const char *best_start = str;\n    size_t best_length = 0;\n    int best_score = -1;\n\n    while (*str) {\n        while (*str == ' ')\n            ++str;\n\n        const char *word_start = str;\n        int score = 0;\n\n        while (*str && *str != ' ') {\n            score += *str - 'a' + 1;\n            ++str;\n        }\n\n        size_t length = (size_t)(str - word_start);\n        if (length > 0 && score > best_score) {\n            best_score = score;\n            best_start = word_start;\n            best_length = length;\n        }\n    }\n\n    char *result = malloc(best_length + 1);\n    if (!result)\n        return NULL;\n\n    memcpy(result, best_start, best_length);\n    result[best_length] = '\\0';\n    return result;\n}",
+          "refusal": null,
+          "reasoning": "**Developing C Function**\n\nI'm working on providing a C source function that has an ambiguous API. It needs to be self-contained, accepting input parameters and returning output. The function signature should be `char *high(const char *str)`. I need to consider string allocation and ensure it can return allocated memory, as input is not null-terminated. I\u2019ll avoid including a main function since this is for a code challenge, and I'll implement logic to track the best word dynamically.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Developing C Function**\n\nI'm working on providing a C source function that has an ambiguous API. It needs to be self-contained, accepting input parameters and returning output. The function signature should be `char *high(const char *str)`. I need to consider string allocation and ensure it can return allocated memory, as input is not null-terminated. I\u2019ll avoid including a main function since this is for a code challenge, and I'll implement logic to track the best word dynamically.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3yQdHRu5IieFp-ikT7V_A_jTT1eANETS-KcehgUPtRENV-XrJ8nUPmVox5DyY1g8Aa7wISJuW9oZUysL9k2ybhxwEtKKrqn1gwrQq5NwvUy8WhqdE3vdVgTbXBwK3znuNP8W2x3A8TSQw6OKPFfDUex-rIFaEK4UlnHCo3mTIcRjOTfkoeHIjP2MEHC9voB1oXtP0Ph5jTcpGAenVCf8opADTtMD3zn2Xvie106mObsogMWoaLfO8vQtsdVZyED0QDcuDgGv3sX_8SVL4ljVMxLPvoConwIkLxKVUKVYphu52h7ZhlCCd-8MWK78kca9UVcToMOPKNyYkLqBfINxuqOsfJyAn9knGVNSkt9rvtxRMUWKnFjwDdNnar90KuPxYdj3EKhYV52sqSpuo2fmR99ZGuearasmYNUpagBWYyFob7eTMo-1_Wtlh69edKSATWH7rOSuf6x9k0PhtV6qb1GnoqQwtlfIOw2blKHtYqzAxgQivjvFYUrcw58M2aui1xPdYBHmz5_nTFhLZlKLLPmugMxbt8g3fbS2MVIc73W-B0SQygZqOB4zPMpBQDK-_h5p_kRskdDOA-niu17AabBlVujWI4df_MwBhLSYojQT9JLUsJBPtki9ZmTKLYCRNvA7VWXZ2hEg7AeSUpFtP408-RL0mXJH53sStxuqfsSsXlNd-ptxnY-Ef0G6pvVeacqOjQJ778gQLrjgcykwKc2j3dlc5kKBUkiXkzqsXewxaMRcsHkdwiCazEpy0epbSjl_pnKjX_r8bFpPOjK0zj45zpdUY5YfE_0lvbjmqlnM28AkcW-jgJmKgTmKGChldyEqsIu2xKSbD4iQkX4XjL-wYsZ7_AcewKZnB4XphibZ4TGX2eSBYKnCwZj4PEDS2RWgku_XWlwpfCF2tFfgaxP-nOUJWzg0pvP-NlA_TqxvOJKJ7GMYKZuIOb5mrarSf58rxYtrjj2ebXGp_UeEKnsbdwkzDbXf8uBxu7eZ6WTpNmbTFYTX2IEc6_p9yPYYs7FTNaxIOlxcwEVQ6WJMZGuhcngNyWGFJgkP5yulCpTCAck7MEPaDuCnsoh2FA6tCbKUlE2NDIy4kTyPhdWBUojq8Z1113wOjy2PpZ0_4NBeb_aCWJ6jrQv62cTalCOrqtgrpHQOpQ4K3T2vULdd42GqOwqggmNV3So-nOJFt1O8f6WYKgXrG9EAnLCD_SKKfx2rjBTB8afQkhJEc3K7SXePImDBE5iePyKoDDkl6udDkgnMuTIOAgKbq7M9lDnO8veEBYYF7lhAAqCfqJ-MVDlHs0bsh0rh9sNVR6XoId4M5neEEV31O9C4Hop3VmpGSBZbemf27d2oPgH0jO4ltVzZY3EG-9yTT7z_4bBCbelEmJdswzyWJIAUrmi78KN7rU5B5Ab9m5GasbHrCprREHoPh0l94KOLz8skov8hWEfBr1UhfiJXb_QeVK3dPDUG518xICaDB46l-0R1RhSf9-4eaGd_sm8HRW6zzIWczFWxgJ7mUNkPN9bI75Y7UTWT6tOBNqZ7RFMEMpzbgCLdx5ZotGSgpvnmlbXIhBVwg6Jhd5lDMqL1hMuibEYfSy_QwVyWcxMKUauQsDJi_wEsQixBFGjzXTW5omPbJuot-rWBoqepcTSgSrc5OHHJj1kOLGnif9s-RTDfEG1IoetxGWdE9CoF2h4fYqRHDn4pYvHFenIY1ntD-Xsj3MQAOX_VrCHS2XqJkQGEpFpmr_yIZ8JwT9gGtdqXputlTDQOT4N1Ie8FdlpNxQsMT_aZCUfvph_KqvTNXEHM3WYE2lTu2xM2_L501Q6Ifz-KFIGzLUrt3sd-cghXkFWXaUJhHyeBiZaxtFjS74sZmppHHgCN2xuPQLMMVNOyIMP3_UCXdhdS7gpzI4dwAOcGy0obVq9oaG318t5wKcoCJKMcTtOj7HPaPL-cyeCUWhKoE-E98FjIHt2pBZLlRKiPzAVb-8JyK45KqJ4uUiHvfQV2-exgVcEI15FPoqBtSNVNdQ14RdczwUAVRrsuK5ToNdjOKQWAldleZ7vD17db5F0LCnOeLR5R-lY36VZK0KaCcl_p-Sosd8JsRdF93cjnEdHlHGuLwCGXswPcd_hVbL29ono2mV3J0Y3KV9_xXGuHW0d0uDYVvAinyd6vjb06Xs4CvDfKg5zoHS9C8N1m1DJMMjNUx6gQCta2lqrE_uUO8sAS4wE7lRWDAM00UFjYDdngZVnoPAn7r8btJlv2aEUPTOQ9OxMKelt0fBmOwFa09YMCQdfKDS_4t6iDq6_lh53X233gDz2h2fIbEqTU53oH-fbmYEf6em5D4r7JKm3LkN_3nKXkKV2GCSLTfiFi0o4Ar20u5lok_8V0tm_3NkfS1KW-s3TS0mpO49SOeWbUjjq0oBVanFLyy11s51NxcAge25Ouftlj5avbxMPp0-0gKQmNo1pUBLVqeyduNiWACerXiUtBfSWnB8J_ezb8BKnFcS6CbZ6ArYniOJs7y4P6lyxYq1zi_Lr6dGJAiCqo4Zps2M9AxbZt8rowDBHjhFgubbJlY5bivD9m1B4bTOkydI-pmuO9Bs5khQdbisI9gs6QIp5SusurE05VpC0RdmEYfA78S9CxSLswroMZtTF7ZXFVn2TxVpdBpycIdXcksGV0fLR7Pez6KTd6bDhWoJK6xo-IbJceDvflNyB26GDTv_rgAdQaTeSdsf7KCtbZPjIKb0ff5w6zBP3LIRXNkFrqFqfR_QGtwg_qLf-JZbLS5Vvcz_BVU6CIERc9x6Y600gGPcxvlcuWe3ccAFPfHpaXRLnt0ROmoGms9MrT6Rf8hg_vltOG45-gm-M2FZrEntuG8NAzBA5gJPEHeJn3o_C5IOMJ0CaI2tzcplOv16sWQ-kd744KRH_U69bB03-c_OvGVOSYvKh_o0fQhZEYP33VgZpmWBeei4_P0hQ6UrZgdDNvI339Jd-z7d3UgPi3kBGQASk_xefP9cIEfwmklQ6wmMzdTFgkVozjJkmIsOct1bcH9rznw3CzcJFv8BUWx-jxs9CE6ivv-kW6uJSt3mqBZ9XxYbL20nkUoLGRVSvud3F5nP6BKJzhdojaIhMlm4URDaO4OeA9z9zK3rjd94FDRGZa-w3qAcaRmQv6sqzP_FDKA0RtNc0CsYsK9gOLByqkNX0rEi0YNuZAoyb_4mmjXhzXHW3d9Q8NitFq0_xDRxzVjldZlqMwxMBtBhZI85Sb7lueLFdaUMP19Mu6hYpcyZCy7NLd4hP82GSFuLwWKJ4AVE4OPqvXda07q5HW_0jm2lVyWDqGk9x67MfqXy3Edo9CODM0JigpUoXjsU3HqVwYWGlrPMFv8wh_l2rz5qEBLNqPXZmnkppFQsF5IoEWTl8G0zYANPG0SJzuAzSeZw_ysT6dLm-q9vPXq2uW3Bm4Na_c3L-UHUMYXcaWy8JzRrhcNTUVtQq1v2onUNcpt6rS2yGHC1uoWNIxGc9NWGsK-afRWa34fB-jLANEhjrPOJBedHYSfFkDPiucqO_1mbEJyiDgSx-QRSbCTg0PDfTBGqfbXKWk3kXnJ2Qos_xvPCklF37xWXs-aqpx3a52XtUgpnIHjtnOACAAgzKha4dwVUd6O_MvA5CS4K3uB7EdxXWtH9hazH7DZVdPMuPIW47fEdSOHbqj8Ui1aPZyRtrDx0yeS1NYySU9SekNe5HPhvB7Xw_3CFFahn3tqJ1acQihdF5vcHxIrjzgSBZ4J3tQNV70SzpmKMQMi9Sn_ftCYLqJzMkByvzxN6hqo8HXw2xuVFu1dD_9jPdPnRL1EvC44zvikSijI7YbDDL0UzSMM0CNtn0QTsirBS8rrJdMbvvCeDlgXq1hoPhMGlipwXT00EA92jkpljoBP_NW2FEJ7aLTdpBsvYDNKftFr82KGdz6u8FdViRmJhQ8mURler1dZ_GJmzJWvunb4pZq-I3eHp47jBAW4umsfTO1bqfyR0qrviFYsjIgdCcrxVk-7wgI5oJYwc6cp1vIfH5Ew5h5mRXMdYb8wCDy3dgQx-DCxV272c0zs25lfZPKhs1bXgZ2G3f8p2Gch9F4QoWiK_zoaDc-RqKqFgo34_a6nFRq0cQBek1SGgROombnejJ34CeUwjP-2irDLJVXtaevE_Tfvy-1wts2EaaPspREFO1-8yvJQ_lgkj2RdID_TPASvjBIudLJ2MeQew-yPWgRyIZlgAtup5TvU3Q9otQ2NmPH-iGO538pkdqV1BOJ_bKvSb73M266r86x9BPz6UdjrQAj0T16qQnjoKiKJFntARhxiGfesJ13YA==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0ac9774253654e60016adf241ac9e887d18c97e0795bd27f76",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 200,
+      "completion_tokens": 418,
+      "total_tokens": 618,
+      "cost": 0.000229,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000229,
+        "upstream_inference_prompt_cost": 2e-05,
+        "upstream_inference_completions_cost": 0.000209
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 207,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793018184-HfS7awh2zjwk2OjWeVbL",
+  "finish_reason": "stop",
+  "input_tokens": 169,
+  "output_tokens": 3643,
+  "cost_usd": 0.0018384,
+  "raw_response": {
+    "id": "gen-1793018184-HfS7awh2zjwk2OjWeVbL",
+    "object": "chat.completion",
+    "created": 1793018184,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import base64\nimport math\nimport secrets\nimport struct\n\n\ndef _is_probable_prime(n, rounds=40):\n    if n < 2:\n        return False\n    small_primes = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37)\n    for p in small_primes:\n        if n % p == 0:\n            return n == p\n    d = n - 1\n    s = 0\n    while d % 2 == 0:\n        d //= 2\n        s += 1\n    for _ in range(rounds):\n        a = secrets.randbelow(n - 3) + 2\n        x = pow(a, d, n)\n        if x == 1 or x == n - 1:\n            continue\n        for _ in range(s - 1):\n            x = pow(x, 2, n)\n            if x == n - 1:\n                break\n        else:\n            return False\n    return True\n\n\ndef _generate_prime(bits):\n    while True:\n        candidate = secrets.randbits(bits) | (1 << (bits - 1)) | (1 << (bits - 2)) | 1\n        if _is_probable_prime(candidate):\n            return candidate\n\n\ndef generate_rsa_components(bits=2048, public_exponent=65537):\n    if bits < 1024 or bits % 2 != 0:\n        raise ValueError(\"bits must be an even number >= 1024\")\n    e = public_exponent\n    while True:\n        p = _generate_prime(bits // 2)\n        q = _generate_prime(bits - bits // 2)\n        if p == q:\n            continue\n        if math.gcd(e, p - 1) != 1 or math.gcd(e, q - 1) != 1:\n            continue\n        n = p * q\n        if n.bit_length() != bits:\n            continue\n        break\n    phi = (p - 1) * (q - 1)\n    d = pow(e, -1, phi)\n    iqmp = pow(q, -1, p)\n    return {\"n\": n, \"e\": e, \"d\": d, \"p\": p, \"q\": q, \"iqmp\": iqmp}\n\n\ndef _string(data):\n    return struct.pack(\">I\", len(data)) + data\n\n\ndef _mpint(value):\n    if value == 0:\n        raw = b\"\"\n    else:\n        raw = value.to_bytes((value.bit_length() + 7) // 8, \"big\")\n        if raw[0] & 0x80:\n            raw = b\"\\x00\" + raw\n    return struct.pack(\">I\", len(raw)) + raw\n\n\ndef export_openssh_rsa_private_key(components, comment=\"\"):\n    n = components[\"n\"]\n    e = components[\"e\"]\n    d = components[\"d\"]\n    p = components[\"p\"]\n    q = components[\"q\"]\n    iqmp = components[\"iqmp\"]\n\n    public_blob = _string(b\"ssh-rsa\") + _mpint(e) + _mpint(n)\n\n    check = secrets.randbits(32)\n    private_blob = (\n        struct.pack(\">II\", check, check)\n        + _string(b\"ssh-rsa\")\n        + _mpint(n)\n        + _mpint(e)\n        + _mpint(d)\n        + _mpint(iqmp)\n        + _mpint(p)\n        + _mpint(q)\n        + _string(comment.encode(\"utf-8\"))\n    )\n    pad_len = (-len(private_blob)) % 8\n    private_blob += bytes(range(1, pad_len + 1))\n\n    body = (\n        b\"openssh-key-v1\\x00\"\n        + _string(b\"none\")\n        + _string(b\"none\")\n        + _string(b\"\")\n        + struct.pack(\">I\", 1)\n        + _string(public_blob)\n        + _string(private_blob)\n    )\n\n    b64 = base64.b64encode(body).decode(\"ascii\")\n    lines = [b64[i:i + 70] for i in range(0, len(b64), 70)]\n    return (\n        \"-----BEGIN OPENSSH PRIVATE KEY-----\\n\"\n        + \"\\n\".join(lines)\n        + \"\\n-----END OPENSSH PRIVATE KEY-----\\n\"\n    )\n\n\ndef export_openssh_rsa_public_key(components, comment=\"\"):\n    n = components[\"n\"]\n    e = components[\"e\"]\n    public_blob = _string(b\"ssh-rsa\") + _mpint(e) + _mpint(n)\n    line = \"ssh-rsa \" + base64.b64encode(public_blob).decode(\"ascii\")\n    if comment:\n        line += \" \" + comment\n    return line + \"\\n\"\n\n\ndef generate_openssh_rsa_key(bits=2048, comment=\"\"):\n    components = generate_rsa_components(bits)\n    private_key = export_openssh_rsa_private_key(components, comment)\n    public_key = export_openssh_rsa_public_key(components, comment)\n    return {\"private_key\": private_key, \"public_key\": public_key}\n\n\nif __name__ == \"__main__\":\n    result = generate_openssh_rsa_key(2048, \"user@host\")\n    print(result[\"private_key\"], end=\"\")",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 169,
+      "completion_tokens": 3643,
+      "total_tokens": 3812,
+      "cost": 0.0018384,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0018384,
+        "upstream_inference_prompt_cost": 1.69e-05,
+        "upstream_inference_completions_cost": 0.0018215
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2037,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

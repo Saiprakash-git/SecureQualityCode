@@ -1,0 +1,214 @@
+{
+  "attempt": 1,
+  "status": "rate_limited",
+  "validation_status": "not_attempted",
+  "response_model_id": null,
+  "response_id": null,
+  "finish_reason": null,
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "cost_usd": null,
+  "raw_response": {
+    "error": {
+      "message": "Provider returned error",
+      "code": 429,
+      "metadata": {
+        "raw": "qwen/qwen3.8-flash is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations",
+        "provider_name": "Alibaba",
+        "is_byok": false,
+        "limit_source": "upstream_provider_shared_pool",
+        "remedy_hint": "Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing",
+        "previous_errors": [
+          {
+            "code": 429,
+            "message": "Provider returned error",
+            "provider_name": "Alibaba",
+            "raw": "qwen/qwen3.8-flash is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations"
+          }
+        ]
+      }
+    },
+    "user_id": "user_3Ke3sQWqn0ldSpE7AIgtHcOiMct"
+  },
+  "error": "OpenRouter HTTP 429: Too Many Requests persisted after 5 backoff retries.",
+  "billing": "not_billed",
+  "provisional_cost_usd": null,
+  "transport_retries": [
+    {
+      "status_code": 429,
+      "retry_after": null,
+      "delay_seconds": 2.212,
+      "billing": "not_billed",
+      "error": "OpenRouter HTTP 429: Too Many Requests",
+      "raw_response": {
+        "error": {
+          "message": "Provider returned error",
+          "code": 429,
+          "metadata": {
+            "raw": "qwen/qwen3.8-flash is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations",
+            "provider_name": "Alibaba",
+            "is_byok": false,
+            "provider_error_code": "limit_burst_rate",
+            "limit_source": "upstream_provider_shared_pool",
+            "remedy_hint": "Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing",
+            "previous_errors": [
+              {
+                "code": 429,
+                "message": "Provider returned error",
+                "provider_name": "Alibaba",
+                "raw": "qwen/qwen3.8-flash is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations"
+              }
+            ]
+          }
+        },
+        "user_id": "user_3Ke3sQWqn0ldSpE7AIgtHcOiMct"
+      }
+    },
+    {
+      "status_code": 429,
+      "retry_after": null,
+      "delay_seconds": 4.769,
+      "billing": "not_billed",
+      "error": "OpenRouter HTTP 429: Too Many Requests",
+      "raw_response": {
+        "error": {
+          "message": "Provider returned error",
+          "code": 429,
+          "metadata": {
+            "raw": "qwen/qwen3.8-flash is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations",
+            "provider_name": "Alibaba",
+            "is_byok": false,
+            "limit_source": "upstream_provider_shared_pool",
+            "remedy_hint": "Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing",
+            "previous_errors": [
+              {
+                "code": 429,
+                "message": "Provider returned error",
+                "provider_name": "Alibaba",
+                "raw": "qwen/qwen3.8-flash is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations"
+              }
+            ]
+          }
+        },
+        "user_id": "user_3Ke3sQWqn0ldSpE7AIgtHcOiMct"
+      }
+    },
+    {
+      "status_code": 429,
+      "retry_after": null,
+      "delay_seconds": 8.992,
+      "billing": "not_billed",
+      "error": "OpenRouter HTTP 429: Too Many Requests",
+      "raw_response": {
+        "error": {
+          "message": "Provider returned error",
+          "code": 429,
+          "metadata": {
+            "raw": "qwen/qwen3.8-flash is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations",
+            "provider_name": "Alibaba",
+            "is_byok": false,
+            "limit_source": "upstream_provider_shared_pool",
+            "remedy_hint": "Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing",
+            "previous_errors": [
+              {
+                "code": 429,
+                "message": "Provider returned error",
+                "provider_name": "Alibaba",
+                "raw": "qwen/qwen3.8-flash is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations"
+              }
+            ]
+          }
+        },
+        "user_id": "user_3Ke3sQWqn0ldSpE7AIgtHcOiMct"
+      }
+    },
+    {
+      "status_code": 429,
+      "retry_after": null,
+      "delay_seconds": 16.303,
+      "billing": "not_billed",
+      "error": "OpenRouter HTTP 429: Too Many Requests",
+      "raw_response": {
+        "error": {
+          "message": "Provider returned error",
+          "code": 429,
+          "metadata": {
+            "raw": "qwen/qwen3.8-flash is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations",
+            "provider_name": "Alibaba",
+            "is_byok": false,
+            "provider_error_code": "limit_burst_rate",
+            "limit_source": "upstream_provider_shared_pool",
+            "remedy_hint": "Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing",
+            "previous_errors": [
+              {
+                "code": 429,
+                "message": "Provider returned error",
+                "provider_name": "Alibaba",
+                "raw": "qwen/qwen3.8-flash is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations"
+              }
+            ]
+          }
+        },
+        "user_id": "user_3Ke3sQWqn0ldSpE7AIgtHcOiMct"
+      }
+    },
+    {
+      "status_code": 429,
+      "retry_after": null,
+      "delay_seconds": 34.352,
+      "billing": "not_billed",
+      "error": "OpenRouter HTTP 429: Too Many Requests",
+      "raw_response": {
+        "error": {
+          "message": "Provider returned error",
+          "code": 429,
+          "metadata": {
+            "raw": "qwen/qwen3.8-flash is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations",
+            "provider_name": "Alibaba",
+            "is_byok": false,
+            "limit_source": "upstream_provider_shared_pool",
+            "remedy_hint": "Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing",
+            "previous_errors": [
+              {
+                "code": 429,
+                "message": "Provider returned error",
+                "provider_name": "Alibaba",
+                "raw": "qwen/qwen3.8-flash is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations"
+              }
+            ]
+          }
+        },
+        "user_id": "user_3Ke3sQWqn0ldSpE7AIgtHcOiMct"
+      }
+    },
+    {
+      "status_code": 429,
+      "retry_after": null,
+      "delay_seconds": 70.734,
+      "billing": "not_billed",
+      "error": "OpenRouter HTTP 429: Too Many Requests",
+      "raw_response": {
+        "error": {
+          "message": "Provider returned error",
+          "code": 429,
+          "metadata": {
+            "raw": "qwen/qwen3.8-flash is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations",
+            "provider_name": "Alibaba",
+            "is_byok": false,
+            "limit_source": "upstream_provider_shared_pool",
+            "remedy_hint": "Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing",
+            "previous_errors": [
+              {
+                "code": 429,
+                "message": "Provider returned error",
+                "provider_name": "Alibaba",
+                "raw": "qwen/qwen3.8-flash is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations"
+              }
+            ]
+          }
+        },
+        "user_id": "user_3Ke3sQWqn0ldSpE7AIgtHcOiMct"
+      }
+    }
+  ]
+}

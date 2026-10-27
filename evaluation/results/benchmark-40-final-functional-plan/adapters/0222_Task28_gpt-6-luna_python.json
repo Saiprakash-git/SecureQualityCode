@@ -1,0 +1,26 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "likes",
+   "target": "likes",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": null,
+   "canonical_signature": {
+    "arity": 1
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": null,
+    "return": null
+   }
+  }
+ ],
+ "combo_index": 222,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_028/gpt-6-luna/Task28_gpt-6-luna_python.py",
+ "artifact_sha256": "04a486572e353f2a377368aeabb090ff73265f4f6dc8bd01292d22c9492fcc91",
+ "oracle_test_path": "tests/claude/Task28_CLAUDE_claude_3_5_sonnet_20240620/Task28_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "ff8db6f2f47ab6fd32f89b80966d6764c09214b3ab9255a174c75d9d548b2585",
+ "author": "functional.py draft_adapter (static)"
+}

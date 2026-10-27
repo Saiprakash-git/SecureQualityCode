@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793025417-fHouROA3mDFAsM09LIG8",
+  "finish_reason": "stop",
+  "input_tokens": 105,
+  "output_tokens": 1468,
+  "cost_usd": 0.00558375,
+  "raw_response": {
+    "id": "gen-1793025417-fHouROA3mDFAsM09LIG8",
+    "object": "chat.completion",
+    "created": 1793025417,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google AI Studio",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n\n#define INITIAL_CAPACITY 4\n\ntypedef struct {\n    int *data;\n    size_t size;\n    size_t capacity;\n} Stack;\n\nbool stack_init(Stack *stack) {\n    if (stack == NULL) {\n        return false;\n    }\n    stack->data = (int *)malloc(INITIAL_CAPACITY * sizeof(int));\n    if (stack->data == NULL) {\n        stack->size = 0;\n        stack->capacity = 0;\n        return false;\n    }\n    stack->size = 0;\n    stack->capacity = INITIAL_CAPACITY;\n    return true;\n}\n\nbool stack_is_empty(const Stack *stack) {\n    return (stack == NULL || stack->size == 0);\n}\n\nbool stack_push(Stack *stack, int value) {\n    if (stack == NULL) {\n        return false;\n    }\n    if (stack->size == stack->capacity) {\n        size_t new_capacity = stack->capacity * 2;\n        int *new_data = (int *)realloc(stack->data, new_capacity * sizeof(int));\n        if (new_data == NULL) {\n            return false;\n        }\n        stack->data = new_data;\n        stack->capacity = new_capacity;\n    }\n    stack->data[stack->size++] = value;\n    return true;\n}\n\nbool stack_pop(Stack *stack, int *out_value) {\n    if (stack_is_empty(stack)) {\n        return false;\n    }\n    stack->size--;\n    if (out_value != NULL) {\n        *out_value = stack->data[stack->size];\n    }\n    return true;\n}\n\nbool stack_peek(const Stack *stack, int *out_value) {\n    if (stack_is_empty(stack)) {\n        return false;\n    }\n    if (out_value != NULL) {\n        *out_value = stack->data[stack->size - 1];\n    }\n    return true;\n}\n\nvoid stack_free(Stack *stack) {\n    if (stack != NULL) {\n        free(stack->data);\n        stack->data = NULL;\n        stack->size = 0;\n        stack->capacity = 0;\n    }\n}\n\nint main(void) {\n    Stack stack;\n    if (!stack_init(&stack)) {\n        fprintf(stderr, \"Failed to initialize stack\\n\");\n        return 1;\n    }\n\n    printf(\"Pushing elements: 10, 20, 30, 40, 50\\n\");\n    stack_push(&stack, 10);\n    stack_push(&stack, 20);\n    stack_push(&stack, 30);\n    stack_push(&stack, 40);\n    stack_push(&stack, 50);\n\n    int top_val;\n    if (stack_peek(&stack, &top_val)) {\n        printf(\"Current top element (peek): %d\\n\", top_val);\n    }\n\n    printf(\"Popping elements:\\n\");\n    int popped_val;\n    while (stack_pop(&stack, &popped_val)) {\n        printf(\"Popped: %d\\n\", popped_val);\n    }\n\n    if (!stack_pop(&stack, &popped_val)) {\n        printf(\"Stack is now empty. Pop failed as expected.\\n\");\n    }\n\n    stack_free(&stack);\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Defining the Approach**\n\nI'm focusing now on outlining the requirements, specifically targeting C language and raw source code output. The main goal is to create a self-contained C file that implements a stack data structure, complete with `push`, `pop`, and `is_empty` functions, and a basic example usage.\n\n\n**Refining the Structure**\n\nI've decided to refine the stack structure with more details. I'm leaning toward a dynamic array implementation for a good balance of performance and standard practice, and the corresponding C struct is taking shape. It has `data`, `size`, and `capacity` members. The intended operations are now clearer, with function signatures defined. I've considered initialization, push, pop, peek, and is_empty.\n\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Defining the Approach**\n\nI'm focusing now on outlining the requirements, specifically targeting C language and raw source code output. The main goal is to create a self-contained C file that implements a stack data structure, complete with `push`, `pop`, and `is_empty` functions, and a basic example usage.\n\n\n**Refining the Structure**\n\nI've decided to refine the stack structure with more details. I'm leaning toward a dynamic array implementation for a good balance of performance and standard practice, and the corresponding C struct is taking shape. It has `data`, `size`, and `capacity` members. The intended operations are now clearer, with function signatures defined. I've considered initialization, push, pop, peek, and is_empty.\n\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 105,
+      "completion_tokens": 1468,
+      "total_tokens": 1573,
+      "cost": 0.00558375,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00558375,
+        "upstream_inference_prompt_cost": 7.875e-05,
+        "upstream_inference_completions_cost": 0.005505
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 612,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

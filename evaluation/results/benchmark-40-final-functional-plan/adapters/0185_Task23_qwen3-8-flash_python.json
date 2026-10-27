@@ -1,0 +1,26 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "find_nb",
+   "target": "findNb",
+   "kind": "alias",
+   "name_match": "normalized",
+   "types_match": null,
+   "canonical_signature": {
+    "arity": 1
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": null,
+    "return": null
+   }
+  }
+ ],
+ "combo_index": 185,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_023/qwen3-8-flash/Task23_qwen3-8-flash_python.py",
+ "artifact_sha256": "3dcd8002747b3cfd8ed790710558459d1163c0f84ad3179e7fe94b0faf8578f1",
+ "oracle_test_path": "tests/claude/Task23_CLAUDE_claude_3_5_sonnet_20240620/Task23_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "49510e4b17ae7222845de9387966b69e148228e5846677cf357d59357e50af1d",
+ "author": "functional.py draft_adapter (static)"
+}

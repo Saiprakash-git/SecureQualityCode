@@ -1,0 +1,7 @@
+@@a40b9fe861b51ff6 STEP 0 BEGIN@@
+
+@@a40b9fe861b51ff6 STEP 0 END rc=0@@
+@@a40b9fe861b51ff6 STEP 1 BEGIN@@
+All tests passed!
+
+@@a40b9fe861b51ff6 STEP 1 END rc=0@@

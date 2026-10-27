@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1792943790-NNuEbL5iyBhObuC8BJpG",
+  "finish_reason": "stop",
+  "input_tokens": 224,
+  "output_tokens": 372,
+  "cost_usd": 0.00020844,
+  "raw_response": {
+    "id": "gen-1792943790-NNuEbL5iyBhObuC8BJpG",
+    "object": "chat.completion",
+    "created": 1792943790,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "#include <string>\n\nbool validatePIN(const std::string& pin) {\n    if (pin.size() != 4 && pin.size() != 6) {\n        return false;\n    }\n\n    for (char c : pin) {\n        if (c < '0' || c > '9') {\n            return false;\n        }\n    }\n\n    return true;\n}",
+          "refusal": null,
+          "reasoning": "We need answer user's request: only raw source code, no markdown fences, no explanations. Need write one complete self-contained source file in CPP. Function accepts input as parameters and returns output if any. Problem: valid PIN string: exactly 4 or 6 digits, only digits. Need likely implement bool validatePIN(string pin). Could include headers and using namespace std. Need only source file contents starting first source line. Ensure no prose. Need think if CodeWars style expects function validatePIN. We'll provide bool validatePIN(const std::string& pin). Need include <string>. Self-contained. Could use all chars digit and size 4 or 6. Use std::isdigit? Need cast unsigned char? Simpler manual: c >= '0' && c <= '9'. Return false if empty? size check handles. Need no main? Complete self-contained source file likely just function. Could include using namespace std; but fine. Need raw source code only. Ensure no fences. Final:\n#include <string>\n\nbool validatePIN(const std::string& pin) {\n    if (pin.size() != 4 && pin.size() != 6) return false;\n    for (char c : pin) if (c < '0' || c > '9') return false;\n    return true;\n}\n\nNeed maybe std::size_t. OK.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user's request: only raw source code, no markdown fences, no explanations. Need write one complete self-contained source file in CPP. Function accepts input as parameters and returns output if any. Problem: valid PIN string: exactly 4 or 6 digits, only digits. Need likely implement bool validatePIN(string pin). Could include headers and using namespace std. Need only source file contents starting first source line. Ensure no prose. Need think if CodeWars style expects function validatePIN. We'll provide bool validatePIN(const std::string& pin). Need include <string>. Self-contained. Could use all chars digit and size 4 or 6. Use std::isdigit? Need cast unsigned char? Simpler manual: c >= '0' && c <= '9'. Return false if empty? size check handles. Need no main? Complete self-contained source file likely just function. Could include using namespace std; but fine. Need raw source code only. Ensure no fences. Final:\n#include <string>\n\nbool validatePIN(const std::string& pin) {\n    if (pin.size() != 4 && pin.size() != 6) return false;\n    for (char c : pin) if (c < '0' || c > '9') return false;\n    return true;\n}\n\nNeed maybe std::size_t. OK.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 224,
+      "completion_tokens": 372,
+      "total_tokens": 596,
+      "cost": 0.00020844,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00020844,
+        "upstream_inference_prompt_cost": 3.36e-05,
+        "upstream_inference_completions_cost": 0.00017484
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 282,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

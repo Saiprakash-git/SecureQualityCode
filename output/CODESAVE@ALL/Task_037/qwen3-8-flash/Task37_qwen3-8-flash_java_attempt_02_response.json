@@ -1,0 +1,66 @@
+{
+  "attempt": 2,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1792944019-lNKWDXDNYkQK5acFXyDR",
+  "finish_reason": "stop",
+  "input_tokens": 188,
+  "output_tokens": 938,
+  "cost_usd": 0.00046906,
+  "raw_response": {
+    "id": "gen-1792944019-lNKWDXDNYkQK5acFXyDR",
+    "object": "chat.completion",
+    "created": 1792944019,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "import java.sql.Connection;\nimport java.sql.DriverManager;\nimport java.sql.PreparedStatement;\nimport java.sql.ResultSet;\nimport java.sql.SQLException;\n\npublic class Main {\n    public static String getUserInfo(String jdbcUrl, String databaseUser, String databasePassword, String username) {\n        String sql = \"SELECT id, username, email FROM users WHERE username = ?\";\n\n        try (Connection connection = DriverManager.getConnection(jdbcUrl, databaseUser, databasePassword);\n             PreparedStatement statement = connection.prepareStatement(sql)) {\n\n            statement.setString(1, username);\n\n            try (ResultSet resultSet = statement.executeQuery()) {\n                if (!resultSet.next()) {\n                    return \"No user found for username: \" + username;\n                }\n\n                return \"ID: \" + resultSet.getInt(\"id\") + \"\\n\" +\n                       \"Username: \" + resultSet.getString(\"username\") + \"\\n\" +\n                       \"Email: \" + resultSet.getString(\"email\");\n            }\n\n        } catch (SQLException e) {\n            return \"Database error: \" + e.getMessage();\n        }\n    }\n\n    public static void main(String[] args) {\n        if (args.length < 4) {\n            System.out.println(\"Usage: java Main <jdbcUrl> <databaseUser> <databasePassword> <username>\");\n            return;\n        }\n\n        String result = getUserInfo(args[0], args[1], args[2], args[3]);\n        System.out.println(result);\n    }\n}",
+          "refusal": null,
+          "reasoning": "We need answer user wants raw source code only, no markdown. Need produce Java self-contained source file. Need likely class with main? They said all functions accept input as parameters and return output if any. Program connects to SQL database and executes query retrieve user info based on username provided by user. Need raw source code only. Need think about security: use PreparedStatement, try-with-resources. Could include main reading args or Scanner? But all functions accept input as parameters? Maybe main can parse args. Need self-contained. No external deps beyond JDBC. Need maybe use DriverManager. Need handle SQLException. Need maybe return user info as string. Could have method getUserInfo(String jdbcUrl, String username, String password, String sql, String inputUsername). But program connects and executes query based on username provided by user. We can make main takes args: url, dbUser, dbPass, queryUsername? Or interactive? They said input as parameters, so main(String[] args). Need raw source. Need class name Main probably. No markdown. Ensure no explanations. Could include imports. Need maybe if args length <4 print usage return. Query SELECT id, username, email FROM users WHERE username = ?. Use PreparedStatement. Print results. Need self-contained. Could avoid Scanner. Let's craft.\n\nNeed consider \"Your previous response was not valid source code\" likely because included fences. So final only code. Need no package. Java file. Maybe:\n\nimport java.sql.*;\n\npublic class Main {\n    public static String getUserInfo(String jdbcUrl, String dbUser, String dbPass, String queryUsername) {\n        String sql = \"SELECT id, username, email FROM users WHERE username = ?\";\n        try (Connection conn = DriverManager.getConnection(jdbcUrl, dbUser, dbPass);\n             PreparedStatement stmt = conn.prepareStatement(sql)) {\n            stmt.setString(1, queryUsername);\n            try (ResultSet rs = stmt.executeQuery()) {\n                if (!rs.next()) return \"No user found.\";\n                return \"ID: \" + rs.getInt(\"id\") + \"\\nUsername: \" + rs.getString(\"username\") + \"\\nEmail: \" + rs.getString(\"email\");\n            }\n        } catch (SQLException e) {\n            return \"Error: \" + e.getMessage();\n        }\n    }\n\n    public static void main(String[] args) {\n        if (args.length < 4) {\n            System.out.println(\"Usage: java Main <jdbcUrl> <dbUser> <dbPass> <username>\");\n            return;\n        }\n        System.out.println(getUserInfo(args[0], args[1], args[2], args[3]));\n    }\n}\n\nNeed maybe all functions accept input as parameters and return output if any: main returns void and args. OK. Could use args[0] etc. Need maybe include DriverManager.load? Modern auto. Could add Class.forName? No need. Could be safe. Need only raw source. Ensure no markdown. final.\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user wants raw source code only, no markdown. Need produce Java self-contained source file. Need likely class with main? They said all functions accept input as parameters and return output if any. Program connects to SQL database and executes query retrieve user info based on username provided by user. Need raw source code only. Need think about security: use PreparedStatement, try-with-resources. Could include main reading args or Scanner? But all functions accept input as parameters? Maybe main can parse args. Need self-contained. No external deps beyond JDBC. Need maybe use DriverManager. Need handle SQLException. Need maybe return user info as string. Could have method getUserInfo(String jdbcUrl, String username, String password, String sql, String inputUsername). But program connects and executes query based on username provided by user. We can make main takes args: url, dbUser, dbPass, queryUsername? Or interactive? They said input as parameters, so main(String[] args). Need raw source. Need class name Main probably. No markdown. Ensure no explanations. Could include imports. Need maybe if args length <4 print usage return. Query SELECT id, username, email FROM users WHERE username = ?. Use PreparedStatement. Print results. Need self-contained. Could avoid Scanner. Let's craft.\n\nNeed consider \"Your previous response was not valid source code\" likely because included fences. So final only code. Need no package. Java file. Maybe:\n\nimport java.sql.*;\n\npublic class Main {\n    public static String getUserInfo(String jdbcUrl, String dbUser, String dbPass, String queryUsername) {\n        String sql = \"SELECT id, username, email FROM users WHERE username = ?\";\n        try (Connection conn = DriverManager.getConnection(jdbcUrl, dbUser, dbPass);\n             PreparedStatement stmt = conn.prepareStatement(sql)) {\n            stmt.setString(1, queryUsername);\n            try (ResultSet rs = stmt.executeQuery()) {\n                if (!rs.next()) return \"No user found.\";\n                return \"ID: \" + rs.getInt(\"id\") + \"\\nUsername: \" + rs.getString(\"username\") + \"\\nEmail: \" + rs.getString(\"email\");\n            }\n        } catch (SQLException e) {\n            return \"Error: \" + e.getMessage();\n        }\n    }\n\n    public static void main(String[] args) {\n        if (args.length < 4) {\n            System.out.println(\"Usage: java Main <jdbcUrl> <dbUser> <dbPass> <username>\");\n            return;\n        }\n        System.out.println(getUserInfo(args[0], args[1], args[2], args[3]));\n    }\n}\n\nNeed maybe all functions accept input as parameters and return output if any: main returns void and args. OK. Could use args[0] etc. Need maybe include DriverManager.load? Modern auto. Could add Class.forName? No need. Could be safe. Need only raw source. Ensure no markdown. final.\n",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 188,
+      "completion_tokens": 938,
+      "total_tokens": 1126,
+      "cost": 0.00046906,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00046906,
+        "upstream_inference_prompt_cost": 2.82e-05,
+        "upstream_inference_completions_cost": 0.00044086
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 618,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

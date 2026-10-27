@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792952142-c9sfYpSigrrFyk8nDNiP",
+  "finish_reason": "stop",
+  "input_tokens": 166,
+  "output_tokens": 1404,
+  "cost_usd": 0.0007186,
+  "raw_response": {
+    "id": "gen-1792952142-c9sfYpSigrrFyk8nDNiP",
+    "object": "chat.completion",
+    "created": 1792952142,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import re\nimport sqlite3\nimport hashlib\nimport secrets\nimport sys\n\nEMAIL_PATTERN = re.compile(r\"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$\")\n\n\ndef init_db(db_path=\":memory:\"):\n    conn = sqlite3.connect(db_path)\n    conn.execute(\n        \"\"\"\n        CREATE TABLE IF NOT EXISTS users (\n            id INTEGER PRIMARY KEY AUTOINCREMENT,\n            name TEXT NOT NULL,\n            email TEXT NOT NULL UNIQUE,\n            password_hash TEXT NOT NULL,\n            salt TEXT NOT NULL,\n            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n        )\n        \"\"\"\n    )\n    conn.commit()\n    return conn\n\n\ndef validate_name(name):\n    if not isinstance(name, str) or not name.strip():\n        return \"Name is required.\"\n    if len(name.strip()) > 100:\n        return \"Name must be at most 100 characters.\"\n    return None\n\n\ndef validate_email(email):\n    if not isinstance(email, str) or not email.strip():\n        return \"Email is required.\"\n    if not EMAIL_PATTERN.match(email.strip()):\n        return \"Email format is invalid.\"\n    return None\n\n\ndef validate_password(password):\n    if not isinstance(password, str) or not password:\n        return \"Password is required.\"\n    if len(password) < 8:\n        return \"Password must be at least 8 characters.\"\n    if not re.search(r\"[A-Za-z]\", password) or not re.search(r\"\\d\", password):\n        return \"Password must contain at least one letter and one digit.\"\n    return None\n\n\ndef hash_password(password, salt=None):\n    if salt is None:\n        salt = secrets.token_hex(16)\n    digest = hashlib.pbkdf2_hmac(\"sha256\", password.encode(\"utf-8\"), salt.encode(\"utf-8\"), 100000)\n    return digest.hex(), salt\n\n\ndef register_user(conn, name, email, password):\n    errors = [e for e in (validate_name(name), validate_email(email), validate_password(password)) if e]\n    if errors:\n        return {\"success\": False, \"errors\": errors}\n\n    email = email.strip().lower()\n    name = name.strip()\n    password_hash, salt = hash_password(password)\n\n    try:\n        with conn:\n            conn.execute(\n                \"INSERT INTO users (name, email, password_hash, salt) VALUES (?, ?, ?, ?)\",\n                (name, email, password_hash, salt),\n            )\n    except sqlite3.IntegrityError:\n        return {\"success\": False, \"errors\": [\"Email is already registered.\"]}\n\n    return {\"success\": True, \"errors\": []}\n\n\ndef get_user_by_email(conn, email):\n    row = conn.execute(\n        \"SELECT id, name, email, created_at FROM users WHERE email = ?\",\n        (email.strip().lower(),),\n    ).fetchone()\n    if row is None:\n        return None\n    return {\"id\": row[0], \"name\": row[1], \"email\": row[2], \"created_at\": row[3]}\n\n\ndef verify_password(conn, email, password):\n    row = conn.execute(\n        \"SELECT password_hash, salt FROM users WHERE email = ?\",\n        (email.strip().lower(),),\n    ).fetchone()\n    if row is None:\n        return False\n    computed, _ = hash_password(password, row[1])\n    return secrets.compare_digest(computed, row[0])\n\n\ndef prompt_registration(input_func=input):\n    name = input_func(\"Name: \")\n    email = input_func(\"Email: \")\n    password = input_func(\"Password: \")\n    return name, email, password\n\n\ndef main():\n    db_path = sys.argv[1] if len(sys.argv) > 1 else \"users.db\"\n    conn = init_db(db_path)\n    try:\n        name, email, password = prompt_registration()\n        result = register_user(conn, name, email, password)\n        if result[\"success\"]:\n            print(\"Registration successful.\")\n        else:\n            print(\"Registration failed:\")\n            for error in result[\"errors\"]:\n                print(f\" - {error}\")\n    finally:\n        conn.close()\n\n\nif __name__ == \"__main__\":\n    main()",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 166,
+      "completion_tokens": 1404,
+      "total_tokens": 1570,
+      "cost": 0.0007186,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007186,
+        "upstream_inference_prompt_cost": 1.66e-05,
+        "upstream_inference_completions_cost": 0.000702
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

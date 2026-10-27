@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "odd_or_even",
+   "target": "odd_or_even",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 52,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_009/gpt-6-luna/Task9_gpt-6-luna_c.c",
+ "artifact_sha256": "20d6f45f02b3e5ba0126da056f458538a56373f434524de74622b0361a1f513c",
+ "oracle_test_path": "tests/claude/Task9_Test.c",
+ "oracle_test_sha256": "8c5d75303fa54524247336c03d79eba8d81ac80c423b5ddc25539bd1c7ddd3cd",
+ "author": "functional.py draft_adapter (static)"
+}

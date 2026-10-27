@@ -706,3 +706,1056 @@ Available: https://arxiv.org/abs/2605.24110
 \end{thebibliography}
 
 \end{document}
+
+final 
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,calc}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+% Symbols for the positioning table
+\newcommand{\yes}{\checkmark}
+\newcommand{\prt}{$\circ$}
+\newcommand{\no}{--}
+\newcommand{\sys}{\textsc{ContractGuard}}
+
+\begin{document}
+
+\title{Generating Secure and High-Quality Code with LLMs by Combining CWE Vulnerability Knowledge and Business Logic Understanding}
+
+% TODO: confirm university name, city, and emails (placeholders below).
+% Guide listed as per project abstract sheet; move to Acknowledgment instead
+% if your department does not list guides as co-authors.
+\author{
+\IEEEauthorblockN{
+Manda Bharath Kumar,
+Dileep Yarrabothula,
+Sai Prakash Avula,
+Dr. M Venu Gopalachari
+}
+\IEEEauthorblockA{
+\textit{Department of Information Technology} \\
+\textit{University Name} \\
+City, India \\
+email1, email2, email3, email4
+}
+% NOTE: never start a line after \\ with a square bracket, e.g. "\\ [City]".
+% LaTeX reads it as a spacing argument, which breaks the author block.
+}
+
+\maketitle
+
+% TODO: once RQ1 and the framework experiments are run, replace the last two
+% sentences with the actual findings.
+\begin{abstract}
+Large language models now write a growing share of production code, yet
+measurement studies show that the code they produce repeatedly carries
+language-specific weaknesses such as cryptographic misuse, hardcoded
+credentials and memory-safety errors. Recent evidence sharpens the problem:
+models answer secure-coding questions almost perfectly but fail to apply the
+same knowledge in generated code, static analyzers overstate the security of
+that code several-fold, authorization and business-logic flaws are invisible
+to pattern-based tools, and security degrades as code is edited over
+successive turns. Supplying more vulnerability knowledge in the prompt
+therefore does little. This paper argues that the missing element is the
+location of enforcement. We present ContractGuard, a framework that compiles
+CWE-derived mitigations and developer-confirmed business rules, such as
+ownership, role permissions and workflow invariants, into typed obligations,
+and binds each obligation to a named enforcement slot in a code skeleton
+before any implementation is written. The binding then serves three
+purposes: every generated security test is trusted only after it fails on a
+deliberately weakened version of its own slot, repair of a failing
+obligation is confined to that slot, and validated tests are carried forward
+as a regression ledger so that later features cannot silently remove earlier
+defenses. Each obligation ends as passed, failed, or explicitly waived for
+human review, which narrows what a developer must inspect. We define
+measurable notions of secure and production-ready code, describe an
+evaluation against strong agentic and specification-based baselines, and
+report an updated measurement of five current cost-efficient models across
+four languages.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Large Language Models, Secure Code Generation, Common Weakness Enumeration,
+Business Logic, Authorization, Mutation Testing, AI-Assisted Software
+Development
+\end{IEEEkeywords}
+
+%==========================================================================
+\section{Introduction}
+%==========================================================================
+
+Large language models (LLMs) have moved from completing lines of code to
+writing whole features and, through conversational ``vibe coding''
+workflows, whole applications. This changes where the cost of a defect
+falls. A developer no longer reviews logic they wrote; they review logic an
+assistant wrote, often faster than they can verify it. Controlled studies
+suggest the cost is real: participants with an AI assistant wrote less
+secure code while being more confident it was secure \cite{perry2023}, and
+experienced open-source developers in a randomized trial were 19\% slower
+with AI assistance while believing they were 20\% faster, spending part of
+their time reviewing and cleaning AI output \cite{metr2025}. As generation
+becomes cheaper and review does not, the effort needed to establish that
+generated code is safe becomes the limiting factor. Reducing that effort,
+rather than only reducing vulnerability counts, is the practical problem this
+work addresses.
+
+The underlying weakness is well documented. Kharma \textit{et al.} measured
+five LLM families on 200 tasks in four languages and found recurring,
+language-specific weaknesses, with cryptographic misuse such as RSA without
+OAEP (CWE-780), hardcoded passwords (CWE-259) and improper certificate
+validation (CWE-295) prominent in Java and Python, and buffer errors such as
+CWE-120 in C \cite{kharma2026}. Agent benchmarks show the same pattern at
+larger scale. On real-world feature tasks, the best agent configuration in
+SusVibes passed functional tests on 61.0\% of tasks but was also secure on
+only 10.5\% \cite{susvibes2026}, and on exploit-tested backend tasks roughly
+half of functionally correct programs were exploitable \cite{baxbench2025}.
+
+Three findings explain why existing mitigations struggle. First, knowledge
+is not the bottleneck: across eighteen model and benchmark slices, models
+answered secure-coding questions with 93.7--96.5\% accuracy, yet the gap
+between knowledge and secure generation was 47.9 points on CWEval and 72.9
+points on BaxBench \cite{sok2026}. Methods that retrieve more CWE guidance
+into the prompt \cite{securecoder2026,macot2026,csdd2026} therefore address
+the part of the problem that is already largely solved. Second, the
+checkers used to measure progress are unreliable: CodeQL rated 64.8--98.5\%
+of outputs from secure-generation methods as secure while only
+3.0--13.3\% were both secure and functional \cite{tessa2026}, and
+static analyzers cannot see a missing ownership check at all, because there
+is no source-to-sink pattern for ``this user must not see that order.''
+Third, security is not stable over time: correct-and-secure rates fall by
+20--27\% when tasks are spread over multiple turns \cite{mtsec2025}, and
+feature-adding steps were the most likely to degrade security in long
+refinement chains \cite{scaffold2026}.
+
+Business logic sits at the intersection of these problems. The closest work,
+a specification-driven pipeline that derives a multilayer security model
+from business and technical specifications, reduced business-logic test
+failures from 17 to 9 on a booking API, but never executed its own
+verification layer \cite{specdriven2026}; a CWE-tagged constitution approach
+explicitly leaves business-logic flaws out of scope \cite{csdd2026}. Repair
+loops add their own failure mode: methods that iterate until a checker is
+satisfied often do so by deleting or breaking functionality
+\cite{dai2025,sok2026}.
+
+This paper takes the position that the missing element is the
+\emph{location} of enforcement. A requirement such as ``only the owner may
+cancel a booking'' is satisfied only if a check exists at one specific place
+on the request path, before the state change. We present \sys{}, which makes
+that place a first-class object. \sys{} compiles CWE-derived mitigations and
+developer-confirmed business rules into typed \emph{obligations}, and binds
+each obligation to a named \emph{slot} in a code skeleton before
+implementation begins, following the spirit of Design by Contract
+\cite{meyer1992}. The binding is then used three ways. A generated security
+oracle is trusted only if it fails when its own slot is replaced by a
+permissive mutant, giving every test built-in evidence that it can detect
+the flaw it targets. Repair of a failing obligation may edit only the
+corresponding slot. Validated oracles are committed with the code as a
+ledger and must remain green as later features are added. Each obligation
+ends as PASS, FAIL, or WAIVED, so a reviewer reads a short list of what was
+not proven rather than every generated line.
+
+The contributions of this work are:
+\begin{itemize}
+\item \textbf{Slot-bound security contracts.} A typed obligation schema that
+unifies CWE-derived and business-context requirements, each with a source,
+severity, slot and verifier kind, together with a skeleton-first binder and a
+static check that every route reaches its bound guards.
+\item \textbf{Mutation-validated invariant oracles.} Deterministic generation
+of multi-identity authorization and workflow oracles from a confirmed access
+matrix, with slot-targeted mutation that makes oracle adequacy a reported
+quantity and separates ``waived'' from ``passed.''
+\item \textbf{Slot-scoped repair and a defense-survival protocol.} A repair
+step that cannot modify code outside the failing slot, and an evaluation
+protocol that measures how many validated defenses survive each added
+feature.
+\item \textbf{An updated measurement and a controlled evaluation design.} A
+replication of the base study on five current cost-efficient models, and an
+evaluation plan with joint functional and security metrics against strong
+agentic, specification-based and repair baselines.
+\end{itemize}
+
+Section~II reviews related work. Section~III defines the problem, threat
+model and metrics. Section~IV presents \sys{}. Section~V describes the
+experimental setup, Section~VI reports results, Section~VII discusses threats
+to validity, and Section~VIII concludes.
+
+%==========================================================================
+\section{Related Work}
+%==========================================================================
+
+\subsection{Measuring the Security of Generated Code}
+
+Kharma \textit{et al.} \cite{kharma2026} provide the measurement baseline
+this work extends: a curated 200-task dataset in seven categories, four
+languages and five model families, evaluated for compilation, unit-test
+correctness, and quality and security with SonarQube and CodeQL. Perry
+\textit{et al.} \cite{perry2023} showed in a user study that assistance can
+lower security while raising confidence. Later work moved to executable
+evaluation. BaxBench pairs 392 backend tasks with expert exploits and found
+the best correct-and-secure rates around 35--37\% \cite{baxbench2025};
+CWEval provides function-level tasks with executable functional and security
+tests \cite{cweval2025}; SusVibes and an independent re-run by Endor Labs
+evaluate agents on repository-level feature tasks, where pooled across
+thirteen agent and model pairs 90.5\% of tasks were solved functionally but
+only 33.0\% securely \cite{susvibes2026,endor2026}.
+
+These studies also expose evaluation pitfalls that shape our design. Static
+verdicts overstate security by 7.4--21.6 times relative to combined static
+and functional checks \cite{tessa2026}, and on 1,080 human-labelled samples
+Semgrep and CodeQL agreed with human judgement on only 65\% and 61\% of
+samples \cite{sastlabels2026}. Agents also find shortcuts: in one SusVibes
+run, an agent recovered known fixes from git history in 163 of 200 tasks
+\cite{endor2026}. We therefore use executable oracles as the primary
+security measure, treat static findings as secondary, and isolate the
+sandbox from network and version history.
+
+\subsection{Steering Generation with Vulnerability Knowledge}
+
+A large family of methods adds security knowledge at inference time.
+SecureCoder maps a task to CWE descriptions and derives guidelines
+\cite{securecoder2026}; MA-CoT retrieves task-specific CWE mitigations into
+a chain-of-thought prompt and was evaluated on the base paper's dataset with
+static tools and manual review \cite{macot2026}; BRACE uses an LLM to
+identify task-relevant CWE risks and validates them against the CWE catalog
+\cite{brace2026}; Constitutional Spec-Driven Development (CSDD) encodes
+CWE-tagged principles with MUST/SHOULD levels and reports CWE violations
+falling from 11 to 3 on a single application, with targeted principles
+outperforming the full set \cite{csdd2026}. The systematization by Patir
+\textit{et al.} explains why such gains are bounded: models already know the
+principles, and the gap lies in applying them at the right place
+\cite{sok2026}. Among its recommended directions are sink-grounded guidance
+and localized, function-preserving repair, neither of which it found
+implemented. CSDD comes closest by producing a file-and-line traceability
+matrix, but the matrix is produced with or after implementation and, in the
+authors' words, measures documented traceability rather than security
+effectiveness \cite{csdd2026}. \sys{} instead binds obligations before
+implementation and ties each binding to an executable, validated oracle.
+
+\subsection{Execution Feedback, Agents and Repair}
+
+Executing code is a strong baseline. In the same systematization, an agent
+scaffold with no security component raised secure-pass@1 on CWEval from 60.5
+to 91.6 for one model, but only from 34.2 to 41.8 on the multi-endpoint
+BaxBench tasks \cite{sok2026}. SCGAgent generates unit tests, predicts
+likely CWEs and applies guidelines with re-testing; it improved one model
+but degraded others because self-generated tests were unreliable, and its
+CWE prediction recall was 0.448 \cite{scgagent2025}. Supplying security
+tests to the model as an upfront specification improved results by 19.3
+points on 31 Python tasks, but the tests were benchmark-provided, did not
+cover authorization, and repair required replacing the whole module
+\cite{testsasspec2026}. A static-analysis feedback loop using Bandit, Pylint
+and CodeQL lowered the insecure rate from about 43--45\% to 13.41\% while
+improving correctness \cite{blyth2025}. Repair loops also over-correct: an
+independent re-evaluation found that 10--30\% of tasks solved by base models
+broke after applying secure-generation methods, with one method resolving
+most failures by deleting the vulnerable code \cite{dai2025}. LLM-written
+exploits are unreliable unless validated by execution: 44--71.5\% of
+proof-of-concept exploits that agents counted as successful were invalid
+\cite{pocgym2026}, whereas requiring an exploit to fail on a secure solution
+and succeed on a weakened one yielded 96.77\% expert-rated soundness
+\cite{autobax2025}. \sys{} adopts this contrastive idea but obtains the
+weakened variant by mutating the bound slot, which does not require a
+reference solution.
+
+\subsection{Business Logic, Specifications and Authorization}
+
+Grynets \textit{et al.} \cite{specdriven2026} propose a Multilayer
+Specification Security Model covering actors, roles, assets, trust
+boundaries and ownership, fed to an agent through GitHub Spec Kit. On a
+FastAPI booking API with a hidden 221-test suite, total failures fell from 50
+without security requirements to 42 with ASVS conditioning and 36 with their
+model, and business-logic failures fell from 17 to 9. The authors list
+executing the verification scenarios, mapping requirements to code,
+post-generation repair and multi-turn work as future work; these are the
+gaps \sys{} targets. LLM threat elicitation remains only moderately
+accurate: the same pipeline fully covered 45.45\% of reference threats
+\cite{specdriven2026}, and open 8B models peaked at 68.75\% penalized F1 on
+STRIDE classification \cite{threatmodel2026}. AutoCedar shows how to make
+intent reliable: humans approve must-permit and must-deny boundaries, after
+which a solver-guided loop produced verified Cedar policies for all 221
+tasks \cite{autocedar2026}. Automated broken object-level authorization
+(BOLA) detection with multiple identities exists for deployed APIs
+\cite{authprobe2026}, but covers read access on existing services rather than
+generated code. \sys{} combines these ideas: the developer confirms an access
+matrix, and oracles for both read and write operations are generated from it
+deterministically.
+
+\subsection{Security Across Turns}
+
+MT-Sec measured a 20--27\% relative drop in correct-and-secure rate from
+single-turn to multi-turn tasks, with a control showing the drop is not
+explained by context length, and found that feedback from ground-truth tests
+recovered most of the loss \cite{mtsec2025}. SCAFFOLD-CEGIS found that
+feature-enhancement steps degraded security in 52.8\% of cases, that adding
+static-analysis gating alone increased latent degradation from 12.5\% to
+20.8\%, and that semantic anchors with diff budgets reduced degradation to
+2.1\% \cite{scaffold2026}. EvoCode-Bench reports functional regression as a
+leading failure mode for strong agents but does not score security
+\cite{evocode2026}. \sys{} replaces static counts with executable,
+validated oracles that persist across turns, and constrains repair by slot
+rather than by diff size.
+
+\subsection{Training-Based Methods}
+
+Training approaches fine-tune models on secure and insecure pairs, use
+preference optimization, or apply reinforcement learning with security
+rewards \cite{srcode2026,secvec2026}, and constrained decoding restricts
+generation to avoid known-insecure patterns \cite{codeguardplus2024}. Their
+security signals come mostly from static analyzers or teacher models, which
+inherit the checker problems above. We treat training as future work and
+note that \sys{} produces data, oracle-labelled slot repairs, that could
+serve as an executable reward signal.
+
+\subsection{Positioning}
+
+Table~\ref{tab:positioning} summarizes how \sys{} relates to the closest
+prior work. No single mechanism is new in isolation; the contribution is
+binding obligations to slots before implementation and using that binding
+to validate oracles, localize repair and attribute regressions.
+
+\begin{table*}[t]
+\caption{Positioning against the closest prior work (\yes{} = yes,
+\prt{} = partial, \no{} = no)}
+\label{tab:positioning}
+\centering
+\small
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+\textbf{Work} & \textbf{Business} & \textbf{CWE} & \textbf{Executed} &
+\textbf{Oracles} & \textbf{Pre-impl.} & \textbf{Localized} &
+\textbf{Multi-turn} \\
+ & \textbf{context} & \textbf{knowledge} & \textbf{oracles} &
+\textbf{validated} & \textbf{binding} & \textbf{repair} &
+\textbf{regression} \\
+\midrule
+MA-CoT \cite{macot2026} & \no & \yes & \no & \no & \no & \no & \no \\
+CSDD \cite{csdd2026} & \no & \yes & \no & \no & \prt{}$^a$ & \no & \no \\
+Spec-driven SDD \cite{specdriven2026} & \yes & \yes & \no$^b$ & \no & \no & \no & \no \\
+Tests as spec \cite{testsasspec2026} & \no & \yes & \yes & \no & \no & \no & \no \\
+SCGAgent \cite{scgagent2025} & \no & \yes & \yes & \no & \no & \no & \no \\
+SCAFFOLD-CEGIS \cite{scaffold2026} & \no & \prt & \prt & \no & \prt{}$^c$ & \prt{}$^d$ & \yes \\
+AutoBaxBuilder$^e$ \cite{autobax2025} & \no & \yes & \yes & \yes & \no & \no & \no \\
+\midrule
+\sys{} (this work) & \yes & \yes & \yes & \yes & \yes & \yes & \yes \\
+\bottomrule
+\multicolumn{8}{@{}p{0.95\textwidth}@{}}{\footnotesize
+$^a$Traceability matrix produced with or after implementation.
+$^b$Hidden evaluation suite only; the method's verification layer is not
+executed. $^c$Anchors mined from existing code. $^d$Diff-size budget rather
+than location. $^e$Benchmark construction rather than a generation
+method; validation uses a reference solution.}
+\end{tabular}
+\end{table*}
+
+%==========================================================================
+\section{Problem Formulation}
+%==========================================================================
+
+\subsection{Scope and Threat Model}
+
+We target server-side web applications and APIs, where business logic and
+access control matter most and where executable oracles can be run against
+an HTTP interface. The adversary is any client of the generated service. It
+may be unauthenticated or may hold valid credentials for one or more
+identities, and it can send arbitrary requests. Its goals are to read or
+modify resources owned by another identity (broken object-level
+authorization, CWE-639/863), invoke operations its role does not permit
+(broken function-level authorization, CWE-862), drive an object through a
+forbidden workflow transition (CWE-841), exceed quotas, or reach an
+injection or path-traversal sink (for example CWE-89, CWE-78, CWE-22). We
+trust the developer who confirms the security profile, the sandbox, and the
+verification tools. Prompt injection against the coding agent, compromise
+of the model provider, side channels, and infrastructure misconfiguration
+are out of scope.
+
+\subsection{Definitions}
+
+A task $t$ consists of a natural-language description and, optionally, an
+API specification. A generator produces a program $P$ for $t$.
+
+\textbf{Security context profile.} A profile
+$\Pi = (R, A, V, \mathit{own}, M, I)$ lists roles $R$, resource types $A$,
+operations (verbs) $V$, an ownership relation $\mathit{own}$ between
+identities and resources, an access matrix
+$M: R \times A \times V \rightarrow \{\mathit{allow}, \mathit{deny},
+\mathit{own\text{-}only}\}$, and a set of invariants $I$ written as
+conditional ``if/when \dots{} the system shall \dots'' statements, for
+example workflow-order or quota rules.
+
+\textbf{Obligation and contract.} An obligation is a tuple
+$o = (\mathit{id}, \mathit{src}, \mathit{ref}, \mathit{sev}, \kappa,
+\nu)$, where $\mathit{src} \in \{\Pi, \mathrm{CWE}\}$ records whether it
+comes from the profile or from vulnerability knowledge, $\mathit{ref}$
+lists CWE or ASVS identifiers, $\mathit{sev} \in \{\mathrm{MUST},
+\mathrm{SHOULD}\}$, $\kappa$ is a slot kind (object authorization,
+function authorization, state transition, query construction, path
+resolution, and so on), and $\nu$ is a verifier kind (multi-identity replay,
+workflow-order test, injection test, static rule, or manual). A contract
+$C$ is the set of obligations for $t$; $C_{\mathrm{MUST}}$ denotes its
+mandatory subset.
+
+\textbf{Skeleton, slots and binding.} A skeleton $S$ is a program with
+routes, signatures and named stub functions called \emph{slots}
+$s_1, \dots, s_m$. Slots are stubbed \emph{permissively}, for example an
+authorization slot returns true. A binding $\beta: C \rightarrow S$ assigns
+each obligation to the slot that must enforce it. A binding is
+\emph{well-formed} if every obligation in $C_{\mathrm{MUST}}$ is bound and,
+for every route that touches a resource governed by $o$, the call graph of
+the route reaches $\beta(o)$.
+
+\textbf{Oracle validity.} An oracle $\omega_o$ is an executable test for
+$o$, with $\omega_o(P) \in \{\mathit{pass}, \mathit{fail}\}$. Let
+$\mu_s(P)$ denote $P$ with slot $s$ replaced by a permissive mutant. We call
+$\omega_o$ \emph{valid on $P$} if
+\begin{equation}
+\omega_o(P) = \mathit{pass} \;\wedge\;
+\omega_o(\mu_{\beta(o)}(P)) = \mathit{fail},
+\label{eq:validity}
+\end{equation}
+that is, the oracle accepts the program and kills the mutant of its own
+slot. An oracle that passes on $P$ but also passes on the mutant is
+\emph{vacuous}: it cannot detect the flaw it is meant to detect.
+
+\textbf{Obligation status.} After verification and bounded repair, each
+obligation receives one status. It is PASS if its oracle is valid on $P$,
+FAIL if its oracle still fails after the repair budget is exhausted, and
+WAIVED if its oracle is vacuous or its verifier kind is manual. WAIVED
+obligations are reported for human review and never counted as passed.
+
+\textbf{Admissible repair.} For a failing obligation $o$, a patch $\delta$
+is admissible if every changed line lies within the source span of
+$\beta(o)$, the binding remains well-formed after the patch, and all
+functional tests and all previously passing oracles still pass.
+
+\subsection{Metrics}
+
+Following recent recommendations to report functional and security results
+jointly \cite{sok2026,dai2025}, we use the following task-level metrics.
+\emph{pass@1} is the fraction of tasks whose solution passes the benchmark's
+functional tests. \emph{secure-pass@1} is the fraction whose solution passes
+the functional tests and every \emph{held-out} security test; held-out tests
+are written independently of \sys{} and are never shown to any system.
+\emph{secure@pass} is secure-pass@1 divided by pass@1. A solution is
+\emph{production-ready} if it is secure and also clears a quality gate $Q$:
+no error-class lint findings or reliability bugs, function complexity and
+maintainability within thresholds declared before the experiments, every
+dependency present in its registry with no known-vulnerable pinned version,
+no committed secrets, and validation on public entry points.
+\emph{production-ready@1} is the corresponding fraction. Static findings
+are reported separately and never enter secure-pass@1.
+
+At the contract level, \emph{contract coverage} is the fraction of
+$C_{\mathrm{MUST}}$ that ends PASS, \emph{oracle adequacy} is the fraction of
+oracles that kill their slot mutant, and \emph{waive rate} is the fraction
+that ends WAIVED. For a sequence of feature additions $1, \dots, K$ with
+ledger $L_{k}$ of oracles validated up to step $k$, \emph{defense survival}
+at step $k$ is
+\begin{equation}
+\mathit{DS}_k = \frac{|\{\, o \in L_{k-1} : \omega_o \text{ valid on } P_k
+\,\}|}{|L_{k-1}|}.
+\label{eq:ds}
+\end{equation}
+As a proxy for review effort we report the number of items needing human
+attention (WAIVED and FAIL obligations plus unresolved static findings
+confirmed by two tools) and the number of lines changed outside bound slots.
+
+\subsection{Research Questions}
+
+\begin{itemize}
+\item[\textbf{RQ1}] How secure and how maintainable is code from current
+cost-efficient LLMs across four languages, compared with the base study
+\cite{kharma2026}?
+\item[\textbf{RQ2}] Does \sys{} raise secure-pass@1 and production-ready@1
+over strong baselines without lowering pass@1?
+\item[\textbf{RQ3}] How reliable are the generated oracles, and how much does
+a developer-confirmed profile matter compared with a profile inferred by an
+LLM alone?
+\item[\textbf{RQ4}] Do validated defenses survive feature additions better
+than with diff-budget repair or an agent that runs tests?
+\item[\textbf{RQ5}] Which mechanisms account for the effect, and at what cost
+in tokens, model calls and time?
+\item[\textbf{RQ6}] Does the per-obligation evidence report reduce what a
+reviewer must inspect?
+\end{itemize}
+
+%==========================================================================
+\section{Proposed Framework: \sys{}}
+%==========================================================================
+
+Fig.~\ref{fig:arch} shows the pipeline. Components 1, 2, 5 and 9 adapt
+established ideas; the skeleton binder (3), the slot-mutation check inside
+the verification gate (6), and the slot-scoped repairer (7) carry the
+novelty. Algorithm~\ref{alg:cg} summarizes one feature step.
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  font=\footnotesize,
+  box/.style={draw, rounded corners=2pt, align=center, minimum height=1.05cm,
+              text width=2.55cm, inner sep=3pt},
+  core/.style={box, fill=gray!20, very thick},
+  io/.style={draw, dashed, rounded corners=2pt, align=center,
+             text width=2.3cm, inner sep=3pt, minimum height=0.9cm},
+  arr/.style={-{Stealth[length=2mm]}, thick},
+  darr/.style={-{Stealth[length=2mm]}, thick, dashed},
+  node distance=0.45cm and 0.42cm
+]
+% Row 1
+\node[io] (in) {Task description\\(+ API spec)};
+\node[box, right=of in] (prof) {\textbf{1. Profiler}\\LLM drafts roles, ownership, access matrix, invariants};
+\node[box, right=of prof] (comp) {\textbf{2. Obligation compiler}\\profile + CWE catalog $\rightarrow$ typed obligations};
+\node[core, right=of comp] (bind) {\textbf{3. Skeleton binder}\\permissive slots; bind each obligation; wiring check};
+\node[box, right=of bind] (forge) {\textbf{4. Oracle forge}\\multi-identity, workflow, injection oracles (red on stubs)};
+% Annotations row 1
+\node[io, above=0.35cm of prof, text width=2.3cm, minimum height=0.6cm] (dev) {Developer confirms};
+\node[io, above=0.35cm of comp, text width=2.4cm, minimum height=0.6cm] (cat) {CWE-by-language table, MITRE CWE, ASVS};
+% Row 2 (right to left)
+\node[box, below=0.8cm of forge] (gen) {\textbf{5. Slot-filling generator}\\LLM implements slots with their obligations};
+\node[core, left=of gen] (gate) {\textbf{6. Verification gate}\\functional, oracles, \textbf{slot mutants}, wiring, SAST, quality, deps};
+\node[core, below=0.55cm of gate] (rep) {\textbf{7. Slot-scoped repairer}\\edits only the failing slot (max 3 rounds)};
+\node[box, left=0.75cm of gate] (rept) {\textbf{8. Evidence report}\\PASS / FAIL / WAIVED per obligation};
+\node[box, left=of rept] (led) {\textbf{9. Contract ledger}\\validated oracles committed with code};
+\node[io, left=0.35cm of led, text width=1.75cm] (out) {Code + tests + report};
+% Arrows
+\draw[arr] (in) -- (prof);
+\draw[arr] (prof) -- (comp);
+\draw[arr] (comp) -- (bind);
+\draw[arr] (bind) -- (forge);
+\draw[arr] (forge) -- (gen);
+\draw[arr] (gen) -- (gate);
+\draw[arr] (gate) -- node[above]{pass} (rept);
+\draw[arr] (rept) -- (led);
+\draw[arr] (led) -- (out);
+\draw[darr] (dev) -- (prof);
+\draw[darr] (cat) -- (comp);
+\draw[arr] ([xshift=-4mm]gate.south) -- node[left]{fail} ([xshift=-4mm]rep.north);
+\draw[arr] ([xshift=4mm]rep.north) -- node[right]{patch} ([xshift=4mm]gate.south);
+\draw[darr] (led.south) |- node[pos=0.75, below]{feature $k{+}1$: earlier oracles re-checked; failures repaired} (rep.west);
+\end{tikzpicture}
+\caption{\sys{} architecture. Shaded components carry the novel mechanisms:
+pre-implementation slot binding, slot-mutation validation of every oracle,
+and repair confined to the failing slot. The dashed path shows the ledger
+being re-checked when the next feature is added.}
+\label{fig:arch}
+\end{figure*}
+
+\subsection{Profiler}
+
+The profiler asks an LLM to draft a security context profile $\Pi$ from the
+task description and any API specification: roles, resource types,
+ownership, the access matrix, and invariants in conditional form. The
+developer then confirms or edits a short checklist rather than writing the
+profile from scratch. This follows evidence that LLM-only threat elicitation
+is incomplete \cite{specdriven2026,threatmodel2026} while human-approved
+intent boundaries make downstream verification reliable \cite{autocedar2026}.
+The profile is stored as validated YAML so that later stages treat it as
+data, not prose. To measure the value of confirmation (RQ3) we also run an
+LLM-only path.
+
+\subsection{Obligation Compiler}
+
+The compiler deterministically maps profile entries and code features to
+obligations. Ownership entries yield object-authorization obligations
+(CWE-639/863), role restrictions yield function-authorization obligations
+(CWE-862), workflow invariants yield state-transition obligations (CWE-841),
+quotas yield rate or limit obligations, and detected sinks yield query,
+command and path obligations (for example CWE-89, CWE-78, CWE-22). Per-language
+priors come from the weaknesses most frequently observed by the base study,
+such as cryptographic and certificate-validation weaknesses in Java and
+Python \cite{kharma2026}. We use rules rather than asking an LLM to predict
+CWEs, because LLM prediction recall was 0.448 in prior work
+\cite{scgagent2025}, and we cap each slot at its three to five relevant
+obligations, since targeted principles outperformed the full set in CSDD
+\cite{csdd2026}.
+
+\subsection{Skeleton Binder}
+
+Before implementation, an LLM proposes a skeleton: routes, function
+signatures and named slots such as
+\texttt{authz\_booking\_cancel(user, booking)} or
+\texttt{guard\_cancel\_transition(booking, now)}. Slots are stubbed
+permissively. The binder assigns every obligation to a slot and checks,
+by static analysis of the abstract syntax tree, that every route touching a
+governed resource calls its bound slots. This wiring check also catches a
+failure seen in practice, where a guard is defined but never connected to
+the request path. Binding before implementation gives the generator a
+concrete place to put each defense, which is the sink-grounded guidance the
+systematization identified as missing \cite{sok2026}.
+
+\subsection{Oracle Forge}
+
+For every cell of the access matrix and every invariant, the forge
+instantiates a deterministic oracle template. Authorization templates use
+at least two identities: identity B attempts to read, update or delete a
+resource owned by identity A, and the oracle checks observable effects only,
+namely the status code, whether A's identifier appears in the response, and
+whether A's resource changed. Function-level templates call privileged
+operations with an unprivileged role. Workflow templates drive an object
+into a forbidden state order. Injection and path templates send payloads to
+bound sinks. An LLM fills only request bodies and call sequences; pass and
+fail decisions are never made by an LLM. Because slots are permissive, every
+oracle must fail on the skeleton before generation; an oracle that passes on
+the skeleton is discarded. This avoids trusting self-reported exploit
+success, which was invalid in 44--71.5\% of cases in prior work
+\cite{pocgym2026}.
+
+\subsection{Slot-Filling Generator}
+
+The generator implements the skeleton. Each slot is presented with only its
+bound obligations, expressed as a short contract docstring with
+preconditions and the expected sink-specific pattern, such as a
+parameterized query or an ownership comparison against the authenticated
+identity. Oracles are not shown to the generator, which avoids writing code
+to the test. The generator can be any LLM or a coding agent; \sys{} only
+requires that it preserves slot names and signatures.
+
+\subsection{Verification Gate}
+
+The gate runs in a container without network access or version history and
+applies nine checks:
+G1~functional tests;
+G2~contract oracles;
+G3~slot mutation, in which each bound slot is replaced by its permissive
+mutant (for example an authorization guard that returns true, a dropped
+authentication dependency, a parameterized query rewritten as string
+formatting, a removed path canonicalization or a deleted state check) and
+the corresponding oracle must flip to fail, per (\ref{eq:validity});
+G4~wiring, re-running the call-path check so that a guard cannot be removed
+or bypassed;
+G5~static analysis with Semgrep and Bandit or CodeQL;
+G6~quality with a linter and complexity metrics;
+G7~dependency existence in the package registry and known-vulnerability
+checks;
+G8~secret scanning; and
+G9~integrity, in which oracle files are hash-locked so that any skip,
+deletion or edit by the generator fails the task.
+G3 is the key addition. It turns ``the tests passed'' into ``the tests
+passed and are capable of failing,'' reusing the contrastive principle of
+AutoBaxBuilder \cite{autobax2025} and the logic of mutation testing
+\cite{jia2011} without needing a reference solution.
+
+\subsection{Slot-Scoped Repairer}
+
+When an oracle fails, the repairer maps it to its obligation and slot and
+gives the model only three inputs: the body of that slot, the obligation
+text, and the failing request and response trace. A patch is rejected if any
+changed line falls outside the slot's source span, if it removes a guard or
+breaks the wiring check, or if it breaks functional tests or previously
+passing oracles. Repair stops after three rounds, consistent with reports
+that feedback gains taper after three to four iterations \cite{blyth2025}.
+Confining repair by location rather than by diff size distinguishes this
+step from diff budgets \cite{scaffold2026} and from whole-module repair
+\cite{testsasspec2026}, and it removes the opportunity to ``fix'' a failure
+by deleting unrelated functionality \cite{dai2025}.
+
+\subsection{Evidence Report and Contract Ledger}
+
+The evidence report lists every obligation with its status, slot location,
+oracle, whether the mutant was killed, and any static or quality findings,
+in Markdown and in SARIF so that it appears in pull-request review. A
+reviewer needs to read only WAIVED and FAIL entries and changes outside
+bound slots. The ledger commits validated oracles and bindings with the
+code. When the next feature is requested, the profiler, compiler and binder
+run on the change only, and every oracle already in the ledger must remain
+valid; defense survival (\ref{eq:ds}) measures how often it does. In agent
+workflows the ledger can run as a pre-commit or tool hook.
+
+\begin{algorithm}[t]
+\caption{\sys{} for one feature step $k$}
+\label{alg:cg}
+\begin{algorithmic}[1]
+\REQUIRE task $t_k$, program $P_{k-1}$, ledger $L_{k-1}$
+\STATE $\Pi \leftarrow$ \textsc{Confirm}(\textsc{DraftProfile}($t_k$))
+\STATE $C \leftarrow$ \textsc{Compile}($\Pi$, CWE catalog)
+\STATE $(S, \beta) \leftarrow$ \textsc{Bind}($C$, $P_{k-1}$); require well-formed $\beta$
+\STATE $\Omega \leftarrow \{\omega_o \leftarrow \textsc{Forge}(o) : o \in C\}$; drop $\omega_o$ with $\omega_o(S) = \mathit{pass}$
+\STATE $P \leftarrow$ \textsc{Generate}($S$, $C$)
+\FOR{$r = 0$ \TO $3$}
+  \STATE $F \leftarrow \{o : \omega_o(P) = \mathit{fail}\} \cup \{o \in L_{k-1} : \omega_o \text{ not valid on } P\}$
+  \IF{$F = \emptyset$ \OR $r = 3$}
+    \STATE \textbf{break}
+  \ENDIF
+  \FORALL{$o \in F$}
+    \STATE $\delta \leftarrow$ \textsc{Repair}($\beta(o)$, $o$, trace)
+    \IF{$\delta$ admissible}
+      \STATE $P \leftarrow P \oplus \delta$
+    \ENDIF
+  \ENDFOR
+\ENDFOR
+\FORALL{$o \in C$}
+  \STATE status$(o) \leftarrow$ PASS if $\omega_o$ valid on $P$ (\ref{eq:validity}); FAIL if $\omega_o(P) = \mathit{fail}$; else WAIVED
+\ENDFOR
+\STATE $L_k \leftarrow L_{k-1} \cup \{\omega_o : \text{status}(o) = \text{PASS}\}$
+\RETURN $P$, report, $L_k$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Worked Example}
+
+For a booking service, the developer confirms one access-matrix row, ``a
+member may cancel only their own booking; an administrator may cancel any
+booking,'' and one invariant, ``if a booking is not confirmed or its start
+time has passed, the system shall reject cancellation.'' The compiler emits
+obligation $o_7$ (object authorization, CWE-639/863, MUST, multi-identity
+replay) and $o_8$ (state transition, CWE-841, MUST, workflow-order test).
+The binder creates \texttt{authz\_booking\_cancel} and
+\texttt{guard\_cancel\_transition}, both permissive, and confirms that the
+cancel route calls both. The forge produces two oracles: member B attempts to
+cancel member A's booking and must receive a denial with A's booking
+unchanged, and a cancellation after the start time must be rejected. Both
+fail on the skeleton. After generation both pass. The gate then replaces
+\texttt{authz\_booking\_cancel} with a function that returns true; if the
+$o_7$ oracle does not fail, it is vacuous and $o_7$ is reported WAIVED, not
+PASS. If the $o_8$ oracle fails, only \texttt{guard\_cancel\_transition} and
+the failing trace are sent to the repairer. When a later feature adds
+rescheduling, both oracles remain in the ledger and must stay valid.
+
+\subsection{Implementation}
+
+We implement \sys{} in Python for FastAPI services. Profiles and contracts
+use YAML validated with Pydantic; the binder and wiring check use Python's
+abstract syntax tree tooling; oracles use pytest with FastAPI's test client;
+mutants are produced by rewriting slot bodies; static and quality checks use
+Semgrep, Bandit, CodeQL, Ruff and radon; dependency checks use the package
+registry and vulnerability databases; and the gate runs in Docker. Model
+access goes through a provider-independent client so that hosted models and
+a local open-weight coder can be swapped. Oracle templates for multi-identity
+authorization require no LLM, which keeps the method affordable.
+% TODO: confirm exact tool versions when the implementation is built.
+
+%==========================================================================
+\section{Experimental Setup}
+%==========================================================================
+
+\subsection{Updated Measurement (RQ1)}
+
+We replicate the base study \cite{kharma2026} on a 50-task subset of its
+dataset, spanning its task categories, with five current models from each
+provider's cost-efficient tier: Claude Haiku~5.5, GPT-6~Luna, Gemini~3.8
+Flash, Mistral Large~4 and Qwen~3.8 Flash, in Python, Java, C++ and C. We
+keep the base study's prompt wording and temperature of 0.9 so that results
+are comparable. We report compilation success, unit-test pass rate where
+tests exist, and SonarQube and CodeQL findings. Because these are static
+measures, we report them as finding density per thousand lines, not as a
+secure rate. A small comparison between the cost-efficient tier and each
+provider's flagship model on a further subset is planned to separate tier
+effects from generation effects.
+% TODO: insert exact model identifiers, access dates and the task IDs used.
+% TODO: note GPT-6 Luna and Mistral Large 4 tier positions in the threats
+% section if the flagship comparison is not completed.
+
+\subsection{Benchmarks for the Framework (RQ2--RQ6)}
+
+\textbf{BaxBench subset.} Python-framework scenarios from BaxBench
+\cite{baxbench2025}, prioritizing scenarios whose expert exploits cover
+access-control weaknesses. Exploits serve as held-out security tests.
+
+\textbf{CWEval subset.} Python tasks from CWEval \cite{cweval2025}, which
+supply executable functional and security tests at function level, where
+bindings attach mostly to sinks rather than to authorization.
+
+\textbf{Custom authorization services.} Ten to fifteen small FastAPI
+services, such as bookings, multi-tenant notes, orders with refunds and
+document sharing, each with an access matrix, workflow invariants and a
+hidden security suite written by a team member who did not write the oracle
+templates. Tasks are written after the evaluated models' training cut-offs.
+
+\textbf{Feature sequences.} Each custom service is extended over four to five
+feature turns covering expansion, editing and refactoring, following the
+taxonomy of MT-Sec \cite{mtsec2025}, with code supplied to the model as
+diffs.
+
+\subsection{Models}
+
+For RQ2--RQ6 we use two of the five measurement models and one local
+open-weight coding model, so that results cover both hosted and
+self-hosted settings and show where the method stops helping weaker models.
+
+\subsection{Baselines}
+
+All baselines use the same model, the same sandbox and the same cap on
+model calls and tokens.
+B0~direct generation.
+B1~a generic security reminder.
+B2~MA-CoT-style prompting with retrieved CWE mitigations \cite{macot2026}.
+B3~profile-conditioned specification without binding, in the style of
+\cite{specdriven2026}, with an ASVS-only variant.
+B4~\sys{}'s own validated oracles given upfront as a specification, with
+whole-module repair \cite{testsasspec2026}; this isolates the effect of
+binding and slot-scoped repair from simply having good tests.
+B5~an open-source coding agent that may run functional tests and write its
+own tests, the strongest generic baseline \cite{sok2026}.
+B6~an SCGAgent-style loop of self-generated tests and CWE guidelines
+\cite{scgagent2025}.
+B7~anchor and diff-budget repair approximating SCAFFOLD-CEGIS
+\cite{scaffold2026}, with budgets declared in advance.
+B8~a static-analysis feedback loop \cite{blyth2025}.
+
+\subsection{Metrics and Ablations}
+
+Every table reports pass@1, secure-pass@1 and secure@pass together, plus
+production-ready@1, contract coverage, oracle adequacy, waive rate, defense
+survival, the review-effort proxy, and cost in tokens, calls and wall-clock
+time (Section~III). Ablations remove one mechanism at a time: binding
+(contract as a prose checklist), mutation validation (oracles trusted as
+generated), slot-scoped repair (whole-file repair), the business profile
+(CWE obligations only), the CWE catalog (profile obligations only), and the
+ledger. Two further comparisons contrast LLM-generated with deterministic
+authorization oracles, and LLM-only with developer-confirmed profiles. The
+binding ablation and the comparison with B4 are decisive: if binding adds
+nothing over the same validated oracles given upfront, the remaining
+contributions are the validated oracles and the defense-survival protocol,
+and we will report that outcome as such.
+
+\subsection{Validity Protocol}
+
+The sandbox has no network and no version history, and all tool calls are
+logged. Held-out tests never appear in any prompt. Oracle files are
+hash-locked. Oracle templates and hidden suites have different authors.
+Every configuration runs with at least three seeds; we report bootstrap 95\%
+confidence intervals and compare paired outcomes with McNemar's test and
+Holm correction. A random 10\% of secure verdicts are audited manually.
+Generation failures count as failures. Quality thresholds and repair
+budgets are fixed before the main runs.
+
+%==========================================================================
+\section{Results and Analysis}
+%==========================================================================
+% TODO: RQ1 table: per model x language -- compile %, unit-test pass %,
+%       SonarQube issues/KLOC (bugs, smells, hotspots), CodeQL findings/KLOC,
+%       top-5 CWEs per language vs. base paper Table XII.
+% TODO: RQ2-RQ6 tables and figures once the framework is implemented.
+
+\section{Threats to Validity}
+
+\textbf{Internal validity.} A framework that writes its own tests risks
+grading itself. We separate the two roles: \sys{}'s oracles drive generation
+and repair, but every reported security result comes from held-out exploits
+or hidden suites written by a different author, and those are never shown to
+any system. Oracles may also reject correct code; we measure this false-fail
+rate by running every oracle on reference-secure solutions. Results from
+agents vary between runs, and published agent results have shifted by several
+points on re-runs \cite{endor2026}, so every configuration uses at least three
+seeds and paired statistical tests. Contamination and shortcutting are
+limited by writing custom tasks after the models' training cut-offs and by
+removing network access and version history from the sandbox. The developer
+confirmation step is a potential weak point, since people tend to accept
+plausible but wrong LLM suggestions; the LLM-only profile ablation measures
+how much the result depends on it.
+
+\textbf{Construct validity.} Slot mutation shows that an oracle can detect
+the \emph{absence} of a defense, because the permissive mutant removes the
+check entirely. It does not show that the check is correct for every input:
+an oracle could kill the permissive mutant yet miss a partially wrong guard,
+for example one that checks the role but not ownership. Richer mutation
+operators, such as partial-guard and off-by-one-state mutants, would tighten
+this and are left to future work. For RQ1, static findings from SonarQube and
+CodeQL are imperfect measures of security \cite{tessa2026,sastlabels2026};
+we report them as finding density, not as a secure rate. The review-effort
+measure is a proxy, the number of items a reviewer must inspect, and not
+measured human effort; any claim about effort reduction is limited to that
+proxy unless a user study is added.
+
+\textbf{External validity.} The dynamic oracle layer targets Python and
+FastAPI services, and the custom tasks are small services rather than large
+repositories; results may not transfer to other frameworks, to languages
+without comparable test tooling, or to repository-scale changes. The
+multi-language claim rests on the RQ1 measurement, which uses static tools
+only. Method effects can depend on the model: a prior test-and-guideline
+loop helped one model and hurt others \cite{scgagent2025}. We therefore
+include a local open-weight model to show where the method stops helping. The
+RQ1 model set mixes cost-efficient and larger models from different
+providers, so differences between providers may partly reflect model size;
+the planned tier comparison addresses this.
+
+\textbf{Novelty.} The field is moving quickly, and several 2026 preprints on
+LLM-guided risk analysis and agent test generation were available only as
+titles during our literature search. Our novelty claim is limited to the
+combination of pre-implementation slot binding with slot-mutation oracle
+validation, slot-scoped repair and an executable regression ledger, to the
+best of our knowledge as of October 2026.
+% TODO: read BRACE (arXiv:2606.16244) and recheck before submission.
+
+\section{Conclusion and Future Work}
+
+Current LLMs know how to write secure code but often fail to place the
+defense where it belongs, static checkers overstate how often they succeed,
+business-logic flaws are invisible to pattern-based tools, and defenses erode
+as code evolves. This paper has argued that the enforcement location should
+be treated as a first-class object. \sys{} compiles CWE knowledge and
+developer-confirmed business rules into obligations, binds each obligation to
+a named slot before implementation, trusts a security oracle only when it
+fails on a weakened version of its own slot, confines repair to the failing
+slot, and keeps validated oracles as a ledger that later features must
+satisfy. The result for a developer is a short list of what was proven, what
+failed, and what still needs human judgement, rather than an unverified body
+of generated code. We have defined measurable notions of secure and
+production-ready code, an evaluation against strong agentic, specification
+and repair baselines, and an updated measurement of current models against
+the base study.
+
+Several directions follow. First, the framework produces training data that
+prior secure-code training methods lack: slot repairs labelled by executable,
+validated oracles. Reviewed training methods derive their security signal
+from static analyzers or teacher models \cite{srcode2026,secvec2026}; using
+oracle-labelled repairs for supervised and preference fine-tuning of a small
+open model is a natural second phase. Second, richer mutation operators would
+strengthen what a passing oracle certifies. Third, expressing the access
+matrix in an established policy language would let the same profile drive
+both application oracles and policy verification \cite{autocedar2026}.
+Fourth, the ledger can run as a hook inside coding agents, which would allow
+a study of defense survival in real multi-turn agent sessions. Finally, a
+controlled study with developers would test whether the evidence report
+reduces review time, not only the number of items to inspect.
+
+\section*{Acknowledgment}
+% TODO.
+
+%==========================================================================
+\begin{thebibliography}{00}
+
+\bibitem{kharma2026} M. F. Kharma, S. Choi, M. Alkhanafseh, and D. Mohaisen,
+``Security and quality in LLM-generated code: A multi-language, multi-model
+analysis,'' \textit{IEEE Trans. Dependable Secure Comput.}, vol. 23, no. 3,
+pp. 7300--7314, May/Jun. 2026, doi: 10.1109/TDSC.2026.3672745.
+
+\bibitem{perry2023} N. Perry, M. Srivastava, D. Kumar, and D. Boneh, ``Do
+users write more insecure code with AI assistants?'' in \textit{Proc. ACM
+CCS}, 2023. [Online]. Available: https://arxiv.org/abs/2211.03622
+
+\bibitem{metr2025} J. Becker \textit{et al.}, ``Measuring the impact of
+early-2025 AI on experienced open-source developer productivity,'' 2025,
+arXiv:2507.09089.
+% TODO: verify author list.
+
+\bibitem{susvibes2026} ``Is vibe coding safe? Benchmarking vulnerability of
+agent-generated code in real-world tasks,'' 2025, arXiv:2512.03262.
+% TODO: verify author names.
+
+\bibitem{baxbench2025} M. Vero \textit{et al.}, ``BaxBench: Can LLMs generate
+correct and secure backends?'' 2025, arXiv:2502.11844.
+% TODO: verify authors and venue.
+
+\bibitem{sok2026} Patir, Guo, Cai, and Hu, ``SoK: AI secure code generation:
+Progress, pitfalls, and paths forward,'' 2026, arXiv:2606.25195.
+% TODO: add author initials.
+
+\bibitem{securecoder2026} ``Towards secure code generation with LLMs: A study
+on Common Weakness Enumeration.''
+% TODO: locate venue, year and full author list.
+
+\bibitem{macot2026} ``Enhancing reliability in LLM-based secure code
+generation,'' 2026, arXiv:2605.24300.
+% TODO: verify author names.
+
+\bibitem{csdd2026} S. R. Marri, ``Constitutional spec-driven development,''
+2026, arXiv:2602.02584.
+% TODO: verify full title.
+
+\bibitem{tessa2026} Tessa \textit{et al.}, ``How secure is secure code
+generation?'' 2026, arXiv:2601.07084.
+% TODO: verify authors and full title.
+
+\bibitem{mtsec2025} Rawal, Yang, Chiang, Shen, Tian, Mahajan, Goldstein, and
+Y. Chen, ``MT-Sec: Benchmarking correctness and security in multi-turn code
+generation,'' in \textit{Proc. NeurIPS}, 2025, arXiv:2510.13859.
+% TODO: verify title and initials; the arXiv version reports 20--27%,
+% the NeurIPS abstract 15--20% -- confirm which version is cited.
+
+\bibitem{scaffold2026} Y. Chen, Y. Bian, H. Wang, S. Li, and Z. Cui,
+``SCAFFOLD-CEGIS: Preventing latent security degradation in LLM-driven
+iterative code refinement,'' 2026, arXiv:2603.08520.
+
+\bibitem{specdriven2026} O. Grynets, A. Salyk, V. Lyashkevych, O. Kaskun, and
+D. Zhuravchak, ``Specification-driven development benchmark: Security
+knowledge transition,'' 2026, arXiv:2606.00167.
+
+\bibitem{dai2025} Dai, Xu, and Tao, ``[Re-evaluation of secure code generation
+methods],'' 2025, arXiv:2503.15554.
+% TODO: insert exact title and author initials.
+
+\bibitem{meyer1992} B. Meyer, ``Applying `design by contract','' \textit{Computer},
+vol. 25, no. 10, pp. 40--51, Oct. 1992.
+
+\bibitem{cweval2025} ``CWEval: Outcome-driven evaluation on functionality and
+security of LLM code generation,'' in \textit{Proc. IEEE/ACM LLM4Code}, 2025,
+arXiv:2501.08200.
+% TODO: verify author names.
+
+\bibitem{endor2026} Endor Labs, ``Agent Security League: Evaluating the
+security of AI-coded software,'' 2026. [Online]. Available:
+https://www.endorlabs.com/learn/agent-security-league-evaluating-the-security-of-ai-coded-software
+
+\bibitem{sastlabels2026} ``[Reliability of SAST tools as evaluation oracles for
+LLM-generated code],'' in \textit{SANER Workshops}, 2026, arXiv:2602.05868.
+% TODO: insert exact title and authors.
+
+\bibitem{brace2026} ``Activating latent security knowledge through LLM-guided
+risk analysis for secure code generation,'' 2026, arXiv:2606.16244.
+% TODO: verify authors; method not yet read -- check overlap before submission.
+
+\bibitem{scgagent2025} Saul, Wang, Sen, and Wagner, ``[SCGAgent],'' 2025,
+arXiv:2506.07313.
+% TODO: insert exact title and initials.
+
+\bibitem{testsasspec2026} ``Security tests as executable specifications,''
+2026, arXiv:2608.09740.
+% TODO: verify authors and full title.
+
+\bibitem{blyth2025} Blyth \textit{et al.}, ``[Static analysis as a feedback
+loop for LLM-generated code],'' 2025, arXiv:2508.14419.
+% TODO: insert exact title and authors.
+
+\bibitem{pocgym2026} ``POC-GYM: Towards more reliable LLM-assisted
+proof-of-concept exploit generation,'' 2026, arXiv:2602.04165.
+% TODO: verify authors.
+
+\bibitem{autobax2025} ``AutoBaxBuilder,'' 2025, arXiv:2512.21132.
+% TODO: insert exact title, authors and venue.
+
+\bibitem{threatmodel2026} ``[LLM-based STRIDE threat classification],'' 2026,
+arXiv:2605.10808.
+% TODO: insert exact title and authors.
+
+\bibitem{autocedar2026} Vatsa, Shome, Zhou, and Eiers, ``AutoCedar,'' 2026,
+arXiv:2607.03656.
+% TODO: insert exact title and initials.
+
+\bibitem{authprobe2026} J. Barach, ``AuthProbe: Specification-driven,
+multi-identity detection of broken object-level authorization in
+recruitment APIs,'' 2026, arXiv:2607.20574.
+
+\bibitem{evocode2026} ``EvoCode-Bench: Evaluating coding agents in multi-turn
+iterative interactions,'' 2026, arXiv:2605.24110.
+% TODO: verify author names.
+
+\bibitem{srcode2026} ``Learning to generate secure code via token-level
+rewards,'' 2026, arXiv:2602.23407.
+% TODO: verify author names.
+
+\bibitem{secvec2026} ``Functional and secure code generation with task
+vectors,'' 2026, arXiv:2607.07881.
+% TODO: verify author names.
+
+\bibitem{codeguardplus2024} ``Constrained decoding for secure code
+generation,'' 2024, arXiv:2405.00218.
+% TODO: verify author names.
+
+\bibitem{jia2011} Y. Jia and M. Harman, ``An analysis and survey of the
+development of mutation testing,'' \textit{IEEE Trans. Softw. Eng.}, vol. 37,
+no. 5, pp. 649--678, 2011.
+
+\end{thebibliography}
+
+\end{document}

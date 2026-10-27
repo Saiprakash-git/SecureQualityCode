@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793016645-fk2o4i2zdpkZ3dw0wMCo",
+  "finish_reason": "stop",
+  "input_tokens": 267,
+  "output_tokens": 774,
+  "cost_usd": 0.0004137,
+  "raw_response": {
+    "id": "gen-1793016645-fk2o4i2zdpkZ3dw0wMCo",
+    "object": "chat.completion",
+    "created": 1793016645,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n\nchar *likes(const char *names[], size_t count)\n{\n    int length;\n    char *result;\n\n    if (count == 0) {\n        length = snprintf(NULL, 0, \"no one likes this\");\n    } else if (count == 1) {\n        length = snprintf(NULL, 0, \"%s likes this\", names[0]);\n    } else if (count == 2) {\n        length = snprintf(NULL, 0, \"%s and %s like this\", names[0], names[1]);\n    } else if (count == 3) {\n        length = snprintf(NULL, 0, \"%s, %s and %s like this\",\n                          names[0], names[1], names[2]);\n    } else {\n        length = snprintf(NULL, 0, \"%s, %s and %zu others like this\",\n                          names[0], names[1], count - 2);\n    }\n\n    if (length < 0) {\n        return NULL;\n    }\n\n    result = malloc((size_t)length + 1);\n    if (result == NULL) {\n        return NULL;\n    }\n\n    if (count == 0) {\n        snprintf(result, (size_t)length + 1, \"no one likes this\");\n    } else if (count == 1) {\n        snprintf(result, (size_t)length + 1, \"%s likes this\", names[0]);\n    } else if (count == 2) {\n        snprintf(result, (size_t)length + 1, \"%s and %s like this\",\n                 names[0], names[1]);\n    } else if (count == 3) {\n        snprintf(result, (size_t)length + 1, \"%s, %s and %s like this\",\n                 names[0], names[1], names[2]);\n    } else {\n        snprintf(result, (size_t)length + 1, \"%s, %s and %zu others like this\",\n                 names[0], names[1], count - 2);\n    }\n\n    return result;\n}",
+          "refusal": null,
+          "reasoning": "**Evaluating C Source Code**\n\nI need to output a C source file that defines a function likely in the format `char *likes(const char *names[], size_t count)`. It seems like the user is looking for a complete solution that handles dynamic memory allocation. I should include standard libraries like stdio.h and ensure the function can handle edge cases, such as a count of 0. I\u2019ll also consider memory management for the returned string, so the caller is responsible for freeing it later. I'll get to coding this!**Designing Formatting for Likes**\n\nI\u2019m thinking about how to format the output for likes. The specifics are: for 0 likes, I'd use \"no one likes this\"; for 1 like, it's \"%s likes this\"; for 2 likes, it becomes \"%s and %s like this\"; for 3 users, \"%s, %s and %s like this\"; and for 4 or more, \"%s, %s and %zu others like this\". I could use snprintf to handle formatting and manage memory as well, returning NULL for allocation failures. The function will accommodate a `const char *` array. I\u2019ll focus on writing the source code!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Evaluating C Source Code**\n\nI need to output a C source file that defines a function likely in the format `char *likes(const char *names[], size_t count)`. It seems like the user is looking for a complete solution that handles dynamic memory allocation. I should include standard libraries like stdio.h and ensure the function can handle edge cases, such as a count of 0. I\u2019ll also consider memory management for the returned string, so the caller is responsible for freeing it later. I'll get to coding this!**Designing Formatting for Likes**\n\nI\u2019m thinking about how to format the output for likes. The specifics are: for 0 likes, I'd use \"no one likes this\"; for 1 like, it's \"%s likes this\"; for 2 likes, it becomes \"%s and %s like this\"; for 3 users, \"%s, %s and %s like this\"; and for 4 or more, \"%s, %s and %zu others like this\". I could use snprintf to handle formatting and manage memory as well, returning NULL for allocation failures. The function will accommodate a `const char *` array. I\u2019ll focus on writing the source code!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30NLmfvJIytwHTYKk0w9b88H3ZfTN4QtHLpv7Ac1Fl8NCX7mFAAzEqYyKDx0m5K3ZgOJYslPIcEUgMDKV1KZwPUBBmJxuRayAnd164XK_McyRTXpxFTcR-7COLwrDIr1Mr1tSNBGHH4ZMarEFDXUfraekwTLOkelit5nZoStkCgPEi8jLk4_TD0B_yvIExklgyYWAakTLSnUehAyJDxGA-yL5a2HctL1YkZ021UkOZmBS09q-wYo6ExHDHhbUOHVfRFBc1CyCyYDrNrYVkYO76JnXX0cL2yOo-IsO0ibWRy-n_4aHXsT_BFr2IVm_X3O7uLUW-nTUcGWdS_QrB3B-W5GMUJPeZDKcGGRt36vPE_-6S4S8dSXCq5GBxZaeLRnzGoaC1yOeIWR7oeXw5x3t0-d_Q2zmfEOVmWs1xQz68S58FuVSf90rgoxtlydlNTxkF770lI4bljZVl__b8Z4xnsWfgFal_LZysp4fuLyimWnoq4LTwkpvG078OOT61zu4m45mAN-D5nnvlW5ljpTON6oaudSdRZgC5U8875KWgoXXA9dhoStGh7iYwf5o2nHL6L1QZ7heiCS0TwkIEmmPmshisJQDbw4XxxGi7CEmPo77jGiyAqLlWolVl2man4iVUCoxojD1qMQgLEUpW8Xu2y0amvfC7Xf_tvMjvYV4PJfcHXF-z5cxb9baIK7-4zeOu0zIa_38S-q2Z1sc3rGYat93T2iRjaU1wZDy1q_Qw-5vcozgqFgD6wcYt4SSS67YLRK2qjDMeHc9WGu2dCdz2FSu4fVCpBFnnkQxb_TCi9t6ieb_wFH5pwy3pnfl0y8rEu05qSWjFmMwRHHgPrU3O4eTEIst4gg-j1_QcBAs4dWdcKZj_SuoYZc7P-Is_QDjqMnLMoMcSxdSdKoJnEghmbkvHXWfn0OHrWJu57Vyj3le7p1UAoM_NqbGlgk-vwLLq_cH3TETk8vJxiKX6XirmKyvVbqB7J7LbvjhGMyPqxTMlX-6nowKyiNU6XlzNcfbgkBKujoulvaC0y9SQtVHx4WiSFxiykNHTSPu8Sbxn-9FUjfw8pGmIIdebl85LOeCwr3uSCSluwQHEgbdjWkVqYKrl-POEzYjlF_SwPZ1Ja5VxiTUh71qTltDp5mDnJuv6_HjWkInl_KE608HclF7rC0NE2-CIe72KfLLEm4_CeN1YuPB-JA_G_CuCceQH1XDIc6xZqV1DN3Z-KLxe6bSla34xRWiXVeeNTIsnU4bBeiE0aF98dEXUZeJV3uUUjBVHjizyJgFohhk1OslrK3U6z6xHrAgeEkd7mZG8uJwUb0tD_t8OCNjbptqsKTJyg5kpbkjQPXIB6IocFjfeb31gc2aVHCH7k9qgrnAN_u2jy3dSaaCBXwzTEfM4xk19eXZvyXlHeOLnCw2mULlOJnnmFt0Mx8uPGtVOdr-oQ-ZxrkaNmqMEIBU40vgB6Lzixdd4WjgLpjF27WRcWHJjaSpIOep_ZVraGU7XxReQw3RQcONNSLV1csl7-z83ZnJvpubXxkOkIu52Cmr94g4xwE53LnYdmbD54C7S3UHLxbgBA_Wksgra0UKdy9_mW0CQdLFTDF9ckUwwQ2hKQn1zIfxULts9z-FfOShgF8Jf-6GfPgnElV2qXwVfXzIAc3pn0VIyp4YqS9ueA9YCDXxaQntVJZSQcu4zJ9fvd1Hwg-nprUCpv_-utg5U4Wsf8t9bOhOQk8_G828uss7uAkFiC1wRVZJbDevkcSK0jLVjs9shmjseCEfjhcSkqgRbqD7mgE_ApIiaSiePMCL_SUfxfNMUNjLWTn8HYApQdzjV1oYdDfJWJJWWWMOnVB0DqPaVaMZ3yjMQEqbXgfWZ7c1S1-N9jHyEqh_B4qLOgCMdME59IeZm4Ch3L-3Vi3Dk59sL7Ki-5mlttSXFybtTAqJQEZsyb_T6Mnx4-VpMHkW9eawbnQJYF6FU8Ufks4fzJz8JFauH_N4PJywK6FcLF70MQjkxMSibRxorAdO3oSF2EeX0t5opV0tls654wa46ZG2eipo8mQpknXCEGTScgRYKp00Oc2qn765vFg9sVR3z2drkmNy4w1HvIqF78i9z1UOX9K6e3d9p3ZhVzXi1atN_efc8WB4JkOR-iFCj98m8N_3C76fqflHHS0drpe7bHAkkgABRCqw-TaIZqu1syvDnD7b7O789C0-VScSOsTvz1lxelOd4Vl1a769jLINbw0jUBKxmVPJlzZGv-g_swQuzvDkSXeVGh1b85Ii6MpfhUrHaw8-CqfSiBPyT8wTgBEUV5OAHe8gXr8R8zHRHxMXtBy3xlh1IW86Kw874c8TTeai1B6ZF5vzBlNwITvfqI1a4QNc3xeZ_IUBsHiOq3DCxy_V_29UpjKXWD1ET12eY6myetVHdzAlzDSkr3tHxX3KTgbxp8BKww_eVX9V6NQic1o_SLLqql8kVlDl8_if2pFWjEv8zP7Xw9G_F8GAhkgKTpcBYlit52Mgv7PLZ2XxhsTUt12FkRzwb0SuPcPz8uNBx1jSmFcVyZ_gManshhg98A7mn-qDfjyuV4ZAOErCPOEtJTrQu0rdYEPQ1xGrNdtUupipf45IN916olDho1e7O5U6RoQczRcK6OOKEoEVBD0QmQTgS9M4ebVNpiRX5VQykCqwsYpvK4Ube7qSoeoA1gqpgqeM2c7rxfrb2vvMUW1AwYaykOKFJcqpE57XLyVYrn8wHIxsxmoeQJev8aH3upXFVvsUbKCTw98CQsxIVbdSZm6jSg5rrywyt35GkihtF2XdtUW7pW4SwiOLSPTa9jnfw9eL1f_qntDVbO-fnjqYMUCdzQvxyXzrTH3L5YkdCV5Fd0UHjk_jkLJ-fDvg1kdaozTjtsKPLNbgTPLUWbnXsgGdHjcWYAOPyGQHOC_icc5d8EGJFvFLLsZcjQv7TeDmBn7Xbv77dk2L2dgqXPC_x-GQXCdRfDpRGPkviPnDsSjJjB0jsmDSNLNHECj9-3DBLq1W0qq3zOelfYtyqaXs6rCckBYjn2QpBA5tAIUQPlowCrC_E6qJzYg0Lsxi0oKj5be59Dd20NmEso2FtEyow6ZbvR8JYn11HMo9P1-P7bWysCpfmqQ2y5ClT-qEENKcATNlkMmJ-jdpDbze6ul1WPgJ4vMEip_T1eaU9DD1I-ITorO9jme_tZiV6w52wk6Dm8OJ903BYClwARR6z6UHbbjbgPM37y1mmXQ79jMyMlxhr-XGJqhZV-VGbcyS14pn9WFWabzNtXnMEHNn_MyEahzAkOmqOrDZ7tNYvLujWbIW-loGNZp8SENHfb5h3kAnBabQKlVOrKBNCzMveoETGpoaWraVbJ_HHwzYpanHghCkz69O-SKtCoS9HDXmhr9koQFzqKbKCa-NYbbVkjIYL7gszOSZ-piBjS4lIqFI4yEi5quuJZgZH69_M2wk4AzTs2XfxQdQfCbBEGABixbFoZpEAuDe4n5GJPNYJWMtQRmdiz11QvhA5mZaAnV8yxYZuMyy1l8CZsAO_O1sBVTIUXi_BY7G-rh0J8o8O4azGf1lFi3o-dEPcNanyOmSJgYt379oFmIk2Mse58IGkc4gcP9nzDAnXUg2IUHNGXMbw06Hu8BpsxYu4CHI32a24Pmn3pLc3GXVBNv-dCjpHw3f1Zb_S7faWTwAEHcDKTgPbvgoUH7x9MTInKa0hpIybrXSwUUI8nClGcfRgHNYBAty7G3qIhNuRAf8NA-91hMyAC7gQS4PCztFAVYI2bVDeXuXR73ZMnjaCalk35VQSK_2v3d-oJ36MoD7jDlKulSvji0u2BNPioCwb6h3rbRVad2v4Ls_qEicmDsjgLmujt87uqsdyeq7VeOtxxrV9atWfKS_2klVBuGExkj4xrjUJucjpFJors13pfeg2EgdcuPUxtFp_po3nt-9BAp0rl7aqPylo7Yl14x3v9ODGShtodmFF6-wqk-l1gceedEMaOBpR4tJaWnG2J7ImFrKGAjCRDFIuLyqSFNggmtZNZKDjrSRdgJQL5H9bNP60kY9lDQCtJXByNxETQ3zy2r3lEv5aQ9hp620KvHnuwzolt0gG5BQ6O-OwcUS3CPkuoB5Im7PkZ_zIUmdZ2Q8BjElD1vuf0gefPfKgnf52DuOzvyXZBLBbTF0SHryFc_up_nsPRw3hrzJOpqxZW3z0BVM6SWvI05tDa71R-InzbdEsnpG6OTfsx1XnFbwHb7O0G5QiGM07Luip1MjtJVNTYXL08HZRoJFju0yb--TtIH_kvxk8MjhAcmf7ih8q9Spsyn-s1pddA3osVeMrY5pwB8rOCI9ba44owUwmpvD2UJ-5deYGxBBdKauJEkMDhD3JqdIOvgRfEnsomL_-XB72zYnCgXHq1c0Q0_oqF0mi0ti9TMesct1t0ONasYSGXf0ARqcYKL_ck3BC98dxawqzMQVN7y20dh9L0aDlsDQn2_5lsMuDTRPiu_D7rTdRz9mqgbhVPlLroV895p5VSjNFTTjvprWsftvU6LvhlqshiBpbJklmpepN68HsFwyA3D_ziqgr9Ys8N-MXrT1CBBntqyusgcnefM9Gznh2CUk2frC9agDt2kE3eV3te29JvwrnscxCNImyUgymonUXKSTwYOQQZy6LaLl92_PGk8vFHbUKNu8zDEQ9sfRdGQzRJ3NleWRYJMRA128YGqPkgexKxrgdagC6IvDqvyaWY5DcEjnTRbdxNFC6AmL2rVc00fnQsuAvnVL-x47yNl4IjhEOhqmYcaoFuYc525yHI-HAcjW0xPcoOmLkanXMgFvJsc7NyhwlEMMJ8KdwZHCQc9wubWY9M3Y_0Ah_GVQxLRi88g3LIS1NlGTA0uhdhg13-BTo-VZS8ffPbi_umE1TUrU6lsE3S3gMKP3ortED2_9s97_WnWbhwqrYigthEtDjpeyKq9WT_6AA3R3KKJNuXNXexkj5JKjS__WPhjcwevxfN9tZp9cclFIJi-ys1X24bFgOek_8tZ3-VwKkONx5_gc84dBDhAYeRaOeOi78o0HU2DXd8jFJAdFv05BwIje4lwqKFnjhj8BJ247YwkuMsCLswCanU1vt7OayRsGuPIhAhNXjOCIdUVDWZy5SYgsf3MZ05bUQQHz2tSVeyCpTU63iy3hZqkz2jiNXjqrSwBqT8YNqlsLchEqS7jY2l3M3VE5C6fiodJ_3-Tw2sh_nnmV79NBOef0wb4PDc9PvduyOSMwoW4u8oKSpbf9nYBXXKQ5h_3ZOAPb_rYqYSogkQBZXIQ2mOVEFCvtrnOuYzDrKxXfPDgie7s8i5NMQjHBwKCpq-T7JlfV5cscYUjFywxhmDvJ53vXTdNtNMrL09AISGbIS9fh_xtiwYkcP0C3qkVnyzLJ4KZRoQSpYAwPsuWuS1sCjYdh0iWB5lg-S880mDftE1RzD5hQ1zWqpqrGKjU__jVKP0lz8xSMw==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_07c72b4ca0e0252c016adf43468cc487d19b94b2215f37ddf5",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 267,
+      "completion_tokens": 774,
+      "total_tokens": 1041,
+      "cost": 0.0004137,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0004137,
+        "upstream_inference_prompt_cost": 2.67e-05,
+        "upstream_inference_completions_cost": 0.000387
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 320,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

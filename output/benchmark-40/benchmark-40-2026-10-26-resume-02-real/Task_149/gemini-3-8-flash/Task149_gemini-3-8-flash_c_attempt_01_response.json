@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793025535-dlZWjobIImzfcGO2Zv8y",
+  "finish_reason": "stop",
+  "input_tokens": 103,
+  "output_tokens": 1392,
+  "cost_usd": 0.00529725,
+  "raw_response": {
+    "id": "gen-1793025535-dlZWjobIImzfcGO2Zv8y",
+    "object": "chat.completion",
+    "created": 1793025535,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n\ntypedef struct Node {\n    int data;\n    struct Node *next;\n} Node;\n\ntypedef struct Queue {\n    Node *front;\n    Node *rear;\n} Queue;\n\nvoid initQueue(Queue *q) {\n    if (q != NULL) {\n        q->front = NULL;\n        q->rear = NULL;\n    }\n}\n\nbool isEmpty(const Queue *q) {\n    return (q == NULL || q->front == NULL);\n}\n\nbool enqueue(Queue *q, int value) {\n    if (q == NULL) {\n        return false;\n    }\n\n    Node *newNode = (Node *)malloc(sizeof(Node));\n    if (newNode == NULL) {\n        return false;\n    }\n\n    newNode->data = value;\n    newNode->next = NULL;\n\n    if (q->rear == NULL) {\n        q->front = newNode;\n        q->rear = newNode;\n    } else {\n        q->rear->next = newNode;\n        q->rear = newNode;\n    }\n\n    return true;\n}\n\nbool dequeue(Queue *q, int *result) {\n    if (isEmpty(q)) {\n        return false;\n    }\n\n    Node *temp = q->front;\n    if (result != NULL) {\n        *result = temp->data;\n    }\n\n    q->front = q->front->next;\n    if (q->front == NULL) {\n        q->rear = NULL;\n    }\n\n    free(temp);\n    return true;\n}\n\nbool peek(const Queue *q, int *result) {\n    if (isEmpty(q) || result == NULL) {\n        return false;\n    }\n\n    *result = q->front->data;\n    return true;\n}\n\nvoid freeQueue(Queue *q) {\n    if (q == NULL) {\n        return;\n    }\n\n    Node *current = q->front;\n    while (current != NULL) {\n        Node *temp = current;\n        current = current->next;\n        free(temp);\n    }\n\n    q->front = NULL;\n    q->rear = NULL;\n}\n\nint main(void) {\n    Queue q;\n    initQueue(&q);\n\n    int val;\n\n    printf(\"Enqueueing: 10, 20, 30\\n\");\n    enqueue(&q, 10);\n    enqueue(&q, 20);\n    enqueue(&q, 30);\n\n    if (peek(&q, &val)) {\n        printf(\"Front element (peek): %d\\n\", val);\n    }\n\n    if (dequeue(&q, &val)) {\n        printf(\"Dequeued: %d\\n\", val);\n    }\n\n    if (peek(&q, &val)) {\n        printf(\"Front element after dequeue (peek): %d\\n\", val);\n    }\n\n    printf(\"Enqueueing: 40\\n\");\n    enqueue(&q, 40);\n\n    while (dequeue(&q, &val)) {\n        printf(\"Dequeued: %d\\n\", val);\n    }\n\n    if (!dequeue(&q, &val)) {\n        printf(\"Queue is now empty.\\n\");\n    }\n\n    freeQueue(&q);\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Implementing Queue Functionality**\n\nMy current focus is on defining the core functions for a queue data structure in C. I'm prioritizing the `enqueue` and `dequeue` operations, ensuring they correctly handle memory allocation and element removal.\n\n**Developing Queue Components**\n\nI'm now detailing the C structures for both linked-list nodes and the queue itself, planning to incorporate `front`, `rear`, and `size` members for efficient management. The core `enqueue`, `dequeue`, and `peek` functions are being designed with robust error handling and boolean return types.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Implementing Queue Functionality**\n\nMy current focus is on defining the core functions for a queue data structure in C. I'm prioritizing the `enqueue` and `dequeue` operations, ensuring they correctly handle memory allocation and element removal.\n\n**Developing Queue Components**\n\nI'm now detailing the C structures for both linked-list nodes and the queue itself, planning to incorporate `front`, `rear`, and `size` members for efficient management. The core `enqueue`, `dequeue`, and `peek` functions are being designed with robust error handling and boolean return types.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 103,
+      "completion_tokens": 1392,
+      "total_tokens": 1495,
+      "cost": 0.00529725,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00529725,
+        "upstream_inference_prompt_cost": 7.725e-05,
+        "upstream_inference_completions_cost": 0.00522
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 611,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

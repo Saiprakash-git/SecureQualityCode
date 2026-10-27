@@ -1,0 +1,4 @@
+Task105_CLAUDE_claude-3-5-sonnet-20240620.c:5:10: fatal error: 'openssl/ssl.h' file not found
+    5 | #include <openssl/ssl.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.

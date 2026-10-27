@@ -1,0 +1,12 @@
+Task56_gemini-3-8-flash_cpp.cpp:189:5: error: unexpected namespace name 'std': expected expression
+  189 |     std
+      |     ^
+Task56_gemini-3-8-flash_cpp.cpp:189:8: error: expected ';' after expression
+  189 |     std
+      |        ^
+      |        ;
+Task56_gemini-3-8-flash_cpp.cpp:189:8: error: expected '}'
+Task56_gemini-3-8-flash_cpp.cpp:182:114: note: to match this '{'
+  182 | std::string generate_auth_token(const std::string& user_id, uint64_t ttl_seconds, const std::string& secret_key) {
+      |                                                                                                                  ^
+3 errors generated.

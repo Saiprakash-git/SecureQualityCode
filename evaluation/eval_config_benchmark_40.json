@@ -1,0 +1,19 @@
+{
+  "description": "Benchmark-40 evaluation: plan from the resume config (same tasks/models/languages as the original), artifacts from both real runs. Paths are relative to this file. Add each further real resume run (e.g. resume-03-real) to runs before the final evaluation.",
+  "project_root": "..",
+  "plan_config": "../runner/run_config_benchmark_40task_resume.json",
+  "runner_dir": "../runner",
+  "runs": [
+    "../output/benchmark-40/benchmark-40-2026-10-26-real",
+    "../output/benchmark-40/benchmark-40-2026-10-26-resume-01-real",
+    "../output/benchmark-40/benchmark-40-2026-10-26-resume-02-real",
+    "../output/benchmark-40/benchmark-40-2026-10-26-resume-03-real"
+  ],
+  "toolchain_dir": ".toolchain",
+  "toolchain": {
+    "target": "x86_64-linux-gnu",
+    "c_std": "gnu17",
+    "cpp_std": "gnu++17",
+    "timeout_seconds": 120
+  }
+}

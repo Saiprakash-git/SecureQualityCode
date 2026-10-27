@@ -1,0 +1,27 @@
+@@19813ea2f202b145 STEP 0 BEGIN@@
+test_oracle.c: In function ‘assertTestCase’:
+test_oracle.c:21:32: warning: passing argument 1 of ‘find_even_index’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   21 |     int result = findEvenIndex(arr, length);
+      |                                ^~~
+In file included from adapter.h:3,
+                 from test_oracle.c:8:
+impl_under_test.c:3:25: note: expected ‘int *’ but argument is of type ‘const int *’
+    3 | int find_even_index(int arr[], int size) {
+      |                     ~~~~^~~~~
+
+@@19813ea2f202b145 STEP 0 END rc=0@@
+@@19813ea2f202b145 STEP 1 BEGIN@@
+[PASS] testCase1
+[PASS] testCase2
+[PASS] testCase3
+[PASS] testCase4
+[PASS] testCase5
+[PASS] testCase6
+[PASS] testCase7
+[PASS] testCase8
+[PASS] testCase9
+[PASS] testCase10
+
+All test cases completed.
+
+@@19813ea2f202b145 STEP 1 END rc=0@@

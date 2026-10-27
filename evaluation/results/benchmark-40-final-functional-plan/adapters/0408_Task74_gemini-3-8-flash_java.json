@@ -1,0 +1,19 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "Task74_CLAUDE_claude_3_5_sonnet_20240620.createConnection",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": [
+    "PostgresConnector.createConnection"
+   ]
+  }
+ ],
+ "combo_index": 408,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_074/gemini-3-8-flash/Task74_gemini-3-8-flash_java.java",
+ "artifact_sha256": "421112dcd862ca1e1ba0c9667e5b6535bbe19397d875afdec9de06d06346d128",
+ "oracle_test_path": "src/test/java/claude/task74/Task74Test.java",
+ "oracle_test_sha256": "463c7ab2ea72247cd4372615e8febde1bd1e4069fa67303939ab8bd989cac526",
+ "author": "functional.py draft_adapter (static)"
+}

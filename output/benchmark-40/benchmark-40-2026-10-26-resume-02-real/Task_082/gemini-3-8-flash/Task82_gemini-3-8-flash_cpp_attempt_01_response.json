@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793022957-V3R83phASIrLJcQA0Hld",
+  "finish_reason": "stop",
+  "input_tokens": 102,
+  "output_tokens": 3169,
+  "cost_usd": 0.01196025,
+  "raw_response": {
+    "id": "gen-1793022957-V3R83phASIrLJcQA0Hld",
+    "object": "chat.completion",
+    "created": 1793022957,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n#include <vector>\n#include <sstream>\n#include <iomanip>\n#include <cstdint>\n\nnamespace sha256 {\n    inline uint32_t rotr(uint32_t x, uint32_t n) {\n        return (x >> n) | (x << (32 - n));\n    }\n\n    inline uint32_t choose(uint32_t e, uint32_t f, uint32_t g) {\n        return (e & f) ^ (~e & g);\n    }\n\n    inline uint32_t majority(uint32_t a, uint32_t b, uint32_t c) {\n        return (a & b) ^ (a & c) ^ (b & c);\n    }\n\n    inline uint32_t sig0(uint32_t x) {\n        return rotr(x, 7) ^ rotr(x, 18) ^ (x >> 3);\n    }\n\n    inline uint32_t sig1(uint32_t x) {\n        return rotr(x, 17) ^ rotr(x, 19) ^ (x >> 10);\n    }\n\n    inline uint32_t ep0(uint32_t x) {\n        return rotr(x, 2) ^ rotr(x, 13) ^ rotr(x, 22);\n    }\n\n    inline uint32_t ep1(uint32_t x) {\n        return rotr(x, 6) ^ rotr(x, 11) ^ rotr(x, 25);\n    }\n\n    static const uint32_t K[64] = {\n        0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5,\n        0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,\n        0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3,\n        0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,\n        0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc,\n        0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,\n        0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7,\n        0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,\n        0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13,\n        0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,\n        0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3,\n        0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,\n        0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5,\n        0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,\n        0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208,\n        0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2\n    };\n\n    std::string hash(const std::string& input) {\n        uint32_t h0 = 0x6a09e667;\n        uint32_t h1 = 0xbb67ae85;\n        uint32_t h2 = 0x3c6ef372;\n        uint32_t h3 = 0xa54ff53a;\n        uint32_t h4 = 0x510e527f;\n        uint32_t h5 = 0x9b05688c;\n        uint32_t h6 = 0x1f83d9ab;\n        uint32_t h7 = 0x5be0cd19;\n\n        std::vector<uint8_t> data(input.begin(), input.end());\n        uint64_t bit_len = data.size() * 8;\n\n        data.push_back(0x80);\n        while ((data.size() % 64) != 56) {\n            data.push_back(0x00);\n        }\n\n        for (int i = 7; i >= 0; --i) {\n            data.push_back(static_cast<uint8_t>((bit_len >> (i * 8)) & 0xff));\n        }\n\n        for (size_t chunk = 0; chunk < data.size(); chunk += 64) {\n            uint32_t w[64];\n            for (int i = 0; i < 16; ++i) {\n                w[i] = (static_cast<uint32_t>(data[chunk + i * 4]) << 24) |\n                       (static_cast<uint32_t>(data[chunk + i * 4 + 1]) << 16) |\n                       (static_cast<uint32_t>(data[chunk + i * 4 + 2]) << 8) |\n                       (static_cast<uint32_t>(data[chunk + i * 4 + 3]));\n            }\n            for (int i = 16; i < 64; ++i) {\n                w[i] = sig1(w[i - 2]) + w[i - 7] + sig0(w[i - 15]) + w[i - 16];\n            }\n\n            uint32_t a = h0;\n            uint32_t b = h1;\n            uint32_t c = h2;\n            uint32_t d = h3;\n            uint32_t e = h4;\n            uint32_t f = h5;\n            uint32_t g = h6;\n            uint32_t h = h7;\n\n            for (int i = 0; i < 64; ++i) {\n                uint32_t temp1 = h + ep1(e) + choose(e, f, g) + K[i] + w[i];\n                uint32_t temp2 = ep0(a) + majority(a, b, c);\n                h = g;\n                g = f;\n                f = e;\n                e = d + temp1;\n                d = c;\n                c = b;\n                b = a;\n                a = temp1 + temp2;\n            }\n\n            h0 += a;\n            h1 += b;\n            h2 += c;\n            h3 += d;\n            h4 += e;\n            h5 += f;\n            h6 += g;\n            h7 += h;\n        }\n\n        std::stringstream ss;\n        uint32_t hashes[8] = {h0, h1, h2, h3, h4, h5, h6, h7};\n        for (int i = 0; i < 8; ++i) {\n            ss << std::hex << std::setw(8) << std::setfill('0') << hashes[i];\n        }\n        return ss.str();\n    }\n}\n\nstd::string compute_salted_hash(const std::string& password, const std::string& salt) {\n    return sha256::hash(salt + password);\n}\n\nint main() {\n    std::string password = \"SecretPassword123\";\n    std::string salt = \"random_salt_value\";\n\n    std::string hashed = compute_salted_hash(password, salt);\n\n    std::cout << \"Password: \" << password << std::endl;\n    std::cout << \"Salt:     \" << salt << std::endl;\n    std::cout << \"Hash:     \" << hashed << std::endl;\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Developing C++ Password Hashing**\n\nI'm focused on crafting a single, self-contained C++ file for secure password hashing. The core task involves integrating a robust hashing algorithm with salt management, ensuring the output is directly usable. My current efforts are geared towards optimizing this for efficiency and adherence to security best practices without external dependencies.\n\n**Implementing SHA-256 Hashing**\n\nI'm currently deep in the implementation of a self-contained SHA-256 algorithm in C++. My focus is on ensuring it compiles with standard C++ and includes all necessary components like round constants and initial hash values. The next step involves handling the padding logic to correctly process input of any length.\n\n**Refining SHA-256 Logic**\n\nI'm verifying the core SHA-256 computations, ensuring functions like `Ch`, `Maj`, and the various sigma/Sigma rotations and shifts are accurately implemented according to the standard. This includes confirming the padding strategy handles message length correctly before processing 512-bit blocks.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing C++ Password Hashing**\n\nI'm focused on crafting a single, self-contained C++ file for secure password hashing. The core task involves integrating a robust hashing algorithm with salt management, ensuring the output is directly usable. My current efforts are geared towards optimizing this for efficiency and adherence to security best practices without external dependencies.\n\n**Implementing SHA-256 Hashing**\n\nI'm currently deep in the implementation of a self-contained SHA-256 algorithm in C++. My focus is on ensuring it compiles with standard C++ and includes all necessary components like round constants and initial hash values. The next step involves handling the padding logic to correctly process input of any length.\n\n**Refining SHA-256 Logic**\n\nI'm verifying the core SHA-256 computations, ensuring functions like `Ch`, `Maj`, and the various sigma/Sigma rotations and shifts are accurately implemented according to the standard. This includes confirming the padding strategy handles message length correctly before processing 512-bit blocks.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 102,
+      "completion_tokens": 3169,
+      "total_tokens": 3271,
+      "cost": 0.01196025,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.01196025,
+        "upstream_inference_prompt_cost": 7.65e-05,
+        "upstream_inference_completions_cost": 0.01188375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 909,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

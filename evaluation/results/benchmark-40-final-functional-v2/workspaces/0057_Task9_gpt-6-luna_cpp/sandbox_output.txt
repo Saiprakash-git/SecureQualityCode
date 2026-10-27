@@ -1,0 +1,7 @@
+@@18cc6d97b830781c STEP 0 BEGIN@@
+
+@@18cc6d97b830781c STEP 0 END rc=0@@
+@@18cc6d97b830781c STEP 1 BEGIN@@
+All test cases passed!
+
+@@18cc6d97b830781c STEP 1 END rc=0@@

@@ -1,0 +1,31 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "to_jaden_case",
+   "target": "toJadenCase",
+   "kind": "alias",
+   "name_match": "normalized",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "char*",
+    "params": [
+     "char* string"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "const char* str"
+    ],
+    "return": "char*"
+   }
+  }
+ ],
+ "combo_index": 134,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_017/mistral-large-4/Task17_mistral-large-4_c.c",
+ "artifact_sha256": "7c29cd82cad6aa5d280c60d2acf75aefeaeb3533c5f45a0570746f03720ad4a8",
+ "oracle_test_path": "tests/claude/Task17_Test.c",
+ "oracle_test_sha256": "fbf93d1c61c0e4ad6544e76ffb31ddf7c21baa233e7f5ff9dcf60afc663c7015",
+ "author": "functional.py draft_adapter (static)"
+}

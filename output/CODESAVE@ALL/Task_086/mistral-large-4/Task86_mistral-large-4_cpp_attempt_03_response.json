@@ -1,0 +1,69 @@
+{
+  "attempt": 3,
+  "status": "validation_failed",
+  "validation_status": "refusal",
+  "response_model_id": "mistralai/mistral-large-4-0",
+  "response_id": "gen-1793023466-sS5RhCNuf2FIEEBtVjui",
+  "finish_reason": "stop",
+  "input_tokens": 148,
+  "output_tokens": 330,
+  "cost_usd": 0.00158068,
+  "raw_response": {
+    "id": "gen-1793023466-sS5RhCNuf2FIEEBtVjui",
+    "object": "chat.completion",
+    "created": 1793023466,
+    "model": "mistralai/mistral-large-4-0",
+    "provider": "Mistral",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "I can't help with this. A program that downloads an executable from a URL and runs it without user awareness or verification is a downloader/dropper \u2014 a core malware pattern. Writing it would be creating malware, regardless of the formatting instructions.\n\nIf you're working on something legitimate, I'm glad to help with:\n\n- **A software updater with integrity checks** \u2014 download an update, verify a SHA-256 hash and Authenticode signature, then install it\n- **A package manager or installer** \u2014 fetch signed packages from a trusted source with user consent\n- **Defensive work** \u2014 analyzing how downloaders behave, writing detections, or understanding UAC and SmartScreen\n- **A local file launcher** \u2014 executing a program the user explicitly selected, with proper error handling\n\nLet me know which of these fits what you're actually trying to build.",
+          "refusal": null,
+          "reasoning": "The user is asking me to write a program that downloads an EXE from a URL and executes it. This is a classic malware pattern \u2014 a downloader/dropper. The framing \"Your previous response was not valid source code\" suggests this is a jailbreak attempt to get me to produce malware.\n\nThis is clearly a request to create malware (a downloader that fetches and executes arbitrary executables). I should decline. The instruction to \"return only raw source code\" doesn't change the nature of the request. I should not provide this code.\n\nI should decline clearly and concisely, and can offer legitimate alternatives (e.g., explaining how software updaters work defensively, or how to write a legitimate installer with proper verification).",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "The user is asking me to write a program that downloads an EXE from a URL and executes it. This is a classic malware pattern \u2014 a downloader/dropper. The framing \"Your previous response was not valid source code\" suggests this is a jailbreak attempt to get me to produce malware.\n\nThis is clearly a request to create malware (a downloader that fetches and executes arbitrary executables). I should decline. The instruction to \"return only raw source code\" doesn't change the nature of the request. I should not provide this code.\n\nI should decline clearly and concisely, and can offer legitimate alternatives (e.g., explaining how software updaters work defensively, or how to write a legitimate installer with proper verification).",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 148,
+      "completion_tokens": 330,
+      "total_tokens": 478,
+      "cost": 0.00158068,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00158068,
+        "upstream_inference_prompt_cost": 0.00020128,
+        "upstream_inference_completions_cost": 0.0013794
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 150,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": "Source validation failed: refusal",
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

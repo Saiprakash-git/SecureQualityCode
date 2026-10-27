@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793023924-OmnAYj9Wr1MiBCLfwFAR",
+  "finish_reason": "stop",
+  "input_tokens": 101,
+  "output_tokens": 864,
+  "cost_usd": 0.00331575,
+  "raw_response": {
+    "id": "gen-1793023924-OmnAYj9Wr1MiBCLfwFAR",
+    "object": "chat.completion",
+    "created": 1793023924,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <filesystem>\n#include <fstream>\n#include <iostream>\n#include <string>\n\nbool createExecutableScript(const std::filesystem::path& filePath, const std::string& content) {\n    std::ofstream outFile(filePath);\n    if (!outFile) {\n        return false;\n    }\n    \n    outFile << content;\n    outFile.close();\n\n    std::error_code ec;\n    std::filesystem::permissions(\n        filePath,\n        std::filesystem::perms::owner_exec | std::filesystem::perms::group_exec | std::filesystem::perms::others_exec,\n        std::filesystem::perm_options::add,\n        ec\n    );\n\n    return !ec;\n}\n\nint main(int argc, char* argv[]) {\n    const std::filesystem::path scriptPath = \"script.sh\";\n    const std::string scriptContent = \"#!/bin/sh\\necho \\\"Script executed successfully.\\\"\\n\";\n\n    if (createExecutableScript(scriptPath, scriptContent)) {\n        std::cout << \"Successfully created and set executable permissions for \" << scriptPath << '\\n';\n        return 0;\n    } else {\n        std::cerr << \"Failed to create or set permissions for \" << scriptPath << '\\n';\n        return 1;\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Generating Executable Script**\n\nI'm focusing on the core requirement: a C++ program to create a shell script file and ensure its executability. My current train of thought is exploring the necessary C++ standard library functions and system calls to achieve this, particularly those related to file I/O and file permissions.\n\n**Crafting Executable Script**\n\nI'm now prioritizing the creation and execution aspects. My focus has shifted to leveraging `std::ofstream` for file generation and exploring `std::filesystem::permissions` to ensure the script is executable, aiming for a standard C++17 approach.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Generating Executable Script**\n\nI'm focusing on the core requirement: a C++ program to create a shell script file and ensure its executability. My current train of thought is exploring the necessary C++ standard library functions and system calls to achieve this, particularly those related to file I/O and file permissions.\n\n**Crafting Executable Script**\n\nI'm now prioritizing the creation and execution aspects. My focus has shifted to leveraging `std::ofstream` for file generation and exploring `std::filesystem::permissions` to ensure the script is executable, aiming for a standard C++17 approach.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "AY89a18Naz046Gpfcslxevgxvsox7bTvSTnI5ad773rAqzgv4GOzDE0A/eql2RYNVMseTDDAMAcVYpraWkh0uDg805yXOU/NtkH3+IHuEWqcqA4g/piZcWlcPayKW2vibZtgVPGrHTrQ1OQJjNWsn/NzOJTp9U6JOnBLoyRuh0hj+McaPGMSwrxq+LTSGhlP0qzYH5NoOMcfvoGXnkhrdyvEfJ8b+jqZg6lM3KwIEyFBwGoRD8csuFYvK9eokq7gJ6HTuA2RCwqbXKiB8EnIRFM5t6o8p94nJR/NDCq8URXk6S08/raeANnvQsN08x27Aw4j+bPsSG5LWx5BPiXHhmikW4Ukf0WMteYxkjyL4WmNZXCgJOVHE3+kNmqd3eNJrXQsBoMWNUYob0vURbsgrUv8Cn/0T6o43MggwNqh2AigTIqSxHIyBZ4RKd7tFm3bJlb0HJQtvgJ/Hwy2b0HCW3vehf2KmnQ2THpI4T0VtMYATC56xqAWZyIV4PPNtxHhd+TwLmalW4CEJOZ80F1iJo6iJIL+rocqr2JzWX7VE1iPfVM00LRX5EfaRv7qxicCllPKfO7qaKvSO8hb4/D4+pqsyoKdiJVx+mZZeLymbMFIGvSBjsiqZ80d8oqSLGZhaNO/F6Os3LNkcgltr9n5HY1kKmT73WJBBLmAVxVsz1J+8Pp2JShOVLGGwfbtyGHG4zIVXcD2QkxF5hfe/kTy0hrEc3wlMu1Io8RnZlxG3nmE7k/KcZvQnxSGPgKS6XWuwEhoNHKGUKzrVxGOaj98qB4FMcgF00WhJjP5zgYVhaF8FRlINvazKAJVjXpJM79hse4T2iKdHriV9MWKnHO9G0r4lSkXwwMlnaoAAvfk/CgFWUMol//WAlr41pB57XNi++wte9ih2tZTqUFhrmD54/NqFbNpf8KFcmI8xflr/PCBzRTvCEISJNtiZ7eZU0jgTNlhQHq5108aPOX73VtJ2Me5THZK4mKToe4KEBjW3sQxq+srA8lB176Pg+1deLI2wRxFsWaEP9jOQKSiBTxlCnzmIf9JChEQ/iwK9bOwGJxYqlUW9j08RnGOedDA2oUwYWQGqUvnGZAJlWxBtH4+bs3ydjIm99pcSewFPedG+7Ud+fJvkGrLJYr9eCGzVvzj6YABsuVQqV+kjpnG+nb4UEyDdcRM5N32vHOR+7asHoOnLWqc7IuQeMM4kergtZ7zouiVIzhjb76V2ePLVMdK4a3DoAtKWCr5ekLtDIbDIYOxNNHHx/zzoI1D04gJGCzCmAx8FsAWysQj/pqEd6btRWchSNtE5nYw6m16Fde1y0xML5Hw6ByOPaqPi6+w8Nwr0QUhhW79Ye/E7s0l+CZdmyxFDvHWRWuBafCVHB+tN947gIUgRf3JGYzPcufw/yxTkznn7aDR64TN9nax7cl8KRtlksFUVK4rFgwYUPw0HpmCLCPkO9fFdPwwvdbLzDtErkt6cG0B2cYZsafloV2O7auBS9cwyDS5BEYduu4xFpHFyOvsadhAxdD4jk9YDwe0sssWgfYApEo+TOr1+mf2DzK5Peds0vD1BAhyeWAJh+BjvzOvSsqG1oNdIt2bvJrlwUkevtq9NY7Izva242UkFqC5z9CPl7gHk0FlITlQ+hp5YluXlT7+Aio763v47+J8NKy9XrWjN9ue2hObLbYqpxPLf/JKJOpyxbOFPIrNhEv1jj+NixyDKUmNkN4zwO2YkK/if3q9fgBw4caub3iXdXCacIIJ8p/6RZPfucUmbjpW/p+3icwuIOWGk9ziDin3K/7NjPeEF5eF39IsWXnpHeQ5eDrgeyGtufFrtOQ4FeH2jEROPFvDMWMEDM5853smPtW6QVX1xls/V4wyw91CocM81SmDlyw302fLGEy4syTOxcbpOJcLPAbYP15Qqo+Qyt0aPwjCr1REXcvDVIF4QX8N2hVaSt4DT8a9oqb/cpkGnJ8slQLyKS1ZuzBFGwZHFB1Yq+znvyrj/yDQTi4LPIHFj+9V0KSXlZliLRNB48R38omJojkN6yyRjA6fyv1s8KxmJGafDE9zkhinF5bxI9Bvhw57wRrPqMKcGKZ9Wk+bV/TPgAMliAVx0nDkbxsEvGN0gKuHSo5+rqFvtDjDLXc6b6eOHdE4NYJeUhs/LVCn6vUZAcCVGZzDwnHLjxng57wd5z0EQBswM63IIAL3SLvUv3UlOTc+bUEImKeifacmThphnH5Ym/ZpVrZozL7NsvxioJ+9YRlm78kqypEyiH2odfTH9UyVkM21EScDza1X7WEMUKN49Dbq0VMgELzQeLjCtQDhOyE0kRkCIasQtR1JR/DJxFAtZqWmLOrsr6gkrn3f6jvMYKXooWuQNnvygJOHxeS+0l0HhwBSVsmRqMHxjf8yFBDbnbp7TE2X5GBokDahG1k5ae/4cCru7iBCzIjyHfkDJp4wZiJRxnErAoGRW0hJ3gYpV9Z1A6KQN6QGLH6dneiLnmMZh6vV11JFSSCq1ZNkHbSLjEyG7otuOuCW0ARz2+NRkNvvHBpz59RD4IwW1ttaUpMEniPzfoyoLRWyR9dhvYedaxiIyW930dZOCChFnRk25hNehPvvi7Xq5m+1qn4dj2Qv1UTyMHX7888o6Y+6Whkf08JLUPS+wmlpltpgZC7J5T/HDVXwPfiwqWYMnNztAyE3gMxojk+JCa+Ot1qaZsEXxaY4EaWnBXAZmQLVxiLQUVjtGOAn5bGveHcffmCgw+Ieso/TCIGzFmTUzH0xHmKCpX3fKdsM+F7q0gisMerx4RF/HqZ+ZlD9IQ3Wm8CESOm4gbh5VixRoozo064+D6zczUsGZYPejZbb2PEUArK6ya1UpHhUtDTBWCct5OUgE3iiHqNvhHvKc8/xqc97IfdwsZXex0ScZkk2TxWfmUX7cINwqSJddJjlt0pOiPsF4/PMp5G8LgYE8SaNLbnYySgLQxZtjj8IlmYV5nNCaZQg0cL/wSQmWecsxDxFiveae69xY2ZkiHiAIEK30zjGepI+3QUXXqX8xOgCGM0ixUyNgUOkJjRnOakmyBvmRlvUb3J3I43Quj6f9B7rogk8VFeFnOiqFv9A9+ZKgylBbbkPqgW/mlg9/3MyX3+htoMJV0fSvBzFj7SB7V76EoV7F4CssCVUilU2LXW1hkKmAJJGWFKz8EDaulmJBrLsKaKd9e9ErlwCV0/2tDtkBO3y/vwVEy9htdU2AOXdUn27tqgunhlG0jgDkD38esm9rUlYFrVT68o/wuSQ+CNd73qrDBV9fIoYtZNkfUmLUi5M5X9wZjA4UYLFLKDMIMYzKbx2xHBq2WL3C5io/PHuTIz/6beMb2U54A==",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 101,
+      "completion_tokens": 864,
+      "total_tokens": 965,
+      "cost": 0.00331575,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00331575,
+        "upstream_inference_prompt_cost": 7.575e-05,
+        "upstream_inference_completions_cost": 0.00324
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 566,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

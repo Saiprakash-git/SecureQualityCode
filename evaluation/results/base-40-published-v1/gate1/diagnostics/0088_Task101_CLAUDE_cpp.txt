@@ -1,0 +1,9 @@
+Task101_CLAUDE_claude-3-5-sonnet-20240620.cpp:9:50: error: invalid suffix on literal; C++11 requires a space between literal and identifier [-Wreserved-user-defined-literal]
+    9 |     const char* content = "#!/bin/bash\\necho \\"Hello, World!\\"";
+      |                                                  ^
+      |                                                   
+Task101_CLAUDE_claude-3-5-sonnet-20240620.cpp:9:50: error: expected ';' at end of declaration
+    9 |     const char* content = "#!/bin/bash\\necho \\"Hello, World!\\"";
+      |                                                  ^
+      |                                                  ;
+2 errors generated.

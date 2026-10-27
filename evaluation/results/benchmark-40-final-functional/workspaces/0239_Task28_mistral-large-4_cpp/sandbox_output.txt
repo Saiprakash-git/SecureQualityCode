@@ -1,0 +1,7 @@
+@@6688cf8e2e33b250 STEP 0 BEGIN@@
+
+@@6688cf8e2e33b250 STEP 0 END rc=0@@
+@@6688cf8e2e33b250 STEP 1 BEGIN@@
+All test cases passed!
+
+@@6688cf8e2e33b250 STEP 1 END rc=0@@

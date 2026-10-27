@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793024310-YDPfDDsnBULMaYqGi13G",
+  "finish_reason": "stop",
+  "input_tokens": 159,
+  "output_tokens": 1505,
+  "cost_usd": 0.0007684,
+  "raw_response": {
+    "id": "gen-1793024310-YDPfDDsnBULMaYqGi13G",
+    "object": "chat.completion",
+    "created": 1793024310,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n#include <algorithm>\n#include <cctype>\n#include <cstring>\n\nstd::string copyString(const std::string& src) {\n    return std::string(src);\n}\n\nstd::string concatenateStrings(const std::string& a, const std::string& b) {\n    return a + b;\n}\n\nstd::string reverseString(const std::string& s) {\n    std::string r(s.rbegin(), s.rend());\n    return r;\n}\n\nstd::string toUpperCase(const std::string& s) {\n    std::string r = s;\n    for (char& c : r) c = static_cast<char>(std::toupper(static_cast<unsigned char>(c)));\n    return r;\n}\n\nstd::string toLowerCase(const std::string& s) {\n    std::string r = s;\n    for (char& c : r) c = static_cast<char>(std::tolower(static_cast<unsigned char>(c)));\n    return r;\n}\n\nstd::string trim(const std::string& s) {\n    size_t start = 0;\n    while (start < s.size() && std::isspace(static_cast<unsigned char>(s[start]))) ++start;\n    size_t end = s.size();\n    while (end > start && std::isspace(static_cast<unsigned char>(s[end - 1]))) --end;\n    return s.substr(start, end - start);\n}\n\nstd::string replaceAll(const std::string& s, const std::string& from, const std::string& to) {\n    if (from.empty()) return s;\n    std::string result;\n    size_t pos = 0;\n    while (true) {\n        size_t found = s.find(from, pos);\n        if (found == std::string::npos) {\n            result.append(s, pos, std::string::npos);\n            break;\n        }\n        result.append(s, pos, found - pos);\n        result.append(to);\n        pos = found + from.size();\n    }\n    return result;\n}\n\nstd::string removeChar(const std::string& s, char c) {\n    std::string r;\n    r.reserve(s.size());\n    for (char ch : s) if (ch != c) r.push_back(ch);\n    return r;\n}\n\nsize_t countOccurrences(const std::string& s, const std::string& sub) {\n    if (sub.empty()) return 0;\n    size_t count = 0, pos = 0;\n    while ((pos = s.find(sub, pos)) != std::string::npos) {\n        ++count;\n        pos += sub.size();\n    }\n    return count;\n}\n\nbool isPalindrome(const std::string& s) {\n    std::string filtered;\n    for (char c : s) {\n        if (std::isalnum(static_cast<unsigned char>(c)))\n            filtered.push_back(static_cast<char>(std::tolower(static_cast<unsigned char>(c))));\n    }\n    std::string rev(filtered.rbegin(), filtered.rend());\n    return filtered == rev;\n}\n\nstd::string copyWithCStrings(const char* src) {\n    char buffer[1024];\n    std::strncpy(buffer, src, sizeof(buffer) - 1);\n    buffer[sizeof(buffer) - 1] = '\\0';\n    return std::string(buffer);\n}\n\nint main() {\n    std::string a = \"  Hello, World  \";\n    std::string b = \"String Operations\";\n\n    std::cout << \"Original A: [\" << a << \"]\\n\";\n    std::cout << \"Copy of A: [\" << copyString(a) << \"]\\n\";\n    std::cout << \"Concatenate A+B: [\" << concatenateStrings(a, b) << \"]\\n\";\n    std::cout << \"Trimmed A: [\" << trim(a) << \"]\\n\";\n    std::cout << \"Uppercase B: [\" << toUpperCase(b) << \"]\\n\";\n    std::cout << \"Lowercase B: [\" << toLowerCase(b) << \"]\\n\";\n    std::cout << \"Reversed B: [\" << reverseString(b) << \"]\\n\";\n    std::cout << \"Replace 'o' with '0' in A: [\" << replaceAll(a, \"o\", \"0\") << \"]\\n\";\n    std::cout << \"Remove spaces from B: [\" << removeChar(b, ' ') << \"]\\n\";\n    std::cout << \"Count 'o' in B: \" << countOccurrences(b, \"o\") << \"\\n\";\n    std::cout << \"Is 'A man, a plan, a canal: Panama' palindrome? \"\n              << (isPalindrome(\"A man, a plan, a canal: Panama\") ? \"yes\" : \"no\") << \"\\n\";\n    std::cout << \"C-string copy: [\" << copyWithCStrings(\"C-style copy\") << \"]\\n\";\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 159,
+      "completion_tokens": 1505,
+      "total_tokens": 1664,
+      "cost": 0.0007684,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007684,
+        "upstream_inference_prompt_cost": 1.59e-05,
+        "upstream_inference_completions_cost": 0.0007525
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

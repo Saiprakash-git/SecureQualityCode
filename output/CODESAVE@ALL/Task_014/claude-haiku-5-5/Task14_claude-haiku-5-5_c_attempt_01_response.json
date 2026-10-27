@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793009094-xDfzYbLljX7V4AV8M02B",
+  "finish_reason": "stop",
+  "input_tokens": 641,
+  "output_tokens": 487,
+  "cost_usd": 0.0003076,
+  "raw_response": {
+    "id": "gen-1793009094-xDfzYbLljX7V4AV8M02B",
+    "object": "chat.completion",
+    "created": 1793009094,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n\nint find_equilibrium(const int *arr, size_t n) {\n    long long total = 0;\n    for (size_t i = 0; i < n; i++) {\n        total += arr[i];\n    }\n    long long left = 0;\n    for (size_t i = 0; i < n; i++) {\n        long long right = total - left - arr[i];\n        if (left == right) {\n            return (int)i;\n        }\n        left += arr[i];\n    }\n    return -1;\n}\n\nint main(void) {\n    size_t n;\n    if (scanf(\"%zu\", &n) != 1) {\n        return 1;\n    }\n    int arr[1000];\n    if (n > 1000) {\n        return 1;\n    }\n    for (size_t i = 0; i < n; i++) {\n        if (scanf(\"%d\", &arr[i]) != 1) {\n            return 1;\n        }\n    }\n    printf(\"%d\\n\", find_equilibrium(arr, n));\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "CAQSjQkKEAgTGAI4AUIIdGhpbmtpbmcSDPBOCxQDM9SUOJ5IdhoMYhpy2IlEqzV6/LAEIjAh36BFRKp/w09nU2O+S2KpNydvFKpGZeCI5Ei/I13H6H26+o8XXV/Ec1V4lbxBRzIqqgjZIzjNRgjyrg9L5HYf/Vliv10CNnHFacI4SnoWZ6xz6tjtS9lah4rAwYBYf7bR9bCbJq3INcm6LiM2wxjPwJkj/NNm6ickxLVaWL402mEuV0xoFpaMCpDKZMlFN4uOnzSUjUHfS38DeHyk7HFh8BIS/NxhGE0IrJzJHfqiSKnuDMbRYevmOTcPk0PehldW4WV7EMbtn6Y3sO909bxw90WfP+UsJYs7FOAYMgSEZG3KG9sO2YEiB9Q+tBupvm3Ar/lQfi5RdKTbAURlVtakgDuvyw2MaIbuJRLOOkqtTu0zpj/pv26CTS6DHfsj6vw/0hGiv2fsZcis3HVblI0f3b25A/XLwAda1wwGsEs3zv8GQjah0NJ2RKLu7qnW4I195Eu4mYSYK0T2TLtPfwJ/j8F6t2dqVdWgi9VXCFXCAYsjRumzYb+VT7nWuuE70LYedo7VzkAjydNALvhjqKYoqwuQ7MnpxI3hVDwX1zlk+LwIdvGba548OQ50Wq3UAUtopPEWJUkKuA02Cr6I09V0yJ/xbALs/htSgxf3KztKv8w9qV2KTeI2oq4VGxvMSLU4l/uYqR1hspGkVdO+/kUEVjHhbmDBO+AxH4K8EWZviXCh/MsExQ+0S4+061vHgltKLVgAj/PoL+7lXLlI6n76uQ1c3BFZcHtDH3YUWmTIXiu2VBZzPcaEgbUbiQuGe3pi3Nf8HVkyGvRHmno30CanP8FCNEUqs7YstXZfS11daejjM+sW4dXmrJlTkg09WI0GwhM3V/3cAQ0f0vEirDyJ18BnjCqmsuW2DgWzuEeu1pJ9/Fxl0IV7lHNC2oB8g0GT9NAtUIYuwEllyUUh+8AHLTdP42wSDNG1ys6PHCxiuA1O0MyghtOeY7wkBq2z3TPBJM8/oJUYPZZQZw1ZOE9evWjAeoErdD4JUWBghqtdv/4lBSHvlJk57O+QJGXUSe69/IjqThQ63KTm5h6E/liMCkkPGYqhkzoQG62Z7iRiA/+5QKxocUVp/8sCJHcv84zGMGRrnU4D0C8cOFTMejp49OrfMxvKnmjlEZehrX1MdOjuutWOgWCi3oTF65K4/Pp0S00iVqQGRhPGQji9glpvfY3EdeJQ6IAz25OglC3BcxkeKX7/ah2MT/xLHnoSdaUCC+ukr52v6jsoYEcBDl5G/el7KtpXecrQZNB9w8Cyp06zqI1qHbcDtjn8d4nFxUEt3rdGkWsGvJGUuqtLQ5JopDrN3NcI24/pLBZPVb9jx3DcP8aQ4yFZzY/BzjadaERXjPnnSUGFoR+X0GBMeRKn0e2ROGqiKwEWfMnsTrHvei2KWBg2pja0Cosw2sTVXvN3WOoJPBQa2WfpW8vFf/8ZtIW1Vb8CB1EsqnrKeKxNCFan/4DiU+neStSK+scXfl6i0e705419Vix3ziSsGAE=.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 641,
+      "completion_tokens": 487,
+      "total_tokens": 1128,
+      "cost": 0.0003076,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003076,
+        "upstream_inference_prompt_cost": 6.41e-05,
+        "upstream_inference_completions_cost": 0.0002435
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 171,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

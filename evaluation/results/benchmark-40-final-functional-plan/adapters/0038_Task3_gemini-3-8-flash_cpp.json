@@ -1,0 +1,31 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "isPangram",
+   "target": "isPangram",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "bool",
+    "params": [
+     "std::string str"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "const std::string& str"
+    ],
+    "return": "bool"
+   }
+  }
+ ],
+ "combo_index": 38,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_003/gemini-3-8-flash/Task3_gemini-3-8-flash_cpp.cpp",
+ "artifact_sha256": "7d793279412e0a5c2c4b0d5390b6ce29448d4c9e1d483bba7300c49a6d8a7e9e",
+ "oracle_test_path": "tests/claude/Task3_Test.cpp",
+ "oracle_test_sha256": "b94cad74ef9276969b78ec33968d6f4309c1b7706e8923d6048129b8d954a262",
+ "author": "functional.py draft_adapter (static)"
+}

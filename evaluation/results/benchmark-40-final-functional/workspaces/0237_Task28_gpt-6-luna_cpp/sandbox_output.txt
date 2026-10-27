@@ -1,0 +1,7 @@
+@@c250b9c4681d429e STEP 0 BEGIN@@
+
+@@c250b9c4681d429e STEP 0 END rc=0@@
+@@c250b9c4681d429e STEP 1 BEGIN@@
+All test cases passed!
+
+@@c250b9c4681d429e STEP 1 END rc=0@@

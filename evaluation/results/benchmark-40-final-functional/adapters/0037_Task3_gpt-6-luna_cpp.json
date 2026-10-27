@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "isPangram",
+   "target": "is_pangram",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 37,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_003/gpt-6-luna/Task3_gpt-6-luna_cpp.cpp",
+ "artifact_sha256": "35f795fe1742e3b6a49c66c11d79759dfd48206643a5f0e1ca13510ad8c368a8",
+ "oracle_test_path": "tests/claude/Task3_Test.cpp",
+ "oracle_test_sha256": "b94cad74ef9276969b78ec33968d6f4309c1b7706e8923d6048129b8d954a262",
+ "author": "functional.py draft_adapter (static)"
+}

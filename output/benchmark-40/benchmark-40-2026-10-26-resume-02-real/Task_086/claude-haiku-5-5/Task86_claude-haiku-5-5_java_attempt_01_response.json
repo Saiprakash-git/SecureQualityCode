@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793023192-9YIvfitjyxbwMMLJIgHx",
+  "finish_reason": "stop",
+  "input_tokens": 185,
+  "output_tokens": 2189,
+  "cost_usd": 0.001113,
+  "raw_response": {
+    "id": "gen-1793023192-9YIvfitjyxbwMMLJIgHx",
+    "object": "chat.completion",
+    "created": 1793023192,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import java.io.IOException;\nimport java.io.InputStream;\nimport java.net.URI;\nimport java.net.http.HttpClient;\nimport java.net.http.HttpRequest;\nimport java.net.http.HttpResponse;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport java.nio.file.StandardCopyOption;\nimport java.time.Duration;\nimport java.util.concurrent.TimeUnit;\n\npublic class DownloadAndRun {\n\n    public static void main(String[] args) {\n        if (args.length < 1) {\n            System.err.println(\"Usage: java DownloadAndRun <exe-url>\");\n            System.exit(1);\n        }\n        try {\n            URI uri = validateUrl(args[0]);\n            Path downloaded = downloadFile(uri, tempDirectory());\n            if (!isPortableExecutable(downloaded)) {\n                throw new IOException(\"Downloaded file is not a valid Windows EXE: \" + downloaded);\n            }\n            int exitCode = executeFile(downloaded, 0);\n            System.out.println(\"Process exited with code: \" + exitCode);\n            System.exit(exitCode);\n        } catch (Exception e) {\n            System.err.println(\"Error: \" + e.getMessage());\n            System.exit(2);\n        }\n    }\n\n    static URI validateUrl(String url) throws IllegalArgumentException {\n        if (url == null || url.isBlank()) {\n            throw new IllegalArgumentException(\"URL must not be empty\");\n        }\n        URI uri = URI.create(url.trim());\n        String scheme = uri.getScheme();\n        if (scheme == null || !(scheme.equalsIgnoreCase(\"http\") || scheme.equalsIgnoreCase(\"https\"))) {\n            throw new IllegalArgumentException(\"Only http and https URLs are supported\");\n        }\n        String path = uri.getPath();\n        if (path == null || !path.toLowerCase().endsWith(\".exe\")) {\n            throw new IllegalArgumentException(\"URL must point to a .exe file\");\n        }\n        return uri;\n    }\n\n    static Path tempDirectory() throws IOException {\n        Path dir = Paths.get(System.getProperty(\"java.io.tmpdir\"), \"exe_downloads\");\n        Files.createDirectories(dir);\n        return dir;\n    }\n\n    static Path downloadFile(URI uri, Path targetDir) throws IOException, InterruptedException {\n        String rawName = Paths.get(uri.getPath()).getFileName().toString();\n        String fileName = rawName.replaceAll(\"[^A-Za-z0-9._-]\", \"_\");\n        if (fileName.isEmpty()) {\n            fileName = \"download.exe\";\n        }\n        Path target = targetDir.resolve(fileName);\n\n        HttpClient client = HttpClient.newBuilder()\n                .followRedirects(HttpClient.Redirect.NORMAL)\n                .connectTimeout(Duration.ofSeconds(30))\n                .build();\n\n        HttpRequest request = HttpRequest.newBuilder(uri)\n                .timeout(Duration.ofMinutes(10))\n                .GET()\n                .build();\n\n        HttpResponse<InputStream> response = client.send(request, HttpResponse.BodyHandlers.ofInputStream());\n        if (response.statusCode() != 200) {\n            response.body().close();\n            throw new IOException(\"Download failed with HTTP status \" + response.statusCode());\n        }\n        try (InputStream in = response.body()) {\n            Files.copy(in, target, StandardCopyOption.REPLACE_EXISTING);\n        }\n        return target;\n    }\n\n    static boolean isPortableExecutable(Path file) throws IOException {\n        if (!Files.isRegularFile(file) || Files.size(file) < 2) {\n            return false;\n        }\n        try (InputStream in = Files.newInputStream(file)) {\n            int b1 = in.read();\n            int b2 = in.read();\n            return b1 == 'M' && b2 == 'Z';\n        }\n    }\n\n    static int executeFile(Path exe, long timeoutMinutes) throws IOException, InterruptedException {\n        ProcessBuilder pb = new ProcessBuilder(exe.toAbsolutePath().toString());\n        pb.inheritIO();\n        Process process = pb.start();\n        if (timeoutMinutes > 0) {\n            if (!process.waitFor(timeoutMinutes, TimeUnit.MINUTES)) {\n                process.destroyForcibly();\n                throw new IOException(\"Process timed out after \" + timeoutMinutes + \" minutes\");\n            }\n        } else {\n            process.waitFor();\n        }\n        return process.exitValue();\n    }\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 185,
+      "completion_tokens": 2189,
+      "total_tokens": 2374,
+      "cost": 0.001113,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.001113,
+        "upstream_inference_prompt_cost": 1.85e-05,
+        "upstream_inference_completions_cost": 0.0010945
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 603,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,4 @@
+Task74_GEMINI_gemini-1.5-pro-001.cpp:2:10: fatal error: 'pqxx/pqxx' file not found
+    2 | #include <pqxx/pqxx> 
+      |          ^~~~~~~~~~~
+1 error generated.

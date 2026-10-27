@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793009099-ZsoHyf4odhRPLSp0QnTq",
+  "finish_reason": "stop",
+  "input_tokens": 512,
+  "output_tokens": 318,
+  "cost_usd": 0.0002102,
+  "raw_response": {
+    "id": "gen-1793009099-ZsoHyf4odhRPLSp0QnTq",
+    "object": "chat.completion",
+    "created": 1793009099,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stddef.h>\n\nint find_even_index(const int *values, size_t length)\n{\n    long long total = 0;\n    long long left = 0;\n\n    for (size_t i = 0; i < length; ++i)\n        total += values[i];\n\n    for (size_t i = 0; i < length; ++i) {\n        if (left == total - left - values[i])\n            return (int)i;\n        left += values[i];\n    }\n\n    return -1;\n}",
+          "refusal": null,
+          "reasoning": "**Writing C Source Code**\n\nI need to focus on providing a complete C source file for the \"Find the equilibrium index of an array\" task. The expected interface likely includes a function signature like `int find_even_index(const int *values, size_t length)`. It seems I should implement the function that calculates the left and right sums for the array elements, returning the appropriate index or -1 if no equilibrium exists. I\u2019ll also consider integer limits, using `long long` for safety due to potential size concerns. Finally, I'll ensure to include necessary headers and present the code cleanly.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Writing C Source Code**\n\nI need to focus on providing a complete C source file for the \"Find the equilibrium index of an array\" task. The expected interface likely includes a function signature like `int find_even_index(const int *values, size_t length)`. It seems I should implement the function that calculates the left and right sums for the array elements, returning the appropriate index or -1 if no equilibrium exists. I\u2019ll also consider integer limits, using `long long` for safety due to potential size concerns. Finally, I'll ensure to include necessary headers and present the code cleanly.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3yXRTnS022mNmPDWfr4JDt2w0mBmbp_0czcaNvIPOx75h7Q9BQMH-Sfja1Nyj3PrRLaZspPkUg2JVFxG-Jo2Avj1haF1boTIx6pycWXlDCBeg4zmYo15uaE4W6VjYCaiPqBlN_VAoefFsBcmFV9oh4x3CAhPN5QQjXhxghrRgeSPljCBKn792OfVRMFH4-sMkAx8WkP7ztCVagVjQJ2dmXMtScL0usvw_CbdkOe7jwrWHNL1nTtRS-Ga6Gkz4IU0UnlTDMHuRdYdk6O_p4Uh7GBSoKSW57U5FYlKJh0L1fhCa4VphSsbc6JxNJsqZSAtuOUE0McF52gVFhvGUWLJXOVSmJ4tx3BRrtk7CHrG1lzYWg9QU9Irhw0rQoutitztPZNTqQGB3q6dRC6qXfrKQ5NjpEu5-16R0Bb6Gq-b2nu2RozlsTkpE4FKr1pVboWPZsiJsaEqCtcpA8GLZdLrZV2L9vAXbU0saluyjEjClYWM5miZUM3H2vOkanArMhJOk7DWHZkHphKF-XZtlSUeXUUK2qlRGwt1x7NBCQI-jgft2IPptWyLnyunsY0rWmH3qDUeQagxV-ngUidM169LlTSeSRZQv0UqQiu2FESqrunibrVBLxsw6KeK0Iuuh4Qr8viRnD_6G-H42lN3SrEQeS4VV-kDW42TKK2e4xKbkg8OyBiak0kHyrgpL5LAWPUe-HfMYivKz36ro_32c67C3smka-glC3DlrnqoSY1-TDDFQJUKmjeRvdRl_SwOqftPhEQ-2JCpGfe2FY9v9MGjaoTFPEeOrzRV9dxH7KpZWLAsuevRc3I1rbkWtX4HSn8SeR0agSEeLkyGHRDgJ-RXHx12xJ1UJSJLwPERa6htpD2iugajnx4uMZJiH5lNOHfEORjIvj2tGpT54ZjRWHDW4bt9d3DPPjrsPkTXf7P8gUqAwQutfLHI969zpk-4PXWQ0zsEtgfJiWw8RWh1iQXrTj6vboI6lCBXJ9fmjEU4lRqiFrmO1-wMmxFMH_fgKNxOYFKAQIGn8gpz865yk-cr16cgTkbJvq3e5j-TR-V4ILcD7Tpa8kzBT1qaiMCirRbtpIMEAfSqIN7Kpg1w_e6KzOk4V28SKnYlpLPsoEFBy-KxpMDMSRMgDpwCgkqiU8AjBY4YfNPCRC4vbJ-eh6IO1n9x-ZhhMcGuSVTnTuqPijfmP4kx4ERv-L7RCy6D8SbwuZttvJj5tH5e0rYeGj5phSaoVckASTVBP6GlsW-5HiI-WDioSa2wnZeOxPy5sR_BW57WtGJg-R4DVLhMJQBTuv2-dpCvFvPyAW8oFodZV3WTt8IsWlpMFotRymCaYtcKAOoJWL4-cDXE70UqRnQUk7hXEMmzo9li94awH6eW8wODSr0o6eyLcdZzF2IqtzNnIVkDsjdRORm71dY6NAqSKaDEDGuw0RuUTZcF3U7wGkA77f8zilru-Tg44Z0O158fZS2n7w5C4ZozoUXACCPzyeQ694RP_xbmQBBlyIeVX2UIuo6LYhsYkeKMHqfVMLwGM6Mvp3riZvcqzqdwTeC9G-kYRgtLcyt9SSXFVM9Knu9hP_3SslBrSO-RehOz1QyQpjmBPzRw4JDZgN7Auwyytvlw7lbzkLjltNKTWcJyYbmnE_UZJQ2xQ6vF5wTdQA6WkKxnITtxeugpyFAdsQwpBtXD64Z7CcIThZybNVvipAPtIaaiop_UKYhEp2AnIM_gfKBIBcdm15cKGBZId_UYTL8ITNcbrQu0YuuYF-Y32CX87zmwQOZ-D9zCClh9HrVpVHxgSB8sfA7_PDGnwXOwq2QoXAjR17EkV52jKSKbFhzzwMneWe82rEM1vT7Pi7B8bOgSrEESBUETnl-34KiJk-YzuVJ-pOqF9sqm1ScOekNQPa2tuQjoXf_KnPQqACDgJkeYmYQzyBUZTyOC-KElwaCtT37pEV1ZYbTRtlsIs0IhyeQGFaW5alpEqstDwcXZMykn_JkFB7l2WnOEu4HvGcD4LqtdR_R_anCm1KdW1jRgKjE6ssjKTlpUs5XETTaQwK0mVTvy6qibMDaay4B1_Yy7vYuhsi4yHYu4ujiH9Bdnt2uoMH5rR5E3QMELySSiOmzmxCX3UhNf4YgdiU_mjh1gv7T0N1QthRjfismdT84InFEbL4LAeGQ8_sAQPCH8Y2yrxzGBBYLICUM1lWzbtd82-MvhEy_NWEexvcbNYNuT_qWrvNnx9uvIjLpguk6q1uG10kmHk6ErGbAVm4ArvDAhYsaFEOf0TWCf5Hr7jqGCnw-4mpcC_i0pyqAN-K-V_vX-OiFN846dLca-pXEclwRbBHgS1xtkOqy1mL0oAfe6uzksyg6JK2pp64fAdFG7zOUMa8YfmkjKz3SJmm6bfezg5xHjRBeT-ctwVcJFz3MsD-endgVi65hS468sb_dTerLS3yR5ANexFpYp7sX_4aQ5agsrrfPwwGXG2eqBrfFWO-TRXpKT1pcPl7TTbGJmPgS08mBLKX0-PYc6PimdqXX_xbh1FHKUMVGutoVRKUvXEiKVKPQRKUuPRghbDzTBmGOTLXYikdsORR2UlOiM8v6Po79yHfOlKYSMmYDtYHed_0zN7VV9bcer1btKtusWIMXlu7iGU8OpSpAp9zd-lYZdaUHehda0frHuqbDpi3Cl9ZcycroXi3ZJPYtcXvYZOUxL6BQ1NQ6aU174iHbOblH0rIawgwGsq67X_9lBfa0_mjn_MhUozbUhwUBPHBG2Ix_9fclMGz1vHrxTeAdbsORWJtayK8bbsr6LPaffh0lP0KdSZk3o-PzmDXLIuSrwaKCkHxjLla_8tAOif6xRk2uEfirQ9mpEC1N0-DUDR9sJMbmNtIfA70QdqLLQQi9nmVdzziMd9Q7PhSDW2uxJgGADQK3TafwEFpEdkXqAgfr3lzGHNHhXYAwkROam7XIMBQQaGMrFquF_Q30EDJu9yymjye73WkAkWS9wKiGOMVmLguJC4ttO2SLxV_mPKbAsHpx8JhaT3OqsZnem0NjhM6S3dWgqNKALEOYYZAIKcRSS9ScEEydrPE4KtB7A-aWWbcOi6LgEC66hPQkZssst3z2d-j6fivLdEIXcTAWkj4mRJx9jvAr3yLmkDJpdZY6aDiZwmO3Svxt4olutTuVho6tEt8gJBitp2_AI0VNDaks5Lon-ek1gRV3SOInlDGK3akluDiYpq64JVezG3nDMfRHi4D0P4ilercYQzrxT7oSSSOIoipYAPXo5ll1WBll3e7KZPeISgNLQ7hzgstdiui2LOyK5o3IRifyxmKyJ8Iv4gZz7wkFr_oeALy-AJCT13lkQmXg9kv6miySCv_ej4OWo_xJVwR1mbA0PLngWd6R8bqw5Mo1HJQEMQxUGQuXpk8vNvfqeLdL6_Ez0Upf0DkpfUhMwfi-JCAzRQO1RyKMCx0Y1KVPlbxvJiPS5TgqFhLf3vcORxmk9l5Sepy6eZNVMamCDp24wf8Q5zeYOBjYsBph_C4M8n9MToJoqYM9rnytJIM4gnJ8u_ihsWOtzsNkjgXC4mX-8MXpQMLFQ2vWj2FIhmFR1g6GeNTMFYzulUc-yC4FECs9m3Pjd81mpBhQrXF8EGypghuGsWcJzgi2RfKY9pSn8xXfXO23tTs8q6ozpeX3XbuyKANyqsiiZJKL0kMJ9Attvq-qbqSm-bNFEcBhb5BrK9y9fJ95ScKcvOYagB197Nk_LadzGzXZAZGMmuk--qa4-ubflTHNiJHLR2CQWgUtopUJ6oB3DpJztg2vgDNGvQUDWb8D6-4B0mBl0GR-OnG-gT0V9hDrAs7fUwIGR3n5wlS9nqAv3uZw-wU3hSEApbw5qlFfOvHroeKT9M4OShN1CVOKH5eEftDR_7aPZOn1bZ5dv58OnCCF2ebkoM--pd8e4B8qwvYSI-b6EK00HrCNf-lGXCKLd0mI8u-IBL8Fj3oymyIHIy-B4O8xNFZxTuLiKqWC_kprEtfJoTXC9B8XSXiLRW1T5Vng32qP1JDm6FiPMZjQT24SVQNY-mvpZ0lbu0Wvo3OAtk_YuyuEy0FsVck4sbcvUn9XH0dPcYp7zB4aF-YQVsCclisphRKa5SGP3xL5UFSSG_b32oj06P4VvnBnkIF_-Iz9l7pA=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0d7817ec4188d978016adf25cc3f6087d1949f0c9b991486e0",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 512,
+      "completion_tokens": 318,
+      "total_tokens": 830,
+      "cost": 0.0002102,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002102,
+        "upstream_inference_prompt_cost": 5.12e-05,
+        "upstream_inference_completions_cost": 0.000159
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 204,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

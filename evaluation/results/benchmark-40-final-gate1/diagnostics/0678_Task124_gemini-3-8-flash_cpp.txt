@@ -1,0 +1,13 @@
+Task124_gemini-3-8-flash_cpp.cpp:257:31: warning: missing terminating '"' character [-Winvalid-pp-token]
+  257 |     std::string card_number = "4111-
+      |                               ^
+Task124_gemini-3-8-flash_cpp.cpp:257:31: error: expected expression
+Task124_gemini-3-8-flash_cpp.cpp:257:37: error: expected ';' at end of declaration
+  257 |     std::string card_number = "4111-
+      |                                     ^
+      |                                     ;
+Task124_gemini-3-8-flash_cpp.cpp:257:37: error: expected '}'
+Task124_gemini-3-8-flash_cpp.cpp:247:12: note: to match this '{'
+  247 | int main() {
+      |            ^
+1 warning and 3 errors generated.

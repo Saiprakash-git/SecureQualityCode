@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1793031078-ohGM55mUDHUOp7RXze6K",
+  "finish_reason": "stop",
+  "input_tokens": 162,
+  "output_tokens": 1155,
+  "cost_usd": 0.00056715,
+  "raw_response": {
+    "id": "gen-1793031078-ohGM55mUDHUOp7RXze6K",
+    "object": "chat.completion",
+    "created": 1793031078,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "import java.io.BufferedReader;\nimport java.io.FileReader;\nimport java.io.IOException;\nimport java.util.ArrayList;\nimport java.util.List;\nimport java.util.regex.Pattern;\n\npublic class Main {\n    private static final Pattern STARTS_WITH_NUMBER_AND_ENDS_WITH_DOT =\n            Pattern.compile(\"^\\\\d+.*\\\\.$\");\n\n    public static boolean isMatchingLine(String line) {\n        return line != null && STARTS_WITH_NUMBER_AND_ENDS_WITH_DOT.matcher(line).matches();\n    }\n\n    public static List<String> readMatchingLines(String filePath) throws IOException {\n        List<String> matches = new ArrayList<>();\n\n        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {\n            String line;\n            while ((line = reader.readLine()) != null) {\n                if (isMatchingLine(line)) {\n                    matches.add(line);\n                }\n            }\n        }\n\n        return matches;\n    }\n\n    public static String formatMatches(List<String> matches) {\n        StringBuilder output = new StringBuilder();\n\n        for (String match : matches) {\n            output.append(match).append(System.lineSeparator());\n        }\n\n        return output.toString();\n    }\n\n    public static void main(String[] args) throws IOException {\n        if (args.length < 1) {\n            System.out.println(\"Usage: java Main <file-path>\");\n            return;\n        }\n\n        List<String> matches = readMatchingLines(args[0]);\n        System.out.print(formatMatches(matches));\n    }\n}",
+          "refusal": null,
+          "reasoning": "We need answer user wants raw source code only, no markdown. Need produce JAVA self-contained source file. Need think. Program reads a file and uses regex to match lines that start with numbers and end with a dot. Need likely class Main with main accepting filename? Input as parameters? \"All functions should accept input as parameters and return output if any.\" Could implement main(String[] args) reads file path from args or scanner? Need self-contained. Regex: ^\\d+.*\\.$ maybe start with numbers and end with dot. Could be lines that start with numbers (one or more digits) and end with a dot. Need read file. In Java. Could use BufferedReader. Print matching lines. Need only raw source. No fences. Ensure valid Java. Maybe class Main public. If no args, prompt? But raw source. Use java.io.*; java.util.regex.*. Function matchLine(String line) returns boolean? main calls. Need accept input as parameters: functions should accept input as parameters. main accepts args. Could have static List<String> readAndMatch(String filePath) throws IOException. main calls and prints. Or static boolean matches(String line). Need regex pattern compile. Lines that start with numbers and end with dot: Pattern.compile(\"^\\\\d+.*\\\\.$\"). If line starts with number and ends with dot. Could require entire line. Use matcher.matches(). Need handle empty? no.\nNeed output maybe matching lines to stdout. Could include usage if args length 0? But no prose? Code can print usage. Need file reading. If file not found catch? Could throw. Simpler main throws Exception. But maybe robust. Need return output? Functions return output if any. Could static String processFile(String filePath) returns matches newline separated. main prints.\nNeed only source line first. No package.\nPotential code:\nimport java.io.*;\nimport java.util.*;\nimport java.util.regex.*;\n\npublic class Main {\n    private static final Pattern LINE_PATTERN = Pattern.compile(\"^\\\\d+.*\\\\.$\");\n\n    public static boolean isMatchingLine(String line) {\n        return line != null && LINE_PATTERN.matcher(line).matches();\n    }\n\n    public static List<String> readMatchingLines(String filePath) throws IOException {\n        List<String> matches = new ArrayList<>();\n        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {\n            String line;\n            while ((line = reader.readLine()) != null) {\n                if (isMatchingLine(line)) {\n                    matches.add(line);\n                }\n            }\n        }\n        return matches;\n    }\n\n    public static String formatMatches(List<String> matches) {\n        StringBuilder sb = new StringBuilder();\n        for (String match : matches) {\n            sb.append(match).append(System.lineSeparator());\n        }\n        return sb.toString();\n    }\n\n    public static void main(String[] args) throws IOException {\n        if (args.length < 1) {\n            System.out.println(\"Usage: java Main <file-path>\");\n            return;\n        }\n        List<String> matches = readMatchingLines(args[0]);\n        System.out.print(formatMatches(matches));\n    }\n}\n\nThis is raw source. Need maybe regex start with numbers and end with a dot: ^[0-9].*\\.$? \"start with numbers\" could plural means line begins with numeric characters. ^\\d+.*\\.$ good. Could also allow spaces? start with numbers no leading spaces. If line is \"123 abc.\" matches. If \"123.\" matches because .* zero. If \"123\" no. If \"a123.\" no. Good.\nNeed ensure no markdown. final only code. Also user says Return ONLY raw source code. Do not use Markdown fences. Do not include explanations, labels, or prose. So final code only. Need no analysis. Ensure no trailing explanation. Could include import. Good.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user wants raw source code only, no markdown. Need produce JAVA self-contained source file. Need think. Program reads a file and uses regex to match lines that start with numbers and end with a dot. Need likely class Main with main accepting filename? Input as parameters? \"All functions should accept input as parameters and return output if any.\" Could implement main(String[] args) reads file path from args or scanner? Need self-contained. Regex: ^\\d+.*\\.$ maybe start with numbers and end with dot. Could be lines that start with numbers (one or more digits) and end with a dot. Need read file. In Java. Could use BufferedReader. Print matching lines. Need only raw source. No fences. Ensure valid Java. Maybe class Main public. If no args, prompt? But raw source. Use java.io.*; java.util.regex.*. Function matchLine(String line) returns boolean? main calls. Need accept input as parameters: functions should accept input as parameters. main accepts args. Could have static List<String> readAndMatch(String filePath) throws IOException. main calls and prints. Or static boolean matches(String line). Need regex pattern compile. Lines that start with numbers and end with dot: Pattern.compile(\"^\\\\d+.*\\\\.$\"). If line starts with number and ends with dot. Could require entire line. Use matcher.matches(). Need handle empty? no.\nNeed output maybe matching lines to stdout. Could include usage if args length 0? But no prose? Code can print usage. Need file reading. If file not found catch? Could throw. Simpler main throws Exception. But maybe robust. Need return output? Functions return output if any. Could static String processFile(String filePath) returns matches newline separated. main prints.\nNeed only source line first. No package.\nPotential code:\nimport java.io.*;\nimport java.util.*;\nimport java.util.regex.*;\n\npublic class Main {\n    private static final Pattern LINE_PATTERN = Pattern.compile(\"^\\\\d+.*\\\\.$\");\n\n    public static boolean isMatchingLine(String line) {\n        return line != null && LINE_PATTERN.matcher(line).matches();\n    }\n\n    public static List<String> readMatchingLines(String filePath) throws IOException {\n        List<String> matches = new ArrayList<>();\n        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {\n            String line;\n            while ((line = reader.readLine()) != null) {\n                if (isMatchingLine(line)) {\n                    matches.add(line);\n                }\n            }\n        }\n        return matches;\n    }\n\n    public static String formatMatches(List<String> matches) {\n        StringBuilder sb = new StringBuilder();\n        for (String match : matches) {\n            sb.append(match).append(System.lineSeparator());\n        }\n        return sb.toString();\n    }\n\n    public static void main(String[] args) throws IOException {\n        if (args.length < 1) {\n            System.out.println(\"Usage: java Main <file-path>\");\n            return;\n        }\n        List<String> matches = readMatchingLines(args[0]);\n        System.out.print(formatMatches(matches));\n    }\n}\n\nThis is raw source. Need maybe regex start with numbers and end with a dot: ^[0-9].*\\.$? \"start with numbers\" could plural means line begins with numeric characters. ^\\d+.*\\.$ good. Could also allow spaces? start with numbers no leading spaces. If line is \"123 abc.\" matches. If \"123.\" matches because .* zero. If \"123\" no. If \"a123.\" no. Good.\nNeed ensure no markdown. final only code. Also user says Return ONLY raw source code. Do not use Markdown fences. Do not include explanations, labels, or prose. So final code only. Need no analysis. Ensure no trailing explanation. Could include import. Good.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 162,
+      "completion_tokens": 1155,
+      "total_tokens": 1317,
+      "cost": 0.00056715,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00056715,
+        "upstream_inference_prompt_cost": 2.43e-05,
+        "upstream_inference_completions_cost": 0.00054285
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 826,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

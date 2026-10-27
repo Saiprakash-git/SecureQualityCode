@@ -1,0 +1,14 @@
+@@7d3f37a91a2266c0 STEP 0 BEGIN@@
+In file included from test_oracle.c:8:
+adapter.h:5:21: error: conflicting types for ‘sum_parity’; have ‘const char *(int *, int)’
+    5 | #define odd_or_even sum_parity
+      |                     ^~~~~~~~~~
+test_oracle.c:18:13: note: in expansion of macro ‘odd_or_even’
+   18 | const char* odd_or_even(int arr[], int size);
+      |             ^~~~~~~~~~~
+In file included from adapter.h:3:
+impl_under_test.c:3:13: note: previous definition of ‘sum_parity’ with type ‘const char *(const int *, size_t)’ {aka ‘const char *(const int *, long unsigned int)’}
+    3 | const char* sum_parity(const int* arr, size_t len) {
+      |             ^~~~~~~~~~
+
+@@7d3f37a91a2266c0 STEP 0 END rc=1@@

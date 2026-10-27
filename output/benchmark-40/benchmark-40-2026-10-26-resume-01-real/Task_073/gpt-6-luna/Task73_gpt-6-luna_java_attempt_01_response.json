@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793017848-Ppv20SQXLzZpuyyaAxL8",
+  "finish_reason": "stop",
+  "input_tokens": 105,
+  "output_tokens": 735,
+  "cost_usd": 0.000378,
+  "raw_response": {
+    "id": "gen-1793017848-Ppv20SQXLzZpuyyaAxL8",
+    "object": "chat.completion",
+    "created": 1793017848,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "import java.io.BufferedReader;\nimport java.io.InputStreamReader;\n\npublic class Main {\n    public static boolean isValidAdminPassword(String password) {\n        if (password == null || password.length() < 12) {\n            return false;\n        }\n\n        boolean hasUppercase = false;\n        boolean hasLowercase = false;\n        boolean hasDigit = false;\n        boolean hasSpecialCharacter = false;\n\n        for (char c : password.toCharArray()) {\n            if (Character.isWhitespace(c) || Character.isISOControl(c)) {\n                return false;\n            }\n\n            if (Character.isUpperCase(c)) {\n                hasUppercase = true;\n            } else if (Character.isLowerCase(c)) {\n                hasLowercase = true;\n            } else if (Character.isDigit(c)) {\n                hasDigit = true;\n            } else {\n                hasSpecialCharacter = true;\n            }\n        }\n\n        return hasUppercase && hasLowercase && hasDigit && hasSpecialCharacter;\n    }\n\n    public static void main(String[] args) throws Exception {\n        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));\n        String password = reader.readLine();\n        System.out.println(isValidAdminPassword(password) ? \"Valid\" : \"Invalid\");\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Creating a Java password checker**\n\nI need to produce a complete Java program that checks if an admin password is valid. First, I'll define the criteria since the validity standards are unspecified. It seems sensible to create a generic password checker based on secure password policies. The user is asking for a method that accepts input parameters and returns the result. I'll likely implement an `isValidAdminPassword(String password)` function with constraints, but I can't hard-code any credentials. I'll also include a main method to read the password.**Defining password validity criteria**\n\nThe phrase \"valid for an admin user\" suggests that the admin password should have specific requirements, like length and complexity with uppercase, lowercase, digits, and special characters. I'll create a method that checks these criteria \u2014 something like at least 12 characters without spaces. I should include a class with a static method, `isValidAdminPassword`, which receives the password and returns \"Valid\" or \"Invalid.\" I can't reference an actual admin password since it's unknown, but I can implement a reliable policy. This program needs to be self-contained and straightforward.**Establishing password strength requirements**\n\nWhen I see \"valid for an admin user,\" I think it refers to determining if the password is strong enough. The code should reflect an admin policy that avoids common passwords, rejecting them, along with any leading or trailing whitespace. I plan to implement character checks that require a minimum length of 12, including at least one of each character type, while disallowing control characters. I can print \"Valid\" or \"Invalid\" based on these checks, ensuring security standards are met without relying on weak passwords like \"admin123.\"",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Creating a Java password checker**\n\nI need to produce a complete Java program that checks if an admin password is valid. First, I'll define the criteria since the validity standards are unspecified. It seems sensible to create a generic password checker based on secure password policies. The user is asking for a method that accepts input parameters and returns the result. I'll likely implement an `isValidAdminPassword(String password)` function with constraints, but I can't hard-code any credentials. I'll also include a main method to read the password.**Defining password validity criteria**\n\nThe phrase \"valid for an admin user\" suggests that the admin password should have specific requirements, like length and complexity with uppercase, lowercase, digits, and special characters. I'll create a method that checks these criteria \u2014 something like at least 12 characters without spaces. I should include a class with a static method, `isValidAdminPassword`, which receives the password and returns \"Valid\" or \"Invalid.\" I can't reference an actual admin password since it's unknown, but I can implement a reliable policy. This program needs to be self-contained and straightforward.**Establishing password strength requirements**\n\nWhen I see \"valid for an admin user,\" I think it refers to determining if the password is strong enough. The code should reflect an admin policy that avoids common passwords, rejecting them, along with any leading or trailing whitespace. I plan to implement character checks that require a minimum length of 12, including at least one of each character type, while disallowing control characters. I can print \"Valid\" or \"Invalid\" based on these checks, ensuring security standards are met without relying on weak passwords like \"admin123.\"",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30gBPDVSusNzppukq4CX55vjJ5YCnOq9avG9lkPAh2oXGFddDIfoqNREtCfPSG8_e-Sv7OAw1bDPe4I-NQuiNw8kr3Sreo5HgrZaEBDJocMAWnk2mDJXlXECndT4JxHFLB414Xew2lEH8n3wPNSqo9rwjKQbg95APE4G-WT2pgmVV7jk_nolEWoqVeALsdBoXc45EnQ4xy096sb9-VE4q-7uXGWLTSWnt_RoHMBqBHxOMDMwnnZVDyBoe3iwbFZPaxhTYWD3Cd9KnpLgSjUiXNOiayr5BBB0KduEjjkzCgQK6sQZr5M8B1H1nl4zRehbXkCzq742UwNQAHkpRxNrGFV4BZ-7MoaVOmYFR1fl_fYA9xh4NJol-M3qkn4p-ij0o599HqInnlMGu89xAdRX6lXZtj0EAelC9zRGL0aO3WCflUcYvLnh1ZcZnem41LAoOex9IuUZgR5kd9EVfk422a3JEcHb2FFFWPW05JQVbNHjs4q928X2bbpjDqyU3iwztACqkJgNWEmuxNBmpBDfdcFEiVxJ7jfac3KKwyFFJmgydTwJkxvFRCDDKt0y-_26sfVXtivDhj5kknROKJ0mDHZPbVpwXQ82S7Em_yoolHlB8-eaCZA3AkcxLyLjKEmEvmL-JXgjTsiBj8ASXk8gj8Zg5kAMzsi3pLIUWE1pI_HZ_l93OHCRQ3Gf3cP6tanZSm2tK1LkJcQm1FwyKQVmH6YUk5rbnW5DBmodnFMtt007EdbT6e6Jx6ElKcPE52eQFMlpPHp5o69mMX8aMY1NkMSRpFAAypTSUYVJHtl3pzgwxFDs0KkFlzTaS15gG3y8hnPhkE37tZpdZs0XEKBTniDHUpy40AAlvoloO1I0cQxAWdGEqxoVA0T0rblQTFp9ad9kvi4Dx89xC-8FOcxWTEpa_J1jjOsdH75uU8Iu4xUrRcOXt6_pTQgWaeqbmp6fKcqF_TOwro-VzdiAFjzx5yoSjS6G9fvdD1G2bcJZMZ6c1W7rJchCLZ6fLQucScaJv_fxWtdyS7EQUbhUfIIX75pzjUhJqa4qBYT59IlWjxkzVBzuYb7TTNTlU2faDcqev5rfZL3d47KEHlrrKjbbXU0Ytp6p_et87-GQgvI0jjO6OgXOs3JyMGCP3uEF0fxYP7-osAF4XM55WoxBz2z5HiWUDHHpbiBmMs0fn8uU7DrWpMfGK_tGnVTWP6uxmKY5oaThyjFdAcWdE4YxMD9GVlAZWj1rIIIIKURTs2elPPJaMmXhVDJm-1FCvOkC2Dhgju53SKtay9svd84Rl1QAhSPPh71tXDG43NbyPWGPj3G2Zv0PgEfS7jlCr6a2qwOR4kyjzdlNSqoKz4XZjGJa3aWGjN5RSFg5V0NgcVb6reAYsSlbuoLteTESDI0qgDxZvpP_H8zfGzDxhrtHAeO0bL50xc_lKjD5ULc3E69Fy__fgdF1nys2jHuMEQLfWp4r4MTfD2Io8asyXps0q5aUqPE902FMiaW66XplnWbZaB-dBZH5TxLNVC_bnAnrLGC5HWwLp5IEJnPLNbgxX533HI-8CicIMsiztASsMz09fa-hRQ4bSU4Unnx3TTee0DGKFIToIExAyt0IVkvaApfjJCn-uVxCnyFGkhe84NV-pShnuumbjyaqKYHEhOFrhxlt3w75v18m8FsB0YBXmu9bi3Efq-ROb5vFIWjOjAqdCHLkHv3mGDZkXHuvhHvP0NjIUh-YBh4U04y63hd_rMVqIm3T_ktuxVQl_pnim-lY6W-SfFJVtYiNjjg-QxoKPE2_hynOV11-QPw92o8klWs6-I4MGXe31_8L2aRXArnqugR1_ONDdo-iX2OpGPfcNZKGnsXx1sz08W384RCNjEomCJw2qO1RdavvjNKXfVJtdQNTGuM30ll1F7di9o2ACPQwkA7K9BAzx9pQm5KTJTMBj63dkffM2Gf5oblRnP6pA60Nq_1KEPsOocFhEcJ_Yyqayoxi4LM9oomoRHzGAN5F6UD9NupI0sp1eGHI3MycSbOit6GCBwBMg_TcvPopsl2wtt1gWBUf-5ChDxLlwUUroBB2ipts2WPuntlXbVEAdZDFqiVppAJX0tdxx1Rr8Bm8_fOyhDcwFsSrI_LnuGmkhkNGRC8fAnyfABXptmg3WrH4IL_WmZjCR71uTabMyk8Fw-W0Oj4lSK33Ze88WsHVxr1sNhJYaPAzlWKFJFXSK81loIfXKntXkxf7JR9_GCYMiOdm-nS2dJFkA_dCwCy69CwnXHMiAmxdatmuQpkACrqF8JGb2kNIONrLz3c9SR4fNyOkbN5kcoqkr7aJCTErpgCFRW5T_mLct-r1apr1Ifc_3RafjSE8785Drnl7rz-w-9cyVFJBB06qoK093JYpBfFFXQhy4IwtJ2d7dlRZyVTyprfdKtByykhDU47eSUutGgBSpKi8lPACmSAo0NMiOJ6g1Ak5W_b8Aaaxu5PsMPNqJHcTy4CJl5xAhdPvArShxuS1Fr5BaU3gvWweKLSIwHwUAR_k2BmEP7ynwYMEmcMHasX0XgCZ4_045jlonr4-m5M5S99EbqPkfNNkAkoecWnxx35f52LWnxsOnzCRtNT4OoMeKmyTXchpnkijw7Vos54TyT0u1VjzGBY-usAvklD0iOXJSfdUOIpSxGyDTiS-iw8zNfAMH3pPAcKmH_VtfFYhjtTAcZlD4rq9iDZcNRMOIQpu0rWZXOpwjqBhxFJ9zxWcumWgiMfDCoa8IFxXPvr1iuHM4pg1gD5PuVRstYL8opl91tnk6sFT-uZZWjnFwbkon27vSSKdVCZp_phSu7voWxWCC4JrBthhjY8tzKUNxhv6ZatKu_gBC5LOCEmjIxvdTO4PklZrR9sDJqJF_AUjeTo3xMLNubRBxki8vhYkmDlJdTqj1lRhy8I7ePoVEnjGuT6LVxTpPuFC_h9dTXH75dVdu-OaSEkPl1ibrIxDsqLFSnNImB1pOZRY8FPlBOP8-btlIlx1kb13Q5WzafNVRBgoUBvkK5lSgrWSxb-VRKzoctHzSPndhXcAzzuybR-qChcExalXKf_KV0XpLXtSF4LJSo5Kj9Anzx8O_hFjy9sPzjzHLfjnVO5w6UP7pC-7X7OcWWmS0tdWRHioRFB-gfuv2fF4qmeKKj_6tjqx_90oV45u_HfFYOZ-4XhB5Ykb8TNwlH0kYJQhDtH8YfAKFKlxcKyvOt0dKVDaDMI0qq8Otm0m96FJgbb80JuVC23JJVkyXbUq-oycGbqIqw1TcBEq-r7aoJjrDh8vZ8GXWn2bnlvyQ9qH4s0t34Z-OMuCSGQa62BmC7AWyBBGJD9s3W_QReBDyUmNskmK9rqEOTuHmPZFJwCU2YDmW_K3WQtHVh7l4ciADYiTqjECeBubK8EtJmJU_ypH-uoi0mZVE9C5HgoUB_uoX8tiQIFVEE2MWUCpIFRM5pUUXobIW1Wc5ysIGt4ycPwCZKPJ2k_Ez7_0oCA6rBQ5Lbo3V7OVzCM6Bi0AwSfLslOo3KHM7yvoNjhKPg1hOpk7pMfAt2YbWCiH30_spXQ-bfg8sjys7Tq2sNiJvrhMDuYQ0P9MSTdEjVLvc0XHthN2EW-XT7Y6aNZNJKO4ncaoM2tUMntfDnjZmbmH0B299tc-h3d6ORpo2QmFJrkc1Aj2F6vg5cZyFRTYSfTLguveFiOw4YnD_CzIh6WK7pymrjh1p4IiZZP-yIQb7Ih0o37nsOIZDOmsmonV6_1rZgid_NlkYum4sg58vWVchcR7MEuM0p4vPSpwBHPXVC0Q4MAfsnbVPehZoemN_ZJH5UlCy--WwzNHvyeD6w9v89r5Tp6lmsB0jRJM7dhQT9XUVi4wbrS9ogunPXeP6f5xkuzs5sWIamHeDjWABtHqvYFynn9U_xX57shZcVqDbSSILeKwRZGskvu_2Z7-Spp8F9_Nw3Fgj1M83dj8b9xWS9bPIlxdXLYPMpjn74Df8afSlO7KzTk7mBFGjeBpXLU21tkyiUUXrF8RvotzafutHkmztnaydJ-runtTY68GtNZUIgvmKVI20B6p6b1f0q51E6CvNmSc6KVRLVzRBLVFUhljlNfJ2JMJOv5BiHJ8Cj7SxK6dkR6eRuH5MOR0P1Abaf2CWsNYNxlXEmLs81_sOn-969UC-VDyDk2Tn96Jaob6eriO54Rs75d6HRnztXgKL9jZLh6gdVqBMieiDRJtlbaJHUekZMkIICFWFMMZ47-WkMfYkHbhUY5bVFsh8mS2mmTropIxn6l3WjZA8u3haSh7HIqoT_YmHHGze7_k0QaIvZ1KdHoqqlOI8fff-yEoJkd_EwkB_jGlUU32mJyhzDq5yJikfOrrWiUPZzv_hoyY5dgHuYPHfau6SHy_kdKcvvs0TYtzAPH0ijwmIKI6ZJL-ldAGE6YoW5JNVmy_21U9oXc26boE-jczFLsOp_2m1ZmLbZoaCSEKucfsDp-zXreOkHFDARatMp0m0jBnfsCEKHNm7xIx5yINEamkbbNNhcvgUa8jh7--YLojJ-SqDA-eJoj6OtE1d10pAja4nC_9arQwuw1H7Jx-UU_cP8S_XzgYsTBHWKWX8tIv4AdKJ56IeNRQlBOEyJpRyWmaYReJW3Zv-_uUEqkoWi0zgdW_wQCY3oCLSLzZsrnNe6cunXB2nWtgiTQrDPeMBO6q3b6uSaJ5ZLp8OZWl-zfXc1BjnflR8Scnn3LlSpOxEndC_W-1ZX9UKjO1GzXIdHj4JXjC3mys9VLHL-Q-S6maHfIBLe8pbmJmVPDMKtY-F53zYDu8mlPtXtQbkQNnMd4Fjkz0lXabdXtHo0da8KE6ds_xSa8IGhbsERCNkm8yvb6AI4MmClPNo57cssLQKtoWM7ULH82IvlMea1hhLegcY7PbS6QUmawkHyzNMAAGmzIYhh-0PY3KY4oGTTPb9_1QrzsQomJ3drymLh4L2A86Lbcv2zkkm6PqinV9-KKiQMvxLqeX1jNyvcn7s5tmhZVgGxUYsCn_aUql_OrTx256x47_p2TFGoOnE3uKN36GM3EQ0TgdP-X82XjfZfZFrSE6JxqWppOGlQKe_LxpeAkv-D7Unq3Ntjm5he3Giad-YfKlbzXGTjlrIlixTV2pGjDLNC7AU1JWM7DdkrlWhCnRZf7LsUq55RORKu4SaOivRyPJc6n9bITLUeWUOAZujtKbkbKjuh1dI7dOtpMQ7kctuN7mtWk-khsk4phI41A6nM_VAbWIHguEdc9vE-37EdUHArfM_XgAQAbevYRgygDD4SeATggsPVMs-krMAbIPmkUXPDsUmb0At6rTEiL5NiEOmmo5uGmPaawPRWbV-Re6nY7uHpvK-A-RO5tJ80dSqK8mjOEEISDHwCnCWb6CT--qXwKZLb_FJSh6ia9HTbph4PK-yC1zA2vyfKOEUYhWEQp7E_L022c40ImM8jwkUR1ftiQVqoUrhoa4SsqNIIqGnB-9PVNz-aIjXnc932Kts_eAekK_pYtArg1w12i0mEcr29aFJDqPlZiKu6DXklIoMHSPbS8bCU5OBs0wYsF0v9uPOmFdxV4ry-yCuSa81oItD6wWWhD_Y-yObySAl3jjVwvSqo4u1mmmR2i3Qar5lA8SFDb3jQqMHNMlkXdRuLVZ4nRZuiVuVIXcQKwWDB2Arw2IbBBS2Wn5DWtK0t5sUDyvxGLvX07mkBzUdCEYe1V9hcMRVF2lnXXhKLPTijQSp7P5KbSljjNP2iGZ7hpxJ1G-ETfdFmhkHkMoUnbKJO5Wc6ORqNG1HcZK4tjdySP3pASJG6CGBy3IzZ9ISwog1sAUk-WKD9dGc1AG7i38XQSSvahNAkhcmS95OrK8ZiTbk5ildQlnWR7_m-7VORnM6X8oULhjv7hp6hhnrQcw8MLY3F5ysrLV290tQsPykSU_Oi0c409SfPaZ9NHtB5zpk293sHWaDBRdFv8uiNKj-ZCYcmYIIjC2Zl1c4RQzNF-3b-cuYVlV3wdYIYyHjtZDlN3e3XL-zjGBDipXnW_6kEWnNaSgwUpY1iHSZdwjjBeBsLyKUcgUJKrZMV68FZp_Kan99NlwCzwXH0TvqGl4LPJ9AV8DSBKW9TWhRWz-vfXAaJOK59L7ff31Cv8RPdBv27j2jychmexmOLLtUZP7Ub1lIz6hrrEFXoSxW9CSAML0NuvsPbVvQvMAmamxA0maiWMol1mRa6QNeZ6fZDxwv45NZdBkRXU2sMTCH79Csz5CJX_jWibDMMHSvSwvyAP9nevJ8nX24yHrXSYN3MysE5kOps6htnm_xSJGn_PWnX7MhGrbpBW7HExrGH7WH0xC6JnfqueYMLNGAtQdFQcecPZDCZtjYPR7rO9Ombl_rlS5srkyb9INeVQ67w1taMI1qgA8IjBQZDBfHLhuLPqW0bvJjeSus1lrCJeQXR3GpJDMmor4_x3e7h2ICkfrG3rLW8QV1mmIU7RIVdlittUQMiFkhBZIoMhlQqdaqtZrLwf2qN99Nt-tr3PvmsvHEJQSk-dQbD8rzs7gXcZDihxFPoLvs9svdQXY2SqBdsIXtCA98k6uHIU7PT3jt5wsHA3NakzGCPT-1_3vDIph95E-OJODoXLYWSu5cDpaIUT0newUDbn587XLuQmMBgerx5-brJn4hDzQ5TD2gSMURVQaKPGyufjbd1K-6Q179mUN1Ee26JPghQUUUINkLYuBQ87RyUP1F9S1uOuQpEVj5AY4m6_tZfZqIXKK9sYZZcPt5AVVUjMayuWXnN4P_kwB8yl-gTgvvilsXAQo4FLufifWEGZ8mf_qaCz8o8uei-PqsbOV6ovT9ZiUKch2l2SLDJ_ImY_1fDfPBiZ9jivM3xkPiEhUT9koUaP44lXSKNKbhkLIPr9A6T4nnfpsOzPmjudOXMSmoUlqVFqcQaxYDCMkuC3BXbcJiJdOctrvlYGeSr0QlJ4I655kngTTxRiMrL8ftI1Wgs9uhmPIF_wH4P2tCNSp4dR4Fm35JaCHzKcPrLtRCukI1u4EYQPBTilTsuJW6qhsDC-I7lkxUF6pKey0fI2MOYLr1zHjr0XyLpvAvlNsLbXym6KtzHLoqfI2BT16geOb3th-yozyaSkzewNOZbtFoGM48B0CiyXAbZjVIYof7ltn0_2xNHDTyqGk4S1hmIxveyQoP1cV2FZ1keFkzkh27fWCvTJT5orLeUFvhO4BDU_H4fAATiGFLR64rRZ9raUu6FogToFrf3QwHmuKE3GX1TsiVqLZcUgR4qagxE41SnrPaI9We-3hFBaBxHmFQs-N5PpzzBmgnsq78KoVnwTI3KakXz3szckUcDpW3kt3JwpCWWId3LIoB0R-PmIkK47ZtNDGBcbzHDeq08c-B3U0Ub9UTEabz8iXVfXTpxd7Z0Vcv9Xunsv2llEx8juLHnaqoKvD8tdMgGUaTWcrYAJIGQv2Sv25Uks2PDp4XVFs696op9u7qjaL2t7iUeQYo4GeoAoU8K195vx8P-Mz3UFunsIKlpIOdKrxSpleVQUoCJhGsdpqKHmCidVuEtYQIxGXYAXQYafv60rsD7b17WznaAFd6Po1nV2ZWWylSDchibrBwRYAI8UbmTt6FcwegV8kgoNuW3N4D4bdVJF8LzI6zNvKzidBNokAXtzHZYqhoMHDFbuuG5AFxcgCp2KShJgMLpx1-r0TBi8Q5fz1UUTJ52t4OeH1bdLYaD8eNOQ55kqr_gaSG-DXaIHxm0lwM1oFG_cHI8QSoCj0PgZObi9OiZh56L2s_B5Al4lKuPJOIgPGEDrkCTPX9CJE0GoKHVy0FHDl0i-BZ3Dk0MQB6bQ8aRnB_zSDqu0RIyQGlWKSXOcB9r0X6QJ2nubnQd3QdkyGeuIDNu3o5BcVC2_rkfBVBA86U4pakQI8LVavDNpkdWSbD8bRSKohGF_wct5NKPiEvKy5OUr9T9J3N3eKpKXdroHCpJx_NgrwC6a_dNParfW57bS2rehBmRCjB34o20H2tdiI_tp1mx5M0SGu.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_09911a39840482ac016adf47fb08ec87d1b5712fa9f56021a9",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 105,
+      "completion_tokens": 735,
+      "total_tokens": 840,
+      "cost": 0.000378,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000378,
+        "upstream_inference_prompt_cost": 1.05e-05,
+        "upstream_inference_completions_cost": 0.0003675
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 471,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

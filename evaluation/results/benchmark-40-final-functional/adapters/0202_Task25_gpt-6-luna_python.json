@@ -1,0 +1,26 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "validate_pin",
+   "target": "number",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": null,
+   "canonical_signature": {
+    "arity": 1
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": null,
+    "return": null
+   }
+  }
+ ],
+ "combo_index": 202,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_025/gpt-6-luna/Task25_gpt-6-luna_python.py",
+ "artifact_sha256": "4305062e5179bf6d40d1754e588dcf1f7ff24fc3da4e24b90e8490b8f6727eb6",
+ "oracle_test_path": "tests/claude/Task25_CLAUDE_claude_3_5_sonnet_20240620/Task25_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "f9d2a06895634a55e103578d44d9883efaf1c39d4cc319ecd459cac877413535",
+ "author": "functional.py draft_adapter (static)"
+}

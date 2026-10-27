@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1792943752-0cIZ9grEJJ4Pby2bTxqk",
+  "finish_reason": "stop",
+  "input_tokens": 166,
+  "output_tokens": 169,
+  "cost_usd": 0.0001011,
+  "raw_response": {
+    "id": "gen-1792943752-0cIZ9grEJJ4Pby2bTxqk",
+    "object": "chat.completion",
+    "created": 1792943752,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <string>\n\nbool validate_pin(const std::string& pin) {\n    if (pin.size() != 4 && pin.size() != 6) {\n        return false;\n    }\n\n    for (char digit : pin) {\n        if (digit < '0' || digit > '9') {\n            return false;\n        }\n    }\n\n    return true;\n}",
+          "refusal": null,
+          "reasoning": "**Creating PIN validation function**\n\nI need to produce the source code for a C++ function that validates a PIN. The function signature looks like this: `bool validate_pin(std::string pin)`. I need to ensure it checks the exact digits with appropriate ASCII values and validates the length. It seems Codewars expects the function to directly take `std::string` as input. I should use typical coding practices for C++ functions, while ensuring I don't include a `main` function in this.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Creating PIN validation function**\n\nI need to produce the source code for a C++ function that validates a PIN. The function signature looks like this: `bool validate_pin(std::string pin)`. I need to ensure it checks the exact digits with appropriate ASCII values and validates the length. It seems Codewars expects the function to directly take `std::string` as input. I should use typical coding practices for C++ functions, while ensuring I don't include a `main` function in this.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3iaLDK1cHC7T5vLpuZ9enHsQ0GVmy2-QdmEYraExJW3D-cDt5xPx0Q4imxPQnwlbcum58cEvLTHrXGl79CHYJT5SSYzTTJYZRex_lykEmFhbQ9ID-yfHn0_aStyhfT5flkansxlIvt71BnaxX_td8VgqFg3xfDv1-hce2UaF8GIJjj1KRycRxrD6GDU0Lim6-mdHjo3uUQLJjIQJmwU8htuvKxZXiHxkRgJTfwPoVHJNZBRnHkRrXX-StsxSOPCL24wj3A8myVbPlN__cRouR_TCDXyQzTR6W5oTXBipncuR_TNL0WFviG1Xl0xat6cy_DrxrEoQY0hCpAjgwJrUqGnUY07ZVF7HxwCJwIU2f0U5OA44uNMGbMYSByA_BNNI4zXM54nH8bfXjN7-8OkqzNzjOOGRlydD-kLi8WuzuTx8-wqbrSwfnsFwdC753VZoKebo0opjWNt_DpZfzQiPO6GDE_ZL24p_jtn4_3Mr3yfvMFJ7noqnI8v2blCDat_922uk6HGEAy7PHJ54nGxbOl2JeuIvWVKar9Wt9WE4aSkGuYcTcyCsMJ9JMysVlusvX7URiyzDpLkoE--QpHfaVs7oA6z7ruFLwlFvudeBtVmm6jshjj5xBf7gvZoJQe8pWjdEbHVwF403NpK4xNV9GVjSX6ziqs3PJ69MU2i3CXClsyVLRKLEDxvLUjaFu6AqzJaiS0cmitVqXFL1E9H6tnSm4629kYD0EjaD-2Nkq7-Jlbin7yYort-Ky_-D6d6DLBefd8BIew4Z5I8CSV7m5_7o6M6540vIcgLshfTKp2gegiYSqR2dGSrgtOVZcW6xt2LRRHcUjXPgRTzvCj-htzgP5Jh2DyJZfhS9gn-4XvKY48jnFiYfPnUbj2vBsjVFU1h-sJUuHTbi8ZZWI4BvKGeKbSJz6_OUXkfqxJgUoItWJVPCnFmvj4tNkfn5T9EpfOO3dc2DvMZ9cgQc3shK0HVz3EA0WCy_pDTltHhomlVNyc4QcPxDHBo-DvLl9GaC_98pPl3mFVsAwHCD2h97QWQj_irGBaLMG7PPG3rkZ88BOI8_qRiyRNauVkGIwxSYz0VDcUizRlD6m1dLJ8LB1bpO_IVGcJSardbmiuoxhdFQC-QBXjUvTTJrdIdSTOfcROe6tzumD7V8aclZa9dI64FoStEFtU4oVcwzIBC0H6PnLZSDtILLZYevWpJguxv4a_5WyHy_2Tuw_quT8dG66YK9ppEMq4jqCQoZdalv7NFxX898xUhev_USvCd1oi0nuFQNjFeiBvfMNiXOa68CU2YQonOp003gnokOmUvuQeqLPVi2VgiXxgCUNVjpmUBzM5hG_R3hSaIEp8wt-eg3Ek2lA-9AGuyeBzHKvzb9cMIjosNdKjC5xbJMosJJwgOF9lY7tvYaeYh-Azf7vopV7LvgeWacY84k_QG2LlYxOwaprqGdWT6jJrA6WQsdkW0JzYkBgtaRGlFKgZsr9DLWGfVWt5gu38DptabMIRRM1hSfBXybaVqy_WSTgtsBLxBOJCDVN8HTOl-vV5_COjhhaAEpMEkL-Gfb5puuY4gzkWscPQuFibBIm7SaDfHSuz9_kQ2WXEqDPDkKqUi65AZ9R6d74Eaxwzvgy5b70vsRc-Z9OYLij8UumhCJLgNW3OJnk2JW1mTL3PsZWMCvqpaeiL_Ye5_E-P-0BWtEBkhBNVZvcNANGWF6lCXR-5eUsCYlOlF3A613z_QSfmWV8uchzpAiOrcB0EdhkC7IXY03mmf6meDQm04iNl5cAoJaShdHBIguSvIFQlTrq6RgGnBO_3rqQmI-qXJ6UXOzjlqUv03s3TEj6W9TR0txLdATSsqjZxA4r6xagnYj52Y-FfWE5rtcfgmIB2jaYfuMZa1M1zb3yJHnNKXI9URhPxiUGIbja3IkBJhlDGhetzFFA0IvGE6zzGDqzW24WxC0xE_fteDkbLSD8D0fBG3y8x8q1D6t-c1TZ7HFXR4mYV_i6Sh17q3k6rxeWLlXx0P69irBBmDqBLlxJR3pvgomyAGwLST50buLm-um268S2jFobsSC0KNfyRHjNltjE-jEj1BhI5wG-NoXAkw5Nbo4_cNJhF-khxXr_t_UIqBpAOyGquUdk0n0Lb2pVxEBV98MuuKPO5O0vB8RvZA7n9LM88KA3_l14r7-R2GkyyGn7U1PP6tp6uGA8Vpp4Cb4UyNtitMCoooA78LF_44x1gmGM1P4miuysRKGurBRBk4cWO1tM1hhGkZkjMgEl8c6d-fKVtL-N1EfkoYgXstH0X_snrUuYURfzJe9zNjvhy5PINlXTECyqAAZhBFXOAvFYQbbYdGagjkrzQM-ty0fYJwPOkwJbKoqOV7E0UkeIK1VyGPBNxuNTSQTeQVsmzRUM8Yk2HXyN5I0A1yReI-lZR1iivF136iUuJ0v61RBki8rZsdtrti1zmp8QZ2Rn-Wrg-bpH8FHqkYfGW9Y1aZ4zR3vvERHilSlSR0hEnG2mSYN58W0w6VlSVwumKQ9rKwgm_Ro5-pvsuSFNEmJG5w0oh0SIBLRdfPUr1Y-j9eW14iOoEgt5TF04ICowc7Mpm1WK0tnWZCq-FpePn61-58OdiD42bt2Lo2XUyVYZxcOVWFcc0zxZyfNQ8oSocciqeyti_x48SBYxkW2Ubk9cDyp9dFVEBgujAirlXRFwQPjUH7lSVureeNZ1SWN6ztn78VCVRjKJ1ZaQ_7ADEE=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0bffeb4d410031ea016ade2689a85887d180c71c25040dbdac",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 166,
+      "completion_tokens": 169,
+      "total_tokens": 335,
+      "cost": 0.0001011,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001011,
+        "upstream_inference_prompt_cost": 1.66e-05,
+        "upstream_inference_completions_cost": 8.45e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 87,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

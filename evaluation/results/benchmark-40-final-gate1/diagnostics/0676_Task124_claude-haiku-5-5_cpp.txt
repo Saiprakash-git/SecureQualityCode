@@ -1,0 +1,19 @@
+Task124_claude-haiku-5-5_cpp.cpp:243:29: error: expected '}'
+  243 |         if (choice == "1") {
+      |                             ^
+Task124_claude-haiku-5-5_cpp.cpp:243:28: note: to match this '{'
+  243 |         if (choice == "1") {
+      |                            ^
+Task124_claude-haiku-5-5_cpp.cpp:243:29: error: expected '}'
+  243 |         if (choice == "1") {
+      |                             ^
+Task124_claude-haiku-5-5_cpp.cpp:239:18: note: to match this '{'
+  239 |     while (true) {
+      |                  ^
+Task124_claude-haiku-5-5_cpp.cpp:243:29: error: expected '}'
+  243 |         if (choice == "1") {
+      |                             ^
+Task124_claude-haiku-5-5_cpp.cpp:230:12: note: to match this '{'
+  230 | int main() {
+      |            ^
+3 errors generated.

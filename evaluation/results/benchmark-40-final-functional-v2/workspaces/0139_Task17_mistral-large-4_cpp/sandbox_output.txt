@@ -1,0 +1,7 @@
+@@ecac1858ca7a7303 STEP 0 BEGIN@@
+
+@@ecac1858ca7a7303 STEP 0 END rc=0@@
+@@ecac1858ca7a7303 STEP 1 BEGIN@@
+All test cases passed.
+
+@@ecac1858ca7a7303 STEP 1 END rc=0@@

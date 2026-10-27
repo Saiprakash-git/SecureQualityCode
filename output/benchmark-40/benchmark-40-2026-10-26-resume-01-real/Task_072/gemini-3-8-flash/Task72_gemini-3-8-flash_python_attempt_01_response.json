@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793017673-1uXF3ptKZT1gDcyriyqR",
+  "finish_reason": "stop",
+  "input_tokens": 150,
+  "output_tokens": 1108,
+  "cost_usd": 0.0042675,
+  "raw_response": {
+    "id": "gen-1793017673-1uXF3ptKZT1gDcyriyqR",
+    "object": "chat.completion",
+    "created": 1793017673,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes\nfrom cryptography.hazmat.primitives import padding\n\nSTATIC_IV = b\"0123456789abcdef\"\n\ndef pad_data(data: bytes, block_size_bits: int = 128) -> bytes:\n    padder = padding.PKCS7(block_size_bits).padder()\n    return padder.update(data) + padder.finalize()\n\ndef encrypt_data_aes_cbc(data: bytes, key: bytes, iv: bytes = STATIC_IV) -> bytes:\n    cipher = Cipher(algorithms.AES(key), modes.CBC(iv))\n    encryptor = cipher.encryptor()\n    padded_data = pad_data(data, algorithms.AES.block_size)\n    encrypted_data = encryptor.update(padded_data) + encryptor.finalize()\n    return encrypted_data\n\nif __name__ == \"__main__\":\n    test_key = b\"0123456789abcdef0123456789abcdef\"\n    test_data = b\"Hello, World! This is data to encrypt.\"\n    ciphertext = encrypt_data_aes_cbc(test_data, test_key)\n    print(\"Ciphertext (hex):\", ciphertext.hex())",
+          "refusal": null,
+          "reasoning": "**Developing Encryption Logic**\n\nI'm currently focused on implementing the core AES CBC encryption. My thought process is centered on ensuring the input data is properly padded, the static IV is correctly applied, and the encryption function outputs the ciphertext as expected.\n\n**Implementing AES Encryption**\n\nMy current focus is on developing the AES CBC encryption logic. I am working through the steps of creating a static IV, setting up the cipher with AES in CBC mode, and then handling PKCS7 padding for the input data before encrypting it.\n\n**Finalizing AES Encryption**\n\nI've refined the AES CBC encryption process. My thoughts are now on correctly applying PKCS7 padding to the input and ensuring the ciphertext is generated precisely using the static IV and the AES algorithm.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Encryption Logic**\n\nI'm currently focused on implementing the core AES CBC encryption. My thought process is centered on ensuring the input data is properly padded, the static IV is correctly applied, and the encryption function outputs the ciphertext as expected.\n\n**Implementing AES Encryption**\n\nMy current focus is on developing the AES CBC encryption logic. I am working through the steps of creating a static IV, setting up the cipher with AES in CBC mode, and then handling PKCS7 padding for the input data before encrypting it.\n\n**Finalizing AES Encryption**\n\nI've refined the AES CBC encryption process. My thoughts are now on correctly applying PKCS7 padding to the input and ensuring the ciphertext is generated precisely using the static IV and the AES algorithm.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "AY89a18IrWcCoByt2IKPRO3g65ELiB7xbhTjuCiDIRddIoHYokhLe2TVjmMi9p+1yrfOnhqdDZ6uOIhqnlCtRJ+5dcLmZMNQQNL3i1zPBY4FFo6fdPpZnVB0ZG2bCenaKGj3Vh5/uE8CpKe5KjbfYsZq+w036ZxtkeItTZMdxW5e2H6Dt3ii4Re0X9UknmZE0ASMfpmYeNPXmHThnnQ6gAEfA+J6Q2kZOY27THXySvvHxSnMWnmrOqxtnK5bdka3Wpdf5+8/bOsW+MPRNE8HaWyfd45iD+ph8zO70qiCUxCaEHZ3+2YYUly2m1eR4gsNIC62D+6cV3NdIsbZG4we/RIVBFaBEz5o0q7Fi4Abea3yDYJL/MCi83tVUa+4f++F0IgM43oResX/7t9js3+btB/kydHyUK8KWO3OEazwhtaTNLGCnDqrKwTmJntD0tVFhIrVMDFtp44THF8oIz2B95RVg3XFlBLCZ4E37Oc1IA0R8ZhFt5RJmHhCWXLykrHX7nW7OxpGa2xFFF9Zwu0z17gylEWJYjksidVuMXb7C7Kv754HHWUlp2u1SKMMs1Sd1FwXg4ou+fqKIg9hP6YbrChcrrFiPYaJhFRjhQ+evWfcZ2nHoFno540kFLfQYboL+UffZKFr6rwDCqVF4p1Xw7VEuSK+PfJxls32/CVrHZrVxMAaEvUU/3udZhqytDIDpJNnDeDz6be7qvkeicfGMB9bUM9NWz0U8Ua3UC9dkyk3Lkmfowm/JwJlxdBVa7sGpl81qlzLGeQQeRSP7SQTzEuvj9XXF/cUDZTlkSTXSOpFuttQ2ImsVpMPRlT9HR/2/D8acpTuPfGi9aNlA9iRjButQizcA7D9+dP2RYENxs1VuJlhzaBeZKwr3gqcSk8dPjVycVsGGWljX22Nv6Gy1JKScrjmnS9JPFzVdt07uGuuLsuRIsWHOLrqyyvFSynt2No5SDPdI2U3Is19aI2ENMB66e4fQPg86rMxSwev55Iit31mOZD4YytAn3gMkODNzV9nGmj//ILtBx2lUbqeNJx6ZwqgEgKVa/m0YoDLs7/mbQX67uPLCJ1QUi7GNNE9YZj2OvSVRIzym2HKx9zcEI98p7my1lGIxJJoMew1usAicB40p51Dpo6eqUj2kqRS6+l9xDCQeDCmvUOACnYNuEtsb1ekSHsommcByy8wdTudwOLX5LV6CtbkFknVg2MhLSOtKZoeQaZADG5phtDP7VNgfELT75VYhC2bC6/PNEqIXpwazzfo9Wp6PVEcLDKW4al50nOMujDvjb/1bztbOjc3r2hu2/1kQPCsw0qyicJPMwCfmultJN+eT7QYMDjT7csupcvWMoVASxruiCQAl58ELqM0puH3/Mv76b/DN8rAf6BlPZ/QoXTxBCePYOisZKRb9h7V8JivapbdHdhVmZsPOQ+mg332em3i6FPVt8iM2ulyRi76CA9iO02I6Y8MsnojVWMCBxJO5doT9UBhUv+pm4/Sppsxl0O0UcV4YZPt/dlOJSXTw2p3T5oHDQosPjdT+Ey56U6bKLfuwC00ls3qrRSteUUzO+XB2IqkNb29wmL+pQrKJtfS785Lu7O37NyVktiqV7Oxq4UzzIgPKKg6syuah3qdwAGM1ry3p8ATOfM68LMHJSddNKelWWriULuNpc1njd12wCmkDrLv0UwuNT/SdfTp8zC4pum8KgdQ9UxBuPFfVc/HH3Ga5IbhnC/VxnoH8l36RyKOwio009dVUGGktwASf7Xl0wLTMnpCQb3+P+yQqjB7b2Rah7rM/NYehadyjzYZW9ehKn+jM4LZLHrRzyaC79YanIweBbj0mGSqGmdaC8DGEz9lpeNaf7mLAmOb5O0SD+opYTnz+BHb0XU/h9V/Cuc1jm2Twcmyeln2av1R66LwFjLCyJKn3s4DnB5n1HgX4JZBcjVBSDeyijm7YQ1mu+1Iex6l4bGnNN3jGxDIGKws1GOHN8kDrLu8tAA6zxV875AXfk5ST+kZSsQgjJxTRWusfYCBVstVEkdqrY2gPkJcblu3JuYBlyUgbpMMUx8vq/kD6+jlhuEmSI9CmwKwY9xDaFy9RSKGZL4kfps3ED4VJetktmJ8Ub7vMzYAeXvhEXPWs1Vf6y6dePaUjpQw5ll929VikCTpszKfXV4e+opJZO9SsaCf9eQFH+QoLDFw69D9aTIn9ZVwf5G8Y8qmHmXppuRIzOK+XJC5GT7cRLKWuUGJUGald/LfWMRBDW5/SPd7MQHweIuPxNIkCdbZYFVFVmtiS9pIF71KB+WkkTRon81gyTjVy+RsyW4WHMDCjHO4/SyagGL/LaexkKWD5heKWlZr9yQSvV1nuIwn9t8n58BAbHUMStgr1x02ZWM81cnC5gTsQ5MDsMRgPD19JUWoZ8dENYWophZzq/PIQDbrE7XlG98+KElZMIiDD3AGLx8hutDQZUo9lNotxsPD9ngS55G3ig647KHn0qc/I56VCU02bRPRkaEsU9dhLbN/hIu+9IKAJZmr4ucOMYVKfu6p7Lg7jrMsynTz5u78FCC9EqxyEwcLzCGZOccTQLBRIEuZqA+C3HQsI13kI++aP3pmix2+aX0Nc3E/PV3IeiMGjGPKKFW0Cq/hHmzocIDM+3WpQf2oACQ7plY9oG61OtsS2t0Q1hDDbFEC8iDpouoM9u4qyIP0EgDwzLAfJV0rhevWs2Lyr+ankFbXpAziOQHxC7PcLJ/pNLGexGgqCMqGRhBbxIZlcPip7UD4Rom390z3ZHzQXX6WVSsCLjAGYdclMNO4nbgfHQpY38LVxVX5RfE8V6dc7MOYFipZo0i/hmOaA1M5xidIjH2KOPX4Zuu5G9QC+qdORvezEG5sUZixOLMzsdhqWcAEi634zXxKjQL1YJMxcv7Fid/Y6l4XDqhA+D8ZVINBqTSbA0s5nqkCkymkHZl6amzmoMBm64Mnud29hx9GNn+U7fmCyAsW67D9jRpE+kQmXL8858M1XfN5N3QYdPmh93clPqnwTmxK+6bJMo5c+P08nJJlXgM4xT837vi41bjRWBqcT1NNPMXkPY2cwwB/LA08MuoXjBb91+b8TKfTv0BslBvC67Jy15vD5zbbZMmoK0vX3OIc3sqc+1NRE714VM8Om6okmComFEXbE/sWGnmDSbvm5SdbuCcgecEiOu052hABMwhLk2ZMGm6tlW74lehvUzauu14FvZqWSfu/NXxoR/GhfO6ZdcHzHCtC0jEfKwgxdFuWdQf1cgF59u9nqFdn/o/GfzV8elXW+6daMVlBdPRrYbmnMHNhXNK+wDj0OkWtBaUjkQDEQKjaYrpSxS0u9Xva16z59qiT/TKZ8CG37h8hXEH5zhPVBalW/lLGtskvsGwy8KFJRp6E5X/2lTODIQoeusS70Sljw2WCM6EhWw4t82p1GGEHw4+o9X9nkZZopH0OPjsZOg+fUFniIEULbgIrMx8dpi930X8DNJW71cbTdGzbKGENu8tczktGrg08aWHwn1y3xvS/EmE3lFOr0jdJdELvKQfkdddPIf2B/VvB365YmR2Qk44sYRZNeeQsVF83tVoh/haHqoVHPmH+ZNv1e+KLfRh4lw02HnzBP/uBnJC+ORWfSc4vL3w8Km8fkCynRL+kjeQAIm1IkWYzy5mIunMUKoDLTxWZnWUM5BLfEpF+EZpk2/kYAFS9ojKrLVZNDz7mLOVcLXiHATstDlsoiyKX1YkoYbkICsKRSkGF4m0+Nge5mVLPbXPRhuhpzsFmRxOnKn+35Il0W1iz2QKB5kaV5ub5SrMxuzG3uPbrpteYf5bMOluadLyr1GEoNGqIEd9NRdzoCAVLA1rPkIeVTftn8rIkV7femr/H+o2OvmkYgLcVRFfyvwNMAgtncMwBxkG0OAqY/PQlEDfCRtG3uzmtOK7sjkd4K9NNF5QDu3Q1sJR+l5KPX0LFcMzrJw52NC1RMg85VqV66Y5JIi2skD7CS0tMVceUCJT4Hi37YZck/7CGYYby389oO870qlR5u8Av5Ou/1Vc0zE6ewZ+Ra150FdnU4J0zCsKYpcbvvcaoukSHJ6YyVCddjQNs2ZgzgqxBZ/AvgQ/l2YeJmVxhZyCaFMZgYajsA1yqQfbRDorWBcuX60DmJHvxIjjbWQ02IQ5l0iCm9BumrKPpEVOhG5NArTlsbs1abz5U/FerHP43GqfWOYsvViWnusqYWt+Oh66OYcOL4uK8m3O7H8Vebu1dD2EgMWbJTSnU/lN9EC6rb1kthTHcYF01rc6AXm5qPglqpj5ph7T6VUCQWjUCzOgByBS0vr0FpxICTw8SzsRln1GAH4APZKugX+McbYPCQJetU5apakP73thnvduYqaEBokdlc2gn783037zt9UrYflbeQUuAxUjP61MMDq1eid9Iha8LtldwVi2Os4Nyn81nf9T8jhbeBKUoGKYZJHyHqRkbZdtl3HEmIn4tLGHCJLywwb5rbEMRAfl/1EqF4y96vNh+P+M7qUWA0fJ9REChZNsITFX/yQjfhoLcaKMFJVx8SUw9ZAfGx7ntanCeLl7ey90ds0RlyY8WIIfXTyaOU2BqC7h8fnGSqtntmQCYAjXAMC1fjDan111E1W5TbEJ6nYnAxZ6ZLgRewu1xt0lx2qDOy7YbLpKz1OeMwb94+SbMfw==",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 150,
+      "completion_tokens": 1108,
+      "total_tokens": 1258,
+      "cost": 0.0042675,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0042675,
+        "upstream_inference_prompt_cost": 0.0001125,
+        "upstream_inference_completions_cost": 0.004155
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 802,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

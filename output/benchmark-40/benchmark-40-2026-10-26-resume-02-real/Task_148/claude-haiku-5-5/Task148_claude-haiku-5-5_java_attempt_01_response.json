@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793025376-ivDqeq42qdOoWtrXCEew",
+  "finish_reason": "stop",
+  "input_tokens": 155,
+  "output_tokens": 501,
+  "cost_usd": 0.000266,
+  "raw_response": {
+    "id": "gen-1793025376-ivDqeq42qdOoWtrXCEew",
+    "object": "chat.completion",
+    "created": 1793025376,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "public class Main {\n\n    static class Stack<T> {\n        private static class Node<T> {\n            T value;\n            Node<T> next;\n\n            Node(T value, Node<T> next) {\n                this.value = value;\n                this.next = next;\n            }\n        }\n\n        private Node<T> head;\n        private int size;\n\n        public void push(T value) {\n            head = new Node<>(value, head);\n            size++;\n        }\n\n        public T pop() {\n            if (isEmpty()) {\n                throw new RuntimeException(\"Stack is empty\");\n            }\n            T value = head.value;\n            head = head.next;\n            size--;\n            return value;\n        }\n\n        public T peek() {\n            if (isEmpty()) {\n                throw new RuntimeException(\"Stack is empty\");\n            }\n            return head.value;\n        }\n\n        public boolean isEmpty() {\n            return head == null;\n        }\n\n        public int size() {\n            return size;\n        }\n    }\n\n    public static void main(String[] args) {\n        Stack<Integer> stack = new Stack<>();\n\n        stack.push(10);\n        stack.push(20);\n        stack.push(30);\n\n        System.out.println(\"Peek: \" + stack.peek());\n        System.out.println(\"Pop: \" + stack.pop());\n        System.out.println(\"Pop: \" + stack.pop());\n        System.out.println(\"Size: \" + stack.size());\n        System.out.println(\"Peek: \" + stack.peek());\n        System.out.println(\"Pop: \" + stack.pop());\n        System.out.println(\"Is empty: \" + stack.isEmpty());\n    }\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 155,
+      "completion_tokens": 501,
+      "total_tokens": 656,
+      "cost": 0.000266,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000266,
+        "upstream_inference_prompt_cost": 1.55e-05,
+        "upstream_inference_completions_cost": 0.0002505
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

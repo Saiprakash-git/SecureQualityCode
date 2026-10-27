@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "mistralai/mistral-large-4-0",
+  "response_id": "gen-1793016921-qQJKsi103FslH8MiqXU7",
+  "finish_reason": "stop",
+  "input_tokens": 188,
+  "output_tokens": 872,
+  "cost_usd": 0.00390064,
+  "raw_response": {
+    "id": "gen-1793016921-qQJKsi103FslH8MiqXU7",
+    "object": "chat.completion",
+    "created": 1793016921,
+    "model": "mistralai/mistral-large-4-0",
+    "provider": "Mistral",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "#include <vector>\n#include <string>\n\nstd::vector<std::string> numberLines(const std::vector<std::string>& lines) {\n    std::vector<std::string> result;\n    result.reserve(lines.size());\n    for (std::size_t i = 0; i < lines.size(); ++i) {\n        result.push_back(std::to_string(i + 1) + \": \" + lines[i]);\n    }\n    return result;\n}",
+          "refusal": null,
+          "reasoning": "The user wants a C++ function that takes a list of strings (vector<string>) and returns each line prepended with a line number starting at 1, in the format \"n: string\".\n\n Requirements:\n 1. Return only raw source code (no markdown fences, no explanations)\n 2. One complete self-contained source file in C++\n 3. All functions should accept input as parameters and return output if any\n 4. Start with the first source line\n\n The function signature should be something like:\n std::vector<std::string> numberLines(const std::vector<std::string>& lines)\n\n Or it could take by value and return by value. But const reference is better for input.\n\n Implementation:\n - Create a result vector\n - Loop through input with index i (0-based)\n - Format: std::to_string(i+1) + \": \" + lines[i]\n - Push to result\n - Return result\n\n Need to include necessary headers: <vector>, <string>\n\n Since it says \"self-contained source file\", I should include the necessary includes and the function definition. I don't necessarily need a main function unless required, but the instructions say \"Write one complete self-contained source file\". Usually this means it should compile, so I should include headers and the function. I could include a main for testing but it's not strictly necessary. However, to be safe and complete, I'll provide just the function with necessary includes, or perhaps wrap it in a way that it's a complete translation unit.\n\n Actually, looking at the instructions: \"Write one complete self-contained source file in CPP. All functions should accept input as parameters and return output if any.\"\n\n So I'll provide:\n ```cpp\n #include <vector>\n #include <string>\n\n std::vector<std::string> numberLines(const std::vector<std::string>& lines) {\n     std::vector<std::string> result;\n     result.reserve(lines.size());\n     for (size_t i = 0; i < lines.size(); ++i) {\n         result.push_back(std::to_string(i + 1) + \": \" + lines[i]);\n     }\n     return result;\n }\n ```\n\n Wait, the user said \"Return ONLY raw source code. Do not use Markdown fences.\" So I should not wrap it in ```cpp ... ```. Just the raw text.\n\n Also, \"starting with the first source line\" - so the first line should be #include <vector> or similar.\n\n Let me double-check the format: \"n: string\" - yes, number, colon, space, then the string.\n\n Edge cases:\n - Empty input -> empty output (handled by loop not executing)\n - Strings with special characters -> just concatenated as is\n\n I should use std::to_string for the number.\n\n One thing: the problem says \"takes a list of strings\". In C++ this is typically std::vector<std::string> or std::list<std::string>. Vector is the most common and efficient for this. I'll use std::vector<std::string>.\n\n Also, should I use `const std::vector<std::string>&` or pass by value? Const reference is better to avoid copying.\n\n Final check: No markdown fences, no explanations, just the code.\n\n Code:\n #include <vector>\n #include <string>\n\n std::vector<std::string> numberLines(const std::vector<std::string>& lines) {\n     std::vector<std::string> numbered;\n     numbered.reserve(lines.size());\n     for (std::size_t i = 0; i < lines.size(); ++i) {\n         numbered.push_back(std::to_string(i + 1) + \": \" + lines[i]);\n     }\n     return numbered;\n }\n\n This looks correct. I'll output exactly this.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "The user wants a C++ function that takes a list of strings (vector<string>) and returns each line prepended with a line number starting at 1, in the format \"n: string\".\n\n Requirements:\n 1. Return only raw source code (no markdown fences, no explanations)\n 2. One complete self-contained source file in C++\n 3. All functions should accept input as parameters and return output if any\n 4. Start with the first source line\n\n The function signature should be something like:\n std::vector<std::string> numberLines(const std::vector<std::string>& lines)\n\n Or it could take by value and return by value. But const reference is better for input.\n\n Implementation:\n - Create a result vector\n - Loop through input with index i (0-based)\n - Format: std::to_string(i+1) + \": \" + lines[i]\n - Push to result\n - Return result\n\n Need to include necessary headers: <vector>, <string>\n\n Since it says \"self-contained source file\", I should include the necessary includes and the function definition. I don't necessarily need a main function unless required, but the instructions say \"Write one complete self-contained source file\". Usually this means it should compile, so I should include headers and the function. I could include a main for testing but it's not strictly necessary. However, to be safe and complete, I'll provide just the function with necessary includes, or perhaps wrap it in a way that it's a complete translation unit.\n\n Actually, looking at the instructions: \"Write one complete self-contained source file in CPP. All functions should accept input as parameters and return output if any.\"\n\n So I'll provide:\n ```cpp\n #include <vector>\n #include <string>\n\n std::vector<std::string> numberLines(const std::vector<std::string>& lines) {\n     std::vector<std::string> result;\n     result.reserve(lines.size());\n     for (size_t i = 0; i < lines.size(); ++i) {\n         result.push_back(std::to_string(i + 1) + \": \" + lines[i]);\n     }\n     return result;\n }\n ```\n\n Wait, the user said \"Return ONLY raw source code. Do not use Markdown fences.\" So I should not wrap it in ```cpp ... ```. Just the raw text.\n\n Also, \"starting with the first source line\" - so the first line should be #include <vector> or similar.\n\n Let me double-check the format: \"n: string\" - yes, number, colon, space, then the string.\n\n Edge cases:\n - Empty input -> empty output (handled by loop not executing)\n - Strings with special characters -> just concatenated as is\n\n I should use std::to_string for the number.\n\n One thing: the problem says \"takes a list of strings\". In C++ this is typically std::vector<std::string> or std::list<std::string>. Vector is the most common and efficient for this. I'll use std::vector<std::string>.\n\n Also, should I use `const std::vector<std::string>&` or pass by value? Const reference is better to avoid copying.\n\n Final check: No markdown fences, no explanations, just the code.\n\n Code:\n #include <vector>\n #include <string>\n\n std::vector<std::string> numberLines(const std::vector<std::string>& lines) {\n     std::vector<std::string> numbered;\n     numbered.reserve(lines.size());\n     for (std::size_t i = 0; i < lines.size(); ++i) {\n         numbered.push_back(std::to_string(i + 1) + \": \" + lines[i]);\n     }\n     return numbered;\n }\n\n This looks correct. I'll output exactly this.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 188,
+      "completion_tokens": 872,
+      "total_tokens": 1060,
+      "cost": 0.00390064,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00390064,
+        "upstream_inference_prompt_cost": 0.00025568,
+        "upstream_inference_completions_cost": 0.00364496
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 776,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

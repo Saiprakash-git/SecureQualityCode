@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793017714-NjUSDVo7oQhMbJf3kWZ3",
+  "finish_reason": "length",
+  "input_tokens": 228,
+  "output_tokens": 4096,
+  "cost_usd": 0.0020708,
+  "raw_response": {
+    "id": "gen-1793017714-NjUSDVo7oQhMbJf3kWZ3",
+    "object": "chat.completion",
+    "created": 1793017714,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "```c\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <stdint.h>\n\n#define AES_BLOCK_SIZE 16\n#define AES128_ROUNDS 10\n#define AES128_KEY_SIZE 16\n#define AES128_EXPANDED_SIZE (16 * (AES128_ROUNDS + 1))\n\n/* Static initialization vector */\nstatic const uint8_t STATIC_IV[AES_BLOCK_SIZE] = {\n    0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,\n    0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F\n};\n\nstatic uint8_t xtime(uint8_t x)\n{\n    return (uint8_t)(((x << 1) ^ ((x & 0x80) ? 0x1B : 0x00)) & 0xFF);\n}\n\nstatic uint8_t gmul(uint8_t a, uint8_t b)\n{\n    uint8_t p = 0;\n    while (b) {\n        if (b & 1)\n            p ^= a;\n        a = xtime(a);\n        b >>= 1;\n    }\n    return p;\n}\n\nstatic uint8_t gf_inverse(uint8_t x)\n{\n    if (x == 0)\n        return 0;\n    for (int y = 1; y < 256; y++) {\n        if (gmul(x, (uint8_t)y) == 1)\n            return (uint8_t)y;\n    }\n    return 0;\n}\n\nstatic uint8_t rotl8(uint8_t x, int n)\n{\n    return (uint8_t)(((x << n) | (x >> (8 - n))) & 0xFF);\n}\n\nstatic void build_sbox(uint8_t sbox[256])\n{\n    for (int i = 0; i < 256; i++) {\n        uint8_t b = gf_inverse((uint8_t)i);\n        sbox[i] = (uint8_t)(b ^ rotl8(b, 1) ^ rotl8(b, 2) ^\n                            rotl8(b, 3) ^ rotl8(b, 4) ^ 0x63);\n    }\n}\n\n/* Initialize the cipher: expand the 128-bit key into round keys */\nstatic void aes128_key_expand(const uint8_t key[AES128_KEY_SIZE],\n                              const uint8_t sbox[256],\n                              uint8_t rk[AES128_EXPANDED_SIZE])\n{\n    uint8_t rcon = 1;\n    memcpy(rk, key, AES128_KEY_SIZE);\n\n    for (int i = AES128_KEY_SIZE; i < AES128_EXPANDED_SIZE; i += 4) {\n        uint8_t t[4];\n        memcpy(t, rk + i - 4, 4);\n        if (i % AES128_KEY_SIZE == 0) {\n            uint8_t first = t[0];\n            t[0] = sbox[t[1]];\n            t[1] = sbox[t[2]];\n            t[2] = sbox[t[3]];\n            t[3] = sbox[first];\n            t[0] ^= rcon;\n            rcon = xtime(rcon);\n        }\n        for (int k = 0; k < 4; k++)\n            rk[i + k] = rk[i - AES128_KEY_SIZE + k] ^ t[k];\n    }\n}\n\nstatic void aes128_encrypt_block(const uint8_t in[AES_BLOCK_SIZE],\n                                 uint8_t out[AES_BLOCK_SIZE],\n                                 const uint8_t sbox[256],\n                                 const uint8_t rk[AES128_EXPANDED_SIZE])\n{\n    uint8_t s[16], tmp[16];\n\n    for (int i = 0; i < 16; i++)\n        s[i] = in[i] ^ rk[i];\n\n    for (int round = 1; round <= AES128_ROUNDS; round++) {\n        /* SubBytes */\n        for (int i = 0; i < 16; i++)\n            s[i] = sbox[s[i]];\n\n        /* ShiftRows: state index = r + 4*c */\n        for (int r = 0; r < 4; r++)\n            for (int c = 0; c < 4; c++)\n                tmp[r + 4 * c] = s[r + 4 * ((c + r) % 4)];\n        memcpy(s, tmp, 16);\n\n        /* MixColumns (skipped in final round) */\n        if (round != AES128_ROUNDS) {\n            for (int c = 0; c < 4; c++) {\n                uint8_t *a = s + 4 * c;\n                uint8_t a0 = a[0], a1 = a[1], a2 = a[2], a3 = a[3];\n                a[0] = gmul(a0, 2) ^ gmul(a1, 3) ^ a2 ^ a3;\n                a[1] = a0 ^ gmul(a1, 2) ^ gmul(a2, 3) ^ a3;\n                a[2] = a0 ^ a1 ^ gmul(a2, 2) ^ gmul(a3, 3);\n                a[3] = gmul(a0, 3) ^ a1 ^ a2 ^ gmul(a3, 2);\n            }\n        }\n\n        /* AddRoundKey */\n        for (int i = 0; i < 16; i++)\n            s[i] ^= rk[round * 16 + i];\n    }\n\n    memcpy(out, s, 16);\n}\n\n/*\n * Pads input with PKCS#7, encrypts it with AES-128 in CBC mode using the\n * static IV, and returns a newly allocated buffer containing the ciphertext.\n * The ciphertext length is stored in *out_len. Returns NULL on failure.\n * The caller must free the returned buffer.\n */\nuint8_t *aes_cbc_encrypt_data(const uint8_t *data, size_t len,\n                              const uint8_t key[AES128_KEY_SIZE],\n                              size_t *out_len)\n{\n    uint8_t sbox[256];\n    uint8_t rk[AES128_EXPANDED_SIZE];\n    uint8_t prev[AES_BLOCK_SIZE];\n    uint8_t block[AES_BLOCK_SIZE];\n    uint8_t enc[AES_BLOCK_SIZE];\n\n    if (!data && len > 0)\n        return NULL;\n    if (!key || !out_len)\n        return NULL;\n\n    /* Pad input data to block size (PKCS#7) */\n    size_t pad = AES_BLOCK_SIZE - (len % AES_BLOCK_SIZE);\n    size_t padded_len = len + pad;\n\n    uint8_t *padded = malloc(padded_len);\n    if (!padded)\n        return NULL;\n    if (len > 0)\n        memcpy(padded, data, len);\n    memset(padded + len, (int)pad, pad);\n\n    uint8_t *out = malloc(padded_len);\n    if (!out) {\n        free(padded);\n        return NULL;\n    }\n\n    /* Initialize cipher */\n    build_sbox(sbox);\n    aes128_key_expand(key, sbox, rk);\n\n    /* CBC encryption */\n    memcpy(prev, STATIC_IV, AES_BLOCK_SIZE);\n    for (size_t off = 0; off < padded_len; off += AES_BLOCK_SIZE) {\n        for (int i = 0; i < AES_BLOCK_SIZE; i++)\n            block[i] = padded[off + i] ^ prev[i];\n        aes128_encrypt_block(block, enc, sbox, rk);\n        memcpy(out +",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 228,
+      "completion_tokens": 4096,
+      "total_tokens": 4324,
+      "cost": 0.0020708,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0020708,
+        "upstream_inference_prompt_cost": 2.28e-05,
+        "upstream_inference_completions_cost": 0.002048
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1522,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

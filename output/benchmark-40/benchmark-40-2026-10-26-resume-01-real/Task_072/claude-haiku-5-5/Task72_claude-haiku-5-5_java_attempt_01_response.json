@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793017684-DAHLkRu0XoZyuVitc77I",
+  "finish_reason": "stop",
+  "input_tokens": 231,
+  "output_tokens": 981,
+  "cost_usd": 0.0005136,
+  "raw_response": {
+    "id": "gen-1793017684-DAHLkRu0XoZyuVitc77I",
+    "object": "chat.completion",
+    "created": 1793017684,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import javax.crypto.Cipher;\nimport javax.crypto.SecretKey;\nimport javax.crypto.spec.IvParameterSpec;\nimport javax.crypto.spec.SecretKeySpec;\nimport java.nio.charset.StandardCharsets;\nimport java.security.SecureRandom;\nimport java.util.Arrays;\nimport java.util.Base64;\n\npublic class AesCbcStaticIvEncryptor {\n\n    private static final int BLOCK_SIZE = 16;\n\n    private static final byte[] STATIC_IV = new byte[] {\n        0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,\n        0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F\n    };\n\n    public static byte[] encrypt(byte[] data, byte[] keyBytes) throws Exception {\n        if (data == null) {\n            throw new IllegalArgumentException(\"Input data must not be null\");\n        }\n        if (keyBytes == null || (keyBytes.length != 16 && keyBytes.length != 24 && keyBytes.length != 32)) {\n            throw new IllegalArgumentException(\"Key must be 16, 24, or 32 bytes\");\n        }\n\n        SecretKey key = new SecretKeySpec(keyBytes, \"AES\");\n        Cipher cipher = Cipher.getInstance(\"AES/CBC/NoPadding\");\n        cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(STATIC_IV));\n\n        byte[] padded = pkcs7Pad(data, BLOCK_SIZE);\n        return cipher.doFinal(padded);\n    }\n\n    private static byte[] pkcs7Pad(byte[] data, int blockSize) {\n        int padLength = blockSize - (data.length % blockSize);\n        byte[] result = Arrays.copyOf(data, data.length + padLength);\n        for (int i = data.length; i < result.length; i++) {\n            result[i] = (byte) padLength;\n        }\n        return result;\n    }\n\n    public static String encryptToBase64(String plaintext, byte[] keyBytes) throws Exception {\n        byte[] encrypted = encrypt(plaintext.getBytes(StandardCharsets.UTF_8), keyBytes);\n        return Base64.getEncoder().encodeToString(encrypted);\n    }\n\n    public static void main(String[] args) throws Exception {\n        byte[] key = new byte[16];\n        new SecureRandom().nextBytes(key);\n\n        String message = args.length > 0 ? args[0] : \"Hello, AES CBC with static IV!\";\n        byte[] encrypted = encrypt(message.getBytes(StandardCharsets.UTF_8), key);\n        System.out.println(Base64.getEncoder().encodeToString(encrypted));\n    }\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 231,
+      "completion_tokens": 981,
+      "total_tokens": 1212,
+      "cost": 0.0005136,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0005136,
+        "upstream_inference_prompt_cost": 2.31e-05,
+        "upstream_inference_completions_cost": 0.0004905
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

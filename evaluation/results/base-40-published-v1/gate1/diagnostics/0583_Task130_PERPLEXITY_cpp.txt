@@ -1,0 +1,11 @@
+Task130_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp:1:1: error: unknown type name 'code'
+    1 | code here:
+      | ^
+Task130_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp:1:10: error: expected ';' after top level declarator
+    1 | code here:
+      |          ^
+      |          ;
+Task130_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp:5:10: fatal error: 'Poco/Net/HTTPServer.h' file not found
+    5 | #include "Poco/Net/HTTPServer.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~
+3 errors generated.

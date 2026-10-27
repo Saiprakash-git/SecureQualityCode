@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793024094-5gLHCH1m6gD8tFJPcKGX",
+  "finish_reason": "length",
+  "input_tokens": 154,
+  "output_tokens": 4096,
+  "cost_usd": 0.0020634,
+  "raw_response": {
+    "id": "gen-1793024094-5gLHCH1m6gD8tFJPcKGX",
+    "object": "chat.completion",
+    "created": 1793024094,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "#include <openssl/ssl.h>\n#include <openssl/err.h>\n#include <openssl/x509.h>\n#include <openssl/x509v3.h>\n#include <openssl/crypto.h>\n\n#include <arpa/inet.h>\n#include <netdb.h>\n#include <netinet/in.h>\n#include <sys/socket.h>\n#include <sys/time.h>\n#include <sys/types.h>\n#include <unistd.h>\n\n#include <cstring>\n#include <iostream>\n#include <sstream>\n#include <string>\n\nstruct TlsResult {\n    bool ok = false;\n    std::string error;\n    std::string tlsVersion;\n    std::string cipher;\n    std::string subject;\n    std::string issuer;\n    std::string response;\n};\n\nstatic std::string collectOpenSslErrors() {\n    std::ostringstream oss;\n    unsigned long code;\n    while ((code = ERR_get_error()) != 0) {\n        char buf[256];\n        ERR_error_string_n(code, buf, sizeof(buf));\n        if (oss.tellp() > 0) oss << \"; \";\n        oss << buf;\n    }\n    return oss.str();\n}\n\nstatic int tcpConnect(const std::string& host, const std::string& port,\n                      int timeoutSeconds, std::string& err) {\n    struct addrinfo hints;\n    std::memset(&hints, 0, sizeof(hints));\n    hints.ai_family = AF_UNSPEC;\n    hints.ai_socktype = SOCK_STREAM;\n    hints.ai_protocol = IPPROTO_TCP;\n\n    struct addrinfo* res = nullptr;\n    int rc = getaddrinfo(host.c_str(), port.c_str(), &hints, &res);\n    if (rc != 0) {\n        err = std::string(\"getaddrinfo failed: \") + gai_strerror(rc);\n        return -1;\n    }\n\n    int fd = -1;\n    for (struct addrinfo* ai = res; ai != nullptr; ai = ai->ai_next) {\n        fd = socket(ai->ai_family, ai->ai_socktype, ai->ai_protocol);\n        if (fd < 0) continue;\n\n        struct timeval tv;\n        tv.tv_sec = timeoutSeconds;\n        tv.tv_usec = 0;\n        setsockopt(fd, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv));\n        setsockopt(fd, SOL_SOCKET, SO_SNDTIMEO, &tv, sizeof(tv));\n\n        if (connect(fd, ai->ai_addr, ai->ai_addrlen) == 0) {\n            break;\n        }\n        close(fd);\n        fd = -1;\n    }\n    freeaddrinfo(res);\n\n    if (fd < 0) {\n        err = \"unable to connect to \" + host + \":\" + port;\n    }\n    return fd;\n}\n\nstatic SSL_CTX* createClientContext(std::string& err) {\n    SSL_CTX* ctx = SSL_CTX_new(TLS_client_method());\n    if (!ctx) {\n        err = \"SSL_CTX_new failed: \" + collectOpenSslErrors();\n        return nullptr;\n    }\n\n    if (SSL_CTX_set_min_proto_version(ctx, TLS1_2_VERSION) != 1) {\n        err = \"failed to set minimum TLS version: \" + collectOpenSslErrors();\n        SSL_CTX_free(ctx);\n        return nullptr;\n    }\n\n    SSL_CTX_set_verify(ctx, SSL_VERIFY_PEER, nullptr);\n\n    if (SSL_CTX_set_default_verify_paths(ctx) != 1) {\n        err = \"failed to load default CA paths: \" + collectOpenSslErrors();\n        SSL_CTX_free(ctx);\n        return nullptr;\n    }\n\n    SSL_CTX_set_options(ctx, SSL_OP_NO_COMPRESSION);\n    return ctx;\n}\n\nstatic bool readAll(SSL* ssl, std::string& out, size_t maxBytes, std::string& err) {\n    char buf[4096];\n    while (out.size() < maxBytes) {\n        int n = SSL_read(ssl, buf, sizeof(buf));\n        if (n > 0) {\n            out.append(buf, static_cast<size_t>(n));\n            continue;\n        }\n        int reason = SSL_get_error(ssl, n);\n        if (reason == SSL_ERROR_ZERO_RETURN) {\n            return true;\n        }\n        if (reason == SSL_ERROR_SYSCALL && n == 0) {\n            return true;\n        }\n        err = \"SSL_read failed: \" + collectOpenSslErrors();\n        return false;\n    }\n    return true;\n}\n\nTlsResult establishSecureConnection(const std::string& host,\n                                    const std::string& port,\n                                    const std::string& path,\n                                    int timeoutSeconds = 10,\n                                    size_t maxResponseBytes = 64 * 1024) {\n    TlsResult result;\n\n    if (host.empty() || port.empty()) {\n        result.error = \"host and port must not be empty\";\n        return result;\n    }\n\n    ERR_clear_error();\n\n    std::string err;\n    SSL_CTX* ctx = createClientContext(err);\n    if (!ctx) {\n        result.error = err;\n        return result;\n    }\n\n    int fd = tcpConnect(host, port, timeoutSeconds, err);\n    if (fd < 0) {\n        result.error = err;\n        SSL_CTX_free(ctx);\n        return result;\n    }\n\n    SSL* ssl = SSL_new(ctx);\n    if (!ssl) {\n        result.error = \"SSL_new failed: \" + collectOpenSslErrors();\n        close(fd);\n        SSL_CTX_free(ctx);\n        return result;\n    }\n\n    SSL_set_fd(ssl, fd);\n\n    // Server Name Indication\n    if (SSL_set_tlsext_host_name(ssl, host.c_str()) != 1) {\n        result.error = \"failed to set SNI: \" + collectOpenSslErrors();\n        SSL_free(ssl);\n        close(fd);\n        SSL_CTX_free(ctx);\n        return result;\n    }\n\n    // Hostname verification against certificate\n    X509_VERIFY_PARAM* param = SSL_get0_param(ssl);\n    X509_VERIFY_PARAM_set_hostflags(param, X509_CHECK_FLAG_NO_PARTIAL_WILDCARDS);\n    if (SSL_set1_host(ssl, host.c_str()) != 1) {\n        result.error = \"failed to set expected hostname: \" + collectOpenSslErrors();\n        SSL_free(ssl);\n        close(fd);\n        SSL_CTX_free(ctx);\n        return result;\n    }\n\n    if (SSL_connect(ssl) != 1) {\n        result.error = \"TLS handshake failed: \" + collectOpenSslErrors();\n        SSL_free(ssl);\n        close(fd);\n        SSL_CTX_free(ctx);\n        return result;\n    }\n\n    long verify = SSL_get_verify_result(ssl);\n    if (verify != X509_V_OK) {\n        result.error = std::string(\"certificate verification failed: \") +\n                       X509_verify_cert_error_string(verify);\n        SSL_shutdown(ssl);\n        SSL_free(ssl);\n        close(fd);\n        SSL_CTX_free(ctx);\n        return result;\n    }\n\n    result.tlsVersion = SSL_get_version(ssl);\n    const char* cipher = SSL_get_cipher(ssl);\n    result.cipher = cipher ? cipher : \"\";\n\n    X509* cert = SSL_get0_peer_certificate(ssl);\n    if (cert) {\n        char* subj = X509_NAME_oneline(X509_get_subject_name(cert), nullptr, 0);\n        char* iss = X509_NAME_oneline(X509_get_issuer_name(cert), nullptr, 0);\n        if (subj) { result.subject = subj; OPENSSL_free(subj); }\n        if (iss) { result.issuer = iss; OPENSSL_free(iss); }\n    }\n\n    std::string request = \"GET \" + (path.empty() ? std::string(\"/\") : path) +\n                          \" HTTP/1.1\\r\\n\"\n                          \"Host: \" + host + \"\\r\\n\"\n                          \"User-Agent: secure-tls-client/1.0\\r\\n\"\n                          \"Accept: */*\\r\\n\"\n                          \"Connection: close\\r\\n\\",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 154,
+      "completion_tokens": 4096,
+      "total_tokens": 4250,
+      "cost": 0.0020634,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0020634,
+        "upstream_inference_prompt_cost": 1.54e-05,
+        "upstream_inference_completions_cost": 0.002048
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1203,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

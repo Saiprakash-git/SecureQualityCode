@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "Task25_CLAUDE_claude_3_5_sonnet_20240620.number",
+   "target": "Solution.number",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 210,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_025/qwen3-8-flash/Task25_qwen3-8-flash_java.java",
+ "artifact_sha256": "a1733c3ee5fbd340d10450413707ab2a319362aa8b56a1ca015cf0b3186762d5",
+ "oracle_test_path": "src/test/java/claude/task25/Task25_TestCase.java",
+ "oracle_test_sha256": "ed0922a65a6772fb4f0d282d3e527454dec4a258322c8a9f78cb754775346c98",
+ "author": "functional.py draft_adapter (static)"
+}

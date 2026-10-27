@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793008260-tEhADiIe4colz1Ffoe3j",
+  "finish_reason": "stop",
+  "input_tokens": 189,
+  "output_tokens": 301,
+  "cost_usd": 0.0012705,
+  "raw_response": {
+    "id": "gen-1793008260-tEhADiIe4colz1Ffoe3j",
+    "object": "chat.completion",
+    "created": 1793008260,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "def odd_or_even(arr):\n    return \"even\" if sum(arr) % 2 == 0 else \"odd\"",
+          "refusal": null,
+          "reasoning": "**Analyzing List Sums**\n\nI'm currently focused on processing lists of integers to determine if their sums are odd or even. My current thinking is that an empty list should be treated as having a sum of zero, thus resulting in an \"even\" classification.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing List Sums**\n\nI'm currently focused on processing lists of integers to determine if their sums are odd or even. My current thinking is that an empty list should be treated as having a sum of zero, thus resulting in an \"even\" classification.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "AY89a1/aXTFFI/i0E5G4O+0h3m3i8ObXt7UYJhj+8M/SBK4aDk6iFT4AzfA6XFTImBkrPtQEY6F8KBPCBN3QJAUMWSPUN3uRTCq7etK81ZBRWtVrqW0e0KcEJvREEcLCKCcsGw4hHtpVfNghl3eZvStkMH51RYG5cjEq9WHKv5j2WR2uhTySEKuP0tnuvwsy12ViGYMPTVtUqifurnIcm1K5CAImzS6RvH50QOGnh1bkA9xzE3Y1JCwAzgVPzUXYRkEu/akfcJT0qo6hMi6e8IA3MXfsspUwIpLCGeKwgHFTUP8rfvDINx3QRiHBlmBDfII5LsxIlxZBp9NAdJWuuvTvUxwOZBkzVQpbjMJUQOrHoLi0IjnVXIw9czO/HueIAV+OTekXEcdB92QNd44wJ5MyiIYynnkD1+WeYimvc/c74J0YYNp7hGGRJZisA3yyknqLckci2VHHbXcGFrKP9ltxtbuwnkOBOGsKiPYV1LTebmzJOK1GtvXiRxhCvUmB3aUb7PXRCCNRbI7kZ4vUs+ILRpiuS14N96JMim5OZZltrb0uIpuq2Eq8Aat1uCMc6hgBDNVvUPLensU8MWDGOMQLaQeEtMs9DFuUOf/HbFRQIk8kQDmglRdsma7xpNDHLvlaChHmb0CYkIdIKX1N9A1Mma+NCSvBYiRBNGkDi3vq/qpjhXaIr8PBJym+xKQRS7kzwzKHRLLW1yvoc54ksLzbK/sNFn6gCElfbbN2BdcQFjHis31tEfRuzkFtiSlMOTSoR0K3pMolnhyfUbv1n3tECtCnkQEKA96dJupFRGgW4ai4w2VQRDYbH3tmj1odWnoc4DPdGBmpINJnPFu0rvOzut97NOEzoTeMh+SfjzRRaiaGrxUiB5cr3Z1AkPY9BzPsgEV6HHGJ4CF4wRDq+6B8mVbsf0fpvHeuthm+7yhqq6+8QOvcKGy3MFITh6+ukeMTBWRh3wv3e5UAU5LLewQRMSEKeRleVYns+gBlFoQFIXCc3++WU8OhKVIHeY82Z1t7Jzr8aIExoa0P8mDjYGhbM58m0yV5aUNg5J/t1HzBN7G4GGYYD/BSd1lKAy7RzxZKa4fNzYcYXBf6K91zRlCL7R97polvmsw64Hg7CHjjFsEXwatblHgJhK7K92BWNMiu4iuJ81A4O4R2HzKgnRhCUCe5SC8YHUeJtVCZ8LVOddmaLE+eZ3MpVyYLwpeZsTVNXIp/uVDS9YudTpOi92q4mN63f27I1S+M2EkjIqZQAArH3PnmUKG1aLyLviiKao5Oalc7R9t5HZAM4GIX0ygG0H7hhAa0qqrszXuZe/l94fV2kJrEPRJIR6Y94aWz4JUFzOIXnbQwMhQlEMms9ZkbLFFwhaE9fJkJazcVedRsTL7FfIri31lYhylw5wd7ICHCXuyX+vWpPvCHYV+maw==",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 189,
+      "completion_tokens": 301,
+      "total_tokens": 490,
+      "cost": 0.0012705,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0012705,
+        "upstream_inference_prompt_cost": 0.00014175,
+        "upstream_inference_completions_cost": 0.00112875
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 271,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793018145-rIEQIaodlFEj2yBvP9IE",
+  "finish_reason": "stop",
+  "input_tokens": 209,
+  "output_tokens": 2664,
+  "cost_usd": 0.0013529,
+  "raw_response": {
+    "id": "gen-1793018145-rIEQIaodlFEj2yBvP9IE",
+    "object": "chat.completion",
+    "created": 1793018145,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```cpp\n#include <curl/curl.h>\n\n#include <algorithm>\n#include <cctype>\n#include <cstdlib>\n#include <iostream>\n#include <string>\n\nstatic size_t writeCallback(char* ptr, size_t size, size_t nmemb, void* userdata) {\n    auto* buffer = static_cast<std::string*>(userdata);\n    size_t total = size * nmemb;\n    buffer->append(ptr, total);\n    return total;\n}\n\nstd::string fetchUrlContent(const std::string& url, std::string& errorMsg) {\n    std::string body;\n    errorMsg.clear();\n\n    CURL* curl = curl_easy_init();\n    if (!curl) {\n        errorMsg = \"Failed to initialize libcurl.\";\n        return \"\";\n    }\n\n    char errbuf[CURL_ERROR_SIZE] = {0};\n    curl_easy_setopt(curl, CURLOPT_URL, url.c_str());\n    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeCallback);\n    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &body);\n    curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);\n    curl_easy_setopt(curl, CURLOPT_MAXREDIRS, 10L);\n    curl_easy_setopt(curl, CURLOPT_TIMEOUT, 30L);\n    curl_easy_setopt(curl, CURLOPT_USERAGENT, \"Mozilla/5.0 (title-extractor)\");\n    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 1L);\n    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 2L);\n    curl_easy_setopt(curl, CURLOPT_ERRORBUFFER, errbuf);\n\n    CURLcode res = curl_easy_perform(curl);\n    if (res != CURLE_OK) {\n        errorMsg = std::string(\"HTTP request failed: \") + (errbuf[0] ? errbuf : curl_easy_strerror(res));\n        curl_easy_cleanup(curl);\n        return \"\";\n    }\n\n    long httpCode = 0;\n    curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &httpCode);\n    curl_easy_cleanup(curl);\n\n    if (httpCode >= 400) {\n        errorMsg = \"HTTP error status: \" + std::to_string(httpCode);\n        return \"\";\n    }\n\n    return body;\n}\n\nstatic std::string decodeHtmlEntities(const std::string& in) {\n    static const std::pair<const char*, const char*> entities[] = {\n        {\"&amp;\", \"&\"}, {\"&lt;\", \"<\"}, {\"&gt;\", \">\"},\n        {\"&quot;\", \"\\\"\"}, {\"&#39;\", \"'\"}, {\"&#x27;\", \"'\"},\n        {\"&apos;\", \"'\"}, {\"&nbsp;\", \" \"}\n    };\n    std::string out = in;\n    for (const auto& e : entities) {\n        std::string from = e.first;\n        std::string to = e.second;\n        size_t pos = 0;\n        while ((pos = out.find(from, pos)) != std::string::npos) {\n            out.replace(pos, from.size(), to);\n            pos += to.size();\n        }\n    }\n    return out;\n}\n\nstd::string extractPageTitle(const std::string& html) {\n    std::string lower = html;\n    std::transform(lower.begin(), lower.end(), lower.begin(),\n                   [](unsigned char c) { return static_cast<char>(std::tolower(c)); });\n\n    size_t start = lower.find(\"<title\");\n    if (start == std::string::npos) {\n        return \"\";\n    }\n\n    size_t openEnd = lower.find('>', start);\n    if (openEnd == std::string::npos) {\n        return \"\";\n    }\n\n    size_t close = lower.find(\"</title\", openEnd + 1);\n    if (close == std::string::npos) {\n        return \"\";\n    }\n\n    std::string title = html.substr(openEnd + 1, close - (openEnd + 1));\n\n    // Collapse whitespace and trim\n    std::string collapsed;\n    bool lastSpace = false;\n    for (unsigned char c : title) {\n        if (std::isspace(c)) {\n            if (!lastSpace && !collapsed.empty()) {\n                collapsed += ' ';\n            }\n            lastSpace = true;\n        } else {\n            collapsed += static_cast<char>(c);\n            lastSpace = false;\n        }\n    }\n    while (!collapsed.empty() && collapsed.back() == ' ') {\n        collapsed.pop_back();\n    }\n\n    return decodeHtmlEntities(collapsed);\n}\n\nint main(int argc, char* argv[]) {\n    if (argc < 2) {\n        std::cerr << \"Usage: \" << argv[0] << \" <https-url>\" << std::endl;\n        return 1;\n    }\n\n    std::string url = argv[1];\n    if (url.rfind(\"https://\", 0) != 0) {\n        std::cerr << \"Error: URL must start with https://\" << std::endl;\n        return 1;\n    }\n\n    if (curl_global_init(CURL_GLOBAL_DEFAULT) != CURLE_OK) {\n        std::cerr << \"Error: Failed to initialize curl globally.\" << std::endl;\n        return 1;\n    }\n\n    std::string errorMsg;\n    std::string html = fetchUrlContent(url, errorMsg);\n\n    if (!errorMsg.empty()) {\n        std::cerr << \"Error: \" << errorMsg << std::endl;\n        curl_global_cleanup();\n        return 1;\n    }\n\n    std::string title = extractPageTitle(html);\n    if (title.empty()) {\n        std::cerr << \"Error: No page title found.\" << std::endl;\n        curl_global_cleanup();\n        return 1;\n    }\n\n    std::cout << title << std::endl;\n\n    curl_global_cleanup();\n    return 0;\n}\n```",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 209,
+      "completion_tokens": 2664,
+      "total_tokens": 2873,
+      "cost": 0.0013529,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0013529,
+        "upstream_inference_prompt_cost": 2.09e-05,
+        "upstream_inference_completions_cost": 0.001332
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 619,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

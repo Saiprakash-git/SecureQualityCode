@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1793009273-4240fYpD4psQIc5hXI3o",
+  "finish_reason": "stop",
+  "input_tokens": 597,
+  "output_tokens": 508,
+  "cost_usd": 0.00032831,
+  "raw_response": {
+    "id": "gen-1793009273-4240fYpD4psQIc5hXI3o",
+    "object": "chat.completion",
+    "created": 1793009273,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "#include <vector>\n\nint findEvenIndex(const std::vector<int>& arr) {\n    long long total = 0;\n    for (int value : arr) {\n        total += value;\n    }\n\n    long long leftSum = 0;\n\n    for (std::size_t i = 0; i < arr.size(); ++i) {\n        long long rightSum = total - leftSum - arr[i];\n\n        if (leftSum == rightSum) {\n            return static_cast<int>(i);\n        }\n\n        leftSum += arr[i];\n    }\n\n    return -1;\n}",
+          "refusal": null,
+          "reasoning": "We need answer user wants raw source code only, no markdown. Need produce complete self-contained source file in CPP. Need solve find even index? Need likely implement function. Need think about expected signature? User didn't specify exact function name. Need return only raw source code. Need maybe include class with static int findEvenIndex(int[] arr)? But CPP cannot int[] param easily; use vector<int>. Could provide function int findEvenIndex(const vector<int>& arr). Need self-contained. Could include using namespace std; vector. Need only source file contents starting first line. Need no prose. Ensure lowest index. Algorithm: total sum, left=0, iterate i, right=total-left-arr[i], if left==right return i, left+=arr[i]. Return -1. Edge cases length >0 but maybe handle empty. Use long long to avoid overflow? arr length <1000, ints any integer positive/negative; sum could overflow int if values large. Use long long. Function returns int. Need include <vector>, <numeric>. Could avoid numeric by loop. Need maybe if platform expects class Solution? Since instructions: write one complete self-contained source file in CPP. All functions should accept input as parameters and return output if any. No main. So just function. Could name findEvenIndex. Need maybe CodeWars kata expects class Solution { public static int findEvenIndex(int[] arr) } in Java; but CPP maybe function. Need raw source only.\nPotential issue: \"array of integers\" in CPP maybe std::array? But vector is common. Could provide template? Need self-contained. Could include <vector>. If they test by calling findEvenIndex(arr). Good.\nNeed final only code. No fences. Ensure no comments? Comments okay but raw source. Probably no explanation.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user wants raw source code only, no markdown. Need produce complete self-contained source file in CPP. Need solve find even index? Need likely implement function. Need think about expected signature? User didn't specify exact function name. Need return only raw source code. Need maybe include class with static int findEvenIndex(int[] arr)? But CPP cannot int[] param easily; use vector<int>. Could provide function int findEvenIndex(const vector<int>& arr). Need self-contained. Could include using namespace std; vector. Need only source file contents starting first line. Need no prose. Ensure lowest index. Algorithm: total sum, left=0, iterate i, right=total-left-arr[i], if left==right return i, left+=arr[i]. Return -1. Edge cases length >0 but maybe handle empty. Use long long to avoid overflow? arr length <1000, ints any integer positive/negative; sum could overflow int if values large. Use long long. Function returns int. Need include <vector>, <numeric>. Could avoid numeric by loop. Need maybe if platform expects class Solution? Since instructions: write one complete self-contained source file in CPP. All functions should accept input as parameters and return output if any. No main. So just function. Could name findEvenIndex. Need maybe CodeWars kata expects class Solution { public static int findEvenIndex(int[] arr) } in Java; but CPP maybe function. Need raw source only.\nPotential issue: \"array of integers\" in CPP maybe std::array? But vector is common. Could provide template? Need self-contained. Could include <vector>. If they test by calling findEvenIndex(arr). Good.\nNeed final only code. No fences. Ensure no comments? Comments okay but raw source. Probably no explanation.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 597,
+      "completion_tokens": 508,
+      "total_tokens": 1105,
+      "cost": 0.00032831,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00032831,
+        "upstream_inference_prompt_cost": 8.955e-05,
+        "upstream_inference_completions_cost": 0.00023876
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 370,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

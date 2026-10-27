@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793025322-Io00fjJVU1g3kFEoaoE8",
+  "finish_reason": "stop",
+  "input_tokens": 160,
+  "output_tokens": 748,
+  "cost_usd": 0.00039,
+  "raw_response": {
+    "id": "gen-1793025322-Io00fjJVU1g3kFEoaoE8",
+    "object": "chat.completion",
+    "created": 1793025322,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n\ntypedef struct {\n    long long maxSum;\n    int start;\n    int end;\n} MaxSubarrayResult;\n\nMaxSubarrayResult maxSubarray(const int *arr, int n) {\n    MaxSubarrayResult res;\n    res.maxSum = 0;\n    res.start = 0;\n    res.end = -1;\n\n    if (arr == NULL || n <= 0) {\n        return res;\n    }\n\n    long long currentSum = arr[0];\n    long long bestSum = arr[0];\n    int currentStart = 0;\n    int bestStart = 0;\n    int bestEnd = 0;\n\n    for (int i = 1; i < n; i++) {\n        if (currentSum < 0) {\n            currentSum = arr[i];\n            currentStart = i;\n        } else {\n            currentSum += arr[i];\n        }\n\n        if (currentSum > bestSum) {\n            bestSum = currentSum;\n            bestStart = currentStart;\n            bestEnd = i;\n        }\n    }\n\n    res.maxSum = bestSum;\n    res.start = bestStart;\n    res.end = bestEnd;\n    return res;\n}\n\nint main(void) {\n    int n;\n\n    if (scanf(\"%d\", &n) != 1 || n <= 0) {\n        printf(\"No elements provided.\\n\");\n        return 0;\n    }\n\n    int *arr = (int *)malloc(sizeof(int) * n);\n    if (arr == NULL) {\n        printf(\"Memory allocation failed.\\n\");\n        return 1;\n    }\n\n    for (int i = 0; i < n; i++) {\n        if (scanf(\"%d\", &arr[i]) != 1) {\n            printf(\"Invalid input.\\n\");\n            free(arr);\n            return 1;\n        }\n    }\n\n    MaxSubarrayResult r = maxSubarray(arr, n);\n\n    printf(\"Maximum subarray sum: %lld\\n\", r.maxSum);\n    printf(\"Subarray indices: %d to %d\\n\", r.start, r.end);\n    printf(\"Subarray elements:\");\n    for (int i = r.start; i <= r.end; i++) {\n        printf(\" %d\", arr[i]);\n    }\n    printf(\"\\n\");\n\n    free(arr);\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 160,
+      "completion_tokens": 748,
+      "total_tokens": 908,
+      "cost": 0.00039,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00039,
+        "upstream_inference_prompt_cost": 1.6e-05,
+        "upstream_inference_completions_cost": 0.000374
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

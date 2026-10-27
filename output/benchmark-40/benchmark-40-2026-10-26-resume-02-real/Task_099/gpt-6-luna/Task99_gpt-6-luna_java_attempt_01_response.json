@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793023804-QDqAaE7xYdMCRtOCpvOK",
+  "finish_reason": "stop",
+  "input_tokens": 115,
+  "output_tokens": 383,
+  "cost_usd": 0.000203,
+  "raw_response": {
+    "id": "gen-1793023804-QDqAaE7xYdMCRtOCpvOK",
+    "object": "chat.completion",
+    "created": 1793023804,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "import java.io.BufferedReader;\nimport java.io.IOException;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.util.regex.Pattern;\n\npublic class Main {\n    private static final Pattern LINE_PATTERN = Pattern.compile(\"^\\\\d+.*\\\\.$\");\n\n    public static void main(String[] args) throws IOException {\n        if (args.length != 1) {\n            throw new IllegalArgumentException(\"Usage: java Main <file>\");\n        }\n\n        try (BufferedReader reader = Files.newBufferedReader(Path.of(args[0]))) {\n            String line;\n            while ((line = reader.readLine()) != null) {\n                if (LINE_PATTERN.matcher(line).matches()) {\n                    System.out.println(line);\n                }\n            }\n        }\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Creating Java Program for File Reading**\n\nI need to produce Java source code that reads a file and uses regex to match lines that start with numbers and end with a dot. It seems like I should make a standalone program that accepts the file path as an argument. I want to define a regex pattern like `^\\\\d+.*\\\\.$` to identify these lines. I\u2019ll use `Files.lines` or a `BufferedReader`, ensuring proper error handling, imports, and functionality for command-line input. I'll also confirm the regex allows valid matching throughout.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Creating Java Program for File Reading**\n\nI need to produce Java source code that reads a file and uses regex to match lines that start with numbers and end with a dot. It seems like I should make a standalone program that accepts the file path as an argument. I want to define a regex pattern like `^\\\\d+.*\\\\.$` to identify these lines. I\u2019ll use `Files.lines` or a `BufferedReader`, ensuring proper error handling, imports, and functionality for command-line input. I'll also confirm the regex allows valid matching throughout.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq319Cw-uK8CWv-I34kpNd_2hRS8Sqx7MmznkVZnKv5a9yI1qbV7fRqXvD23OrI5IqtFprUu-GdxOQUp1G70zBYboZHnaoF-KpmOI990lComzwPFjDcTKc70LIxe_kgAhx06M-8Zb3ru_E1IqP08hQm3-LA8fi8RzBNBnuKajWM7HVjX2yATdxMC8FkPhNezAcEupmyXhIVsaQerIvQ8ywTCgKYdpdq09_q6oBgggX2HZUGh-wqSDAegrwqrMiHEv0Br9vk4JOPBm0BKPeOriZ8BmTdKdcJc4CEZNWI8VTPzMYiUGM-YSGSJ8sCaZG7AAxF0y73OK6ERrUG_Qgjgn5-zrdLfsXCfFRC0-PxQlhBsKHC-XcuDTLuyiVqbg4vKFZyXilEd4h3EV63ABT9SGIXrKvQoSLLI2V1DnmB3yP-OmL-utgcATYse4xSJArGUcgDTF5WbwaUi_RKJTsX44k6t7vcS2SLTtNFv_gpn2-AkSqAO7pp4rHokv3qpT5ECzqw8DQIRKZUVBfZn_k_eGqIDjNMgaaKEVN5fD5addg44Z_EVqC_xxt_QRHQrT_47aTNOsVvHGRd_-q0UTBUcpilkNeecHWn-E7wofeIwXRE4ys4VIGhDanEAD7wvLsHf73H-eOhYGTzVFgc4qg02lsZjuQc2iDZBCBdDPPVuVKnvAfRhy4sefu7yqfXtR1TeuXDcz4Cy0BepRLQgQyZRwil4UIKeilYm98_ioFy23wDBX0xebuLfsBotkN5eXqtWcE3Oqe933OnKy_rIGmuG6uLamtsb27Um4cYBMcJkLzeqIIWmnou5La-7Ci_BES6M-pbqXFFgSJgYnLpie3huY43j0ib0kWAn1sIK4FWvr6A-UwwCKzPbygLhZn6hsYuhIUagFGUNLq9zclrfByn6mwGbENweByqxd3wJ6lfYGntZ3TPQd1US_XmwzNEe8lb7-jWYCuj7wvsz56c7GJk-0O_3srGbJf-UXBa9aVkPVzoGYCpqM68XAvDx1RGI3AQicMIukWtxd2Te168Hccu3Sa9nrGgjTst_FQVCyWfoIelWuT7khYMvrOA6zpsyhDayzsM8mnVlxi87dvqwqK_2wDMrLl7KYC505uRsj7ajrbwvY09Y1umXIW1PmStXGluzr5Sq-sK5wa6BwFEZRUb46uBGmIwwsfxb5CWIIf3WJhdOdQLOG40DznP4LSEXkQYcY3M18duCW0lhpVArYoCv6w_XMRUiSMPQeL-C-bnDsX4Sbz6fJfH2kVoiYgGqy_0j9gxtwCjSdEyZKZv7zrU2ZX_ZKOMb8ajogY9xOMI2ZVGgE9GE5GN08hnnZhxlsXom5aNI56AQEGxKoiC80o1y0GVjTikZo5D7w8cCheF2FlOZ41_Rgkii1LMaBuscC9Mj2oNlR602afo5y6c7gyTnU_1e2ibIcQeVmLCs-ErkGZYTvEcR4xDWrMtEed6cyG8qDTyMN1c-sD9p8ZuBeKFR9q2ikRRdJ_Q0FC4ujqKMaldIq7Ede3NONXB9xMc0gqUFxK6sxgz8OnX3ZzG-EIb1iHDRHN14UDiL_5lxr9hnm69ch5Z6wFpANQMdN1PRrLMytFcDzQJaQD7oAfC7woExuI4_fM7SEOwaIRypbGm7eSaMCiF0bb_37vzrK7W0Yw3TKblI96H2IIwAKJaj8Rk02Hh64h4eDdJxk3THZaH_PtHsxWivSerXYIxBHfGrmZfH3zMP29WOoshS0XiDA1pbmCvavmJ8dzi35Tr0i-LqgX-r9WEfZDcWUiu7mzPE7RPmlzTieiW5zSXQgIfjDMCQzWP2KUf1nGzQ7aaKb__tb7bZH9Xc-Fl1yYX93kYj6vxx4NTjpdJG4eJXq1vF3sU25kPCrd9xPaf0Wjuic-y30Qf3oYyX0MDGHRZR26iaaSmF3eO2lb51kCcWaWUYaEGHubS03FTGvINusNXDDgTxboG8O3YmCNfmV3qYxXR1G-3pem-tB83xlS-vCTiP3xiHa9QqXsXB18rx_-DHlHuBtYnu7K-FoaC3DqsH4Z7jR1FZsPTh8EL9f1aNg_1VkFvBedyEMLCBDngqpiYCwQs8ufYlES04tZkKam8z3NjDZWgUHC3O0ofvi6tet8no5hkR2_F-C87mdiPQcc-H0am2V3EDvKy40OTofyNC55JJfvoTLS-n-YNTlIrjafdu0qSDGYn59MuZ0KM4RTdc63gbiN1xZycbMpcpK3ZdJWW0yTs-DdqP0k-oerZjiW_RBPo-_w969z_XmP3mm7f2lxGHezKOcA_g6Lkhf4F-rk2SJYjXkg2hXFHaISAmJ62bIVZtZPL4kYJ3sL4eRnVxqzKargGPL2LRdlKcoO5UpI9KLv2mb-Qkoxe0B2JkAXdYYhYK5Umz9TaHbzinb5dTfOt1BLRRVLyUZcyc2vXblshjRlUk6z7goTz47kU4axJ2BxlnM6QpZyg4bCdkmByrLJyhtWk4oNb2R_Qjgg9tLLmUM6LuGcohzHSdFLFQ-reYDfVKCk1pxUtk7MCUPsAr8vcn9gti7tknnt7GlwCRdms3Deeqomnt_oq1vPnuJr8OgOYCMxsQHaYfMH2JSzLrXGvebPGHq25Qo2t5aY2KePlEjYbm5FqpfrCQKoUBtf6E-vwU9yaTQck-sQaYfenxLNhQ_RpHVumBv_GreLapO1kxulA_DlGljlB7uk8IANn95RKHzhQ27Xs3V4ze2ZdUdqeB8TmAkxXC2Am7VWbParCismFN7hkGRKy9g9XZGH7XSYtCQmJbdrJoaqehjU-Mq9sHTbBM_0vKP7lCaAvyFTyc6DbXdWXbszX2kChUjAFbzSkFJKvlF_dBb8mF8-ky5orxExnLY-D0o3qW1lDuNITAO-pPpOIXfWpASOiapJWfwAKaPuhmACSyoys3DqX8oE07pjbC4IUBO0I2hJfd4fqle0yc87lA__7yT_TCKic2HppGtMRaVZGs4PXnbE7eaMJ0HQNhY05khWt5mrkq93YQ_JvhFQGRE_tX4XQ5dx91gEZrzvTgB6n5IRFDTq13hE75Hcws5G2gA1dRGacKp4RRwl7AKPG_QIpNhSEAsAqqZzCieuf-edIsCLCJDnUElZLJc0sMPcF6sMV36wPQ_aJjsu24PeNeSOcFR2lbptWgbKjooLUKK_NGwEV3NHP2P-ts37YtMkI68UcPxSIfrxk1GogNneJ52wkq4_9wO2crAiqIlgiB8gHZmKjtHcUUgcZb5drPd4usXCIKyWidZ1ULSTFJljiMKJwiLhE5559pUnmzclCtEc-xtK964CC110MbrUExWcZKF6Lm4J5K8fa7HV8V1ru0hhPxa-FyG6Hr-do9h6dWi-31-F57H7N4Yq0RurhBRjga0uNOxLxOGqGI2ST6BYZ0KlhfZO9J1ag-BuuDjJMeIblG0gtPN4jFVXfXWjMAPfjJp_Gc6th5ptVAXRe17PPEx4nx5s3-yR1A80VOnALyVD7zWYPaN5ZQnGlMc8eTdwznBRTlnjkqOokrEsdH0Qn1nOZQvYmso1EB-ErQSx59VtGkoWTdiRK6AniMplZk77HrLaYeuyum4NHnCP5hLzsZv8Uc5z2RlliKEZmY0JNw7zTpADX4-DN90cpqZ1cdlXkv34T_0GsuW1wJ3WFp4YJTeuOjQCyomppkYBjAp1O2myXDiTZ661WZ3_AXqVEK8DtvmUsa6jwbVHE5w8BsCYqRF8xifaoSLGEjBpeh3OAlbF5QUM6mr0Sdi7YYhCydVyJ0s1C_asLQeGl1O9oAIn4eJhQo7W4QpXLxs1mkbNBT9ivdNUoeranKtwcwX1fw3a2wTYYUG2k3rpTrPGJIlIZmYQ8CA48Nv-Mm8kP7kt_HAZa9pf235olzvem8WVJzqV4jcEbnD8ExFPV1zZUDc9yqlck91eGbXJNCScDGGCzbHf7K8PR8xZBevrHa2rDA6kGKljFlC-p9HEEFlBq9Xq_-ivNNc_tepZdpqBBbBlDtOj_5HPo6TX8B8vWYXLf_QzJZIPH4UjQp_QZPvxYlmB7i_LQ4tqDW_NqYgw0tRCjcyhNVPhTR7kTnI8s1L9z8kY2vPGI2Ri83PRia3nHkY2ItOx1S4jTBv-To9Px-DTuBb811U1HbVHjFrdqcxNdzHZ-_P67MRYAFhtCQ9TxAZ8Bd5674HtjHq7Hmlx0b0XQmUnq85ajE9h_4z_Jurs_Jo-CrqqWoiydgyTsAW5o6KtYoG6rieJu4rtkg8QE69r_PXfpD9cwoH_wwGkAdY3Db8vmyWG760oNYLRc0Dqw14Jlw4LIq145vMicThtyBZ9if6k2fDweF3mRLCfyf8zTIHeK8pTAcQuoa166yY3nfkJGZ8k8c72w54zU5x2KPX8b31jlw==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_05691549cd372fb3016adf5f3f0da887d189d043d4adde7035",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 115,
+      "completion_tokens": 383,
+      "total_tokens": 498,
+      "cost": 0.000203,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000203,
+        "upstream_inference_prompt_cost": 1.15e-05,
+        "upstream_inference_completions_cost": 0.0001915
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 227,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

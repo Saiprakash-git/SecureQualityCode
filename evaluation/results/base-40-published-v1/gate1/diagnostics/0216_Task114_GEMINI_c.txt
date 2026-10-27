@@ -1,0 +1,9 @@
+Task114_GEMINI_gemini-1.5-pro-001.c:27:33: error: call to undeclared library function 'toupper' with type 'int (int)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   27 |         concatenatedString[i] = toupper(concatenatedString[i]);
+      |                                 ^
+Task114_GEMINI_gemini-1.5-pro-001.c:27:33: note: include the header <ctype.h> or explicitly provide a declaration for 'toupper'
+Task114_GEMINI_gemini-1.5-pro-001.c:33:33: error: call to undeclared library function 'tolower' with type 'int (int)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   33 |         concatenatedString[i] = tolower(concatenatedString[i]);
+      |                                 ^
+Task114_GEMINI_gemini-1.5-pro-001.c:33:33: note: include the header <ctype.h> or explicitly provide a declaration for 'tolower'
+2 errors generated.

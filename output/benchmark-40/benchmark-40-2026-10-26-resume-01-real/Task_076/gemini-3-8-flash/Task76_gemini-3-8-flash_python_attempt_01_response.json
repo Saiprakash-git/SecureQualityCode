@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793018057-MEB3DXexeTRiCoUrgOk3",
+  "finish_reason": "stop",
+  "input_tokens": 137,
+  "output_tokens": 1653,
+  "cost_usd": 0.0063015,
+  "raw_response": {
+    "id": "gen-1793018057-MEB3DXexeTRiCoUrgOk3",
+    "object": "chat.completion",
+    "created": 1793018057,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "import sys\nimport urllib.request\nimport html\nimport re\n\ndef get_page_title(url: str) -> str:\n    req = urllib.request.Request(\n        url,\n        headers={\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64)\"}\n    )\n    with urllib.request.urlopen(req) as response:\n        charset = response.headers.get_content_charset() or \"utf-8\"\n        content = response.read().decode(charset, errors=\"replace\")\n\n    match = re.search(r\"<title(?:\\s+[^>]*)?>(.*?)</title>\", content, re.IGNORECASE | re.DOTALL)\n    if match:\n        return html.unescape(match.group(1).strip())\n    return \"\"\n\ndef main(args: list[str]) -> int:\n    if len(args) < 2:\n        print(\"Usage: python script.py <HTTPS_URL>\", file=sys.stderr)\n        return 1\n\n    url = args[1]\n    if not url.startswith(\"https://\"):\n        print(\"Error: URL must begin with https://\", file=sys.stderr)\n        return 1\n\n    try:\n        title = get_page_title(url)\n        print(title)\n        return 0\n    except Exception as e:\n        print(f\"Error retrieving page title: {e}\", file=sys.stderr)\n        return 1\n\nif __name__ == \"__main__\":\n    sys.exit(main(sys.argv))",
+          "refusal": null,
+          "reasoning": "**Developing Page Title Extractor**\n\nI'm currently refining the logic to reliably capture the page title. My focus is on robust HTML parsing to handle variations and ensure accurate extraction, even with complex structures.\n\n**Refining Extraction Logic**\n\nI'm focusing on implementing a robust method for capturing the page title, weighing the benefits of `html.parser` against regular expressions for better handling of diverse HTML structures. This involves carefully parsing the source code to isolate the exact title content.\n\n**Implementing Robust Parsing**\n\nMy current focus is on implementing a robust approach for title extraction. I'm evaluating `html.parser` versus regular expressions, aiming to decode content accurately and handle varying character sets to ensure reliable retrieval of the page title.\n\n**Finalizing Extraction Strategy**\n\nI've decided to proceed with a regex-based approach combined with `html.unescape` for reliable title extraction, as it offers a clean and self-contained solution for most cases while ensuring proper character decoding.\n\n**Implementing Title Extraction**\n\nI've implemented the core logic for title extraction, incorporating a robust regular expression with `html.unescape` to ensure accurate and properly decoded retrieval of the page title. The script now handles character encoding and common HTML variations effectively.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Page Title Extractor**\n\nI'm currently refining the logic to reliably capture the page title. My focus is on robust HTML parsing to handle variations and ensure accurate extraction, even with complex structures.\n\n**Refining Extraction Logic**\n\nI'm focusing on implementing a robust method for capturing the page title, weighing the benefits of `html.parser` against regular expressions for better handling of diverse HTML structures. This involves carefully parsing the source code to isolate the exact title content.\n\n**Implementing Robust Parsing**\n\nMy current focus is on implementing a robust approach for title extraction. I'm evaluating `html.parser` versus regular expressions, aiming to decode content accurately and handle varying character sets to ensure reliable retrieval of the page title.\n\n**Finalizing Extraction Strategy**\n\nI've decided to proceed with a regex-based approach combined with `html.unescape` for reliable title extraction, as it offers a clean and self-contained solution for most cases while ensuring proper character decoding.\n\n**Implementing Title Extraction**\n\nI've implemented the core logic for title extraction, incorporating a robust regular expression with `html.unescape` to ensure accurate and properly decoded retrieval of the page title. The script now handles character encoding and common HTML variations effectively.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 137,
+      "completion_tokens": 1653,
+      "total_tokens": 1790,
+      "cost": 0.0063015,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0063015,
+        "upstream_inference_prompt_cost": 0.00010275,
+        "upstream_inference_completions_cost": 0.00619875
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1292,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

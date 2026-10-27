@@ -1,0 +1,31 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "number",
+   "target": "number",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "static std::vector<std::string>",
+    "params": [
+     "const std::vector<std::string> &lines"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "const std::vector<std::string>& lines"
+    ],
+    "return": "std::vector<std::string>"
+   }
+  }
+ ],
+ "combo_index": 218,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_025/gemini-3-8-flash/Task25_gemini-3-8-flash_cpp.cpp",
+ "artifact_sha256": "d8cf33303b2a32afd442c0134c156ac763bcb68b3ad197f5f50e6741278d2ec1",
+ "oracle_test_path": "tests/claude/Task25_Test.cpp",
+ "oracle_test_sha256": "b4cb9aa430c1491928b72789c6f7a08becb916af33fe2baeb9a26c1138a357ad",
+ "author": "functional.py draft_adapter (static)"
+}

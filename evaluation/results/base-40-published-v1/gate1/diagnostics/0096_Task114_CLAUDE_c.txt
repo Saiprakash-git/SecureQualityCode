@@ -1,0 +1,7 @@
+Task114_CLAUDE_claude-3-5-sonnet-20240620.c:36:33: warning: multi-character character constant [-Wmultichar]
+   36 |     stripped[end - start + 1] = '\\0';
+      |                                 ^
+Task114_CLAUDE_claude-3-5-sonnet-20240620.c:36:33: warning: implicit conversion from 'int' to 'char' changes value from 23600 to 48 [-Wconstant-conversion]
+   36 |     stripped[end - start + 1] = '\\0';
+      |                               ~ ^~~~~
+2 warnings generated.

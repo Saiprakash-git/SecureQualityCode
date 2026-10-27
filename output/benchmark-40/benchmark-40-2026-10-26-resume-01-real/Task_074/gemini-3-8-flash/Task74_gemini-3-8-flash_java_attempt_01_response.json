@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793017977-K1vA6TjzKQPmgpPbRtHH",
+  "finish_reason": "stop",
+  "input_tokens": 100,
+  "output_tokens": 1035,
+  "cost_usd": 0.00395625,
+  "raw_response": {
+    "id": "gen-1793017977-K1vA6TjzKQPmgpPbRtHH",
+    "object": "chat.completion",
+    "created": 1793017977,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "import java.sql.Connection;\nimport java.sql.DriverManager;\nimport java.sql.SQLException;\nimport java.util.Properties;\n\npublic class PostgresConnector {\n\n    public static Connection createConnection(String host, int port, String database, String user, String password) throws SQLException {\n        String url = String.format(\"jdbc:postgresql://%s:%d/%s\", host, port, database);\n        return DriverManager.getConnection(url, user, password);\n    }\n\n    public static Connection createConnection(String host, int port, String database, Properties properties) throws SQLException {\n        String url = String.format(\"jdbc:postgresql://%s:%d/%s\", host, port, database);\n        return DriverManager.getConnection(url, properties);\n    }\n\n    public static Connection createConnection(String jdbcUrl, String user, String password) throws SQLException {\n        return DriverManager.getConnection(jdbcUrl, user, password);\n    }\n\n    public static void main(String[] args) {\n        String host = \"localhost\";\n        int port = 5432;\n        String database = \"testdb\";\n        String user = \"postgres\";\n        String password = \"secretpassword\";\n\n        try (Connection conn = createConnection(host, port, database, user, password)) {\n            if (conn != null && !conn.isClosed()) {\n                System.out.println(\"Connection established successfully: \" + conn.getMetaData().getDatabaseProductName());\n            }\n        } catch (SQLException e) {\n            System.err.println(\"Database connection failed: \" + e.getMessage());\n        }\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Developing Java Connection Code**\n\nI'm currently focused on crafting a robust Java utility class. My aim is to encapsulate the logic for establishing a PostgreSQL `Connection`, ensuring it accepts all necessary parameters and returns the `Connection` object efficiently.\n\n**Finalizing Connection Utility**\n\nI'm refining the Java utility for PostgreSQL connections. The focus is on a static method accepting host, port, database, user, and password, designed to return a `Connection` object or throw an `SQLException`. I'm also considering an overload for a direct JDBC URL.\n\n**Implementing Connection Logic**\n\nI've successfully implemented the core logic for establishing PostgreSQL connections in Java. Both the parameterized and JDBC URL-based methods are ready, designed to throw `SQLException` on failure. I'm now setting up a basic `main` method for testing.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Java Connection Code**\n\nI'm currently focused on crafting a robust Java utility class. My aim is to encapsulate the logic for establishing a PostgreSQL `Connection`, ensuring it accepts all necessary parameters and returns the `Connection` object efficiently.\n\n**Finalizing Connection Utility**\n\nI'm refining the Java utility for PostgreSQL connections. The focus is on a static method accepting host, port, database, user, and password, designed to return a `Connection` object or throw an `SQLException`. I'm also considering an overload for a direct JDBC URL.\n\n**Implementing Connection Logic**\n\nI've successfully implemented the core logic for establishing PostgreSQL connections in Java. Both the parameterized and JDBC URL-based methods are ready, designed to throw `SQLException` on failure. I'm now setting up a basic `main` method for testing.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 100,
+      "completion_tokens": 1035,
+      "total_tokens": 1135,
+      "cost": 0.00395625,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00395625,
+        "upstream_inference_prompt_cost": 7.5e-05,
+        "upstream_inference_completions_cost": 0.00388125
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 675,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

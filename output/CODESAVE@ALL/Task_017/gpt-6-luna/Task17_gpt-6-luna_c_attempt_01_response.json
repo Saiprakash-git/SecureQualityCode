@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793009957-eUPicloYK2d15hn19Ml5",
+  "finish_reason": "stop",
+  "input_tokens": 296,
+  "output_tokens": 597,
+  "cost_usd": 0.0003281,
+  "raw_response": {
+    "id": "gen-1793009957-eUPicloYK2d15hn19Ml5",
+    "object": "chat.completion",
+    "created": 1793009957,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <ctype.h>\n#include <stdlib.h>\n#include <string.h>\n\nchar *to_jaden_case(const char *jaden)\n{\n    if (jaden == NULL || jaden[0] == '\\0')\n        return NULL;\n\n    size_t length = strlen(jaden);\n    char *result = malloc(length + 1);\n    if (result == NULL)\n        return NULL;\n\n    int at_word_start = 1;\n    for (size_t i = 0; i < length; ++i) {\n        unsigned char c = (unsigned char)jaden[i];\n        result[i] = at_word_start ? (char)toupper(c) : (char)c;\n        at_word_start = isspace(c);\n    }\n\n    result[length] = '\\0';\n    return result;\n}",
+          "refusal": null,
+          "reasoning": "**Developing Jaden case solution**\n\nI'm looking to create a C solution for the \"Jaden Casing Strings\" challenge on Codewars. The expected function signature seems to be `char *to_jaden_case(const char *str)`, which returns a character pointer. I need to handle the case where the input may be null or empty, and the function should capitalize the first character of each word while preserving the rest. Word boundaries will likely be determined by whitespace rather than punctuation. I'll ensure to allocate a new string for the output as well.**Defining Jaden case function**\n\nI need to figure out how to correctly identify word boundaries for my Jaden case function, mainly focusing on spaces since that\u2019s how the words in `str` are separated. I want to capitalize the first letter of each word while avoiding undefined behavior, especially with locales. The expected function signature seems to be `char *to_jaden_case(const char *jaden)`, and I should allocate memory for the return value. I must manage null and empty inputs gracefully, returning NULL as needed. Plus, I\u2019ll ensure proper handling of contractions.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Developing Jaden case solution**\n\nI'm looking to create a C solution for the \"Jaden Casing Strings\" challenge on Codewars. The expected function signature seems to be `char *to_jaden_case(const char *str)`, which returns a character pointer. I need to handle the case where the input may be null or empty, and the function should capitalize the first character of each word while preserving the rest. Word boundaries will likely be determined by whitespace rather than punctuation. I'll ensure to allocate a new string for the output as well.**Defining Jaden case function**\n\nI need to figure out how to correctly identify word boundaries for my Jaden case function, mainly focusing on spaces since that\u2019s how the words in `str` are separated. I want to capitalize the first letter of each word while avoiding undefined behavior, especially with locales. The expected function signature seems to be `char *to_jaden_case(const char *jaden)`, and I should allocate memory for the return value. I must manage null and empty inputs gracefully, returning NULL as needed. Plus, I\u2019ll ensure proper handling of contractions.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3yksyx11fseTWzfOEUok9ZLdq2nNHByj7tVLrWyyQ2ZMRSDo6tRUFEB07g_iNaYJvIuo_2UEO-DXDNzGoseU4_TT8hqAC3BJC3D7ak__REmnW-aDXg1EPlJ2bAMqNVRcZJDno12DftKCZVBlqc3pWq2OjRkbLZRQrj6FnVr3AXz-T6ebc7jwWhmZQf5csODNAhD4EIB0qGrXRCn9MmlhCeFi27UD5HYx5fiId-KzV5BeOdKaeH7yMRwE-zxomJQALvsDjISFUtU08f27xwozlM7l8kR4ubFZOdJvuN1A7xZCdLYSC_df9AuGbkmRDJOPGTPiCklJ7x4KziRkn7c-hAN8vKwvg-8thQPfBhpD_qjXXnZ6DZ_lz4xM8Kmo1LUThuZ8KN5r5YGCfjibx2zNRRZNPkOI-yoK1w_UidjJKPRN-NEAYlb1WxENJ66m8-17E-7Y6f6M8Q0tp7wOiWFSrIVrXdWOmsQH4Eu85PYHIdXKI3WDsaC7vi2GkQY9mzUCTyU5kzs8mvnptli2QjPl2uSM9IonR3J9aWlb6K1nYrWN1VGl47NNJoLjHlxoQcHoCgSSY3LF7tC9-g-Lx6zkSnibhx8IpdKi1aQQf-YQIED2EEWyFzcW_XBrrKwkVVU8ha1wAG0ZaedrC19r5CL24uQRR6SOUBjOEcJKBVySMzcQhe4MBDUr-zYfPXoegTHsdROfwY6eVQfU1NrPzJFxrRPTT7l3oMJ4d5C1J3sxaxsYHia7A0MvaFMpKDN3XO57zRIbE0c1ccUfx-pPdt-R9QAvlg3H__VI583EP9xof3iGHUoBC0AiHVQANTnezXGOhdJeOKbrXi7IVgkj_HyyLk3142DuX_Z1oYxXLM1YBKS1YlgdTcVFmNa8p5N5f9vPeFSz-pzHqxBz6vjo3xy_se1iMV7f4yqbVbaKiZ2k8lUH4E0ySvpW0lOZyKKlhoRBs9ZpDKhHk-hbsqD7Op00f9QtpDG8q-xtOYZG4jSNhTVdZ-hr2l2Jy-HTXSj91NieJcazlawHfNkZyMl1PolzQ-ERRgx3DWWxcA_m0WjkHe3PCluQK-CvP1CUUzpM-guHCT7HzvbcisnPY9eOoCcBmCcDPgdSlOCdBgYFEwTcbwlo5CO5QyyNaIsqdWWbs0UAmbS2Rrm24jDe0wky6Y64LRNHd5s0Z8Gce23XlYkmA2mAuvrXns7kCC4aAwylcW3bUZrkK2mJWTnaN-1cC_QXjT4fM9ioOcar994PsaoiEJt6PP5BhdtUdGNt2QClPhGdbKqjWrtlnFpY-i-g2zHUGYhlf1verFhpk92EINowOLLSXGNI6cI6k7tSvKEf5eXVfKWEKKZIVbmo9SjSrdD7Lzh70FTu4UmbWMeh4Mw9qYAOw_8DsBVeD3tgq0Dg25SoKkNVCbLEl7FQ-XIHUn1vvltQaSK1VEC1dKQVF4LAMSDkQpxC2h0QFv2o76fvXdewhkFe_bjolZiipTYcFsUdmx9fJWr2nViO3Ld13x6umrC_aoO_nH7rn8oe5p4j4Wogzs8sr61W7cSEYdMFKxxsDhNAeC0prki0c1Q9gK4kwHyQwM2MXlpbG4yTWNy24E7kmkHegU7cecaWnpNOZur4VYYGRKfhPxYUNjcGxrxyxZ0wb031lz9FmFdZ3wt6M88B3-Wp32DKBU0U_u2K78iWV8M4ngZ3a4baRg9fAE2Ow9YBGD1Ch1ekC_AnZjYhAfsfiNKCqcq32-9Yf_AGx_7ydzRGG8n-dV9AonEAL9rCTBh_0nLtgsRglMikkZrwptBhjkj_XZs9y6IW_I5vHOwQlq-8UQE5Mb6Oz2qYyLqLROKxq_Np7R4vDXtXyW7_DUCQYKN9Pe45LnnjREQF68QWHdxxMbx5O_GDBsNHFxo9R1OGDTpIV9pZQGezXgOCPgE81JoPvAZj_J-AbfTkuAmI9l4_Lcv2o_EgppkJWK-C-AH97HFzKfUVWR0jf080DZlUXFok4aWbtFAxVxy-DJNjLwQ50JJyoPncTaNQtYlqZ_AgK54tDxXmwaMvHhuwkjEwmeWhyJjxLjem7n7uw2XjBqklnb3M95R89QmGAiCv-nBKP8QlThjU1q6T6bEpjpFLxULR60kDoul5i0edplV020CNopQPUY7Lhe9DedKcXx5fKHHCGE50W32eoLwzY1uEo4vFio4rri7eWc2de8KelAYLA2vI_y6iGKJ8ljXPOhnUn3brhkXbWqi6--iXt7MJeO01GrxgF2Q0ZGEAdsVf7sVnG1wv24ohcwoCOEGzx7QgdQpIuCV5KNT4y4DkbS1lTfM3QN9vPesNPmwxGGHmk2ND3EBmsKDqIVFM0MYZqLcZ-xBE-0nvBccryYbcrQK0UHsjZciVRqMODJ1TliWcYyDHKVDM8YJal4AraoAjCxtgfabh_ysHiZIysu5Vz4ucKI59nB5Gcfwrlel415Kynktp0FjeTX3ni6DwUyVPoYVrxJjpn3otEM1EbEkdylhv1lAU6CKAzqm9ckOAou4Jgt6jdxogXEOlKZbr5aaIKuHNT6cX7-B_yyDKHWQ3d4e2qjnMivIetcEn2yhUKw6O3GXu-YG7rwmGRoCzyA8XAXkrzo3BgZgW-h0Yf5aNbHT5YjsrsA5UwE5nufcY0iS_qXrTKMiGjuqABzNgU_MvLMS6KEAtF8QB8l18R9nWusHFJFemxaFcxaju4P63SdC5SYTbgw5_kwbjLuR-DiJpLOxDiIK2u6sgUpz6VrjwrHendYWWT81fWhgprQ7SuNwnBB6VNDnSJcu36RNPHjD_3PXB71gVazCXGlUmaSU3RZ8ayPq7KbaH3b70VYwud4-cWhvqW252m2AsoBlrKFPuUoF48E1jR1Ia1HslRP09145xBHrQa7l6b6PagTx09aTgso78ipv5w8mI7g1G8K0m5pidIR3sm88VC3Fw3wElMy85eHFo8xdua6SqKBlBAWYt8w4BGZPu6pR8JbHbSAX42pTwcsi7t7wRs2IhO1P4b4gU3mL93-3KJ683UH2b1a1gc6F5P8howVuQwJN5xZXZWeFcLzC94eu5HB-EjwSEZayXbqLdKLyIxzt6N0ZXtOepC--euy1ntzoKD63ttOnX3IxsBYZCdYBYoa4ET3BO2qxCPBrSG6e0nrpOG09E72ooszj62WEhSUSMOrMkdgcBknGcSGI___268HB-_WUSCZyW85lcLoDCx2LSDluasjZeUnoN-FCu7EzVJBY35LzABYr9Bjwjq3sNo9YmxlGb4rSRLzdwAO0uLtxsDO_1ly0T8xqD_pLGgYPz0od0rcIunxqx_-2iJDt3_l7GKt7-5M6RT-PiccjId5EdQhZtyokaGUHnM-P105oj4iviz-OMUYOiOxUnbH7QQg428ANRBf9A3VW5lmBdAcXGTrbmpksLQW-4zmGSFNVgHHQ8j-sE0qcKSB4S-hJ1j99C1Rzsvzx4va6Nmzbn9JdB7fsHYPxxkbbSlfHnJEESq0wN098O6xeUbwiImR67tMDJxybVR8Qwxsd8KqPhbbA09FYv5rTGKlqkdhGuc4wo86x1a4k_vT81YKNyTyhePNA_jU33hy3zBlu7sttAgrpC2x-d-XLA6Ge79AjlqZywnWvZ191rKX7nmLGRRP86ZNijdTyf_TBAP98qA2GsJiRM1fUJ3_N8hdYYh5kKlibDGrbM-J_l7sAbN5gRM3M4K_bGkpALcznwk_16ZhYWisw55QE1Pk5cVOneMXicAizM_LMRoJtTCS-ZLlLu9iqWjeuRKo4sprY9V2367-6ANnTd3sD4AJudyaXYzYatpJz-itCDs3rprwS8uaMWR8UpVjRQd6lJdU-VJ5Xssq4GSAdHVmq1aGT-atwNscO9ANVdXkbqKtRDuz8Hhea3VNV9tDbaSrQVW9k3UnwpcARZfbOrDFoxlBRjSXAaRGCH3waXzpe-MBRMmJqi-BpeI28WZqFt3fNybr6zCSnupbcKAJWdHhTxkKe9BTFrqwAo0K6TEiEreR2GdIvc_iG-lm0lg3Aa5WjMTKSiwr-UDqUQ3yt4-vCycixpEN203y3qFecYU0r54r9DNVBBncA1fepzsv2in_ABEMXh2PWLJmzq2ifpBIV3Gsf1dEFUpXm-EybuSsToN6EI9tatuFJASIZyE6p42gNnwg8nrDxKjaSOBhU775gFw8Wepcs94B9y3JWIIJREETmkFNQpy7bHVAqwnt-V9g1yB1VLxxBTBb_LyvDV_9InuKfwmeSRueW1cJBiO9hcotkEAQxHyYssLjM3rwNF1sZ42mr1EgKvRl9S9lrSf-27ePKXISjbUe7BeE9T4h9Vk9h-N0bvk5PTogvtvoku0i7nLHnlm8i5mwTG9p3u0aW68FTDFct2rb4ypVY86Nw5Ug91cHxbfPa6r8g4HbofmKLffFViESWVXlcqdf5b-FQM7Q_cfeHfM1CmqBg7nmd5i-FlXy8I14ajON0hGkCc9YS5Pz3ryX0YfClXRHrUJUZMngNSiCzUa3KejXs3SigibDTdONKpxA64knGmILsGjbuNfT8vfItOPsEi08JJHZ_5JV47QB6TkbDtTgWxdn4ZO7zCR-XHPwa5wevGeyCjPZoS-WYNG2DIG54ne0GKACJZrhgadQmWqKkWqV1ZvsWO5T1sjJmOfyJOfDcD-H7u8wVRlYsjx7gmW_MitYv7VPBL_gu_t_v0e0C3F99U2dlamGKh-nNqEQEkYw2cJ2_hAl9uTp4v54Lz1TkgvQrPrTDs4CbdLSdDPqXFIUQG0NIG19oAXj8mDyE9HaXuTHsKHawil4jst7dt9WkAmldzK6LwfJ3W39xX_c2mbI75CJfz3SbE23QxBZuuDqOt5UgwoqiH_v3MCJlbEBqqqR6vi_-_lbIJ583K13adQFdd-A6VpBmkdjgW1wDGl_UoYaMenC2EkSfa8FpguM7ZR6EATiiE1sFAa8P_y7FJhSkAT3VC346bD30ck0z6aNWQq9_-dZZXBCbGhZc-adck4CPRFJa4gD8744C15r6IgrORHw89IPQGiCpbWZHZ2Hr1-8oE_PAQaAVORwu_LLniOvF2Z6FYWrt6JhsF65lNWwXqNZt2l5lD_DJHQmKs_ylHGX1frOUZe6RXPt0Jz49MmUCDMltJqgYgu3coexc_bUqTEuwEkLmuUfUouUmgwpRGGH57Y06LW4FwlTRxBBDR9-3AHOlzyOhr4i7KY5kIlyHCzNmj8kxsEOSYeuc5kdL8gxIQNNIu7qy5GAqTn5lwH4fOatAIobPrGAp8-0xx0k8ahWTzh5torCGhXYUB31LO96LA0gi8lgbUdmAVNwMh-dvPyc6KffyoSan48QCwMw_hUGHV-n0mlyu_8LZScTBxzU-9kXTwCZtds6FAu7n_4-2CJVqERVQY6POJjIJJURYSVl-L09XeOm3xOY_WQQ5Q9b-ApJhxc1YfooCNj2KZQpG0rsocKNbrD-qv_6rqiNApCxSzfAqmdMo0kbd1Nw1ossJGZNJgjpWUXy4vlgoIi-m7lgOeh37sutf-VHWxGoAqHWr3r_fQQYZqhXVl_jHI8oZR-1KiEcChLsDRjV9RQwAND5Romt311sw918sIuLyR9S3Ru7bbK8CfE0EMkuxfwQZCbCfSQb6dlc771NnA1On5GnXpmlnT8MOCYIrUwzqyrXveVCk8YoIVQlMKt1tk5AWNJDda5MbLmQmjwGAIDQavLbMYs5fxtHFMN1Kf2-O5VfKS-8HE7jW-8HyTDRJTuLksWfS-dwvGitqntAooX0SQ0CMXJMYZHbiti10Zk5_GB1Jx5DH7lSSzMoI7IQcwZFFj3_oOlOB-cCaWPKqAQVfd07tCpXbl_djX0cQ5QvWbqjYV_MXL1P5Pf9oSh34-ETDbm2w1lmPkmBuBc_4q9R33wUDJPpUpPSDtCT0cDSWZ41S1jyo-BEXmKSan3o5PGILMG13aE4_ScPvUgz_BLGCz6663JgymxUx2yDFXowD8kBGElawqB9r-J_YjsErAi728F99uu9ybYs43O8EZwn_6y7iE4Hy4xGZ5A4itIYerDiYZ_6w8v5IeIO4WtappqKjhmLlHKgMURdIpoE3R83wIiOmTAAPMgtK9BnM_20HcMm_-2Jkkznjyp4jEqrb4WwStyzQD9VzabB2zPxYqHFlKvCHJU_U0l7DHORQojSzkIJBVSNj2sQgf_fkmcKb0DawK1NAAtRSjn2zyPf5_4iBJFWOtvhizJexBqxoUQvGp1vxSlescRBOkFnL4_25B7WtWr-cYGGCBp-FVPJ0LYiU-c_RxxAkxX7NZpd82oj3XkiC6W4eDQddgaNCcZDG4i_e25cMFHsAV2GHVfZrAsGv1-SdQ6Fu10QcNVR0zNZof7huY20PdefQLSW1Xzo99LBPZB7irOz4QvOfEnG2RP5htVyfbL57Zl2PEd3hH4DdlpzwZ6zisSyN83cmppDk9Cfc3wcSDXjeC3TgwBA9gtyLgsaYZlJQ2BxVRf3mvqEXoDmZIqeZoAD-9tYHvhe-QBfcNDaqdxNTm2TNYgouP7N3ZrRQ-CqqeMBDzGAUoGkOc4NUkXC5MRnxo6o5jQAcjs_aqMTGoakeYUqAMN3G-qG1lLT6C_1m991NpYWvgw77oIRZ_MmVEp_KsA7sF_SeVMVZU8KwMUDTB3oL5_ibUtC6XcQaJVfHOrGTtRyeGAP-1rzHaKMxE5FVrUSGAb8xDJyexPvJ9iVItpVP8SZ5zuTOzljSK4z6H0ArVZWMTqjHFA_n05qVlC84fZLJVbeLoOySK0AaDgV4EH-zEtqQn5zdi_sNNVUR0vG7Sg78YoK6tqB-J64QLLMBEBvphClkYusL2kSO0GJvPullXyJKkMBHTKiN4ZpvCjrBDNxqgKmMjhDC0ZDX6boFioYs07Jf-nqd_OQHab9uhwRxhzm3-N6FWZRRf9RLgP8JfMwDp97vJFs6AFSnULZZX-nYyQ9yC3k0vCURT4tlj4qkq5dNcc0wTIXD_T9DyhYBjTiNamGdUVCQzNtIhGnSGYQ_bcYe26DyQqj1vIhLPeej8AR-OIK93jY2uV9QiHisO1hNmUgjmwXBiuh-OGzy9UtZZB3-HX7uXn7RQ6JmoECiEzuRDnD6iDq_oXsoUF7U7PySZRLLH99RU3L6DD14PFVc=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_06b10b8a1c6a399c016adf29261af487d1b4483ffedd7d01bd",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 296,
+      "completion_tokens": 597,
+      "total_tokens": 893,
+      "cost": 0.0003281,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003281,
+        "upstream_inference_prompt_cost": 2.96e-05,
+        "upstream_inference_completions_cost": 0.0002985
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 427,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

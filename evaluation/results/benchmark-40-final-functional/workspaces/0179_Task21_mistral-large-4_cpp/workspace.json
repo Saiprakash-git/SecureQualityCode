@@ -1,0 +1,47 @@
+{
+ "language": "cpp",
+ "artifact_origin": "generated",
+ "artifact_sha256": "22c6029d4158909cf050bb1c32adc398bf7f0d1cc689bb175f8e12a4524596c7",
+ "oracle_test_path": "tests/claude/Task21_Test.cpp",
+ "oracle_test_sha256": "4d53356a7c786c82e93abeb7b701206f89bbdabde71e56a7ee832df6973f74e7",
+ "verdict_style": "exit_code_and_fail_lines",
+ "bindings": [
+  {
+   "canonical": "removeSmallest",
+   "target": "removeSmallest",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "line": 14,
+   "removed": "#include \"../../source/output/claude/cpp/Task21_CLAUDE_claude-3-5-sonnet-20240620.cpp\"  // Include the header for the function",
+   "inserted": "#include \"adapter.h\"  /* adapter */"
+  }
+ ],
+ "steps": [
+  [
+   "{cxx}",
+   "-std=gnu++17",
+   "-O0",
+   "-o",
+   "{exe:test_oracle}",
+   "test_oracle.cpp",
+   "-lm",
+   "-lpthread"
+  ],
+  [
+   "{run:test_oracle}"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "adapter.h": "92bd7c9d268b80d7fa63ead892328de0dbbbb3e83a797c38f38c0d78f9356856",
+  "impl_under_test.cpp": "22c6029d4158909cf050bb1c32adc398bf7f0d1cc689bb175f8e12a4524596c7",
+  "test_oracle.cpp": "e3364321df24604b5d7fd4698866d2f8842215f4ddacf24c3aa1dbc358fc8bbd"
+ }
+}

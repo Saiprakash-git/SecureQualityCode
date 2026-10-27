@@ -1,0 +1,4 @@
+Task0_GEMINI_gemini-1.5-pro-001.c:72:9: error: call to undeclared function 'sleep'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   72 |         sleep(1);
+      |         ^
+1 error generated.

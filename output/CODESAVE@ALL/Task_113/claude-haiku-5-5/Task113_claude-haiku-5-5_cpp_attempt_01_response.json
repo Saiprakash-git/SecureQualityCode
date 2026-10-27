@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793024200-lOQ0zDnHvv9kjzvEuS3c",
+  "finish_reason": "stop",
+  "input_tokens": 150,
+  "output_tokens": 299,
+  "cost_usd": 0.0001645,
+  "raw_response": {
+    "id": "gen-1793024200-lOQ0zDnHvv9kjzvEuS3c",
+    "object": "chat.completion",
+    "created": 1793024200,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n#include <vector>\n\nstd::string concatenateStrings(const std::vector<std::string>& parts) {\n    std::string result;\n    for (const auto& part : parts) {\n        result += part;\n    }\n    return result;\n}\n\nstd::vector<std::string> readStrings(std::istream& in) {\n    std::vector<std::string> parts;\n    std::string line;\n    while (std::getline(in, line)) {\n        if (line.empty()) {\n            break;\n        }\n        parts.push_back(line);\n    }\n    return parts;\n}\n\nint main() {\n    std::cout << \"Enter strings (one per line). Press Enter on an empty line to finish:\\n\";\n    std::vector<std::string> parts = readStrings(std::cin);\n    std::string result = concatenateStrings(parts);\n    std::cout << \"Concatenated result: \" << result << std::endl;\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 150,
+      "completion_tokens": 299,
+      "total_tokens": 449,
+      "cost": 0.0001645,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001645,
+        "upstream_inference_prompt_cost": 1.5e-05,
+        "upstream_inference_completions_cost": 0.0001495
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

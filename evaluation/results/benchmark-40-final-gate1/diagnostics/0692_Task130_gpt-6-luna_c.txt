@@ -1,0 +1,25 @@
+Task130_gpt-6-luna_c.c:286:42: error: expected ')'
+  286 |                 copy_header_value(request
+      |                                          ^
+Task130_gpt-6-luna_c.c:286:34: note: to match this '('
+  286 |                 copy_header_value(request
+      |                                  ^
+Task130_gpt-6-luna_c.c:286:42: error: expected '}'
+  286 |                 copy_header_value(request
+      |                                          ^
+Task130_gpt-6-luna_c.c:284:76: note: to match this '{'
+  284 |         } else if (strcasecmp(name, "Access-Control-Request-Method") == 0) {
+      |                                                                            ^
+Task130_gpt-6-luna_c.c:286:42: error: expected '}'
+  286 |                 copy_header_value(request
+      |                                          ^
+Task130_gpt-6-luna_c.c:261:68: note: to match this '{'
+  261 |     while ((line = strtok_r(NULL, "\r\n", &save_pointer)) != NULL) {
+      |                                                                    ^
+Task130_gpt-6-luna_c.c:286:42: error: expected '}'
+  286 |                 copy_header_value(request
+      |                                          ^
+Task130_gpt-6-luna_c.c:193:1: note: to match this '{'
+  193 | {
+      | ^
+4 errors generated.

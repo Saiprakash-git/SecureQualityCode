@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793017458-k95QH5qo5S5gYuC2Y4dI",
+  "finish_reason": "stop",
+  "input_tokens": 241,
+  "output_tokens": 1749,
+  "cost_usd": 0.0008986,
+  "raw_response": {
+    "id": "gen-1793017458-k95QH5qo5S5gYuC2Y4dI",
+    "object": "chat.completion",
+    "created": 1793017458,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#!/usr/bin/env python3\nimport sys\nimport json\nfrom ldap3 import Server, Connection, ALL, SUBTREE\nfrom ldap3.utils.conv import escape_filter_chars\n\n\ndef parse_request(argv):\n    args = argv[1:]\n    if not args:\n        raise ValueError(\"Usage: script.py <dc> <username>  OR  script.py <username@domain>\")\n    if len(args) >= 2:\n        dc_value = args[0]\n        username = args[1]\n    else:\n        if \"@\" not in args[0]:\n            raise ValueError(\"Single argument must be in the form username@domain\")\n        username, dc_value = args[0].split(\"@\", 1)\n    if not username or not dc_value:\n        raise ValueError(\"Both dc and username must be provided\")\n    return dc_value.strip(), username.strip()\n\n\ndef build_base_dn(dc_value):\n    if \"=\" in dc_value:\n        return dc_value\n    parts = [p for p in dc_value.split(\".\") if p]\n    return \",\".join(f\"dc={p}\" for p in parts)\n\n\ndef build_search_filter(username):\n    return f\"(&(objectClass=person)(uid={escape_filter_chars(username)}))\"\n\n\ndef search_user(base_dn, search_filter, host=\"localhost\", port=389,\n                bind_dn=None, password=None):\n    server = Server(host, port=port, get_info=ALL)\n    conn = Connection(server, user=bind_dn, password=password, auto_bind=True)\n    try:\n        conn.search(\n            search_base=base_dn,\n            search_filter=search_filter,\n            search_scope=SUBTREE,\n            attributes=[\"*\"]\n        )\n        results = []\n        for entry in conn.entries:\n            record = {\"dn\": entry.entry_dn}\n            record.update(entry.entry_attributes_as_dict)\n            results.append(record)\n        return results\n    finally:\n        conn.unbind()\n\n\ndef main(argv):\n    try:\n        dc_value, username = parse_request(argv)\n        base_dn = build_base_dn(dc_value)\n        search_filter = build_search_filter(username)\n        users = search_user(base_dn, search_filter)\n        print(json.dumps(users, indent=2, default=str))\n        return 0\n    except Exception as exc:\n        print(json.dumps({\"error\": str(exc)}), file=sys.stderr)\n        return 1\n\n\nif __name__ == \"__main__\":\n    sys.exit(main(sys.argv))",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 241,
+      "completion_tokens": 1749,
+      "total_tokens": 1990,
+      "cost": 0.0008986,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008986,
+        "upstream_inference_prompt_cost": 2.41e-05,
+        "upstream_inference_completions_cost": 0.0008745
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 944,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793016623-dGJrvB7K3DMJpjQSTb4G",
+  "finish_reason": "stop",
+  "input_tokens": 269,
+  "output_tokens": 427,
+  "cost_usd": 0.001803,
+  "raw_response": {
+    "id": "gen-1793016623-dGJrvB7K3DMJpjQSTb4G",
+    "object": "chat.completion",
+    "created": 1793016623,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "def likes(names):\n    n = len(names)\n    if n == 0:\n        return \"no one likes this\"\n    elif n == 1:\n        return f\"{names[0]} likes this\"\n    elif n == 2:\n        return f\"{names[0]} and {names[1]} like this\"\n    elif n == 3:\n        return f\"{names[0]}, {names[1]} and {names[2]} like this\"\n    else:\n        return f\"{names[0]}, {names[1]} and {n - 2} others like this\"",
+          "refusal": null,
+          "reasoning": "**Developing Formatting Logic**\n\nI'm currently building out the Python logic to handle name list formatting. My focus is on precisely implementing the various conditional outputs: from the \"no one\" case, through single and double-name scenarios, to the more complex multi-name presentations.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Formatting Logic**\n\nI'm currently building out the Python logic to handle name list formatting. My focus is on precisely implementing the various conditional outputs: from the \"no one\" case, through single and double-name scenarios, to the more complex multi-name presentations.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "AY89a19WejHVoXXQRPct2dnJSFcEYy3VpmBWwJxcesb4Nu1lA/ya8TXkn4jYjrfqQE/FjFFT56T6QXtQj24sIWypvrFbPPdphNRIX+M28VK56N0EPSxGMUY8ddrBKJ27AfVykesRMMlC89DdWLgjqPEcj7ZTr5PaleUI3qgGPB4b15lYYw+rgLCHprvvCAwV56d9WbL7YttRjPpbxhJGpDBXqNeVK1UekabJZ6qU9eGEc3DmIKYLZ4qrfIxUq2paBK2M0Z73cf/9WMEFa/ke3YVWmrZSur3EhCRFfNUzl65PdnGnWsRLvP2sa0ofPUXP5O9rExFLbo9BSZicfjD4xE9Of5jZhmhbAv7+VBY8RUmwQuN9c+MWxfl0pyC9sQy8si35IVOJ2FNh+XVTBMypSO3awQgsRKg0fHLHlVagVAcxc3bw2TyCNyeZcN1F/AvyNrofHRDIIePCZuNx0nghR0s95VtFPUEhR5h5Il4CcIQDzzJAG28R00kBefU0xp2gswF5B5t9+ZS4kuTgy4wS+wxklumLdsjr/bQJ/oWabhzEyMBvW3t4dC9mB+w4jd8UyuXhYEd66Kt7Ro90Sl7UmhJvnRDqFpKoOkywSCuLfCm1WE2YKGiXi+VDUEopywATHsHBOCs+n9Yo6mt+Gdsgtxxf2ljDFj7WN7XCz3b42r3GdwnZcTz2wWfeiNdTDdeszWvxx13gA/N6gMEfF0VIkhHwpKeGs1e2q2jPbPwmTBchi9W48ryZdo6OaMcMNdAquwzXLQLjWwSyClXBqkTWRvUDwz116PXwKxpR9JHpyLNtfN6JUQZ4SAmG3tjNI9CjETIzxkJ3Ta0evCNkM6FcVz6wLSmJ5gsTSBxF81oVRySEUwkbJL95l4deX2p+/Jpx9Xy8rrIY4zin6k5hphcUXMD0DBHocOvdrTvfdR/vd+Io/DVCWyqR6Tb9JPZQf88bOi79hnfLm+oQSyu7y0dy5M/vmCa92+usJaAM/3mcuyZoVbRwm3ctQMfvrsQjE3leO2HrZvzj90+tu60eoTrHw9h5zUyfaGyou6FMryCM1kvo6qgO494QWQVbehhQDQCFuYN5NW01ouiNbNdrGCs8l6ajfmIwow9OIqisKO7LpubacxIF6BWQEaaf8wkSJBw2XEgsHfVSf+zpLTM6bxZBLA8ElXJOR77mNkP2aCh+/8o3DDJLty3J0qzzZ1oIGV831P0+CnheykFiyTy37SBNym2ud56ixxPOuSfbfJH20/GxrhWwXznDR6LjU/I7S0EUoRddODyHrwjMMLLU1JaJG7MnzTaacTjTz/JyU6Qjv0Qryx9wCTBEGfyA6pj+bw5h/hLfivctXF4eOtbiopCKwqHRtTuwXRT06bu1lFam7LtQGgwRK9I99wEXVd5TGcFA8Pq06Wt90xx+HqDB4LCYk47jxUQGzibV5sY5RZBGKMUoEVlAwrdwd5wxaX7euSZXgBihtgvMHgheIayBPeDQwUnIOSrjFRkiQajFhkYXGmeQI5IblWHkHRvlFo0ZbLtHu5+g8uaqTaZdT8ppc1rnFhQ=",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 269,
+      "completion_tokens": 427,
+      "total_tokens": 696,
+      "cost": 0.001803,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.001803,
+        "upstream_inference_prompt_cost": 0.00020175,
+        "upstream_inference_completions_cost": 0.00160125
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 291,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

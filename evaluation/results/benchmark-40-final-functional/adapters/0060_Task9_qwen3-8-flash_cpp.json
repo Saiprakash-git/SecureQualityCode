@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "oddOrEven",
+   "target": "odd_or_even",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 60,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_009/qwen3-8-flash/Task9_qwen3-8-flash_cpp.cpp",
+ "artifact_sha256": "5ab766ccf5840f518bacfa08a8a9a16e4f8920ea922ddd8fe0269f8c54aec75d",
+ "oracle_test_path": "tests/claude/Task9_Test.cpp",
+ "oracle_test_sha256": "b311522e21cbff27c0a6e1d3b0eea48d942c4066ee2831f267f9ca0adc5f3a52",
+ "author": "functional.py draft_adapter (static)"
+}

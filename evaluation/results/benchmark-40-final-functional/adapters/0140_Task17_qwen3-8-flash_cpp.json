@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "toJadenCase",
+   "target": "toJadenCase",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 140,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_017/qwen3-8-flash/Task17_qwen3-8-flash_cpp.cpp",
+ "artifact_sha256": "099962b27f59b22cae96a3f4bbb5a3aa108e500605b12e9b078de2df7e157052",
+ "oracle_test_path": "tests/claude/Task17_Test.cpp",
+ "oracle_test_sha256": "a0cd7726a057e52a5532762d1e3f8df86e4b097b361b6c880366a264dcc885f3",
+ "author": "functional.py draft_adapter (static)"
+}

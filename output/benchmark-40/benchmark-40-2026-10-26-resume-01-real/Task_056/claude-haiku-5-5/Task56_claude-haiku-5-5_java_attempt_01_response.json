@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793016961-ZtfugYOpAprO8dzwDDIG",
+  "finish_reason": "stop",
+  "input_tokens": 145,
+  "output_tokens": 1635,
+  "cost_usd": 0.000832,
+  "raw_response": {
+    "id": "gen-1793016961-ZtfugYOpAprO8dzwDDIG",
+    "object": "chat.completion",
+    "created": 1793016961,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import java.security.SecureRandom;\nimport java.util.Base64;\nimport java.util.Map;\nimport java.util.HashMap;\nimport java.nio.charset.StandardCharsets;\nimport javax.crypto.Mac;\nimport javax.crypto.spec.SecretKeySpec;\n\npublic class AuthTokenGenerator {\n\n    private static final SecureRandom RANDOM = new SecureRandom();\n    private static final String HMAC_ALGORITHM = \"HmacSHA256\";\n\n    public static String generateToken(String userId, String secretKey, long ttlSeconds) throws Exception {\n        if (userId == null || userId.isEmpty()) {\n            throw new IllegalArgumentException(\"userId must not be empty\");\n        }\n        if (secretKey == null || secretKey.isEmpty()) {\n            throw new IllegalArgumentException(\"secretKey must not be empty\");\n        }\n        long issuedAt = System.currentTimeMillis() / 1000L;\n        long expiresAt = issuedAt + ttlSeconds;\n        byte[] nonceBytes = new byte[16];\n        RANDOM.nextBytes(nonceBytes);\n        String nonce = Base64.getUrlEncoder().withoutPadding().encodeToString(nonceBytes);\n\n        String payload = userId + \"|\" + issuedAt + \"|\" + expiresAt + \"|\" + nonce;\n        String encodedPayload = Base64.getUrlEncoder().withoutPadding()\n                .encodeToString(payload.getBytes(StandardCharsets.UTF_8));\n        String signature = sign(encodedPayload, secretKey);\n        return encodedPayload + \".\" + signature;\n    }\n\n    public static String sign(String data, String secretKey) throws Exception {\n        Mac mac = Mac.getInstance(HMAC_ALGORITHM);\n        SecretKeySpec keySpec = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), HMAC_ALGORITHM);\n        mac.init(keySpec);\n        byte[] raw = mac.doFinal(data.getBytes(StandardCharsets.UTF_8));\n        return Base64.getUrlEncoder().withoutPadding().encodeToString(raw);\n    }\n\n    public static Map<String, Object> validateToken(String token, String secretKey) throws Exception {\n        Map<String, Object> result = new HashMap<>();\n        if (token == null || secretKey == null) {\n            result.put(\"valid\", false);\n            result.put(\"reason\", \"missing token or key\");\n            return result;\n        }\n        int dot = token.lastIndexOf('.');\n        if (dot <= 0 || dot == token.length() - 1) {\n            result.put(\"valid\", false);\n            result.put(\"reason\", \"malformed token\");\n            return result;\n        }\n        String encodedPayload = token.substring(0, dot);\n        String providedSig = token.substring(dot + 1);\n        String expectedSig = sign(encodedPayload, secretKey);\n\n        if (!constantTimeEquals(expectedSig, providedSig)) {\n            result.put(\"valid\", false);\n            result.put(\"reason\", \"invalid signature\");\n            return result;\n        }\n\n        String payload = new String(Base64.getUrlDecoder().decode(encodedPayload), StandardCharsets.UTF_8);\n        String[] parts = payload.split(\"\\\\|\");\n        if (parts.length != 4) {\n            result.put(\"valid\", false);\n            result.put(\"reason\", \"malformed payload\");\n            return result;\n        }\n        long expiresAt = Long.parseLong(parts[2]);\n        long now = System.currentTimeMillis() / 1000L;\n        if (now >= expiresAt) {\n            result.put(\"valid\", false);\n            result.put(\"reason\", \"token expired\");\n            return result;\n        }\n        result.put(\"valid\", true);\n        result.put(\"userId\", parts[0]);\n        result.put(\"issuedAt\", Long.parseLong(parts[1]));\n        result.put(\"expiresAt\", expiresAt);\n        return result;\n    }\n\n    private static boolean constantTimeEquals(String a, String b) {\n        if (a.length() != b.length()) {\n            return false;\n        }\n        int diff = 0;\n        for (int i = 0; i < a.length(); i++) {\n            diff |= a.charAt(i) ^ b.charAt(i);\n        }\n        return diff == 0;\n    }\n\n    public static void main(String[] args) throws Exception {\n        String userId = args.length > 0 ? args[0] : \"user123\";\n        String secret = args.length > 1 ? args[1] : \"change-this-secret-key\";\n        long ttl = args.length > 2 ? Long.parseLong(args[2]) : 3600L;\n\n        String token = generateToken(userId, secret, ttl);\n        System.out.println(\"Token: \" + token);\n        System.out.println(\"Validation: \" + validateToken(token, secret));\n    }\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 145,
+      "completion_tokens": 1635,
+      "total_tokens": 1780,
+      "cost": 0.000832,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000832,
+        "upstream_inference_prompt_cost": 1.45e-05,
+        "upstream_inference_completions_cost": 0.0008175
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

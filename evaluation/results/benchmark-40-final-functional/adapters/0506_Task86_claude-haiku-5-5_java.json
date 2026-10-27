@@ -1,0 +1,32 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "Task86_CLAUDE_claude_3_5_sonnet_20240620.main",
+   "target": "DownloadAndRun.main",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "void",
+    "params": [
+     "String[] args"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "String[] args"
+    ],
+    "return": "void",
+    "static": true
+   }
+  }
+ ],
+ "combo_index": 506,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-02-real/Task_086/claude-haiku-5-5/Task86_claude-haiku-5-5_java.java",
+ "artifact_sha256": "9efa4a0faa8ff9b9dc93093c188b56f9b2042d8a9564be17d05a7c60f8b51351",
+ "oracle_test_path": "src/test/java/claude/task86/Task86Test.java",
+ "oracle_test_sha256": "f9ce62afa1f6f54eccc69d3fb9877cc4e7e42f0daa4fa80708df6080d8a1a796",
+ "author": "functional.py draft_adapter (static)"
+}

@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793018128-Ux3oGqvBIYgA9rpf72Xp",
+  "finish_reason": "stop",
+  "input_tokens": 137,
+  "output_tokens": 1859,
+  "cost_usd": 0.007074,
+  "raw_response": {
+    "id": "gen-1793018128-Ux3oGqvBIYgA9rpf72Xp",
+    "object": "chat.completion",
+    "created": 1793018128,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#define _GNU_SOURCE\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <ctype.h>\n#include <curl/curl.h>\n\nstruct MemoryBuffer {\n    char *data;\n    size_t size;\n};\n\nstatic size_t write_callback(void *contents, size_t size, size_t nmemb, void *userp) {\n    size_t realsize = size * nmemb;\n    struct MemoryBuffer *mem = (struct MemoryBuffer *)userp;\n\n    char *ptr = realloc(mem->data, mem->size + realsize + 1);\n    if (!ptr) {\n        return 0;\n    }\n\n    mem->data = ptr;\n    memcpy(&(mem->data[mem->size]), contents, realsize);\n    mem->size += realsize;\n    mem->data[mem->size] = 0;\n\n    return realsize;\n}\n\nstatic const char *case_insensitive_search(const char *haystack, const char *needle) {\n    if (!haystack || !needle) return NULL;\n    size_t needle_len = strlen(needle);\n    if (needle_len == 0) return haystack;\n\n    while (*haystack) {\n        if (strncasecmp(haystack, needle, needle_len) == 0) {\n            return haystack;\n        }\n        haystack++;\n    }\n    return NULL;\n}\n\nchar *fetch_url(const char *url) {\n    CURL *curl_handle;\n    CURLcode res;\n    struct MemoryBuffer chunk;\n\n    chunk.data = malloc(1);\n    chunk.size = 0;\n\n    curl_global_init(CURL_GLOBAL_ALL);\n    curl_handle = curl_easy_init();\n\n    if (!curl_handle) {\n        free(chunk.data);\n        curl_global_cleanup();\n        return NULL;\n    }\n\n    curl_easy_setopt(curl_handle, CURLOPT_URL, url);\n    curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, write_callback);\n    curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, (void *)&chunk);\n    curl_easy_setopt(curl_handle, CURLOPT_FOLLOWLOCATION, 1L);\n    curl_easy_setopt(curl_handle, CURLOPT_USERAGENT, \"Mozilla/5.0 (compatible; TitleFetcher/1.0)\");\n    curl_easy_setopt(curl_handle, CURLOPT_SSL_VERIFYPEER, 1L);\n    curl_easy_setopt(curl_handle, CURLOPT_SSL_VERIFYHOST, 2L);\n\n    res = curl_easy_perform(curl_handle);\n\n    curl_easy_cleanup(curl_handle);\n    curl_global_cleanup();\n\n    if (res != CURLE_OK) {\n        free(chunk.data);\n        return NULL;\n    }\n\n    return chunk.data;\n}\n\nchar *extract_title(const char *html) {\n    if (!html) return NULL;\n\n    const char *title_open = case_insensitive_search(html, \"<title\");\n    if (!title_open) return NULL;\n\n    const char *content_start = strchr(title_open, '>');\n    if (!content_start) return NULL;\n    content_start++;\n\n    const char *content_end = case_insensitive_search(content_start, \"</title>\");\n    if (!content_end) return NULL;\n\n    while (content_start < content_end && isspace((unsigned char)*content_start)) {\n        content_start++;\n    }\n\n    while (content_end > content_start && isspace((unsigned char)*(content_end - 1))) {\n        content_end--;\n    }\n\n    size_t title_len = content_end - content_start;\n    char *title = malloc(title_len + 1);\n    if (!title) return NULL;\n\n    memcpy(title, content_start, title_len);\n    title[title_len] = '\\0';\n\n    return title;\n}\n\nint main(int argc, char *argv[]) {\n    if (argc < 2) {\n        fprintf(stderr, \"Usage: %s <HTTPS URL>\\n\", argv[0]);\n        return 1;\n    }\n\n    const char *url = argv[1];\n    char *html = fetch_url(url);\n    if (!html) {\n        fprintf(stderr, \"Error: Failed to fetch webpage content.\\n\");\n        return 1;\n    }\n\n    char *title = extract_title(html);\n    if (title) {\n        printf(\"%s\\n\", title);\n        free(title);\n    } else {\n        printf(\"No title found.\\n\");\n    }\n\n    free(html);\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Developing C Program**\n\nI'm currently focusing on building a C program. The core task is to take an HTTPS URL from the command line, retrieve its HTML content, and then isolate the text within the `<title>` tags. I'm ensuring all necessary libraries and error handling are included for a robust solution.\n\n**Refining Extraction Logic**\n\nI'm now concentrating on refining the HTML parsing logic. Specifically, I'm developing the `extract_title` function to accurately locate and retrieve the text content within the `<title>` tags, ensuring robustness against variations in tag formatting and whitespace.\n\n**Implementing Fetch Logic**\n\nI'm now focusing on the `fetch_url` function. This involves initializing libcurl, setting the URL, and defining a callback for writing the received data to a dynamically allocated buffer. Error handling for network operations is a priority here.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing C Program**\n\nI'm currently focusing on building a C program. The core task is to take an HTTPS URL from the command line, retrieve its HTML content, and then isolate the text within the `<title>` tags. I'm ensuring all necessary libraries and error handling are included for a robust solution.\n\n**Refining Extraction Logic**\n\nI'm now concentrating on refining the HTML parsing logic. Specifically, I'm developing the `extract_title` function to accurately locate and retrieve the text content within the `<title>` tags, ensuring robustness against variations in tag formatting and whitespace.\n\n**Implementing Fetch Logic**\n\nI'm now focusing on the `fetch_url` function. This involves initializing libcurl, setting the URL, and defining a callback for writing the received data to a dynamically allocated buffer. Error handling for network operations is a priority here.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 137,
+      "completion_tokens": 1859,
+      "total_tokens": 1996,
+      "cost": 0.007074,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.007074,
+        "upstream_inference_prompt_cost": 0.00010275,
+        "upstream_inference_completions_cost": 0.00697125
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 733,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

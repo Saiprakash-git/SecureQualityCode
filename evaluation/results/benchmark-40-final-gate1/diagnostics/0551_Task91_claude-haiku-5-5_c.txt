@@ -1,0 +1,16 @@
+Task91_claude-haiku-5-5_c.c:64:43: error: unterminated /* comment
+   64 |         if (l & 0xC0) return -1;          /* pointer or reserved bits: not allowed here
+      |                                           ^
+Task91_claude-haiku-5-5_c.c:64:88: error: expected '}'
+   64 |         if (l & 0xC0) return -1;          /* pointer or reserved bits: not allowed here
+      |                                                                                        ^
+Task91_claude-haiku-5-5_c.c:61:14: note: to match this '{'
+   61 |     for (;;) {
+      |              ^
+Task91_claude-haiku-5-5_c.c:64:88: error: expected '}'
+   64 |         if (l & 0xC0) return -1;          /* pointer or reserved bits: not allowed here
+      |                                                                                        ^
+Task91_claude-haiku-5-5_c.c:58:1: note: to match this '{'
+   58 | {
+      | ^
+3 errors generated.

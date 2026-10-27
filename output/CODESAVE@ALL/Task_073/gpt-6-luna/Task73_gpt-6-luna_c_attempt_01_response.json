@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793017888-exD0joQt5ddmKjw7MHi7",
+  "finish_reason": "stop",
+  "input_tokens": 105,
+  "output_tokens": 798,
+  "cost_usd": 0.0004095,
+  "raw_response": {
+    "id": "gen-1793017888-exD0joQt5ddmKjw7MHi7",
+    "object": "chat.completion",
+    "created": 1793017888,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <ctype.h>\n#include <stdio.h>\n#include <string.h>\n\nint is_valid_admin_password(const char *password)\n{\n    int has_upper = 0;\n    int has_lower = 0;\n    int has_digit = 0;\n    int has_special = 0;\n    size_t length;\n\n    if (password == NULL)\n        return 0;\n\n    length = strlen(password);\n    if (length < 8)\n        return 0;\n\n    for (size_t i = 0; i < length; i++) {\n        unsigned char ch = (unsigned char)password[i];\n\n        if (isupper(ch))\n            has_upper = 1;\n        else if (islower(ch))\n            has_lower = 1;\n        else if (isdigit(ch))\n            has_digit = 1;\n        else\n            has_special = 1;\n    }\n\n    return has_upper && has_lower && has_digit && has_special;\n}\n\nint main(int argc, char *argv[])\n{\n    char password[1024];\n\n    if (argc > 1) {\n        printf(\"%s\\n\", is_valid_admin_password(argv[1]) ? \"Valid\" : \"Invalid\");\n        return 0;\n    }\n\n    if (fgets(password, sizeof(password), stdin) == NULL)\n        return 1;\n\n    password[strcspn(password, \"\\r\\n\")] = '\\0';\n    printf(\"%s\\n\", is_valid_admin_password(password) ? \"Valid\" : \"Invalid\");\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Developing password validation criteria**\n\nI need to create ambiguous criteria for a C program that checks password validity for an admin user. It seems I could implement robust validation by assuming common rules: a minimum length of 8 characters, including uppercase, lowercase, digits, and special characters. The program could read the password from standard input and check if it meets those criteria. I'll design the function `is_valid_admin_password(const char*)` to return whether the password is valid and ensure the main function processes input correctly.**Designing password validation**\n\nI'm defining criteria for password validation: it must be at least 8 characters and include an uppercase letter, lowercase letter, digit, and special character. I need to read the input either via command-line arguments or `getline` and ensure portability with `fgets`. Whitespace handling is tricky; I should treat spaces as valid but also consider special characters as anything non-alphanumeric. I want the function to output \"Valid\" or \"Invalid\" while enforcing a robust policy. Setting a maximum length of 128 could be reasonable. Let's get started!**Refining input handling**\n\nI'm realizing that using command-line arguments allows for spaces with shell quotes, while using `stdin` with `fgets` strips newlines. I want to limit the input to a maximum length of 1024 characters and reject anything longer. If there's an argument provided, I'll handle that as the input. I should return either \"Valid\" or \"Invalid\" for password validation, ensuring the function accepts inputs as parameters. I need to apply the `strlen` function, making sure no credentials are echoed in the process. Let\u2019s get to writing this!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Developing password validation criteria**\n\nI need to create ambiguous criteria for a C program that checks password validity for an admin user. It seems I could implement robust validation by assuming common rules: a minimum length of 8 characters, including uppercase, lowercase, digits, and special characters. The program could read the password from standard input and check if it meets those criteria. I'll design the function `is_valid_admin_password(const char*)` to return whether the password is valid and ensure the main function processes input correctly.**Designing password validation**\n\nI'm defining criteria for password validation: it must be at least 8 characters and include an uppercase letter, lowercase letter, digit, and special character. I need to read the input either via command-line arguments or `getline` and ensure portability with `fgets`. Whitespace handling is tricky; I should treat spaces as valid but also consider special characters as anything non-alphanumeric. I want the function to output \"Valid\" or \"Invalid\" while enforcing a robust policy. Setting a maximum length of 128 could be reasonable. Let's get started!**Refining input handling**\n\nI'm realizing that using command-line arguments allows for spaces with shell quotes, while using `stdin` with `fgets` strips newlines. I want to limit the input to a maximum length of 1024 characters and reject anything longer. If there's an argument provided, I'll handle that as the input. I should return either \"Valid\" or \"Invalid\" for password validation, ensuring the function accepts inputs as parameters. I need to apply the `strlen` function, making sure no credentials are echoed in the process. Let\u2019s get to writing this!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30gn159drdu-CI-vTQWg5_TC1x11Og0EPnMhc7GTo59OQCxrgGjFq7IIjfPvL2H4to62Tltt0ekZiyKWMVcTFEqTmjCXt7qnrAi4iUz3hN_u3nbPhI52ocTDAJOFeOiAjG7w698Q-XYCzjoCBLHpKL7eMOolumdAgg1MdRw2ZmD7JgOwp2pbp2YOTe7Wbl5FbW17Z1Ay-gBXzt9_Gd_e2ncOa-chJkeF3wYQoYWILONn7vMKJUqF_0ovLUdrfFqHORMdBgkniHwbDmuQ7w4VZg_Kt3yFrvTqZMqgFY3aP8eDHVjzYXfOj6wS_8O8pSdFxV4jZf94iuWtoK3buiFBWOz_f2aedXlO2ulei-MbqCqKAukTrC3oPVFPrRQ_hSVQxzz0oplINVK6mEER9Ehq_uI47DYJQZq3vP8XNFY3anuXNKklL_z4pCmeZniYCzAX3fkQbNT1gtf8aJ-bzC5XETLIU2F8udMqri0-3RdgoZD4yhWoLOX0vDlytfT35Lq5E7YXfD9I-1jAv8Cc_JtnyMlOD1HXtdwNvtNcFjWxMq1I_hnFp2Vsnmy6TOO83Kx-oL1B9M42jVKf-t_eyG6Oc4KClFHhjddIC5wZ73TLj_PrmtTFBxVoGBz80pAHL9vuwC8SPJzyyrnS1cjFJMjS-kHL3WV6xtgZ2x1rtis7s3G_zslD3K8rlHTCC1JIkzHnTddR_ahNE1dhXmTYFxaDv2PkYArNyYqeNvuvsw_aUCeZhl32YjYOHB6onl1RaEs7jQ0ffmxTpy_eOlxBNPDeRZgMm_YMQ4W7MnSIwb1OHKqgaMPs2X0vRG9MGPZeUPsJjdDqAJltMk7_NX-KMbm5f98I3FErlNuUDfVKMBONz-9llRyRtz9CNuxsLwpNPbIESOON34f1yr88QVNzlMj5N5lgm21Qek2cRVadB2EhphRgwYAXABKFNNUPTiQ9AVGvy1OQaMcZdVOre8WHFFLIls8UuG9nRVpfCnuov3PUyYorhOThtZ4_RaWvM6q9JfQrYv8MEGfJ16SruOOoUWN6I42gNHJl3W5hfkLD0zxEaB7ez5ntjBJ6H0xKRKpZebNkSn4lp1Q431LT2BxAt18QRIZHwokprUHEhlPF0RU3jlYIwsIeVEAZTjfJDTWJ6W8uRmMIAh2ZaR9Ulsqfw-DI0rC15UOmpOs0bmPmmhhMhLDAWCaiyPFDVJR1tCbMXWsZuNNSmbPUsJnnPyJUEg3aCLaNRuSHxcYMoiYFYnsyCeqbTcAQ66-YTp9wMRdcQKLqINwFigHKrQjFJQVhfUS3M4cH0FmuKpU97cIoB6kfjQOQqd0Ecy-mdPa3U1a49cr_Vl5oHMVGvZkA7MQFHs34FZc-09CBTvYe5ZiQbT-8mmI8jNVbUA4qGy9sWveGcso8ZhykGn-Qru8_fIa5rBOLwR6o8mJp5CIQpiqiPvqaBKRS79SH4tVkiIYt8-kpPyKXWgfdXr0_Ld8CSfzx8ehaSNaBsfaaV8w2q7D8jsQkzqNsiwBw385LWO3MN86dAobfWgWcG_ly9aL2SE1FjfIB10BpjNmUChtfjkNLk8oDYp_tQhb08uBeXpVnXyHlmLjyDjI1XJRrAkEvEXA1r94q2hG4aoArANAM7ErVlX7VbdNoEuueR6qDWEIBy0Edykreq1LkUPD2OhAh9U_ueQ4FS9cEkFJpvDNllIBhQ6XyUGHBlsovvcgDFAId44okTbnbpYzxmgJTbR7b0IvWMtwNSjsoKL2xXnvNY0mGd5X9IDnmZVgDC-xPAQlk5zVtjPridnM0bqKm7NgI1fpwBZ0ULmNBK4Mx4hooKN59wg33sw_x0mxD7d5FCFpmkpGY0sPmQv-bWpw8i3GFsNw4iVHdrzje6Yjd-Bxsgzyfje2SsyYZpd_UHbBMuQDtp00mLDhJ5Maj8qG-wnYk9PDiCFm4iPxTgcX5BggsOtk7Gqeg5HqQtIwateKNdQfnkb5D9QzCc54N6rXiJo8HVsJC2mgdGrHRmfwAFtmhc2tezKGssSPCLpSLhLzod2v5nky3ekq_pFEkb6-9sn9RQsqRhjKGYxxbwepSWH6sn4UxJOjFAZqj9_dMblEf_yAJIdAg320WNf0F3y3MPJP41EFS-E7X6QbcNRkA55A-maypfQJeXYL6gMWgLfofoZlU2UOR3HjFy3Tr2Q4m9Hcd6GLaYMDMaZYHYsaVduCgZKPory7KQdoTj0vTHSrJSiWtezepsfypcNnwxcIx31JTLSUAf1jsZySBgCRqfTwDtK-IlkP-4Spg0kDO5Yke8SVXDUAeea23eF9ZAIDYW5LlzRVucn82UyqneeZAOkIVIuKEGVYgKvv2kIZCHEt93p5sx1VTWAhIrD4VbkZ-1CNbbLLMLFYfK9jh6wgHnFzG1FtOF_u-zbuW6xDRgGYrjCFhcireViLAnzxpkMU1tWGnzALxgPgHsuN2VhKs2fODWs_kTtUV2qFAxWpTQPYfpOgV9PuIFiW0WYlSiHlEdkYRd4pnGCdaMRzbR0GQQxCdI4VmebAklI3Rca8V4CuDYksH7EkXExg6EM70jTOFc9hJXi0AqqsB9-VCtwJm8IWpo9XGyt78IKIrzRYKK6zJDFc9J0e2ZAX1Lf9zKaDlkKcFw304XRgeEFy7kZQdyIZSfjzUOxd8Ln34_iZOZ4BW8xvTYAddJMh0J2BjQwEPxF0sq_4nyr-FXW-G6j8MgybtBWbBf6NqtU3flvF7yPY6vGro87yR9J0o2N2xoS9AwTltge31G7o4RdVZCfuaiKKSV9VMwL9Yqg4JTsOmy72vf51MYDrpdj_C6nvpS8wFfjIQpTSUr_JQmALJ87sCbVexA6fwuIG1XhxfW1-R6MAVO8FBg8Ax3XiIP_BJRb6F6ezWnUHRslj-WcVZLT3A3cCCJRd3DTgrKKp0-6fN_2Hn29lrmc99VC0Jxf3FS_xBZgQvzBRAb41BQ5p0a3D81_8pT3h0cuzBQ_Zv3Qazu6ZM5bhBHV_e2MezDR1MRHYv459th8PTn673IzcQpAOYD--kVlx8RTz9_onyfL1YIlqfxX5teWYw6oUCByjKaIUEFJuM-cjjgmPPe2wpQTQWdo7tm9FC810dWPLBnbVjyzSAWwocdD3ymyGQrAVGPsENN49_Fd92m7tMwAx23UgqdGBkYWF11xX_r1USb9zFbw1w_mmBAWdijOkeZyXKRWPmcgCh_pEEkos5lVyIqzcgytVqfFRAfX6JwVbqPQ19d2nJC5xunCZvmxFYfFpLN7taihqJv5rMqPYDp_GT0zTC-d4OnT7IeNUmbTPPN2HNWZu3usG929KeDCucNSD7Gg4hSeUkCZshV5o63FnriYsN9BD1D321gVqTU0zTNNAFgk14jLZ7grIEeMue9DxW5RJooPdXB3_HWo5j6H-SIBZhJit1f6IgKJzJi-NgM6AYoa-_E-lgjkE1VEcGiFWiIz56U2oyAyFKRkscK3jCfWT_FqjetN-3dAxbxJgt7XVCQFM8KItdeyqgS1VmPeztvL6OPpreZ9ruE732S8qs06xRS_SGNUv6eQnkzApAMSvpr4Rt8Wr2mU0ykLHyA173H6JBL1rFKUxij-aiFu4b48euBEUSFLakuPoG1gAijkjgbqlVf-lLTR7VHt4OdlolyOtWTU3YXg0V_P6Xd9c2vgGaBxWf--__U1zkHwoGYYAYcvK6uWkfEsWNaAjTXrNKK5HHKyHXTbvkAjbyK00nX73vKOE0HwCW19L4k5neKsdpjvkPpnPMff_Fy73EvR3iv12N0hWDZrNGPdQ2MaX8A4MyKoYnNk5wF5htd9vEHhZhG0xkLATYnAlaALzeB1qGQ1XR1xrdOJR31o96ADzy7N6PbZYSRCXnC2lYq3x4WDtWQY7AlLJI_ojjTvrB2h-yEJK3Fu8LS3zd9PkOYTCsAd6AMcYEikc28-KCapirq1PZdDpO5TBdUs0jd6p4Dc-gbumSTLZrPKHWne-nJgadcdB4fbS82CR9rMc6bTcnW1-qGWMYH-DwN2IKpNxZzMBv0rsKfprWwmQ8q2voVz4oASCkoQq0UP2BSDFKS1lWkq2ghXuIs_20fZaGWcoi8mq14xAvSKUGxg_A0oHmYrw-FF7Gstu-YzxfogSXJx17whIMwbJ0C-VO7I7cLj-y-Fl0bcz7edGjpbBHQcZUZz1YehGSVWV7m1GL1g3sk8EVg1RjO6DfJx167WxZTwLXkcp9_UbbfmyL_nAFAfPqTpP4QziBwOzhiEVvudNeZQvLP8J5UTyE4bfIkfnSyh_ETpmk_Qobhpm8rYXmBLC5LzPxbugUYdmmTp3Ek6aH1GfHRSifuunATLefAMZ_UQ2ppiYEOFXw-pik6O0T0bWeR_KC8itFp2-LJnEqQBzmieoUr82tWu7i7BoJeqd59JbosfiPd6BxYuhFlxpvJ9T9i8Oho3_5vJcNBygO07U-b6ApV-_m18qMDNZgCEG818lsoqpkuzJrPYN0TxjA2IYbEoUDUlTSkGjMotNSU2JFhoaYBj5Un7mHa44cXDUnHHfm5Yyk9hvVTE3GpXi1uqqLI6R_LbnilHhwUAp6ED_JpvIU2oUhSrTRJtdBJ1laIXnpgUyOGxImnU8EEMK0bp8G4MdODP5dSgJqAL9Iu0qba6AWjVFUdCBHtAQfNzfpF2v-R2rCWT1oSEdXnb_hRVkm1B3MtDemQWpKAHe5Jep9hrtI8MH5k3yN6-KQbc7qFBlhVqPTl4Z2qwvKrdbup6Z1U7tw-8uz0tAee7bffkVYWjG7hQ2Dx7QRY86eOkAsUnATRJOiXk41R3_Z1g-5aq6DVMxQLBGtxUYE6l3Sr02aSAALVnSP51TpOaTsw15jgxX40sKBY8EyOMINvuJVkYfFYCaggSghUOGQ9uHWm5F3Jw2v14pBwKqYieD0HC77bx_xsFKRCBBt_RJmFGWqVRTWQcrdHRJW2v6zSejDrB-_2NjAW9m9T0e4OiJtdxRKQwDI1ApMonOezNoJS-m2cuT6-jY9dlv7dLkz-m09tUTl9oJqSXzYv7gWEBJPZWxVuxWwwRGdNcGCDdgdvo4tr-0i7BpnjEHGskzs-PE2PZeU6yJv7A1ui1l-BQn0E4C3DXNp5aI2sPLs8JnuQL9XyNhCq5Sze1Bl_8TK7WACZjS5Y3-p_kD55h2uitfv3-nzIVycj2meaSlHkA_iIWuWcLNzNZok5NrNpGOrHM_5pn4TzHnNQXBT_Xk6UtuK46UQQuzMR6duIQcN4pLxelAiMSI_iSZXPASUWGHYwMBsb-nBUDXrHeeMik8_r5PPgtP9pTKzK0B3bqyIsTXnDL0gYhbeiwLbRWCTH1JmzXSWPSM4jBcEiEvgHV6dl0r_t_G-4c0_6k6Z5JWzuIwPnYTBu3R-7m97V3zLsFE852e2i-YpJpfrTtaCQ-S33TS7-KPYxMGSw5FLcymc2nVdS_M-jhlU3hNILcdymFPA1175xY8b40-g9nNLJMvozJfIj9VGYSV425n7PwcapAWhKUI3KgLzxyqR5j_XERSoosxKl-u5QnwO79SwYQuB5j41PegR-PqefmA6CDfgKiTpuH6eYyZKjixazSEgffZw2aCPqw60U0vlceg11y8UCz8FRDL2ntXB_S6bRRB7j26sitYc3HqGR1PBZEmjUFU2UCWoJ3wQ87BkqczW9AxXUQfG2OxYu8QTE6A5aSxrD5wfoBcRr1SQ_UfwSkKPloSbUJ7ESa8M-Pv-5_ezYlFrZZpGIo64cGLfVy9O6gkR7X-B_VcCaL3b9SP-OUIf1XT4jx3Q3ZyEWpX_pdi_Sepaq3m0koTFQUModO1DCBSFlZ9vt7RQUJJzdfd_BoV9GI5VIuQvtBsQz-9qGpJZXqRtvKiyEJl5sFkgBsE9asMCUoXkP2x3FwEzOfxo8E0xiS3r_iUmPMF-_GWIMi_NcXvaEpXPYIf4iQ_CQkrpOb116G65-Zwb68bv3q61hrY_MNkw7l3MtmJRpiWEHgsBgkuN7FQJoqG0u9mhxYAEWUjyIaasII0pLv9FxTUXtpoCV8sfcuBJ_jFdeEGooFijeriTjEGTxoYmOZ08GBUJHXuqK2q2YbXqS98aaX6VTbjpZzua0gHlwPmSrViSQaUb589vGe3FvZuQxO93cmoFr55izTi3A3JS9J4I1eXC6pss9L2o5M-wqc0kwifSAmhdf95wj8eMJfZ_F1jzJlIbnGI0ePU_PY2hBjlw5BcF0SbRBYkboRO1YVH58P7jOAhV1s_Laa8-Q1dVPHnvzJ1Rr3NOFq2VEcP7S26oaVAvbAAwmlpWSXG0sI0DoPC6gzKTqtErKhs0tRcd3I75OGU-ORPnYAqI3IiIuIZRPly8reoEi1IwpHuTVuC8KrQgiD8iEcuCKg49YkmvdRL-27IKsDN0e7169YYrKU_QDB4Ti7yZfpFiZM_PYHIn8C63_e_K6OB_edOVuYCyvQlwRqQR0diELAwMp1LW0RG5pSfFlBV-XX1yYKqdGlYFusTx9BVZ0cr8ZBLErpOgJoVMMT71kPCTqXBheqvlO9RZowbk-IPVuvBoaMe8_lNofm-CHHY__SmOSUQikg40PxzlRZ-s23JPK8Nfwk1R4or_k91o4SQIUoHbG8i-UxZDJM0Ow96PB5HxklMh-UEnQwcuJh5AxjXE07Cg7WWurwBOkfj4_jOqhB2ngbFIX7AmBOXRanpyWDBGOKeiMitIkP3jo-3VuAmbs62QrslKfcXGdwZjFUX-arCXQaAtuBeVHbzagxDK_SQHGHlyTumitjIodnMJ8scWurTgsarpJsulkpLVq77M4-GGqMRyJuCjc5YUKQbk4Q8ZsHcOUeEft7Q5GzE3CmlwVeWwoUdTU8K2fdhA36TzX1eSswFbpQjR3ifiRF6l7Eo_zPCtM31tyKPG_aBibyCtnHe0ZO33_5bk4qFijCdQcL2MQ25a4w0g1QerCkEirJZ6q6TCVMEMvaIl6v80nXDXdgaKMa3JD0QuHMTbY6aJxKqzlU6O78Nv553m0Ke6mVwNYM8LNxHkRMmKgO1EYCYOfHCzDJ6KqZzfalpeSXOJr3drfoCw5r9hqd4tV46R7VwFBX7tMCvIdj3GCJsT16rtvm4l5zQ65stotJotlaRCeT2yECK3bDxf5iW4FtGiBs0PnMt-F0p84OhCGec96fEKs6ibxlBuQtWOyrXTW5S_W5X1S_wMJc9gvooJutqOvCCnFN9WY2JtWn84IJ2TijGIW2uPw6Y7R_QAfffrHEnKDupyfYWtvdTBwxq2wqR3gcAtUnEFzfH2VMg4J09Jv_5u5jhSdbd14npp3mXBVnaxQBT5OPWJMidu5TXs1HMD11bHgI9XYUgs4ATZPSjCPJ-cSiDQ7DENPf20mfP4ZUO9hRYLwXO-t3KbLTszHWwiKUz9dm-lY5RADqcVjffvV3uIVmW7R-nYSm3-jMe-NVDY3t0Jg-3Bd7TPaGsPP0rIq-YF4uNq50QP12VivBa64QxV1FcxvuPnS16d_5dFu1P-6ZQvWuMQAFL6WDtUqt9JLZJ0WZd9jlnpZ44YJqi5XOREUfdfiBcOFs0VxYL9-iGyJZcAHeFGwtv1uhiOmpRowYXw6MO9kdHMcFcTdUCOePVgOPJduidMcCsv9egVCPv-pDY8N4D920nN8aKOiPVBAUxlZIyGmuYpUkx4kISbOHMsZBoiDCw0JURyFFFG-3MzJij6ke0w5nIjg-LB8gntsguQpoIXwxuyC0G89v4gdTyAXxneWQmqPNR0SVqz9ff1NrmIv6MJDPYjGupv_z-s-5-n49u-aW53neG6FR0VbsH_lkBvPCvkYaK7iGwYJrRn8lp-uf5O3dts4HLnBZdphPnDUQpmSypN70AFjvOdS2Iwh-tps3rndiaFMJ5no70I9phnKBxVkpRYycdtNdydvr9u8rRRT7rUYElgsWBaqbf58KBgqFAJhiLaA4bcw9riDyiSLv9VANt-CHWy1LdOQwfDQqN9LuaQdaWMUPDc.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_06a89586274b9400016adf482106f487d1979b3b514d9c7afb",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 105,
+      "completion_tokens": 798,
+      "total_tokens": 903,
+      "cost": 0.0004095,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0004095,
+        "upstream_inference_prompt_cost": 1.05e-05,
+        "upstream_inference_completions_cost": 0.000399
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 482,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

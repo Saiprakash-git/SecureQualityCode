@@ -1,0 +1,7 @@
+@@d1569c47216b6a77 STEP 0 BEGIN@@
+
+@@d1569c47216b6a77 STEP 0 END rc=0@@
+@@d1569c47216b6a77 STEP 1 BEGIN@@
+All tests passed!
+
+@@d1569c47216b6a77 STEP 1 END rc=0@@

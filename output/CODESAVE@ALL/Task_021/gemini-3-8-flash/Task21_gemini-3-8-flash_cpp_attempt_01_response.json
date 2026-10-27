@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793016494-wamB9ZOPVfg9Eqm5hFvl",
+  "finish_reason": "stop",
+  "input_tokens": 336,
+  "output_tokens": 823,
+  "cost_usd": 0.00333825,
+  "raw_response": {
+    "id": "gen-1793016494-wamB9ZOPVfg9Eqm5hFvl",
+    "object": "chat.completion",
+    "created": 1793016494,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <vector>\n#include <algorithm>\n#include <iostream>\n\nstd::vector<int> removeSmallest(const std::vector<int>& numbers) {\n    if (numbers.empty()) {\n        return {};\n    }\n    \n    std::vector<int> result = numbers;\n    result.erase(std::min_element(result.begin(), result.end()));\n    return result;\n}\n\nint main() {\n    std::vector<int> ex1 = {1, 2, 3, 4, 5};\n    std::vector<int> res1 = removeSmallest(ex1);\n\n    std::vector<int> ex2 = {5, 3, 2, 1, 4};\n    std::vector<int> res2 = removeSmallest(ex2);\n\n    std::vector<int> ex3 = {2, 2, 1, 2, 1};\n    std::vector<int> res3 = removeSmallest(ex3);\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Identifying Minimum Element**\n\nI've been focusing on pinpointing the absolute smallest value within the dataset. My current efforts are concentrated on ensuring I can accurately locate its initial occurrence, as that's the primary target for removal.\n\n**Constructing New Vector**\n\nMy focus has shifted to building the resulting vector. I'm currently exploring efficient methods to copy elements from the original vector while precisely excluding the identified minimum element, ensuring the original data remains untouched.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Identifying Minimum Element**\n\nI've been focusing on pinpointing the absolute smallest value within the dataset. My current efforts are concentrated on ensuring I can accurately locate its initial occurrence, as that's the primary target for removal.\n\n**Constructing New Vector**\n\nMy focus has shifted to building the resulting vector. I'm currently exploring efficient methods to copy elements from the original vector while precisely excluding the identified minimum element, ensuring the original data remains untouched.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 336,
+      "completion_tokens": 823,
+      "total_tokens": 1159,
+      "cost": 0.00333825,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00333825,
+        "upstream_inference_prompt_cost": 0.000252,
+        "upstream_inference_completions_cost": 0.00308625
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 583,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

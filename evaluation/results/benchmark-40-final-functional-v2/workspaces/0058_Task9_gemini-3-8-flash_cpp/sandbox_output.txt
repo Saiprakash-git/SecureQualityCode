@@ -1,0 +1,7 @@
+@@d481b19b2586bd13 STEP 0 BEGIN@@
+
+@@d481b19b2586bd13 STEP 0 END rc=0@@
+@@d481b19b2586bd13 STEP 1 BEGIN@@
+All test cases passed!
+
+@@d481b19b2586bd13 STEP 1 END rc=0@@

@@ -1,0 +1,47 @@
+{
+ "language": "cpp",
+ "artifact_origin": "generated",
+ "artifact_sha256": "2f574e34e0f5dc7b52315401f9cb2be57772dc72903f38f9c94a8b068bdbd52f",
+ "oracle_test_path": "tests/claude/Task18_Test.cpp",
+ "oracle_test_sha256": "a9093b13a61fbc4fe95b0fa7591bc630262b29de872fea23d7c961db8fec61e8",
+ "verdict_style": "exit_code_and_fail_lines",
+ "bindings": [
+  {
+   "canonical": "convertBinaryArrayToInt",
+   "target": "binaryArrayToInt",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "line": 14,
+   "removed": "#include \"../../source/output/claude/cpp/Task18_CLAUDE_claude-3-5-sonnet-20240620.cpp\"  // Include the header for the function",
+   "inserted": "#include \"adapter.h\"  /* adapter */"
+  }
+ ],
+ "steps": [
+  [
+   "{cxx}",
+   "-std=gnu++17",
+   "-O0",
+   "-o",
+   "{exe:test_oracle}",
+   "test_oracle.cpp",
+   "-lm",
+   "-lpthread"
+  ],
+  [
+   "{run:test_oracle}"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "adapter.h": "fd8bdef9ad534986013622083cf6ee9a1a8e6c533784ef6a7cea838e6cc79e7c",
+  "impl_under_test.cpp": "2f574e34e0f5dc7b52315401f9cb2be57772dc72903f38f9c94a8b068bdbd52f",
+  "test_oracle.cpp": "cecd2f0c2056bbb69c217ebd01f6040b396f0c3c7b2b7db03f822f2ac5b18de7"
+ }
+}

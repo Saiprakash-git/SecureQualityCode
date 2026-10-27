@@ -1,0 +1,7 @@
+@@79d9e452ae4fbe1e STEP 0 BEGIN@@
+
+@@79d9e452ae4fbe1e STEP 0 END rc=0@@
+@@79d9e452ae4fbe1e STEP 1 BEGIN@@
+All test cases passed.
+
+@@79d9e452ae4fbe1e STEP 1 END rc=0@@

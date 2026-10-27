@@ -1,0 +1,32 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "Task0_MISTRAL_codestral_latest.main",
+   "target": "FileStats.main",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "void",
+    "params": [
+     "String[] args"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "String[] args"
+    ],
+    "return": "void",
+    "static": true
+   }
+  }
+ ],
+ "combo_index": 6,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_000/claude-haiku-5-5/Task0_claude-haiku-5-5_java.java",
+ "artifact_sha256": "428077c4ce7d086ead0dd837e5ad4c73d97a14e715bfe6b17757f09be4da9c92",
+ "oracle_test_path": "src/test/java/codestral/task0/Task0_MISTRAL_codestral_latestTest.java",
+ "oracle_test_sha256": "aa755965eb6b7812fc0909aa2665ff7f92d9d2bf807f6803ab9f9801b4c0ddce",
+ "author": "functional.py draft_adapter (static)"
+}

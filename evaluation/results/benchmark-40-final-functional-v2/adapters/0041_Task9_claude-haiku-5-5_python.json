@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "oddOrEven",
+   "target": "odd_or_even",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 41,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_009/claude-haiku-5-5/Task9_claude-haiku-5-5_python.py",
+ "artifact_sha256": "f5f92462a01910e2da20de9bc25fa28222ebce527cf4f304f5924df43cbd08a9",
+ "oracle_test_path": "tests/gtp4o/Task9_OPENAI_gpt_4o/Task9_OPENAI_gpt_4o.py",
+ "oracle_test_sha256": "92c34449953b899de39f3e431054b643ff2359ad033d222902fdf51af687187d",
+ "author": "functional.py draft_adapter (static)"
+}

@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "Task25_CLAUDE_claude_3_5_sonnet_20240620.number",
+   "target": "LineNumbering.number",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 209,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_025/mistral-large-4/Task25_mistral-large-4_java.java",
+ "artifact_sha256": "ba324c95cb368b016b5c1019fa2850b4033190966eb32374658aa524f72d78e5",
+ "oracle_test_path": "src/test/java/claude/task25/Task25_TestCase.java",
+ "oracle_test_sha256": "ed0922a65a6772fb4f0d282d3e527454dec4a258322c8a9f78cb754775346c98",
+ "author": "functional.py draft_adapter (static)"
+}

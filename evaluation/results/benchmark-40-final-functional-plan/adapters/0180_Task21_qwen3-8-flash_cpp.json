@@ -1,0 +1,31 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "removeSmallest",
+   "target": "removeSmallest",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "std::vector<int>",
+    "params": [
+     "std::vector<int> numbers"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "const std::vector<int>& numbers"
+    ],
+    "return": "std::vector<int>"
+   }
+  }
+ ],
+ "combo_index": 180,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_021/qwen3-8-flash/Task21_qwen3-8-flash_cpp.cpp",
+ "artifact_sha256": "d5062226759bc0e2dfa3894e6a7ad30736f4c6b8e5165550e35581b0dc154cc6",
+ "oracle_test_path": "tests/claude/Task21_Test.cpp",
+ "oracle_test_sha256": "4d53356a7c786c82e93abeb7b701206f89bbdabde71e56a7ee832df6973f74e7",
+ "author": "functional.py draft_adapter (static)"
+}

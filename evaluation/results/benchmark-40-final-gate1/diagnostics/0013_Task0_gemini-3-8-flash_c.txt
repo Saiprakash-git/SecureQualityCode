@@ -1,0 +1,22 @@
+Task0_gemini-3-8-flash_c.c:282:13: error: use of undeclared identifier 'queue_'
+  282 |             queue_
+      |             ^
+Task0_gemini-3-8-flash_c.c:282:19: error: expected '}'
+  282 |             queue_
+      |                   ^
+Task0_gemini-3-8-flash_c.c:280:86: note: to match this '{'
+  280 |         if (pthread_create(&threads[i], NULL, worker_routine, &worker_args[i]) != 0) {
+      |                                                                                      ^
+Task0_gemini-3-8-flash_c.c:282:19: error: expected '}'
+  282 |             queue_
+      |                   ^
+Task0_gemini-3-8-flash_c.c:275:43: note: to match this '{'
+  275 |     for (int i = 0; i < NUM_WORKERS; ++i) {
+      |                                           ^
+Task0_gemini-3-8-flash_c.c:282:19: error: expected '}'
+  282 |             queue_
+      |                   ^
+Task0_gemini-3-8-flash_c.c:248:34: note: to match this '{'
+  248 | int main(int argc, char *argv[]) {
+      |                                  ^
+4 errors generated.

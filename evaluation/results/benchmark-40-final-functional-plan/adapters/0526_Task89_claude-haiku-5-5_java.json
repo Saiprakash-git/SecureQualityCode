@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "Task89_CLAUDE_claude_3_5_sonnet_20240620.checkPassword",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 526,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-02-real/Task_089/claude-haiku-5-5/Task89_claude-haiku-5-5_java.java",
+ "artifact_sha256": "08fe373a6cc78c7b229283c6d3c4a2a0a780c8ae509f410935768fd566a1d902",
+ "oracle_test_path": "src/test/java/claude/task89/Task89Test.java",
+ "oracle_test_sha256": "49d39baec6147d2f7a25e8b63d0736bf59914e5dd1b9ca3c659f43355ea15852",
+ "author": "functional.py draft_adapter (static)"
+}

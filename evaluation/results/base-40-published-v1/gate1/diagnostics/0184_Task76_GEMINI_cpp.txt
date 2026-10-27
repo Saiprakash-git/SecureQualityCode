@@ -1,0 +1,4 @@
+Task76_GEMINI_gemini-1.5-pro-001.cpp:3:10: fatal error: 'curl/curl.h' file not found
+    3 | #include <curl/curl.h>
+      |          ^~~~~~~~~~~~~
+1 error generated.

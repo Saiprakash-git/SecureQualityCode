@@ -1,0 +1,4 @@
+Task105_gpt-6-luna_cpp.cpp:3:10: fatal error: 'openssl/err.h' file not found
+    3 | #include <openssl/err.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.

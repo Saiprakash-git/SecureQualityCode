@@ -1,0 +1,4 @@
+Task67_PERPLEXITY_llama-3-sonar-large-32k-chat.c:2:10: fatal error: 'mysql/mysql.h' file not found
+    2 | #include <mysql/mysql.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.

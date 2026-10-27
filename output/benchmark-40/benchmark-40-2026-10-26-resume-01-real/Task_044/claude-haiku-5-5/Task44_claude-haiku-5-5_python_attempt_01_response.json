@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793016737-E0XXY0zAX9NJdpmA1fQf",
+  "finish_reason": "stop",
+  "input_tokens": 169,
+  "output_tokens": 1737,
+  "cost_usd": 0.0008854,
+  "raw_response": {
+    "id": "gen-1793016737-E0XXY0zAX9NJdpmA1fQf",
+    "object": "chat.completion",
+    "created": 1793016737,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import re\nimport math\nimport html\n\nMAX_INPUT_LENGTH = 1000\nALLOWED_OPERATIONS = {\"upper\", \"lower\", \"reverse\", \"word_count\", \"char_count\", \"sanitize\", \"is_palindrome\", \"evaluate_math\"}\nMATH_PATTERN = re.compile(r\"^[0-9+\\-*/().\\s]+$\")\nTEXT_PATTERN = re.compile(r\"^[\\w\\s.,!?'\\-]+$\")\nMAX_MATH_LENGTH = 100\n\n\ndef validate_text(text):\n    if not isinstance(text, str):\n        raise ValueError(\"Input must be a string.\")\n    if len(text) == 0:\n        raise ValueError(\"Input cannot be empty.\")\n    if len(text) > MAX_INPUT_LENGTH:\n        raise ValueError(f\"Input exceeds maximum length of {MAX_INPUT_LENGTH} characters.\")\n    if not TEXT_PATTERN.fullmatch(text):\n        raise ValueError(\"Input contains disallowed characters.\")\n    return text.strip()\n\n\ndef validate_operation(operation):\n    if not isinstance(operation, str):\n        raise ValueError(\"Operation must be a string.\")\n    op = operation.strip().lower()\n    if op not in ALLOWED_OPERATIONS:\n        raise ValueError(f\"Unsupported operation: {op}\")\n    return op\n\n\ndef validate_math_expression(expr):\n    if not isinstance(expr, str):\n        raise ValueError(\"Expression must be a string.\")\n    if len(expr) == 0 or len(expr) > MAX_MATH_LENGTH:\n        raise ValueError(\"Invalid expression length.\")\n    if not MATH_PATTERN.fullmatch(expr):\n        raise ValueError(\"Expression contains disallowed characters.\")\n    return expr.strip()\n\n\ndef safe_evaluate_math(expr):\n    expr = validate_math_expression(expr)\n    tokens = re.findall(r\"\\d+\\.?\\d*|[+\\-*/()]\", expr)\n    if \"\".join(tokens).replace(\" \", \"\") != expr.replace(\" \", \"\"):\n        raise ValueError(\"Malformed expression.\")\n    pos = 0\n\n    def peek():\n        return tokens[pos] if pos < len(tokens) else None\n\n    def consume():\n        nonlocal pos\n        tok = tokens[pos]\n        pos += 1\n        return tok\n\n    def parse_expression():\n        value = parse_term()\n        while peek() in (\"+\", \"-\"):\n            op = consume()\n            rhs = parse_term()\n            value = value + rhs if op == \"+\" else value - rhs\n        return value\n\n    def parse_term():\n        value = parse_factor()\n        while peek() in (\"*\", \"/\"):\n            op = consume()\n            rhs = parse_factor()\n            if op == \"*\":\n                value = value * rhs\n            else:\n                if rhs == 0:\n                    raise ValueError(\"Division by zero.\")\n                value = value / rhs\n        return value\n\n    def parse_factor():\n        tok = peek()\n        if tok == \"-\":\n            consume()\n            return -parse_factor()\n        if tok == \"(\":\n            consume()\n            value = parse_expression()\n            if peek() != \")\":\n                raise ValueError(\"Mismatched parentheses.\")\n            consume()\n            return value\n        if tok is not None and re.fullmatch(r\"\\d+\\.?\\d*\", tok):\n            consume()\n            return float(tok)\n        raise ValueError(\"Unexpected token in expression.\")\n\n    result = parse_expression()\n    if pos != len(tokens):\n        raise ValueError(\"Malformed expression.\")\n    if math.isnan(result) or math.isinf(result):\n        raise ValueError(\"Result is not a finite number.\")\n    return result\n\n\ndef perform_operation(operation, text):\n    op = validate_operation(operation)\n    if op == \"evaluate_math\":\n        return safe_evaluate_math(text)\n    clean = validate_text(text)\n    if op == \"upper\":\n        return clean.upper()\n    if op == \"lower\":\n        return clean.lower()\n    if op == \"reverse\":\n        return clean[::-1]\n    if op == \"word_count\":\n        return len(clean.split())\n    if op == \"char_count\":\n        return len(clean)\n    if op == \"sanitize\":\n        return html.escape(clean)\n    if op == \"is_palindrome\":\n        normalized = re.sub(r\"[^a-z0-9]\", \"\", clean.lower())\n        return normalized == normalized[::-1] and len(normalized) > 0\n    raise ValueError(\"Unsupported operation.\")\n\n\ndef run_cli():\n    print(\"Text Processing Tool\")\n    print(\"Operations: \" + \", \".join(sorted(ALLOWED_OPERATIONS)))\n    while True:\n        try:\n            operation = input(\"\\nEnter operation (or 'quit'): \").strip()\n            if operation.lower() in (\"quit\", \"exit\"):\n                break\n            text = input(\"Enter input: \")\n            result = perform_operation(operation, text)\n            print(\"Result:\", result)\n        except ValueError as e:\n            print(\"Error:\", e)\n        except (EOFError, KeyboardInterrupt):\n            print()\n            break\n\n\nif __name__ == \"__main__\":\n    run_cli()",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 169,
+      "completion_tokens": 1737,
+      "total_tokens": 1906,
+      "cost": 0.0008854,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008854,
+        "upstream_inference_prompt_cost": 1.69e-05,
+        "upstream_inference_completions_cost": 0.0008685
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

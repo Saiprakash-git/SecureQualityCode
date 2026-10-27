@@ -1,0 +1,18 @@
+@@b5672ac23ee65dde STEP 0 BEGIN@@
+test_duplicate_names (test_oracle.TestTask28.test_duplicate_names) ... ok
+test_five_likes (test_oracle.TestTask28.test_five_likes) ... ok
+test_four_likes (test_oracle.TestTask28.test_four_likes) ... ok
+test_long_array (test_oracle.TestTask28.test_long_array) ... ok
+test_names_with_spaces (test_oracle.TestTask28.test_names_with_spaces) ... ok
+test_no_likes (test_oracle.TestTask28.test_no_likes) ... ok
+test_one_like (test_oracle.TestTask28.test_one_like) ... ok
+test_six_likes (test_oracle.TestTask28.test_six_likes) ... ok
+test_three_likes (test_oracle.TestTask28.test_three_likes) ... ok
+test_two_likes (test_oracle.TestTask28.test_two_likes) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.001s
+
+OK
+
+@@b5672ac23ee65dde STEP 0 END rc=0@@

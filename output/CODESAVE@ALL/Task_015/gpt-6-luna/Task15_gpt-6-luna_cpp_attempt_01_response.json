@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793009662-h3nPaTprTYr6210zL8ja",
+  "finish_reason": "stop",
+  "input_tokens": 206,
+  "output_tokens": 188,
+  "cost_usd": 0.0001146,
+  "raw_response": {
+    "id": "gen-1793009662-h3nPaTprTYr6210zL8ja",
+    "object": "chat.completion",
+    "created": 1793009662,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <string>\n#include <vector>\n\nstd::vector<std::string> towerBuilder(int nFloors) {\n    std::vector<std::string> tower;\n    for (int floor = 0; floor < nFloors; ++floor) {\n        int spaces = nFloors - floor - 1;\n        int stars = 2 * floor + 1;\n        tower.push_back(std::string(spaces, ' ') + std::string(stars, '*') +\n                        std::string(spaces, ' '));\n    }\n    return tower;\n}",
+          "refusal": null,
+          "reasoning": "**Building C++ Tower Function**\n\nI'm focusing on creating a C++ function named `towerBuilder`, which takes an integer parameter `nFloors`. It should be self-contained and return a vector of strings to represent the tower. I'll ensure the function includes the necessary input parameters and produces the expected output. I might also need to consider using a namespace. It's key to make it raw and straightforward, matching the expectations for Codewars. Let\u2019s get to coding!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Building C++ Tower Function**\n\nI'm focusing on creating a C++ function named `towerBuilder`, which takes an integer parameter `nFloors`. It should be self-contained and return a vector of strings to represent the tower. I'll ensure the function includes the necessary input parameters and produces the expected output. I might also need to consider using a namespace. It's key to make it raw and straightforward, matching the expectations for Codewars. Let\u2019s get to coding!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3ygBLM8FdhnGCokqS94Y-ANimI5AZb4a1sjvILu9JeTtOXffgDJ1O21yIxJEWWHypJq8mVwi0gu-oDyxHe8bK0qj50f-PDjvrjS4lOjcArpvbdd8roG7fFndxPbfI3Bv4iBP5TjKvkqVIwhLmck8SZusLxP8PChmNUvZyksIVqsRsTAdnytCzykeROVBAY6cSXNtHIGTRE5Wh7uxw3LXQQFNllCPqdnBcEOtdPTYO8X--lSr233aPlCYCR7VNdL9mjHzGyUQz1UEV6r8nptE1bfPnma0nt_YyPmsjKJ4UxIWDfu39KK3MQr7hDzCL7i2YTzwcRPmaWWTpvYx9uDlqONVQ6EA040zmkMLbLG4n07rGf4vcd83CyhXDJ__4mBYWZ0TUIpyWjMm7eTlzoWMVQiYKVw3lN4xwBZJrWcxSXRJJWxHQpix_TOMFpq7AiDaGoY-s_wFEcA29PVI75CWbUSWFzMY7jVeaMK96wCwRG7qx75qOUSC3Gj1B1X_6QMaVJIwEN3GamXXexB2Xcs5mQUrfaB0cmhseEdOd9bUej5-kmFZ1SMwBKkmJ6-n8eQsxS1pUmXsh4x3yXii3_QPPFEoFd3gIGYxUUrq0_oDFxGEMD9921D57dpRukDHR1IJqHj83polUpKdX_rmw4txE92eiRjj33YVXHJ_qudPBGSD8CtHPH5lSwjmEvsWa1BBVW4CFse-ZbNk6g0dUic_6_Sslm_AfIMsjhv7aXiiMf_EJzHz4H7MUWSa796Wo7qb-lMhs1t0qyR3MkklP_YF6qEUAtZQqao5B4nxX2AHh1FahBZc49eCu-hOsdAuLNqE0hAA7uAb2Kh2T8_wT2vcLmcqyKVb1GflaMTVZ5A_2mpJo8T7YNljzB0vMqXYv5kfDgvXFDyk2qNu6zFGjoVIb-EUcl6g6Z_hIq2t-CBieS5MdIod2gJMLuqvtK-F_O3VR8QHz6KKO-rk_iFZHZZcf46-wbpAnmjrZ7xP4hom7JHsulFjgu2yfiuYy4vUQcM165xFSBdTR64lvEZbL12rp5FqRVr7pOOozSQfMAuzINyJXaqx1FurbBcF1JQ-HYBrfZFKNGqCBnHH0mY63aT7cGFnCnDgro88D3ejK-1OS9IQkALg-E1ORlr2p-fAoCTP0NRHExbPl7UU_M88czPrRBUvxi9GDuG4ZCEO28sN112Yc6r5q6d0M404xRPqks2aIA5Aqkrvpp17xjKdoO1gwxXEUV77xyq33clk7_jMe6m8ZzDZ0DXLhnIGWKthDiueVMkM7lh7tWicoEonZSVSZ9Jyh9y9d7MlOZrJUYMXsICpYsNKxDcYj3OrNiGvdh6NtOUClPGEhLr2kpDwA8MDaA5ho7XMHhjEa02RwBTIbftWZZNVCNwv3hLI-nig6SJHjTErcJqYlatLzqi7AiT3L86dtiYd90ouVYu48fc2cm6mrMZ62fGrQx7gd7b0Th-tMLCHCaZ1UvM7e7kDPv4SEPoHRN3vQCJhUQp6FTfWcCFsMsHxFmKGwIuhDf3Env5MfNjJgFslqGKk_gvEpAUpjzv44A0DBK3pio37Ldut3DN5CXzsco-bxEEDSkaffC0YJ7HMbtAQIrrmYYgHyZPMJZ7ONnLwLk1cJ_liz-VGBkr50J6UDYvlDDUhQLGyXh3RSTfk9v99cJrsCWGBN5xv84CjGcVtKr9qg4pIuz1H-XDvBOgtv5T4ewXfb64HrgcUJNReER5G8FMExmzkoFQP0fLILlffNE_FicLCYGsrG75Fawl30x2_8oCurz2MFmvcc-GwBqNnF4I9QVx68WmBqckiAepmHT-vmHDuZnDUFotVfa_4pEiHmveYTbfcEwyQdPsZjyhaVSR1OeGoE_GFFCjkIxzm8U-xs4RCt5uEPT23VVaa4nsU3xR15OvTo2zCzF4ynsQNdGYM_jGi9z4l-CAVbUqYGHcATGwLptF-QFchd_sf-Wd2E9u9zPVU2wO_WL48xxqJhDauYx3hxiixGP0BCnqnMrnD_hy-62UTtxtrJROpak59bufW6N6p3fc4xgAinxNOzGsp60o8LlsMhpTEZk3wW-IwQ7KbIySALLHlbVgEhyS1lzxjG54_3UuZg4bIFr96WhmR1Ec9W9Z0OMZ_Hbx1gaDYUCmn6_-V_cQlQxO2rXMdcp1rL0SbXeuW2Lgx_MSfrCjh_uB6Mxkm7co5UJA5aAfiYOaRwq532NYvLd5trPq1kcIAUvZgGm8gwR7p7fEy-Bm-0CaZFtD3CziUhZ0ICH7lvvPVkYZeEYenHZjrY7fiKlPKJoS5MBm3-evcNu20GMxcOYsAk9_vdBMne7rc2kxt3IrfqJxhTLZ3HAmVy6EHhIJ4EXukv4Ilw-93yce9eVPjkU3sHN3E7unCLOn5xdQtkYU55vGBoXHAMtNuJ7O_i_fTeM4gXU6JtWsCBvT3MgAVpRUTe8dq7NqeI-m6qRxnZplBsrxTTrsw8YQ=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0c9e5e6dd2a78358016adf27ffcae087d1892f0b0a10e5cb2b",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 206,
+      "completion_tokens": 188,
+      "total_tokens": 394,
+      "cost": 0.0001146,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001146,
+        "upstream_inference_prompt_cost": 2.06e-05,
+        "upstream_inference_completions_cost": 9.4e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 66,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

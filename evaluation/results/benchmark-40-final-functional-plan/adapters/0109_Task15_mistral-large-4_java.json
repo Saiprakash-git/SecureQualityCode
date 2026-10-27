@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "Task15_CLAUDE_claude_3_5_sonnet_20240620.towerBuilder",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 109,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_015/mistral-large-4/Task15_mistral-large-4_java.java",
+ "artifact_sha256": "254206bcf58a593f13700bb326d1ade706b74e599691d024577e261b7b7b3ae4",
+ "oracle_test_path": "src/test/java/claude/task15/Task15_TestCase.java",
+ "oracle_test_sha256": "f529ae1be44753f30a5c6e0a580c0af714bd84064bb724d388c29a2debed42dd",
+ "author": "functional.py draft_adapter (static)"
+}

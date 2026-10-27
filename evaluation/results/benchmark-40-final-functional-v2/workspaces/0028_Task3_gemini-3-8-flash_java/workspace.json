@@ -1,0 +1,60 @@
+{
+ "language": "java",
+ "artifact_origin": "generated",
+ "artifact_sha256": "ccdd94bb9dbd140be7634fcece4723888c087f7915575d94a59cd5e403813c35",
+ "oracle_test_path": "src/test/java/gtp4o/task3/Task3_TestCase.java",
+ "oracle_test_sha256": "239e48834db3a0183356982f599938d148415e6ca3d93a50de028f9c2e0933cd",
+ "verdict_style": "junit_xml",
+ "bindings": [
+  {
+   "canonical": "Task3_OPENAI_gpt_4o.isPangram",
+   "target": "PangramChecker.isPangram",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "file": "PangramChecker.java",
+   "change": "package gtp4o.task3 prepended"
+  }
+ ],
+ "steps": [
+  [
+   "{javac}",
+   "-encoding",
+   "UTF-8",
+   "-proc:none",
+   "-d",
+   "classes",
+   "-cp",
+   "{junit_jar}",
+   "gtp4o/task3/PangramChecker.java",
+   "gtp4o/task3/Task3_OPENAI_gpt_4o.java",
+   "gtp4o/task3/Task3_TestCase.java"
+  ],
+  [
+   "{java}",
+   "-jar",
+   "{junit_jar}",
+   "execute",
+   "--class-path",
+   "classes",
+   "--select-class",
+   "gtp4o.task3.Task3_TestCase",
+   "--reports-dir",
+   "reports",
+   "--disable-banner",
+   "--details=summary"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "gtp4o/task3/PangramChecker.java": "c5630ee25303f0b150fa3530c21820474e8e418eee12a1d202960e5e1f00e624",
+  "gtp4o/task3/Task3_OPENAI_gpt_4o.java": "51b917f857d89b6b5b18f7a226d4e9653b8939adf573a2ebe5d73d75573159f6",
+  "gtp4o/task3/Task3_TestCase.java": "239e48834db3a0183356982f599938d148415e6ca3d93a50de028f9c2e0933cd"
+ }
+}

@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793025560-S6quG0I7MQXjWfHh7gq8",
+  "finish_reason": "stop",
+  "input_tokens": 103,
+  "output_tokens": 1744,
+  "cost_usd": 0.00661725,
+  "raw_response": {
+    "id": "gen-1793025560-S6quG0I7MQXjWfHh7gq8",
+    "object": "chat.completion",
+    "created": 1793025560,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <stdexcept>\n#include <utility>\n\ntemplate <typename T>\nclass Queue {\nprivate:\n    struct Node {\n        T data;\n        Node* next;\n        Node(const T& value) : data(value), next(nullptr) {}\n        Node(T&& value) : data(std::move(value)), next(nullptr) {}\n    };\n\n    Node* frontNode;\n    Node* rearNode;\n    size_t count;\n\npublic:\n    Queue() : frontNode(nullptr), rearNode(nullptr), count(0) {}\n\n    ~Queue() {\n        clear();\n    }\n\n    Queue(const Queue& other) : frontNode(nullptr), rearNode(nullptr), count(0) {\n        Node* current = other.frontNode;\n        while (current != nullptr) {\n            enqueue(current->data);\n            current = current->next;\n        }\n    }\n\n    Queue& operator=(const Queue& other) {\n        if (this != &other) {\n            clear();\n            Node* current = other.frontNode;\n            while (current != nullptr) {\n                enqueue(current->data);\n                current = current->next;\n            }\n        }\n        return *this;\n    }\n\n    Queue(Queue&& other) noexcept \n        : frontNode(other.frontNode), rearNode(other.rearNode), count(other.count) {\n        other.frontNode = nullptr;\n        other.rearNode = nullptr;\n        other.count = 0;\n    }\n\n    Queue& operator=(Queue&& other) noexcept {\n        if (this != &other) {\n            clear();\n            frontNode = other.frontNode;\n            rearNode = other.rearNode;\n            count = other.count;\n            other.frontNode = nullptr;\n            other.rearNode = nullptr;\n            other.count = 0;\n        }\n        return *this;\n    }\n\n    void enqueue(const T& value) {\n        Node* newNode = new Node(value);\n        if (isEmpty()) {\n            frontNode = rearNode = newNode;\n        } else {\n            rearNode->next = newNode;\n            rearNode = newNode;\n        }\n        ++count;\n    }\n\n    void enqueue(T&& value) {\n        Node* newNode = new Node(std::move(value));\n        if (isEmpty()) {\n            frontNode = rearNode = newNode;\n        } else {\n            rearNode->next = newNode;\n            rearNode = newNode;\n        }\n        ++count;\n    }\n\n    T dequeue() {\n        if (isEmpty()) {\n            throw std::underflow_error(\"Queue is empty: cannot dequeue.\");\n        }\n        Node* temp = frontNode;\n        T data = std::move(temp->data);\n        frontNode = frontNode->next;\n        if (frontNode == nullptr) {\n            rearNode = nullptr;\n        }\n        delete temp;\n        --count;\n        return data;\n    }\n\n    const T& peek() const {\n        if (isEmpty()) {\n            throw std::underflow_error(\"Queue is empty: cannot peek.\");\n        }\n        return frontNode->data;\n    }\n\n    bool isEmpty() const {\n        return frontNode == nullptr;\n    }\n\n    size_t size() const {\n        return count;\n    }\n\n    void clear() {\n        while (!isEmpty()) {\n            dequeue();\n        }\n    }\n};\n\nint main() {\n    Queue<int> q;\n\n    std::cout << \"Enqueuing 10, 20, 30 into the queue...\\n\";\n    q.enqueue(10);\n    q.enqueue(20);\n    q.enqueue(30);\n\n    std::cout << \"Front element (peek): \" << q.peek() << \"\\n\";\n    std::cout << \"Queue size: \" << q.size() << \"\\n\";\n\n    std::cout << \"Dequeued element: \" << q.dequeue() << \"\\n\";\n    std::cout << \"Front element after dequeue: \" << q.peek() << \"\\n\";\n\n    std::cout << \"Enqueuing 40...\\n\";\n    q.enqueue(40);\n\n    std::cout << \"Emptying queue:\\n\";\n    while (!q.isEmpty()) {\n        std::cout << \"Dequeued: \" << q.dequeue() << \"\\n\";\n    }\n\n    try {\n        q.peek();\n    } catch (const std::underflow_error& e) {\n        std::cout << \"Caught expected exception on peek: \" << e.what() << \"\\n\";\n    }\n\n    try {\n        q.dequeue();\n    } catch (const std::underflow_error& e) {\n        std::cout << \"Caught expected exception on dequeue: \" << e.what() << \"\\n\";\n    }\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Developing C++ Queue**\n\nI'm currently focused on implementing a C++ queue. My plan is to provide the raw source code for a `Queue` class, ensuring it includes the necessary `enqueue`, `dequeue`, and `peek` methods. I aim to deliver a complete, self-contained solution without any additional commentary or formatting.\n\n**Designing Queue Class**\n\nI'm refining the design for my `Queue` class, leaning towards a template `Queue<T>` for flexibility. A singly linked list implementation with head and tail pointers seems most efficient for $O(1)$ operations. I'll ensure `enqueue`, `dequeue`, and `peek` methods are robust, potentially making `dequeue` return the element, and will include a `main` function for demonstration.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing C++ Queue**\n\nI'm currently focused on implementing a C++ queue. My plan is to provide the raw source code for a `Queue` class, ensuring it includes the necessary `enqueue`, `dequeue`, and `peek` methods. I aim to deliver a complete, self-contained solution without any additional commentary or formatting.\n\n**Designing Queue Class**\n\nI'm refining the design for my `Queue` class, leaning towards a template `Queue<T>` for flexibility. A singly linked list implementation with head and tail pointers seems most efficient for $O(1)$ operations. I'll ensure `enqueue`, `dequeue`, and `peek` methods are robust, potentially making `dequeue` return the element, and will include a `main` function for demonstration.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 103,
+      "completion_tokens": 1744,
+      "total_tokens": 1847,
+      "cost": 0.00661725,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00661725,
+        "upstream_inference_prompt_cost": 7.725e-05,
+        "upstream_inference_completions_cost": 0.00654
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 603,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

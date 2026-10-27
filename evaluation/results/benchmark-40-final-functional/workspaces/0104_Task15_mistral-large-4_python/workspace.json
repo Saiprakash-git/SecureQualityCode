@@ -1,0 +1,57 @@
+{
+ "language": "python",
+ "artifact_origin": "generated",
+ "artifact_sha256": "123091d50b629fed0595fc917567d811fa0d93b56309be22cad6a7fc4719e075",
+ "oracle_test_path": "tests/claude/Task15_CLAUDE_claude_3_5_sonnet_20240620/Task15_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "b4c823769ba8670a32703e0f94cc5d98b1dfcb3d5878a3aff554f9fd09606ae7",
+ "verdict_style": "unittest",
+ "bindings": [
+  {
+   "canonical": "tower_builder",
+   "target": "build_tower",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "line": 1,
+   "removed": "# from output.claude.Task15_CLAUDE_claude_3_5_sonnet_20240620 import tower_builder as tower_builder",
+   "inserted": "from adapter_bindings import *  # adapter"
+  },
+  {
+   "line": 2,
+   "removed": "# from output.codestral.Task15_MISTRAL_codestral_latest import tower_builder as tower_builder"
+  },
+  {
+   "line": 3,
+   "removed": "# from output.gemini.Task15_GEMINI_gemini_1_5_pro_001 import tower_builder as tower_builder"
+  },
+  {
+   "line": 4,
+   "removed": "# from output.gtp4o.Task15_OPENAI_gpt_4o import build_tower as tower_builder"
+  },
+  {
+   "line": 5,
+   "removed": "# from output.llama3.Task15_PERPLEXITY_llama_3_sonar_large_32k_chat import tower_builder as tower_builder"
+  }
+ ],
+ "steps": [
+  [
+   "{python}",
+   "-m",
+   "unittest",
+   "-v",
+   "test_oracle"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "adapter_bindings.py": "c57b9f181f9c69f0294f968dd6293af3ecbec89ff250d42fdb6a614ad5d90940",
+  "impl_under_test.py": "123091d50b629fed0595fc917567d811fa0d93b56309be22cad6a7fc4719e075",
+  "test_oracle.py": "6c9f0c4aa9c4622b9c87b2e6aaa65d0ae6717fed031c0cfc63f2c9bfe3eb2ecc"
+ }
+}

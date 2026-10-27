@@ -1,0 +1,7 @@
+@@5a1251087985be12 STEP 0 BEGIN@@
+
+@@5a1251087985be12 STEP 0 END rc=0@@
+@@5a1251087985be12 STEP 1 BEGIN@@
+All test cases passed.
+
+@@5a1251087985be12 STEP 1 END rc=0@@

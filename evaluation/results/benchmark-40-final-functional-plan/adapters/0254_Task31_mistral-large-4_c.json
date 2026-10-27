@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "dna_strand",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 254,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_031/mistral-large-4/Task31_mistral-large-4_c.c",
+ "artifact_sha256": "1c7db70358a408ee01623134e29b1b96cab7f73a3f32b4980a47fafaea5dab7d",
+ "oracle_test_path": "tests/claude/Task31_Test.c",
+ "oracle_test_sha256": "078a5c93045110b5cefda3d0dcc11b9e3ef6e7b0bfc6ab98cd8bd63e456aa46f",
+ "author": "functional.py draft_adapter (static)"
+}

@@ -1,0 +1,32 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "Task73_CLAUDE_claude_3_5_sonnet_20240620.isValidAdminPassword",
+   "target": "ValidationResult.isValidAdminPassword",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "boolean",
+    "params": [
+     "String password"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "String password"
+    ],
+    "return": "boolean",
+    "static": true
+   }
+  }
+ ],
+ "combo_index": 388,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_073/gemini-3-8-flash/Task73_gemini-3-8-flash_java.java",
+ "artifact_sha256": "43c8a84a34ba94bf212b06d8c813509b0c352ad6d2506aec855c5bad7bfec375",
+ "oracle_test_path": "src/test/java/claude/task73/Task73Test.java",
+ "oracle_test_sha256": "50ed19fca214d23a38121d0be7955dfcf17754044a40fb80a34f04411ccd73c0",
+ "author": "functional.py draft_adapter (static)"
+}

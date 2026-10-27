@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1793036629-qIz5anmfeOtPSKHwehzM",
+  "finish_reason": "stop",
+  "input_tokens": 155,
+  "output_tokens": 1119,
+  "cost_usd": 0.00054918,
+  "raw_response": {
+    "id": "gen-1793036629-qIz5anmfeOtPSKHwehzM",
+    "object": "chat.completion",
+    "created": 1793036629,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n\ntemplate <typename T>\nclass Queue {\nprivate:\n    struct Node {\n        T data;\n        Node* next;\n\n        Node(const T& value) : data(value), next(nullptr) {}\n    };\n\n    Node* front;\n    Node* back;\n    std::size_t count;\n\npublic:\n    Queue() : front(nullptr), back(nullptr), count(0) {}\n\n    ~Queue() {\n        while (front != nullptr) {\n            Node* temp = front;\n            front = front->next;\n            delete temp;\n        }\n    }\n\n    void enqueue(const T& value) {\n        Node* newNode = new Node(value);\n\n        if (back == nullptr) {\n            front = newNode;\n            back = newNode;\n        } else {\n            back->next = newNode;\n            back = newNode;\n        }\n\n        ++count;\n    }\n\n    bool dequeue(T& value) {\n        if (front == nullptr) {\n            return false;\n        }\n\n        value = front->data;\n        Node* temp = front;\n        front = front->next;\n\n        if (front == nullptr) {\n            back = nullptr;\n        }\n\n        delete temp;\n        --count;\n\n        return true;\n    }\n\n    bool peek(T& value) const {\n        if (front == nullptr) {\n            return false;\n        }\n\n        value = front->data;\n        return true;\n    }\n\n    bool isEmpty() const {\n        return front == nullptr;\n    }\n\n    std::size_t size() const {\n        return count;\n    }\n};\n\nint main() {\n    Queue<int> queue;\n\n    queue.enqueue(10);\n    queue.enqueue(20);\n    queue.enqueue(30);\n\n    int value;\n\n    if (queue.peek(value)) {\n        std::cout << \"Peek: \" << value << '\\n';\n    }\n\n    if (queue.dequeue(value)) {\n        std::cout << \"Dequeue: \" << value << '\\n';\n    }\n\n    if (queue.dequeue(value)) {\n        std::cout << \"Dequeue: \" << value << '\\n';\n    }\n\n    if (queue.dequeue(value)) {\n        std::cout << \"Dequeue: \" << value << '\\n';\n    }\n\n    if (!queue.dequeue(value)) {\n        std::cout << \"Queue is empty.\\n\";\n    }\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "We need answer user's request: return ONLY raw source code, no markdown fences, no explanations. Need write one complete self-contained source file in CPP implementing queue data structure with enqueue, dequeue, peek. Functions accept input as parameters and return output if any. Need likely just code. Need ensure starts first source line. Could implement class Queue with vector or linked list. Self-contained. Maybe include main? They ask program implements queue data structure with operations. Functions accept input as parameters and return output if any. Could provide class methods enqueue(int), dequeue(int&), peek(int&). Or templates. Need raw source. No markdown. Let's craft simple C++17. Include <iostream>, <queue>? Better implement own queue. Could use linked list.\n\nNeed only source code. Ensure no fences. \n\nPotential:\n#include <iostream>\n#include <memory>\n\ntemplate <typename T>\nclass Queue {\n private: struct Node { T data; Node* next; Node(const T& v): data(v), next(nullptr) {} };\n Node* head; Node* tail; size_t count;\n public: Queue(): head(nullptr), tail(nullptr), count(0) {} ~Queue(){ while(head){ Node* tmp=head; head=head->next; delete tmp; } }\n void enqueue(const T& value){ Node* node = new Node(value); if (tail) tail->next=node; else head=node; tail=node; ++count; }\n bool dequeue(T& value){ if (!head) return false; value=head->data; Node* tmp=head; head=head->next; if (!head) tail=nullptr; delete tmp; --count; return true; }\n bool peek(T& value) const { if (!head) return false; value=head->data; return true; }\n bool isEmpty() const { return head==nullptr; }\n size_t size() const { return count; }\n};\n\nint main(){ Queue<int> q; q.enqueue(10); q.enqueue(20); int v; if(q.peek(v)) std::cout << \"peek: \" << v << '\\n'; if(q.dequeue(v)) std::cout << \"dequeue: \" << v << '\\n'; if(q.dequeue(v)) std::cout << \"dequeue: \" << v << '\\n'; if(!q.dequeue(v)) std::cout << \"queue empty\\n\"; return 0; }\n\nNeed maybe all functions accept input as parameters and return output if any. enqueue takes value, dequeue takes reference output returns bool. peek takes reference output returns bool. Good.\n\nCould use exceptions? Simpler bool. Need raw code only. Ensure no markdown. final only code.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user's request: return ONLY raw source code, no markdown fences, no explanations. Need write one complete self-contained source file in CPP implementing queue data structure with enqueue, dequeue, peek. Functions accept input as parameters and return output if any. Need likely just code. Need ensure starts first source line. Could implement class Queue with vector or linked list. Self-contained. Maybe include main? They ask program implements queue data structure with operations. Functions accept input as parameters and return output if any. Could provide class methods enqueue(int), dequeue(int&), peek(int&). Or templates. Need raw source. No markdown. Let's craft simple C++17. Include <iostream>, <queue>? Better implement own queue. Could use linked list.\n\nNeed only source code. Ensure no fences. \n\nPotential:\n#include <iostream>\n#include <memory>\n\ntemplate <typename T>\nclass Queue {\n private: struct Node { T data; Node* next; Node(const T& v): data(v), next(nullptr) {} };\n Node* head; Node* tail; size_t count;\n public: Queue(): head(nullptr), tail(nullptr), count(0) {} ~Queue(){ while(head){ Node* tmp=head; head=head->next; delete tmp; } }\n void enqueue(const T& value){ Node* node = new Node(value); if (tail) tail->next=node; else head=node; tail=node; ++count; }\n bool dequeue(T& value){ if (!head) return false; value=head->data; Node* tmp=head; head=head->next; if (!head) tail=nullptr; delete tmp; --count; return true; }\n bool peek(T& value) const { if (!head) return false; value=head->data; return true; }\n bool isEmpty() const { return head==nullptr; }\n size_t size() const { return count; }\n};\n\nint main(){ Queue<int> q; q.enqueue(10); q.enqueue(20); int v; if(q.peek(v)) std::cout << \"peek: \" << v << '\\n'; if(q.dequeue(v)) std::cout << \"dequeue: \" << v << '\\n'; if(q.dequeue(v)) std::cout << \"dequeue: \" << v << '\\n'; if(!q.dequeue(v)) std::cout << \"queue empty\\n\"; return 0; }\n\nNeed maybe all functions accept input as parameters and return output if any. enqueue takes value, dequeue takes reference output returns bool. peek takes reference output returns bool. Good.\n\nCould use exceptions? Simpler bool. Need raw code only. Ensure no markdown. final only code.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 155,
+      "completion_tokens": 1119,
+      "total_tokens": 1274,
+      "cost": 0.00054918,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00054918,
+        "upstream_inference_prompt_cost": 2.325e-05,
+        "upstream_inference_completions_cost": 0.00052593
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 556,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793024202-xa0Q5DEJpcpHzYvpA8gC",
+  "finish_reason": "stop",
+  "input_tokens": 104,
+  "output_tokens": 609,
+  "cost_usd": 0.0003149,
+  "raw_response": {
+    "id": "gen-1793024202-xa0Q5DEJpcpHzYvpA8gC",
+    "object": "chat.completion",
+    "created": 1793024202,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n#include <vector>\n\nstd::string concatenate(const std::vector<std::string>& strings) {\n    std::string result;\n    for (const std::string& value : strings) {\n        result += value;\n    }\n    return result;\n}\n\nint main() {\n    std::vector<std::string> strings;\n    std::string value;\n\n    while (std::cin >> value) {\n        strings.push_back(value);\n    }\n\n    std::cout << concatenate(strings);\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Designing concatenation program**\n\nI need to create a C++ program that concatenates multiple input strings, but it seems the input format isn't specified. I wonder if I should read all lines and concatenate them. It's typical for this kind of prompt to have the user enter a number of strings, and then the strings themselves. I\u2019ll probably use `getline` until EOF to gather input. I could also use `cin >> string` to handle arbitrary whitespace. That seems promising for concatenating tokens!**Creating string concatenation program**\n\nI need to develop a program that effectively parses user input and concatenates multiple strings. There seems to be an expectation of multiple string inputs without a count. I'll probably want to create a program that reads lines while preserving spaces. It\u2019s common in programming challenges to be asked to concatenate strings received from user input. I\u2019ll define a function like `concatenate(vector<string>)`, and use `getline` until EOF to gather the input. That should cover everything well!**Implementing string concatenation**\n\nI'm thinking about how to handle the input for my string concatenation program. If the user inputs \"Hello World,\" the output could be exactly that or concatenated as \"HelloWorld.\" I should probably establish a format where the first input is a number that specifies how many strings to expect. I\u2019ll need to intelligently parse this number and concatenate the following n tokens. If the input strings are numeric, that could get tricky. A looping approach like `while(cin >> str) result += str;` seems effective for handling this! I'll create a function that accepts a vector and returns a concatenated string.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Designing concatenation program**\n\nI need to create a C++ program that concatenates multiple input strings, but it seems the input format isn't specified. I wonder if I should read all lines and concatenate them. It's typical for this kind of prompt to have the user enter a number of strings, and then the strings themselves. I\u2019ll probably use `getline` until EOF to gather input. I could also use `cin >> string` to handle arbitrary whitespace. That seems promising for concatenating tokens!**Creating string concatenation program**\n\nI need to develop a program that effectively parses user input and concatenates multiple strings. There seems to be an expectation of multiple string inputs without a count. I'll probably want to create a program that reads lines while preserving spaces. It\u2019s common in programming challenges to be asked to concatenate strings received from user input. I\u2019ll define a function like `concatenate(vector<string>)`, and use `getline` until EOF to gather the input. That should cover everything well!**Implementing string concatenation**\n\nI'm thinking about how to handle the input for my string concatenation program. If the user inputs \"Hello World,\" the output could be exactly that or concatenated as \"HelloWorld.\" I should probably establish a format where the first input is a number that specifies how many strings to expect. I\u2019ll need to intelligently parse this number and concatenate the following n tokens. If the input strings are numeric, that could get tricky. A looping approach like `while(cin >> str) result += str;` seems effective for handling this! I'll create a function that accepts a vector and returns a concatenated string.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq32DRqN1BIcjgmngA9fuB_2V7gzIAdDbep3FYPGPyQv8fCqJBWPtXlqwAzBG_aU6KM1bH2VI3ouhmHVM0DX53xDUuHVZvbIXRkGYL6nAE94aa2BNr_mSZB3uPcjh01LPQ4mulzfsMyAVVpozYU2Um4qLlQ4_bhfr-2LuAQxh6s3AXRTqdX6xFPcusZimwrex2fbALNsZRa2vsVbV3lE_9P6Ik-MmgPIbZauZ0MQdnqorjAPviRka_wDX2JzDTABZ1sRMCYdVm_h6WoCuHKpajtEk5I2JRimwT807WuX4b6KWv2tuzrd6ZRer8tE2DSJ7vYJRyOcEpNW6HByEWLgmgW2FEr5QTfSdS9WPPs7SIq1Im0aowUrXGcUNl-mwqAMlyjp3b2_a5bZ-Mp5o50aJeDHCyEukqaT3SJuSdnZUC09VqX5HXCcEyatbvMRXMa35U8tF3kQcCYPVK1GyeCgeJJS3BhwRF6xj1-wu9gMc6dK-DPQ6SnFVEhDKkK97ko3l2HViUURuPBPr5aTsi6tuQ6HPZeL8MYUw_jjMaSXL2v1jtFT_Mw98AP11uuUdqRF3y4ffoi_y74sjJo-M3zPrX_gdUHdf1X6ZMNcqbuW1d5xjLptwPuuSJ7am8S2YPorsAqQhv-wmWOIqhGWCts9MCoPBTIJ4MEGgZKg7w6kAjWZa6UCiPkWK40piro5jxHafYO_Yp9kLkZnLgaEtyPM0uwROc-WSwsqqAACm-SIS8qF2NnaFZ5u0a--jczbcBSB0N-lzJUn1iUuvqH5ZSy1VV9BDbBxAOIy_txfU7DsNn_-YgO-hXIk6lLqEzYEyOQTG98-NJ7r_EJDLra55ReVLl8Hb1EoHY4PPqroEy8o0D0hswSpR3UTzsEwbY9fQkS1p2HVaQ2Uemkky5qDhDV0h3bjbSlc7gJlCIejj9-4Q4S23jYCMFeGEn5-lkq-l8vTsf4eIusB5x8uF37-E09vUj7om2IpmgG_0RGbgZA3j0mMZ--g6SOVXSdSaEHV_1uIwNHh1xHLJSYRqvWlfUICKD6tWMnqVCDMredY1mO_7_cVS4H6qZBOkeuGO2GeawNZtqtLXlA4zirKAURBd1t4n2Oco05aeVMjTn3vTAOnx4sY0BDEPnXFSET7TQnFuu-XwFd4ca0DehRQPD4geYRloKOByTHoC8EFpPlOeyKfAG0yW7o_dVG9i-f54h8_trSAjhuDWV_eNa-3itxxHUSC0m9S8ngnkdw-v_NFt-taW3U7Uw_PtQygw18z9BayqN0XCC70Srj3NDCGr9k9e5AIp8IwhH1vLgVrZcSPifMaee3Fki9OQj6SBk0VtUcz4cSX2GlFPXSNwtruNnkcCkoNgBRei8kaussmX6eXySsgGnR_nVj46H8D32OFFkFrmzyPw-vstMB6mnfaQuNxs4XQd01X9MOyovCDQ8vfk1trDXEAEv4NimwXbC6itm34ROew8d9eJ0Uf7WRR2irjfXj438yXkpaixC_T5_m-x4hvyK6uvRNIMYDUuO2hOImfatOx-Jn30VMjojJ7vwrtQyZ7r4yB-ECLTNjeEtlGfmbz9zMi9ENQlzQ66twW4bWHwDMXCObbgSkG-Dv8ziYMtnDkBLNN0Dyrm6ijhYYZuCIvwjDOXBLvM99Z6vDdgPKgdsoByFk0sGxpihPKd49MObviuJPwP72R86fBzG-XLOMyWDVgqVP6ucTf0qotS6kYC92TILWjtp_6ugdQnIKQEMmLvTiUHXQT8DvGSm4iyY-6qn-DtfMN-HovHgXZn6ZRlIF-ki73nd55WjzxDzwZWK2ghFxLJ-CKqctQI7Del7ddc0pKV3TlPns81zUsfq5yRuzvLDAhxQefP9qwNyLKXzYGbl59QMByRRfJzBz48fxYKcVBS3VasKYO9D_sUS6qqSKuJDXJDJx295R8bWCUeFf9rGefRIkhj7GOQ5OD0N6RzLDT6lJ5rlyyvlFfdQ5dvPyem4rWaEtNhd4whtSLAg7pdRis9Yawxq9rfLW7tekIoXVxL0A-s-JN6R3wtB9VtBY1iFrchQaDWcmHPh_3uRVUa74QvtsrBFsavQ9SweNkANmVDjDsukzTlUX6DIT95IjCKf3jUSSgEXp4EehkQlcwcMdzG_g4Q3vb9Z7W3-PPJvhuz_-ZylBuwwEC6TrVAxH6X-XF5Ad4OM_SHpsEvxIuDDSRZjiyNta7WGJTW6jkVgyN6zbopFhm-Rv0eL7Ek9i4dfRt3CNE9D_hSc6dNI1AS6mQ7Am9nfLXx0MQtNeRYl97f2cw1rAA23cHse_EGqvhFOn4lhHT3uNkai3nnlY46s7wKE3UD_pamEVrDBFzsuLYwIktZOJHdCM3b9Ezg252-GedMy6A85gPw7GRViL4dEPrsQdh4PG22wK1HXPrun3nH5r7NDPzmgfix9TY5FTnR-Tjxd-XeqS5PBTCgWdejX195dtQt1PUOYnp5w3kXFPf7lo65xpieEkAEZofblnUc9vz6jo4GkcD4ixcVZ-JPdY5uERKJFXp9OjGhhc4y5wkpYpg2MQ_vjp6oO9zkszddpIgoDWujyos1tYMeouWcT8ZStV0w4ncU3sDdHxCIWCZ3Qs-hX0OKMOiCw6F8L2AxZJUErW3gthvEEMI4hwNZgXppvndok8X0461528imNCtszaDsGoFOi1AcXvR_D42Am-jP3nz1wSb4ZylvZ7_hqlO1Hhat_6Ix0vpZUE0L7iPgc34ktjjJSbiIsdg7j47p8hrsIRFGSvVhQzZyuT5u4HvFqT-kKl0aS1EKm3xHZSQUagyLjg3nb4tKuJRlcbb1S_Je4GOJPkMUSy9mezk60ikAnvVuVyZS3pdlFSPA3M2DJHJi3PBWyQDsBszpmwOF0lhfoeI_LvMHk1MYXASEsmEt7QZ8Ydx5ZZBEuwpqY6XIb2pz7MyOgqo56NgS7xMT-YxgTPMYT4Mspbv95nwKGJTv186DhL6dYBalOOBjnKtWiDDkqdnA8twxnb-82QBg7y9ssb26NL4iL84f7sSIgEDyEMzMQ7N3bHPAX6eOF4MGEVpgY2RUGSuZccJKby8i4ysPSZrgmuvsql-SIXI0j5jLCQKiylQ4M-xN5Vw8Smwx_XxvjJ8NjnS701yxOkgD5bKv3OCTw4YeevmlN3koJdKh_QoU0LsK-8DQolXajLApKYGo8gEFoDhaYNWH_FwddtHo7Eep0CDWvFc7IR-QqvwEE-mgLAzIOBqoExD8m8xaAP6-Y5mU1jX9pP2SF1IRl_LrVuAYdeKXjyOZ8MPmEi6sLKOvz8fomcVIhEOUAO0t8gVF5b_mOEJOcRfQPhl5ZduSKWVnI4i4Dzr1ClqR6QtvUAv6yN3AsQEgT5UUYIdpoBQrEruY1QlKcPAi7fsdJPPgwlS8oJxjjcRIMiZ9HIzecg4ckWiGdInSY_z3-QiFZOnxMdztJtQ0eRrHZlRefLo3od2L7jNVHkv-jo48jFiaLWhc0MTj__DhsN_uqN7adz3nmZ9_fce_uP-BWSbgSeIypJRmE0sEuxnXx37zDMXC0qJbbjhwM71lr6oToGkVnKFFA0b3j4H5tIZTYIwKOlWkCFl1nnG0uVLIXG3UvuoTIyWA2Mh6PURIdN58evAVSg0xxQrcE7Fb9pQSQrSg2K8uoAIFqyUYPGFnmcab7SQ-RuXAUCg7JtoKhsFfL6qrzimtogSgqG5CIcUMFlE1WmPmBTgI388BywwSmJlS4P423MY-Lp1sUPQPAt08yN0dD8ge5Le-K3eFyDKor5VSgAeWpRt1YR9FsA5a2PkQgYl6qaiUhl7zeC7BM8S-Zsnf28_XSYU4S01kbyrJHR_NJAR_a7HemUj4TW6Zh845bkmMv1Kc0EpVdX22JHWH_4aiz6GKBhQOm-qTjgjtBW9gsRriS4oVSLOMJRjTmRLsVFE1FWQeCuyKYCzB_P0rfixnv4xPlblQzE-Byh7SbErjdmvSor8gtSGLU-WencenTxs5hp8yvrBWneWzL5lr41la5mCDgJLkj25ZVC-gXsszne2TjxR_AZyeLk1nGpbRYnUOH3-_qGe-UbpQaEtXHGjP-_GM1c7K6w7_6Ffs46csRC0FGeo6kkPOR87ChtwEvlJ65SBUyXUeQGNO0spG4ZRcp4pD5JQX07OG7N-4WE76dpQPajFBSN5IKe1K0aTIU9tFN79-vMLQEuPKYspsaDeEgREpfxARMsu3yKx7HQzUSoZSGegeZdjiIMEfb3pSCpqEtTDG5i77ZZP8dDlGtaQzwYUwNvqEZrbufP5Q1msBVSom7hra4jTjW3TqlY77xhnwKOvF-YtzxvQx3yXKrnekEV1qyXDiyJkt42GPUXgW-g5tNUqlyxeJxt4sfrKR5jPTST7LR83ByzC9Dl7qi-9mV8ieeYER_9ldy0H3uvgTFgiel5RadvXSnvQDE9FzQydsG2igGtno133crvppLRU9azNVi9yoE2fNsL8PH_w3by7BHBXuVEd-so3x-nU6BuySuSZszBMRSxuThCHCXvHdyZDLcO32wMTOKI_AcTKTa4fZTUkuQSZJEKblWmw3ypLfk3HiXon3g_84EKRTCFBI1DKBP0bc1yJzmek5mtSUW4gqi1L4kBRJf5nWGaRshhKqLeIqOc8gB0JMiQPxBuHDgCdEsvE8NgTw6wmAGLIoM-pQkaXjJ7OdYAsx0w3tl8bIfKiJyjb0NuQ0krvDehedRsxqpxoSkWUGvCIKOo_Na3wg1qQPd0D4Y7Ot6lVbtYQl3_57emfIBfN7TzdyOIA_MNowhS0SGAd5Uo7uKumj977gwIioMYpdfyyk9oSBi_ZtcKKr89YSWEnvJ45lyAA5d6UOU1ZtsbYQv6YO0yEv2HDnHpH9XCwnVxGLBFdgfs_SJsNaUvRzD7KVdXb-iilEdZGxjL7IEWTibfV_hAJtdp_L0S_uCz14R74ZIxyYh3RHM7YWyISVAtWkiapqsUaUwa08nAHRjhr_Z_40wjAM9S7DjEeiVUq4KU2nQgGhmvQ3scDXPa4T2cBUqYnmFfVU5GhxSm_WAZWWh8V1bVnpEB-YulIx0gMfaG-YQsSTVfsqH1-A5GQQdvCTC7OP-lk0Biu7oJDSDr6LPNFXn-YTe2IYAYEAI3fxbtk9XR5rV930YgIWor8Xqka_0i0FQ23L-TteGz8amqIwTNrSLLNZp161ZarvzZRM9NngA_K-208llsLYU8sB4qESii93nvRKOIDfDoIcHgVkWf8uYQd-A0hjZ1oNtLUJyEGhG0oBpq77oOAkngNveuAsb_eQT5dgpljR9s9_v6H4VEevnaXPWonjQTncvCXvfRwKZaVyZzKVGE3oU0yTwn3SV718VP4Ue-ADMtcJNYd8jypSdpN3hOyUEKonCEzcUzGbUfqaLSZTJ-0JZuVTx6QCa-ADA6Gf4scpc4nrZkMgyi8spFBw64yunQOKPtjdF9gevtlLGg_kEEtLmsClGndoHa1JaaTY-smYxoRuapUben91yzDUveFpaPsvrGAPFlXRumjVKq__r2H3L71VOMMwAXPyx3SukJbatLA7F1EI764CYl03kz1RXN61g8MSdup1oeCCi4J5CQSYhv4a3Jo_qmcU9lTfAXMZrlT_0mqt4cxYkbGIKgV0uz56VcoUsbUrCFcQVtm3CV791YVc_weZbVl5q8ReZXDdHIk4g5HTlQA9-tkJss29Wj-1fqYwT7FOK6Fsj3SuNfuxnqgcfPK8gQxDpvoXFjy0OomFAeVkfbrG3gLKSLg-C2EOgQDZMNWUVsWWXEMeAFrwgLdR_CYSPzOYkFGMto-9Mh3mn7SpVMRGQS8SDPjZXjHtIbgU_CJ4LigcVIPphrV3lcKlBWi4U0VUCxmud8u4s1-q_BXxFwKKGcXQk8x-2rVL7HoFRCiNJgMW9stMYaf3B0Ny0puuaImvlufIwuHx4e5qxcKP2L_AuRLjK-seaDeHIfXkJHrIBYQ5aqsE_aCBO24T-nx9wYvci3Q_4KQ4l2BtzCQne5qJ56Wbwhp3Gv4lvu5XelUK_ioaCuz2tm13qUQCGD_CCz4wV8ZumyOgsW7ZbJPkZSmyfmTYRrx8KCQ0BbwlD3NG_t3WXetyFkuKD_rvoYH6hzDfq1hfmPAQwGFXRQAm4xc7TxqPK2eYJC3XcwE3FD69AFrRonqM41FDwg-6eVdxtmXcY6T0HWD3rQHFTGwygKOvE8OiXk3bKN4N5z9PmbM_vpch1YDQ02lbEuNMQjXegIHlD3XU9UNroP_gjpKrdcoaRw8pMJOuq7-0VJQiD_LsQmcWMdk6OLrU0yWOVvhTYL6TqWEuh2a8SBnmkTXSpLtOtwcmw7hLCbDOZw_Vda-wWYF9nL819Xqyxfj86a5q1PCgmgJb37W-WBnTlduZtANraAVnBssitEQWUUyU40zWDm4ZSNAX1huE3W_3Zwe4I2FooCT9kyl5msxZQxdIfNbTZtkS35xa-YajZI6a7u4Mx3uR74cSaWZ5KpMrapqbrWYrhSP5nmb4iWW6nuMDdgHl_0JUgJ4Fbp5GHMBYGTPGkb7UEkbHrBMofGFIHSkllWRupt-Ak3Mf09KYXNnjg3LQeazsgXEfD9znT9hlWnIM8bLnQuYKqcjxOqFzfdBYDL1aaAvZKxZbbzy1wlC04IPOY6LReXWvEvJjr_hvQSFWjimsxBVgxfoMlkAUzZ3aLQurW4HpgbNAVbU7DSl1eh9WrYoaFa2ZP1FEjfinRBg8YPPVQO-FC0RbPNFm96xpGsh-MBfUiH3iLtHxSm1mnDGcjwl-C1xGkrgvQ0iHhBf_uXyt3tAMECJdNIRr2LEDanFC1EPPIHYmJD1Fflp23eF4FsTmLrke5mk16I_k018OskKQZdjfsT2CvkWCbXc4yb2N2ik3WQKz0YQPWNNo9UpzHR-I22zFPOTZw9MhrpDhD-5p9OGV8Y3bhvkk-FTPMtVxs3dXnItx7ItnA4tnHJ-YonNzcosn0BZ-q2KZ4hPlKdizgSrgHGESWGiSyYzDgrzRrz8c_FU9iU2H-7I-chFwP-8f1zzN1zAYm-_8e1-6jFIioFe1tiR2KrILtRGeDa6-JFi4c_XfQqt97obUXf4DGEr2yN0ugJiCcEaCFNm-x3nYxKfdHj92TXt2raX36TLAUPqpnOWZ91cea3mKwgQYgNmQf1r8_bhtyc3eyNxgeADGeksfJri8Hoc814cqBLKnedNTajoZORWTkTG26J_PA3qSwglk_SGfkjXkaKm9VqhJMMbdHcf_jIrVzHlqXHda9mlJQWg0aTF23_v1QvLe21eaAZX34hHCHiM6k9YLg5CntS1GB-aMYJT0CmPoMBX8ZNNJCOZ3MHHeTBzT14fba3K0fI5QoGkauCImZ0iebC6lKqlcyhlt_ylVVvRE9zyt9P2Fh2CO__f24IBROsysgX4cyhqZx5TzcwXy_y_ISMNFdAbk-SkA4--1HLHfmGAQx71wPkpLhOJnGx9lz8h-el6Z3MGE2RdDBouIXj8Q7nqLbsHKM_TWpIouWBZSeQgWxBpjb69nPPec-a4CJyQdAm_5YBkdyQVJm0DCXqaTELO_X97GbFCG8ql1jQwuR74IPVHhW6d-0LjJyLGJaWFZr52hd2q6BkFYnH5jqxWkT7BvdUAyWD15EVk_HumD86-Vh9Y4gyXGTqX9v1mn82Xk8MTdbi7swtUnnI0BFKnGVYpPIXGrPHzmMLwXh2NMQvMv8tbdKZ_3PTVzCxxKD4EF9V93ZELKnFuZYSZJkBW1FmoCmvUTvjgv9tljxkkT-WQ9JOHygq2W-kuQ1LC7-3qZvpqAyk2_o6-lL6InQOsE1CCm1PcQ1pM5I-giwVpfvybsTOGskAPvck1g3wiPTELyiXWwXI-RWjKRbce4OzgrE-8xH5CdmZPVG2z_41y23bpgqVuOkCNXCRfRJLfM3P69lmB0YgAguzGZLERe6G2iXZbC1FH_i76xUV0urfcqZXvsT6zBiU767npbucqvMq9bpyUI9n6rodGBhyDqdfltqdJ0YDBRyycQyLWiu96wJYlGbiQ_uBCXk6psr9ghp2mXJ6Z4meWjqZfocZbMyfE8cROOeiCnZ2kEM3PxHTaf52JBrymro6rLbchrQXfUs5AgNUiLAa--1KrWTeqWOPEK-UgcBMyYCaoWJi046vp90nL-96nqyc0uMnp_e6gFuIVgwbqG0F0zu8QJREEyWTUchFRhlEkGqUKTeuk53JuZHV9mrznK2rTT4fVMVFJaD12B0wjwXe2IKFUIKHvnlVGDcLbkm1kPi3zDBOGwfhuBe275jnqoIlsCot-lcBrXZmcbQkyOLYLPSJPGqlXhqFFcmfmqne5SZokF_y7uKs6KxcunKEYkv1kH-BJ8WoLmtolUQz2gREEll9dXPR9NLtWul-f8Jk2XIshr3lOyMGrgHq2lP4dIkJguad0MqnV8uqCv6fq1h0nL1VfNGMtOhRjb8v6v94MVP_onItEID7f8nJwZ-qc0lFvK_--QCMiVNij1o60OVwlXN.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_02c297ce4136dc0d016adf60cb04a087d193af9bb97b321067",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 104,
+      "completion_tokens": 609,
+      "total_tokens": 713,
+      "cost": 0.0003149,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003149,
+        "upstream_inference_prompt_cost": 1.04e-05,
+        "upstream_inference_completions_cost": 0.0003045
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 493,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

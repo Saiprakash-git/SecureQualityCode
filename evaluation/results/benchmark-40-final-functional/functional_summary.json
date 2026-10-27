@@ -1,0 +1,58 @@
+{
+ "functional_status": {
+  "not_testable": 659,
+  "passed": 125,
+  "error": 16
+ },
+ "reasons": {
+  "no_oracle": 268,
+  "gate1": 196,
+  "oracle_rejected": 162,
+  "10 tests": 64,
+  "exit 0, no FAIL lines": 57,
+  "adapter: adapter status is rejected (needs human approval)": 33,
+  "crash or abnormal exit 1": 10,
+  "no JUnit report": 6,
+  "7 tests": 4
+ },
+ "oracle_status": {
+  "no_oracle": 420,
+  "rejected": 200,
+  "approved": 180
+ },
+ "adapter_status": {
+  "proposed_loose": 43,
+  "approved": 141,
+  "proposed_exact": 48,
+  "unresolved": 71,
+  "rejected": 33
+ },
+ "adapter_status_by_language": {
+  "python": {
+   "approved": 40,
+   "proposed_exact": 18,
+   "unresolved": 20,
+   "proposed_loose": 2
+  },
+  "java": {
+   "proposed_loose": 32,
+   "approved": 34,
+   "proposed_exact": 25,
+   "unresolved": 39,
+   "rejected": 15
+  },
+  "c": {
+   "approved": 27,
+   "proposed_exact": 5,
+   "unresolved": 4,
+   "rejected": 10,
+   "proposed_loose": 4
+  },
+  "cpp": {
+   "approved": 40,
+   "proposed_loose": 5,
+   "unresolved": 8,
+   "rejected": 8
+  }
+ }
+}

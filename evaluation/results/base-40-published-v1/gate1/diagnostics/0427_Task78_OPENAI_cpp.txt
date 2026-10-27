@@ -1,0 +1,4 @@
+Task78_OPENAI_gpt-4o.cpp:2:10: fatal error: 'openssl/rsa.h' file not found
+    2 | #include <openssl/rsa.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.

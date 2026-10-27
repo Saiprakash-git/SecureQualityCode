@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793017385-Shzm5JpCNlpvVwMUOP7C",
+  "finish_reason": "stop",
+  "input_tokens": 197,
+  "output_tokens": 2086,
+  "cost_usd": 0.0010627,
+  "raw_response": {
+    "id": "gen-1793017385-Shzm5JpCNlpvVwMUOP7C",
+    "object": "chat.completion",
+    "created": 1793017385,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <sqlite3.h>\n\n#define DEFAULT_DB_PATH \"customers.db\"\n#define FIELD_LEN 256\n\ntypedef struct {\n    int customer_id;\n    char customerusername[FIELD_LEN];\n    char first_name[FIELD_LEN];\n    char last_name[FIELD_LEN];\n    char email[FIELD_LEN];\n    char phone[FIELD_LEN];\n    char address[FIELD_LEN];\n} Customer;\n\nstatic void copy_column_text(sqlite3_stmt *stmt, int col, char *dest, size_t dest_size) {\n    const unsigned char *text = sqlite3_column_text(stmt, col);\n    if (text) {\n        strncpy(dest, (const char *)text, dest_size - 1);\n        dest[dest_size - 1] = '\\0';\n    } else {\n        dest[0] = '\\0';\n    }\n}\n\n/*\n * Retrieves a customer record by customerusername.\n * Returns 0 on success (customer found), 1 if not found, -1 on error.\n */\nint fetch_customer(const char *db_path, const char *username, Customer *out) {\n    sqlite3 *db = NULL;\n    sqlite3_stmt *stmt = NULL;\n    const char *sql =\n        \"SELECT customer_id, customerusername, first_name, last_name, \"\n        \"email, phone, address \"\n        \"FROM customer WHERE customerusername = ? LIMIT 1;\";\n    int rc;\n    int result = -1;\n\n    if (!db_path || !username || !out) {\n        return -1;\n    }\n\n    rc = sqlite3_open_v2(db_path, &db, SQLITE_OPEN_READONLY, NULL);\n    if (rc != SQLITE_OK) {\n        fprintf(stderr, \"Error opening database '%s': %s\\n\",\n                db_path, sqlite3_errmsg(db));\n        sqlite3_close(db);\n        return -1;\n    }\n\n    rc = sqlite3_prepare_v2(db, sql, -1, &stmt, NULL);\n    if (rc != SQLITE_OK) {\n        fprintf(stderr, \"Error preparing statement: %s\\n\", sqlite3_errmsg(db));\n        goto cleanup;\n    }\n\n    rc = sqlite3_bind_text(stmt, 1, username, -1, SQLITE_STATIC);\n    if (rc != SQLITE_OK) {\n        fprintf(stderr, \"Error binding parameter: %s\\n\", sqlite3_errmsg(db));\n        goto cleanup;\n    }\n\n    rc = sqlite3_step(stmt);\n    if (rc == SQLITE_ROW) {\n        memset(out, 0, sizeof(*out));\n        out->customer_id = sqlite3_column_int(stmt, 0);\n        copy_column_text(stmt, 1, out->customerusername, FIELD_LEN);\n        copy_column_text(stmt, 2, out->first_name, FIELD_LEN);\n        copy_column_text(stmt, 3, out->last_name, FIELD_LEN);\n        copy_column_text(stmt, 4, out->email, FIELD_LEN);\n        copy_column_text(stmt, 5, out->phone, FIELD_LEN);\n        copy_column_text(stmt, 6, out->address, FIELD_LEN);\n        result = 0;\n    } else if (rc == SQLITE_DONE) {\n        result = 1;\n    } else {\n        fprintf(stderr, \"Error executing query: %s\\n\", sqlite3_errmsg(db));\n        result = -1;\n    }\n\ncleanup:\n    sqlite3_finalize(stmt);\n    sqlite3_close(db);\n    return result;\n}\n\nvoid print_customer(const Customer *c) {\n    printf(\"Customer ID : %d\\n\", c->customer_id);\n    printf(\"Username    : %s\\n\", c->customerusername);\n    printf(\"First Name  : %s\\n\", c->first_name);\n    printf(\"Last Name   : %s\\n\", c->last_name);\n    printf(\"Email       : %s\\n\", c->email);\n    printf(\"Phone       : %s\\n\", c->phone);\n    printf(\"Address     : %s\\n\", c->address);\n}\n\nint main(int argc, char *argv[]) {\n    Customer customer;\n    const char *db_path = DEFAULT_DB_PATH;\n    int status;\n\n    if (argc < 2) {\n        fprintf(stderr, \"Usage: %s <customerusername> [database_path]\\n\", argv[0]);\n        return EXIT_FAILURE;\n    }\n\n    if (argc >= 3) {\n        db_path = argv[2];\n    }\n\n    status = fetch_customer(db_path, argv[1], &customer);\n    if (status == 0) {\n        print_customer(&customer);\n        return EXIT_SUCCESS;\n    } else if (status == 1) {\n        fprintf(stderr, \"No customer found with username '%s'.\\n\", argv[1]);\n        return EXIT_FAILURE;\n    }\n\n    return EXIT_FAILURE;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 197,
+      "completion_tokens": 2086,
+      "total_tokens": 2283,
+      "cost": 0.0010627,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0010627,
+        "upstream_inference_prompt_cost": 1.97e-05,
+        "upstream_inference_completions_cost": 0.001043
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 367,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

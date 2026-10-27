@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793009320-mlka9cDHlS18QFCgVCU9",
+  "finish_reason": "stop",
+  "input_tokens": 206,
+  "output_tokens": 251,
+  "cost_usd": 0.0001461,
+  "raw_response": {
+    "id": "gen-1793009320-mlka9cDHlS18QFCgVCU9",
+    "object": "chat.completion",
+    "created": 1793009320,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "class Kata {\n    public static String[] towerBuilder(int nFloors) {\n        String[] tower = new String[nFloors];\n        int width = 2 * nFloors - 1;\n\n        for (int floor = 0; floor < nFloors; floor++) {\n            int stars = 2 * floor + 1;\n            int spaces = (width - stars) / 2;\n            StringBuilder row = new StringBuilder(width);\n\n            for (int i = 0; i < spaces; i++) {\n                row.append(' ');\n            }\n            for (int i = 0; i < stars; i++) {\n                row.append('*');\n            }\n            for (int i = 0; i < spaces; i++) {\n                row.append(' ');\n            }\n\n            tower[floor] = row.toString();\n        }\n\n        return tower;\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Building the Java Tower**\n\nI need to focus on creating a self-contained Java source code. The expected output is for a class named `Kata` that includes a method called `towerBuilder` which takes in an integer parameter, `nFloors`. This method should return an array of strings. I\u2019ll avoid unnecessary imports like `Arrays` since it's not needed here. My focus will be strictly on implementing the `towerBuilder` function correctly and returning the right String array output.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Building the Java Tower**\n\nI need to focus on creating a self-contained Java source code. The expected output is for a class named `Kata` that includes a method called `towerBuilder` which takes in an integer parameter, `nFloors`. This method should return an array of strings. I\u2019ll avoid unnecessary imports like `Arrays` since it's not needed here. My focus will be strictly on implementing the `towerBuilder` function correctly and returning the right String array output.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3yarITZYrdY0CjdMtSc_StqMV7KihWobBFwi9LUjouhYh4BovJKTWowdO73Wvb6l1W8RLuT9d6vIjWyUD41A7X5L1H6giw5YR32x2yyVDm_m7M_8NNh6UZWiqEJ-Xger_ZtqKhmsv4GFdWEoiDlDN9qL9g-E5CfT0AhrQcLhgJGzERlgAgFBL5ombpbfzGhHtkiFRV9IxJdSunzmnbRKl7lHLqRmYAhYT9pMYTGHqpZSl-7INoarhv18SOQj06SNyHJvaN87H8WZuWygTtoTY5Q18ypo6Sp6a7zSZpl-DKuHH52p5pswciOEVjjhAr4O4KAkXb2WpO0jQyCcO9cGIQYpXvHlkNEjfgRRaWYE_0435S9SeV9PtgMtgbCJYgRXvuycMlsJUexxIpWdwJsiDbfbiVc41wD1Dn0hBrlmpPnUBsSo4Mf2EWVIl7WNlGBGpRtGDadJv2WTbR8cEYdl3tsYE4sbqsjXSM6Xzb9Azw4fDaX-2KJsyBUtZb-aWKhQJa6hHEwKMU5D8hAvwfoM0g0iqDzeYKMkB_Gec9nyTTUE3RRE5HBwiA6X32Xayed8HjsLA6uGbTRbGVfT55XZ8K5z-5rwwUKWzulRGM1kK3aX7EjLtUc9xVWE6gPCKx57BqhsRiW30Ok_fMSlyPdzQVdjsXqr8l5u-iJCqJFyVWXXKWcmcMmDssD2SYftllzZTgRNWG19E5UX2BeG_jpVWMA4gnxgbYOoAwGaJMtRSJroDJIgFo9EclvzGxGr9lvTpwkwG_T1ZDW9TCfmlLyhuxDhiPATKx-3cIjAuM9vJnrb0HzCSJWXVFWtjenO3Lzt141PLuV2wN3vGYkYpAUJHtdE2-JMFwtZl_PkdYb_uxv_mCNXUMcJyrlUvtomVFcdXe5shRYQNElLo2Trw7STOdTxVuN66OzvR52sbDTzgPBHG2wUZ9BCnofcuJTlBtY5zw3d52W79aEXEGq4IsO49WYunONZMQgabJLn74ozI1bKvub0ojbTjZNk-pPxbCUBExDnZWuMMDpuLFVeMafppgs8j0TMX73O4-xwHyNO6epW6XdI-zU4DIIie812U_czKa-odsZVn-9qhCVPyCOUCeA7aQLezjhJxQScoB9o3DL5laCSz0fjuk4jbsJNRo2fsxxxIg8HgGhuhRdyo65l2icagbHNwoBPuX-wgY6nyaR5BeVgBetLwAqo0mThPaQ5Cc2Z52-4aViJ-s38S0YM_iYvOo1cevHCVsvJmE_160iUyswSkgypcLsWAhSu0sTG8PAdeQ3pGxybuG_qu0nAQNSfDpDFpyfN7WzARlphqRJVgDrOzsEITHOcaoiIye6bXpLgi1BPZco9ukW1aiu-EIp1pkjvIjVaxTWsBM7GO0qsOqZHAQeXHIxRD6MeHVMtleAVNEe19t25VfAhEx6aNZGfMXCTFJUxJ8BoZzaUQC_JbAuT2j6pT0xwyN5oPsNChrMSEWKXtNtET0aQtqg7VIenGuhkycb0AwJR4m47SFGrqoJwrxFrMrMGIxbgEx4SSxBNJO0vr68aaY-JR98tbS5zJqU6OYMjpHwZZZhecWJD65p3Q6vv5jlYI0mizeThqgZoKFMoL8uopHpjatwwsBSN4tE0PQTGpw7j19almfNxg8Lhsle1DiVTF9-9ugkWxzaE_71q99w3ECi_Wd3xq-HQv6k0_TtyJ7P6LOG0Dt2mhb4YPgLXMXSXJN9Tj6UkrGwrE0yixF_wwG8E9R3Ew0muCP4SqO9QtOiXc2wSOCeXN_19g1Q69cuZ-9AwKi5LvH6kg1_fg7XmYR8c2RJwIT7DEQqRrP6OZyaufRDw-KfIl_1GOZ0jLefUA-Ig8ZxYLUGM72SjFEJGRt76_ACJaCduC6AAEcysiywmYXYdpMt7FHs6e7qOdrao7YN11U79QJeC37Q6AymtH6Udye5quxKln0olbZeG7-PoD8S3X72eLnlgNxbGsBKdt7Fu0JC0hr-9DoJ-BlRx2UckbcG3FFdsKUVHRmjoDnyfBxVY7qUVOvh9zRoV-4XU8PoHePEJBeoP7uRut71G0mG5XiAzfjrnO5qi8q6NNtcNNXcb5EJTE33HD49FrYig5BeRazbbs5swlnIyj19hnF3lyObmYDB4aRKd5cU6Qsa3_0qpBja_1BM9kM8VLERotW7Q5_3q6pU_p6uER_9phSjAeAod0S8fo1gU9W5jGbY1MJsR0NljVYxqNLH-8JhDaeaVtizJjyvlRh6owpGTtO6l6wjgltMFk2pvUezjR63b_LPeqNDs-meh-mKOq4uC1VIXUzLeoRJZsIwpmbWz0uBOIQF-25hR003ooHibfRIJYlnbJ1lnnCVFuEFlZghrNZe1WlsoKHexGt1-6MLO6c2xfDmAC4eQxLl2BgnVgGqITfGN6DcuoBQ=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_03ba6a76057abe5f016adf26a94c5c87d1ba33cb4cf79fea39",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 206,
+      "completion_tokens": 251,
+      "total_tokens": 457,
+      "cost": 0.0001461,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001461,
+        "upstream_inference_prompt_cost": 2.06e-05,
+        "upstream_inference_completions_cost": 0.0001255
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 63,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

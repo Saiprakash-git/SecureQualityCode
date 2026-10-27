@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793017332-bNZbupVlECXTO4v8z6bt",
+  "finish_reason": "stop",
+  "input_tokens": 141,
+  "output_tokens": 517,
+  "cost_usd": 0.0002726,
+  "raw_response": {
+    "id": "gen-1793017332-bNZbupVlECXTO4v8z6bt",
+    "object": "chat.completion",
+    "created": 1793017332,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "import argparse\nimport json\nimport os\nimport sqlite3\nfrom typing import Any, Optional\n\n\ndef get_customer(customerusername: str, database_path: str = \"customers.db\") -> Optional[dict[str, Any]]:\n    \"\"\"Return the matching customer row as a dictionary, or None if not found.\"\"\"\n    with sqlite3.connect(database_path) as connection:\n        connection.row_factory = sqlite3.Row\n        row = connection.execute(\n            \"SELECT * FROM customer WHERE customerusername = ? LIMIT 1\",\n            (customerusername,),\n        ).fetchone()\n        return dict(row) if row is not None else None\n\n\ndef main(argv: Optional[list[str]] = None) -> int:\n    parser = argparse.ArgumentParser(description=\"Retrieve a customer by username.\")\n    parser.add_argument(\"customerusername\", help=\"Username of the customer to retrieve\")\n    parser.add_argument(\n        \"--database\",\n        default=os.environ.get(\"CUSTOMER_DATABASE\", \"customers.db\"),\n        help=\"Path to the SQLite database (default: customers.db or CUSTOMER_DATABASE)\",\n    )\n    args = parser.parse_args(argv)\n\n    customer = get_customer(args.customerusername, args.database)\n    print(json.dumps(customer, ensure_ascii=False))\n    return 0\n\n\nif __name__ == \"__main__\":\n    raise SystemExit(main())",
+          "refusal": null,
+          "reasoning": "**Creating a source file for customer data**\n\nI need to create a source file and make some assumptions about the database, probably using SQLite. I could write a Python program to retrieve customer info from a table based on a command-line argument for the customer username. The database configuration should be sensible; perhaps I can use a default name like customers.db. I want to structure the output properly and handle errors, maybe returning None for missing tables. There's a chance users might prefer MySQL, but SQLite seems reasonable.**Defining the customer fetch function**\n\nI\u2019m planning to use SQLite for this task and implement a command-line interface where I can take a username argument. I'd like to make the database path optional, possibly using an environment variable or a second argument. I need to define a function to fetch customer data based on the connection and ensure that it can handle cases where there\u2019s no match by raising errors naturally. I\u2019m thinking of printing the output in JSON format or returning an object. Let's make this happen!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Creating a source file for customer data**\n\nI need to create a source file and make some assumptions about the database, probably using SQLite. I could write a Python program to retrieve customer info from a table based on a command-line argument for the customer username. The database configuration should be sensible; perhaps I can use a default name like customers.db. I want to structure the output properly and handle errors, maybe returning None for missing tables. There's a chance users might prefer MySQL, but SQLite seems reasonable.**Defining the customer fetch function**\n\nI\u2019m planning to use SQLite for this task and implement a command-line interface where I can take a username argument. I'd like to make the database path optional, possibly using an environment variable or a second argument. I need to define a function to fetch customer data based on the connection and ensure that it can handle cases where there\u2019s no match by raising errors naturally. I\u2019m thinking of printing the output in JSON format or returning an object. Let's make this happen!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30X5-PsmRlHVZO6WpJ_oGpCY2ZfMTZiDBwggWjIv4MrDSZUNyV-oDiq7eFbuII21srC6i3wcy85HBcIVzxltap7SE-VfZlJ_owf2ITTNZwE9JVQ3BnOzwy959jOeIUcxbWOTMs7B036JF-CUkvO80PeFWl02OWj7Lrn27Hx1C1GAODmQFpKFs_5vLsuyyRgX3L23yJ5ye8QCn-cBBTfi40Y_i-WZvO7gAaekPakhoSdo9-relmafdaKrV8zmR9h2GciSuEsPFMICyukh8MVFymuo2vgxs1PD8HGLHZjjA_hL_SN_idBuFn3-HOdaRAnX1WL3D8PtpHnLHq6tfm38gXYdXXcwHBl-VFUGuwlpSzGxOmqQtMZB_5sgSV0E97rUE30yljuC4Bt8tG8QkSWFRbW89XdmV7LNyXhBYcvRLZHB2xkgmgIORcYrTEOfvDOumsWQP8AShZ8l9GRwMJjN1AcA-Y_0bdREs8HmQZgdTCsy4_y9We5XHhpr7TgmHzBPmsMz07mAN6eY2xzYPymzCFpd6uZKnZMNlhEOZaBPTdpNC2PsndSGViLqdWG2C1Bh_FlUcOPExGO9T58Su0wohVzPintAqmEDE1ImjJXSWWnKHqPfnsMMpYKDliC0TDuVPNZaaz3N7hoY6e0oXqcM6Mx0zS97dg4HA0VqN0tSAoiPMkiAALu7n4ma40RI18MEJPgPcRbQAqyYO8fIqGRqD1wGZMbyfxfImeJaLUIgbRh5fSRjw2cjDQOkB0_3NCbGgEcJsZU6nxtq51_9Wm793WkNxXoogriPXFCNkXvOxW6pbWAFj8fZSB_yMVtAwuSrXNshwA2PGRqG8T3Ta_Fms_eULVBWjg6d7CHN5QSi8VtptLb8KomY9rCoNdvdI9k4VLyWbPeVI8EEzi5mGcJX3GSsRlgXQWd-wseJBNmbjY6qpgjdVhBTekbGmJAEyWw9dhbZvgH9wpwOyObLzV3LJSRtd5mHvrZA7briByObbb83mzz4q1o55JvCzU-Zthlq0rzNiKaY5SSoDZx4RVpez-OoLriSXBrNPwfvoBady80LibXMgyxxexrXamuKOUKk_-1coY6iQD5lGpXK3l7X47F1pHo2W1oAkF_-zksrYckM0KNPhJ5C1vTky7Ev7v2yrOXPPtdd52YWmTpZ56GgWRsUpCDv1-p2VvTvs9tFGvrdY1UjppS4vOmL5v_UzXO_nFoXL8ZskQlVbUiMIhK8vi7ozvkfZtElVtVxHxw9lgCi6GQ_oTfUs46XTynl1F3xEHs47fDftpKHhnDykJ3joI5WUptZsV8nu8FqTHrflRFpV3R2bciqwN4qUM88hUGg5MEGwti7q00MYfVCLkfkkmi0B1BOKaR_fIyiNErllH9YBQ7Bo2bkCH1z9Jsc8KheVT9DhcCZgyefOCaaiMDJC543-zuUOhjPEO4JzVPvnDgK2VNUFXoiCEwlc_DNCbk54P7bkQYBAEMJfRJA480SO3UvU3H6w4bKH-br5eScH8JwuhsE7C2HRTQGDzQl7SrTROwtir-PILqIeL9dvoPE7j1IvHMijquTiRXr8TQvs90era9TvVurTScqix12gv4zDdRA3PksK1S6L1LQVUGAnxs_yf8DM7dikNnK286pHX9aCFvtWK5WbcMdqoMpgLwm4DcJs9_ZmGF2FMsGl8eZ7jG9k07q-YbwYqSupN3IoCoeuXCdDUiM3oZHlas2c0WH09NvMXgT7C1mKL5X5LKa9Lvu7pNs5qFduxdO5q8MK9vPW6w0qeRRtAqMuEeMdQ4jlgKZT9OlOpoIe-fa3DqzzZhimv9RIcSq5XuGuBLDN8tkt16GoBf3Q4UeyhJEIyBoTGoGfI1HELyQb1Nun6G-G-QYs5X0K-pHHHYssfquxA9YDZoz4tsLxipSYmc-_NOoP5xtWks3qxfJaOWBOKlLMmvsngetTOwZCTfANF0eYFi3IBywr25NvSBt2RM5dksc-uJ7kaD3PrUtNU0MZousqxjB3fCAZ2iuZQN6JTe2muz3d_PDVd9sjzGCX4E7fKdSRqOKIOgiXgSTNP9v_WlomXfO71rWtuoix22sfCIqxcAevLe8UlPVNm0coMn6SiLyik89b_MzH2gc6oiGP4qEE5S2Pb2Xm9h5h20iRWf5xDhsa32FU2hUWzcJg5NR0gbqa3CxHVoRMg7CfAOm2seEA2ma5WWxYwhH3IeaR7_bMZa5gtbyMzH_TgxPoSx46EMHK4rYZ2swJwL8TFjzzpQxopKdljj91VrbUK-BgIGNuxR4gFNDwdpWBuX0635U-M_e1Ga1xoNqjsKIFv5v6wxDcL23E2A8fgfK1MRhlpvJsc9xFHmL6mFmOYmTrIoQtmyo5cL83oE6tb9bSITfFvkX5JBreT_PMVPEONSAnUP3zejR4usJ7PaPlRBY3cSTPRp868YiEvuQxeKVx39TgGBHq6-j-eiEDk3ckocozM75EaTst0WkpG5dWOLyTSPImrSJdjbc55oqJVj9ak-r6uo88IWhW_AkVWBWu_cmhhl7UCnOl-Xj7vSfv1P3JF7I5cS_avm9NSuI0n_xUX98Tm9XTtCqZeneumAl6hf9yksMjVsB2_wJlOaY-xd1CtSKP9PhRgUv12UiXkVqJsTR2mZOz96XM3LnG6UAabifxMNdiPwvraQ2UQ055uyS8LQF_LdiMFOnf6_y437c9WDqAmFYATI_mlfS-7j5-MH3MbXT3FtQiiklC-Ps0-YB93Mc0GuHx2PW4k1ifQqXo9hn34HwqIlAj0Xll93yrR5We5H7UJDgQNzlZ22hIqGkU7JtjNJQUtvlnPwqOUot_DgqDifKrcfFHm7Nl8iXAcf0l4Xpor-bGkcgYNS_kI9SDNTvplmlhnevPx3vMbhrblLMvj2hdbZqxqDKoEC7IGYXfFRIR7XJV0HTxsaiDL4bhhfzZQIRyYR75wZKOVLfJUMeB3ynoqCYnXI3437eGAu9C0qIqQLxWqQPuv-YkrcbdqVAG5WBX96XWrafOLY2OTzg9WyzefOyUvOTWpE9c7f9n_NlK7w3Hivbu-COYuGaBhIA6fCFYEYLXNxp-SxJOhfMHOV3G2YskeuMlPHZiSH3iN-lDQATN54IGhl0gwKpxJMAMnz-1-vhLjuqIXTo7uHuxF0C57N0vAg8zIpKvThiBvKEAFfRY7tiwzpZpq9w4fAm-UW0FFYytJOHMshZaesNKE6R7Y1xToHfjbhH6AD-4z67JPjtjOE96yZABLw-xxODM_HkTzBM8-1NENLs2YMNbx1UJnp9O2JDBlebTVtfpoyHiwJ8WI82xmMocGm-nQ5jMf28W8pVnQgg_eMp49ysK-SnmH9IsGQILCVz2dA1jRYchTEQ9kATtar4k68HLl3cKvIbe_jxbhw-mI0qxNt24c4u9x3mdvG0gNnihe_QnW7FIJgChvZdrt4aRN4jmAsiMuqNIB_mLIWxDGcTtvsGRIajI_0DL02bCRqtrsrB_4b6fU1a9u-w2fQlIoMu3qwB5naI3Br97J7jQcXvz1EMO6rFnsH3Mb3SxICENdv_15EwcwX20mvZYU71IyxtVWZJViMZ1HR1OTJ-6sTVa_arBqGo_yTHZcZJhZF4TKIOpu6HQQc4drJniJEPqz3tC2BHnasQWIGro0p4Y7PWUb54yWyddcn72tPYG-BWPQBJt-NUevsCgQ-AiPXXGM2ZTv_pgneRM32_Rj8MtMAEvvE8xjT1a45phLUIrRtoS4_M1hxMxFCzLoHj7IGXUTvbuvFupKYA5rfjtLRF8YHBUywo375Hks15vQ19pmr5Xg7uxYYogBteqyy4pMmM7orNvjypvxpBEU0qfzb-B-kvCULDyvmuq0X8Ot3gOJy5BbV6MTI9FfMQNOqRytVokGlqslaZSm-s_UpqUYbWJEU6WuF9WHqznDwV11l120P0kyv-5KyUEWjQnyQou6Kirzunycl0KNbNjz5MdDNIwfZMZgefdj84IBFzoQ6VvCqtswpS-67oTzPIO7L76Bc4ArMUjde7sVGV5yDDSfRTTje0zqKuFN0bDTBqlDzqczjh3Bij3RmdmkB_dIUGZ5NvBWe7WX284seTDq5jfjjLTXBJIhkQFLYKcuu7MYKaWeM5iCRqNM_E_rOl4KFLCW50ZECq6EwBQjaOtDYx1mPVqvrG3yksuvN4bSidczMKub7pK_GIeZJPjCdxRihsgzefH1aS_0DMcEWggpE5wABFJPwLbW1SAoDBLi8q9Ji8gKMWvMFoVe750f9Wj7JgdpJZqYn2mCfYGYzJEnGuIpIPsVJd6OF_421a4L7cA06Aqen9EirWC9N_lFzMuP7A8RAXuTuVsBRyx-a9xHeA9lcH7Gv9eWgX1IdRvWmFsvQsMyyDr3O2nT6Pvr58rkiMPk_WZbgLsuNf-xVl-mUvH3s3oPeCz-Dlun8jhw23HLyJyvS9WL1GxvaXTBAks1KwOP5HBoTiun-DvPXOlf1wg0wvxGzsORoxQvnCvvMeW_tGjVC7U14P3HZOvp7Xa6n0DlLEetaBt36NxscQ4bI_xuhfPHGnraezfJMqEU-NRc185MsWDboK3ljornyOPvcDxbtDN_Fnbh1WyqfnHU-E2IKWYhy7G1fpfMAkwNNxK-FTotXMryIeqx2TFAop3qLHKbBdq9CaJ4xf1jPVvRgeuIrq95S1pHq9zyj-x_9etJ097B7u0UJFcUVxR15GgzrqiVz_LeA0fAgF9dupsPnIPIKV8vgAcYShZxpWXBot0M66Q0wJcgIrHNNhzMVpnw04lPqXx2i5fREvtKxjxMsrNryZE3CFtHtF2gf6Yl9RW57pZeA5WfCOouROaTlwV1Dpr2QA0DLUMOkZBZsVCrWHy40tZYraqxwU3matX1gAorZ3TRPS6hLYBys4tE5_4v0o8L0zFCufVOsxMDNsQcqMkzxzR4bnJTUtP6FuCjd-UG4mtrlD3c3yukZayxqPIzFnppTua5gEtcfOFUjxs32KsXMdka-f88sODCigFdis_MyTlolfF7CRzyMOW-ur9mZY3nEbi-XeIdx_8YvdmdMk.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_01554dbf039a2adb016adf45f50c4c87d1bd9fb3d356154582",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 141,
+      "completion_tokens": 517,
+      "total_tokens": 658,
+      "cost": 0.0002726,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002726,
+        "upstream_inference_prompt_cost": 1.41e-05,
+        "upstream_inference_completions_cost": 0.0002585
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 249,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

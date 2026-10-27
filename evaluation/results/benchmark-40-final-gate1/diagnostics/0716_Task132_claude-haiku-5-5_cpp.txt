@@ -1,0 +1,4 @@
+Task132_claude-haiku-5-5_cpp.cpp:26:13: warning: unused function 'parseSeverity' [-Wunused-function]
+   26 | static bool parseSeverity(const std::string& s, Severity& out) {
+      |             ^~~~~~~~~~~~~
+1 warning generated.

@@ -1,0 +1,4 @@
+Task76_mistral-large-4_cpp.cpp:3:10: fatal error: 'curl/curl.h' file not found
+    3 | #include <curl/curl.h>
+      |          ^~~~~~~~~~~~~
+1 error generated.

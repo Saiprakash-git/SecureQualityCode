@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793025271-GeCzhxazOIvLSjICNkrN",
+  "finish_reason": "stop",
+  "input_tokens": 103,
+  "output_tokens": 906,
+  "cost_usd": 0.00347475,
+  "raw_response": {
+    "id": "gen-1793025271-GeCzhxazOIvLSjICNkrN",
+    "object": "chat.completion",
+    "created": 1793025271,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <vector>\n#include <algorithm>\n\nstd::vector<int> sortAscending(std::vector<int> arr) {\n    std::sort(arr.begin(), arr.end());\n    return arr;\n}\n\nint main() {\n    int n;\n    if (!(std::cin >> n)) {\n        return 0;\n    }\n\n    std::vector<int> arr(n);\n    for (int i = 0; i < n; ++i) {\n        std::cin >> arr[i];\n    }\n\n    std::vector<int> sortedArr = sortAscending(arr);\n\n    for (int i = 0; i < n; ++i) {\n        std::cout << sortedArr[i] << (i + 1 < n ? \" \" : \"\");\n    }\n    std::cout << \"\\n\";\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Refining Processing Logic**\n\nI'm currently focusing on refining the core processing logic. My thoughts are centering on how best to structure the input parameters and ensure robust output handling for each function. I'm exploring different approaches to achieve maximum efficiency and clarity in the code.\n\n**Developing Sorting Functionality**\n\nI'm now focusing on implementing the core sorting function. My current thoughts are on designing `std::vector<int> sortAscending(std::vector<int> arr)` to cleanly handle input and return the sorted vector as specified. I'm considering how to best incorporate `std::sort` for efficiency and idiomatic C++.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Refining Processing Logic**\n\nI'm currently focusing on refining the core processing logic. My thoughts are centering on how best to structure the input parameters and ensure robust output handling for each function. I'm exploring different approaches to achieve maximum efficiency and clarity in the code.\n\n**Developing Sorting Functionality**\n\nI'm now focusing on implementing the core sorting function. My current thoughts are on designing `std::vector<int> sortAscending(std::vector<int> arr)` to cleanly handle input and return the sorted vector as specified. I'm considering how to best incorporate `std::sort` for efficiency and idiomatic C++.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 103,
+      "completion_tokens": 906,
+      "total_tokens": 1009,
+      "cost": 0.00347475,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00347475,
+        "upstream_inference_prompt_cost": 7.725e-05,
+        "upstream_inference_completions_cost": 0.0033975
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 696,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

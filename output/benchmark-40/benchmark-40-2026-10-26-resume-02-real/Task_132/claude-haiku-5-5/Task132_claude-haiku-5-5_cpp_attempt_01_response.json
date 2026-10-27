@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793025162-AhkxoBv3aUV8vr2ShfLk",
+  "finish_reason": "stop",
+  "input_tokens": 145,
+  "output_tokens": 2979,
+  "cost_usd": 0.001504,
+  "raw_response": {
+    "id": "gen-1793025162-AhkxoBv3aUV8vr2ShfLk",
+    "object": "chat.completion",
+    "created": 1793025162,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <fstream>\n#include <sstream>\n#include <string>\n#include <vector>\n#include <map>\n#include <deque>\n#include <ctime>\n#include <iomanip>\n#include <algorithm>\n#include <mutex>\n\nenum class Severity { INFO = 0, LOW, MEDIUM, HIGH, CRITICAL };\n\nstatic std::string severityToString(Severity s) {\n    switch (s) {\n        case Severity::INFO: return \"INFO\";\n        case Severity::LOW: return \"LOW\";\n        case Severity::MEDIUM: return \"MEDIUM\";\n        case Severity::HIGH: return \"HIGH\";\n        case Severity::CRITICAL: return \"CRITICAL\";\n    }\n    return \"UNKNOWN\";\n}\n\nstatic bool parseSeverity(const std::string& s, Severity& out) {\n    std::string u = s;\n    std::transform(u.begin(), u.end(), u.begin(), ::toupper);\n    if (u == \"INFO\") out = Severity::INFO;\n    else if (u == \"LOW\") out = Severity::LOW;\n    else if (u == \"MEDIUM\") out = Severity::MEDIUM;\n    else if (u == \"HIGH\") out = Severity::HIGH;\n    else if (u == \"CRITICAL\") out = Severity::CRITICAL;\n    else return false;\n    return true;\n}\n\nstruct SecurityEvent {\n    std::time_t timestamp;\n    std::string source;\n    std::string type;\n    std::string user;\n    std::string ip;\n    Severity severity;\n    std::string description;\n};\n\nstatic std::string formatTime(std::time_t t) {\n    std::tm tm{};\n#if defined(_WIN32)\n    localtime_s(&tm, &t);\n#else\n    localtime_r(&t, &tm);\n#endif\n    std::ostringstream oss;\n    oss << std::put_time(&tm, \"%Y-%m-%d %H:%M:%S\");\n    return oss.str();\n}\n\nstatic std::string formatEvent(const SecurityEvent& e) {\n    std::ostringstream oss;\n    oss << \"[\" << formatTime(e.timestamp) << \"] \"\n        << \"[\" << severityToString(e.severity) << \"] \"\n        << e.source << \" | \" << e.type\n        << \" | user=\" << (e.user.empty() ? \"-\" : e.user)\n        << \" | ip=\" << (e.ip.empty() ? \"-\" : e.ip)\n        << \" | \" << e.description;\n    return oss.str();\n}\n\nclass SecurityLogger {\npublic:\n    explicit SecurityLogger(const std::string& logPath) : path(logPath) {}\n\n    bool log(const SecurityEvent& e) {\n        std::lock_guard<std::mutex> lock(mtx);\n        std::ofstream out(path, std::ios::app);\n        if (!out) return false;\n        out << formatEvent(e) << \"\\n\";\n        return static_cast<bool>(out);\n    }\n\n    std::vector<SecurityEvent> load() {\n        std::lock_guard<std::mutex> lock(mtx);\n        std::vector<SecurityEvent> events;\n        std::ifstream in(path);\n        std::string line;\n        while (std::getline(in, line)) {\n            SecurityEvent e{};\n            e.timestamp = 0;\n            e.severity = Severity::INFO;\n            e.description = line;\n            events.push_back(e);\n        }\n        return events;\n    }\n\nprivate:\n    std::string path;\n    std::mutex mtx;\n};\n\nclass SecurityMonitor {\npublic:\n    SecurityMonitor(int failThreshold, int windowSeconds)\n        : threshold(failThreshold), window(windowSeconds) {}\n\n    std::vector<std::string> analyze(const std::vector<SecurityEvent>& events) {\n        std::vector<std::string> alerts;\n        std::map<std::string, std::deque<std::time_t>> failuresByIp;\n        std::map<std::string, int> criticalCountByUser;\n\n        for (const auto& e : events) {\n            if (e.severity >= Severity::CRITICAL) {\n                criticalCountByUser[e.user.empty() ? \"unknown\" : e.user]++;\n                alerts.push_back(\"ALERT: critical event from \" + e.source +\n                                 \" (\" + e.type + \") user=\" + e.user);\n            }\n            if (e.type == \"LOGIN_FAILURE\" && !e.ip.empty()) {\n                auto& dq = failuresByIp[e.ip];\n                dq.push_back(e.timestamp);\n                while (!dq.empty() && e.timestamp - dq.front() > window) {\n                    dq.pop_front();\n                }\n                if (static_cast<int>(dq.size()) >= threshold) {\n                    alerts.push_back(\"ALERT: brute force suspected from ip=\" + e.ip +\n                                     \" (\" + std::to_string(dq.size()) +\n                                     \" failures within \" + std::to_string(window) + \"s)\");\n                    dq.clear();\n                }\n            }\n        }\n        for (const auto& kv : criticalCountByUser) {\n            if (kv.second >= 3) {\n                alerts.push_back(\"ALERT: repeated critical events for user=\" + kv.first +\n                                 \" count=\" + std::to_string(kv.second));\n            }\n        }\n        return alerts;\n    }\n\nprivate:\n    int threshold;\n    int window;\n};\n\nstatic SecurityEvent makeEvent(std::time_t ts, const std::string& source,\n                               const std::string& type, const std::string& user,\n                               const std::string& ip, Severity sev,\n                               const std::string& desc) {\n    SecurityEvent e;\n    e.timestamp = ts;\n    e.source = source;\n    e.type = type;\n    e.user = user;\n    e.ip = ip;\n    e.severity = sev;\n    e.description = desc;\n    return e;\n}\n\nstatic std::vector<SecurityEvent> simulateEvents(std::time_t base) {\n    return {\n        makeEvent(base + 0,  \"auth\",     \"LOGIN_SUCCESS\",  \"alice\", \"10.0.0.5\",    Severity::INFO,     \"Successful login\"),\n        makeEvent(base + 10, \"auth\",     \"LOGIN_FAILURE\",  \"bob\",   \"192.168.1.9\", Severity::LOW,      \"Bad password\"),\n        makeEvent(base + 12, \"auth\",     \"LOGIN_FAILURE\",  \"bob\",   \"192.168.1.9\", Severity::LOW,      \"Bad password\"),\n        makeEvent(base + 15, \"auth\",     \"LOGIN_FAILURE\",  \"root\",  \"192.168.1.9\", Severity::MEDIUM,   \"Bad password\"),\n        makeEvent(base + 18, \"auth\",     \"LOGIN_FAILURE\",  \"admin\", \"192.168.1.9\", Severity::MEDIUM,   \"Bad password\"),\n        makeEvent(base + 30, \"firewall\", \"PORT_SCAN\",      \"\",      \"203.0.113.7\", Severity::HIGH,     \"Sequential port scan detected\"),\n        makeEvent(base + 40, \"fim\",      \"FILE_MODIFIED\",  \"eve\",   \"\",            Severity::CRITICAL, \"/etc/passwd modified\"),\n        makeEvent(base + 45, \"fim\",      \"FILE_MODIFIED\",  \"eve\",   \"\",            Severity::CRITICAL, \"/etc/shadow modified\"),\n        makeEvent(base + 50, \"fim\",      \"FILE_MODIFIED\",  \"eve\",   \"\",            Severity::CRITICAL, \"/root/.ssh/authorized_keys modified\"),\n        makeEvent(base + 60, \"ids\",      \"MALWARE_HASH\",   \"\",      \"10.0.0.8\",    Severity::HIGH,     \"Known malicious hash matched\")\n    };\n}\n\nint main() {\n    const std::string logPath = \"security_events.log\";\n    SecurityLogger logger(logPath);\n    SecurityMonitor monitor(4, 60);\n\n    std::time_t base = std::time(nullptr);\n    std::vector<SecurityEvent> events = simulateEvents(base);\n\n    int written = 0;\n    for (const auto& e : events) {\n        if (logger.log(e)) ++written;\n    }\n\n    std::cout << \"Logged \" << written << \" of \" << events.size()\n              << \" events to \" << logPath << \"\\n\\n\";\n\n    std::cout << \"--- Alerts ---\\n\";\n    auto alerts = monitor.analyze(events);\n    if (alerts.empty()) {\n        std::cout << \"No alerts.\\n\";\n    } else {\n        for (const auto& a : alerts) std::cout << a << \"\\n\";\n    }\n\n    std::cout << \"\\n--- Log Contents ---\\n\";\n    for (const auto& e : events) {\n        std::cout << formatEvent(e) << \"\\n\";\n    }\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 145,
+      "completion_tokens": 2979,
+      "total_tokens": 3124,
+      "cost": 0.001504,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.001504,
+        "upstream_inference_prompt_cost": 1.45e-05,
+        "upstream_inference_completions_cost": 0.0014895
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,4 @@
+Task67_mistral-large-4_cpp.cpp:4:10: fatal error: 'sqlite3.h' file not found
+    4 | #include <sqlite3.h>
+      |          ^~~~~~~~~~~
+1 error generated.

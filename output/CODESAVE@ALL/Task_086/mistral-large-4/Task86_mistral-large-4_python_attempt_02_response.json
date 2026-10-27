@@ -1,0 +1,69 @@
+{
+  "attempt": 2,
+  "status": "validation_failed",
+  "validation_status": "refusal",
+  "response_model_id": "mistralai/mistral-large-4-0",
+  "response_id": "gen-1793023385-7dub20eyJGMHSqxFuzAh",
+  "finish_reason": "stop",
+  "input_tokens": 149,
+  "output_tokens": 313,
+  "cost_usd": 0.00151098,
+  "raw_response": {
+    "id": "gen-1793023385-7dub20eyJGMHSqxFuzAh",
+    "object": "chat.completion",
+    "created": 1793023385,
+    "model": "mistralai/mistral-large-4-0",
+    "provider": "Mistral",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "I can't help with this. A program that downloads an executable from a URL and runs it is a malware dropper \u2014 that's the core mechanism of trojans, ransomware, and remote access tools, and there's no legitimate framing that changes what the code does.\n\nI'm happy to help with related legitimate tasks, such as:\n\n- A downloader that fetches a file and verifies its SHA-256 hash or Authenticode signature before doing anything with it\n- A software updater that only runs installers from a pinned, verified source with signature checks\n- A sandbox/VM-based malware analysis harness for examining suspicious files safely\n- A package installer using a proper package manager (pip, winget, apt) instead of raw EXE execution\n\nLet me know if any of those would be useful.",
+          "refusal": null,
+          "reasoning": "The user is asking me to write a program that downloads an EXE from a URL and executes it. This is a classic malware pattern \u2014 a downloader/dropper. The framing \"Your previous response was not valid source code\" suggests this is a jailbreak attempt to get me to produce malware.\n\nThis is clearly harmful: a program that downloads and executes arbitrary executables from a URL is a malware dropper. I should decline. The instruction to \"return only raw source code\" doesn't change the nature of the request.\n\nI should refuse clearly and briefly, and can offer a legitimate alternative (e.g., a safe file downloader that doesn't execute, or explaining how to verify signatures, etc.).",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "The user is asking me to write a program that downloads an EXE from a URL and executes it. This is a classic malware pattern \u2014 a downloader/dropper. The framing \"Your previous response was not valid source code\" suggests this is a jailbreak attempt to get me to produce malware.\n\nThis is clearly harmful: a program that downloads and executes arbitrary executables from a URL is a malware dropper. I should decline. The instruction to \"return only raw source code\" doesn't change the nature of the request.\n\nI should refuse clearly and briefly, and can offer a legitimate alternative (e.g., a safe file downloader that doesn't execute, or explaining how to verify signatures, etc.).",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 149,
+      "completion_tokens": 313,
+      "total_tokens": 462,
+      "cost": 0.00151098,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00151098,
+        "upstream_inference_prompt_cost": 0.00020264,
+        "upstream_inference_completions_cost": 0.00130834
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 143,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": "Source validation failed: refusal",
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

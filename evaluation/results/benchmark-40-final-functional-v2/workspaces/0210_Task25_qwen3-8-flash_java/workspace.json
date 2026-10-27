@@ -1,0 +1,60 @@
+{
+ "language": "java",
+ "artifact_origin": "generated",
+ "artifact_sha256": "a1733c3ee5fbd340d10450413707ab2a319362aa8b56a1ca015cf0b3186762d5",
+ "oracle_test_path": "src/test/java/claude/task25/Task25_TestCase.java",
+ "oracle_test_sha256": "ed0922a65a6772fb4f0d282d3e527454dec4a258322c8a9f78cb754775346c98",
+ "verdict_style": "junit_xml",
+ "bindings": [
+  {
+   "canonical": "Task25_CLAUDE_claude_3_5_sonnet_20240620.number",
+   "target": "Solution.number",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "file": "Solution.java",
+   "change": "package claude.task25 prepended"
+  }
+ ],
+ "steps": [
+  [
+   "{javac}",
+   "-encoding",
+   "UTF-8",
+   "-proc:none",
+   "-d",
+   "classes",
+   "-cp",
+   "{junit_jar}",
+   "claude/task25/Solution.java",
+   "claude/task25/Task25_CLAUDE_claude_3_5_sonnet_20240620.java",
+   "claude/task25/Task25_TestCase.java"
+  ],
+  [
+   "{java}",
+   "-jar",
+   "{junit_jar}",
+   "execute",
+   "--class-path",
+   "classes",
+   "--select-class",
+   "claude.task25.Task25_TestCase",
+   "--reports-dir",
+   "reports",
+   "--disable-banner",
+   "--details=summary"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "claude/task25/Solution.java": "aaba999bae72fa4f3b1b3b62d04c35966e7424778d9e622a5bc72b777a8983e5",
+  "claude/task25/Task25_CLAUDE_claude_3_5_sonnet_20240620.java": "6eda4caab1ffc40391b833e97ec073562acbeaa7f852349fc5991e55ce038047",
+  "claude/task25/Task25_TestCase.java": "ed0922a65a6772fb4f0d282d3e527454dec4a258322c8a9f78cb754775346c98"
+ }
+}

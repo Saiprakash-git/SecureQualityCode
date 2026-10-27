@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793025545-AvGEg2t28RGGDPxj1ERh",
+  "finish_reason": "stop",
+  "input_tokens": 159,
+  "output_tokens": 1429,
+  "cost_usd": 0.0007304,
+  "raw_response": {
+    "id": "gen-1793025545-AvGEg2t28RGGDPxj1ERh",
+    "object": "chat.completion",
+    "created": 1793025545,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <stdexcept>\n#include <string>\n#include <utility>\n\ntemplate <typename T>\nclass Queue {\nprivate:\n    struct Node {\n        T data;\n        Node* next;\n        explicit Node(const T& value) : data(value), next(nullptr) {}\n        explicit Node(T&& value) : data(std::move(value)), next(nullptr) {}\n    };\n\n    Node* frontNode;\n    Node* backNode;\n    std::size_t count;\n\npublic:\n    Queue() : frontNode(nullptr), backNode(nullptr), count(0) {}\n\n    Queue(const Queue& other) : frontNode(nullptr), backNode(nullptr), count(0) {\n        for (Node* cur = other.frontNode; cur != nullptr; cur = cur->next) {\n            enqueue(cur->data);\n        }\n    }\n\n    Queue& operator=(const Queue& other) {\n        if (this != &other) {\n            Queue temp(other);\n            swap(temp);\n        }\n        return *this;\n    }\n\n    Queue(Queue&& other) noexcept\n        : frontNode(other.frontNode), backNode(other.backNode), count(other.count) {\n        other.frontNode = nullptr;\n        other.backNode = nullptr;\n        other.count = 0;\n    }\n\n    Queue& operator=(Queue&& other) noexcept {\n        if (this != &other) {\n            clear();\n            frontNode = other.frontNode;\n            backNode = other.backNode;\n            count = other.count;\n            other.frontNode = nullptr;\n            other.backNode = nullptr;\n            other.count = 0;\n        }\n        return *this;\n    }\n\n    ~Queue() {\n        clear();\n    }\n\n    void swap(Queue& other) noexcept {\n        std::swap(frontNode, other.frontNode);\n        std::swap(backNode, other.backNode);\n        std::swap(count, other.count);\n    }\n\n    void enqueue(const T& value) {\n        Node* node = new Node(value);\n        if (backNode) {\n            backNode->next = node;\n        } else {\n            frontNode = node;\n        }\n        backNode = node;\n        ++count;\n    }\n\n    void enqueue(T&& value) {\n        Node* node = new Node(std::move(value));\n        if (backNode) {\n            backNode->next = node;\n        } else {\n            frontNode = node;\n        }\n        backNode = node;\n        ++count;\n    }\n\n    T dequeue() {\n        if (isEmpty()) {\n            throw std::underflow_error(\"dequeue() called on empty queue\");\n        }\n        Node* node = frontNode;\n        T value = std::move(node->data);\n        frontNode = node->next;\n        if (!frontNode) {\n            backNode = nullptr;\n        }\n        delete node;\n        --count;\n        return value;\n    }\n\n    const T& peek() const {\n        if (isEmpty()) {\n            throw std::underflow_error(\"peek() called on empty queue\");\n        }\n        return frontNode->data;\n    }\n\n    T& peek() {\n        if (isEmpty()) {\n            throw std::underflow_error(\"peek() called on empty queue\");\n        }\n        return frontNode->data;\n    }\n\n    bool isEmpty() const {\n        return count == 0;\n    }\n\n    std::size_t size() const {\n        return count;\n    }\n\n    void clear() {\n        while (frontNode) {\n            Node* next = frontNode->next;\n            delete frontNode;\n            frontNode = next;\n        }\n        backNode = nullptr;\n        count = 0;\n    }\n};\n\nint main() {\n    Queue<int> q;\n\n    q.enqueue(10);\n    q.enqueue(20);\n    q.enqueue(30);\n\n    std::cout << \"Size: \" << q.size() << \"\\n\";\n    std::cout << \"Peek: \" << q.peek() << \"\\n\";\n\n    std::cout << \"Dequeued: \" << q.dequeue() << \"\\n\";\n    std::cout << \"Dequeued: \" << q.dequeue() << \"\\n\";\n\n    std::cout << \"Peek: \" << q.peek() << \"\\n\";\n    std::cout << \"Size: \" << q.size() << \"\\n\";\n\n    q.dequeue();\n\n    try {\n        q.dequeue();\n    } catch (const std::underflow_error& e) {\n        std::cout << \"Error: \" << e.what() << \"\\n\";\n    }\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 159,
+      "completion_tokens": 1429,
+      "total_tokens": 1588,
+      "cost": 0.0007304,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007304,
+        "upstream_inference_prompt_cost": 1.59e-05,
+        "upstream_inference_completions_cost": 0.0007145
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

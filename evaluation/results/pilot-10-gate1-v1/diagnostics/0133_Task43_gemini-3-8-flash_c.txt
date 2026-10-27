@@ -1,0 +1,8 @@
+Task43_gemini-3-8-flash_c.c:283:10: error: expected identifier or '('
+  283 |     const
+      |          ^
+Task43_gemini-3-8-flash_c.c:283:10: error: expected '}'
+Task43_gemini-3-8-flash_c.c:249:66: note: to match this '{'
+  249 | static int parse_http_request(const char *raw, HttpRequest *req) {
+      |                                                                  ^
+2 errors generated.

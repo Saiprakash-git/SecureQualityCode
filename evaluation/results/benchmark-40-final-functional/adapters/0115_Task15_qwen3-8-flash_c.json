@@ -1,0 +1,18 @@
+{
+ "status": "rejected",
+ "bindings": [
+  {
+   "canonical": "towerBuilder",
+   "target": null,
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "test calls towerBuilder(n, &size) with 2 arguments; artifact takes 1",
+ "combo_index": 115,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_015/qwen3-8-flash/Task15_qwen3-8-flash_c.c",
+ "artifact_sha256": "ef79121a3813f7e9301b14315acfdd49ec76f0ba44df4867c8df04b77e012c27",
+ "oracle_test_path": "tests/codestral/Task15_Test.c",
+ "oracle_test_sha256": "c37d77824c5d15cf1feb50e450a7ca7eadecdbd32aefc2678b39a472feaed86a",
+ "author": "functional.py draft_adapter (static)"
+}

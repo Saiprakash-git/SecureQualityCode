@@ -1,0 +1,4 @@
+Task72_mistral-large-4_cpp.cpp:6:10: fatal error: 'openssl/evp.h' file not found
+    6 | #include <openssl/evp.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.

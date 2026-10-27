@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793009029-JQjZ0IMiVMbazpWELUgu",
+  "finish_reason": "stop",
+  "input_tokens": 547,
+  "output_tokens": 793,
+  "cost_usd": 0.003384,
+  "raw_response": {
+    "id": "gen-1793009029-JQjZ0IMiVMbazpWELUgu",
+    "object": "chat.completion",
+    "created": 1793009029,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "public class EqualSides {\n    public static int findEvenIndex(int[] arr) {\n        if (arr == null || arr.length == 0) {\n            return -1;\n        }\n\n        long totalSum = 0;\n        for (int num : arr) {\n            totalSum += num;\n        }\n\n        long leftSum = 0;\n        for (int i = 0; i < arr.length; i++) {\n            if (leftSum == totalSum - leftSum - arr[i]) {\n                return i;\n            }\n            leftSum += arr[i];\n        }\n\n        return -1;\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Exploring Array Equilibrium**\n\nI'm currently focused on refining the logic to efficiently identify the equilibrium point in an integer array. The core challenge lies in calculating left and right sums dynamically as I iterate, ensuring a time complexity suitable for larger datasets. I'm considering edge cases like empty arrays or arrays with a single element to ensure robustness.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Exploring Array Equilibrium**\n\nI'm currently focused on refining the logic to efficiently identify the equilibrium point in an integer array. The core challenge lies in calculating left and right sums dynamically as I iterate, ensuring a time complexity suitable for larger datasets. I'm considering edge cases like empty arrays or arrays with a single element to ensure robustness.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 547,
+      "completion_tokens": 793,
+      "total_tokens": 1340,
+      "cost": 0.003384,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003384,
+        "upstream_inference_prompt_cost": 0.00041025,
+        "upstream_inference_completions_cost": 0.00297375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 643,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

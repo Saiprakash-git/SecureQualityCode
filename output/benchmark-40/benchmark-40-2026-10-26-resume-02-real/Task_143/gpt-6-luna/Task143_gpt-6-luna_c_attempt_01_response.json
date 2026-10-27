@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793025251-HktLdrTrIWE8u9Tf5Thp",
+  "finish_reason": "stop",
+  "input_tokens": 108,
+  "output_tokens": 426,
+  "cost_usd": 0.0002238,
+  "raw_response": {
+    "id": "gen-1793025251-HktLdrTrIWE8u9Tf5Thp",
+    "object": "chat.completion",
+    "created": 1793025251,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n\nstatic int compare_ints(const void *a, const void *b)\n{\n    int x = *(const int *)a;\n    int y = *(const int *)b;\n    return (x > y) - (x < y);\n}\n\nstatic void sort_ascending(int values[], size_t count)\n{\n    qsort(values, count, sizeof(values[0]), compare_ints);\n}\n\nint main(void)\n{\n    size_t count;\n\n    if (scanf(\"%zu\", &count) != 1)\n        return 1;\n\n    int *values = malloc(count * sizeof(*values));\n    if (count != 0 && values == NULL)\n        return 1;\n\n    for (size_t i = 0; i < count; ++i) {\n        if (scanf(\"%d\", &values[i]) != 1) {\n            free(values);\n            return 1;\n        }\n    }\n\n    sort_ascending(values, count);\n\n    for (size_t i = 0; i < count; ++i)\n        printf(\"%s%d\", i == 0 ? \"\" : \" \", values[i]);\n    putchar('\\n');\n\n    free(values);\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Implementing C Code for Sorting**\n\nI need to create a complete C file that interprets an input array. The main function should read a count and integers from stdin, sort them in ascending order, and output the results. I'll ensure that all functions accept parameters and return output as needed. I should include a qsort comparator while being mindful of overflow. The input format will start with 'n' followed by values, and I'll handle cases where the input is invalid.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Implementing C Code for Sorting**\n\nI need to create a complete C file that interprets an input array. The main function should read a count and integers from stdin, sort them in ascending order, and output the results. I'll ensure that all functions accept parameters and return output as needed. I should include a qsort comparator while being mindful of overflow. The input format will start with 'n' followed by values, and I'll handle cases where the input is invalid.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq32TnTZ0E5qnbUYU45nLdR4mvCZmiyF-c1Fg2A2k_b18Gw78wYr7lmhruCMUjpfsnCncKnJF7kx-ZaCaHVHGOjNUnIFdtHevUwamv0P-koSaynsSoa-S0Am9vX_DVOj9SAkxbJrCigs-l_u51KpvQ-sW30hTaIXQT8OgbZt7ee66gugms_wEsheClbpTYlHDrsN0Tpi1VbRs6rRooc587er6e7kVxb0NvX8hSodlRUSHC0UvGmu7zGcx-doTAxYsKYBrl4MdkSkI-O7VnPUE87dY71vZEkTnwdmH5qDJ6nmtTG1bc07DGELnJNdsAlaZJv2N0MQ32gjyu5qzSwE7eWsklvY2FFOCG4B6RQlMMa6Ozsf8hfpxf8KVMNl_g7IEe38Q3PO0qiW_ONQSuT6n8IIg0aGjT76tBeNkaBvjjbtHPdFxJqvAZGHMybbdzrFjOsBjS5RmYSizIH97USJg2m4Uk0FsbWX8l5BHEgwIRpxoSU-HXpj5YLnSWmaaAvKVtgwp1XjTqWvVo1itRHAz3aAXxrLGPmcBr-bzrLpbwv421XYUMO05VncSK76gk04g5NjycxGcwY30v9uF5mzjRU_u4082PeOwXcBtpTu-o87hSnEwRwptNX-lsmpgALKVrjXuKMbwVZpkxSL4i3UwGTj1brdmiHcJl41caF67HTDKF1dMbUK0xDd69LGzt4pIYTlytL0ds6YNJiroG9_7-rTx3HQe7AAa3eoh0oWJByObgCrSFWF9hIL3BPZfW0rS3LqCyo4S3aVxcHCI7AR95HTmPap7t8u5zUQYWWHNgL4s5KmM289Zgy7rCTHE4P7hKQqpSljC3U7RCFfkoJoGocgeQH8htIp3ahoHA17othFuiQlNofA_ds-q_ZoAgnySi8j-fkp0I4QAwnKwiw6lgq1tnddEV8DsBiqwn_Igbs54mRBnmemCQmtK2GM5RB40NxYhb5UATL4_rAMN-6kdo0MA46LHR0OANU5mVULLrmeqrY_B_2yoOg9d4hLijZ_jpZMj8wRPDbJLCVynZ35OLogB1O_7BTlfLMufJeaG98Q2h6Q6QiHmcC7-6rmGNNFGwwuskgbOf5c4n8FwlKB7NPon-QVM1kzZElkWCTZ_Sx5KuQPCd1fpO2WGtscNHAaxdeNBv_EhGNkr75xzMOZkGl0kW6Je9zt9NGasngksvyoVf0HeXTuFQK1cch4IoAode_vem4vPYp55WtS8eWc3U6y12AXK02_6rarC5UjPu9ENDtRlasuo3aHVGBHDliobAmgza2Ejy10zvtONck6jJ2_08soqfY78wR7g_fcw_OLA3w0MM2mQh116SMw4foAG7mWpsy5YFzzhfwj1N2_jR1l_YIKDcwdd-H9-XsoeeKAMDTv081b5r3iTJPiieVVSyaVSRzRGF01tuX0RxYHuCtCrFGTkIGPn9M9aNK0M_fT9YFIy7NQw5P_Fx3Rbc_HPc3CuS1nKGGiCeoB32YmiAyIv4K2uka8WwjXMvoAwFgcqZlmt18i2SrPXGS5nB57FRffmty3D3twHZ9M5TM-xocr_03_p9_D_p148ojPtpCLcmgFUJgyG5tKVRANmnXMWK60cVA3N9jB6ZZVfR1hb7m_lbHzZOvvK2WKGybSRsShScqyh57JFVH-eJnowhFXAcqspiTIdCk9d8QjXGYFtWSkKWh0Nc1HJco20c_Loc2IxT7GzQSLcUqhG3mJEdEgOiZ9WydklWfS9EM31cvvmIYQijk9cJrFQR_ufqsmiLh9WOpNKnKUQzhKdvkHKIb9zv7tA157f3-Qkz_KlFsZn_iU8R52HxKVwSmujAkVb9pekQMENYJVyN-HYexxQied_PLWY3PnhFcMzzY7NLkK_Bu6hv_ilN-4aIWWb2J1WkAcBfbWNFW80zXjqZgjnB1DObnMqHe8-dO7A1boE4Un3A_6HuTK8ZqHPCf0xOLnELPREAw8sJQjSeG3sXvMA-2A2iyQ9PE9mkk_b-pH8U0B5rAYtUrN4cpZxArVYzZ0rV0uQmTvLEBx6hmpNTWLgOafgX-eq2ZVgAgvC7XNyuRoVY8LEyBZgMCHPltk9gJ6dDY1aZCHLOlSpXwIDTqnOjW9PkGRXN6vkC9D8d1lov5oYGHpMGjsOCplEY6HiMORXY0bjWDlulppF4juebqnTwDFrkB3uNhNL3dy6fK0_e6jvbWZGZLQaCZqaPfum361zeqR_SKCt_PZXNZ5tVQ5YYO-WlWDU3iy05PDY3MZ1bhrLu38xJeaAfokZkzwnYYkuZF5Sbt61zabR-sKyskA3JpPuyXLK9nbuCMNwRPdBM2CYsWQdY2ygwqLyJU_kL65Ogf8aFgtapNMKX9wbI4jM4pPRiGNtXkGHolnR352BEiR3dp3kAl8MsMtReTF6BbnM_mXJIPd8S3JWuUVO7Zephw1A1cF_03BhGF1NgkRcDSJYXBblzUmBZaesw0TbpLHIi1JpF0i2wsV5cwu513vii0cDG1-MWsf-uliavArMWDf5jSg1bl3d_6uDTgxs4IARl4dOtA5gy13uF3T1I2AO6GHIxT8Ma8hrVFikLzKwyylWnXmI5bbH9YKGrFRLkJIengSwRG4iX_681QCVfhq-vZIQstOuQEVfh4RWn45KL2O-6CJ3AvEqSfoqr4ytxigCK9dtmNqOA98OF0G6Z7w3VaV5z1cxYC0mpl3Jw7WU4IJhN18KUqEa0vdorhi7YPFiVEiL3Qls1cI4u7MhAh5zEXAg636JDPDpVbHwu63RdsZQ9vcW3WWX0l7YHRF4ifAC7WLaAAJRHSYu5MgkY937dfQkmqSCS5Gx4G_lg8Qzy34ZS7jdR7C-yzjwHrZ8e8P1T3HHErl5e1tWYjVNn-qJGfQFUDqjgudI02C_Jc_rtXh5MTLB4Ot627qhLIs1JekWaYtPjfa4u77Of5H4ySheIrdON_pRy1WTEyYVCS6w3ChqfqxLOCC2FROWlElFxAbJYEvOMnhZDffuogR4bN8vOo0Tqdz7QtueVerJHSl0L9TajAYQ5b3WU6V3mlKIopuXzOZ2dR90IenmOvPaydasBkGYzsMzUKQtwMOdcfpy1hept2MCgjOppo_xCOpVskMOPN56FA7NwqfKuSgNyQj021KFyu0gxHOVx9c4FcJLh_EL2z6WwI9PJ2xttDj1dM71erKRwMQPdqWfsetx9C5NXtGzK3kZbDjRJntkK5GAGh8HcF6BCCDbdZNEAKAHxjTLi0oMpKigMENZmnjwI0e-ABl_ijhCuc_IHqESV9QMexUH-RD0xZfq8l9TjXY-vQEFCxMJ1T7LvKa1JDq9LYqlV_YZr5Pln2vevZG3UTGAWWF6JyCbR50XD_iIB6_mnupYbYtAOdanOyPmoe98CwVHme2Qd6ZilAtV6awA6yd2E0kOi5uZBd75pSN6LAG7wSIgvQNpCt5eoLbLl3LPV6k3UcRchUlblEVi0lFu3hsRqgmMP75qsTllHhoIl9a4VTkpaSd6E79PN_55BO54Gfz14HiDz5Odzew8MZ-_3fFhBezCkL5z1VRi3mfDpcvkLAG6_a11EA5q436snCmO-hhaW7QnNZfYcFPs5mIgRjobaNttmYoVihuu7IT87jLQU5Vz1eHhX42AwPwFhbczMswj59B81MdYvlxHzmm6586yvOdsGODBz5siW9-lRjpPbq0h19lA31Ku4M6GJYErTHLKNKrCFI8Zc.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_081c00a2fbe2aea9016adf64e44dd487d1a4a82a6bcde0f5eb",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 108,
+      "completion_tokens": 426,
+      "total_tokens": 534,
+      "cost": 0.0002238,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002238,
+        "upstream_inference_prompt_cost": 1.08e-05,
+        "upstream_inference_completions_cost": 0.000213
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 166,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

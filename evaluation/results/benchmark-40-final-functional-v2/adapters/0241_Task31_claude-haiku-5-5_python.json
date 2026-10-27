@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "make_complement",
+   "target": "DNA_strand",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 241,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_031/claude-haiku-5-5/Task31_claude-haiku-5-5_python.py",
+ "artifact_sha256": "5e1af728087f883da1df26a8c698f29fad824abf0245818c24b058e346a2d04a",
+ "oracle_test_path": "tests/claude/Task31_CLAUDE_claude_3_5_sonnet_20240620/Task31_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "1b57a28aff2c9bffe09c1e094f6c21de5b19fa89a86eaa92b1180b8164ce6c58",
+ "author": "functional.py draft_adapter (static)"
+}

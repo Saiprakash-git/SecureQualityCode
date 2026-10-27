@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "DNAStrand",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 256,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_031/claude-haiku-5-5/Task31_claude-haiku-5-5_cpp.cpp",
+ "artifact_sha256": "79ff7db522ee444fb7a3123a30834e7143118b54164577882b8378d24cf6a3ab",
+ "oracle_test_path": "tests/claude/Task31_Test.cpp",
+ "oracle_test_sha256": "076d9c61d0801edb32c28b5ed7aa1beda29586604e361401934b445c0ef19deb",
+ "author": "functional.py draft_adapter (static)"
+}

@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793016942-qSAYMJJztW9VWjZJ057j",
+  "finish_reason": "stop",
+  "input_tokens": 146,
+  "output_tokens": 806,
+  "cost_usd": 0.0004176,
+  "raw_response": {
+    "id": "gen-1793016942-qSAYMJJztW9VWjZJ057j",
+    "object": "chat.completion",
+    "created": 1793016942,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import secrets\nimport hmac\nimport hashlib\nimport base64\nimport json\nimport time\n\nSECRET_KEY = secrets.token_bytes(32)\nDEFAULT_TTL_SECONDS = 3600\n\n\ndef _b64encode(data: bytes) -> str:\n    return base64.urlsafe_b64encode(data).decode(\"ascii\").rstrip(\"=\")\n\n\ndef _b64decode(data: str) -> bytes:\n    padding = \"=\" * (-len(data) % 4)\n    return base64.urlsafe_b64decode(data + padding)\n\n\ndef _sign(message: bytes, key: bytes) -> str:\n    signature = hmac.new(key, message, hashlib.sha256).digest()\n    return _b64encode(signature)\n\n\ndef generate_token(user_id: str, key: bytes = SECRET_KEY, ttl: int = DEFAULT_TTL_SECONDS) -> str:\n    if not user_id:\n        raise ValueError(\"user_id must be a non-empty string\")\n    now = int(time.time())\n    payload = {\n        \"sub\": str(user_id),\n        \"iat\": now,\n        \"exp\": now + int(ttl),\n        \"jti\": secrets.token_hex(16),\n    }\n    payload_bytes = json.dumps(payload, separators=(\",\", \":\"), sort_keys=True).encode(\"utf-8\")\n    payload_part = _b64encode(payload_bytes)\n    signature = _sign(payload_part.encode(\"ascii\"), key)\n    return f\"{payload_part}.{signature}\"\n\n\ndef verify_token(token: str, key: bytes = SECRET_KEY) -> dict:\n    try:\n        payload_part, signature = token.split(\".\", 1)\n    except (ValueError, AttributeError):\n        raise ValueError(\"Malformed token\")\n    expected = _sign(payload_part.encode(\"ascii\"), key)\n    if not hmac.compare_digest(signature, expected):\n        raise ValueError(\"Invalid token signature\")\n    payload = json.loads(_b64decode(payload_part).decode(\"utf-8\"))\n    if int(time.time()) >= payload.get(\"exp\", 0):\n        raise ValueError(\"Token has expired\")\n    return payload\n\n\nif __name__ == \"__main__\":\n    import sys\n\n    user = sys.argv[1] if len(sys.argv) > 1 else \"user123\"\n    token = generate_token(user)\n    print(\"Generated token:\", token)\n    print(\"Verified payload:\", verify_token(token))",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 146,
+      "completion_tokens": 806,
+      "total_tokens": 952,
+      "cost": 0.0004176,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0004176,
+        "upstream_inference_prompt_cost": 1.46e-05,
+        "upstream_inference_completions_cost": 0.000403
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

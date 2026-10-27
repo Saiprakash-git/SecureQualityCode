@@ -1,0 +1,7 @@
+Task0_GEMINI_gemini-1.5-pro-001.cpp:25:40: error: overload resolution selected deleted operator '='
+   25 |             file_mutexes[entry.path()] = {}; 
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~ ^ ~~
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libcxx\include/__mutex/mutex.h:31:10: note: candidate function has been explicitly deleted
+   31 |   mutex& operator=(const mutex&) = delete;
+      |          ^
+1 error generated.

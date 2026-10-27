@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793025485-Irpz1mfl1G2QmTMSsEMe",
+  "finish_reason": "stop",
+  "input_tokens": 103,
+  "output_tokens": 1262,
+  "cost_usd": 0.00480975,
+  "raw_response": {
+    "id": "gen-1793025485-Irpz1mfl1G2QmTMSsEMe",
+    "object": "chat.completion",
+    "created": 1793025485,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "from collections import deque\nfrom typing import Any\n\n\nclass Queue:\n    def __init__(self):\n        self._items = deque()\n\n    def enqueue(self, item: Any) -> None:\n        self._items.append(item)\n\n    def dequeue(self) -> Any:\n        if self.is_empty():\n            raise IndexError(\"dequeue from an empty queue\")\n        return self._items.popleft()\n\n    def peek(self) -> Any:\n        if self.is_empty():\n            raise IndexError(\"peek from an empty queue\")\n        return self._items[0]\n\n    def is_empty(self) -> bool:\n        return len(self._items) == 0\n\n    def size(self) -> int:\n        return len(self._items)\n\n    def __len__(self) -> int:\n        return self.size()\n\n    def __repr__(self) -> str:\n        return f\"Queue({list(self._items)})\"\n\n\ndef demonstrate_queue():\n    queue = Queue()\n    \n    print(f\"Initial queue is empty: {queue.is_empty()}\")\n    \n    for value in [10, 20, 30, 40]:\n        print(f\"Enqueuing: {value}\")\n        queue.enqueue(value)\n        \n    print(f\"Current queue: {queue}\")\n    print(f\"Queue size: {queue.size()}\")\n    print(f\"Front element (peek): {queue.peek()}\")\n    \n    print(f\"Dequeued element: {queue.dequeue()}\")\n    print(f\"Dequeued element: {queue.dequeue()}\")\n    \n    print(f\"Queue after dequeues: {queue}\")\n    print(f\"Front element after dequeues (peek): {queue.peek()}\")\n    print(f\"Queue size after dequeues: {queue.size()}\")\n\n\nif __name__ == \"__main__\":\n    demonstrate_queue()",
+          "refusal": null,
+          "reasoning": "**Developing Queue Structure**\n\nI'm currently focused on implementing the core functionality for a queue. My latest progress involves defining the `enqueue` and `dequeue` methods, ensuring they correctly add and remove elements from the front, respectively. The `peek` method is also taking shape, allowing inspection without removal.\n\n**Designing Queue Components**\n\nMy current thinking is leaning towards a class-based approach for the queue. I'm exploring using `collections.deque` for efficient $O(1)$ operations and plan to implement `enqueue`, `dequeue`, and `peek` methods, alongside helper functions like `is_empty` and `size`. A demonstration block is also planned.\n\n**Implementing Queue Logic**\n\nI've successfully implemented the `Queue` class using `collections.deque`. All core methods like `enqueue`, `dequeue`, and `peek` are functional, with error handling for empty queues. I'm also adding `is_empty`, `size`, and representation methods.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Queue Structure**\n\nI'm currently focused on implementing the core functionality for a queue. My latest progress involves defining the `enqueue` and `dequeue` methods, ensuring they correctly add and remove elements from the front, respectively. The `peek` method is also taking shape, allowing inspection without removal.\n\n**Designing Queue Components**\n\nMy current thinking is leaning towards a class-based approach for the queue. I'm exploring using `collections.deque` for efficient $O(1)$ operations and plan to implement `enqueue`, `dequeue`, and `peek` methods, alongside helper functions like `is_empty` and `size`. A demonstration block is also planned.\n\n**Implementing Queue Logic**\n\nI've successfully implemented the `Queue` class using `collections.deque`. All core methods like `enqueue`, `dequeue`, and `peek` are functional, with error handling for empty queues. I'm also adding `is_empty`, `size`, and representation methods.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 103,
+      "completion_tokens": 1262,
+      "total_tokens": 1365,
+      "cost": 0.00480975,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00480975,
+        "upstream_inference_prompt_cost": 7.725e-05,
+        "upstream_inference_completions_cost": 0.0047325
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 824,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

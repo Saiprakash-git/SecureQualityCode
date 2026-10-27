@@ -1,0 +1,16 @@
+FormServlet.java:1:23: compiler.err.doesnt.exist: jakarta.servlet
+FormServlet.java:2:34: compiler.err.doesnt.exist: jakarta.servlet.annotation
+FormServlet.java:3:28: compiler.err.doesnt.exist: jakarta.servlet.http
+FormServlet.java:4:28: compiler.err.doesnt.exist: jakarta.servlet.http
+FormServlet.java:5:28: compiler.err.doesnt.exist: jakarta.servlet.http
+FormServlet.java:10:34: compiler.err.cant.resolve: kindname.class, HttpServlet, , 
+FormServlet.java:9:2: compiler.err.cant.resolve: kindname.class, WebServlet, , 
+FormServlet.java:13:26: compiler.err.cant.resolve.location: kindname.class, HttpServletRequest, , , (compiler.misc.location: kindname.class, FormServlet, null)
+FormServlet.java:13:54: compiler.err.cant.resolve.location: kindname.class, HttpServletResponse, , , (compiler.misc.location: kindname.class, FormServlet, null)
+FormServlet.java:14:20: compiler.err.cant.resolve.location: kindname.class, ServletException, , , (compiler.misc.location: kindname.class, FormServlet, null)
+FormServlet.java:22:27: compiler.err.cant.resolve.location: kindname.class, HttpServletRequest, , , (compiler.misc.location: kindname.class, FormServlet, null)
+FormServlet.java:22:55: compiler.err.cant.resolve.location: kindname.class, HttpServletResponse, , , (compiler.misc.location: kindname.class, FormServlet, null)
+FormServlet.java:23:20: compiler.err.cant.resolve.location: kindname.class, ServletException, , , (compiler.misc.location: kindname.class, FormServlet, null)
+FormServlet.java:12:5: compiler.err.method.does.not.override.superclass
+FormServlet.java:21:5: compiler.err.method.does.not.override.superclass
+15 errors

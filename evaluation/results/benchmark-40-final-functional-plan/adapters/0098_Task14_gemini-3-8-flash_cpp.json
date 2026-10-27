@@ -1,0 +1,31 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "findEvenIndex",
+   "target": "find_even_index",
+   "kind": "alias",
+   "name_match": "normalized",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "int",
+    "params": [
+     "const std::vector<int>& arr"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "const std::vector<int>& numbers"
+    ],
+    "return": "int"
+   }
+  }
+ ],
+ "combo_index": 98,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_014/gemini-3-8-flash/Task14_gemini-3-8-flash_cpp.cpp",
+ "artifact_sha256": "69d45d8f1971bb00d1f2ae603210571363b3da19313e415f03b4a945e63e2c42",
+ "oracle_test_path": "tests/claude/Task14_Test.cpp",
+ "oracle_test_sha256": "c28511e54a31b60e4bda5f1af23c9a249855e73f1e4032b57c71af5f576f7e37",
+ "author": "functional.py draft_adapter (static)"
+}

@@ -1,0 +1,12 @@
+{
+  "description": "Pilot-10 (tasks 24,37,38,39,41,42,43,46,51,104; same 5 models and settings as benchmark-40). Separate from benchmark-40; the task sets do not overlap.",
+  "project_root": "..",
+  "plan_config": "../runner/run_config_pilot_10task_resume.json",
+  "runner_dir": "../runner",
+  "runs": [
+    "../output/pilot-10-haiku-flash-2026-10-26/pilot-10-haiku-flash-2026-10-25-real",
+    "../output/pilot-10-resume-2026-10-26/pilot-10-resume-from-121-2026-10-26-real"
+  ],
+  "toolchain_dir": ".toolchain",
+  "toolchain": {"target": "x86_64-linux-gnu", "c_std": "gnu17", "cpp_std": "gnu++17", "timeout_seconds": 120}
+}

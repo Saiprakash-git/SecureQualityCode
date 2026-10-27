@@ -1,0 +1,31 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "high",
+   "target": "high",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "char*",
+    "params": [
+     "const char* inputString"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "const char *s"
+    ],
+    "return": "char *"
+   }
+  }
+ ],
+ "combo_index": 71,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_012/claude-haiku-5-5/Task12_claude-haiku-5-5_c.c",
+ "artifact_sha256": "13e37659e294acfce5f2b02d6b1380299f8da2e2c31a67cd8f79d20078931996",
+ "oracle_test_path": "tests/gpt4o/Task12_Test.c",
+ "oracle_test_sha256": "7873ef13ea9dad148a3b57569378dee7d20b0fc45a1d5465bd0d7d0ec3f5ebe9",
+ "author": "functional.py draft_adapter (static)"
+}

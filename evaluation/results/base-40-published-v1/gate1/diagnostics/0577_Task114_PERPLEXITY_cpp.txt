@@ -1,0 +1,8 @@
+Task114_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp:1:1: error: unknown type name 'code'
+    1 | code here:
+      | ^
+Task114_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp:1:10: error: expected ';' after top level declarator
+    1 | code here:
+      |          ^
+      |          ;
+2 errors generated.

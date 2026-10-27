@@ -1,0 +1,1947 @@
+{
+ "protocol": "evaluation/base_compare/BASE_COMPARISON_PROTOCOL.md",
+ "secondary_analysis": true,
+ "base_snapshot_id": "1736c9c488b27f236050049ffa3fb4a3bb7198c4259a97a9c958861f1593e4c9",
+ "base_files": 600,
+ "base_identical": 439,
+ "base_escape_pattern": 37,
+ "analyses": {
+  "primary": {
+   "c": {
+    "ours": {
+     "planned": 200,
+     "artifacts": 175,
+     "gate1_counts": {
+      "fail_integrity": 37,
+      "no_artifact": 25,
+      "pass": 117,
+      "fail_compile": 1,
+      "blocked_dependency": 20
+     },
+     "gate1_pass_planned": {
+      "k": 117,
+      "n": 200,
+      "rate": 0.585,
+      "lo": 0.5157391490134403,
+      "hi": 0.6510571455024242
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 117,
+      "n": 175,
+      "rate": 0.6685714285714286,
+      "lo": 0.5958661335634834,
+      "hi": 0.7340350000386151
+     },
+     "sec_medhigh_of_pass": {
+      "k": 63,
+      "n": 117,
+      "rate": 0.5384615384615384,
+      "lo": 0.44834691371990076,
+      "hi": 0.626130836613735
+     },
+     "mean_nloc": 53.7008547008547,
+     "mean_avg_ccn": 5.460683760683758,
+     "mean_ccd": 0.30251623931623933,
+     "pooled_ccd": 0.3060639821741206,
+     "cppcheck_per_kloc_c_cpp": 6.207225847525067,
+     "nloc_total": 6283,
+     "nloc_c_cpp": 6283
+    },
+    "base": {
+     "planned": 200,
+     "artifacts": 200,
+     "gate1_counts": {
+      "pass": 142,
+      "blocked_dependency": 43,
+      "fail_compile": 15
+     },
+     "gate1_pass_planned": {
+      "k": 142,
+      "n": 200,
+      "rate": 0.71,
+      "lo": 0.6436252189922268,
+      "hi": 0.7684597439293211
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 142,
+      "n": 200,
+      "rate": 0.71,
+      "lo": 0.6436252189922268,
+      "hi": 0.7684597439293211
+     },
+     "sec_medhigh_of_pass": {
+      "k": 68,
+      "n": 142,
+      "rate": 0.4788732394366197,
+      "lo": 0.39835232140775706,
+      "hi": 0.5605071137040601
+     },
+     "mean_nloc": 21.169014084507044,
+     "mean_avg_ccn": 3.242230769230769,
+     "mean_ccd": 0.24572307692307685,
+     "pooled_ccd": 0.2368596141051231,
+     "cppcheck_per_kloc_c_cpp": 27.944111776447105,
+     "nloc_total": 3006,
+     "nloc_c_cpp": 3006
+    },
+    "diff_gate1_pass_planned": {
+     "diff": -0.125,
+     "lo": -0.2156344699309497,
+     "hi": -0.03135621736731106
+    },
+    "diff_gate1_pass_of_artifacts": {
+     "diff": -0.04142857142857137,
+     "lo": -0.13472166647034894,
+     "hi": 0.05179744823905834
+    },
+    "diff_sec_medhigh_of_pass": {
+     "diff": 0.059588299024918745,
+     "lo": -0.062004196714902524,
+     "hi": 0.17862410909361007
+    }
+   },
+   "cpp": {
+    "ours": {
+     "planned": 200,
+     "artifacts": 183,
+     "gate1_counts": {
+      "pass": 131,
+      "no_artifact": 17,
+      "fail_compile": 1,
+      "fail_integrity": 30,
+      "blocked_dependency": 21
+     },
+     "gate1_pass_planned": {
+      "k": 131,
+      "n": 200,
+      "rate": 0.655,
+      "lo": 0.5867558925905368,
+      "hi": 0.7174020562325106
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 131,
+      "n": 183,
+      "rate": 0.7158469945355191,
+      "lo": 0.6465878615188965,
+      "hi": 0.7762305027704437
+     },
+     "sec_medhigh_of_pass": {
+      "k": 11,
+      "n": 131,
+      "rate": 0.08396946564885496,
+      "lo": 0.04753307496909216,
+      "hi": 0.14411020037589567
+     },
+     "mean_nloc": 48.42748091603053,
+     "mean_avg_ccn": 3.4535384615384612,
+     "mean_ccd": 0.2769661538461538,
+     "pooled_ccd": 0.26592055485498106,
+     "cppcheck_per_kloc_c_cpp": 9.300126103404791,
+     "nloc_total": 6344,
+     "nloc_c_cpp": 6344
+    },
+    "base": {
+     "planned": 200,
+     "artifacts": 200,
+     "gate1_counts": {
+      "pass": 142,
+      "blocked_dependency": 50,
+      "fail_compile": 8
+     },
+     "gate1_pass_planned": {
+      "k": 142,
+      "n": 200,
+      "rate": 0.71,
+      "lo": 0.6436252189922268,
+      "hi": 0.7684597439293211
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 142,
+      "n": 200,
+      "rate": 0.71,
+      "lo": 0.6436252189922268,
+      "hi": 0.7684597439293211
+     },
+     "sec_medhigh_of_pass": {
+      "k": 15,
+      "n": 142,
+      "rate": 0.1056338028169014,
+      "lo": 0.06506672672777775,
+      "hi": 0.16697606202614415
+     },
+     "mean_nloc": 17.408450704225352,
+     "mean_avg_ccn": 2.681703703703703,
+     "mean_ccd": 0.2512177777777777,
+     "pooled_ccd": 0.24231391585760517,
+     "cppcheck_per_kloc_c_cpp": 22.249190938511326,
+     "nloc_total": 2472,
+     "nloc_c_cpp": 2472
+    },
+    "diff_gate1_pass_planned": {
+     "diff": -0.05499999999999994,
+     "lo": -0.14485989014235517,
+     "hi": 0.03610229511859332
+    },
+    "diff_gate1_pass_of_artifacts": {
+     "diff": 0.005846994535519179,
+     "lo": -0.08478616256769575,
+     "hi": 0.0955787036498955
+    },
+    "diff_sec_medhigh_of_pass": {
+     "diff": -0.021664337168046444,
+     "lo": -0.09301196032861313,
+     "hi": 0.05087941263804663
+    }
+   },
+   "python": {
+    "ours": {
+     "planned": 200,
+     "artifacts": 187,
+     "gate1_counts": {
+      "pass": 186,
+      "no_artifact": 13,
+      "fail_integrity": 1
+     },
+     "gate1_pass_planned": {
+      "k": 186,
+      "n": 200,
+      "rate": 0.93,
+      "lo": 0.8859451911438936,
+      "hi": 0.9578478281716571
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 186,
+      "n": 187,
+      "rate": 0.9946524064171123,
+      "lo": 0.9703356448529545,
+      "hi": 0.9990553938825937
+     },
+     "sec_medhigh_of_pass": {
+      "k": 11,
+      "n": 186,
+      "rate": 0.05913978494623656,
+      "lo": 0.03334020739090661,
+      "hi": 0.10278105390376911
+     },
+     "mean_nloc": 36.05913978494624,
+     "mean_avg_ccn": 3.0774444444444455,
+     "mean_ccd": 0.41396833333333305,
+     "pooled_ccd": 0.30818547785895334,
+     "cppcheck_per_kloc_c_cpp": null,
+     "nloc_total": 6707,
+     "nloc_c_cpp": 0
+    },
+    "base": {
+     "planned": 200,
+     "artifacts": 200,
+     "gate1_counts": {
+      "pass": 198,
+      "fail_syntax": 2
+     },
+     "gate1_pass_planned": {
+      "k": 198,
+      "n": 200,
+      "rate": 0.99,
+      "lo": 0.9642782382838231,
+      "hi": 0.9972533418664555
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 198,
+      "n": 200,
+      "rate": 0.99,
+      "lo": 0.9642782382838231,
+      "hi": 0.9972533418664555
+     },
+     "sec_medhigh_of_pass": {
+      "k": 26,
+      "n": 198,
+      "rate": 0.13131313131313133,
+      "lo": 0.09121075480111494,
+      "hi": 0.18544924927813072
+     },
+     "mean_nloc": 7.025252525252525,
+     "mean_avg_ccn": 2.15,
+     "mean_ccd": 0.4232862275449102,
+     "pooled_ccd": 0.34795111430625447,
+     "cppcheck_per_kloc_c_cpp": null,
+     "nloc_total": 1391,
+     "nloc_c_cpp": 0
+    },
+    "diff_gate1_pass_planned": {
+     "diff": -0.05999999999999994,
+     "lo": -0.10464792438154039,
+     "hi": -0.0220907589147194
+    },
+    "diff_gate1_pass_of_artifacts": {
+     "diff": 0.004652406417112287,
+     "lo": -0.020723090843035658,
+     "hi": 0.030748293533762877
+    },
+    "diff_sec_medhigh_of_pass": {
+     "diff": -0.07217334636689476,
+     "lo": -0.13214281751975565,
+     "hi": -0.012904796881225575
+    }
+   },
+   "all": {
+    "ours": {
+     "planned": 600,
+     "artifacts": 545,
+     "gate1_counts": {
+      "pass": 434,
+      "no_artifact": 55,
+      "fail_integrity": 68,
+      "fail_compile": 2,
+      "blocked_dependency": 41
+     },
+     "gate1_pass_planned": {
+      "k": 434,
+      "n": 600,
+      "rate": 0.7233333333333334,
+      "lo": 0.6862035019339724,
+      "hi": 0.7576216049465748
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 434,
+      "n": 545,
+      "rate": 0.7963302752293578,
+      "lo": 0.7604998205389606,
+      "hi": 0.8280125718995337
+     },
+     "sec_medhigh_of_pass": {
+      "k": 85,
+      "n": 434,
+      "rate": 0.195852534562212,
+      "lo": 0.16125282689598552,
+      "hi": 0.23578919669156634
+     },
+     "mean_nloc": 44.54838709677419,
+     "mean_avg_ccn": 3.844964871194378,
+     "mean_ccd": 0.3417196721311475,
+     "pooled_ccd": 0.2936278059377263,
+     "cppcheck_per_kloc_c_cpp": 7.761146749029857,
+     "nloc_total": 19334,
+     "nloc_c_cpp": 12627
+    },
+    "base": {
+     "planned": 600,
+     "artifacts": 600,
+     "gate1_counts": {
+      "pass": 482,
+      "blocked_dependency": 93,
+      "fail_compile": 23,
+      "fail_syntax": 2
+     },
+     "gate1_pass_planned": {
+      "k": 482,
+      "n": 600,
+      "rate": 0.8033333333333333,
+      "lo": 0.7696419757400986,
+      "hi": 0.8331652589782564
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 482,
+      "n": 600,
+      "rate": 0.8033333333333333,
+      "lo": 0.7696419757400986,
+      "hi": 0.8331652589782564
+     },
+     "sec_medhigh_of_pass": {
+      "k": 109,
+      "n": 482,
+      "rate": 0.22614107883817428,
+      "lo": 0.19104530245429718,
+      "hi": 0.2655675591964569
+     },
+     "mean_nloc": 14.251037344398341,
+     "mean_avg_ccn": 2.644837962962963,
+     "mean_ccd": 0.3160814814814814,
+     "pooled_ccd": 0.2613189692822827,
+     "cppcheck_per_kloc_c_cpp": 25.374224169404894,
+     "nloc_total": 6869,
+     "nloc_c_cpp": 5478
+    },
+    "diff_gate1_pass_planned": {
+     "diff": -0.07999999999999996,
+     "lo": -0.12762948842292127,
+     "hi": -0.031929290137354564
+    },
+    "diff_gate1_pass_of_artifacts": {
+     "diff": -0.007003058103975501,
+     "lo": -0.05362671380582744,
+     "hi": 0.03924492021694412
+    },
+    "diff_sec_medhigh_of_pass": {
+     "diff": -0.03028854427596228,
+     "lo": -0.08274411713557728,
+     "hi": 0.0228777091374701
+    }
+   },
+   "paired_cells": {
+    "c": {
+     "cells": 40,
+     "ours_higher": 6,
+     "equal": 17,
+     "base_higher": 17,
+     "mean_diff": -0.625,
+     "median_diff": 0.0,
+     "wilcoxon_W": 51.0,
+     "p": 0.006758408045822201
+    },
+    "cpp": {
+     "cells": 40,
+     "ours_higher": 6,
+     "equal": 22,
+     "base_higher": 12,
+     "mean_diff": -0.275,
+     "median_diff": 0.0,
+     "wilcoxon_W": 55.5,
+     "p": 0.18047333452633552
+    },
+    "python": {
+     "cells": 40,
+     "ours_higher": 1,
+     "equal": 29,
+     "base_higher": 10,
+     "mean_diff": -0.3,
+     "median_diff": 0.0,
+     "wilcoxon_W": 4.5,
+     "p": 0.00800449847140168
+    },
+    "all": {
+     "cells": 120,
+     "ours_higher": 13,
+     "equal": 68,
+     "base_higher": 39,
+     "mean_diff": -0.4,
+     "median_diff": 0.0,
+     "wilcoxon_W": 293.5,
+     "p": 0.00021332128178400267
+    }
+   }
+  },
+  "S1_identical": {
+   "c": {
+    "ours": {
+     "planned": 200,
+     "artifacts": 175,
+     "gate1_counts": {
+      "fail_integrity": 37,
+      "no_artifact": 25,
+      "pass": 117,
+      "fail_compile": 1,
+      "blocked_dependency": 20
+     },
+     "gate1_pass_planned": {
+      "k": 117,
+      "n": 200,
+      "rate": 0.585,
+      "lo": 0.5157391490134403,
+      "hi": 0.6510571455024242
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 117,
+      "n": 175,
+      "rate": 0.6685714285714286,
+      "lo": 0.5958661335634834,
+      "hi": 0.7340350000386151
+     },
+     "sec_medhigh_of_pass": {
+      "k": 63,
+      "n": 117,
+      "rate": 0.5384615384615384,
+      "lo": 0.44834691371990076,
+      "hi": 0.626130836613735
+     },
+     "mean_nloc": 53.7008547008547,
+     "mean_avg_ccn": 5.460683760683758,
+     "mean_ccd": 0.30251623931623933,
+     "pooled_ccd": 0.3060639821741206,
+     "cppcheck_per_kloc_c_cpp": 6.207225847525067,
+     "nloc_total": 6283,
+     "nloc_c_cpp": 6283
+    },
+    "base": {
+     "planned": 139,
+     "artifacts": 139,
+     "gate1_counts": {
+      "pass": 110,
+      "blocked_dependency": 25,
+      "fail_compile": 4
+     },
+     "gate1_pass_planned": {
+      "k": 110,
+      "n": 139,
+      "rate": 0.7913669064748201,
+      "lo": 0.7164371340827176,
+      "hi": 0.8506251226930102
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 110,
+      "n": 139,
+      "rate": 0.7913669064748201,
+      "lo": 0.7164371340827176,
+      "hi": 0.8506251226930102
+     },
+     "sec_medhigh_of_pass": {
+      "k": 59,
+      "n": 110,
+      "rate": 0.5363636363636364,
+      "lo": 0.44352397913274194,
+      "hi": 0.6267491892092099
+     },
+     "mean_nloc": 20.954545454545453,
+     "mean_avg_ccn": 3.2755102040816326,
+     "mean_ccd": 0.23947857142857135,
+     "pooled_ccd": 0.23297180043383947,
+     "cppcheck_per_kloc_c_cpp": 23.86117136659436,
+     "nloc_total": 2305,
+     "nloc_c_cpp": 2305
+    },
+    "diff_gate1_pass_planned": {
+     "diff": -0.20636690647482014,
+     "lo": -0.29751843783191906,
+     "hi": -0.10647688063309389
+    },
+    "diff_gate1_pass_of_artifacts": {
+     "diff": -0.12279547790339151,
+     "lo": -0.2165909794562597,
+     "hi": -0.0232969855531467
+    },
+    "diff_sec_medhigh_of_pass": {
+     "diff": 0.00209790209790206,
+     "lo": -0.12553514125500922,
+     "hi": 0.1297893575412821
+    }
+   },
+   "cpp": {
+    "ours": {
+     "planned": 200,
+     "artifacts": 183,
+     "gate1_counts": {
+      "pass": 131,
+      "no_artifact": 17,
+      "fail_compile": 1,
+      "fail_integrity": 30,
+      "blocked_dependency": 21
+     },
+     "gate1_pass_planned": {
+      "k": 131,
+      "n": 200,
+      "rate": 0.655,
+      "lo": 0.5867558925905368,
+      "hi": 0.7174020562325106
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 131,
+      "n": 183,
+      "rate": 0.7158469945355191,
+      "lo": 0.6465878615188965,
+      "hi": 0.7762305027704437
+     },
+     "sec_medhigh_of_pass": {
+      "k": 11,
+      "n": 131,
+      "rate": 0.08396946564885496,
+      "lo": 0.04753307496909216,
+      "hi": 0.14411020037589567
+     },
+     "mean_nloc": 48.42748091603053,
+     "mean_avg_ccn": 3.4535384615384612,
+     "mean_ccd": 0.2769661538461538,
+     "pooled_ccd": 0.26592055485498106,
+     "cppcheck_per_kloc_c_cpp": 9.300126103404791,
+     "nloc_total": 6344,
+     "nloc_c_cpp": 6344
+    },
+    "base": {
+     "planned": 110,
+     "artifacts": 110,
+     "gate1_counts": {
+      "pass": 88,
+      "blocked_dependency": 22
+     },
+     "gate1_pass_planned": {
+      "k": 88,
+      "n": 110,
+      "rate": 0.8,
+      "lo": 0.7157046653839023,
+      "hi": 0.8640489734371992
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 88,
+      "n": 110,
+      "rate": 0.8,
+      "lo": 0.7157046653839023,
+      "hi": 0.8640489734371992
+     },
+     "sec_medhigh_of_pass": {
+      "k": 8,
+      "n": 88,
+      "rate": 0.09090909090909091,
+      "lo": 0.046786421476167094,
+      "hi": 0.16925390579510832
+     },
+     "mean_nloc": 16.113636363636363,
+     "mean_avg_ccn": 2.87395061728395,
+     "mean_ccd": 0.2602839506172839,
+     "pooled_ccd": 0.24894217207334274,
+     "cppcheck_per_kloc_c_cpp": 23.2722143864598,
+     "nloc_total": 1418,
+     "nloc_c_cpp": 1418
+    },
+    "diff_gate1_pass_planned": {
+     "diff": -0.14500000000000002,
+     "lo": -0.2385923564959949,
+     "hi": -0.04012044975265533
+    },
+    "diff_gate1_pass_of_artifacts": {
+     "diff": -0.0841530054644809,
+     "lo": -0.1784880387478443,
+     "hi": 0.019538226106935425
+    },
+    "diff_sec_medhigh_of_pass": {
+     "diff": -0.006939625260235949,
+     "lo": -0.09334286932718427,
+     "hi": 0.06765070877437841
+    }
+   },
+   "python": {
+    "ours": {
+     "planned": 200,
+     "artifacts": 187,
+     "gate1_counts": {
+      "pass": 186,
+      "no_artifact": 13,
+      "fail_integrity": 1
+     },
+     "gate1_pass_planned": {
+      "k": 186,
+      "n": 200,
+      "rate": 0.93,
+      "lo": 0.8859451911438936,
+      "hi": 0.9578478281716571
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 186,
+      "n": 187,
+      "rate": 0.9946524064171123,
+      "lo": 0.9703356448529545,
+      "hi": 0.9990553938825937
+     },
+     "sec_medhigh_of_pass": {
+      "k": 11,
+      "n": 186,
+      "rate": 0.05913978494623656,
+      "lo": 0.03334020739090661,
+      "hi": 0.10278105390376911
+     },
+     "mean_nloc": 36.05913978494624,
+     "mean_avg_ccn": 3.0774444444444455,
+     "mean_ccd": 0.41396833333333305,
+     "pooled_ccd": 0.30818547785895334,
+     "cppcheck_per_kloc_c_cpp": null,
+     "nloc_total": 6707,
+     "nloc_c_cpp": 0
+    },
+    "base": {
+     "planned": 190,
+     "artifacts": 190,
+     "gate1_counts": {
+      "pass": 190
+     },
+     "gate1_pass_planned": {
+      "k": 190,
+      "n": 190,
+      "rate": 1.0,
+      "lo": 0.9801824705402803,
+      "hi": 0.9999999999999999
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 190,
+      "n": 190,
+      "rate": 1.0,
+      "lo": 0.9801824705402803,
+      "hi": 0.9999999999999999
+     },
+     "sec_medhigh_of_pass": {
+      "k": 26,
+      "n": 190,
+      "rate": 0.1368421052631579,
+      "lo": 0.09512509997310233,
+      "hi": 0.1929528951081677
+     },
+     "mean_nloc": 6.847368421052631,
+     "mean_avg_ccn": 2.0498113207547166,
+     "mean_ccd": 0.413740251572327,
+     "pooled_ccd": 0.3328209069946195,
+     "cppcheck_per_kloc_c_cpp": null,
+     "nloc_total": 1301,
+     "nloc_c_cpp": 0
+    },
+    "diff_gate1_pass_planned": {
+     "diff": -0.06999999999999995,
+     "lo": -0.11405480885610642,
+     "hi": -0.035820532365687725
+    },
+    "diff_gate1_pass_of_artifacts": {
+     "diff": -0.005347593582887722,
+     "lo": -0.029664355147045463,
+     "hi": 0.014953164346510995
+    },
+    "diff_sec_medhigh_of_pass": {
+     "diff": -0.07770232031692134,
+     "lo": -0.13946022620000922,
+     "hi": -0.017329570780444045
+    }
+   },
+   "all": {
+    "ours": {
+     "planned": 600,
+     "artifacts": 545,
+     "gate1_counts": {
+      "pass": 434,
+      "no_artifact": 55,
+      "fail_integrity": 68,
+      "fail_compile": 2,
+      "blocked_dependency": 41
+     },
+     "gate1_pass_planned": {
+      "k": 434,
+      "n": 600,
+      "rate": 0.7233333333333334,
+      "lo": 0.6862035019339724,
+      "hi": 0.7576216049465748
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 434,
+      "n": 545,
+      "rate": 0.7963302752293578,
+      "lo": 0.7604998205389606,
+      "hi": 0.8280125718995337
+     },
+     "sec_medhigh_of_pass": {
+      "k": 85,
+      "n": 434,
+      "rate": 0.195852534562212,
+      "lo": 0.16125282689598552,
+      "hi": 0.23578919669156634
+     },
+     "mean_nloc": 44.54838709677419,
+     "mean_avg_ccn": 3.844964871194378,
+     "mean_ccd": 0.3417196721311475,
+     "pooled_ccd": 0.2936278059377263,
+     "cppcheck_per_kloc_c_cpp": 7.761146749029857,
+     "nloc_total": 19334,
+     "nloc_c_cpp": 12627
+    },
+    "base": {
+     "planned": 439,
+     "artifacts": 439,
+     "gate1_counts": {
+      "pass": 388,
+      "blocked_dependency": 47,
+      "fail_compile": 4
+     },
+     "gate1_pass_planned": {
+      "k": 388,
+      "n": 439,
+      "rate": 0.8838268792710706,
+      "lo": 0.8504679628655677,
+      "hi": 0.9105267301278243
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 388,
+      "n": 439,
+      "rate": 0.8838268792710706,
+      "lo": 0.8504679628655677,
+      "hi": 0.9105267301278243
+     },
+     "sec_medhigh_of_pass": {
+      "k": 93,
+      "n": 388,
+      "rate": 0.23969072164948454,
+      "lo": 0.19989753220089435,
+      "hi": 0.2845878496983325
+     },
+     "mean_nloc": 12.948453608247423,
+     "mean_avg_ccn": 2.6026923076923074,
+     "mean_ccd": 0.32643964497041444,
+     "pooled_ccd": 0.2633359872611465,
+     "cppcheck_per_kloc_c_cpp": 23.636852001074402,
+     "nloc_total": 5024,
+     "nloc_c_cpp": 3723
+    },
+    "diff_gate1_pass_planned": {
+     "diff": -0.16049354593773724,
+     "lo": -0.2062265363879348,
+     "hi": -0.11265524669985932
+    },
+    "diff_gate1_pass_of_artifacts": {
+     "diff": -0.08749660404171278,
+     "lo": -0.13218109261541694,
+     "hi": -0.041490243328802995
+    },
+    "diff_sec_medhigh_of_pass": {
+     "diff": -0.04383818708727255,
+     "lo": -0.10052056422181924,
+     "hi": 0.012539422905752128
+    }
+   },
+   "paired_cells": null
+  },
+  "S2_no_escape": {
+   "c": {
+    "ours": {
+     "planned": 200,
+     "artifacts": 175,
+     "gate1_counts": {
+      "fail_integrity": 37,
+      "no_artifact": 25,
+      "pass": 117,
+      "fail_compile": 1,
+      "blocked_dependency": 20
+     },
+     "gate1_pass_planned": {
+      "k": 117,
+      "n": 200,
+      "rate": 0.585,
+      "lo": 0.5157391490134403,
+      "hi": 0.6510571455024242
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 117,
+      "n": 175,
+      "rate": 0.6685714285714286,
+      "lo": 0.5958661335634834,
+      "hi": 0.7340350000386151
+     },
+     "sec_medhigh_of_pass": {
+      "k": 63,
+      "n": 117,
+      "rate": 0.5384615384615384,
+      "lo": 0.44834691371990076,
+      "hi": 0.626130836613735
+     },
+     "mean_nloc": 53.7008547008547,
+     "mean_avg_ccn": 5.460683760683758,
+     "mean_ccd": 0.30251623931623933,
+     "pooled_ccd": 0.3060639821741206,
+     "cppcheck_per_kloc_c_cpp": 6.207225847525067,
+     "nloc_total": 6283,
+     "nloc_c_cpp": 6283
+    },
+    "base": {
+     "planned": 166,
+     "artifacts": 166,
+     "gate1_counts": {
+      "pass": 119,
+      "blocked_dependency": 35,
+      "fail_compile": 12
+     },
+     "gate1_pass_planned": {
+      "k": 119,
+      "n": 166,
+      "rate": 0.7168674698795181,
+      "lo": 0.644030185637065,
+      "hi": 0.779894576314092
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 119,
+      "n": 166,
+      "rate": 0.7168674698795181,
+      "lo": 0.644030185637065,
+      "hi": 0.779894576314092
+     },
+     "sec_medhigh_of_pass": {
+      "k": 52,
+      "n": 119,
+      "rate": 0.4369747899159664,
+      "lo": 0.35120979571275196,
+      "hi": 0.5266815925530388
+     },
+     "mean_nloc": 19.34453781512605,
+     "mean_avg_ccn": 3.2188785046728974,
+     "mean_ccd": 0.246833644859813,
+     "pooled_ccd": 0.23892267593397046,
+     "cppcheck_per_kloc_c_cpp": 26.93310165073849,
+     "nloc_total": 2302,
+     "nloc_c_cpp": 2302
+    },
+    "diff_gate1_pass_planned": {
+     "diff": -0.13186746987951814,
+     "lo": -0.22551298031593747,
+     "hi": -0.03353732980159316
+    },
+    "diff_gate1_pass_of_artifacts": {
+     "diff": -0.04829604130808951,
+     "lo": -0.144517016504288,
+     "hi": 0.0496363290556229
+    },
+    "diff_sec_medhigh_of_pass": {
+     "diff": 0.10148674854557205,
+     "lo": -0.025666529161661428,
+     "hi": 0.22413070505862714
+    }
+   },
+   "cpp": {
+    "ours": {
+     "planned": 200,
+     "artifacts": 183,
+     "gate1_counts": {
+      "pass": 131,
+      "no_artifact": 17,
+      "fail_compile": 1,
+      "fail_integrity": 30,
+      "blocked_dependency": 21
+     },
+     "gate1_pass_planned": {
+      "k": 131,
+      "n": 200,
+      "rate": 0.655,
+      "lo": 0.5867558925905368,
+      "hi": 0.7174020562325106
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 131,
+      "n": 183,
+      "rate": 0.7158469945355191,
+      "lo": 0.6465878615188965,
+      "hi": 0.7762305027704437
+     },
+     "sec_medhigh_of_pass": {
+      "k": 11,
+      "n": 131,
+      "rate": 0.08396946564885496,
+      "lo": 0.04753307496909216,
+      "hi": 0.14411020037589567
+     },
+     "mean_nloc": 48.42748091603053,
+     "mean_avg_ccn": 3.4535384615384612,
+     "mean_ccd": 0.2769661538461538,
+     "pooled_ccd": 0.26592055485498106,
+     "cppcheck_per_kloc_c_cpp": 9.300126103404791,
+     "nloc_total": 6344,
+     "nloc_c_cpp": 6344
+    },
+    "base": {
+     "planned": 197,
+     "artifacts": 197,
+     "gate1_counts": {
+      "pass": 141,
+      "blocked_dependency": 50,
+      "fail_compile": 6
+     },
+     "gate1_pass_planned": {
+      "k": 141,
+      "n": 197,
+      "rate": 0.7157360406091371,
+      "lo": 0.6490914511615987,
+      "hi": 0.774127940387861
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 141,
+      "n": 197,
+      "rate": 0.7157360406091371,
+      "lo": 0.6490914511615987,
+      "hi": 0.774127940387861
+     },
+     "sec_medhigh_of_pass": {
+      "k": 15,
+      "n": 141,
+      "rate": 0.10638297872340426,
+      "lo": 0.06553601106011342,
+      "hi": 0.16810882444646635
+     },
+     "mean_nloc": 17.26241134751773,
+     "mean_avg_ccn": 2.6793283582089544,
+     "mean_ccd": 0.2513253731343283,
+     "pooled_ccd": 0.24239934264585045,
+     "cppcheck_per_kloc_c_cpp": 21.774856203779787,
+     "nloc_total": 2434,
+     "nloc_c_cpp": 2434
+    },
+    "diff_gate1_pass_planned": {
+     "diff": -0.060736040609137065,
+     "lo": -0.1505518084669185,
+     "hi": 0.03056301702387665
+    },
+    "diff_gate1_pass_of_artifacts": {
+     "diff": 0.00011095392638205137,
+     "lo": -0.09047845751879058,
+     "hi": 0.09004242433239812
+    },
+    "diff_sec_medhigh_of_pass": {
+     "diff": -0.022413513074549293,
+     "lo": -0.09409119855612416,
+     "hi": 0.05028712475479996
+    }
+   },
+   "python": {
+    "ours": {
+     "planned": 200,
+     "artifacts": 187,
+     "gate1_counts": {
+      "pass": 186,
+      "no_artifact": 13,
+      "fail_integrity": 1
+     },
+     "gate1_pass_planned": {
+      "k": 186,
+      "n": 200,
+      "rate": 0.93,
+      "lo": 0.8859451911438936,
+      "hi": 0.9578478281716571
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 186,
+      "n": 187,
+      "rate": 0.9946524064171123,
+      "lo": 0.9703356448529545,
+      "hi": 0.9990553938825937
+     },
+     "sec_medhigh_of_pass": {
+      "k": 11,
+      "n": 186,
+      "rate": 0.05913978494623656,
+      "lo": 0.03334020739090661,
+      "hi": 0.10278105390376911
+     },
+     "mean_nloc": 36.05913978494624,
+     "mean_avg_ccn": 3.0774444444444455,
+     "mean_ccd": 0.41396833333333305,
+     "pooled_ccd": 0.30818547785895334,
+     "cppcheck_per_kloc_c_cpp": null,
+     "nloc_total": 6707,
+     "nloc_c_cpp": 0
+    },
+    "base": {
+     "planned": 200,
+     "artifacts": 200,
+     "gate1_counts": {
+      "pass": 198,
+      "fail_syntax": 2
+     },
+     "gate1_pass_planned": {
+      "k": 198,
+      "n": 200,
+      "rate": 0.99,
+      "lo": 0.9642782382838231,
+      "hi": 0.9972533418664555
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 198,
+      "n": 200,
+      "rate": 0.99,
+      "lo": 0.9642782382838231,
+      "hi": 0.9972533418664555
+     },
+     "sec_medhigh_of_pass": {
+      "k": 26,
+      "n": 198,
+      "rate": 0.13131313131313133,
+      "lo": 0.09121075480111494,
+      "hi": 0.18544924927813072
+     },
+     "mean_nloc": 7.025252525252525,
+     "mean_avg_ccn": 2.15,
+     "mean_ccd": 0.4232862275449102,
+     "pooled_ccd": 0.34795111430625447,
+     "cppcheck_per_kloc_c_cpp": null,
+     "nloc_total": 1391,
+     "nloc_c_cpp": 0
+    },
+    "diff_gate1_pass_planned": {
+     "diff": -0.05999999999999994,
+     "lo": -0.10464792438154039,
+     "hi": -0.0220907589147194
+    },
+    "diff_gate1_pass_of_artifacts": {
+     "diff": 0.004652406417112287,
+     "lo": -0.020723090843035658,
+     "hi": 0.030748293533762877
+    },
+    "diff_sec_medhigh_of_pass": {
+     "diff": -0.07217334636689476,
+     "lo": -0.13214281751975565,
+     "hi": -0.012904796881225575
+    }
+   },
+   "all": {
+    "ours": {
+     "planned": 600,
+     "artifacts": 545,
+     "gate1_counts": {
+      "pass": 434,
+      "no_artifact": 55,
+      "fail_integrity": 68,
+      "fail_compile": 2,
+      "blocked_dependency": 41
+     },
+     "gate1_pass_planned": {
+      "k": 434,
+      "n": 600,
+      "rate": 0.7233333333333334,
+      "lo": 0.6862035019339724,
+      "hi": 0.7576216049465748
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 434,
+      "n": 545,
+      "rate": 0.7963302752293578,
+      "lo": 0.7604998205389606,
+      "hi": 0.8280125718995337
+     },
+     "sec_medhigh_of_pass": {
+      "k": 85,
+      "n": 434,
+      "rate": 0.195852534562212,
+      "lo": 0.16125282689598552,
+      "hi": 0.23578919669156634
+     },
+     "mean_nloc": 44.54838709677419,
+     "mean_avg_ccn": 3.844964871194378,
+     "mean_ccd": 0.3417196721311475,
+     "pooled_ccd": 0.2936278059377263,
+     "cppcheck_per_kloc_c_cpp": 7.761146749029857,
+     "nloc_total": 19334,
+     "nloc_c_cpp": 12627
+    },
+    "base": {
+     "planned": 563,
+     "artifacts": 563,
+     "gate1_counts": {
+      "pass": 458,
+      "blocked_dependency": 85,
+      "fail_compile": 18,
+      "fail_syntax": 2
+     },
+     "gate1_pass_planned": {
+      "k": 458,
+      "n": 563,
+      "rate": 0.8134991119005328,
+      "lo": 0.7792388635940622,
+      "hi": 0.8435102217223357
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 458,
+      "n": 563,
+      "rate": 0.8134991119005328,
+      "lo": 0.7792388635940622,
+      "hi": 0.8435102217223357
+     },
+     "sec_medhigh_of_pass": {
+      "k": 93,
+      "n": 458,
+      "rate": 0.20305676855895197,
+      "lo": 0.16875560735644746,
+      "hi": 0.24229769934635859
+     },
+     "mean_nloc": 13.37772925764192,
+     "mean_avg_ccn": 2.6041666666666674,
+     "mean_ccd": 0.3205333333333333,
+     "pooled_ccd": 0.26505630814427944,
+     "cppcheck_per_kloc_c_cpp": 24.282094594594593,
+     "nloc_total": 6127,
+     "nloc_c_cpp": 4736
+    },
+    "diff_gate1_pass_planned": {
+     "diff": -0.09016577856719943,
+     "lo": -0.1379077003182275,
+     "hi": -0.04169465124129089
+    },
+    "diff_gate1_pass_of_artifacts": {
+     "diff": -0.01716883667117497,
+     "lo": -0.0639073453771331,
+     "hi": 0.02949520233444536
+    },
+    "diff_sec_medhigh_of_pass": {
+     "diff": -0.007204233996739973,
+     "lo": -0.059520487873048505,
+     "hi": 0.0454408668377575
+    }
+   },
+   "paired_cells": null
+  },
+  "S3_blocked_excl": {
+   "c": {
+    "ours": {
+     "planned": 180,
+     "artifacts": 155,
+     "gate1_counts": {
+      "fail_integrity": 37,
+      "no_artifact": 25,
+      "pass": 117,
+      "fail_compile": 1
+     },
+     "gate1_pass_planned": {
+      "k": 117,
+      "n": 180,
+      "rate": 0.65,
+      "lo": 0.5778472012021525,
+      "hi": 0.7158841494213637
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 117,
+      "n": 155,
+      "rate": 0.7548387096774194,
+      "lo": 0.681493410704982,
+      "hi": 0.8158578512799511
+     },
+     "sec_medhigh_of_pass": {
+      "k": 63,
+      "n": 117,
+      "rate": 0.5384615384615384,
+      "lo": 0.44834691371990076,
+      "hi": 0.626130836613735
+     },
+     "mean_nloc": 53.7008547008547,
+     "mean_avg_ccn": 5.460683760683758,
+     "mean_ccd": 0.30251623931623933,
+     "pooled_ccd": 0.3060639821741206,
+     "cppcheck_per_kloc_c_cpp": 6.207225847525067,
+     "nloc_total": 6283,
+     "nloc_c_cpp": 6283
+    },
+    "base": {
+     "planned": 157,
+     "artifacts": 157,
+     "gate1_counts": {
+      "pass": 142,
+      "fail_compile": 15
+     },
+     "gate1_pass_planned": {
+      "k": 142,
+      "n": 157,
+      "rate": 0.9044585987261147,
+      "lo": 0.848353415079232,
+      "hi": 0.9412439992390469
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 142,
+      "n": 157,
+      "rate": 0.9044585987261147,
+      "lo": 0.848353415079232,
+      "hi": 0.9412439992390469
+     },
+     "sec_medhigh_of_pass": {
+      "k": 68,
+      "n": 142,
+      "rate": 0.4788732394366197,
+      "lo": 0.39835232140775706,
+      "hi": 0.5605071137040601
+     },
+     "mean_nloc": 21.169014084507044,
+     "mean_avg_ccn": 3.242230769230769,
+     "mean_ccd": 0.24572307692307685,
+     "pooled_ccd": 0.2368596141051231,
+     "cppcheck_per_kloc_c_cpp": 27.944111776447105,
+     "nloc_total": 3006,
+     "nloc_c_cpp": 3006
+    },
+    "diff_gate1_pass_planned": {
+     "diff": -0.25445859872611465,
+     "lo": -0.33544743786620546,
+     "hi": -0.16792240527489444
+    },
+    "diff_gate1_pass_of_artifacts": {
+     "diff": -0.14961988904869528,
+     "lo": -0.23167291198053525,
+     "hi": -0.06672762599622306
+    },
+    "diff_sec_medhigh_of_pass": {
+     "diff": 0.059588299024918745,
+     "lo": -0.062004196714902524,
+     "hi": 0.17862410909361007
+    }
+   },
+   "cpp": {
+    "ours": {
+     "planned": 179,
+     "artifacts": 162,
+     "gate1_counts": {
+      "pass": 131,
+      "no_artifact": 17,
+      "fail_compile": 1,
+      "fail_integrity": 30
+     },
+     "gate1_pass_planned": {
+      "k": 131,
+      "n": 179,
+      "rate": 0.7318435754189944,
+      "lo": 0.6625764325862294,
+      "hi": 0.7913687532339898
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 131,
+      "n": 162,
+      "rate": 0.808641975308642,
+      "lo": 0.7411982788749567,
+      "hi": 0.8617872514689295
+     },
+     "sec_medhigh_of_pass": {
+      "k": 11,
+      "n": 131,
+      "rate": 0.08396946564885496,
+      "lo": 0.04753307496909216,
+      "hi": 0.14411020037589567
+     },
+     "mean_nloc": 48.42748091603053,
+     "mean_avg_ccn": 3.4535384615384612,
+     "mean_ccd": 0.2769661538461538,
+     "pooled_ccd": 0.26592055485498106,
+     "cppcheck_per_kloc_c_cpp": 9.300126103404791,
+     "nloc_total": 6344,
+     "nloc_c_cpp": 6344
+    },
+    "base": {
+     "planned": 150,
+     "artifacts": 150,
+     "gate1_counts": {
+      "pass": 142,
+      "fail_compile": 8
+     },
+     "gate1_pass_planned": {
+      "k": 142,
+      "n": 150,
+      "rate": 0.9466666666666667,
+      "lo": 0.8982961216180454,
+      "hi": 0.9727304600798061
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 142,
+      "n": 150,
+      "rate": 0.9466666666666667,
+      "lo": 0.8982961216180454,
+      "hi": 0.9727304600798061
+     },
+     "sec_medhigh_of_pass": {
+      "k": 15,
+      "n": 142,
+      "rate": 0.1056338028169014,
+      "lo": 0.06506672672777775,
+      "hi": 0.16697606202614415
+     },
+     "mean_nloc": 17.408450704225352,
+     "mean_avg_ccn": 2.681703703703703,
+     "mean_ccd": 0.2512177777777777,
+     "pooled_ccd": 0.24231391585760517,
+     "cppcheck_per_kloc_c_cpp": 22.249190938511326,
+     "nloc_total": 2472,
+     "nloc_c_cpp": 2472
+    },
+    "diff_gate1_pass_planned": {
+     "diff": -0.2148230912476723,
+     "lo": -0.2888315934842226,
+     "hi": -0.13812265824884545
+    },
+    "diff_gate1_pass_of_artifacts": {
+     "diff": -0.13802469135802464,
+     "lo": -0.21032941814488076,
+     "hi": -0.06616280990162299
+    },
+    "diff_sec_medhigh_of_pass": {
+     "diff": -0.021664337168046444,
+     "lo": -0.09301196032861313,
+     "hi": 0.05087941263804663
+    }
+   },
+   "python": {
+    "ours": {
+     "planned": 200,
+     "artifacts": 187,
+     "gate1_counts": {
+      "pass": 186,
+      "no_artifact": 13,
+      "fail_integrity": 1
+     },
+     "gate1_pass_planned": {
+      "k": 186,
+      "n": 200,
+      "rate": 0.93,
+      "lo": 0.8859451911438936,
+      "hi": 0.9578478281716571
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 186,
+      "n": 187,
+      "rate": 0.9946524064171123,
+      "lo": 0.9703356448529545,
+      "hi": 0.9990553938825937
+     },
+     "sec_medhigh_of_pass": {
+      "k": 11,
+      "n": 186,
+      "rate": 0.05913978494623656,
+      "lo": 0.03334020739090661,
+      "hi": 0.10278105390376911
+     },
+     "mean_nloc": 36.05913978494624,
+     "mean_avg_ccn": 3.0774444444444455,
+     "mean_ccd": 0.41396833333333305,
+     "pooled_ccd": 0.30818547785895334,
+     "cppcheck_per_kloc_c_cpp": null,
+     "nloc_total": 6707,
+     "nloc_c_cpp": 0
+    },
+    "base": {
+     "planned": 200,
+     "artifacts": 200,
+     "gate1_counts": {
+      "pass": 198,
+      "fail_syntax": 2
+     },
+     "gate1_pass_planned": {
+      "k": 198,
+      "n": 200,
+      "rate": 0.99,
+      "lo": 0.9642782382838231,
+      "hi": 0.9972533418664555
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 198,
+      "n": 200,
+      "rate": 0.99,
+      "lo": 0.9642782382838231,
+      "hi": 0.9972533418664555
+     },
+     "sec_medhigh_of_pass": {
+      "k": 26,
+      "n": 198,
+      "rate": 0.13131313131313133,
+      "lo": 0.09121075480111494,
+      "hi": 0.18544924927813072
+     },
+     "mean_nloc": 7.025252525252525,
+     "mean_avg_ccn": 2.15,
+     "mean_ccd": 0.4232862275449102,
+     "pooled_ccd": 0.34795111430625447,
+     "cppcheck_per_kloc_c_cpp": null,
+     "nloc_total": 1391,
+     "nloc_c_cpp": 0
+    },
+    "diff_gate1_pass_planned": {
+     "diff": -0.05999999999999994,
+     "lo": -0.10464792438154039,
+     "hi": -0.0220907589147194
+    },
+    "diff_gate1_pass_of_artifacts": {
+     "diff": 0.004652406417112287,
+     "lo": -0.020723090843035658,
+     "hi": 0.030748293533762877
+    },
+    "diff_sec_medhigh_of_pass": {
+     "diff": -0.07217334636689476,
+     "lo": -0.13214281751975565,
+     "hi": -0.012904796881225575
+    }
+   },
+   "all": {
+    "ours": {
+     "planned": 559,
+     "artifacts": 504,
+     "gate1_counts": {
+      "pass": 434,
+      "no_artifact": 55,
+      "fail_integrity": 68,
+      "fail_compile": 2
+     },
+     "gate1_pass_planned": {
+      "k": 434,
+      "n": 559,
+      "rate": 0.776386404293381,
+      "lo": 0.7400258306516974,
+      "hi": 0.8089742388304602
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 434,
+      "n": 504,
+      "rate": 0.8611111111111112,
+      "lo": 0.828177893879536,
+      "hi": 0.88858123178397
+     },
+     "sec_medhigh_of_pass": {
+      "k": 85,
+      "n": 434,
+      "rate": 0.195852534562212,
+      "lo": 0.16125282689598552,
+      "hi": 0.23578919669156634
+     },
+     "mean_nloc": 44.54838709677419,
+     "mean_avg_ccn": 3.844964871194378,
+     "mean_ccd": 0.3417196721311475,
+     "pooled_ccd": 0.2936278059377263,
+     "cppcheck_per_kloc_c_cpp": 7.761146749029857,
+     "nloc_total": 19334,
+     "nloc_c_cpp": 12627
+    },
+    "base": {
+     "planned": 507,
+     "artifacts": 507,
+     "gate1_counts": {
+      "pass": 482,
+      "fail_compile": 23,
+      "fail_syntax": 2
+     },
+     "gate1_pass_planned": {
+      "k": 482,
+      "n": 507,
+      "rate": 0.9506903353057199,
+      "lo": 0.9282223132041627,
+      "hi": 0.9663800964260381
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 482,
+      "n": 507,
+      "rate": 0.9506903353057199,
+      "lo": 0.9282223132041627,
+      "hi": 0.9663800964260381
+     },
+     "sec_medhigh_of_pass": {
+      "k": 109,
+      "n": 482,
+      "rate": 0.22614107883817428,
+      "lo": 0.19104530245429718,
+      "hi": 0.2655675591964569
+     },
+     "mean_nloc": 14.251037344398341,
+     "mean_avg_ccn": 2.644837962962963,
+     "mean_ccd": 0.3160814814814814,
+     "pooled_ccd": 0.2613189692822827,
+     "cppcheck_per_kloc_c_cpp": 25.374224169404894,
+     "nloc_total": 6869,
+     "nloc_c_cpp": 5478
+    },
+    "diff_gate1_pass_planned": {
+     "diff": -0.17430393101233888,
+     "lo": -0.2139051926029113,
+     "hi": -0.13472137201254566
+    },
+    "diff_gate1_pass_of_artifacts": {
+     "diff": -0.08957922419460873,
+     "lo": -0.12605888155641473,
+     "hi": -0.054090922644133156
+    },
+    "diff_sec_medhigh_of_pass": {
+     "diff": -0.03028854427596228,
+     "lo": -0.08274411713557728,
+     "hi": 0.0228777091374701
+    }
+   },
+   "paired_cells": null
+  },
+  "S4_symmetric_integrity": {
+   "c": {
+    "ours": {
+     "planned": 200,
+     "artifacts": 175,
+     "gate1_counts": {
+      "fail_compile": 25,
+      "no_artifact": 25,
+      "pass": 118,
+      "fail_integrity": 4,
+      "blocked_dependency": 28
+     },
+     "gate1_pass_planned": {
+      "k": 118,
+      "n": 200,
+      "rate": 0.59,
+      "lo": 0.5207645903369208,
+      "hi": 0.6558432509151711
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 118,
+      "n": 175,
+      "rate": 0.6742857142857143,
+      "lo": 0.6017563557682073,
+      "hi": 0.7393278671085384
+     },
+     "sec_medhigh_of_pass": {
+      "k": 64,
+      "n": 118,
+      "rate": 0.5423728813559322,
+      "lo": 0.4525651223077117,
+      "hi": 0.6295087472666532
+     },
+     "mean_nloc": 54.20338983050848,
+     "mean_avg_ccn": 5.442288135593219,
+     "mean_ccd": 0.3016771186440678,
+     "pooled_ccd": 0.3042526579111945,
+     "cppcheck_per_kloc_c_cpp": 6.097560975609756,
+     "nloc_total": 6396,
+     "nloc_c_cpp": 6396
+    },
+    "base": {
+     "planned": 200,
+     "artifacts": 200,
+     "gate1_counts": {
+      "pass": 142,
+      "blocked_dependency": 43,
+      "fail_compile": 15
+     },
+     "gate1_pass_planned": {
+      "k": 142,
+      "n": 200,
+      "rate": 0.71,
+      "lo": 0.6436252189922268,
+      "hi": 0.7684597439293211
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 142,
+      "n": 200,
+      "rate": 0.71,
+      "lo": 0.6436252189922268,
+      "hi": 0.7684597439293211
+     },
+     "sec_medhigh_of_pass": {
+      "k": 68,
+      "n": 142,
+      "rate": 0.4788732394366197,
+      "lo": 0.39835232140775706,
+      "hi": 0.5605071137040601
+     },
+     "mean_nloc": 21.169014084507044,
+     "mean_avg_ccn": 3.242230769230769,
+     "mean_ccd": 0.24572307692307685,
+     "pooled_ccd": 0.2368596141051231,
+     "cppcheck_per_kloc_c_cpp": 27.944111776447105,
+     "nloc_total": 3006,
+     "nloc_c_cpp": 3006
+    },
+    "diff_gate1_pass_planned": {
+     "diff": -0.12,
+     "lo": -0.2106150297218745,
+     "hi": -0.026506977560311826
+    },
+    "diff_gate1_pass_of_artifacts": {
+     "diff": -0.0357142857142857,
+     "lo": -0.12887033493945876,
+     "hi": 0.05721629696793712
+    },
+    "diff_sec_medhigh_of_pass": {
+     "diff": 0.06349964191931251,
+     "lo": -0.05786560439599603,
+     "hi": 0.18214313043942457
+    }
+   },
+   "cpp": {
+    "ours": {
+     "planned": 200,
+     "artifacts": 183,
+     "gate1_counts": {
+      "pass": 131,
+      "no_artifact": 17,
+      "fail_compile": 19,
+      "blocked_dependency": 29,
+      "fail_integrity": 4
+     },
+     "gate1_pass_planned": {
+      "k": 131,
+      "n": 200,
+      "rate": 0.655,
+      "lo": 0.5867558925905368,
+      "hi": 0.7174020562325106
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 131,
+      "n": 183,
+      "rate": 0.7158469945355191,
+      "lo": 0.6465878615188965,
+      "hi": 0.7762305027704437
+     },
+     "sec_medhigh_of_pass": {
+      "k": 11,
+      "n": 131,
+      "rate": 0.08396946564885496,
+      "lo": 0.04753307496909216,
+      "hi": 0.14411020037589567
+     },
+     "mean_nloc": 48.42748091603053,
+     "mean_avg_ccn": 3.4535384615384612,
+     "mean_ccd": 0.2769661538461538,
+     "pooled_ccd": 0.26592055485498106,
+     "cppcheck_per_kloc_c_cpp": 9.300126103404791,
+     "nloc_total": 6344,
+     "nloc_c_cpp": 6344
+    },
+    "base": {
+     "planned": 200,
+     "artifacts": 200,
+     "gate1_counts": {
+      "pass": 142,
+      "blocked_dependency": 50,
+      "fail_compile": 8
+     },
+     "gate1_pass_planned": {
+      "k": 142,
+      "n": 200,
+      "rate": 0.71,
+      "lo": 0.6436252189922268,
+      "hi": 0.7684597439293211
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 142,
+      "n": 200,
+      "rate": 0.71,
+      "lo": 0.6436252189922268,
+      "hi": 0.7684597439293211
+     },
+     "sec_medhigh_of_pass": {
+      "k": 15,
+      "n": 142,
+      "rate": 0.1056338028169014,
+      "lo": 0.06506672672777775,
+      "hi": 0.16697606202614415
+     },
+     "mean_nloc": 17.408450704225352,
+     "mean_avg_ccn": 2.681703703703703,
+     "mean_ccd": 0.2512177777777777,
+     "pooled_ccd": 0.24231391585760517,
+     "cppcheck_per_kloc_c_cpp": 22.249190938511326,
+     "nloc_total": 2472,
+     "nloc_c_cpp": 2472
+    },
+    "diff_gate1_pass_planned": {
+     "diff": -0.05499999999999994,
+     "lo": -0.14485989014235517,
+     "hi": 0.03610229511859332
+    },
+    "diff_gate1_pass_of_artifacts": {
+     "diff": 0.005846994535519179,
+     "lo": -0.08478616256769575,
+     "hi": 0.0955787036498955
+    },
+    "diff_sec_medhigh_of_pass": {
+     "diff": -0.021664337168046444,
+     "lo": -0.09301196032861313,
+     "hi": 0.05087941263804663
+    }
+   },
+   "python": {
+    "ours": {
+     "planned": 200,
+     "artifacts": 187,
+     "gate1_counts": {
+      "pass": 187,
+      "no_artifact": 13
+     },
+     "gate1_pass_planned": {
+      "k": 187,
+      "n": 200,
+      "rate": 0.935,
+      "lo": 0.8919809207009312,
+      "hi": 0.961623645350847
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 187,
+      "n": 187,
+      "rate": 1.0,
+      "lo": 0.9798709418570136,
+      "hi": 1.0
+     },
+     "sec_medhigh_of_pass": {
+      "k": 11,
+      "n": 187,
+      "rate": 0.058823529411764705,
+      "lo": 0.03316019484818036,
+      "hi": 0.10224779763092542
+     },
+     "mean_nloc": 35.86631016042781,
+     "mean_avg_ccn": 3.0774444444444455,
+     "mean_ccd": 0.41396833333333305,
+     "pooled_ccd": 0.30818547785895334,
+     "cppcheck_per_kloc_c_cpp": null,
+     "nloc_total": 6707,
+     "nloc_c_cpp": 0
+    },
+    "base": {
+     "planned": 200,
+     "artifacts": 200,
+     "gate1_counts": {
+      "pass": 198,
+      "fail_syntax": 2
+     },
+     "gate1_pass_planned": {
+      "k": 198,
+      "n": 200,
+      "rate": 0.99,
+      "lo": 0.9642782382838231,
+      "hi": 0.9972533418664555
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 198,
+      "n": 200,
+      "rate": 0.99,
+      "lo": 0.9642782382838231,
+      "hi": 0.9972533418664555
+     },
+     "sec_medhigh_of_pass": {
+      "k": 26,
+      "n": 198,
+      "rate": 0.13131313131313133,
+      "lo": 0.09121075480111494,
+      "hi": 0.18544924927813072
+     },
+     "mean_nloc": 7.025252525252525,
+     "mean_avg_ccn": 2.15,
+     "mean_ccd": 0.4232862275449102,
+     "pooled_ccd": 0.34795111430625447,
+     "cppcheck_per_kloc_c_cpp": null,
+     "nloc_total": 1391,
+     "nloc_c_cpp": 0
+    },
+    "diff_gate1_pass_planned": {
+     "diff": -0.05499999999999994,
+     "lo": -0.09862627822736257,
+     "hi": -0.017980714248496607
+    },
+    "diff_gate1_pass_of_artifacts": {
+     "diff": 0.010000000000000009,
+     "lo": -0.011396026499221827,
+     "hi": 0.035721761716176914
+    },
+    "diff_sec_medhigh_of_pass": {
+     "diff": -0.07248960190136662,
+     "lo": -0.1324005859463879,
+     "hi": -0.013380654420624465
+    }
+   },
+   "all": {
+    "ours": {
+     "planned": 600,
+     "artifacts": 545,
+     "gate1_counts": {
+      "pass": 436,
+      "no_artifact": 55,
+      "fail_compile": 44,
+      "fail_integrity": 8,
+      "blocked_dependency": 57
+     },
+     "gate1_pass_planned": {
+      "k": 436,
+      "n": 600,
+      "rate": 0.7266666666666667,
+      "lo": 0.6896486426110758,
+      "hi": 0.7608007195960466
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 436,
+      "n": 545,
+      "rate": 0.8,
+      "lo": 0.7643699025307696,
+      "hi": 0.8314305690710496
+     },
+     "sec_medhigh_of_pass": {
+      "k": 86,
+      "n": 436,
+      "rate": 0.19724770642201836,
+      "lo": 0.16261049730694385,
+      "hi": 0.23717323224906803
+     },
+     "mean_nloc": 44.60321100917431,
+     "mean_avg_ccn": 3.8436682242990643,
+     "mean_ccd": 0.34139672897196266,
+     "pooled_ccd": 0.2931043348588471,
+     "cppcheck_per_kloc_c_cpp": 7.6923076923076925,
+     "nloc_total": 19447,
+     "nloc_c_cpp": 12740
+    },
+    "base": {
+     "planned": 600,
+     "artifacts": 600,
+     "gate1_counts": {
+      "pass": 482,
+      "blocked_dependency": 93,
+      "fail_compile": 23,
+      "fail_syntax": 2
+     },
+     "gate1_pass_planned": {
+      "k": 482,
+      "n": 600,
+      "rate": 0.8033333333333333,
+      "lo": 0.7696419757400986,
+      "hi": 0.8331652589782564
+     },
+     "gate1_pass_of_artifacts": {
+      "k": 482,
+      "n": 600,
+      "rate": 0.8033333333333333,
+      "lo": 0.7696419757400986,
+      "hi": 0.8331652589782564
+     },
+     "sec_medhigh_of_pass": {
+      "k": 109,
+      "n": 482,
+      "rate": 0.22614107883817428,
+      "lo": 0.19104530245429718,
+      "hi": 0.2655675591964569
+     },
+     "mean_nloc": 14.251037344398341,
+     "mean_avg_ccn": 2.644837962962963,
+     "mean_ccd": 0.3160814814814814,
+     "pooled_ccd": 0.2613189692822827,
+     "cppcheck_per_kloc_c_cpp": 25.374224169404894,
+     "nloc_total": 6869,
+     "nloc_c_cpp": 5478
+    },
+    "diff_gate1_pass_planned": {
+     "diff": -0.07666666666666666,
+     "lo": -0.12420904663091038,
+     "hi": -0.028705837380040247
+    },
+    "diff_gate1_pass_of_artifacts": {
+     "diff": -0.0033333333333332993,
+     "lo": -0.04980319058888207,
+     "hi": 0.0427425632787266
+    },
+    "diff_sec_medhigh_of_pass": {
+     "diff": -0.028893372416155916,
+     "lo": -0.08137368880928988,
+     "hi": 0.024264516298065184
+    }
+   },
+   "paired_cells": {
+    "c": {
+     "cells": 40,
+     "ours_higher": 6,
+     "equal": 17,
+     "base_higher": 17,
+     "mean_diff": -0.6,
+     "median_diff": 0.0,
+     "wilcoxon_W": 51.5,
+     "p": 0.007051062437545701
+    },
+    "cpp": {
+     "cells": 40,
+     "ours_higher": 6,
+     "equal": 22,
+     "base_higher": 12,
+     "mean_diff": -0.275,
+     "median_diff": 0.0,
+     "wilcoxon_W": 55.5,
+     "p": 0.18047333452633552
+    },
+    "python": {
+     "cells": 40,
+     "ours_higher": 1,
+     "equal": 29,
+     "base_higher": 10,
+     "mean_diff": -0.275,
+     "median_diff": 0.0,
+     "wilcoxon_W": 5.0,
+     "p": 0.007974100561232128
+    },
+    "all": {
+     "cells": 120,
+     "ours_higher": 13,
+     "equal": 68,
+     "base_higher": 39,
+     "mean_diff": -0.38333333333333336,
+     "median_diff": 0.0,
+     "wilcoxon_W": 302.0,
+     "p": 0.00028094767793016744
+    }
+   }
+  }
+ }
+}

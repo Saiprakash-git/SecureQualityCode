@@ -1,0 +1,8 @@
+Task91_gemini-3-8-flash_c.c:195:12: error: expected expression
+  195 |     memcpy(
+      |            ^
+Task91_gemini-3-8-flash_c.c:195:12: error: expected '}'
+Task91_gemini-3-8-flash_c.c:140:79: note: to match this '{'
+  140 |                            int found, uint8_t *resp_buf, size_t max_resp_len) {
+      |                                                                               ^
+2 errors generated.

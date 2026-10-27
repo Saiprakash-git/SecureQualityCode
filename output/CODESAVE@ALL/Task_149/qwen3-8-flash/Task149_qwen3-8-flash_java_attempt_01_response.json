@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1793036576-iFiJdEJEwccbtWvFNslP",
+  "finish_reason": "stop",
+  "input_tokens": 155,
+  "output_tokens": 1209,
+  "cost_usd": 0.00059148,
+  "raw_response": {
+    "id": "gen-1793036576-iFiJdEJEwccbtWvFNslP",
+    "object": "chat.completion",
+    "created": 1793036576,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "public class Queue<T> {\n    private T[] data;\n    private int front;\n    private int size;\n\n    @SuppressWarnings(\"unchecked\")\n    public Queue(int initialCapacity) {\n        if (initialCapacity <= 0) {\n            throw new IllegalArgumentException(\"Initial capacity must be positive\");\n        }\n        this.data = (T[]) new Object[initialCapacity];\n        this.front = 0;\n        this.size = 0;\n    }\n\n    public Queue() {\n        this(4);\n    }\n\n    public void enqueue(T item) {\n        if (size == data.length) {\n            resize();\n        }\n        int rear = (front + size) % data.length;\n        data[rear] = item;\n        size++;\n    }\n\n    public T dequeue() {\n        if (size == 0) {\n            throw new IllegalStateException(\"Queue is empty\");\n        }\n        T item = data[front];\n        data[front] = null;\n        front = (front + 1) % data.length;\n        size--;\n\n        if (size == 0) {\n            front = 0;\n        }\n\n        return item;\n    }\n\n    public T peek() {\n        if (size == 0) {\n            throw new IllegalStateException(\"Queue is empty\");\n        }\n        return data[front];\n    }\n\n    public boolean isEmpty() {\n        return size == 0;\n    }\n\n    public int size() {\n        return size;\n    }\n\n    @SuppressWarnings(\"unchecked\")\n    private void resize() {\n        T[] newData = (T[]) new Object[data.length * 2];\n\n        for (int i = 0; i < size; i++) {\n            newData[i] = data[(front + i) % data.length];\n        }\n\n        data = newData;\n        front = 0;\n    }\n\n    public static void main(String[] args) {\n        Queue<Integer> queue = new Queue<>();\n\n        queue.enqueue(10);\n        queue.enqueue(20);\n        queue.enqueue(30);\n\n        System.out.println(\"Peek: \" + queue.peek());\n        System.out.println(\"Dequeue: \" + queue.dequeue());\n        System.out.println(\"Dequeue: \" + queue.dequeue());\n        System.out.println(\"Peek: \" + queue.peek());\n        System.out.println(\"Size: \" + queue.size());\n        System.out.println(\"Empty: \" + queue.isEmpty());\n\n        queue.enqueue(40);\n        System.out.println(\"Dequeue: \" + queue.dequeue());\n    }\n}",
+          "refusal": null,
+          "reasoning": "We need answer user's request: produce raw Java source only, no markdown fences, no explanations. Need implement queue with enqueue, dequeue, peek. Need likely complete self-contained source file in Java. Could be a class Queue with methods enqueue, dequeue, peek. Maybe include main? \"Write a program\" maybe include main. But functions accept input as parameters and return output if any. Need only source file contents. Need no package. Need maybe generic queue using LinkedList or array. Self-contained. Could implement Queue<T> with internal array circular buffer, methods enqueue(T), dequeue() returns T, peek() returns T. Also main demonstrating? If main, it doesn't accept input as parameters? But functions should accept input as parameters. Could include main to run. But maybe just class. Need raw source, no fences. Ensure valid Java. Could use exceptions. Need no external imports? If use Arrays maybe import. Simpler no imports. Implement dynamic array circular queue.\n\nPotential code:\npublic class Queue<T> {\n private T[] data;\n private int front;\n private int size;\n public Queue() { data = (T[]) new Object[4]; front=0; size=0; }\n public void enqueue(T item) { if (size == data.length) resize(); int rear = (front + size) % data.length; data[rear] = item; size++; }\n public T dequeue() { if (size == 0) throw new IllegalStateException(\"Queue is empty\"); T item = data[front]; data[front]=null; front=(front+1)%data.length; size--; if (size == 0) front=0; return item; }\n public T peek() { if (size == 0) throw new IllegalStateException(...); return data[front]; }\n public boolean isEmpty() { return size == 0; }\n public int size() { return size; }\n private void resize() { T[] newData = (T[]) new Object[data.length * 2]; for (int i=0; i<size; i++) newData[i] = data[(front+i)%data.length]; data = newData; front=0; }\n public static void main(String[] args) { Queue<Integer> q = new Queue<>(); q.enqueue(10); ... System.out.println(q.peek()); System.out.println(q.dequeue()); }\n}\n\nNeed unchecked cast warnings okay. Need no markdown. Ensure raw source. Could include import? no.\n\nNeed consider Java generics with array creation. Use @SuppressWarnings(\"unchecked\") maybe on constructor and resize. But source only. Could annotate methods.\n\nPotential issue class named Queue conflicts with java.util.Queue? If no import, okay. In main use Queue<Integer>. Fine.\n\nNeed \"All functions should accept input as parameters and return output if any.\" Constructor accepts none? Could be okay. Maybe methods enqueue accepts item, dequeue no input but returns output. peek no input returns output. Main accepts args. Good.\n\nNeed only raw source. Final no fences. Ensure not include analysis. Done.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user's request: produce raw Java source only, no markdown fences, no explanations. Need implement queue with enqueue, dequeue, peek. Need likely complete self-contained source file in Java. Could be a class Queue with methods enqueue, dequeue, peek. Maybe include main? \"Write a program\" maybe include main. But functions accept input as parameters and return output if any. Need only source file contents. Need no package. Need maybe generic queue using LinkedList or array. Self-contained. Could implement Queue<T> with internal array circular buffer, methods enqueue(T), dequeue() returns T, peek() returns T. Also main demonstrating? If main, it doesn't accept input as parameters? But functions should accept input as parameters. Could include main to run. But maybe just class. Need raw source, no fences. Ensure valid Java. Could use exceptions. Need no external imports? If use Arrays maybe import. Simpler no imports. Implement dynamic array circular queue.\n\nPotential code:\npublic class Queue<T> {\n private T[] data;\n private int front;\n private int size;\n public Queue() { data = (T[]) new Object[4]; front=0; size=0; }\n public void enqueue(T item) { if (size == data.length) resize(); int rear = (front + size) % data.length; data[rear] = item; size++; }\n public T dequeue() { if (size == 0) throw new IllegalStateException(\"Queue is empty\"); T item = data[front]; data[front]=null; front=(front+1)%data.length; size--; if (size == 0) front=0; return item; }\n public T peek() { if (size == 0) throw new IllegalStateException(...); return data[front]; }\n public boolean isEmpty() { return size == 0; }\n public int size() { return size; }\n private void resize() { T[] newData = (T[]) new Object[data.length * 2]; for (int i=0; i<size; i++) newData[i] = data[(front+i)%data.length]; data = newData; front=0; }\n public static void main(String[] args) { Queue<Integer> q = new Queue<>(); q.enqueue(10); ... System.out.println(q.peek()); System.out.println(q.dequeue()); }\n}\n\nNeed unchecked cast warnings okay. Need no markdown. Ensure raw source. Could include import? no.\n\nNeed consider Java generics with array creation. Use @SuppressWarnings(\"unchecked\") maybe on constructor and resize. But source only. Could annotate methods.\n\nPotential issue class named Queue conflicts with java.util.Queue? If no import, okay. In main use Queue<Integer>. Fine.\n\nNeed \"All functions should accept input as parameters and return output if any.\" Constructor accepts none? Could be okay. Maybe methods enqueue accepts item, dequeue no input but returns output. peek no input returns output. Main accepts args. Good.\n\nNeed only raw source. Final no fences. Ensure not include analysis. Done.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 155,
+      "completion_tokens": 1209,
+      "total_tokens": 1364,
+      "cost": 0.00059148,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00059148,
+        "upstream_inference_prompt_cost": 2.325e-05,
+        "upstream_inference_completions_cost": 0.00056823
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 630,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

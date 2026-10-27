@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "Task82_OPENAI_gpt_4o.computeHash",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 468,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-02-real/Task_082/gemini-3-8-flash/Task82_gemini-3-8-flash_java.java",
+ "artifact_sha256": "d46d5ee89c00fcca66fe8ba85872dd7fa7561c35c58c44167a7ef9186d3f04c3",
+ "oracle_test_path": "src/test/java/gtp4o/task82/Task82Test.java",
+ "oracle_test_sha256": "0e1d809b0f2f855c186064ff33827310a3def2b6088324a7bb2a6511e8d2ff4f",
+ "author": "functional.py draft_adapter (static)"
+}

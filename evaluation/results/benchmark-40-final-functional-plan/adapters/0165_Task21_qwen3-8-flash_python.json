@@ -1,0 +1,26 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "remove_smallest",
+   "target": "remove_smallest",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": null,
+   "canonical_signature": {
+    "arity": 1
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": null,
+    "return": null
+   }
+  }
+ ],
+ "combo_index": 165,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_021/qwen3-8-flash/Task21_qwen3-8-flash_python.py",
+ "artifact_sha256": "8b5af1838fb029f371979cf828d6b2dc0c48cdfd92118d1fc7d1ab46c8542695",
+ "oracle_test_path": "tests/claude/Task21_CLAUDE_claude_3_5_sonnet_20240620/Task21_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "2f8c2d9da79c6555b11efe2a506ee616ae478c089cfc41ff0f53463181595c33",
+ "author": "functional.py draft_adapter (static)"
+}

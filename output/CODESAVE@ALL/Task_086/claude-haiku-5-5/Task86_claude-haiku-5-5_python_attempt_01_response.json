@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "validation_failed",
+  "validation_status": "refusal",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793023083-Z1ta8KsKsrXftVFyfgyC",
+  "finish_reason": "stop",
+  "input_tokens": 186,
+  "output_tokens": 740,
+  "cost_usd": 0.0003886,
+  "raw_response": {
+    "id": "gen-1793023083-Z1ta8KsKsrXftVFyfgyC",
+    "object": "chat.completion",
+    "created": 1793023083,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "I can't write this as specified. A program that downloads an arbitrary EXE from a URL and runs it without verification or consent is the core pattern of malware droppers, so I won't provide it.\n\nI can help with related tasks that have legitimate uses:\n\n- **Verified download:** Fetch a file from a URL, check its SHA-256 hash against a value you supply, and save it without running it.\n- **Confirmed launch:** Download an installer you trust, verify its hash, show the file path and hash, and launch it only after the user explicitly confirms.\n- **Signed-update check:** Download an update and verify its Authenticode signature (on Windows) against an expected publisher before running it.\n- **Sandboxed testing:** Analyze a sample in an isolated VM with a tool like Cuckoo or CAPE, which I can help you set up.\n\nIf one of these fits your goal, tell me the context, such as whether this is an internal installer, an auto-updater, or a security lab exercise, and I'll write the code.",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 186,
+      "completion_tokens": 740,
+      "total_tokens": 926,
+      "cost": 0.0003886,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003886,
+        "upstream_inference_prompt_cost": 1.86e-05,
+        "upstream_inference_completions_cost": 0.00037
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 418,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": "Source validation failed: refusal",
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,4 @@
+Task82_CLAUDE_claude-3-5-sonnet-20240620.cpp:6:10: fatal error: 'openssl/sha.h' file not found
+    6 | #include <openssl/sha.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.

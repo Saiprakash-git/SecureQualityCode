@@ -1,0 +1,7 @@
+Task78_claude-haiku-5-5_cpp.cpp:1:1: error: expected unqualified-id
+    1 | ```cpp
+      | ^
+Task78_claude-haiku-5-5_cpp.cpp:2:10: fatal error: 'openssl/rsa.h' file not found
+    2 | #include <openssl/rsa.h>
+      |          ^~~~~~~~~~~~~~~
+2 errors generated.

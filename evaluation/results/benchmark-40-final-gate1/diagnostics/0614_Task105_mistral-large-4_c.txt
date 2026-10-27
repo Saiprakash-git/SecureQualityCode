@@ -1,0 +1,4 @@
+Task105_mistral-large-4_c.c:7:10: fatal error: 'openssl/ssl.h' file not found
+    7 | #include <openssl/ssl.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.

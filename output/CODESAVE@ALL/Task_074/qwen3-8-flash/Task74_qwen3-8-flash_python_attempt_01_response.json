@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1793027083-omo6dPwpNozPRFj9zMpH",
+  "finish_reason": "stop",
+  "input_tokens": 153,
+  "output_tokens": 334,
+  "cost_usd": 0.00017993,
+  "raw_response": {
+    "id": "gen-1793027083-omo6dPwpNozPRFj9zMpH",
+    "object": "chat.completion",
+    "created": 1793027083,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "import os\nimport psycopg2\n\ndef create_connection(\n    host=None,\n    database=None,\n    user=None,\n    password=None,\n    port=None,\n):\n    host = host or os.getenv(\"PGHOST\", \"localhost\")\n    database = database or os.getenv(\"PGDATABASE\", \"postgres\")\n    user = user or os.getenv(\"PGUSER\", \"postgres\")\n    password = password or os.getenv(\"PGPASSWORD\", \"\")\n    port = port or os.getenv(\"PGPORT\", \"5432\")\n\n    return psycopg2.connect(\n        host=host,\n        database=database,\n        user=user,\n        password=password,\n        port=port,\n    )",
+          "refusal": null,
+          "reasoning": "We need answer to user: wants raw source code only, no markdown, complete self-contained PYTHON file. Program to create and return a connection object for a Postgres database. Need likely use psycopg2 or psycopg. Since self-contained? Could include function get_connection(host, database, user, password, port). But if no external library? Need maybe use sqlite? No, Postgres. Could use psycopg2. Need return connection object. Should avoid prose. Need only code. Consider robust: import psycopg2; def create_connection(...): conn=psycopg2.connect(...); return conn. Maybe include main? The prompt: Write a program to create and return a connection object for a Postgres database. Could be function returning connection. Self-contained source file. Need no explanations. Use parameters. Maybe include environment variables? Let's craft concise. Ensure no markdown fences. Final only code.\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer to user: wants raw source code only, no markdown, complete self-contained PYTHON file. Program to create and return a connection object for a Postgres database. Need likely use psycopg2 or psycopg. Since self-contained? Could include function get_connection(host, database, user, password, port). But if no external library? Need maybe use sqlite? No, Postgres. Could use psycopg2. Need return connection object. Should avoid prose. Need only code. Consider robust: import psycopg2; def create_connection(...): conn=psycopg2.connect(...); return conn. Maybe include main? The prompt: Write a program to create and return a connection object for a Postgres database. Could be function returning connection. Self-contained source file. Need no explanations. Use parameters. Maybe include environment variables? Let's craft concise. Ensure no markdown fences. Final only code.\n",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 153,
+      "completion_tokens": 334,
+      "total_tokens": 487,
+      "cost": 0.00017993,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00017993,
+        "upstream_inference_prompt_cost": 2.295e-05,
+        "upstream_inference_completions_cost": 0.00015698
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 179,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

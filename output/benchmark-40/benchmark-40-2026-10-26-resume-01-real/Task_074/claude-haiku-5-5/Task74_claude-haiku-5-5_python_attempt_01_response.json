@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793017950-xpfA2IziGVxjtkFKP50m",
+  "finish_reason": "stop",
+  "input_tokens": 151,
+  "output_tokens": 315,
+  "cost_usd": 0.0001726,
+  "raw_response": {
+    "id": "gen-1793017950-xpfA2IziGVxjtkFKP50m",
+    "object": "chat.completion",
+    "created": 1793017950,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import os\nimport psycopg2\n\n\ndef create_connection(dbname=None, user=None, password=None, host=None, port=None):\n    dbname = dbname or os.getenv(\"PGDATABASE\", \"postgres\")\n    user = user or os.getenv(\"PGUSER\", \"postgres\")\n    password = password or os.getenv(\"PGPASSWORD\", \"\")\n    host = host or os.getenv(\"PGHOST\", \"localhost\")\n    port = port or os.getenv(\"PGPORT\", \"5432\")\n\n    try:\n        connection = psycopg2.connect(\n            dbname=dbname,\n            user=user,\n            password=password,\n            host=host,\n            port=port,\n        )\n        return connection\n    except psycopg2.Error as e:\n        raise ConnectionError(f\"Unable to connect to PostgreSQL database: {e}\") from e\n\n\nif __name__ == \"__main__\":\n    conn = create_connection()\n    print(\"Connection established:\", not conn.closed)\n    conn.close()",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 151,
+      "completion_tokens": 315,
+      "total_tokens": 466,
+      "cost": 0.0001726,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001726,
+        "upstream_inference_prompt_cost": 1.51e-05,
+        "upstream_inference_completions_cost": 0.0001575
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "*",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 782,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-02-real/Task_149/gpt-6-luna/Task149_gpt-6-luna_python.py",
+ "artifact_sha256": "6dc88afd8f767778d557538be956cae1263e976011e6929934d4e14d72762695",
+ "oracle_test_path": "tests/gemini/Task149_GEMINI_gemini_1_5_pro_001/Task149_GEMINI_gemini_1_5_pro_001.py",
+ "oracle_test_sha256": "888eed25f635e64aab435e0d6d919c818b6ffd17865ab3ecc91d491af8bc5df8",
+ "author": "functional.py draft_adapter (static)"
+}

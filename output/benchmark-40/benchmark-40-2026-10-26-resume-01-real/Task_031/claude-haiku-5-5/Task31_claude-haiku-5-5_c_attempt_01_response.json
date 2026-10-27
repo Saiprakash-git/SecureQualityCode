@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793016708-pm48fsdFpFtFjaVQLxtB",
+  "finish_reason": "stop",
+  "input_tokens": 342,
+  "output_tokens": 511,
+  "cost_usd": 0.0002897,
+  "raw_response": {
+    "id": "gen-1793016708-pm48fsdFpFtFjaVQLxtB",
+    "object": "chat.completion",
+    "created": 1793016708,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nchar *dna_strand(const char *dna) {\n    size_t len = strlen(dna);\n    char *out = malloc(len + 1);\n    if (out == NULL) {\n        return NULL;\n    }\n    for (size_t i = 0; i < len; i++) {\n        switch (dna[i]) {\n            case 'A': out[i] = 'T'; break;\n            case 'T': out[i] = 'A'; break;\n            case 'C': out[i] = 'G'; break;\n            case 'G': out[i] = 'C'; break;\n            default:  out[i] = dna[i]; break;\n        }\n    }\n    out[len] = '\\0';\n    return out;\n}\n\nint main(void) {\n    const char *samples[] = { \"ATTGC\", \"GTAT\" };\n    size_t count = sizeof(samples) / sizeof(samples[0]);\n    for (size_t i = 0; i < count; i++) {\n        char *result = dna_strand(samples[i]);\n        if (result != NULL) {\n            printf(\"%s --> %s\\n\", samples[i], result);\n            free(result);\n        }\n    }\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "CAQS4QcKEAgTGAI4AUIIdGhpbmtpbmcSDMKBTBU4Tl8MtGVxBxoMPVR1N7VIZyxSer8HIjDeymPa9xzkysfC5EdZW6kmi86xYG6hdAhMIYipiIsD3esDKrtx1tUSrmfRuPizqIEq/gZ7JHnTH8N1wiU84Abmkevj1sZszeIfOvQUMPMp1nHyiVGg+PsRioCg+yv5E1yNK5DguNdP/m9xhUSh2TPg3dxqORKOLiRQ9vM41rkY3M1tAwsQwHfHXlf2VVuZVCrJrPsqAlilemPoQqNspnbakHUu2+u3BaWbHHSXZtnLLLA8DaCZUaMQD54XtWooZxAl44TIJkqqpZ8kJS4vzCvheycQWQoJ05Vzou9mQ5qJHE5LvCglh+t9FQX0BnhqqSUrwgd5EKplbKM2RCCYmUPNmlbA9xXqbUJot+6ul/Vn2BNLtAGVrWlhsvZo671IL/dDd5BgmoORFXpLKDKZV70yXwxt5CGWmRUy3Xn3dga5l0soPMqbwo882YkwOKzSzn+AoNcM/Xs0yIcwlhmJ55VvplzAmzNy/PuP9ugA/hYB1LtKC+knxpJc5YET2YTYFe8+JmyxZtZhS89piZCbBHQB8OZOi6fnyt3XsKThEw7bSRaQ32RW6EAsNYom8BfuiTBiwIOQKcsWfGzmgTs6V7L72MPPp4e6Wk9y8lg77aXL9+u7zHiuDeK6OXpvKtrGUImvYjGFJ80J7jSTDfDEQ9YGSpzhaGU7Ww/q7yNQW485q61wA+ZNjbv0WB5hFaM/LHMKfK84fQZtzZCNfNrRgSUpg18SdNiMChC+ZqqYMNNOcMz6nasR6fANa6B5mUO9w6mbFu8EFgT0LKKAyQeWKfAE0kGfrzYfg0HbVVxOeSG80BNKqAxqhLrTkkVQCKDUhsWlhNq3VuLMyHKWDAW05CwOOFR66ACuV5RiM4bWO23VNTx3U5hLcjHOX8RfC+/gH5tqqgNHww/dR3dffLteQHS5t4PjSc3MTYdNn8fUiuqHDt3gAH9m7/lpr/+pCJG2wo7mCN3KVz3VCTgvI1qlS/4NXkIuLX3LSTf1qTB8ik9FnJLVeTy5wHfJKh2gvq4cTtwN5WsJeUX7dRqZLpLk1QNSCnzRvgmamNBGNHCxovZPrghjVMwcquSkNm+zYay4xCpeF1tgB9pdYwS6L+n59Sgw7Ge5TW8HfAxUnStjsFo/g3ZLwztPTC9dF2w+3FYu0M1YSe6sJKtCYHMNswfcI5d2QS8/Z7GzjKX5+Kwy+S4euRHmfk/cc7rBkk4otc9upbR3xWWFiPW+S5zi5N+A9aGaThl0v/UYSdHAus78CAXqH4gYAQ==.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 342,
+      "completion_tokens": 511,
+      "total_tokens": 853,
+      "cost": 0.0002897,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002897,
+        "upstream_inference_prompt_cost": 3.42e-05,
+        "upstream_inference_completions_cost": 0.0002555
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 116,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

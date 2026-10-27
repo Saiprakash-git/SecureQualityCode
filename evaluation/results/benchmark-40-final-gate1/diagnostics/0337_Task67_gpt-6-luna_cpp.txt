@@ -1,0 +1,4 @@
+Task67_gpt-6-luna_cpp.cpp:1:10: fatal error: 'sqlite3.h' file not found
+    1 | #include <sqlite3.h>
+      |          ^~~~~~~~~~~
+1 error generated.

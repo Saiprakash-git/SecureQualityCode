@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793016952-Q22yI6hpKAnCdR2WTnzN",
+  "finish_reason": "stop",
+  "input_tokens": 96,
+  "output_tokens": 1340,
+  "cost_usd": 0.005097,
+  "raw_response": {
+    "id": "gen-1793016952-Q22yI6hpKAnCdR2WTnzN",
+    "object": "chat.completion",
+    "created": 1793016952,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "import base64\nimport hashlib\nimport hmac\nimport json\nimport time\nfrom typing import Any, Dict, Optional\n\n\ndef base64url_encode(data: bytes) -> str:\n    return base64.urlsafe_b64encode(data).rstrip(b\"=\").decode(\"utf-8\")\n\n\ndef base64url_decode(data: str) -> bytes:\n    padding = \"=\" * ((4 - len(data) % 4) % 4)\n    return base64.urlsafe_b64decode((data + padding).encode(\"utf-8\"))\n\n\ndef generate_auth_token(\n    user_id: str,\n    secret_key: str,\n    expires_in_seconds: int = 3600,\n    extra_claims: Optional[Dict[str, Any]] = None,\n) -> str:\n    header = {\"alg\": \"HS256\", \"typ\": \"JWT\"}\n    now = int(time.time())\n\n    payload = {\n        \"sub\": str(user_id),\n        \"iat\": now,\n        \"exp\": now + expires_in_seconds,\n    }\n\n    if extra_claims:\n        payload.update(extra_claims)\n\n    encoded_header = base64url_encode(\n        json.dumps(header, separators=(\",\", \":\")).encode(\"utf-8\")\n    )\n    encoded_payload = base64url_encode(\n        json.dumps(payload, separators=(\",\", \":\")).encode(\"utf-8\")\n    )\n\n    signing_input = f\"{encoded_header}.{encoded_payload}\".encode(\"utf-8\")\n    signature = hmac.new(\n        secret_key.encode(\"utf-8\"), signing_input, hashlib.sha256\n    ).digest()\n    encoded_signature = base64url_encode(signature)\n\n    return f\"{encoded_header}.{encoded_payload}.{encoded_signature}\"\n\n\ndef verify_auth_token(token: str, secret_key: str) -> Optional[Dict[str, Any]]:\n    parts = token.split(\".\")\n    if len(parts) != 3:\n        return None\n\n    encoded_header, encoded_payload, encoded_signature = parts\n\n    signing_input = f\"{encoded_header}.{encoded_payload}\".encode(\"utf-8\")\n    expected_sig = hmac.new(\n        secret_key.encode(\"utf-8\"), signing_input, hashlib.sha256\n    ).digest()\n\n    try:\n        provided_sig = base64url_decode(encoded_signature)\n    except Exception:\n        return None\n\n    if not hmac.compare_digest(expected_sig, provided_sig):\n        return None\n\n    try:\n        payload_bytes = base64url_decode(encoded_payload)\n        payload = json.loads(payload_bytes.decode(\"utf-8\"))\n    except Exception:\n        return None\n\n    exp = payload.get(\"exp\")\n    if exp is not None and time.time() > exp:\n        return None\n\n    return payload\n\n\nif __name__ == \"__main__\":\n    secret = \"super-secret-key-12345\"\n    uid = \"user_42\"\n\n    token = generate_auth_token(\n        user_id=uid,\n        secret_key=secret,\n        expires_in_seconds=3600,\n        extra_claims={\"role\": \"admin\", \"email\": \"user42@example.com\"},\n    )\n    print(\"Generated Token:\\n\", token)\n\n    decoded_payload = verify_auth_token(token=token, secret_key=secret)\n    print(\"\\nVerified Payload:\\n\", decoded_payload)\n\n    invalid_payload = verify_auth_token(token=token, secret_key=\"wrong-secret\")\n    print(\"\\nVerification with Invalid Key:\\n\", invalid_payload)\n",
+          "refusal": null,
+          "reasoning": "**Developing Token Generation**\n\nI'm currently focused on building the core Python logic for generating user authentication tokens. My aim is to ensure this process is robust and secure, and I'm exploring efficient methods for token creation that can be directly integrated into your system.\n\n**Building Token Generation Logic**\n\nI'm now actively coding the Python token generator. My focus is on implementing signed JWT-style tokens using only standard libraries like `hmac` and `base64` for generation and verification, ensuring no external dependencies. The plan includes functions for generating, expiring, and validating tokens, with a demonstration block to prove its end-to-end functionality.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Token Generation**\n\nI'm currently focused on building the core Python logic for generating user authentication tokens. My aim is to ensure this process is robust and secure, and I'm exploring efficient methods for token creation that can be directly integrated into your system.\n\n**Building Token Generation Logic**\n\nI'm now actively coding the Python token generator. My focus is on implementing signed JWT-style tokens using only standard libraries like `hmac` and `base64` for generation and verification, ensuring no external dependencies. The plan includes functions for generating, expiring, and validating tokens, with a demonstration block to prove its end-to-end functionality.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 96,
+      "completion_tokens": 1340,
+      "total_tokens": 1436,
+      "cost": 0.005097,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005097,
+        "upstream_inference_prompt_cost": 7.2e-05,
+        "upstream_inference_completions_cost": 0.005025
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 447,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

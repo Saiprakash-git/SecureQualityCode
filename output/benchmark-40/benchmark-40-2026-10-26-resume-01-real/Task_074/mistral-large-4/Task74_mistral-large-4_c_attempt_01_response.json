@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "mistralai/mistral-large-4-0",
+  "response_id": "gen-1793018342-KVg9IPTeFGvKoul985j7",
+  "finish_reason": "stop",
+  "input_tokens": 103,
+  "output_tokens": 1308,
+  "cost_usd": 0.00560752,
+  "raw_response": {
+    "id": "gen-1793018342-KVg9IPTeFGvKoul985j7",
+    "object": "chat.completion",
+    "created": 1793018342,
+    "model": "mistralai/mistral-large-4-0",
+    "provider": "Mistral",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <libpq-fe.h>\n\nPGconn* create_postgres_connection(const char* host, const char* port,\n                                   const char* dbname, const char* user,\n                                   const char* password) {\n    const char* keys[] = {\"host\", \"port\", \"dbname\", \"user\", \"password\", NULL};\n    const char* values[] = {host, port, dbname, user, password, NULL};\n\n    PGconn* conn = PQconnectdbParams(keys, values, 0);\n\n    if (PQstatus(conn) != CONNECTION_OK) {\n        fprintf(stderr, \"Connection to database failed: %s\\n\", PQerrorMessage(conn));\n        PQfinish(conn);\n        return NULL;\n    }\n\n    return conn;\n}\n\nint main(int argc, char* argv[]) {\n    if (argc != 6) {\n        fprintf(stderr, \"Usage: %s <host> <port> <dbname> <user> <password>\\n\", argv[0]);\n        return 1;\n    }\n\n    PGconn* conn = create_postgres_connection(argv[1], argv[2], argv[3], argv[4], argv[5]);\n\n    if (conn != NULL) {\n        printf(\"Connection established successfully\\n\");\n        PQfinish(conn);\n    } else {\n        printf(\"Failed to establish connection\\n\");\n        return 1;\n    }\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "The user wants a C program that creates and returns a connection object for a PostgreSQL database. This implies using libpq (the PostgreSQL C client library).\n\nKey requirements:\n1. Return only raw source code (no markdown fences, no explanations)\n2. One complete self-contained source file in C\n3. All functions should accept input as parameters and return output if any\n4. Create and return a connection object for Postgres\n\nI need to:\n- Include necessary headers (libpq-fe.h)\n- Create a function that takes connection parameters (host, port, dbname, user, password, etc.) and returns a PGconn* (the connection object)\n- Handle errors appropriately\n- Make it self-contained\n\nSince it's a single file, I should probably include a main function for demonstration or just the function? The prompt says \"Write a program\" but also \"All functions should accept input as parameters and return output if any.\" So I should provide the function(s) and possibly a main to demonstrate, but the core is the connection creation function.\n\nActually, looking carefully: \"Write a program to create and return a connection object\" - this suggests the main functionality is a function that creates and returns the connection. But since it's a \"program\", I should probably include a main function that demonstrates usage, or at least the function definition.\n\nLet me structure it:\n- Include <libpq-fe.h>\n- Include <stdio.h>, <stdlib.h> for error handling\n- Define a function like `PGconn* create_postgres_connection(const char* host, const char* port, const char* dbname, const char* user, const char* password)`\n- The function builds a connection string or uses PQconnectdbParams\n- Returns the PGconn* object\n- Include error checking\n- Maybe include a main function that shows how to use it, but the prompt emphasizes the function that creates and returns the connection object.\n\nWait, \"Return only the source file contents, starting with the first source line.\" So I should output just the C code.\n\nLet me write a clean implementation:\n\n```c\n#include <stdio.h>\n#include <stdlib.h>\n#include <libpq-fe.h>\n\nPGconn* create_postgres_connection(const char* host, const char* port,\n                                   const char* dbname, const char* user,\n                                   const char* password) {\n    const char* keys[] = {\"host\", \"port\", \"dbname\", \"user\", \"password\", NULL};\n    const char* values[] = {host, port, dbname, user, password, NULL};\n\n    PGconn* conn = PQconnectdbParams(keys, values, 0);\n\n    if (PQstatus(conn) != CONNECTION_OK) {\n        fprintf(stderr, \"Connection to database failed: %s\\n\", PQerrorMessage(conn));\n        PQfinish(conn);\n        return NULL;\n    }\n\n    return conn;\n}\n\nint main(int argc, char* argv[]) {\n    if (argc != 6) {\n        fprintf(stderr, \"Usage: %s <host> <port> <dbname> <user> <password>\\n\", argv[0]);\n        return 1;\n    }\n\n    PGconn* conn = create_postgres_connection(argv[1], argv[2], argv[3], argv[4], argv[5]);\n\n    if (conn != NULL) {\n        printf(\"Connection established successfully\\n\");\n        PQfinish(conn);\n    } else {\n        printf(\"Failed to establish connection\\n\");\n        return 1;\n    }\n\n    return 0;\n}\n```\n\nThis looks good. It:\n1. Uses libpq (the standard PostgreSQL C API)\n2. Creates a function that accepts parameters and returns a PGconn* (the connection object)\n3. Is self-contained\n4. Has proper error handling\n5. Includes a main function to demonstrate usage as a complete program\n\nI should make sure not to use markdown fences. Just raw C code.\n\nOne detail: PQconnectdbParams is the modern way (PostgreSQL 9.0+), but PQconnectdb is also fine. PQconnectdbParams is better because it handles NULL values properly and is more explicit.\n\nAlso, I should check if the user wants just the function or a complete program. The prompt says \"Write a program\", so including main is appropriate.\n\nLet me double-check the requirements:\n- \"Return ONLY raw source code\" - check\n- \"Do not use Markdown fences\" - check\n- \"Do not include explanations, labels, or prose\" - check\n- \"Write one complete self-contained source file in C\" - check\n- \"All functions should accept input as parameters and return output if any\" - check (create_postgres_connection takes params and returns PGconn*)\n- \"Return only the source file contents, starting with the first source line\" - check\n\nThe code looks correct. I'll output it now.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "The user wants a C program that creates and returns a connection object for a PostgreSQL database. This implies using libpq (the PostgreSQL C client library).\n\nKey requirements:\n1. Return only raw source code (no markdown fences, no explanations)\n2. One complete self-contained source file in C\n3. All functions should accept input as parameters and return output if any\n4. Create and return a connection object for Postgres\n\nI need to:\n- Include necessary headers (libpq-fe.h)\n- Create a function that takes connection parameters (host, port, dbname, user, password, etc.) and returns a PGconn* (the connection object)\n- Handle errors appropriately\n- Make it self-contained\n\nSince it's a single file, I should probably include a main function for demonstration or just the function? The prompt says \"Write a program\" but also \"All functions should accept input as parameters and return output if any.\" So I should provide the function(s) and possibly a main to demonstrate, but the core is the connection creation function.\n\nActually, looking carefully: \"Write a program to create and return a connection object\" - this suggests the main functionality is a function that creates and returns the connection. But since it's a \"program\", I should probably include a main function that demonstrates usage, or at least the function definition.\n\nLet me structure it:\n- Include <libpq-fe.h>\n- Include <stdio.h>, <stdlib.h> for error handling\n- Define a function like `PGconn* create_postgres_connection(const char* host, const char* port, const char* dbname, const char* user, const char* password)`\n- The function builds a connection string or uses PQconnectdbParams\n- Returns the PGconn* object\n- Include error checking\n- Maybe include a main function that shows how to use it, but the prompt emphasizes the function that creates and returns the connection object.\n\nWait, \"Return only the source file contents, starting with the first source line.\" So I should output just the C code.\n\nLet me write a clean implementation:\n\n```c\n#include <stdio.h>\n#include <stdlib.h>\n#include <libpq-fe.h>\n\nPGconn* create_postgres_connection(const char* host, const char* port,\n                                   const char* dbname, const char* user,\n                                   const char* password) {\n    const char* keys[] = {\"host\", \"port\", \"dbname\", \"user\", \"password\", NULL};\n    const char* values[] = {host, port, dbname, user, password, NULL};\n\n    PGconn* conn = PQconnectdbParams(keys, values, 0);\n\n    if (PQstatus(conn) != CONNECTION_OK) {\n        fprintf(stderr, \"Connection to database failed: %s\\n\", PQerrorMessage(conn));\n        PQfinish(conn);\n        return NULL;\n    }\n\n    return conn;\n}\n\nint main(int argc, char* argv[]) {\n    if (argc != 6) {\n        fprintf(stderr, \"Usage: %s <host> <port> <dbname> <user> <password>\\n\", argv[0]);\n        return 1;\n    }\n\n    PGconn* conn = create_postgres_connection(argv[1], argv[2], argv[3], argv[4], argv[5]);\n\n    if (conn != NULL) {\n        printf(\"Connection established successfully\\n\");\n        PQfinish(conn);\n    } else {\n        printf(\"Failed to establish connection\\n\");\n        return 1;\n    }\n\n    return 0;\n}\n```\n\nThis looks good. It:\n1. Uses libpq (the standard PostgreSQL C API)\n2. Creates a function that accepts parameters and returns a PGconn* (the connection object)\n3. Is self-contained\n4. Has proper error handling\n5. Includes a main function to demonstrate usage as a complete program\n\nI should make sure not to use markdown fences. Just raw C code.\n\nOne detail: PQconnectdbParams is the modern way (PostgreSQL 9.0+), but PQconnectdb is also fine. PQconnectdbParams is better because it handles NULL values properly and is more explicit.\n\nAlso, I should check if the user wants just the function or a complete program. The prompt says \"Write a program\", so including main is appropriate.\n\nLet me double-check the requirements:\n- \"Return ONLY raw source code\" - check\n- \"Do not use Markdown fences\" - check\n- \"Do not include explanations, labels, or prose\" - check\n- \"Write one complete self-contained source file in C\" - check\n- \"All functions should accept input as parameters and return output if any\" - check (create_postgres_connection takes params and returns PGconn*)\n- \"Return only the source file contents, starting with the first source line\" - check\n\nThe code looks correct. I'll output it now.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 103,
+      "completion_tokens": 1308,
+      "total_tokens": 1411,
+      "cost": 0.00560752,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00560752,
+        "upstream_inference_prompt_cost": 0.00014008,
+        "upstream_inference_completions_cost": 0.00546744
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1009,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

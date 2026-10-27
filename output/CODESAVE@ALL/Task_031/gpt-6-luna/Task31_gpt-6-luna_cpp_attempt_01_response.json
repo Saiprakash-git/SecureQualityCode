@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793016725-fPXKk60OSXIStHg1HIcK",
+  "finish_reason": "stop",
+  "input_tokens": 237,
+  "output_tokens": 208,
+  "cost_usd": 0.0001277,
+  "raw_response": {
+    "id": "gen-1793016725-fPXKk60OSXIStHg1HIcK",
+    "object": "chat.completion",
+    "created": 1793016725,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <string>\n\nstd::string DNAStrand(const std::string& dna) {\n    std::string complement;\n    complement.reserve(dna.size());\n\n    for (char base : dna) {\n        switch (base) {\n            case 'A': complement += 'T'; break;\n            case 'T': complement += 'A'; break;\n            case 'C': complement += 'G'; break;\n            case 'G': complement += 'C'; break;\n        }\n    }\n\n    return complement;\n}",
+          "refusal": null,
+          "reasoning": "**Creating C++ DNA function**\n\nI need to output a C++ code for a function named DNAStrand that takes a string parameter representing DNA. The expected signature seems to be `std::string DNAStrand(const std::string& dna)`. I want to ensure it\u2019s self-contained and follows Codewars standards. It might involve mapping characters for the complementary DNA. I'll stick to using the typical function declaration format for C++. This needs precision to match the common testing expectations.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Creating C++ DNA function**\n\nI need to output a C++ code for a function named DNAStrand that takes a string parameter representing DNA. The expected signature seems to be `std::string DNAStrand(const std::string& dna)`. I want to ensure it\u2019s self-contained and follows Codewars standards. It might involve mapping characters for the complementary DNA. I'll stick to using the typical function declaration format for C++. This needs precision to match the common testing expectations.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30OYuFf_mANEfJJt0B8lpRTtvPrU0T141ouH9BJgVpe9clqhFHW_NzLS-E_OMZKKUPySSaQhKL0xHXlhFUqjZlh0ugTsuoPArhwxgKM5CgWfE6wc--IsQHR9NQYxbr4x8EZgf7E0cfjhd5V5Ys6cRrenEWsHVloX7Pla5K2wrMQGDzjGlZj-9uotF_aoMdIAI7P18cnkvE0JA1bDNJ0sOP9FtsMOb8BfIQ2yqWLjfIZe__StVE4tQgpAoEmtp2eK5rOg-o8v4WGWQrHOSw23p3OAkooa_v1OaMsjgtJJAUnzH9-UoyrCZvDGy9SP6yM-THwaNZkkfYwFhv3Kzs9HD3anpOXBx2bX_Qtc_yf7KA7I9u92bEV6SG7xUREiPjxdvC-QfH5Et_pjOXIPVXJVufx_wjemt3wKt8c3b__nl7pKTVuG-tuVuTyp-p2RWpmm0RPC3SEnjA1uRhjN5yveiXoh-joGOtrqOPm9CKe2q9ehRq4HmdQAZig32GJyly6A_znjoS-rUaMNdVnDzc0ZJIELTERQiVXGZ4jAFlgrcsxRW2fAMLBISFYalTMAQnzi-c5SH-AinuGqumMIqwqOg4zfpYzU9OWFEKOOukdbN0d90h7GxOYGLzDfg0ykZlR81OIzT5dR6xsVJsExk_tNm6fVRBGkgQYSHym9Uj0cik6qzX7iB4T0faQ5RMHb6OfdUQZrO-FipurvgCFcE4HVPzjoVr9BDRPDNBGEiuPtzPQLYYXw8WW-kezyb-IXzguQf7SofPLUcV3kTRZppWYvCW64UqIZJp3bUrPiOhHPVBkBwiRY4PMBCP9ofuATCCz3HRRCu69nRqry_rqHsHNW0BNg3fAay4VpAZOgD1MdVfdcCCWF6LiF_z7MvfKA1Rr3C3LZ2bkkqt-r1ytjhVFuQPx_-tttbM2D49I_RsWi8xGQUPLk7wW-FuQF1etpGEKpc_WytN9GkDLXPclLOb0qGxF3jcflUtoolNa07hIw737MRdr7ldWFJY905_og5ETTMVDaJpP4O12Cnn0x-pcfOUmudbT3emmnU_YddW1B_MX9mMFoXOI5OY-NE2LABcY2OTY8evNyHR4-KQaghTcoBQa9RIfVyBHdQrECdCastLSwSPL8TdH8T4p1WxRe-yRphNSWXDWKaYtCuLTdzE0JEa2DCShmMlP7tjaYdzQbcl2nqqbzQZHeB4u6W9sFLz98j4uXzkyNcX0OLpvXd6OqKAtyj2ShKEEGXN0H31YnJp1kdLcgSyhFgGP0cqgZe9FOPO86Mlm62O-f4aVaakS6Xq2O7WIjkCQf8Cm0ma6wC-BVUog28_y2bCQOJDn8iG_ANcgqqMROtdwXOvl5Vb3lwmKDgQglCDXyu2ERoLpB6D2aRcgYSqiZd0cvhU1Irxu3_Uc0TYaOwleIL-lmzE7GY7i-HAzO1VaPS1iUQOukXl7fac6aS0g2oZeAtlPXfeikiq5Rc3XfHxxHguigeZ9n5xQSfTpnx8VqnoJbUdfe0d7_b_xZyY_lstnHc5rzygRXb3mi2FeFF4gvAJapcUnuNbknsOXhe-3KS64DsXbMxNPnd2NYkd74rXKYO64tv0i72VAeTFGaPI-M28OCixP578JvGpX3GZmPD8QSalBWRDNXfe-whUkxc8XsWcmLaAkLm5mkTqRGGGEe2Rh4wKybI4443Yz86DFOyvwVYQCgK1fidA-RcvpideCUqVBK3u-uSQW0lntpJdO9FrGjvoKJfQ0QnKcyi1Q8tPq4N3VFpPOSxPH3r_vhSNqOBoWybAZ9XuABCMhUsTdSA2h38iQ_NItpt12lUSSN7rkV5JYSMsvN4A6GlqRCDeuzcO665PmXcZJ4bDjin7PDvqOM5vcfbU3goMOq6TtKQCcc0m7qmY7FN5Tg8gLLRPMXJo4ErptSN5tCV2CnlRlDKNbPCzrDjBrBbcASyGSi2btLNd0_FDrkvZ_M7Y8egH9_h6YhXKPD1vZxOILHNdeCdDwZTydFPK4v_tuYgJONj4xUXgL72NuEUl-1KOhftBYozh_nmSRnfVQwmQjw0o6pzNwgZ3E2Oe1G9euJyaf5_GiYijBlLNKIxyKS4Uxs5d6bJ1MWPfRgpPqIxPOhAxuxzGTUDArDHz1c-OknpkAlW6qmOa0vH75HNDBzU5bL2JPrfOqxg0oXJp-LWlCnJTrs4ZfXHMCrbBoNvV4Js2bc_1x-0WfINJVvSIB0HZSEmPuuD_FCGv_XzlpIiqwjtXTeWMGc981hcq2HNAor-RNpkZL2R39Qsv7h5cM9DdPoDDKFJ59u369f5jC8crRF-NKGIiHJIhHKtvx0Ubfwhpi4Z6wQtPoW8Rcl0H9eUId_6EZaJ6XA8SpNLgHXsVkOX6W9ANDzyOYUj0UB1yo0DzpxQZi7dR18h031fJdhoDmPO8xJO4Hvd1I3dhPkGcgplMgGt8hn1Vq1AMcEqQCzMUhSDK0RDzzh_rU6szNDJVoUeHQj90dmiZ_N8NzuXV4G5qpForjm6QxFiQhKsYs85ckvooLXs-DShnPVTdH_U8nJHYFli4bkEfP3Tr6zcXj-3xkHYBzj0a2j_KXRAoWMjDWyyqA6xwk2oMR2rG6E0ixhOXsJD88ESdNDJVbeuOMKdl3yOcdbIJZVJrKQosoLtOcYhqs5C0fd4N0K6eRoxOQFc79Hi44NXcUWRuSMEdfCErtvwJFaWAFj4JxoB7hGDYyX2-wFcs1O57PC4-uh4HfiKn2IXparbUu44T746TbGj6mgL_AtaZ6R4W-BAokCJFbjZKAZeAVeBc3dSqw5dsLR912QVLt4Alyc5chen0cIuNkIF5KQ8jQLdnK6ci3mxlAy5f36FcQOMKPvdRA=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0479f8d7ac72197b016adf4396a9f887d1bd275740745e01f7",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 237,
+      "completion_tokens": 208,
+      "total_tokens": 445,
+      "cost": 0.0001277,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001277,
+        "upstream_inference_prompt_cost": 2.37e-05,
+        "upstream_inference_completions_cost": 0.000104
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 99,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

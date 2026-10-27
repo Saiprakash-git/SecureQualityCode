@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792944041-d0jfIFgnZt8AIuPFJo0k",
+  "finish_reason": "stop",
+  "input_tokens": 162,
+  "output_tokens": 2169,
+  "cost_usd": 0.0011007,
+  "raw_response": {
+    "id": "gen-1792944041-d0jfIFgnZt8AIuPFJo0k",
+    "object": "chat.completion",
+    "created": 1792944041,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <string.h>\n#include <sqlite3.h>\n\ntypedef struct {\n    int id;\n    char username[256];\n    char email[256];\n    char full_name[256];\n} UserInfo;\n\nstatic void copy_column_text(sqlite3_stmt *stmt, int col, char *dest, size_t size) {\n    const unsigned char *text = sqlite3_column_text(stmt, col);\n    if (text == NULL) {\n        dest[0] = '\\0';\n    } else {\n        snprintf(dest, size, \"%s\", (const char *)text);\n    }\n}\n\nint init_schema(sqlite3 *db) {\n    const char *sql =\n        \"CREATE TABLE IF NOT EXISTS users (\"\n        \" id INTEGER PRIMARY KEY,\"\n        \" username TEXT UNIQUE NOT NULL,\"\n        \" email TEXT,\"\n        \" full_name TEXT);\";\n    char *err = NULL;\n    if (sqlite3_exec(db, sql, NULL, NULL, &err) != SQLITE_OK) {\n        fprintf(stderr, \"Schema error: %s\\n\", err ? err : \"unknown\");\n        sqlite3_free(err);\n        return -1;\n    }\n    return 0;\n}\n\n/* Returns 1 if found, 0 if not found, -1 on error. Uses a parameterized query. */\nint fetch_user_info(sqlite3 *db, const char *username, UserInfo *out) {\n    const char *sql =\n        \"SELECT id, username, email, full_name FROM users WHERE username = ?;\";\n    sqlite3_stmt *stmt = NULL;\n    int rc;\n\n    if (db == NULL || username == NULL || out == NULL) {\n        return -1;\n    }\n\n    rc = sqlite3_prepare_v2(db, sql, -1, &stmt, NULL);\n    if (rc != SQLITE_OK) {\n        fprintf(stderr, \"Prepare error: %s\\n\", sqlite3_errmsg(db));\n        return -1;\n    }\n\n    rc = sqlite3_bind_text(stmt, 1, username, -1, SQLITE_TRANSIENT);\n    if (rc != SQLITE_OK) {\n        fprintf(stderr, \"Bind error: %s\\n\", sqlite3_errmsg(db));\n        sqlite3_finalize(stmt);\n        return -1;\n    }\n\n    rc = sqlite3_step(stmt);\n    if (rc == SQLITE_ROW) {\n        out->id = sqlite3_column_int(stmt, 0);\n        copy_column_text(stmt, 1, out->username, sizeof(out->username));\n        copy_column_text(stmt, 2, out->email, sizeof(out->email));\n        copy_column_text(stmt, 3, out->full_name, sizeof(out->full_name));\n        sqlite3_finalize(stmt);\n        return 1;\n    }\n\n    sqlite3_finalize(stmt);\n    if (rc == SQLITE_DONE) {\n        return 0;\n    }\n    fprintf(stderr, \"Query error: %s\\n\", sqlite3_errmsg(db));\n    return -1;\n}\n\nstatic void trim_newline(char *s) {\n    size_t len = strlen(s);\n    while (len > 0 && (s[len - 1] == '\\n' || s[len - 1] == '\\r')) {\n        s[--len] = '\\0';\n    }\n}\n\nint main(int argc, char *argv[]) {\n    const char *db_path = (argc > 1) ? argv[1] : \"users.db\";\n    char username[256];\n    UserInfo user;\n    sqlite3 *db = NULL;\n    int rc, result;\n\n    if (sqlite3_open(db_path, &db) != SQLITE_OK) {\n        fprintf(stderr, \"Cannot open database '%s': %s\\n\", db_path, sqlite3_errmsg(db));\n        sqlite3_close(db);\n        return 1;\n    }\n\n    if (init_schema(db) != 0) {\n        sqlite3_close(db);\n        return 1;\n    }\n\n    printf(\"Enter username: \");\n    fflush(stdout);\n    if (fgets(username, sizeof(username), stdin) == NULL) {\n        fprintf(stderr, \"No input provided.\\n\");\n        sqlite3_close(db);\n        return 1;\n    }\n    trim_newline(username);\n\n    if (username[0] == '\\0') {\n        fprintf(stderr, \"Username cannot be empty.\\n\");\n        sqlite3_close(db);\n        return 1;\n    }\n\n    result = fetch_user_info(db, username, &user);\n    if (result == 1) {\n        printf(\"ID:        %d\\n\", user.id);\n        printf(\"Username:  %s\\n\", user.username);\n        printf(\"Email:     %s\\n\", user.email);\n        printf(\"Full name: %s\\n\", user.full_name);\n        rc = 0;\n    } else if (result == 0) {\n        printf(\"No user found with username '%s'.\\n\", username);\n        rc = 0;\n    } else {\n        rc = 1;\n    }\n\n    sqlite3_close(db);\n    return rc;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 162,
+      "completion_tokens": 2169,
+      "total_tokens": 2331,
+      "cost": 0.0011007,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0011007,
+        "upstream_inference_prompt_cost": 1.62e-05,
+        "upstream_inference_completions_cost": 0.0010845
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 466,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

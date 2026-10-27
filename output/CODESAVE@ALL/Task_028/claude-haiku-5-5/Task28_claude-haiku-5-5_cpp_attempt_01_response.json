@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793016667-EEVV4zGJBf76IhFgcqg2",
+  "finish_reason": "stop",
+  "input_tokens": 385,
+  "output_tokens": 342,
+  "cost_usd": 0.0002095,
+  "raw_response": {
+    "id": "gen-1793016667-EEVV4zGJBf76IhFgcqg2",
+    "object": "chat.completion",
+    "created": 1793016667,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <vector>\n#include <string>\n\nstd::string likes(const std::vector<std::string>& names) {\n    size_t n = names.size();\n    if (n == 0) return \"no one likes this\";\n    if (n == 1) return names[0] + \" likes this\";\n    if (n == 2) return names[0] + \" and \" + names[1] + \" like this\";\n    if (n == 3) return names[0] + \", \" + names[1] + \" and \" + names[2] + \" like this\";\n    return names[0] + \", \" + names[1] + \" and \" + std::to_string(n - 2) + \" others like this\";\n}\n\nint main() {\n    std::cout << likes({}) << \"\\n\";\n    std::cout << likes({\"Peter\"}) << \"\\n\";\n    std::cout << likes({\"Jacob\", \"Alex\"}) << \"\\n\";\n    std::cout << likes({\"Max\", \"John\", \"Mark\"}) << \"\\n\";\n    std::cout << likes({\"Alex\", \"Jacob\", \"Mark\", \"Max\"}) << \"\\n\";\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 385,
+      "completion_tokens": 342,
+      "total_tokens": 727,
+      "cost": 0.0002095,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002095,
+        "upstream_inference_prompt_cost": 3.85e-05,
+        "upstream_inference_completions_cost": 0.000171
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

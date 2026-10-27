@@ -1,0 +1,11 @@
+Task130_PERPLEXITY_llama-3-sonar-large-32k-chat.c:1:1: error: unknown type name 'code'
+    1 | code here:
+      | ^
+Task130_PERPLEXITY_llama-3-sonar-large-32k-chat.c:1:10: error: expected ';' after top level declarator
+    1 | code here:
+      |          ^
+      |          ;
+Task130_PERPLEXITY_llama-3-sonar-large-32k-chat.c:5:10: fatal error: 'onion/log.h' file not found
+    5 | #include <onion/log.h>
+      |          ^~~~~~~~~~~~~
+3 errors generated.

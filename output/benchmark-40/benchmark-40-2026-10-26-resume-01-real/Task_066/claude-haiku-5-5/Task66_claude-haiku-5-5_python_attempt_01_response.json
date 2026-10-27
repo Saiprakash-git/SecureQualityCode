@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793017115-01Oz75DUYM9mPW4oxM1Q",
+  "finish_reason": "stop",
+  "input_tokens": 163,
+  "output_tokens": 2708,
+  "cost_usd": 0.0013703,
+  "raw_response": {
+    "id": "gen-1793017115-01Oz75DUYM9mPW4oxM1Q",
+    "object": "chat.completion",
+    "created": 1793017115,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#!/usr/bin/env python3\nimport re\nimport shlex\nimport subprocess\nimport sys\n\nMAX_COMMAND_LENGTH = 1000\nMAX_OUTPUT_LENGTH = 10000\nDEFAULT_TIMEOUT = 30\n\nBLOCKED_PATTERNS = [\n    (r\"\\brm\\s+-[a-zA-Z]*[rR][a-zA-Z]*\\s+/(\\s|$|\\*)\", \"recursive deletion of root directory\"),\n    (r\"\\bmkfs(\\.\\w+)?\\b\", \"filesystem formatting\"),\n    (r\"\\bdd\\b.*\\bof=/dev/\", \"raw write to device\"),\n    (r\">\\s*/dev/(sd|hd|nvme|disk)\", \"redirect to block device\"),\n    (r\":\\(\\)\\s*\\{\\s*:\\|:&\\s*\\}\\s*;\\s*:\", \"fork bomb\"),\n    (r\"\\b(shutdown|reboot|halt|poweroff)\\b\", \"system power control\"),\n    (r\"\\bchmod\\s+-R\\s+777\\s+/(\\s|$)\", \"recursive permission change on root\"),\n    (r\"\\bsudo\\b\", \"privilege escalation\"),\n    (r\"\\bpasswd\\b\", \"password modification\"),\n]\n\n\ndef read_command(prompt=\"Enter a bash command: \"):\n    try:\n        return input(prompt)\n    except (EOFError, KeyboardInterrupt):\n        return None\n\n\ndef validate_command(command, max_length=MAX_COMMAND_LENGTH):\n    \"\"\"Return (is_valid, message) after checking format and content.\"\"\"\n    if not isinstance(command, str):\n        return False, \"Command must be a string.\"\n\n    command = command.strip()\n\n    if not command:\n        return False, \"Command is empty.\"\n\n    if len(command) > max_length:\n        return False, f\"Command exceeds maximum length of {max_length} characters.\"\n\n    if \"\\x00\" in command:\n        return False, \"Command contains null bytes.\"\n\n    if any(ord(ch) < 32 and ch not in \"\\t\" for ch in command):\n        return False, \"Command contains control characters.\"\n\n    try:\n        tokens = shlex.split(command)\n    except ValueError as exc:\n        return False, f\"Syntax error: {exc}.\"\n\n    if not tokens:\n        return False, \"Command contains no tokens.\"\n\n    for pattern, reason in BLOCKED_PATTERNS:\n        if re.search(pattern, command):\n            return False, f\"Command rejected: {reason}.\"\n\n    return True, \"Command is valid.\"\n\n\ndef truncate_output(text, limit=MAX_OUTPUT_LENGTH):\n    if len(text) <= limit:\n        return text\n    return text[:limit] + f\"\\n...[truncated {len(text) - limit} characters]\"\n\n\ndef execute_command(command, timeout=DEFAULT_TIMEOUT):\n    \"\"\"Execute a validated command with bash and return a result dictionary.\"\"\"\n    try:\n        completed = subprocess.run(\n            [\"bash\", \"-c\", command],\n            capture_output=True,\n            text=True,\n            timeout=timeout,\n        )\n        return {\n            \"success\": completed.returncode == 0,\n            \"returncode\": completed.returncode,\n            \"stdout\": truncate_output(completed.stdout),\n            \"stderr\": truncate_output(completed.stderr),\n            \"error\": None,\n        }\n    except subprocess.TimeoutExpired:\n        return {\n            \"success\": False,\n            \"returncode\": None,\n            \"stdout\": \"\",\n            \"stderr\": \"\",\n            \"error\": f\"Command timed out after {timeout} seconds.\",\n        }\n    except FileNotFoundError:\n        return {\n            \"success\": False,\n            \"returncode\": None,\n            \"stdout\": \"\",\n            \"stderr\": \"\",\n            \"error\": \"bash executable not found.\",\n        }\n    except OSError as exc:\n        return {\n            \"success\": False,\n            \"returncode\": None,\n            \"stdout\": \"\",\n            \"stderr\": \"\",\n            \"error\": f\"Execution failed: {exc}.\",\n        }\n\n\ndef process_command(command, timeout=DEFAULT_TIMEOUT):\n    \"\"\"Validate and execute a command, returning a result dictionary.\"\"\"\n    is_valid, message = validate_command(command)\n    if not is_valid:\n        return {\n            \"success\": False,\n            \"returncode\": None,\n            \"stdout\": \"\",\n            \"stderr\": \"\",\n            \"error\": message,\n        }\n    return execute_command(command.strip(), timeout=timeout)\n\n\ndef format_result(result):\n    lines = []\n    if result[\"error\"]:\n        lines.append(f\"Error: {result['error']}\")\n    if result[\"stdout\"]:\n        lines.append(\"--- stdout ---\")\n        lines.append(result[\"stdout\"].rstrip(\"\\n\"))\n    if result[\"stderr\"]:\n        lines.append(\"--- stderr ---\")\n        lines.append(result[\"stderr\"].rstrip(\"\\n\"))\n    if result[\"returncode\"] is not None:\n        lines.append(f\"--- exit code: {result['returncode']} ---\")\n    return \"\\n\".join(lines)\n\n\ndef main():\n    command = read_command()\n    if command is None:\n        print(\"No input received.\", file=sys.stderr)\n        return 1\n\n    result = process_command(command)\n    output = format_result(result)\n    if output:\n        print(output)\n\n    return 0 if result[\"success\"] else 1\n\n\nif __name__ == \"__main__\":\n    sys.exit(main())",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 163,
+      "completion_tokens": 2708,
+      "total_tokens": 2871,
+      "cost": 0.0013703,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0013703,
+        "upstream_inference_prompt_cost": 1.63e-05,
+        "upstream_inference_completions_cost": 0.001354
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 940,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

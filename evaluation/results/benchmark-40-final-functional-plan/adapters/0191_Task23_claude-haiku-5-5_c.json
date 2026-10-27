@@ -1,0 +1,31 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "findNb",
+   "target": "findNb",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "long long",
+    "params": [
+     "long long m"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "long long m"
+    ],
+    "return": "long long"
+   }
+  }
+ ],
+ "combo_index": 191,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_023/claude-haiku-5-5/Task23_claude-haiku-5-5_c.c",
+ "artifact_sha256": "278cc23250cbba0d077acda90d44c2cf8035e021020cbc878cb7bcc0cdfb5831",
+ "oracle_test_path": "tests/claude/Task23_Test.c",
+ "oracle_test_sha256": "01301f9dc8e93e458557adc6e697831b4c944473276b519fdf55a40add765be6",
+ "author": "functional.py draft_adapter (static)"
+}

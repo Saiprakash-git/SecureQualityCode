@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793018045-69x76Q55SVPpPCjjVA8z",
+  "finish_reason": "stop",
+  "input_tokens": 211,
+  "output_tokens": 566,
+  "cost_usd": 0.0003041,
+  "raw_response": {
+    "id": "gen-1793018045-69x76Q55SVPpPCjjVA8z",
+    "object": "chat.completion",
+    "created": 1793018045,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import sys\nimport re\nimport ssl\nimport urllib.request\nimport urllib.error\nfrom html import unescape\n\n\ndef fetch_html(url):\n    context = ssl.create_default_context()\n    request = urllib.request.Request(\n        url,\n        headers={\"User-Agent\": \"Mozilla/5.0 (title-extractor/1.0)\"}\n    )\n    with urllib.request.urlopen(request, context=context, timeout=15) as response:\n        charset = response.headers.get_content_charset() or \"utf-8\"\n        raw = response.read()\n        return raw.decode(charset, errors=\"replace\")\n\n\ndef extract_title(html_content):\n    match = re.search(r\"<title[^>]*>(.*?)</title>\", html_content, re.IGNORECASE | re.DOTALL)\n    if not match:\n        return None\n    title = unescape(match.group(1))\n    return re.sub(r\"\\s+\", \" \", title).strip()\n\n\ndef get_page_title(url):\n    if not url.lower().startswith(\"https://\"):\n        raise ValueError(\"URL must use HTTPS\")\n    html_content = fetch_html(url)\n    return extract_title(html_content)\n\n\ndef main():\n    if len(sys.argv) < 2:\n        print(\"Usage: python script.py <https_url>\", file=sys.stderr)\n        sys.exit(1)\n    url = sys.argv[1]\n    try:\n        title = get_page_title(url)\n        if title is None:\n            print(\"No title found\", file=sys.stderr)\n            sys.exit(2)\n        print(title)\n    except (urllib.error.URLError, ValueError) as e:\n        print(f\"Error: {e}\", file=sys.stderr)\n        sys.exit(3)\n\n\nif __name__ == \"__main__\":\n    main()",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 211,
+      "completion_tokens": 566,
+      "total_tokens": 777,
+      "cost": 0.0003041,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003041,
+        "upstream_inference_prompt_cost": 2.11e-05,
+        "upstream_inference_completions_cost": 0.000283
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

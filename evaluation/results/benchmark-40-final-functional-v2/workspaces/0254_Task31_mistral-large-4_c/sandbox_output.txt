@@ -1,0 +1,7 @@
+@@39feb223072acd57 STEP 0 BEGIN@@
+
+@@39feb223072acd57 STEP 0 END rc=0@@
+@@39feb223072acd57 STEP 1 BEGIN@@
+All tests passed!
+
+@@39feb223072acd57 STEP 1 END rc=0@@

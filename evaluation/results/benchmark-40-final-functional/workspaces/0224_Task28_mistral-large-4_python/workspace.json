@@ -1,0 +1,57 @@
+{
+ "language": "python",
+ "artifact_origin": "generated",
+ "artifact_sha256": "b872bb6b397dfb4c2949b05d8870e675a199ff46f2186ec13453d4755184c052",
+ "oracle_test_path": "tests/claude/Task28_CLAUDE_claude_3_5_sonnet_20240620/Task28_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "ff8db6f2f47ab6fd32f89b80966d6764c09214b3ab9255a174c75d9d548b2585",
+ "verdict_style": "unittest",
+ "bindings": [
+  {
+   "canonical": "likes",
+   "target": "likes",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "line": 1,
+   "removed": "# from output.claude.Task28_CLAUDE_claude_3_5_sonnet_20240620 import likes as likes",
+   "inserted": "from adapter_bindings import *  # adapter"
+  },
+  {
+   "line": 2,
+   "removed": "# from output.codestral.Task28_MISTRAL_codestral_latest import likes as likes"
+  },
+  {
+   "line": 3,
+   "removed": "# from output.gemini.Task28_GEMINI_gemini_1_5_pro_001 import likes as likes"
+  },
+  {
+   "line": 4,
+   "removed": "# from output.gtp4o.Task28_OPENAI_gpt_4o import likes as likes"
+  },
+  {
+   "line": 5,
+   "removed": "# from output.llama3.Task28_PERPLEXITY_llama_3_sonar_large_32k_chat import likes as likes"
+  }
+ ],
+ "steps": [
+  [
+   "{python}",
+   "-m",
+   "unittest",
+   "-v",
+   "test_oracle"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "adapter_bindings.py": "bf881a715ae978a62667d40a7d621a44aac4e6a10d7ecddafc5b975f47fa3f1c",
+  "impl_under_test.py": "b872bb6b397dfb4c2949b05d8870e675a199ff46f2186ec13453d4755184c052",
+  "test_oracle.py": "f1183024c1a19b56cd2badfbbf06b360661bbeb9ebbe1f2c520037712c1c82d8"
+ }
+}

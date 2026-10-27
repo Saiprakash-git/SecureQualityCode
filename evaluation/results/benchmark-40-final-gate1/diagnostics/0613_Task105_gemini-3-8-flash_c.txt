@@ -1,0 +1,4 @@
+Task105_gemini-3-8-flash_c.c:11:10: fatal error: 'openssl/ssl.h' file not found
+   11 | #include <openssl/ssl.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.

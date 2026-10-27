@@ -1,0 +1,9 @@
+Task124_PERPLEXITY_llama-3-sonar-large-32k-chat.c:9:42: error: call to undeclared library function 'malloc' with type 'void *(unsigned long)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    9 |     SensitiveData* sd = (SensitiveData*) malloc(sizeof(SensitiveData));
+      |                                          ^
+Task124_PERPLEXITY_llama-3-sonar-large-32k-chat.c:9:42: note: include the header <stdlib.h> or explicitly provide a declaration for 'malloc'
+Task124_PERPLEXITY_llama-3-sonar-large-32k-chat.c:21:5: error: call to undeclared library function 'free' with type 'void (void *)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   21 |     free(data);
+      |     ^
+Task124_PERPLEXITY_llama-3-sonar-large-32k-chat.c:21:5: note: include the header <stdlib.h> or explicitly provide a declaration for 'free'
+2 errors generated.

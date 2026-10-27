@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "isPangram",
+   "target": "isPangram",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 39,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_003/mistral-large-4/Task3_mistral-large-4_cpp.cpp",
+ "artifact_sha256": "86d114f903fa9175f61f245a31a3011de6a9b9d37a47423f3e29bc0408b86992",
+ "oracle_test_path": "tests/claude/Task3_Test.cpp",
+ "oracle_test_sha256": "b94cad74ef9276969b78ec33968d6f4309c1b7706e8923d6048129b8d954a262",
+ "author": "functional.py draft_adapter (static)"
+}

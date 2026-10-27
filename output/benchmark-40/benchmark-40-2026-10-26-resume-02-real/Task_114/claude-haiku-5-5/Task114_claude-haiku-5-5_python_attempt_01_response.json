@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793024220-YYW4d7vZUrTgymPE1ggf",
+  "finish_reason": "stop",
+  "input_tokens": 161,
+  "output_tokens": 1054,
+  "cost_usd": 0.0005431,
+  "raw_response": {
+    "id": "gen-1793024220-YYW4d7vZUrTgymPE1ggf",
+    "object": "chat.completion",
+    "created": 1793024220,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "def copy_string(s):\n    return str(s)\n\ndef concatenate_strings(*parts, separator=\"\"):\n    return separator.join(str(p) for p in parts)\n\ndef reverse_string(s):\n    return s[::-1]\n\ndef to_upper(s):\n    return s.upper()\n\ndef to_lower(s):\n    return s.lower()\n\ndef capitalize_words(s):\n    return \" \".join(word.capitalize() for word in s.split())\n\ndef count_occurrences(s, sub):\n    return s.count(sub)\n\ndef replace_substring(s, old, new):\n    return s.replace(old, new)\n\ndef remove_whitespace(s):\n    return \"\".join(s.split())\n\ndef is_palindrome(s):\n    cleaned = \"\".join(ch.lower() for ch in s if ch.isalnum())\n    return cleaned == cleaned[::-1]\n\ndef substring(s, start, end=None):\n    return s[start:end]\n\ndef pad_string(s, width, fill=\" \", align=\"left\"):\n    if align == \"right\":\n        return s.rjust(width, fill)\n    if align == \"center\":\n        return s.center(width, fill)\n    return s.ljust(width, fill)\n\ndef split_string(s, delimiter=None):\n    return s.split(delimiter)\n\ndef join_strings(items, separator=\"\"):\n    return separator.join(str(i) for i in items)\n\ndef char_frequency(s):\n    freq = {}\n    for ch in s:\n        freq[ch] = freq.get(ch, 0) + 1\n    return freq\n\ndef trim_string(s, chars=None):\n    return s.strip(chars)\n\ndef repeat_string(s, times):\n    return s * times\n\ndef main():\n    original = \"  Hello, World!  \"\n    print(\"Original:\", repr(original))\n    copied = copy_string(original)\n    print(\"Copied:\", repr(copied))\n    print(\"Trimmed:\", repr(trim_string(original)))\n    print(\"Concatenated:\", concatenate_strings(\"Hello\", \"World\", separator=\" \"))\n    print(\"Reversed:\", reverse_string(\"Python\"))\n    print(\"Upper:\", to_upper(\"python\"))\n    print(\"Lower:\", to_lower(\"PYTHON\"))\n    print(\"Capitalized:\", capitalize_words(\"the quick brown fox\"))\n    print(\"Count of 'l':\", count_occurrences(\"hello world\", \"l\"))\n    print(\"Replaced:\", replace_substring(\"I like cats\", \"cats\", \"dogs\"))\n    print(\"No whitespace:\", remove_whitespace(\"a b c d\"))\n    print(\"Palindrome 'A man, a plan, a canal: Panama':\",\n          is_palindrome(\"A man, a plan, a canal: Panama\"))\n    print(\"Substring [0:5]:\", substring(\"abcdefgh\", 0, 5))\n    print(\"Padded right:\", repr(pad_string(\"42\", 6, \"0\", \"right\")))\n    print(\"Centered:\", repr(pad_string(\"hi\", 6, \"*\", \"center\")))\n    print(\"Split:\", split_string(\"a,b,c\", \",\"))\n    print(\"Joined:\", join_strings([1, 2, 3], \"-\"))\n    print(\"Char frequency:\", char_frequency(\"banana\"))\n    print(\"Repeated:\", repeat_string(\"ab\", 3))\n\nif __name__ == \"__main__\":\n    main()",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 161,
+      "completion_tokens": 1054,
+      "total_tokens": 1215,
+      "cost": 0.0005431,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0005431,
+        "upstream_inference_prompt_cost": 1.61e-05,
+        "upstream_inference_completions_cost": 0.000527
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

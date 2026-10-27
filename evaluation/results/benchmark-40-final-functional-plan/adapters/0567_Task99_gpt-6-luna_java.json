@@ -1,0 +1,32 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "Task99_CLAUDE_claude_3_5_sonnet_20240620.main",
+   "target": "Main.main",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "void",
+    "params": [
+     "String[] args"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "String[] args"
+    ],
+    "return": "void",
+    "static": true
+   }
+  }
+ ],
+ "combo_index": 567,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-02-real/Task_099/gpt-6-luna/Task99_gpt-6-luna_java.java",
+ "artifact_sha256": "2a437f9b88ae241512c487ed002c7efb8548b6783b730903a1f5b5f4a5426f66",
+ "oracle_test_path": "src/test/java/claude/task99/Task99Test.java",
+ "oracle_test_sha256": "56a5b26fa05b0e50195739dc6034cf4484128af7af7f2659254ee1d377aefba6",
+ "author": "functional.py draft_adapter (static)"
+}

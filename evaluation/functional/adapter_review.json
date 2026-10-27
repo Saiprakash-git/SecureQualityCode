@@ -1,0 +1,2264 @@
+{
+ "21": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "b07efe067e8d085953b983cc4762c0abd4e3fd0ea7672efc0d9794e15c7243d2",
+  "oracle_test_sha256": "f28361a12e41e1396b4dc307d6faa5ca9476a5c994b29a0971829987d9a44dd7",
+  "bindings": [
+   {
+    "canonical": "is_pangram",
+    "target": "is_pangram"
+   }
+  ]
+ },
+ "22": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "b088314185c9c7a324266a5b208d6bacb1364bffb9ba4be84de760d3582d51f4",
+  "oracle_test_sha256": "f28361a12e41e1396b4dc307d6faa5ca9476a5c994b29a0971829987d9a44dd7",
+  "bindings": [
+   {
+    "canonical": "is_pangram",
+    "target": "is_pangram"
+   }
+  ]
+ },
+ "23": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "082a1dfd33c69e82e68fa4c9c8167997f2b73f86a37e90ce287fda480cc43ee4",
+  "oracle_test_sha256": "f28361a12e41e1396b4dc307d6faa5ca9476a5c994b29a0971829987d9a44dd7",
+  "bindings": [
+   {
+    "canonical": "is_pangram",
+    "target": "is_pangram"
+   }
+  ]
+ },
+ "24": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "18aa6464167a424845019db042d8d77802a2d263154588ff8d009835c8ff70e8",
+  "oracle_test_sha256": "f28361a12e41e1396b4dc307d6faa5ca9476a5c994b29a0971829987d9a44dd7",
+  "bindings": [
+   {
+    "canonical": "is_pangram",
+    "target": "is_pangram"
+   }
+  ]
+ },
+ "25": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "1ea581bfcc0d9bd0bbd41d7c6444bedbad7e164aea49d20617d8029c741d26e7",
+  "oracle_test_sha256": "f28361a12e41e1396b4dc307d6faa5ca9476a5c994b29a0971829987d9a44dd7",
+  "bindings": [
+   {
+    "canonical": "is_pangram",
+    "target": "is_pangram"
+   }
+  ]
+ },
+ "26": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "292ff28c6209bb6b45e5718742542509c9441672abc68ee1784460956f3d862f",
+  "oracle_test_sha256": "239e48834db3a0183356982f599938d148415e6ca3d93a50de028f9c2e0933cd",
+  "bindings": [
+   {
+    "canonical": "Task3_OPENAI_gpt_4o.isPangram",
+    "target": "Pangram.isPangram"
+   }
+  ]
+ },
+ "27": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "9fbfacbf1eb9c8888c9b6b817c778775ea3ab68cedec70381a7e7a58b223efe7",
+  "oracle_test_sha256": "239e48834db3a0183356982f599938d148415e6ca3d93a50de028f9c2e0933cd",
+  "bindings": [
+   {
+    "canonical": "Task3_OPENAI_gpt_4o.isPangram",
+    "target": "Main.isPangram"
+   }
+  ]
+ },
+ "28": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "ccdd94bb9dbd140be7634fcece4723888c087f7915575d94a59cd5e403813c35",
+  "oracle_test_sha256": "239e48834db3a0183356982f599938d148415e6ca3d93a50de028f9c2e0933cd",
+  "bindings": [
+   {
+    "canonical": "Task3_OPENAI_gpt_4o.isPangram",
+    "target": "PangramChecker.isPangram"
+   }
+  ]
+ },
+ "29": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "6617c953a3d0ac90e994b7e21b90652047b3daeed425083c20a73ede475fc6c9",
+  "oracle_test_sha256": "239e48834db3a0183356982f599938d148415e6ca3d93a50de028f9c2e0933cd",
+  "bindings": [
+   {
+    "canonical": "Task3_OPENAI_gpt_4o.isPangram",
+    "target": "PangramChecker.isPangram"
+   }
+  ]
+ },
+ "30": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "69805fc7301bdb9cf50765b3f4b15c37dcbf5360c4796c0a6e2b61466f73af9f",
+  "oracle_test_sha256": "239e48834db3a0183356982f599938d148415e6ca3d93a50de028f9c2e0933cd",
+  "bindings": [
+   {
+    "canonical": "Task3_OPENAI_gpt_4o.isPangram",
+    "target": "Main.isPangram"
+   }
+  ]
+ },
+ "31": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "8e32e22e421b1cdc5112a6b1814e171707a2627f1db6848dbacd855dc73c1359",
+  "oracle_test_sha256": "f160498acb0a4ad62e2d53204c8669dad2b556af11ea84cd53c2ba5a30b5eb67",
+  "bindings": [
+   {
+    "canonical": "isPangram",
+    "target": "is_pangram"
+   }
+  ]
+ },
+ "32": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "0f944e217fde865539f1acc0dee044aa6c39a26976842b8c8af66fc846fa812b",
+  "oracle_test_sha256": "f160498acb0a4ad62e2d53204c8669dad2b556af11ea84cd53c2ba5a30b5eb67",
+  "bindings": [
+   {
+    "canonical": "isPangram",
+    "target": "is_pangram"
+   }
+  ]
+ },
+ "33": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "56f441f1ed24cab7e70f888cc9123a40d828a8e90204b4cfed85619df1f51229",
+  "oracle_test_sha256": "f160498acb0a4ad62e2d53204c8669dad2b556af11ea84cd53c2ba5a30b5eb67",
+  "bindings": [
+   {
+    "canonical": "isPangram",
+    "target": "is_pangram"
+   }
+  ]
+ },
+ "34": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "538018cb7d8b87be93b1fbe196d0651619e519607c87b1fd31f321e2b5199197",
+  "oracle_test_sha256": "f160498acb0a4ad62e2d53204c8669dad2b556af11ea84cd53c2ba5a30b5eb67",
+  "bindings": [
+   {
+    "canonical": "isPangram",
+    "target": "is_pangram"
+   }
+  ]
+ },
+ "35": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "5b43ec9b748ad89eb1d1307af43b5488f5e872da8903843a5a2b331a0edc239c",
+  "oracle_test_sha256": "f160498acb0a4ad62e2d53204c8669dad2b556af11ea84cd53c2ba5a30b5eb67",
+  "bindings": [
+   {
+    "canonical": "isPangram",
+    "target": "is_pangram"
+   }
+  ]
+ },
+ "36": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "c771ee18215fcafcd851fe7391d8ec5a5057ae0bb1967583e68d917593ab608c",
+  "oracle_test_sha256": "b94cad74ef9276969b78ec33968d6f4309c1b7706e8923d6048129b8d954a262",
+  "bindings": [
+   {
+    "canonical": "isPangram",
+    "target": "isPangram"
+   }
+  ]
+ },
+ "37": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "35f795fe1742e3b6a49c66c11d79759dfd48206643a5f0e1ca13510ad8c368a8",
+  "oracle_test_sha256": "b94cad74ef9276969b78ec33968d6f4309c1b7706e8923d6048129b8d954a262",
+  "bindings": [
+   {
+    "canonical": "isPangram",
+    "target": "is_pangram"
+   }
+  ]
+ },
+ "38": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "7d793279412e0a5c2c4b0d5390b6ce29448d4c9e1d483bba7300c49a6d8a7e9e",
+  "oracle_test_sha256": "b94cad74ef9276969b78ec33968d6f4309c1b7706e8923d6048129b8d954a262",
+  "bindings": [
+   {
+    "canonical": "isPangram",
+    "target": "isPangram"
+   }
+  ]
+ },
+ "39": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "86d114f903fa9175f61f245a31a3011de6a9b9d37a47423f3e29bc0408b86992",
+  "oracle_test_sha256": "b94cad74ef9276969b78ec33968d6f4309c1b7706e8923d6048129b8d954a262",
+  "bindings": [
+   {
+    "canonical": "isPangram",
+    "target": "isPangram"
+   }
+  ]
+ },
+ "40": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "aaf4f6ad6fca98537a8704ae97e41c9d95724426645121c669b8453074179e12",
+  "oracle_test_sha256": "b94cad74ef9276969b78ec33968d6f4309c1b7706e8923d6048129b8d954a262",
+  "bindings": [
+   {
+    "canonical": "isPangram",
+    "target": "isPangram"
+   }
+  ]
+ },
+ "41": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "f5f92462a01910e2da20de9bc25fa28222ebce527cf4f304f5924df43cbd08a9",
+  "oracle_test_sha256": "92c34449953b899de39f3e431054b643ff2359ad033d222902fdf51af687187d",
+  "bindings": [
+   {
+    "canonical": "oddOrEven",
+    "target": "odd_or_even"
+   }
+  ]
+ },
+ "42": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "07a35848bc27013d9cce0e56d77ac672ee933505faf34bce17e5cf7ed4182f0d",
+  "oracle_test_sha256": "92c34449953b899de39f3e431054b643ff2359ad033d222902fdf51af687187d",
+  "bindings": [
+   {
+    "canonical": "oddOrEven",
+    "target": "odd_or_even"
+   }
+  ]
+ },
+ "43": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "07a35848bc27013d9cce0e56d77ac672ee933505faf34bce17e5cf7ed4182f0d",
+  "oracle_test_sha256": "92c34449953b899de39f3e431054b643ff2359ad033d222902fdf51af687187d",
+  "bindings": [
+   {
+    "canonical": "oddOrEven",
+    "target": "odd_or_even"
+   }
+  ]
+ },
+ "44": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "5df082776f8740b573a4467267cdb8a8bcf5572867734064a855d92c404896af",
+  "oracle_test_sha256": "92c34449953b899de39f3e431054b643ff2359ad033d222902fdf51af687187d",
+  "bindings": [
+   {
+    "canonical": "oddOrEven",
+    "target": "odd_or_even"
+   }
+  ]
+ },
+ "45": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "07a35848bc27013d9cce0e56d77ac672ee933505faf34bce17e5cf7ed4182f0d",
+  "oracle_test_sha256": "92c34449953b899de39f3e431054b643ff2359ad033d222902fdf51af687187d",
+  "bindings": [
+   {
+    "canonical": "oddOrEven",
+    "target": "odd_or_even"
+   }
+  ]
+ },
+ "46": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "b2dc761da81abb62fac6d0a9f4cd956a5a3445a0c7236371b5d8d8a0863ec65f",
+  "oracle_test_sha256": "e68b3a4d33f94f70c374371ea14172c8db9ef23ae7ac5b18b67e4211389ffa95",
+  "bindings": [
+   {
+    "canonical": "Task9_CLAUDE_claude_3_5_sonnet_20240620.oddOrEven",
+    "target": "OddOrEven.oddOrEven"
+   }
+  ]
+ },
+ "47": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "e0b86f6c778990ae07f6632bf5c3782e3683f28864690aecaaa730cbb8309e30",
+  "oracle_test_sha256": "e68b3a4d33f94f70c374371ea14172c8db9ef23ae7ac5b18b67e4211389ffa95",
+  "bindings": [
+   {
+    "canonical": "Task9_CLAUDE_claude_3_5_sonnet_20240620.oddOrEven",
+    "target": "Solution.oddOrEven"
+   }
+  ]
+ },
+ "48": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "bd0f6cbf69451a6b619eead1c09c57320e1a5d6492b1fc800a1887de0f75f8cc",
+  "oracle_test_sha256": "e68b3a4d33f94f70c374371ea14172c8db9ef23ae7ac5b18b67e4211389ffa95",
+  "bindings": [
+   {
+    "canonical": "Task9_CLAUDE_claude_3_5_sonnet_20240620.oddOrEven",
+    "target": "Solution.oddOrEven"
+   }
+  ]
+ },
+ "49": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "f3f242f7e3e49e9803a08d5bc3eca356945ee2d53d54181d2e0cb014db9aef95",
+  "oracle_test_sha256": "e68b3a4d33f94f70c374371ea14172c8db9ef23ae7ac5b18b67e4211389ffa95",
+  "bindings": [
+   {
+    "canonical": "Task9_CLAUDE_claude_3_5_sonnet_20240620.oddOrEven",
+    "target": "Solution.oddOrEven"
+   }
+  ]
+ },
+ "50": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "9bef6cf5b119f283584589f474749366f59b947e71ee20c8b2c37d57a05237e0",
+  "oracle_test_sha256": "e68b3a4d33f94f70c374371ea14172c8db9ef23ae7ac5b18b67e4211389ffa95",
+  "bindings": [
+   {
+    "canonical": "Task9_CLAUDE_claude_3_5_sonnet_20240620.oddOrEven",
+    "target": "Solution.oddOrEven"
+   }
+  ]
+ },
+ "51": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "rejected after execution showed a build failure: the oracle test declares its own prototype const char* odd_or_even(int arr[], int size), which conflicts with the artifact's (legitimate) signature; harness incompatibility, not a model failure",
+  "artifact_sha256": "92bbec7025a0557e9fb4bdd6bdbb66f4f977dcca798744cca1008b3723e0100e",
+  "oracle_test_sha256": "8c5d75303fa54524247336c03d79eba8d81ac80c423b5ddc25539bd1c7ddd3cd",
+  "bindings": [
+   {
+    "canonical": "odd_or_even",
+    "target": "odd_or_even"
+   }
+  ]
+ },
+ "52": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "rejected after execution showed a build failure: the oracle test declares its own prototype const char* odd_or_even(int arr[], int size), which conflicts with the artifact's (legitimate) signature; harness incompatibility, not a model failure",
+  "artifact_sha256": "20d6f45f02b3e5ba0126da056f458538a56373f434524de74622b0361a1f513c",
+  "oracle_test_sha256": "8c5d75303fa54524247336c03d79eba8d81ac80c423b5ddc25539bd1c7ddd3cd",
+  "bindings": [
+   {
+    "canonical": "odd_or_even",
+    "target": "odd_or_even"
+   }
+  ]
+ },
+ "53": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "rejected after execution showed a build failure: the oracle test declares its own prototype const char* odd_or_even(int arr[], int size), which conflicts with the artifact's (legitimate) signature; harness incompatibility, not a model failure",
+  "artifact_sha256": "35681971ad5b6cff0341a5d7f18df44807189460c2069d6bcc821411a93eeb6a",
+  "oracle_test_sha256": "8c5d75303fa54524247336c03d79eba8d81ac80c423b5ddc25539bd1c7ddd3cd",
+  "bindings": [
+   {
+    "canonical": "odd_or_even",
+    "target": "odd_or_even"
+   }
+  ]
+ },
+ "54": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "rejected after execution showed a build failure: the oracle test declares its own prototype const char* odd_or_even(int arr[], int size), which conflicts with the artifact's (legitimate) signature; harness incompatibility, not a model failure",
+  "artifact_sha256": "00679ffa28445defe2d2c24b8e68ac77280223e5ebdf653df1c199901b33c4cf",
+  "oracle_test_sha256": "8c5d75303fa54524247336c03d79eba8d81ac80c423b5ddc25539bd1c7ddd3cd",
+  "bindings": [
+   {
+    "canonical": "odd_or_even",
+    "target": "sum_parity"
+   }
+  ]
+ },
+ "55": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "rejected after execution showed a build failure: the oracle test declares its own prototype const char* odd_or_even(int arr[], int size), which conflicts with the artifact's (legitimate) signature; harness incompatibility, not a model failure",
+  "artifact_sha256": "88accac2dbc092dc1dcc7e2fa7c5cf7c279cdd82d736679020c841c126e71953",
+  "oracle_test_sha256": "8c5d75303fa54524247336c03d79eba8d81ac80c423b5ddc25539bd1c7ddd3cd",
+  "bindings": [
+   {
+    "canonical": "odd_or_even",
+    "target": "odd_or_even"
+   }
+  ]
+ },
+ "56": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "4acb4a37e4cf3f24b3157cee4aade452cb63748295b6aac2a15881af040d70a7",
+  "oracle_test_sha256": "b311522e21cbff27c0a6e1d3b0eea48d942c4066ee2831f267f9ca0adc5f3a52",
+  "bindings": [
+   {
+    "canonical": "oddOrEven",
+    "target": "oddOrEven"
+   }
+  ]
+ },
+ "57": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "2edbbe8feef99328f46a6f1ded9b54c2bb51228e8e41874a58243008897367da",
+  "oracle_test_sha256": "b311522e21cbff27c0a6e1d3b0eea48d942c4066ee2831f267f9ca0adc5f3a52",
+  "bindings": [
+   {
+    "canonical": "oddOrEven",
+    "target": "odd_or_even"
+   }
+  ]
+ },
+ "58": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "c513d509f74a21744fc90c1c010d51945cac15b4c0ea01c33ea27e1d00b2a44c",
+  "oracle_test_sha256": "b311522e21cbff27c0a6e1d3b0eea48d942c4066ee2831f267f9ca0adc5f3a52",
+  "bindings": [
+   {
+    "canonical": "oddOrEven",
+    "target": "odd_or_even"
+   }
+  ]
+ },
+ "59": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "de78b652169db02c5aa7a46f1153aaadb7e4c42245801934c4d23d17fae24464",
+  "oracle_test_sha256": "b311522e21cbff27c0a6e1d3b0eea48d942c4066ee2831f267f9ca0adc5f3a52",
+  "bindings": [
+   {
+    "canonical": "oddOrEven",
+    "target": "oddOrEven"
+   }
+  ]
+ },
+ "60": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "5ab766ccf5840f518bacfa08a8a9a16e4f8920ea922ddd8fe0269f8c54aec75d",
+  "oracle_test_sha256": "b311522e21cbff27c0a6e1d3b0eea48d942c4066ee2831f267f9ca0adc5f3a52",
+  "bindings": [
+   {
+    "canonical": "oddOrEven",
+    "target": "odd_or_even"
+   }
+  ]
+ },
+ "81": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "a68fc17f5b4b91daf2df67e00cff807dda809037b9f5cab916b189780aebf7dc",
+  "oracle_test_sha256": "589c14f0b88db89f0e2761dc9f3c899e65b9fd3e07b9503ca9b77fbe87503ce1",
+  "bindings": [
+   {
+    "canonical": "find_even_index",
+    "target": "find_even_index"
+   }
+  ]
+ },
+ "82": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "9c333ba4c0345d996876faac14db5055b2a003eeafeaf2dccce6cc22f0888773",
+  "oracle_test_sha256": "589c14f0b88db89f0e2761dc9f3c899e65b9fd3e07b9503ca9b77fbe87503ce1",
+  "bindings": [
+   {
+    "canonical": "find_even_index",
+    "target": "find_even_index"
+   }
+  ]
+ },
+ "83": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "a80f94b7f5c1f0e5070eca502d2c15fc97ef5a687ea6a7899af93cc4da34f17c",
+  "oracle_test_sha256": "589c14f0b88db89f0e2761dc9f3c899e65b9fd3e07b9503ca9b77fbe87503ce1",
+  "bindings": [
+   {
+    "canonical": "find_even_index",
+    "target": "find_even_index"
+   }
+  ]
+ },
+ "84": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "de4eeeb21b9393b06ca9bb1da036a04af11491a4a87c90c9c31bae0e80265d2c",
+  "oracle_test_sha256": "589c14f0b88db89f0e2761dc9f3c899e65b9fd3e07b9503ca9b77fbe87503ce1",
+  "bindings": [
+   {
+    "canonical": "find_even_index",
+    "target": "find_even_index"
+   }
+  ]
+ },
+ "85": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "49287d03ee826e5b358a3e93b931d6702039a2b0e16e7ede5e1f0928c1f26438",
+  "oracle_test_sha256": "589c14f0b88db89f0e2761dc9f3c899e65b9fd3e07b9503ca9b77fbe87503ce1",
+  "bindings": [
+   {
+    "canonical": "find_even_index",
+    "target": "find_even_index"
+   }
+  ]
+ },
+ "87": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "e8332a3947f870a38bb9cd1c6a3813f266c60daffdb41a455a1b8625add68fb2",
+  "oracle_test_sha256": "71bc41886605ae811a7d56d96332110f67dee8595fa0d7c4ab3617a6c8c73c5a",
+  "bindings": [
+   {
+    "canonical": "Task14_CLAUDE_claude_3_5_sonnet_20240620.findEvenIndex",
+    "target": "Solution.findEvenIndex"
+   }
+  ]
+ },
+ "88": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "d2c95f3ec7871fdffa75a1358679d275a8f427311ae6e1a652b4b45c6d68f6ed",
+  "oracle_test_sha256": "71bc41886605ae811a7d56d96332110f67dee8595fa0d7c4ab3617a6c8c73c5a",
+  "bindings": [
+   {
+    "canonical": "Task14_CLAUDE_claude_3_5_sonnet_20240620.findEvenIndex",
+    "target": "EqualSides.findEvenIndex"
+   }
+  ]
+ },
+ "89": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "d58c5acf3601fa669ee35ed45eddc443a27c3820c0668ebaf7ce68e02717faa3",
+  "oracle_test_sha256": "71bc41886605ae811a7d56d96332110f67dee8595fa0d7c4ab3617a6c8c73c5a",
+  "bindings": [
+   {
+    "canonical": "Task14_CLAUDE_claude_3_5_sonnet_20240620.findEvenIndex",
+    "target": "Solution.findEvenIndex"
+   }
+  ]
+ },
+ "90": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "775137f6347fac48a7eeb17a84809cf8b7524d9c92185ff45e23a56757dc4576",
+  "oracle_test_sha256": "71bc41886605ae811a7d56d96332110f67dee8595fa0d7c4ab3617a6c8c73c5a",
+  "bindings": [
+   {
+    "canonical": "Task14_CLAUDE_claude_3_5_sonnet_20240620.findEvenIndex",
+    "target": "Solution.findEvenIndex"
+   }
+  ]
+ },
+ "91": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to find_equilibrium: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "e8c8f7673b1b44e460f9bb4143c95d24f02154f06ca8465e19a81a666bd078a6",
+  "oracle_test_sha256": "155b1c51302963f28dea7f748e566aa2b502ce7ed9c9faa1820d6ae62ab3630e",
+  "bindings": [
+   {
+    "canonical": "findEvenIndex",
+    "target": "find_equilibrium"
+   }
+  ]
+ },
+ "92": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "89356d783041b40ef211c91e12aa6067ee3a745762b46a01443ec79d5953fc9d",
+  "oracle_test_sha256": "155b1c51302963f28dea7f748e566aa2b502ce7ed9c9faa1820d6ae62ab3630e",
+  "bindings": [
+   {
+    "canonical": "findEvenIndex",
+    "target": "find_even_index"
+   }
+  ]
+ },
+ "93": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "8bed1839ebfa50b2508fdedaf2e100340fd2e39efe1b952e1d9103e293ea1753",
+  "oracle_test_sha256": "155b1c51302963f28dea7f748e566aa2b502ce7ed9c9faa1820d6ae62ab3630e",
+  "bindings": [
+   {
+    "canonical": "findEvenIndex",
+    "target": "find_even_index"
+   }
+  ]
+ },
+ "94": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "3074ea44a084e52ce08479d9cfafa7a359cc53c1937a1dc338ca9fb033d351db",
+  "oracle_test_sha256": "155b1c51302963f28dea7f748e566aa2b502ce7ed9c9faa1820d6ae62ab3630e",
+  "bindings": [
+   {
+    "canonical": "findEvenIndex",
+    "target": "find_even_index"
+   }
+  ]
+ },
+ "95": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "947c73907c0b8584de15c35384d48e2cd9130e6a7fc6d22dfad7c2790fc79f00",
+  "oracle_test_sha256": "155b1c51302963f28dea7f748e566aa2b502ce7ed9c9faa1820d6ae62ab3630e",
+  "bindings": [
+   {
+    "canonical": "findEvenIndex",
+    "target": "find_even_index"
+   }
+  ]
+ },
+ "96": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "rejected after execution showed a build failure: the oracle test instantiates class Solution (Solution s; s.findEvenIndex), which the artifact does not declare",
+  "artifact_sha256": "4ad1facaf954db1df9e6efeb6e777a553246cd9ae101eebedb0236333c2c5978",
+  "oracle_test_sha256": "c28511e54a31b60e4bda5f1af23c9a249855e73f1e4032b57c71af5f576f7e37",
+  "bindings": [
+   {
+    "canonical": "findEvenIndex",
+    "target": "findEvenIndex"
+   }
+  ]
+ },
+ "97": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "rejected after execution showed a build failure: the oracle test instantiates class Solution (Solution s; s.findEvenIndex), which the artifact does not declare",
+  "artifact_sha256": "e71345ab25bb7843966c93f557f506f13b0aba6ef467310c10b741a12e30ef1f",
+  "oracle_test_sha256": "c28511e54a31b60e4bda5f1af23c9a249855e73f1e4032b57c71af5f576f7e37",
+  "bindings": [
+   {
+    "canonical": "findEvenIndex",
+    "target": "find_even_index"
+   }
+  ]
+ },
+ "98": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "rejected after execution showed a build failure: the oracle test instantiates class Solution (Solution s; s.findEvenIndex), which the artifact does not declare",
+  "artifact_sha256": "69d45d8f1971bb00d1f2ae603210571363b3da19313e415f03b4a945e63e2c42",
+  "oracle_test_sha256": "c28511e54a31b60e4bda5f1af23c9a249855e73f1e4032b57c71af5f576f7e37",
+  "bindings": [
+   {
+    "canonical": "findEvenIndex",
+    "target": "find_even_index"
+   }
+  ]
+ },
+ "99": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "rejected after execution showed a build failure: the oracle test instantiates class Solution (Solution s; s.findEvenIndex), which the artifact does not declare",
+  "artifact_sha256": "89ce16f988fb5bb0d907c3281fe1fed0fe2f8d5887e766603a1efe89f2278d53",
+  "oracle_test_sha256": "c28511e54a31b60e4bda5f1af23c9a249855e73f1e4032b57c71af5f576f7e37",
+  "bindings": [
+   {
+    "canonical": "findEvenIndex",
+    "target": "findEquilibriumIndex"
+   }
+  ]
+ },
+ "100": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "rejected after execution showed a build failure: the oracle test instantiates class Solution (Solution s; s.findEvenIndex), which the artifact does not declare",
+  "artifact_sha256": "5488a91a363f0a5c35f1e786c00d06fff5a4d23eec10ef127b450d0d122e6ad7",
+  "oracle_test_sha256": "c28511e54a31b60e4bda5f1af23c9a249855e73f1e4032b57c71af5f576f7e37",
+  "bindings": [
+   {
+    "canonical": "findEvenIndex",
+    "target": "findEvenIndex"
+   }
+  ]
+ },
+ "101": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to build_tower: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "9989db5f9cfc05fb1b971106055e73c153550ffc10023a80b9c18fae6861fa9e",
+  "oracle_test_sha256": "b4c823769ba8670a32703e0f94cc5d98b1dfcb3d5878a3aff554f9fd09606ae7",
+  "bindings": [
+   {
+    "canonical": "tower_builder",
+    "target": "build_tower"
+   }
+  ]
+ },
+ "102": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "0486af8a7f01e7fcb7140caecbf659f18a3936e6dfa6282f63e754ddc022b8ab",
+  "oracle_test_sha256": "b4c823769ba8670a32703e0f94cc5d98b1dfcb3d5878a3aff554f9fd09606ae7",
+  "bindings": [
+   {
+    "canonical": "tower_builder",
+    "target": "tower_builder"
+   }
+  ]
+ },
+ "103": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "889c7a625be4b12e2979d51b83b8f73fc67e48e1146e66750daf35f31b4ea3ab",
+  "oracle_test_sha256": "b4c823769ba8670a32703e0f94cc5d98b1dfcb3d5878a3aff554f9fd09606ae7",
+  "bindings": [
+   {
+    "canonical": "tower_builder",
+    "target": "tower_builder"
+   }
+  ]
+ },
+ "104": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to build_tower: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "123091d50b629fed0595fc917567d811fa0d93b56309be22cad6a7fc4719e075",
+  "oracle_test_sha256": "b4c823769ba8670a32703e0f94cc5d98b1dfcb3d5878a3aff554f9fd09606ae7",
+  "bindings": [
+   {
+    "canonical": "tower_builder",
+    "target": "build_tower"
+   }
+  ]
+ },
+ "105": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to build_tower: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "263221012e2c35cf756693860c2c74f45cabdfb700f2b8c06b22ca51aa8ba010",
+  "oracle_test_sha256": "b4c823769ba8670a32703e0f94cc5d98b1dfcb3d5878a3aff554f9fd09606ae7",
+  "bindings": [
+   {
+    "canonical": "tower_builder",
+    "target": "build_tower"
+   }
+  ]
+ },
+ "106": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to Main.buildTower: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "0ee4a43af6a95494db3775418227bfac6a45e5647827345b7fe78add8d2f3cd2",
+  "oracle_test_sha256": "f529ae1be44753f30a5c6e0a580c0af714bd84064bb724d388c29a2debed42dd",
+  "bindings": [
+   {
+    "canonical": "Task15_CLAUDE_claude_3_5_sonnet_20240620.towerBuilder",
+    "target": "Main.buildTower"
+   }
+  ]
+ },
+ "107": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "d07d3ab5cdf0da17005c661db455a31c8fb394878f423dd2e63d5131d6f7b2ba",
+  "oracle_test_sha256": "f529ae1be44753f30a5c6e0a580c0af714bd84064bb724d388c29a2debed42dd",
+  "bindings": [
+   {
+    "canonical": "Task15_CLAUDE_claude_3_5_sonnet_20240620.towerBuilder",
+    "target": "Kata.towerBuilder"
+   }
+  ]
+ },
+ "108": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to TowerBuilder.buildTower: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "15dde86cc22163c9e9861fd39f12409c90c34a6f72b30b891876f4855a3cb845",
+  "oracle_test_sha256": "f529ae1be44753f30a5c6e0a580c0af714bd84064bb724d388c29a2debed42dd",
+  "bindings": [
+   {
+    "canonical": "Task15_CLAUDE_claude_3_5_sonnet_20240620.towerBuilder",
+    "target": "TowerBuilder.buildTower"
+   }
+  ]
+ },
+ "109": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to TowerBuilder.buildTower: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "254206bcf58a593f13700bb326d1ade706b74e599691d024577e261b7b7b3ae4",
+  "oracle_test_sha256": "f529ae1be44753f30a5c6e0a580c0af714bd84064bb724d388c29a2debed42dd",
+  "bindings": [
+   {
+    "canonical": "Task15_CLAUDE_claude_3_5_sonnet_20240620.towerBuilder",
+    "target": "TowerBuilder.buildTower"
+   }
+  ]
+ },
+ "110": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "d7f2da8c1592809bc847a7e8c841cae7ba867f9ba2163f8acdd2e20775db6a19",
+  "oracle_test_sha256": "f529ae1be44753f30a5c6e0a580c0af714bd84064bb724d388c29a2debed42dd",
+  "bindings": [
+   {
+    "canonical": "Task15_CLAUDE_claude_3_5_sonnet_20240620.towerBuilder",
+    "target": "Tower.towerBuilder"
+   }
+  ]
+ },
+ "111": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "test calls towerBuilder(n, &size) with 2 arguments; artifact takes 1",
+  "artifact_sha256": "fb15cf4b5a8c2ede4598ec46bf733f06d2f2d59ad8778988739faac890f95486",
+  "oracle_test_sha256": "c37d77824c5d15cf1feb50e450a7ca7eadecdbd32aefc2678b39a472feaed86a",
+  "bindings": [
+   {
+    "canonical": "towerBuilder",
+    "target": null
+   }
+  ]
+ },
+ "112": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "test calls towerBuilder(n, &size) with 2 arguments; artifact takes 1",
+  "artifact_sha256": "fecb48c7768cd4f81a143e944f1a9edb3e5fb5a50641e93eef4f2398f752d312",
+  "oracle_test_sha256": "c37d77824c5d15cf1feb50e450a7ca7eadecdbd32aefc2678b39a472feaed86a",
+  "bindings": [
+   {
+    "canonical": "towerBuilder",
+    "target": null
+   }
+  ]
+ },
+ "113": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "test calls towerBuilder(n, &size) with 2 arguments; artifact takes 1",
+  "artifact_sha256": "0bea79ae510bb7edfe7ab4541259e8043b73b03f8f38265c9014a955de501b61",
+  "oracle_test_sha256": "c37d77824c5d15cf1feb50e450a7ca7eadecdbd32aefc2678b39a472feaed86a",
+  "bindings": [
+   {
+    "canonical": "towerBuilder",
+    "target": null
+   }
+  ]
+ },
+ "114": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "test calls towerBuilder(n, &size) with 2 arguments; artifact takes 1",
+  "artifact_sha256": "67a17d3d464990e2a7bd72054d46d39b0092f9ce680884e1312b2a026b6d325a",
+  "oracle_test_sha256": "c37d77824c5d15cf1feb50e450a7ca7eadecdbd32aefc2678b39a472feaed86a",
+  "bindings": [
+   {
+    "canonical": "towerBuilder",
+    "target": null
+   }
+  ]
+ },
+ "115": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "test calls towerBuilder(n, &size) with 2 arguments; artifact takes 1",
+  "artifact_sha256": "ef79121a3813f7e9301b14315acfdd49ec76f0ba44df4867c8df04b77e012c27",
+  "oracle_test_sha256": "c37d77824c5d15cf1feb50e450a7ca7eadecdbd32aefc2678b39a472feaed86a",
+  "bindings": [
+   {
+    "canonical": "towerBuilder",
+    "target": null
+   }
+  ]
+ },
+ "136": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "4acdae07b67aab2d86671602d4efd6db9e6b54db515b4d080a39ec0c2d2e4cef",
+  "oracle_test_sha256": "a0cd7726a057e52a5532762d1e3f8df86e4b097b361b6c880366a264dcc885f3",
+  "bindings": [
+   {
+    "canonical": "toJadenCase",
+    "target": "toJadenCase"
+   }
+  ]
+ },
+ "137": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "d37bf25e50c33dc4e9845a36fd076b0ac298ca50b176b7b4b2147cfda4637ed3",
+  "oracle_test_sha256": "a0cd7726a057e52a5532762d1e3f8df86e4b097b361b6c880366a264dcc885f3",
+  "bindings": [
+   {
+    "canonical": "toJadenCase",
+    "target": "toJadenCase"
+   }
+  ]
+ },
+ "138": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "04f82c8f17fcdb1a8dba5076d6eeb00e7e0de21ebdeefa72b2a41383a2119a29",
+  "oracle_test_sha256": "a0cd7726a057e52a5532762d1e3f8df86e4b097b361b6c880366a264dcc885f3",
+  "bindings": [
+   {
+    "canonical": "toJadenCase",
+    "target": "toJadenCase"
+   }
+  ]
+ },
+ "139": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "164623424165f9256049387508fe6e244f4faac1fa74124c33c6cc197da39f2d",
+  "oracle_test_sha256": "a0cd7726a057e52a5532762d1e3f8df86e4b097b361b6c880366a264dcc885f3",
+  "bindings": [
+   {
+    "canonical": "toJadenCase",
+    "target": "toJadenCase"
+   }
+  ]
+ },
+ "140": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "099962b27f59b22cae96a3f4bbb5a3aa108e500605b12e9b078de2df7e157052",
+  "oracle_test_sha256": "a0cd7726a057e52a5532762d1e3f8df86e4b097b361b6c880366a264dcc885f3",
+  "bindings": [
+   {
+    "canonical": "toJadenCase",
+    "target": "toJadenCase"
+   }
+  ]
+ },
+ "141": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "ad4ebef2667cffcc0689d62829ea10601fa4ecbefdf2fcd6426f497c077d0d3a",
+  "oracle_test_sha256": "b624677fc4177398a90e1fb710d4cc55668f24b5567d2770a3b4f340599173e8",
+  "bindings": [
+   {
+    "canonical": "convert_binary_array_to_int",
+    "target": "binary_array_to_number"
+   }
+  ]
+ },
+ "142": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "76275bcdbf3dae7fa9d1e01ffdc491bfa5dc8fdf1e18333bec16d9f33d9e2e6a",
+  "oracle_test_sha256": "b624677fc4177398a90e1fb710d4cc55668f24b5567d2770a3b4f340599173e8",
+  "bindings": [
+   {
+    "canonical": "convert_binary_array_to_int",
+    "target": "binary_array_to_number"
+   }
+  ]
+ },
+ "143": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "e220e703d0f5279122230126b00283cac542d3fe0b037bed01af32c9b484696e",
+  "oracle_test_sha256": "b624677fc4177398a90e1fb710d4cc55668f24b5567d2770a3b4f340599173e8",
+  "bindings": [
+   {
+    "canonical": "convert_binary_array_to_int",
+    "target": "binary_array_to_number"
+   }
+  ]
+ },
+ "144": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "b9a2062f8ddee1ddd51127504fd629d0e5cab9cb8f69cf0cd7c9bd0ad800a95f",
+  "oracle_test_sha256": "b624677fc4177398a90e1fb710d4cc55668f24b5567d2770a3b4f340599173e8",
+  "bindings": [
+   {
+    "canonical": "convert_binary_array_to_int",
+    "target": "binary_array_to_number"
+   }
+  ]
+ },
+ "145": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to binary_array_to_int: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "ba27a26be5212fe240eee2001554521edc8148e8d29b8347cf2c3160f0a7bd0c",
+  "oracle_test_sha256": "b624677fc4177398a90e1fb710d4cc55668f24b5567d2770a3b4f340599173e8",
+  "bindings": [
+   {
+    "canonical": "convert_binary_array_to_int",
+    "target": "binary_array_to_int"
+   }
+  ]
+ },
+ "146": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to BinaryArrayToInteger.binaryArrayToInt: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "2f021dda7eb6d160c34e4ac840b975f2c09957f6041f03a50190a7d09313629c",
+  "oracle_test_sha256": "f0195e70dd268182eace3f4811cdde74f8ab97d14fcff62c6b4af38f22b26007",
+  "bindings": [
+   {
+    "canonical": "Task18_CLAUDE_claude_3_5_sonnet_20240620.convertBinaryArrayToInt",
+    "target": "BinaryArrayToInteger.binaryArrayToInt"
+   }
+  ]
+ },
+ "147": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "artifact takes List<Integer>; test passes int[]",
+  "artifact_sha256": "b89b0d2886903248ba7401fe3a5aaf2aaa39a660552fcec9a8addefdae490857",
+  "oracle_test_sha256": "f0195e70dd268182eace3f4811cdde74f8ab97d14fcff62c6b4af38f22b26007",
+  "bindings": [
+   {
+    "canonical": "Task18_CLAUDE_claude_3_5_sonnet_20240620.convertBinaryArrayToInt",
+    "target": "BinaryArrayToNumber.ConvertBinaryArrayToInt"
+   }
+  ]
+ },
+ "148": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "artifact takes List<Integer>; test passes int[]",
+  "artifact_sha256": "b7eb5a553cb81f9ecb96d5b6605c95b74dbe7d1a36bfa41d90886eb4131d61b3",
+  "oracle_test_sha256": "f0195e70dd268182eace3f4811cdde74f8ab97d14fcff62c6b4af38f22b26007",
+  "bindings": [
+   {
+    "canonical": "Task18_CLAUDE_claude_3_5_sonnet_20240620.convertBinaryArrayToInt",
+    "target": "BinaryArrayToNumber.convertBinaryArrayToInt"
+   }
+  ]
+ },
+ "149": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to BinaryConverter.binaryArrayToInt: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "dcceff457f947202fec07e2d7432c211c665d2bd21fe192dad635066c5a3f1bf",
+  "oracle_test_sha256": "f0195e70dd268182eace3f4811cdde74f8ab97d14fcff62c6b4af38f22b26007",
+  "bindings": [
+   {
+    "canonical": "Task18_CLAUDE_claude_3_5_sonnet_20240620.convertBinaryArrayToInt",
+    "target": "BinaryConverter.binaryArrayToInt"
+   }
+  ]
+ },
+ "150": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to Solution.binaryArrayToNumber: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "f744dcf9604dae0995dc60672721200902624445b5aeac8325ae036f898a4c34",
+  "oracle_test_sha256": "f0195e70dd268182eace3f4811cdde74f8ab97d14fcff62c6b4af38f22b26007",
+  "bindings": [
+   {
+    "canonical": "Task18_CLAUDE_claude_3_5_sonnet_20240620.convertBinaryArrayToInt",
+    "target": "Solution.binaryArrayToNumber"
+   }
+  ]
+ },
+ "151": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to binary_array_to_int: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "d9502b6d36d428d51e9d4159d41b44863399aa0739816dbdabc0558ad4c92ca8",
+  "oracle_test_sha256": "d1ceced5f0d84191a3d246d55ecea029da696332c9eab5848e99c290c516b0fb",
+  "bindings": [
+   {
+    "canonical": "convertBinaryArrayToInt",
+    "target": "binary_array_to_int"
+   }
+  ]
+ },
+ "152": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "artifact reads bits as unsigned char bytes; test passes int array",
+  "artifact_sha256": "1a58763d20a1a1d87fcace4df2a4d53908578aee027e644b45f884d64c5375d1",
+  "oracle_test_sha256": "d1ceced5f0d84191a3d246d55ecea029da696332c9eab5848e99c290c516b0fb",
+  "bindings": [
+   {
+    "canonical": "convertBinaryArrayToInt",
+    "target": null
+   }
+  ]
+ },
+ "153": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "artifact takes const unsigned*; test passes int*",
+  "artifact_sha256": "45e475aa3423ac91dc34ff5d1fc2eee62b960859584b597ea8aa2d6dca3b3f95",
+  "oracle_test_sha256": "d1ceced5f0d84191a3d246d55ecea029da696332c9eab5848e99c290c516b0fb",
+  "bindings": [
+   {
+    "canonical": "convertBinaryArrayToInt",
+    "target": null
+   }
+  ]
+ },
+ "154": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "artifact takes const unsigned int*; test passes int*",
+  "artifact_sha256": "eda863b5a45bf0d1ba64a09f52577f8002499d57c2639de212075f4ffe7504cd",
+  "oracle_test_sha256": "d1ceced5f0d84191a3d246d55ecea029da696332c9eab5848e99c290c516b0fb",
+  "bindings": [
+   {
+    "canonical": "convertBinaryArrayToInt",
+    "target": null
+   }
+  ]
+ },
+ "155": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to binary_array_to_int: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "e83d224610256bca767ace7a238253901f208bf1f2d6917daea7775849b06d52",
+  "oracle_test_sha256": "d1ceced5f0d84191a3d246d55ecea029da696332c9eab5848e99c290c516b0fb",
+  "bindings": [
+   {
+    "canonical": "convertBinaryArrayToInt",
+    "target": "binary_array_to_int"
+   }
+  ]
+ },
+ "156": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to binaryArrayToInt: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "2f574e34e0f5dc7b52315401f9cb2be57772dc72903f38f9c94a8b068bdbd52f",
+  "oracle_test_sha256": "a9093b13a61fbc4fe95b0fa7591bc630262b29de872fea23d7c961db8fec61e8",
+  "bindings": [
+   {
+    "canonical": "convertBinaryArrayToInt",
+    "target": "binaryArrayToInt"
+   }
+  ]
+ },
+ "157": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to binary_array_to_number: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "43d540524ba3e81a71b12fc3cd2bea71bca6b2e1009d73da1cbbb4744263ee12",
+  "oracle_test_sha256": "a9093b13a61fbc4fe95b0fa7591bc630262b29de872fea23d7c961db8fec61e8",
+  "bindings": [
+   {
+    "canonical": "convertBinaryArrayToInt",
+    "target": "binary_array_to_number"
+   }
+  ]
+ },
+ "158": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to binaryArrayToNumber: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "ca5d2a5184aed0666d0ca42fd1aaa85c1e53e5f49ce7d903246b28525aad0742",
+  "oracle_test_sha256": "a9093b13a61fbc4fe95b0fa7591bc630262b29de872fea23d7c961db8fec61e8",
+  "bindings": [
+   {
+    "canonical": "convertBinaryArrayToInt",
+    "target": "binaryArrayToNumber"
+   }
+  ]
+ },
+ "159": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to binaryArrayToInt: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "31a51415caae9e472b6b3c04898e4489c6a00b071d0637b8e0aff28332a96d41",
+  "oracle_test_sha256": "a9093b13a61fbc4fe95b0fa7591bc630262b29de872fea23d7c961db8fec61e8",
+  "bindings": [
+   {
+    "canonical": "convertBinaryArrayToInt",
+    "target": "binaryArrayToInt"
+   }
+  ]
+ },
+ "160": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to binary_array_to_int: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "6716cb893d2b01b468612a0a2d72cb4a353153120337121f6ca587efd4395df6",
+  "oracle_test_sha256": "a9093b13a61fbc4fe95b0fa7591bc630262b29de872fea23d7c961db8fec61e8",
+  "bindings": [
+   {
+    "canonical": "convertBinaryArrayToInt",
+    "target": "binary_array_to_int"
+   }
+  ]
+ },
+ "161": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "d6b9cc2ace7367448b11be059fe409d2d44e79b3b065a98ce03810381005347b",
+  "oracle_test_sha256": "2f8c2d9da79c6555b11efe2a506ee616ae478c089cfc41ff0f53463181595c33",
+  "bindings": [
+   {
+    "canonical": "remove_smallest",
+    "target": "remove_smallest"
+   }
+  ]
+ },
+ "162": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "4d8d560c891a9315ec4b82dcd4a3c56dd8d8799ea5061160c0a39d40c5f0a398",
+  "oracle_test_sha256": "2f8c2d9da79c6555b11efe2a506ee616ae478c089cfc41ff0f53463181595c33",
+  "bindings": [
+   {
+    "canonical": "remove_smallest",
+    "target": "remove_smallest"
+   }
+  ]
+ },
+ "163": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "04255df2319b4a11e4b2515db353a35cab62d61f41457922cd8140a25527726c",
+  "oracle_test_sha256": "2f8c2d9da79c6555b11efe2a506ee616ae478c089cfc41ff0f53463181595c33",
+  "bindings": [
+   {
+    "canonical": "remove_smallest",
+    "target": "remove_smallest"
+   }
+  ]
+ },
+ "164": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "7a264a4da758b347b08036fe09839948405ec7cfdf1c6ff05e27bc42e628cf90",
+  "oracle_test_sha256": "2f8c2d9da79c6555b11efe2a506ee616ae478c089cfc41ff0f53463181595c33",
+  "bindings": [
+   {
+    "canonical": "remove_smallest",
+    "target": "remove_smallest"
+   }
+  ]
+ },
+ "165": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "8b5af1838fb029f371979cf828d6b2dc0c48cdfd92118d1fc7d1ab46c8542695",
+  "oracle_test_sha256": "2f8c2d9da79c6555b11efe2a506ee616ae478c089cfc41ff0f53463181595c33",
+  "bindings": [
+   {
+    "canonical": "remove_smallest",
+    "target": "remove_smallest"
+   }
+  ]
+ },
+ "166": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "artifact uses int[] in/out; test passes and compares List<Integer>",
+  "artifact_sha256": "170c1f1704459fba325310ab1249ed877772554e388a5813d06bae5b97ad8e40",
+  "oracle_test_sha256": "8525df080ab2692e089029c27ebea0f317718a6a9e2fd1e62c8b5c43cd530aa2",
+  "bindings": [
+   {
+    "canonical": "Task21_CLAUDE_claude_3_5_sonnet_20240620.removeSmallest",
+    "target": "Main.removeSmallest"
+   }
+  ]
+ },
+ "167": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "artifact uses int[] in/out; test passes and compares List<Integer>",
+  "artifact_sha256": "1fc53743c730a0a7792ad03ca6fa4312694bd034e96f6fdcb25cdd94b002e93a",
+  "oracle_test_sha256": "8525df080ab2692e089029c27ebea0f317718a6a9e2fd1e62c8b5c43cd530aa2",
+  "bindings": [
+   {
+    "canonical": "Task21_CLAUDE_claude_3_5_sonnet_20240620.removeSmallest",
+    "target": "Kata.removeSmallest"
+   }
+  ]
+ },
+ "168": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "artifact uses int[] in/out; test passes and compares List<Integer>",
+  "artifact_sha256": "4d5ca5806f4889af8a52693e7b4bd0b30fe06ccf9079f77521661b6a01b45f1e",
+  "oracle_test_sha256": "8525df080ab2692e089029c27ebea0f317718a6a9e2fd1e62c8b5c43cd530aa2",
+  "bindings": [
+   {
+    "canonical": "Task21_CLAUDE_claude_3_5_sonnet_20240620.removeSmallest",
+    "target": "Solution.removeSmallest"
+   }
+  ]
+ },
+ "169": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "artifact uses int[] in/out; test passes and compares List<Integer>",
+  "artifact_sha256": "e8b9144ec1bb688a7d1da620e838ca9aad60880c1d2727038cfd3f7b0b3263ae",
+  "oracle_test_sha256": "8525df080ab2692e089029c27ebea0f317718a6a9e2fd1e62c8b5c43cd530aa2",
+  "bindings": [
+   {
+    "canonical": "Task21_CLAUDE_claude_3_5_sonnet_20240620.removeSmallest",
+    "target": "Museum.removeSmallest"
+   }
+  ]
+ },
+ "170": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "artifact uses int[] in/out; test passes and compares List<Integer>",
+  "artifact_sha256": "9c7d8c519d67812448100882921c573817943359244cc2c3f6d3f46df3224a5a",
+  "oracle_test_sha256": "8525df080ab2692e089029c27ebea0f317718a6a9e2fd1e62c8b5c43cd530aa2",
+  "bindings": [
+   {
+    "canonical": "Task21_CLAUDE_claude_3_5_sonnet_20240620.removeSmallest",
+    "target": "Solution.removeSmallest"
+   }
+  ]
+ },
+ "176": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "9147938aca7dfc7fb9a761aac55a43a1516c14d136794a77f98620bb042024c1",
+  "oracle_test_sha256": "4d53356a7c786c82e93abeb7b701206f89bbdabde71e56a7ee832df6973f74e7",
+  "bindings": [
+   {
+    "canonical": "removeSmallest",
+    "target": "removeSmallest"
+   }
+  ]
+ },
+ "177": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "9b3ed96bb48b8e5e0e0df8b92bf5ebb9df3e32b475bd39ed6ab356515ee526bc",
+  "oracle_test_sha256": "4d53356a7c786c82e93abeb7b701206f89bbdabde71e56a7ee832df6973f74e7",
+  "bindings": [
+   {
+    "canonical": "removeSmallest",
+    "target": "remove_smallest"
+   }
+  ]
+ },
+ "178": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "72b6bc2c9cf46b0ae9fec42f83fd7155f9c814e0b3aac09e79640c22f32b6df9",
+  "oracle_test_sha256": "4d53356a7c786c82e93abeb7b701206f89bbdabde71e56a7ee832df6973f74e7",
+  "bindings": [
+   {
+    "canonical": "removeSmallest",
+    "target": "removeSmallest"
+   }
+  ]
+ },
+ "179": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "22c6029d4158909cf050bb1c32adc398bf7f0d1cc689bb175f8e12a4524596c7",
+  "oracle_test_sha256": "4d53356a7c786c82e93abeb7b701206f89bbdabde71e56a7ee832df6973f74e7",
+  "bindings": [
+   {
+    "canonical": "removeSmallest",
+    "target": "removeSmallest"
+   }
+  ]
+ },
+ "180": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "d5062226759bc0e2dfa3894e6a7ad30736f4c6b8e5165550e35581b0dc154cc6",
+  "oracle_test_sha256": "4d53356a7c786c82e93abeb7b701206f89bbdabde71e56a7ee832df6973f74e7",
+  "bindings": [
+   {
+    "canonical": "removeSmallest",
+    "target": "removeSmallest"
+   }
+  ]
+ },
+ "191": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "278cc23250cbba0d077acda90d44c2cf8035e021020cbc878cb7bcc0cdfb5831",
+  "oracle_test_sha256": "01301f9dc8e93e458557adc6e697831b4c944473276b519fdf55a40add765be6",
+  "bindings": [
+   {
+    "canonical": "findNb",
+    "target": "findNb"
+   }
+  ]
+ },
+ "192": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "837877317da5893c159c6e24acd44731bec3e6332c1d1729a8af3f6c7ed16821",
+  "oracle_test_sha256": "01301f9dc8e93e458557adc6e697831b4c944473276b519fdf55a40add765be6",
+  "bindings": [
+   {
+    "canonical": "findNb",
+    "target": "findNb"
+   }
+  ]
+ },
+ "193": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "2f90b846960d38b66db1992c016a48d77edbf37d72c69b87194c3e7173d62aa5",
+  "oracle_test_sha256": "01301f9dc8e93e458557adc6e697831b4c944473276b519fdf55a40add765be6",
+  "bindings": [
+   {
+    "canonical": "findNb",
+    "target": "findNb"
+   }
+  ]
+ },
+ "197": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "test calls Solution::findNb; artifact has no Solution class",
+  "artifact_sha256": "d8e1c03ea1129be5ca84e9ad6c896264776b1a2c27a905decb33a63fd203273a",
+  "oracle_test_sha256": "f2fd718c48c84c7e5afc8362c3802f17ed1e98e68be17f595d4bf7314eaf86c0",
+  "bindings": [
+   {
+    "canonical": "findNb",
+    "target": "find_nb"
+   }
+  ]
+ },
+ "198": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "test calls Solution::findNb; artifact has no Solution class",
+  "artifact_sha256": "b2115a86a805570a4e440455cbb922b153d2a79fc5a15a98161fbe1357ffebbf",
+  "oracle_test_sha256": "f2fd718c48c84c7e5afc8362c3802f17ed1e98e68be17f595d4bf7314eaf86c0",
+  "bindings": [
+   {
+    "canonical": "findNb",
+    "target": "findNb"
+   }
+  ]
+ },
+ "199": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "test calls Solution::findNb; artifact has no Solution class",
+  "artifact_sha256": "738a06e7d516862986ef9035517bfc28056da3a8c75de2b9cdae8b32179a2f18",
+  "oracle_test_sha256": "f2fd718c48c84c7e5afc8362c3802f17ed1e98e68be17f595d4bf7314eaf86c0",
+  "bindings": [
+   {
+    "canonical": "findNb",
+    "target": "findNb"
+   }
+  ]
+ },
+ "206": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "8a27ba76f08dcab960aa84dbb62390cec93956f42f86e56fb7cc2919349bc2a8",
+  "oracle_test_sha256": "ed0922a65a6772fb4f0d282d3e527454dec4a258322c8a9f78cb754775346c98",
+  "bindings": [
+   {
+    "canonical": "Task25_CLAUDE_claude_3_5_sonnet_20240620.number",
+    "target": "LineNumbering.number"
+   }
+  ]
+ },
+ "207": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "b9e27365f373331f9c799c439a026d9771eccde996cf91a961e3d002200bf0d8",
+  "oracle_test_sha256": "ed0922a65a6772fb4f0d282d3e527454dec4a258322c8a9f78cb754775346c98",
+  "bindings": [
+   {
+    "canonical": "Task25_CLAUDE_claude_3_5_sonnet_20240620.number",
+    "target": "LineNumbering.number"
+   }
+  ]
+ },
+ "208": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "b8ce2843e3c7a63b8b27cb11f757a59f8be772c8ea6cc6d59153a4815bac5ac3",
+  "oracle_test_sha256": "ed0922a65a6772fb4f0d282d3e527454dec4a258322c8a9f78cb754775346c98",
+  "bindings": [
+   {
+    "canonical": "Task25_CLAUDE_claude_3_5_sonnet_20240620.number",
+    "target": "LineNumbering.number"
+   }
+  ]
+ },
+ "209": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "ba324c95cb368b016b5c1019fa2850b4033190966eb32374658aa524f72d78e5",
+  "oracle_test_sha256": "ed0922a65a6772fb4f0d282d3e527454dec4a258322c8a9f78cb754775346c98",
+  "bindings": [
+   {
+    "canonical": "Task25_CLAUDE_claude_3_5_sonnet_20240620.number",
+    "target": "LineNumbering.number"
+   }
+  ]
+ },
+ "210": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "a1733c3ee5fbd340d10450413707ab2a319362aa8b56a1ca015cf0b3186762d5",
+  "oracle_test_sha256": "ed0922a65a6772fb4f0d282d3e527454dec4a258322c8a9f78cb754775346c98",
+  "bindings": [
+   {
+    "canonical": "Task25_CLAUDE_claude_3_5_sonnet_20240620.number",
+    "target": "Solution.number"
+   }
+  ]
+ },
+ "211": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to number_lines: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "ae96d53fb53ff7a2d15f06eb46c4c548e5ff966f4a458b65a9c137fa8c29c5c7",
+  "oracle_test_sha256": "7f99ce8f45821814c4a7f8665d837fd5da3647fa939e91c32a24aaf282e3e668",
+  "bindings": [
+   {
+    "canonical": "number",
+    "target": "number_lines"
+   }
+  ]
+ },
+ "212": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "parameter order swapped (size, lines)",
+  "artifact_sha256": "fbdb3a5f7c9c24bfd314f49f99da8a141501f87b3227e40aad2cb85bfc060fca",
+  "oracle_test_sha256": "7f99ce8f45821814c4a7f8665d837fd5da3647fa939e91c32a24aaf282e3e668",
+  "bindings": [
+   {
+    "canonical": "number",
+    "target": "number"
+   }
+  ]
+ },
+ "213": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to number_lines: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "189aa0fffa967eaa88fe7fa68477564bf0f83d1cabc0e70aa50ebf0b52c4238c",
+  "oracle_test_sha256": "7f99ce8f45821814c4a7f8665d837fd5da3647fa939e91c32a24aaf282e3e668",
+  "bindings": [
+   {
+    "canonical": "number",
+    "target": "number_lines"
+   }
+  ]
+ },
+ "214": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "artifact takes char**; test passes const char** (incompatible pointer type)",
+  "artifact_sha256": "ea5d7951694c724924e6b0d49cf074a27dda5347c24d33d82428a8830fb17997",
+  "oracle_test_sha256": "7f99ce8f45821814c4a7f8665d837fd5da3647fa939e91c32a24aaf282e3e668",
+  "bindings": [
+   {
+    "canonical": "number",
+    "target": null
+   }
+  ]
+ },
+ "216": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "test calls Solution::number; artifact has no Solution class",
+  "artifact_sha256": "6f886a01da9a474bf5b4ec34d75073dffb1c9ec3db8d4977f2fcd61e09adf2ac",
+  "oracle_test_sha256": "b4cb9aa430c1491928b72789c6f7a08becb916af33fe2baeb9a26c1138a357ad",
+  "bindings": [
+   {
+    "canonical": "number",
+    "target": null
+   }
+  ]
+ },
+ "217": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "test calls Solution::number; artifact has no Solution class",
+  "artifact_sha256": "7043ae014f67853274325a971e468c8ecdf221096ad7fc4c6e69353008388bac",
+  "oracle_test_sha256": "b4cb9aa430c1491928b72789c6f7a08becb916af33fe2baeb9a26c1138a357ad",
+  "bindings": [
+   {
+    "canonical": "number",
+    "target": "number"
+   }
+  ]
+ },
+ "218": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "test calls Solution::number; artifact has no Solution class",
+  "artifact_sha256": "d8cf33303b2a32afd442c0134c156ac763bcb68b3ad197f5f50e6741278d2ec1",
+  "oracle_test_sha256": "b4cb9aa430c1491928b72789c6f7a08becb916af33fe2baeb9a26c1138a357ad",
+  "bindings": [
+   {
+    "canonical": "number",
+    "target": "number"
+   }
+  ]
+ },
+ "219": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "test calls Solution::number; artifact has no Solution class",
+  "artifact_sha256": "a39c50d7188a6c54c8b014aa57067c606889869fc040d651a47627437d417346",
+  "oracle_test_sha256": "b4cb9aa430c1491928b72789c6f7a08becb916af33fe2baeb9a26c1138a357ad",
+  "bindings": [
+   {
+    "canonical": "number",
+    "target": null
+   }
+  ]
+ },
+ "220": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "test calls Solution::number; artifact has no Solution class",
+  "artifact_sha256": "7043ae014f67853274325a971e468c8ecdf221096ad7fc4c6e69353008388bac",
+  "oracle_test_sha256": "b4cb9aa430c1491928b72789c6f7a08becb916af33fe2baeb9a26c1138a357ad",
+  "bindings": [
+   {
+    "canonical": "number",
+    "target": "number"
+   }
+  ]
+ },
+ "221": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "07d90fd54cb7643d3d7f1e734351e6b4d3e79f618f5dabdca8b34212fac70fd5",
+  "oracle_test_sha256": "ff8db6f2f47ab6fd32f89b80966d6764c09214b3ab9255a174c75d9d548b2585",
+  "bindings": [
+   {
+    "canonical": "likes",
+    "target": "likes"
+   }
+  ]
+ },
+ "222": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "04a486572e353f2a377368aeabb090ff73265f4f6dc8bd01292d22c9492fcc91",
+  "oracle_test_sha256": "ff8db6f2f47ab6fd32f89b80966d6764c09214b3ab9255a174c75d9d548b2585",
+  "bindings": [
+   {
+    "canonical": "likes",
+    "target": "likes"
+   }
+  ]
+ },
+ "223": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "78bdc7051d1316c5beaf13186903ea9652b9fb3ae21b480cac2ab3bc016c874b",
+  "oracle_test_sha256": "ff8db6f2f47ab6fd32f89b80966d6764c09214b3ab9255a174c75d9d548b2585",
+  "bindings": [
+   {
+    "canonical": "likes",
+    "target": "likes"
+   }
+  ]
+ },
+ "224": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "b872bb6b397dfb4c2949b05d8870e675a199ff46f2186ec13453d4755184c052",
+  "oracle_test_sha256": "ff8db6f2f47ab6fd32f89b80966d6764c09214b3ab9255a174c75d9d548b2585",
+  "bindings": [
+   {
+    "canonical": "likes",
+    "target": "likes"
+   }
+  ]
+ },
+ "225": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "1b315a1b07c45aebd1cbfd230b6c2879531e49f32b9cc137da903ce08924aa03",
+  "oracle_test_sha256": "ff8db6f2f47ab6fd32f89b80966d6764c09214b3ab9255a174c75d9d548b2585",
+  "bindings": [
+   {
+    "canonical": "likes",
+    "target": "likes"
+   }
+  ]
+ },
+ "236": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "4f551efff1e99619b9244f153a368d500177c5e4b292e739df2611b1b0ce8143",
+  "oracle_test_sha256": "77913705510812b0f1891753f39c2df01da0335ad8cff6630155cbc44ef34a65",
+  "bindings": [
+   {
+    "canonical": "likes",
+    "target": "likes"
+   }
+  ]
+ },
+ "237": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "7140d6290a2eef6a667f4d999e0e3954897eef81a7021d2077facc71df2f612d",
+  "oracle_test_sha256": "77913705510812b0f1891753f39c2df01da0335ad8cff6630155cbc44ef34a65",
+  "bindings": [
+   {
+    "canonical": "likes",
+    "target": "likes"
+   }
+  ]
+ },
+ "238": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "98755114e49e111fa987c215cee4953ee257b992870b13efb4ede8f7256a79c8",
+  "oracle_test_sha256": "77913705510812b0f1891753f39c2df01da0335ad8cff6630155cbc44ef34a65",
+  "bindings": [
+   {
+    "canonical": "likes",
+    "target": "likes"
+   }
+  ]
+ },
+ "239": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "6c1042c6e6b626a5cf9cab3b828e9e470b7a72f317c3d287229422f9ce164d72",
+  "oracle_test_sha256": "77913705510812b0f1891753f39c2df01da0335ad8cff6630155cbc44ef34a65",
+  "bindings": [
+   {
+    "canonical": "likes",
+    "target": "likes"
+   }
+  ]
+ },
+ "240": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "9e5d765824370df7791da76e684207c40086e44d2a2b5c4cf61d14ea2c5e5a65",
+  "oracle_test_sha256": "77913705510812b0f1891753f39c2df01da0335ad8cff6630155cbc44ef34a65",
+  "bindings": [
+   {
+    "canonical": "likes",
+    "target": "likes"
+   }
+  ]
+ },
+ "241": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "5e1af728087f883da1df26a8c698f29fad824abf0245818c24b058e346a2d04a",
+  "oracle_test_sha256": "1b57a28aff2c9bffe09c1e094f6c21de5b19fa89a86eaa92b1180b8164ce6c58",
+  "bindings": [
+   {
+    "canonical": "make_complement",
+    "target": "DNA_strand"
+   }
+  ]
+ },
+ "242": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "60e9ee3d2241b8a66779522e8094b34338210dfe9d4dc8dd5708ffabe3c0f50a",
+  "oracle_test_sha256": "1b57a28aff2c9bffe09c1e094f6c21de5b19fa89a86eaa92b1180b8164ce6c58",
+  "bindings": [
+   {
+    "canonical": "make_complement",
+    "target": "DNA_strand"
+   }
+  ]
+ },
+ "243": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "685e04209fd852cff1034be15d52572f37391503683234119162f862f842907e",
+  "oracle_test_sha256": "1b57a28aff2c9bffe09c1e094f6c21de5b19fa89a86eaa92b1180b8164ce6c58",
+  "bindings": [
+   {
+    "canonical": "make_complement",
+    "target": "DNA_strand"
+   }
+  ]
+ },
+ "244": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "957868c041af1083a8e720c322a838b6d780c18aa5ae94985d8772001caaf87b",
+  "oracle_test_sha256": "1b57a28aff2c9bffe09c1e094f6c21de5b19fa89a86eaa92b1180b8164ce6c58",
+  "bindings": [
+   {
+    "canonical": "make_complement",
+    "target": "dna_strand"
+   }
+  ]
+ },
+ "245": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_loose binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "957868c041af1083a8e720c322a838b6d780c18aa5ae94985d8772001caaf87b",
+  "oracle_test_sha256": "1b57a28aff2c9bffe09c1e094f6c21de5b19fa89a86eaa92b1180b8164ce6c58",
+  "bindings": [
+   {
+    "canonical": "make_complement",
+    "target": "dna_strand"
+   }
+  ]
+ },
+ "251": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "f04b6ffea767a4641c923b6f8e52ccc55102fa6faf3cf0c6dfc3aed044acf421",
+  "oracle_test_sha256": "078a5c93045110b5cefda3d0dcc11b9e3ef6e7b0bfc6ab98cd8bd63e456aa46f",
+  "bindings": [
+   {
+    "canonical": "dna_strand",
+    "target": "dna_strand"
+   }
+  ]
+ },
+ "252": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "7fd6063471d1b2b6f02b339aa409376ce549c075236b01ac8b68e36edcd94250",
+  "oracle_test_sha256": "078a5c93045110b5cefda3d0dcc11b9e3ef6e7b0bfc6ab98cd8bd63e456aa46f",
+  "bindings": [
+   {
+    "canonical": "dna_strand",
+    "target": "dna_strand"
+   }
+  ]
+ },
+ "253": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "f72f9d9fb00f6732e551ded4616b2ca6712b2d01ac30460b3f68d1a2408cc973",
+  "oracle_test_sha256": "078a5c93045110b5cefda3d0dcc11b9e3ef6e7b0bfc6ab98cd8bd63e456aa46f",
+  "bindings": [
+   {
+    "canonical": "dna_strand",
+    "target": "dna_strand"
+   }
+  ]
+ },
+ "254": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to complement: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "1c7db70358a408ee01623134e29b1b96cab7f73a3f32b4980a47fafaea5dab7d",
+  "oracle_test_sha256": "078a5c93045110b5cefda3d0dcc11b9e3ef6e7b0bfc6ab98cd8bd63e456aa46f",
+  "bindings": [
+   {
+    "canonical": "dna_strand",
+    "target": "complement"
+   }
+  ]
+ },
+ "255": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "a74e7cd04c8d9f650aeba30b527109ca5f4198ac1361ecd1c3f15faea9dcee9c",
+  "oracle_test_sha256": "078a5c93045110b5cefda3d0dcc11b9e3ef6e7b0bfc6ab98cd8bd63e456aa46f",
+  "bindings": [
+   {
+    "canonical": "dna_strand",
+    "target": "dna_strand"
+   }
+  ]
+ },
+ "256": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to makeComplement: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "79ff7db522ee444fb7a3123a30834e7143118b54164577882b8378d24cf6a3ab",
+  "oracle_test_sha256": "076d9c61d0801edb32c28b5ed7aa1beda29586604e361401934b445c0ef19deb",
+  "bindings": [
+   {
+    "canonical": "DNAStrand",
+    "target": "makeComplement"
+   }
+  ]
+ },
+ "257": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "cee1c38df27734d1af11f169c1dbec7454454754628029352ae5b9727b5c1c04",
+  "oracle_test_sha256": "076d9c61d0801edb32c28b5ed7aa1beda29586604e361401934b445c0ef19deb",
+  "bindings": [
+   {
+    "canonical": "DNAStrand",
+    "target": "DNAStrand"
+   }
+  ]
+ },
+ "258": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "cf96fe2a2a161d5681cb0ce5d1ce009d03becc48401141f571acefdf9952f7b4",
+  "oracle_test_sha256": "076d9c61d0801edb32c28b5ed7aa1beda29586604e361401934b445c0ef19deb",
+  "bindings": [
+   {
+    "canonical": "DNAStrand",
+    "target": "DNAStrand"
+   }
+  ]
+ },
+ "259": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to dnaComplement: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "8a2143e8418dda977ca4318c04bcec5ad058fc4aa9b8031727eacd6ac1c28ed7",
+  "oracle_test_sha256": "076d9c61d0801edb32c28b5ed7aa1beda29586604e361401934b445c0ef19deb",
+  "bindings": [
+   {
+    "canonical": "DNAStrand",
+    "target": "dnaComplement"
+   }
+  ]
+ },
+ "260": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+  "artifact_sha256": "9bd2b38eb6cc627786b643dd1670afd13151e3f7a565091844cfc2f04a8d8156",
+  "oracle_test_sha256": "076d9c61d0801edb32c28b5ed7aa1beda29586604e361401934b445c0ef19deb",
+  "bindings": [
+   {
+    "canonical": "DNAStrand",
+    "target": "DNAStrand"
+   }
+  ]
+ },
+ "526": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to PasswordChecker.comparePasswords: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "08fe373a6cc78c7b229283c6d3c4a2a0a780c8ae509f410935768fd566a1d902",
+  "oracle_test_sha256": "49d39baec6147d2f7a25e8b63d0736bf59914e5dd1b9ca3c659f43355ea15852",
+  "bindings": [
+   {
+    "canonical": "Task89_CLAUDE_claude_3_5_sonnet_20240620.checkPassword",
+    "target": "PasswordChecker.comparePasswords"
+   }
+  ]
+ },
+ "527": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "rejected after execution showed a build failure: target Main.passwordsMatch is private",
+  "artifact_sha256": "b26e64fc5ba1551d06008bd575e440600b98d1de2256734ebc8c2317acae7dc8",
+  "oracle_test_sha256": "49d39baec6147d2f7a25e8b63d0736bf59914e5dd1b9ca3c659f43355ea15852",
+  "bindings": [
+   {
+    "canonical": "Task89_CLAUDE_claude_3_5_sonnet_20240620.checkPassword",
+    "target": "Main.passwordsMatch"
+   }
+  ]
+ },
+ "528": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to PasswordChecker.comparePasswordsSequentially: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "2d26e6a73a67e655bf3aa06fe9c5cc0080e0636dcb50511d7ee1bd5edacfdd16",
+  "oracle_test_sha256": "49d39baec6147d2f7a25e8b63d0736bf59914e5dd1b9ca3c659f43355ea15852",
+  "bindings": [
+   {
+    "canonical": "Task89_CLAUDE_claude_3_5_sonnet_20240620.checkPassword",
+    "target": "PasswordChecker.comparePasswordsSequentially"
+   }
+  ]
+ },
+ "529": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to PasswordComparator.comparePasswordsSequentially: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "494cf0a705f19ded48090f5d5779c161b1199dc3261aa1f6b5b5173d940758c4",
+  "oracle_test_sha256": "49d39baec6147d2f7a25e8b63d0736bf59914e5dd1b9ca3c659f43355ea15852",
+  "bindings": [
+   {
+    "canonical": "Task89_CLAUDE_claude_3_5_sonnet_20240620.checkPassword",
+    "target": "PasswordComparator.comparePasswordsSequentially"
+   }
+  ]
+ },
+ "530": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to Main.comparePasswords: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "5ec318c55839374af46d3bee86ed02d18508915357dc11269523716e13220cfc",
+  "oracle_test_sha256": "49d39baec6147d2f7a25e8b63d0736bf59914e5dd1b9ca3c659f43355ea15852",
+  "bindings": [
+   {
+    "canonical": "Task89_CLAUDE_claude_3_5_sonnet_20240620.checkPassword",
+    "target": "Main.comparePasswords"
+   }
+  ]
+ },
+ "726": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to Main.sort: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "41c4ce6c3ae34ee2592f96ac323c6164edaa4f50eaa9558402eb75a37ec499da",
+  "oracle_test_sha256": "c1ddc6c4ab55a9f9f417eb7956e2c4ec01c6ceb8fec6692fe39d93551db037d4",
+  "bindings": [
+   {
+    "canonical": "Task143_CLAUDE_claude_3_5_sonnet_20240620.bubbleSort",
+    "target": "Main.sort"
+   }
+  ]
+ },
+ "727": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "artifact returns a new array; test requires in-place sort of its argument",
+  "artifact_sha256": "dfc3d7f8b7fe4798bd997b38b692db294a754834c111b12b2fa2d14e3ac58635",
+  "oracle_test_sha256": "c1ddc6c4ab55a9f9f417eb7956e2c4ec01c6ceb8fec6692fe39d93551db037d4",
+  "bindings": [
+   {
+    "canonical": "Task143_CLAUDE_claude_3_5_sonnet_20240620.bubbleSort",
+    "target": null
+   }
+  ]
+ },
+ "728": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "artifact returns a new array; test requires in-place sort of its argument",
+  "artifact_sha256": "c871e7734873a53082cc8d93d0d81082fd1a0622298ea4ffaf9130bd6b21513b",
+  "oracle_test_sha256": "c1ddc6c4ab55a9f9f417eb7956e2c4ec01c6ceb8fec6692fe39d93551db037d4",
+  "bindings": [
+   {
+    "canonical": "Task143_CLAUDE_claude_3_5_sonnet_20240620.bubbleSort",
+    "target": null
+   }
+  ]
+ },
+ "729": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "artifact returns a new array; test requires in-place sort of its argument",
+  "artifact_sha256": "7bb04729c9f0e35f30c991924181b35d39ff0c83b203d08ef8256c55bd0c67eb",
+  "oracle_test_sha256": "c1ddc6c4ab55a9f9f417eb7956e2c4ec01c6ceb8fec6692fe39d93551db037d4",
+  "bindings": [
+   {
+    "canonical": "Task143_CLAUDE_claude_3_5_sonnet_20240620.bubbleSort",
+    "target": null
+   }
+  ]
+ },
+ "730": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "artifact returns a new array; test requires in-place sort of its argument",
+  "artifact_sha256": "2ec96654fd075b2a08d757b3884bb5f95fd2e378f9712b2ac9e78416f19774bf",
+  "oracle_test_sha256": "c1ddc6c4ab55a9f9f417eb7956e2c4ec01c6ceb8fec6692fe39d93551db037d4",
+  "bindings": [
+   {
+    "canonical": "Task143_CLAUDE_claude_3_5_sonnet_20240620.bubbleSort",
+    "target": null
+   }
+  ]
+ },
+ "746": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "returns long[] (sum and indices), oracle expects int",
+  "artifact_sha256": "6352c6c9b6cb0817f1b713e8272ac959a89ff7bdd093cf198a901a1081db56fd",
+  "oracle_test_sha256": "e2af9801bf919f925820d3169717a1303159e7a3dc16b967e234a3017f470076",
+  "bindings": [
+   {
+    "canonical": "Task145_CLAUDE_claude_3_5_sonnet_20240620.maxSubarraySum",
+    "target": null
+   }
+  ]
+ },
+ "747": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "returns long; facade would need a lossy narrowing to int",
+  "artifact_sha256": "fc298a9e3bfe54f20203937f497574e3737ba76e880654a6480f9e38a37d810d",
+  "oracle_test_sha256": "e2af9801bf919f925820d3169717a1303159e7a3dc16b967e234a3017f470076",
+  "bindings": [
+   {
+    "canonical": "Task145_CLAUDE_claude_3_5_sonnet_20240620.maxSubarraySum",
+    "target": "Main.maxSubarraySum"
+   }
+  ]
+ },
+ "748": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "returns a Result object, oracle expects int",
+  "artifact_sha256": "153667cb6f16674f9d2dc6001666428b628b54e6e5e26bb1c24fbb8172c1f2b9",
+  "oracle_test_sha256": "e2af9801bf919f925820d3169717a1303159e7a3dc16b967e234a3017f470076",
+  "bindings": [
+   {
+    "canonical": "Task145_CLAUDE_claude_3_5_sonnet_20240620.maxSubarraySum",
+    "target": null
+   }
+  ]
+ },
+ "749": {
+  "approved": true,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "bound by reviewer to MaxSubarray.maxSubArray: the artifact's single implementation of this task with a call-compatible signature",
+  "artifact_sha256": "f85dbc912148ab475fafd379c49ab476a2a2f6e67df10a3f203e58f99a953d42",
+  "oracle_test_sha256": "e2af9801bf919f925820d3169717a1303159e7a3dc16b967e234a3017f470076",
+  "bindings": [
+   {
+    "canonical": "Task145_CLAUDE_claude_3_5_sonnet_20240620.maxSubarraySum",
+    "target": "MaxSubarray.maxSubArray"
+   }
+  ]
+ },
+ "750": {
+  "approved": false,
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "no max-subarray function (stdin-driven main only)",
+  "artifact_sha256": "f5332143b6ecc269358311ee18534dfd7586686654d94de5c4112524a3d115b6",
+  "oracle_test_sha256": "e2af9801bf919f925820d3169717a1303159e7a3dc16b967e234a3017f470076",
+  "bindings": [
+   {
+    "canonical": "Task145_CLAUDE_claude_3_5_sonnet_20240620.maxSubarraySum",
+    "target": null
+   }
+  ]
+ }
+}

@@ -1,0 +1,13 @@
+Task73_qwen3-8-flash_cpp.cpp:41:10: error: expected '}'
+   41 |         }
+      |          ^
+Task73_qwen3-8-flash_cpp.cpp:32:38: note: to match this '{'
+   32 |     for (unsigned char c : password) {
+      |                                      ^
+Task73_qwen3-8-flash_cpp.cpp:41:10: error: expected '}'
+   41 |         }
+      |          ^
+Task73_qwen3-8-flash_cpp.cpp:22:56: note: to match this '{'
+   22 | bool isValidAdminPassword(const std::string& password) {
+      |                                                        ^
+2 errors generated.

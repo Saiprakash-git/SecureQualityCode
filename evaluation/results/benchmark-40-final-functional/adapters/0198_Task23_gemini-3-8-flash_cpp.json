@@ -1,0 +1,18 @@
+{
+ "status": "rejected",
+ "bindings": [
+  {
+   "canonical": "findNb",
+   "target": "findNb",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "test calls Solution::findNb; artifact has no Solution class",
+ "combo_index": 198,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_023/gemini-3-8-flash/Task23_gemini-3-8-flash_cpp.cpp",
+ "artifact_sha256": "b2115a86a805570a4e440455cbb922b153d2a79fc5a15a98161fbe1357ffebbf",
+ "oracle_test_path": "tests/claude/Task23_Test.cpp",
+ "oracle_test_sha256": "f2fd718c48c84c7e5afc8362c3802f17ed1e98e68be17f595d4bf7314eaf86c0",
+ "author": "functional.py draft_adapter (static)"
+}

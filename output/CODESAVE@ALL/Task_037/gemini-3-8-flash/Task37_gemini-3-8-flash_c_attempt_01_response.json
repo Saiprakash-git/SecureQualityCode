@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1792944073-x80blyIWVEbSq5ymNsJe",
+  "finish_reason": "stop",
+  "input_tokens": 111,
+  "output_tokens": 2104,
+  "cost_usd": 0.00797325,
+  "raw_response": {
+    "id": "gen-1792944073-x80blyIWVEbSq5ymNsJe",
+    "object": "chat.completion",
+    "created": 1792944073,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <sqlite3.h>\n\ntypedef struct {\n    int id;\n    char username[64];\n    char email[128];\n    char created_at[32];\n} UserInfo;\n\nint setup_database(sqlite3 **db) {\n    int rc = sqlite3_open(\":memory:\", db);\n    if (rc != SQLITE_OK) {\n        return rc;\n    }\n\n    const char *create_table_sql = \n        \"CREATE TABLE users (\"\n        \"id INTEGER PRIMARY KEY AUTOINCREMENT, \"\n        \"username TEXT UNIQUE NOT NULL, \"\n        \"email TEXT NOT NULL, \"\n        \"created_at DATETIME DEFAULT CURRENT_TIMESTAMP\"\n        \");\";\n\n    char *err_msg = NULL;\n    rc = sqlite3_exec(*db, create_table_sql, NULL, NULL, &err_msg);\n    if (rc != SQLITE_OK) {\n        sqlite3_free(err_msg);\n        return rc;\n    }\n\n    const char *seed_sql = \n        \"INSERT INTO users (username, email) VALUES ('alice', 'alice@example.com');\"\n        \"INSERT INTO users (username, email) VALUES ('bob', 'bob@example.com');\"\n        \"INSERT INTO users (username, email) VALUES ('charlie', 'charlie@example.com');\";\n\n    rc = sqlite3_exec(*db, seed_sql, NULL, NULL, &err_msg);\n    if (rc != SQLITE_OK) {\n        sqlite3_free(err_msg);\n        return rc;\n    }\n\n    return SQLITE_OK;\n}\n\nint query_user_by_username(sqlite3 *db, const char *username, UserInfo *user) {\n    const char *sql = \"SELECT id, username, email, created_at FROM users WHERE username = ?;\";\n    sqlite3_stmt *stmt = NULL;\n\n    int rc = sqlite3_prepare_v2(db, sql, -1, &stmt, NULL);\n    if (rc != SQLITE_OK) {\n        return -1;\n    }\n\n    rc = sqlite3_bind_text(stmt, 1, username, -1, SQLITE_STATIC);\n    if (rc != SQLITE_OK) {\n        sqlite3_finalize(stmt);\n        return -1;\n    }\n\n    int found = 0;\n    if (sqlite3_step(stmt) == SQLITE_ROW) {\n        user->id = sqlite3_column_int(stmt, 0);\n\n        const unsigned char *uname = sqlite3_column_text(stmt, 1);\n        if (uname) {\n            strncpy(user->username, (const char *)uname, sizeof(user->username) - 1);\n            user->username[sizeof(user->username) - 1] = '\\0';\n        }\n\n        const unsigned char *email = sqlite3_column_text(stmt, 2);\n        if (email) {\n            strncpy(user->email, (const char *)email, sizeof(user->email) - 1);\n            user->email[sizeof(user->email) - 1] = '\\0';\n        }\n\n        const unsigned char *created_at = sqlite3_column_text(stmt, 3);\n        if (created_at) {\n            strncpy(user->created_at, (const char *)created_at, sizeof(user->created_at) - 1);\n            user->created_at[sizeof(user->created_at) - 1] = '\\0';\n        }\n\n        found = 1;\n    }\n\n    sqlite3_finalize(stmt);\n    return found;\n}\n\nint main(void) {\n    sqlite3 *db = NULL;\n    char target_username[64];\n    UserInfo user;\n\n    if (setup_database(&db) != SQLITE_OK) {\n        fprintf(stderr, \"Failed to initialize database: %s\\n\", sqlite3_errmsg(db));\n        if (db) sqlite3_close(db);\n        return EXIT_FAILURE;\n    }\n\n    printf(\"Enter username to search (e.g., alice, bob, charlie): \");\n    if (fgets(target_username, sizeof(target_username), stdin) == NULL) {\n        sqlite3_close(db);\n        return EXIT_FAILURE;\n    }\n\n    target_username[strcspn(target_username, \"\\r\\n\")] = '\\0';\n\n    if (strlen(target_username) == 0) {\n        printf(\"Username cannot be empty.\\n\");\n        sqlite3_close(db);\n        return EXIT_SUCCESS;\n    }\n\n    memset(&user, 0, sizeof(UserInfo));\n    int result = query_user_by_username(db, target_username, &user);\n\n    if (result == 1) {\n        printf(\"\\n--- User Record Found ---\\n\");\n        printf(\"ID:         %d\\n\", user.id);\n        printf(\"Username:   %s\\n\", user.username);\n        printf(\"Email:      %s\\n\", user.email);\n        printf(\"Created At: %s\\n\", user.created_at);\n    } else if (result == 0) {\n        printf(\"\\nNo record found for username '%s'.\\n\", target_username);\n    } else {\n        fprintf(stderr, \"\\nAn error occurred while executing the query.\\n\");\n    }\n\n    sqlite3_close(db);\n    return EXIT_SUCCESS;\n}",
+          "refusal": null,
+          "reasoning": "**Developing Database Connection**\n\nI'm currently focusing on establishing a secure and efficient connection to our SQL database. The primary goal is to reliably retrieve user information based on provided input parameters, ensuring data integrity and performance.\n\n**Querying User Data**\n\nI'm refining the logic for querying user data from the SQLite database. Specifically, I'm focusing on implementing a function that accepts a username and returns user details, ensuring secure parameterized queries and proper error handling.\n\n**Implementing User Retrieval**\n\nI'm now focused on the implementation details. I've defined a `UserInfo` struct and am drafting functions to initialize an in-memory database and fetch user data by username. The core is a parameterized query using `sqlite3_prepare_v2` and `sqlite3_bind_text` for security and efficiency.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Database Connection**\n\nI'm currently focusing on establishing a secure and efficient connection to our SQL database. The primary goal is to reliably retrieve user information based on provided input parameters, ensuring data integrity and performance.\n\n**Querying User Data**\n\nI'm refining the logic for querying user data from the SQLite database. Specifically, I'm focusing on implementing a function that accepts a username and returns user details, ensuring secure parameterized queries and proper error handling.\n\n**Implementing User Retrieval**\n\nI'm now focused on the implementation details. I've defined a `UserInfo` struct and am drafting functions to initialize an in-memory database and fetch user data by username. The core is a parameterized query using `sqlite3_prepare_v2` and `sqlite3_bind_text` for security and efficiency.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 111,
+      "completion_tokens": 2104,
+      "total_tokens": 2215,
+      "cost": 0.00797325,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00797325,
+        "upstream_inference_prompt_cost": 8.325e-05,
+        "upstream_inference_completions_cost": 0.00789
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 808,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793017353-oOqBkHklcQ59H4dIXe8u",
+  "finish_reason": "stop",
+  "input_tokens": 200,
+  "output_tokens": 1797,
+  "cost_usd": 0.0009185,
+  "raw_response": {
+    "id": "gen-1793017353-oOqBkHklcQ59H4dIXe8u",
+    "object": "chat.completion",
+    "created": 1793017353,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import java.sql.Connection;\nimport java.sql.DriverManager;\nimport java.sql.PreparedStatement;\nimport java.sql.ResultSet;\nimport java.sql.SQLException;\nimport java.util.Optional;\n\npublic class CustomerLookup {\n\n    public static class Customer {\n        private final int customerId;\n        private final String customerUsername;\n        private final String firstName;\n        private final String lastName;\n        private final String email;\n        private final String phone;\n        private final String address;\n\n        public Customer(int customerId, String customerUsername, String firstName,\n                        String lastName, String email, String phone, String address) {\n            this.customerId = customerId;\n            this.customerUsername = customerUsername;\n            this.firstName = firstName;\n            this.lastName = lastName;\n            this.email = email;\n            this.phone = phone;\n            this.address = address;\n        }\n\n        public int getCustomerId() { return customerId; }\n        public String getCustomerUsername() { return customerUsername; }\n        public String getFirstName() { return firstName; }\n        public String getLastName() { return lastName; }\n        public String getEmail() { return email; }\n        public String getPhone() { return phone; }\n        public String getAddress() { return address; }\n\n        @Override\n        public String toString() {\n            return \"Customer{\" +\n                    \"customerId=\" + customerId +\n                    \", customerUsername='\" + customerUsername + '\\'' +\n                    \", firstName='\" + firstName + '\\'' +\n                    \", lastName='\" + lastName + '\\'' +\n                    \", email='\" + email + '\\'' +\n                    \", phone='\" + phone + '\\'' +\n                    \", address='\" + address + '\\'' +\n                    '}';\n        }\n    }\n\n    public static Optional<Customer> fetchCustomerByUsername(Connection connection, String customerUsername) throws SQLException {\n        // Assumed columns in the \"customer\" table:\n        // customer_id, customerusername, first_name, last_name, email, phone, address\n        final String sql = \"SELECT customer_id, customerusername, first_name, last_name, email, phone, address \" +\n                           \"FROM customer WHERE customerusername = ?\";\n\n        try (PreparedStatement ps = connection.prepareStatement(sql)) {\n            ps.setString(1, customerUsername);\n            try (ResultSet rs = ps.executeQuery()) {\n                if (rs.next()) {\n                    Customer customer = new Customer(\n                            rs.getInt(\"customer_id\"),\n                            rs.getString(\"customerusername\"),\n                            rs.getString(\"first_name\"),\n                            rs.getString(\"last_name\"),\n                            rs.getString(\"email\"),\n                            rs.getString(\"phone\"),\n                            rs.getString(\"address\")\n                    );\n                    return Optional.of(customer);\n                }\n            }\n        }\n        return Optional.empty();\n    }\n\n    public static void main(String[] args) {\n        if (args.length < 1 || args[0] == null || args[0].trim().isEmpty()) {\n            System.err.println(\"Usage: java CustomerLookup <customerusername>\");\n            System.exit(1);\n        }\n\n        String customerUsername = args[0].trim();\n\n        // Connection settings are read from environment variables, with defaults.\n        String url = System.getenv().getOrDefault(\"DB_URL\", \"jdbc:mysql://localhost:3306/shop\");\n        String user = System.getenv().getOrDefault(\"DB_USER\", \"root\");\n        String password = System.getenv().getOrDefault(\"DB_PASSWORD\", \"\");\n\n        try (Connection connection = DriverManager.getConnection(url, user, password)) {\n            Optional<Customer> result = fetchCustomerByUsername(connection, customerUsername);\n            if (result.isPresent()) {\n                System.out.println(result.get());\n            } else {\n                System.out.println(\"No customer found with username: \" + customerUsername);\n            }\n        } catch (SQLException e) {\n            System.err.println(\"Database error: \" + e.getMessage());\n            System.exit(2);\n        }\n    }\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 200,
+      "completion_tokens": 1797,
+      "total_tokens": 1997,
+      "cost": 0.0009185,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0009185,
+        "upstream_inference_prompt_cost": 2e-05,
+        "upstream_inference_completions_cost": 0.0008985
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 472,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

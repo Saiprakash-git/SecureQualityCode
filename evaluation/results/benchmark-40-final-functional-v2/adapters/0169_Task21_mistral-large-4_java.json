@@ -1,0 +1,18 @@
+{
+ "status": "rejected",
+ "bindings": [
+  {
+   "canonical": "Task21_CLAUDE_claude_3_5_sonnet_20240620.removeSmallest",
+   "target": "Museum.removeSmallest",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "artifact uses int[] in/out; test passes and compares List<Integer>",
+ "combo_index": 169,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_021/mistral-large-4/Task21_mistral-large-4_java.java",
+ "artifact_sha256": "e8b9144ec1bb688a7d1da620e838ca9aad60880c1d2727038cfd3f7b0b3263ae",
+ "oracle_test_path": "src/test/java/claude/task21/Task21_TestCase.java",
+ "oracle_test_sha256": "8525df080ab2692e089029c27ebea0f317718a6a9e2fd1e62c8b5c43cd530aa2",
+ "author": "functional.py draft_adapter (static)"
+}

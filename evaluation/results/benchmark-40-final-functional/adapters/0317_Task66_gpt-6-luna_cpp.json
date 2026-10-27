@@ -1,0 +1,23 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "executeCommand",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  },
+  {
+   "canonical": "validateCommand",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 317,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_066/gpt-6-luna/Task66_gpt-6-luna_cpp.cpp",
+ "artifact_sha256": "0bfa8bea0e0175292f3838f446f693dfa6b72babd4be9f7528c1582b35fceaf4",
+ "oracle_test_path": "tests/claude/Task66_Test.cpp",
+ "oracle_test_sha256": "6e80afc629baf93c3e374e875d0970d4a78ece6d879bddd43ccc1c4d97ba4d3f",
+ "author": "functional.py draft_adapter (static)"
+}

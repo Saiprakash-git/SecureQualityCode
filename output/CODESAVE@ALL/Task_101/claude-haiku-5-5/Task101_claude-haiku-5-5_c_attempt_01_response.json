@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793023896-RS5u1VHgczGehMDD9zjt",
+  "finish_reason": "stop",
+  "input_tokens": 148,
+  "output_tokens": 917,
+  "cost_usd": 0.0004733,
+  "raw_response": {
+    "id": "gen-1793023896-RS5u1VHgczGehMDD9zjt",
+    "object": "chat.completion",
+    "created": 1793023896,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <sys/stat.h>\n\nstatic int create_script(const char *path, const char *content) {\n    FILE *fp = fopen(path, \"w\");\n    if (fp == NULL) {\n        return -1;\n    }\n    if (fputs(content, fp) == EOF) {\n        fclose(fp);\n        return -1;\n    }\n    if (fclose(fp) != 0) {\n        return -1;\n    }\n    return 0;\n}\n\nstatic int make_executable(const char *path) {\n    struct stat st;\n    if (stat(path, &st) != 0) {\n        return -1;\n    }\n    mode_t mode = st.st_mode | S_IXUSR | S_IXGRP | S_IXOTH;\n    return chmod(path, mode);\n}\n\nint main(void) {\n    const char *filename = \"script.sh\";\n    const char *content =\n        \"#!/bin/sh\\n\"\n        \"echo \\\"Hello from script.sh\\\"\\n\";\n\n    if (create_script(filename, content) != 0) {\n        perror(\"Failed to create script.sh\");\n        return EXIT_FAILURE;\n    }\n\n    if (make_executable(filename) != 0) {\n        perror(\"Failed to make script.sh executable\");\n        return EXIT_FAILURE;\n    }\n\n    printf(\"Created and made executable: %s\\n\", filename);\n    return EXIT_SUCCESS;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 148,
+      "completion_tokens": 917,
+      "total_tokens": 1065,
+      "cost": 0.0004733,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0004733,
+        "upstream_inference_prompt_cost": 1.48e-05,
+        "upstream_inference_completions_cost": 0.0004585
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 454,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

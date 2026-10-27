@@ -1,0 +1,18 @@
+@@c21278e8154a2a96 STEP 0 BEGIN@@
+test_eight_floors (test_oracle.TestTowerBuilder.test_eight_floors) ... ok
+test_five_floors (test_oracle.TestTowerBuilder.test_five_floors) ... ok
+test_four_floors (test_oracle.TestTowerBuilder.test_four_floors) ... ok
+test_nine_floors (test_oracle.TestTowerBuilder.test_nine_floors) ... ok
+test_one_floor (test_oracle.TestTowerBuilder.test_one_floor) ... ok
+test_seven_floors (test_oracle.TestTowerBuilder.test_seven_floors) ... ok
+test_six_floors (test_oracle.TestTowerBuilder.test_six_floors) ... ok
+test_ten_floors (test_oracle.TestTowerBuilder.test_ten_floors) ... ok
+test_three_floors (test_oracle.TestTowerBuilder.test_three_floors) ... ok
+test_two_floors (test_oracle.TestTowerBuilder.test_two_floors) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.001s
+
+OK
+
+@@c21278e8154a2a96 STEP 0 END rc=0@@

@@ -1,0 +1,67 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1792945909-P51m00On3X5R5kLMjpWs",
+  "finish_reason": "stop",
+  "input_tokens": 110,
+  "output_tokens": 304,
+  "cost_usd": 0.000163,
+  "raw_response": {
+    "id": "gen-1792945909-P51m00On3X5R5kLMjpWs",
+    "object": "chat.completion",
+    "created": 1792945909,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <cstdlib>\n#include <iostream>\n#include <string>\n\nstd::string shellQuote(const std::string& value) {\n    std::string quoted = \"'\";\n    for (char ch : value) {\n        if (ch == '\\'') {\n            quoted += \"'\\\\''\";\n        } else {\n            quoted += ch;\n        }\n    }\n    quoted += \"'\";\n    return quoted;\n}\n\nint main() {\n    std::string filename;\n    std::cout << \"Enter a filename: \";\n    if (!std::getline(std::cin, filename)) {\n        return 1;\n    }\n\n    const std::string command = \"cat -- \" + shellQuote(filename);\n    return std::system(command.c_str());\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3i74Gk-C-aNJtyBEBuD0GSnepiMoZ30b-B0uVRjN23IfUk3pTtiSUO8qd6jbWE8Cxu5Fx6jIL1wFfA6Ud7O3_ZTwy3FAQnHdOcjhJjRSP5hQYe-fl5_QthiMVgr4_8L-w9HZw1SG6JrJg1CVfpcYNUDfH-WCJFQZ8bUsKxh0DCWbGLDPs5gpSGrXJkDY_WOo5g8W2mMv1U_LaYB-DCWSVgIP6fIhM_m6QC25wB8YfWNN47aCEH0qtUSiNU_YBES6fyHHoUkcNrc-W3hydWtmx1VK7HY79PbqyprhA4OEKY53wAI9wEGX6SgBonJ7y657wFZWdGg974FDRwpfd0uJlVcM6E2Leoyd3dTA6pGOnCFVNGzb175kE-TQyir2Im8WT0Ed1zsv2KMPQM6GhxVUYWjj4q277KBjgdY7-bW-OUENbHt9tzNZuzkkBi5GOTvgwOR4MHisGJ9nx-0P46JOK7_JQ6I7ijc6YJEk211_CljR4uA8vdlq1lqLWrTuNecttulFnLIZrLEVxggPkfFAGTk1eDuft5FDiqxgrr8OhMeb0FlMh-nbBFwilF2TshYEDKy-rKKs6Wg9Ie7dTi6d73a1TsEHuz4VXR_aYKnt9ujTiIJqy7tf-Sjg-U-_JLD4vnyqibnj9j5Voz9m_aDvFYY93H8FtxPvrSmZ173CU2fVPldaFGRTX-W4GIg7lddNcIYMfwrWangyzaGQ9WibdFXPFK-ggx_MEjFuzm28R-QqBSzjE7hDPQs6A0THMPmc8m5dEGYq5yhciIEDOzUH79zoNFlNYC4QeSV01Qz7jDiWwItAuSClqxfyANDMiaITzt_6aXynNl1x5H38eZBDVVfnazX0YZXfdoMu8hLFX5hTTfL_e8NUInaIybRHgyfZ_uBSeuq9J-K_WIfZrluRh6DRkh-9VTClcaTT61QenVHFFctHc-c29RMp7BNgsP4Yfvgdj_-9qlY2cZ0mxofp5yiROJcCQdeY_imdmm5NTq_-4TLHTpvSqxtSFz31DbP_foX_XPbjphazgb5JhQYZ27C_XwQ6B4j7XOCctCm5QRCV0kOmHIkixUrdZdkpvpURZEQSfto3YiTKUAqnOqPWqQezeQm624QpOxeAeYad5r2eQfZ-YeLrQQ6geOu6caHHka_HT1ul2wmdG_v_08h4ceOaVxwPnv_ShHnidfi4b5u_XrIEtnztXofjM9idiArVbZW_Y1licpDKhQkvRdmB_kTkKfUIS-KXMQTJXQPDxitGaZFndPYpjHmqlMZsw035CPV-37No85ci6lYsaagglm1xKfOMSziB3jQ-kJRELizlSzKTkGUDE4GQYhsiM-0MXhK8ymuQWGh9qR8l7QAn1Rehs9jXoYcrjMncYJM6q0CFoD-b7gtrHEf342UAs6bE-xs_O-ZV9Fq1oCfXLCbZqeBZMVInTNCiLqkZFRmMxpYB_BK9fC3Fuz7RzVZYCP1kPr1xcqxSCgpYJcKw32wGiJ45ni-tufxsc4Tw4wXICFP6j3Pd7RrngbeTUzj5ySjxAQVRAcEWTwjczbvFpRedOrg3A2c2ATERS1TTxmK7zM76tuEw24zfZDCIfA1F2U3PR1kKYCoC8io9zgguNpsQ3O0wFuc3fuZCHE4mPjVq9ag_KkuXjUr-9jAI3-7lNgWHf2sB4nOyuDC78qdlpKOiBCrCcT568uJkW-tG01UGWgmU3bdn6ZF4MwRXhtCupdmDi4R1oXgJ2lzFQZ6-j38fkUGfGB38tqVUjnWfq7_X6jI3xZh5w1qbXtp6JwvQwNnaGuC-LqEA6ZSV_a8gaQl1gdWzHMBqdaFoPKWkLHxH723AzCgSHzstvgAa0uh-WgE4rKTi7AM4y3dCuSf701h2YmWwk3xpXSnH-XiaoA1rnouoTU_3Zw-W2u1fZB_W3svo_806OqFtXGaE6n3h9hcBeFFOa01Y4p7o_Z3nFTRzWFMUP9B9NalCPCfh0fK-9XJyVNYSxTDsfF5SSYofkqJ0fOFVVwFe7yTyFPolXP_YEhYCGvHx9DXGbfIJ3VeCXveqdslnf7JKtks0j3bFcrC0O-PKQmI3HN_jwcIhyoNmyy2PrMjFVyfi62UXOUlB4BKUQXItP5NeBHMjQbjBQQ9cQ9Cmv3IvxqpexIMbLWFJUG-iSfNyitcTKegVw5deS3mpvgNCwbN3K9sEHXGA4ZejvLZioycTmE6RRjww46QVNlOwLnv4BLK3hW8u8FDdNki3jqxDiD11ySwspSky5JNOIYAKqLpL-VuJJOUGvVBjE1x_XvdZZqyyHJ7Lf-j4K8Kc2H3tIgu9rbZG2WRzieSmib4ZjIpwRlOlmI7gnC7c1l8_Lsjq_gDPf85hFrtD2cFJqs2Vre1hEaTOhqCbZBcPH_Uyx2BMVY3dUw5YB1qHaXSvEMU65yBKxN-pLtu_gy0iVTQ5ntpLbyfhrPB3cZLuzFDXGlHLY8_N9PFxcOiRZHws1IttW5YL3KPoksGGgC3Yy8BffxvUJreOafGh9mnUWk4G3ml9dAL4bbarwKRjTGLcW1G26BcQNRITENTBq-9odOCvdnOcTXQgsR5558MVMFAW6aY9aVZuWHfL__TjsrYLp5hTpnUERRkHJyqW5E8QbF_iEX4FTkl2l-z25t7bemd2UpfkMPX3_fH23dsrIcl_X2hcr2gaQFcxo2LH4Md5wtUJsuGjA8i5LH6oDPa_lQGTUbPe6LdGMklimCGeJmRIBp3gy4PmKD27z99sQXruxug_aBXnk1gU28EtvRn_V2z4CkyYBW9fbrRxFMBa4bJ3FxkClzvyU-5-YgwKO9UrZwWLO7_8tRsCoAkTTcdvXNlmFjFIuX1NtrpgCiAnfyQluDeEgwzLVt6jGtrXhkdf0EgP0bGmU7Oj4F0s_3t6o_oFSy29uOAtmZUBAlHB2p_qy68ok7qtWkAVKnqTCDSkqDSPrkUyoN4LJWqO1Hu1d_EMrXH8t3LMB9qgWOqeUIVbqdvmqrklaUflSf5HWLTm5mLuHD3yD79goDZ6twNUHxDqS3EPE3AYawcH56Xo474Rc60FZk6TvK6qy5Hp2Buwj4ZzwV3xpMRJKpw4Pqxcdgg9qyZZz80afFJSDEgz0U4VZqmb-mgCpHxgFYB6BLSd0MonZF7uM23tbxFGGZFtu_bd3xSLeWx26jYTTDlsXUidL2-d9vzPDxNrpFItqRnfuJmqWl5DCCFlOfhjhbwqwpfgfZwzVCj-pEecgu_swusbsdHC_rfgmZLWr6jfoKmvrfgfnJLF2MWLv69RUqaSLLKGxid7ypUoupNktkUAurfVh0EaclO8drlEM3pseXQd71GaeCnUNFmjntGL5Ey7MjzNV2E24X0kgSr4pKv675sMmHs0EBvnaKD0pZpRJsnhQgtvpMR6KnX5yhYOssRttUhGKZQyrNqekaFek8HO-Sw0WRl3lCxT0UcuF2aBxLuXEet17RJLxMec00sBUhneU8EnK4RTt-Co3Zu6pwSp_nc4lkq0GqFctwpXFTMXqpmg5IZ8YbH3rd_FfEOP0quHczb6_WlapoDL4mvTKDra9uQazRSVcpTDuLJ1dRjg5G1ucPVZ.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0e3de1773e981764016ade2ef63b8487d1872f909153f221eb",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 110,
+      "completion_tokens": 304,
+      "total_tokens": 414,
+      "cost": 0.000163,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000163,
+        "upstream_inference_prompt_cost": 1.1e-05,
+        "upstream_inference_completions_cost": 0.000152
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 153,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

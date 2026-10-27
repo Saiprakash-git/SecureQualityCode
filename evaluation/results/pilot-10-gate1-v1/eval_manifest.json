@@ -1,0 +1,98 @@
+{
+  "eval_name": "pilot-10-gate1-v1",
+  "evaluator_version": "m1.0",
+  "generated_at": "2026-10-27T15:54:04",
+  "git_head": "42d17b0038806c143b692142def103c2c88dedc7",
+  "evaluator_sha256": "523d84e06a62f511ea9572359242e18dd9ec87cc0a5bf1558b9a18a8c3e178be",
+  "java_helper_sha256": "7eeb41ccb4eeaf36d7f3aff91afaddce2f578ce3d089b9a798159c74802356e8",
+  "config_path": "evaluation/eval_config_pilot_10.json",
+  "plan_config": "runner/run_config_pilot_10task_resume.json",
+  "plan_config_sha256": "170596bc06a68b421d920a6d3c17a42e531e79b66ddff7822ac0ebde951f8d0b",
+  "languages": [
+    "python",
+    "java",
+    "c",
+    "cpp"
+  ],
+  "models": [
+    {
+      "label": "claude-haiku-5-5",
+      "model_id": "anthropic/claude-haiku-5.5"
+    },
+    {
+      "label": "gpt-6-luna",
+      "model_id": "openai/gpt-6-luna"
+    },
+    {
+      "label": "gemini-3-8-flash",
+      "model_id": "google/gemini-3.8-flash"
+    },
+    {
+      "label": "mistral-large-4",
+      "model_id": "mistralai/mistral-large-4-0"
+    },
+    {
+      "label": "qwen3-8-flash",
+      "model_id": "qwen/qwen3.8-flash"
+    }
+  ],
+  "task_filter": null,
+  "inputs": [
+    {
+      "run_dir": "output/pilot-10-haiku-flash-2026-10-26/pilot-10-haiku-flash-2026-10-25-real",
+      "ledger_rows": 143,
+      "ledger_partial_lines": 0,
+      "ledger_sha256": "cab419ac8947439da35df4fcc76633d625736bfa1fa31173bbdbda4e8641875f",
+      "run_summary_present": true,
+      "runner_lock_present": false
+    },
+    {
+      "run_dir": "output/pilot-10-resume-2026-10-26/pilot-10-resume-from-121-2026-10-26-real",
+      "ledger_rows": 110,
+      "ledger_partial_lines": 0,
+      "ledger_sha256": "c505cbfa20cef9d3a71610e82ec1a5f5188e1d746be3a33147ca91036e826178",
+      "run_summary_present": true,
+      "runner_lock_present": false
+    }
+  ],
+  "toolchain": {
+    "versions": {
+      "python": "3.11.1",
+      "javac": "javac 21.0.6",
+      "java": "java version \"21.0.6\" 2025-01-21 LTS",
+      "zig": "0.15.2",
+      "clang": "clang version 20.1.2 (https://github.com/ziglang/zig-bootstrap 7ef74e656cf8ddbd6bf891a8475892aa1afa6891)"
+    },
+    "target": "x86_64-linux-gnu",
+    "c_std": "gnu17",
+    "cpp_std": "gnu++17",
+    "timeout_seconds": 120,
+    "c_flags": [
+      "-target",
+      "x86_64-linux-gnu",
+      "-std=gnu17",
+      "-Wall",
+      "-ferror-limit=50",
+      "-c"
+    ],
+    "cpp_flags": [
+      "-target",
+      "x86_64-linux-gnu",
+      "-std=gnu++17",
+      "-Wall",
+      "-ferror-limit=50",
+      "-c"
+    ],
+    "javac_flags": [
+      "-XDrawDiagnostics",
+      "-proc:none",
+      "-implicit:none",
+      "-encoding",
+      "UTF-8",
+      "-Xlint:none",
+      "-cp <empty>",
+      "-sourcepath <empty>"
+    ],
+    "python_check": "ast.parse + compile(dont_inherit=True); no import resolution"
+  }
+}

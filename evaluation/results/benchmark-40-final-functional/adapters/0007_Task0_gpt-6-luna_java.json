@@ -1,0 +1,32 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "Task0_MISTRAL_codestral_latest.main",
+   "target": "FileResult.main",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "void",
+    "params": [
+     "String[] args"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "String[] args"
+    ],
+    "return": "void",
+    "static": true
+   }
+  }
+ ],
+ "combo_index": 7,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_000/gpt-6-luna/Task0_gpt-6-luna_java.java",
+ "artifact_sha256": "9707056a7654ebd954eedafbfc57f506f9927f238dd085312a09df68ca12ffa5",
+ "oracle_test_path": "src/test/java/codestral/task0/Task0_MISTRAL_codestral_latestTest.java",
+ "oracle_test_sha256": "aa755965eb6b7812fc0909aa2665ff7f92d9d2bf807f6803ab9f9801b4c0ddce",
+ "author": "functional.py draft_adapter (static)"
+}

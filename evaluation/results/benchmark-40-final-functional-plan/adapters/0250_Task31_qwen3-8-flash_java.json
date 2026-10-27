@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "Task31_CLAUDE_claude_3_5_sonnet_20240620.makeComplement",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 250,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_031/qwen3-8-flash/Task31_qwen3-8-flash_java.java",
+ "artifact_sha256": "d00ae6715aab038915d2a786f4ecd72568061e3935d927dd60f89729f5d0b4b1",
+ "oracle_test_path": "src/test/java/claude/task31/Task31Test.java",
+ "oracle_test_sha256": "22f2669d016b7526c851ca4797b0f8c65dc7bd4809d449e36a8bb98b938c0cf7",
+ "author": "functional.py draft_adapter (static)"
+}

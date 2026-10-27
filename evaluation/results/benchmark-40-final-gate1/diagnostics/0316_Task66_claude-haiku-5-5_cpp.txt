@@ -1,0 +1,13 @@
+Task66_claude-haiku-5-5_cpp.cpp:232:23: error: expected '}'
+  232 |     if (!content.ok) {
+      |                       ^
+Task66_claude-haiku-5-5_cpp.cpp:232:22: note: to match this '{'
+  232 |     if (!content.ok) {
+      |                      ^
+Task66_claude-haiku-5-5_cpp.cpp:232:23: error: expected '}'
+  232 |     if (!content.ok) {
+      |                       ^
+Task66_claude-haiku-5-5_cpp.cpp:216:12: note: to match this '{'
+  216 | int main() {
+      |            ^
+2 errors generated.

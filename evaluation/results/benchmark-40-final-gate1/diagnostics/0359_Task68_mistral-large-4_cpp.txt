@@ -1,0 +1,4 @@
+Task68_mistral-large-4_cpp.cpp:4:10: fatal error: 'ldap.h' file not found
+    4 | #include <ldap.h>
+      |          ^~~~~~~~
+1 error generated.

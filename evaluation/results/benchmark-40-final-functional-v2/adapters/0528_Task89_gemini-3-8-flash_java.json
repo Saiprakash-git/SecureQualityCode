@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "Task89_CLAUDE_claude_3_5_sonnet_20240620.checkPassword",
+   "target": "PasswordChecker.comparePasswordsSequentially",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "bound by reviewer to PasswordChecker.comparePasswordsSequentially: the artifact's single implementation of this task with a call-compatible signature",
+ "combo_index": 528,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-02-real/Task_089/gemini-3-8-flash/Task89_gemini-3-8-flash_java.java",
+ "artifact_sha256": "2d26e6a73a67e655bf3aa06fe9c5cc0080e0636dcb50511d7ee1bd5edacfdd16",
+ "oracle_test_path": "src/test/java/claude/task89/Task89Test.java",
+ "oracle_test_sha256": "49d39baec6147d2f7a25e8b63d0736bf59914e5dd1b9ca3c659f43355ea15852",
+ "author": "functional.py draft_adapter (static)"
+}

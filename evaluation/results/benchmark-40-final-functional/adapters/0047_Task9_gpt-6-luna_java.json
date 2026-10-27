@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "Task9_CLAUDE_claude_3_5_sonnet_20240620.oddOrEven",
+   "target": "Solution.oddOrEven",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 47,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_009/gpt-6-luna/Task9_gpt-6-luna_java.java",
+ "artifact_sha256": "e0b86f6c778990ae07f6632bf5c3782e3683f28864690aecaaa730cbb8309e30",
+ "oracle_test_path": "src/test/java/claude/task9/Task9_TestCase.java",
+ "oracle_test_sha256": "e68b3a4d33f94f70c374371ea14172c8db9ef23ae7ac5b18b67e4211389ffa95",
+ "author": "functional.py draft_adapter (static)"
+}

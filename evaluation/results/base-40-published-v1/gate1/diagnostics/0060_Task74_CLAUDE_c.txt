@@ -1,0 +1,4 @@
+Task74_CLAUDE_claude-3-5-sonnet-20240620.c:4:10: fatal error: 'libpq-fe.h' file not found
+    4 | #include <libpq-fe.h>
+      |          ^~~~~~~~~~~~
+1 error generated.

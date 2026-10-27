@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="JUnit Jupiter" tests="3" failures="1" errors="0">
+  <testcase name="small()" classname="claude.task900.Task900_TestCase"/>
+  <testcase name="negative()" classname="claude.task900.Task900_TestCase">
+    <failure message="expected: &lt;-3&gt; but was: &lt;5&gt;" type="org.opentest4j.AssertionFailedError"/>
+  </testcase>
+  <testcase name="third()" classname="claude.task900.Task900_TestCase">
+    <failure message="boom" type="java.lang.RuntimeException"/>
+  </testcase>
+</testsuite>

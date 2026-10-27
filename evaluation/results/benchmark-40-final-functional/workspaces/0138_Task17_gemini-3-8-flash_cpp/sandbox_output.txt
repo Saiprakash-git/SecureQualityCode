@@ -1,0 +1,7 @@
+@@957fca3fabf41a74 STEP 0 BEGIN@@
+
+@@957fca3fabf41a74 STEP 0 END rc=0@@
+@@957fca3fabf41a74 STEP 1 BEGIN@@
+All test cases passed.
+
+@@957fca3fabf41a74 STEP 1 END rc=0@@

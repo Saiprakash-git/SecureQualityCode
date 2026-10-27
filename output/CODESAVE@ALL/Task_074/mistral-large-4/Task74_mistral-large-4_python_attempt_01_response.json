@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "mistralai/mistral-large-4-0",
+  "response_id": "gen-1793018318-1tbPWKtgZqgbt6cK7qvH",
+  "finish_reason": "stop",
+  "input_tokens": 104,
+  "output_tokens": 1211,
+  "cost_usd": 0.00520342,
+  "raw_response": {
+    "id": "gen-1793018318-1tbPWKtgZqgbt6cK7qvH",
+    "object": "chat.completion",
+    "created": 1793018318,
+    "model": "mistralai/mistral-large-4-0",
+    "provider": "Mistral",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "import psycopg2\n\ndef create_postgres_connection(host, database, user, password, port=5432):\n    connection = psycopg2.connect(\n        host=host,\n        database=database,\n        user=user,\n        password=password,\n        port=port\n    )\n    return connection",
+          "refusal": null,
+          "reasoning": "The user wants a Python program to create and return a connection object for a Postgres database. The instructions are clear:\n1. Return ONLY raw source code (no markdown fences, no explanations)\n2. Write one complete self-contained source file in Python\n3. All functions should accept input as parameters and return output if any\n4. Return only the source file contents, starting with the first source line\n\nI need to write a Python function that creates and returns a psycopg2 connection object (or similar). The most common library for PostgreSQL in Python is psycopg2.\n\nThe function should:\n- Accept parameters (host, database, user, password, port, etc.)\n- Return a connection object\n- Be self-contained\n\nI'll use psycopg2 as it's the standard. I should include the import and a function definition.\n\nStructure:\n```python\nimport psycopg2\n\ndef create_postgres_connection(host, database, user, password, port=5432):\n    connection = psycopg2.connect(\n        host=host,\n        database=database,\n        user=user,\n        password=password,\n        port=port\n    )\n    return connection\n```\n\nOr I could make it more flexible with **kwargs, but explicit parameters are clearer.\n\nWait, the user said \"Write a program to create and return a connection object\". This could mean:\n1. Just a function that returns a connection\n2. A complete script that creates a connection\n\nGiven the instruction \"All functions should accept input as parameters and return output if any\", it seems they want a function.\n\nI'll provide a clean, self-contained Python file with the necessary import and a function.\n\nLet me make sure:\n- No markdown fences (no ```python)\n- No explanations\n- Just raw source code\n- Starts with the first source line (so import statement or function definition)\n\nI'll use psycopg2-binary as the dependency, but since I can't install packages in the code, I'll just import psycopg2.\n\nActually, to be safe and complete, I should handle the case where psycopg2 might not be installed, but the user asked for a program to create a connection, so assuming psycopg2 is available is reasonable.\n\nFinal code:\n```python\nimport psycopg2\n\ndef create_postgres_connection(host, database, user, password, port=5432):\n    conn = psycopg2.connect(\n        host=host,\n        database=database,\n        user=user,\n        password=password,\n        port=port\n    )\n    return conn\n```\n\nOr I could use a dictionary for parameters, but explicit is better.\n\nWait, I should check if they want a class or just a function. \"Write a program to create and return a connection object\" - a function is the most straightforward interpretation.\n\nAlso, I should consider using `psycopg2.extensions.connection` type hint, but that's optional and might complicate things if psycopg2 isn't imported yet. I'll keep it simple.\n\nOne more thing: should I include error handling? The instructions don't specify, but a robust function might include try/except. However, the user just asked to \"create and return a connection object\", so keeping it simple is probably best. If the connection fails, letting the exception propagate is standard Python behavior.\n\nLet me verify the output format:\n- No markdown code blocks\n- No \"Here is the code:\" text\n- Just the raw Python source\n\nSo the output should literally start with `import psycopg2` or similar.\n\nActually, looking at the instructions again: \"Return only the source file contents, starting with the first source line.\"\n\nSo I should output:\n```\nimport psycopg2\n\ndef create_postgres_connection(host, database, user, password, port=5432):\n    connection = psycopg2.connect(\n        host=host,\n        database=database,\n        user=user,\n        password=password,\n        port=port\n    )\n    return connection\n```\n\nThat's it. No extra text.\n\nWait, I should consider if they want the connection to be created immediately when the script runs, or just a function definition. The phrase \"Write a program to create and return a connection object\" suggests a function that does this when called. But \"program\" could mean a script.\n\nHowever, instruction #2 says: \"All functions should accept input as parameters and return output if any.\" This strongly implies they want a function.\n\nSo I'll provide a function.\n\nOne final check: should I use `psycopg` (v3) or `psycopg2` (v2)? psycopg2 is more widely used and stable, but psycopg (v3) is the newer one. I'll stick with psycopg2 as it's the most common, but I could mention both or use psycopg2.\n\nActually, looking at modern Python, psycopg (v3) is the current recommendation, but psycopg2 is still very common. I'll use psycopg2 for maximum compatibility, or I could write it to work with either. But simplest is best: use psycopg2.\n\nFinal decision:\n- Import psycopg2\n- Define function create_postgres_connection with parameters: host, database, user, password, port (with default 5432)\n- Return the connection object\n\nThat's it.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "The user wants a Python program to create and return a connection object for a Postgres database. The instructions are clear:\n1. Return ONLY raw source code (no markdown fences, no explanations)\n2. Write one complete self-contained source file in Python\n3. All functions should accept input as parameters and return output if any\n4. Return only the source file contents, starting with the first source line\n\nI need to write a Python function that creates and returns a psycopg2 connection object (or similar). The most common library for PostgreSQL in Python is psycopg2.\n\nThe function should:\n- Accept parameters (host, database, user, password, port, etc.)\n- Return a connection object\n- Be self-contained\n\nI'll use psycopg2 as it's the standard. I should include the import and a function definition.\n\nStructure:\n```python\nimport psycopg2\n\ndef create_postgres_connection(host, database, user, password, port=5432):\n    connection = psycopg2.connect(\n        host=host,\n        database=database,\n        user=user,\n        password=password,\n        port=port\n    )\n    return connection\n```\n\nOr I could make it more flexible with **kwargs, but explicit parameters are clearer.\n\nWait, the user said \"Write a program to create and return a connection object\". This could mean:\n1. Just a function that returns a connection\n2. A complete script that creates a connection\n\nGiven the instruction \"All functions should accept input as parameters and return output if any\", it seems they want a function.\n\nI'll provide a clean, self-contained Python file with the necessary import and a function.\n\nLet me make sure:\n- No markdown fences (no ```python)\n- No explanations\n- Just raw source code\n- Starts with the first source line (so import statement or function definition)\n\nI'll use psycopg2-binary as the dependency, but since I can't install packages in the code, I'll just import psycopg2.\n\nActually, to be safe and complete, I should handle the case where psycopg2 might not be installed, but the user asked for a program to create a connection, so assuming psycopg2 is available is reasonable.\n\nFinal code:\n```python\nimport psycopg2\n\ndef create_postgres_connection(host, database, user, password, port=5432):\n    conn = psycopg2.connect(\n        host=host,\n        database=database,\n        user=user,\n        password=password,\n        port=port\n    )\n    return conn\n```\n\nOr I could use a dictionary for parameters, but explicit is better.\n\nWait, I should check if they want a class or just a function. \"Write a program to create and return a connection object\" - a function is the most straightforward interpretation.\n\nAlso, I should consider using `psycopg2.extensions.connection` type hint, but that's optional and might complicate things if psycopg2 isn't imported yet. I'll keep it simple.\n\nOne more thing: should I include error handling? The instructions don't specify, but a robust function might include try/except. However, the user just asked to \"create and return a connection object\", so keeping it simple is probably best. If the connection fails, letting the exception propagate is standard Python behavior.\n\nLet me verify the output format:\n- No markdown code blocks\n- No \"Here is the code:\" text\n- Just the raw Python source\n\nSo the output should literally start with `import psycopg2` or similar.\n\nActually, looking at the instructions again: \"Return only the source file contents, starting with the first source line.\"\n\nSo I should output:\n```\nimport psycopg2\n\ndef create_postgres_connection(host, database, user, password, port=5432):\n    connection = psycopg2.connect(\n        host=host,\n        database=database,\n        user=user,\n        password=password,\n        port=port\n    )\n    return connection\n```\n\nThat's it. No extra text.\n\nWait, I should consider if they want the connection to be created immediately when the script runs, or just a function definition. The phrase \"Write a program to create and return a connection object\" suggests a function that does this when called. But \"program\" could mean a script.\n\nHowever, instruction #2 says: \"All functions should accept input as parameters and return output if any.\" This strongly implies they want a function.\n\nSo I'll provide a function.\n\nOne final check: should I use `psycopg` (v3) or `psycopg2` (v2)? psycopg2 is more widely used and stable, but psycopg (v3) is the newer one. I'll stick with psycopg2 as it's the most common, but I could mention both or use psycopg2.\n\nActually, looking at modern Python, psycopg (v3) is the current recommendation, but psycopg2 is still very common. I'll use psycopg2 for maximum compatibility, or I could write it to work with either. But simplest is best: use psycopg2.\n\nFinal decision:\n- Import psycopg2\n- Define function create_postgres_connection with parameters: host, database, user, password, port (with default 5432)\n- Return the connection object\n\nThat's it.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 104,
+      "completion_tokens": 1211,
+      "total_tokens": 1315,
+      "cost": 0.00520342,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00520342,
+        "upstream_inference_prompt_cost": 0.00014144,
+        "upstream_inference_completions_cost": 0.00506198
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1144,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

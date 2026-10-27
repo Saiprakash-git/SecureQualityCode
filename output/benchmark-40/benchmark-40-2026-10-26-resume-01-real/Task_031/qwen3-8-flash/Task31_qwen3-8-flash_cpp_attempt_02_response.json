@@ -1,0 +1,69 @@
+{
+  "attempt": 2,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1793017986-nUUtpiXKN7TPsNH7FZ3L",
+  "finish_reason": "stop",
+  "input_tokens": 312,
+  "output_tokens": 257,
+  "cost_usd": 0.000133286,
+  "raw_response": {
+    "id": "gen-1793017986-nUUtpiXKN7TPsNH7FZ3L",
+    "object": "chat.completion",
+    "created": 1793017986,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "#include <string>\n\nstd::string DNAStrand(const std::string& dna) {\n    std::string result;\n    result.reserve(dna.size());\n\n    for (char c : dna) {\n        switch (c) {\n            case 'A': result += 'T'; break;\n            case 'T': result += 'A'; break;\n            case 'C': result += 'G'; break;\n            case 'G': result += 'C'; break;\n            default: result += c; break;\n        }\n    }\n\n    return result;\n}",
+          "refusal": null,
+          "reasoning": "We need answer user's request: return ONLY raw source code, no Markdown fences, no explanations. Need produce C++ source file self-contained, function accepts input parameters and returns output. Problem DNA strand complement. Need likely from Codewars \"Deoxyribonucleic Acid\". In C++ maybe function DNAStrand(string) returns string. Need only source code. Ensure no fences. Could include using namespace std; string DNAStrand(const string& dna) { ... }. Need complete self-contained. Maybe include <string>. Need handle A<->T C<->G. Return complement. No prose. Final only code.\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user's request: return ONLY raw source code, no Markdown fences, no explanations. Need produce C++ source file self-contained, function accepts input parameters and returns output. Problem DNA strand complement. Need likely from Codewars \"Deoxyribonucleic Acid\". In C++ maybe function DNAStrand(string) returns string. Need only source code. Ensure no fences. Could include using namespace std; string DNAStrand(const string& dna) { ... }. Need complete self-contained. Maybe include <string>. Need handle A<->T C<->G. Return complement. No prose. Final only code.\n",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 312,
+      "completion_tokens": 257,
+      "total_tokens": 569,
+      "cost": 0.000133286,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 256,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000133286,
+        "upstream_inference_prompt_cost": 1.2496e-05,
+        "upstream_inference_completions_cost": 0.00012079
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 128,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,36 @@
+Task43_gemini-3-8-flash_cpp.cpp:257:15: error: expected '}'
+  257 |         if (it
+      |               ^
+Task43_gemini-3-8-flash_cpp.cpp:248:14: note: to match this '{'
+  248 | class WebApp {
+      |              ^
+Task43_gemini-3-8-flash_cpp.cpp:257:13: error: value of type 'const_iterator' (aka '__hash_map_const_iterator<__hash_const_iterator<std::__hash_node<std::__hash_value_type<std::string, std::string>, void *> *>>') is not contextually convertible to 'bool'
+  257 |         if (it
+      |             ^~
+Task43_gemini-3-8-flash_cpp.cpp:257:15: error: expected ')'
+  257 |         if (it
+      |               ^
+Task43_gemini-3-8-flash_cpp.cpp:257:12: note: to match this '('
+  257 |         if (it
+      |            ^
+Task43_gemini-3-8-flash_cpp.cpp:257:15: error: expected expression
+  257 |         if (it
+      |               ^
+Task43_gemini-3-8-flash_cpp.cpp:257:15: error: expected '}'
+Task43_gemini-3-8-flash_cpp.cpp:255:70: note: to match this '{'
+  255 |     std::string extractCookieSessionId(const HttpRequest& req) const {
+      |                                                                      ^
+Task43_gemini-3-8-flash_cpp.cpp:257:15: error: expected ';' after class
+  257 |         if (it
+      |               ^
+      |               ;
+Task43_gemini-3-8-flash_cpp.cpp:251:9: warning: private field 'serverFd_' is not used [-Wunused-private-field]
+  251 |     int serverFd_;
+      |         ^
+Task43_gemini-3-8-flash_cpp.cpp:252:9: warning: private field 'port_' is not used [-Wunused-private-field]
+  252 |     int port_;
+      |         ^
+Task43_gemini-3-8-flash_cpp.cpp:253:10: warning: private field 'running_' is not used [-Wunused-private-field]
+  253 |     bool running_;
+      |          ^
+3 warnings and 6 errors generated.

@@ -1,0 +1,16 @@
+{
+  "description": "Sample config: frozen first run only.",
+  "project_root": "..",
+  "plan_config": "../runner/run_config_benchmark_40task_resume.json",
+  "runner_dir": "../runner",
+  "runs": [
+    "../output/benchmark-40/benchmark-40-2026-10-26-real"
+  ],
+  "toolchain_dir": ".toolchain",
+  "toolchain": {
+    "target": "x86_64-linux-gnu",
+    "c_std": "gnu17",
+    "cpp_std": "gnu++17",
+    "timeout_seconds": 120
+  }
+}

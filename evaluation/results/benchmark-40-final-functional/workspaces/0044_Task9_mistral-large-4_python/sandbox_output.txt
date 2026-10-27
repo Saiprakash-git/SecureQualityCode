@@ -1,0 +1,18 @@
+@@b32f2cea65919679 STEP 0 BEGIN@@
+test_empty_array (test_oracle.TestOddOrEven.test_empty_array) ... ok
+test_large_numbers (test_oracle.TestOddOrEven.test_large_numbers) ... ok
+test_mixed_numbers_even_sum (test_oracle.TestOddOrEven.test_mixed_numbers_even_sum) ... ok
+test_mixed_numbers_odd_sum (test_oracle.TestOddOrEven.test_mixed_numbers_odd_sum) ... ok
+test_multiple_negatives (test_oracle.TestOddOrEven.test_multiple_negatives) ... ok
+test_multiple_negatives_odd_sum (test_oracle.TestOddOrEven.test_multiple_negatives_odd_sum) ... ok
+test_multiple_positives (test_oracle.TestOddOrEven.test_multiple_positives) ... ok
+test_multiple_positives_odd_sum (test_oracle.TestOddOrEven.test_multiple_positives_odd_sum) ... ok
+test_single_positive_even (test_oracle.TestOddOrEven.test_single_positive_even) ... ok
+test_single_positive_odd (test_oracle.TestOddOrEven.test_single_positive_odd) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.001s
+
+OK
+
+@@b32f2cea65919679 STEP 0 END rc=0@@

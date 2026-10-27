@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793016567-41WAjtEYu1twOWSl8zhJ",
+  "finish_reason": "stop",
+  "input_tokens": 187,
+  "output_tokens": 77,
+  "cost_usd": 5.72e-05,
+  "raw_response": {
+    "id": "gen-1793016567-41WAjtEYu1twOWSl8zhJ",
+    "object": "chat.completion",
+    "created": 1793016567,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "def number(lines):\n    return [f\"{index}: {line}\" for index, line in enumerate(lines, start=1)]",
+          "refusal": null,
+          "reasoning": "**Implementing line numbering**\n\nI need to implement a function that numbers lines of text. The function isn't specified yet, but I'm thinking we could call it something straightforward like `number(lines)`. I\u2019ll make sure it\u2019s simple to understand and use. The return value should reflect the line numbers added to the input lines. I want to keep the code clean and concise while meeting the requirements of the task! Let\u2019s get this done!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Implementing line numbering**\n\nI need to implement a function that numbers lines of text. The function isn't specified yet, but I'm thinking we could call it something straightforward like `number(lines)`. I\u2019ll make sure it\u2019s simple to understand and use. The return value should reflect the line numbers added to the input lines. I want to keep the code clean and concise while meeting the requirements of the task! Let\u2019s get this done!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30L8y6fTUVcdZyKfAJ-QcNqIVdMfEYabM1Etvopy41OaMhCDxj1SOzKRMwEI9Jj-m8YrGLjnOqUUj8fE9qq1P0wp9OWx7t-dw2ESbwyir9vGN2Wz_BBfOLwedAgG_4XXfd_IXF4IsxbMchywgkOpvPW7qBMhEOYaPiGE3YdofYWq1v2OvrXg2p8QP-vDwYdKK0oYxHXkg7r1pS00UX7SadbmYcXNi6EyL0pRrWvSk4XikTaeF0S9OKlqrCZScUQ6qMRxu87coubpqH6nuqEx2JI_6kIjBhVUCOdM1iOShIkBo3WIR9yU2e6Xf9lMoYAr-veIgabR2BXG8jBETk5O-5_vxigk6xBCZDWmKAEkMcbIlFYNt0fsjOb3i6SFS9BwK9jtuzAgjM8TgRySQ4EcwS2C2fYoA_Wgk0nD4tJVKF0QqdmMblSAlcjINvJZSaq4_tnnDAvfabZk0S1zNfbprjJOyWhBP2DhY0v6rxZdx7yGbhtrzZEF9X81WiwDCf4Lo_Jul_yspL0qnhbaBj66WsJqbMvKqz44KjbCvCPiRFhnTC-tKZJk0Ytr9yC0N364t96UTx7a8QxBmgDo8t19Hs_sq-fiSSqgIIobSMBcb25SQpHmnNIpfrmZKDA3bYqB_WVKezeKQj5P6CFqLfMwm1U9Idi6GRGzDs_hylBq85f-vKG50CXhlZzA2e0zakL69cKxzlyVKEvZN-1i62WVpJkJ7rnJH0EvH_8s-N50szl6sdSo7FZlc_bATOxyRO35oAZ4sqNRFdkaLkvve2X2I4jIwzy2kQ1XQ71GiqQcAlbYODfXl_mvmilmLggvTWgtNB6iV-B37xsCPwjVIqplPBDI3nn1G7IzfIycjdz0a3TyVJP7NoGDnwuX2XXB3EL2hqHMlDUfP-r7CY5eb6W24lzGSgZcdBDrGq4kW1IBqc1Iqfv13jRF1FlTWvDndDTi7B2ChtffcEHk1buYWmxvwN4c787gJ4B9YicMjRLKSEBKDIzSk0FzkKDNxTRk1oYeVgHpjf8li1ZkqYDcB8EYpvGQI7Wy2n1SDBn7w7VyBkOem1uh94ZPL1w0jfg1fB66_UwJ4gcCKhdNJ-uPR0x3CsJEqtRFZt5DOBQTSlcgG6k8rFiZ4yHE15ESjGAVcnYCL2MP6qyBjToSH9Yt0lLh-K7raYIwWmAMASMOOwG9lyiC09Gh1H-1Vb8RBav53J9lSEwdNigf1F2z0iT227Qpuu8ubBpAcV9fNVLcZMV0gZKiVZ01QF-uayVv-GPdXz2g8QszirHgmKU_zdnTNDZZYhiq1WkUkh1uQHdg4IUqG5doRxKcbs_ZwPkDsurR9Z4o6R-Cby5b1gpWcIupOQ1NKQv2DoB1_NkJYOc7cD7kxFfKwpknh6gn7ofV5aJ5CC2y-U49xolExmCs5Jbm6SU7mW06NYxgQmvIaUQrcab83bkmXLWk1ZJb-9dgurkeDpyO9N8QX_D6k9nWNdfgTfikwkMRlZToofZMIu7BsDGdvl1SboJP14eLX6Odpk_f3zWaWl27_rG6lJPB4guoAsdh_eNYq41zm2_RxXAR-ulqAujFlxtE1uj_1bnLXRk9w1rBhbWpt5182mqVKN-A91HNHotacEnunToefqLAtFcNr61zYY9AvDOvGgr8w3MEUG2_qcRd85vlCiHYrOrF_WorNgqqsdgeOYrWPVTC-In0BRCTZIiQRH5eXZZ8CbVj7FBvawAKoPdVuvEPeXZ_-I3VtYtRb1S_PoFkeAQEKOQwwiuDXrT2yy1RNq_DSreJEIjEJYX2PQEe8FRaaIly5ySVIcDj8kU6bumU4dl0VaaIg1wqs97b8uG1BRCwEnIpA3eg7qkrxR9b4CqqWfPz46Pas5iZ8Vt5GKGyYHKI-JL_oOKfjlEbgt_Nh6wn213JznUVxB4gl8Mi_tCC8jqCTTkBqMCZCnFtFO84pHLEd7yo5sxoO1h8hQLn--xfk2znp2aAF7mCY2_wrneeYgKXl1QIYLyizXbLUxxcrV1hRAdt8HctQ8zTCF2cO6eEbjPWb1oPESC1wuHxDyyd8XhKDNOchu5Oe6m-KuPGKHT2YzG_YNUkzOwJcgULKtRUF55bPN9n7f34bIBH2WsXISTALjMJBJ8sSso5XYSJQSf8MY1hZotFsNyR-X8lf8IKeo_19TAiucb5.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_089e6d3d350869ec016adf42fa79dc87d18c3f28b811fde796",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 187,
+      "completion_tokens": 77,
+      "total_tokens": 264,
+      "cost": 5.72e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 5.72e-05,
+        "upstream_inference_prompt_cost": 1.87e-05,
+        "upstream_inference_completions_cost": 3.85e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 45,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

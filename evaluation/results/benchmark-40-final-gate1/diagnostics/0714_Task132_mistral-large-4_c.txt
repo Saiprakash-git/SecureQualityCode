@@ -1,0 +1,8 @@
+Task132_mistral-large-4_c.c:204:6: error: variable has incomplete type 'void'
+  204 | void generate
+      |      ^
+Task132_mistral-large-4_c.c:204:14: error: expected ';' after top level declarator
+  204 | void generate
+      |              ^
+      |              ;
+2 errors generated.

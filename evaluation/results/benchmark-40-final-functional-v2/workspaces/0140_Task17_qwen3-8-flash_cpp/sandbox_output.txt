@@ -1,0 +1,7 @@
+@@704d0824507ce29a STEP 0 BEGIN@@
+
+@@704d0824507ce29a STEP 0 END rc=0@@
+@@704d0824507ce29a STEP 1 BEGIN@@
+All test cases passed.
+
+@@704d0824507ce29a STEP 1 END rc=0@@

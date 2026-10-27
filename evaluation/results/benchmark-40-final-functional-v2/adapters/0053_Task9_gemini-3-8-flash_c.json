@@ -1,0 +1,18 @@
+{
+ "status": "rejected",
+ "bindings": [
+  {
+   "canonical": "odd_or_even",
+   "target": "odd_or_even",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "rejected after execution showed a build failure: the oracle test declares its own prototype const char* odd_or_even(int arr[], int size), which conflicts with the artifact's (legitimate) signature; harness incompatibility, not a model failure",
+ "combo_index": 53,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_009/gemini-3-8-flash/Task9_gemini-3-8-flash_c.c",
+ "artifact_sha256": "35681971ad5b6cff0341a5d7f18df44807189460c2069d6bcc821411a93eeb6a",
+ "oracle_test_path": "tests/claude/Task9_Test.c",
+ "oracle_test_sha256": "8c5d75303fa54524247336c03d79eba8d81ac80c423b5ddc25539bd1c7ddd3cd",
+ "author": "functional.py draft_adapter (static)"
+}

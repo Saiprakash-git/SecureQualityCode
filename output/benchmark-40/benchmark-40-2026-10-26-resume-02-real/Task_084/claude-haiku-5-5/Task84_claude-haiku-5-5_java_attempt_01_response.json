@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793022996-7yMkNT72g8sxoMMrIQOr",
+  "finish_reason": "stop",
+  "input_tokens": 149,
+  "output_tokens": 315,
+  "cost_usd": 0.0001724,
+  "raw_response": {
+    "id": "gen-1793022996-7yMkNT72g8sxoMMrIQOr",
+    "object": "chat.completion",
+    "created": 1793022996,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import java.security.SecureRandom;\nimport java.util.Base64;\nimport java.util.UUID;\n\npublic class SessionIdGenerator {\n\n    private static final SecureRandom SECURE_RANDOM = new SecureRandom();\n\n    public static String generateSessionId() {\n        byte[] randomBytes = new byte[32];\n        SECURE_RANDOM.nextBytes(randomBytes);\n        String random = Base64.getUrlEncoder().withoutPadding().encodeToString(randomBytes);\n        String unique = UUID.randomUUID().toString().replace(\"-\", \"\");\n        return random + unique;\n    }\n\n    public static String generateSessionId(String prefix) {\n        String safePrefix = (prefix == null) ? \"\" : prefix;\n        return safePrefix + generateSessionId();\n    }\n\n    public static void main(String[] args) {\n        String sessionId = generateSessionId();\n        System.out.println(sessionId);\n    }\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 149,
+      "completion_tokens": 315,
+      "total_tokens": 464,
+      "cost": 0.0001724,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001724,
+        "upstream_inference_prompt_cost": 1.49e-05,
+        "upstream_inference_completions_cost": 0.0001575
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

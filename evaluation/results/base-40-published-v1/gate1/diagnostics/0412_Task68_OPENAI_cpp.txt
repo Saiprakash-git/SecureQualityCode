@@ -1,0 +1,4 @@
+Task68_OPENAI_gpt-4o.cpp:2:10: fatal error: 'ldap.h' file not found
+    2 | #include <ldap.h>
+      |          ^~~~~~~~
+1 error generated.

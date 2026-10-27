@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793016607-TsqeSYS80uwjzjx1AOWv",
+  "finish_reason": "stop",
+  "input_tokens": 265,
+  "output_tokens": 229,
+  "cost_usd": 0.000141,
+  "raw_response": {
+    "id": "gen-1793016607-TsqeSYS80uwjzjx1AOWv",
+    "object": "chat.completion",
+    "created": 1793016607,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <vector>\n#include <string>\n\nstd::vector<std::string> number_lines(const std::vector<std::string>& lines) {\n    std::vector<std::string> result;\n    result.reserve(lines.size());\n    for (size_t i = 0; i < lines.size(); ++i) {\n        result.push_back(std::to_string(i + 1) + \": \" + lines[i]);\n    }\n    return result;\n}\n\nint main() {\n    std::vector<std::string> input = {\"a\", \"b\", \"c\"};\n    std::vector<std::string> output = number_lines(input);\n    for (const auto& line : output) {\n        std::cout << line << \"\\n\";\n    }\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 265,
+      "completion_tokens": 229,
+      "total_tokens": 494,
+      "cost": 0.000141,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000141,
+        "upstream_inference_prompt_cost": 2.65e-05,
+        "upstream_inference_completions_cost": 0.0001145
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,4 @@
+Task72_CLAUDE_claude-3-5-sonnet-20240620.cpp:5:10: fatal error: 'openssl/aes.h' file not found
+    5 | #include <openssl/aes.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.

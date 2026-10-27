@@ -1,0 +1,159 @@
+Task72_claude-haiku-5-5_c.c:1:1: error: expected identifier or '('
+    1 | ```c
+      | ^
+In file included from Task72_claude-haiku-5-5_c.c:2:
+In file included from F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:47:
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/bits/types/cookie_io_functions_t.h:28:43: error: unknown type name 'size_t'
+   28 |                                           size_t __nbytes);
+      |                                           ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/bits/types/cookie_io_functions_t.h:37:44: error: unknown type name 'size_t'
+   37 |                                            size_t __nbytes);
+      |                                            ^
+In file included from Task72_claude-haiku-5-5_c.c:2:
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:317:35: error: unknown type name 'size_t'
+  317 | extern FILE *fmemopen (void *__s, size_t __len, const char *__modes)
+      |                                   ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:323:47: error: unknown type name 'size_t'
+  323 | extern FILE *open_memstream (char **__bufloc, size_t *__sizeloc) __THROW
+      |                                               ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:343:20: error: unknown type name 'size_t'
+  343 |                     int __modes, size_t __n) __THROW __nonnull ((1));
+      |                                  ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:349:10: error: unknown type name 'size_t'
+  349 |                        size_t __size) __THROW __nonnull ((1));
+      |                        ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:388:44: error: unknown type name 'size_t'
+  388 | extern int snprintf (char *__restrict __s, size_t __maxlen,
+      |                                            ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:392:45: error: unknown type name 'size_t'
+  392 | extern int vsnprintf (char *__restrict __s, size_t __maxlen,
+      |                                             ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:690:30: error: unknown type name 'size_t'
+  690 |                              size_t *__restrict __n, int __delimiter,
+      |                              ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:693:28: error: unknown type name 'size_t'
+  693 |                            size_t *__restrict __n, int __delimiter,
+      |                            ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:698:27: error: unknown type name 'size_t'
+  698 |                           size_t *__restrict __n,
+      |                           ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:728:8: error: unknown type name 'size_t'
+  728 | extern size_t fread (void *__restrict __ptr, size_t __size,
+      |        ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:728:46: error: unknown type name 'size_t'
+  728 | extern size_t fread (void *__restrict __ptr, size_t __size,
+      |                                              ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:729:8: error: unknown type name 'size_t'
+  729 |                      size_t __n, FILE *__restrict __stream) __wur
+      |                      ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:735:8: error: unknown type name 'size_t'
+  735 | extern size_t fwrite (const void *__restrict __ptr, size_t __size,
+      |        ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:735:53: error: unknown type name 'size_t'
+  735 | extern size_t fwrite (const void *__restrict __ptr, size_t __size,
+      |                                                     ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:736:9: error: unknown type name 'size_t'
+  736 |                       size_t __n, FILE *__restrict __s) __nonnull((4));
+      |                       ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:756:8: error: unknown type name 'size_t'
+  756 | extern size_t fread_unlocked (void *__restrict __ptr, size_t __size,
+      |        ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:756:55: error: unknown type name 'size_t'
+  756 | extern size_t fread_unlocked (void *__restrict __ptr, size_t __size,
+      |                                                       ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:757:10: error: unknown type name 'size_t'
+  757 |                               size_t __n, FILE *__restrict __stream) __wur
+      |                               ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:759:8: error: unknown type name 'size_t'
+  759 | extern size_t fwrite_unlocked (const void *__restrict __ptr, size_t __size,
+      |        ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:759:62: error: unknown type name 'size_t'
+  759 | extern size_t fwrite_unlocked (const void *__restrict __ptr, size_t __size,
+      |                                                              ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdio.h:760:11: error: unknown type name 'size_t'
+  760 |                                size_t __n, FILE *__restrict __stream)
+      |                                ^
+In file included from Task72_claude-haiku-5-5_c.c:3:
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:98:8: error: unknown type name 'size_t'
+   98 | extern size_t __ctype_get_mb_cur_max (void) __THROW __wur;
+      |        ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:531:4: error: unknown type name 'size_t'
+  531 |                         size_t __statelen) __THROW __nonnull ((2));
+      |                         ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:561:4: error: unknown type name 'size_t'
+  561 |                         size_t __statelen,
+      |                         ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:678:22: error: unknown type name 'size_t'
+  678 | extern void *malloc (size_t __size) __THROW __attribute_malloc__
+      |                      ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:681:22: error: unknown type name 'size_t'
+  681 | extern void *calloc (size_t __nmemb, size_t __size)
+      |                      ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:681:38: error: unknown type name 'size_t'
+  681 | extern void *calloc (size_t __nmemb, size_t __size)
+      |                                      ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:689:36: error: unknown type name 'size_t'
+  689 | extern void *realloc (void *__ptr, size_t __size)
+      |                                    ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:706:41: error: unknown type name 'size_t'
+  706 | extern void *reallocarray (void *__ptr, size_t __nmemb, size_t __size)
+      |                                         ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:706:57: error: unknown type name 'size_t'
+  706 | extern void *reallocarray (void *__ptr, size_t __nmemb, size_t __size)
+      |                                                         ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:712:41: error: unknown type name 'size_t'
+  712 | extern void *reallocarray (void *__ptr, size_t __nmemb, size_t __size)
+      |                                         ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:712:57: error: unknown type name 'size_t'
+  712 | extern void *reallocarray (void *__ptr, size_t __nmemb, size_t __size)
+      |                                                         ^
+In file included from Task72_claude-haiku-5-5_c.c:3:
+In file included from F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:718:
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/alloca.h:32:22: error: unknown type name 'size_t'
+   32 | extern void *alloca (size_t __size) __THROW;
+      |                      ^
+In file included from Task72_claude-haiku-5-5_c.c:3:
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:724:22: error: unknown type name 'size_t'
+  724 | extern void *valloc (size_t __size) __THROW __attribute_malloc__
+      |                      ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:730:45: error: unknown type name 'size_t'
+  730 | extern int posix_memalign (void **__memptr, size_t __alignment, size_t __size)
+      |                                             ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:730:65: error: unknown type name 'size_t'
+  730 | extern int posix_memalign (void **__memptr, size_t __alignment, size_t __size)
+      |                                                                 ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:736:29: error: unknown type name 'size_t'
+  736 | extern void *aligned_alloc (size_t __alignment, size_t __size)
+      |                             ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:736:49: error: unknown type name 'size_t'
+  736 | extern void *aligned_alloc (size_t __alignment, size_t __size)
+      |                                                 ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:973:9: error: unknown type name 'size_t'
+  973 |                       size_t __nmemb, size_t __size, __compar_fn_t __compar)
+      |                       ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:973:25: error: unknown type name 'size_t'
+  973 |                       size_t __nmemb, size_t __size, __compar_fn_t __compar)
+      |                                       ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:982:34: error: unknown type name 'size_t'
+  982 | extern void qsort (void *__base, size_t __nmemb, size_t __size,
+      |                                  ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:982:50: error: unknown type name 'size_t'
+  982 | extern void qsort (void *__base, size_t __nmemb, size_t __size,
+      |                                                  ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:1062:6: error: unknown type name 'size_t'
+ 1062 |                    size_t __len) __THROW __nonnull ((3, 4, 5));
+      |                    ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:1065:6: error: unknown type name 'size_t'
+ 1065 |                    size_t __len) __THROW __nonnull ((3, 4, 5));
+      |                    ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:1069:31: error: unknown type name 'size_t'
+ 1069 |                     char *__restrict __buf, size_t __len)
+      |                                             ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:1073:31: error: unknown type name 'size_t'
+ 1073 |                     char *__restrict __buf, size_t __len)
+      |                                             ^
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libc\include\generic-glibc/stdlib.h:1080:36: error: unknown type name 'size_t'
+ 1080 | extern int mblen (const char *__s, size_t __n) __THROW;
+      |                                    ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+51 errors generated.

@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "*",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 781,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-02-real/Task_149/claude-haiku-5-5/Task149_claude-haiku-5-5_python.py",
+ "artifact_sha256": "7b5f7203addbf5fca38f1f0e0d806a2f68b96f5b38b8fca1bbf352d94d377ac5",
+ "oracle_test_path": "tests/gemini/Task149_GEMINI_gemini_1_5_pro_001/Task149_GEMINI_gemini_1_5_pro_001.py",
+ "oracle_test_sha256": "888eed25f635e64aab435e0d6d919c818b6ffd17865ab3ecc91d491af8bc5df8",
+ "author": "functional.py draft_adapter (static)"
+}

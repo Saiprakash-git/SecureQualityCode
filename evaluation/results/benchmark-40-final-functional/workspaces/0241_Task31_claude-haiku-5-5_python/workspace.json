@@ -1,0 +1,57 @@
+{
+ "language": "python",
+ "artifact_origin": "generated",
+ "artifact_sha256": "5e1af728087f883da1df26a8c698f29fad824abf0245818c24b058e346a2d04a",
+ "oracle_test_path": "tests/claude/Task31_CLAUDE_claude_3_5_sonnet_20240620/Task31_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "1b57a28aff2c9bffe09c1e094f6c21de5b19fa89a86eaa92b1180b8164ce6c58",
+ "verdict_style": "unittest",
+ "bindings": [
+  {
+   "canonical": "make_complement",
+   "target": "DNA_strand",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "line": 1,
+   "removed": "from output.claude.Task31_CLAUDE_claude_3_5_sonnet_20240620 import DNA_strand as make_complement",
+   "inserted": "from adapter_bindings import *  # adapter"
+  },
+  {
+   "line": 2,
+   "removed": "# from output.codestral.Task31_MISTRAL_codestral_latest import dna_complement as make_complement"
+  },
+  {
+   "line": 3,
+   "removed": "# from output.gemini.Task31_GEMINI_gemini_1_5_pro_001 import DNA_strand as make_complement"
+  },
+  {
+   "line": 4,
+   "removed": "# from output.gtp4o.Task31_OPENAI_gpt_4o import dna_strand as make_complement"
+  },
+  {
+   "line": 5,
+   "removed": "# from output.llama3.Task31_PERPLEXITY_llama_3_sonar_large_32k_chat import DNA_strand as make_complement"
+  }
+ ],
+ "steps": [
+  [
+   "{python}",
+   "-m",
+   "unittest",
+   "-v",
+   "test_oracle"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "adapter_bindings.py": "a15727bb316780c51d46f1f2aafd2710af34ec559c9358c89fdc6bfabe629a2b",
+  "impl_under_test.py": "5e1af728087f883da1df26a8c698f29fad824abf0245818c24b058e346a2d04a",
+  "test_oracle.py": "443cb318367400b4be2096d82ea844c217257e1c75ec9831d46d0ae3f1dd16fe"
+ }
+}

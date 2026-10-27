@@ -1,0 +1,4 @@
+Task76_gpt-6-luna_cpp.cpp:1:10: fatal error: 'curl/curl.h' file not found
+    1 | #include <curl/curl.h>
+      |          ^~~~~~~~~~~~~
+1 error generated.

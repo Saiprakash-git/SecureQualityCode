@@ -1,0 +1,4 @@
+Task37_claude-haiku-5-5_c.c:3:10: fatal error: 'sqlite3.h' file not found
+    3 | #include <sqlite3.h>
+      |          ^~~~~~~~~~~
+1 error generated.

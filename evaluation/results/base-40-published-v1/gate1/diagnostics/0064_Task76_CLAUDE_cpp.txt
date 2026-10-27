@@ -1,0 +1,4 @@
+Task76_CLAUDE_claude-3-5-sonnet-20240620.cpp:5:10: fatal error: 'curl/curl.h' file not found
+    5 | #include <curl/curl.h>
+      |          ^~~~~~~~~~~~~
+1 error generated.

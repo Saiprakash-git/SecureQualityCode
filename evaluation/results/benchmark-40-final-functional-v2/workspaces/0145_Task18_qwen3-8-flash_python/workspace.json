@@ -1,0 +1,57 @@
+{
+ "language": "python",
+ "artifact_origin": "generated",
+ "artifact_sha256": "ba27a26be5212fe240eee2001554521edc8148e8d29b8347cf2c3160f0a7bd0c",
+ "oracle_test_path": "tests/claude/Task18_CLAUDE_claude_3_5_sonnet_20240620/Task18_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "b624677fc4177398a90e1fb710d4cc55668f24b5567d2770a3b4f340599173e8",
+ "verdict_style": "unittest",
+ "bindings": [
+  {
+   "canonical": "convert_binary_array_to_int",
+   "target": "binary_array_to_int",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "line": 1,
+   "removed": "# from output.claude.Task18_CLAUDE_claude_3_5_sonnet_20240620 import binary_array_to_number as convert_binary_array_to_int",
+   "inserted": "from adapter_bindings import *  # adapter"
+  },
+  {
+   "line": 2,
+   "removed": "# from output.codestral.Task18_MISTRAL_codestral_latest import binary_array_to_number as convert_binary_array_to_int"
+  },
+  {
+   "line": 3,
+   "removed": "# from output.gemini.Task18_GEMINI_gemini_1_5_pro_001 import binary_array_to_number as convert_binary_array_to_int"
+  },
+  {
+   "line": 4,
+   "removed": "# from output.gtp4o.Task18_OPENAI_gpt_4o import binary_array_to_int as convert_binary_array_to_int"
+  },
+  {
+   "line": 5,
+   "removed": "# from output.llama3.Task18_PERPLEXITY_llama_3_sonar_large_32k_chat import binary_array_to_number as convert_binary_array_to_int"
+  }
+ ],
+ "steps": [
+  [
+   "{python}",
+   "-m",
+   "unittest",
+   "-v",
+   "test_oracle"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "adapter_bindings.py": "261cb4a821bd164fb24b955913d078597fc9ec8563fee4734f9737d3b9c21821",
+  "impl_under_test.py": "ba27a26be5212fe240eee2001554521edc8148e8d29b8347cf2c3160f0a7bd0c",
+  "test_oracle.py": "4f4c24eaea7f33f934d4b20f9677a171928712599e1626600d0a7003c47eb38e"
+ }
+}

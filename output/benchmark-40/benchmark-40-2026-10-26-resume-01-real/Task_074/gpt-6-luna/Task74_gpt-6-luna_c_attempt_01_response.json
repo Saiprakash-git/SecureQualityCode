@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793017992-kYDijTaa86lLMFXuKHAN",
+  "finish_reason": "stop",
+  "input_tokens": 106,
+  "output_tokens": 612,
+  "cost_usd": 0.0003166,
+  "raw_response": {
+    "id": "gen-1793017992-kYDijTaa86lLMFXuKHAN",
+    "object": "chat.completion",
+    "created": 1793017992,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <libpq-fe.h>\n\nPGconn *create_postgres_connection(const char *connection_info)\n{\n    if (connection_info == NULL) {\n        return NULL;\n    }\n\n    PGconn *connection = PQconnectdb(connection_info);\n    if (connection == NULL) {\n        return NULL;\n    }\n\n    if (PQstatus(connection) != CONNECTION_OK) {\n        PQfinish(connection);\n        return NULL;\n    }\n\n    return connection;\n}",
+          "refusal": null,
+          "reasoning": "**Considering connection parameters**\n\nI\u2019m thinking about whether to return error information, but I realize that I may not need to. Instead, I consider using convenient parameters like host, database, user, password, and port with PQconnectdbParams. This approach seems safer as it avoids conninfo injection. I\u2019m planning to explicitly define inputs in the function signature and use null-terminated arrays for the conninfo fields. The user is asking for a program to create and return a connection object, and I think this will work.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Considering connection parameters**\n\nI\u2019m thinking about whether to return error information, but I realize that I may not need to. Instead, I consider using convenient parameters like host, database, user, password, and port with PQconnectdbParams. This approach seems safer as it avoids conninfo injection. I\u2019m planning to explicitly define inputs in the function signature and use null-terminated arrays for the conninfo fields. The user is asking for a program to create and return a connection object, and I think this will work.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30iQRQXFUu-kSz0MLuBkTQGWo9RsEOAtFVunAfvLr_NRUkugOySyrbpxE550G3Ua8PjyDPcCGmWBnqUW3W1ozg8TGoHOgxyiAHBJjV-c65YsC41gBbTQ7qqeD5ZMIBgXBtNx2UZ7wfLrr_XWNltMX0Px-B-Y15oRwGh1y70RcKgyNm3O72fTx8JUuovOQoJA3nULfwyyQFpvJXpeCbuaf_EYRPQkfF8U85X8HGE2qDQQq2oujoFZa0lu0CQHBmluUy7XeyGSQ-VN_bzTYRQrz7x1g2Pg3Vx8MHn3Mb9jf8aGALzO097bM2mCydRsOdK8wmuRn_loGvTYk4ttrvuv-KBlI3y1qG-ByFeXlFKnHGhowS_2QlmfItOm4lYQG1jCu0HereNLlVe2Xa9kSeqLb6ZFm97Xo8cWGZsbbVTEoUWahHN9c8A6szQo1uJJP_K5YJOFUAjRoGf3O5mHHo3prYxLFw5i-dnVfXm98CdHIXITRJrSPeJGiopblq0A6iouqRsjcCILy5gx43WmHmVxgHcmcO_-Kq54be8rWSrL5WA4uJx2TF8X-9sx30wNENiMXlPnRHqoixhTiWhqCE5oMXtyvzcxArV5VN2BGegkyQdUrysG8K7jLF5KK5Eb5Xr180RV4HdAXtxrsA6hzHyvV82ExD1qW7FdoiKByNVFh3UzZN0KvLd0wyYNjo_N-CkIevz6Asfi8iIjzDGxqb1Wj-TKx6OQYuZoa5rI_6QzxF84q2hy1mA29HfYNVLMfHSciAX7NWRUjtk8GUJTVOmVIe_sIYa_npAZx0_uevIYhMWc7o5gchJ2vtE_1_THp3VLviIWNRk_zQRieLiGbIUqPvvRfvRkEnrISCPCDsaYXS-kRIuv_dLwMHIl1Z6ydYa0tFptennxPxZkLg3VXING7KhHhxgxvOvLAjoV7KP2a0yEp276jB-7eYTvTqWZCkWt3Eath6oGrcvRiHbnwEwo8T4jiGru1eYrXJ-F8HzoJ1TDn30lODZEjUOeBvVveTgHKCGl9wYGkaV2koT4Xgj3Jrt4x91eE8gB8QMbDj7XvUoBYBscVp4tEcIJHiH0VODe57iraCiSNRMrmDhaIPCsx1oHQU2n9Xm8g4EEJanQNrarFJ9I8ubMszj6DCbF0VD3_u_VtDo6tPelVKrteq9E9Vj8KBY-cgnwzfliegl2KP_2O_JgZJsjnTjJH4As5pDWA4bdtZAlq5xMTKcjZ37k05tKRKrTAJ7R_XyVjPsnWHVAR8isqjKGREoaeCdclV5KqZ8ZK7hcERVLVFqGtYsuIQ9Ni2XWKTXEcyGAGNcxFLKLhMqYy6qCUKK8ele4t6Fq78EK-HvRtQ_8Mp4KOvvhdCS2dVhMJRyyyEki_8PZhuN_v7BeB0wcIOT3_cVFGFER0KirDLGYtLGyeFRmrbMVIpdzV63BSMcWatGYL4KG0WQi2g76ONUHuH5eua4-jkj6-tIor-FxJqNGntM2rhgHjQvVDZ3HXt-yOnehDWQ1XE6VQ87VPqAGrsz7OJVKRqMGlNSL5tft9jNb9JxaGRYBpJthSqEMezPQeLI3ffhn_FGOy0jj8GAfGgMTm8udUeg4tFRDdsFl8GoDTX-vZSSYOMH7krlN9xcK9_v-lIYbjcKhqOOPXy7F4fdceoqlINO2fSyA6h7mEybHvTj1-gsEpEU62Ky_OXjqDek4FA4avG0NGFYIKTMbZ42hTQxoGDj69JJSCrRr37la02hRz1iiHnW4HLsYsUuGq6-nxvpY5qv3WemICQdP5Yjt15GsbzACekzGE6emdGfbRFHmElXqLFrFeruJhbmLrh6IIu14oZbSSv5TEShlRALmaKZpuEcvXa2WEKnalUPTC40ktadXJlLT9BXG4Vpm5p2I6P4zRmRcnGZ6D6HUzuCtFTf0n725ZBU1a8ccfIHGWZVkWxJm2bnnnAyoosx1Fx2Q2Imto12g2_61WgGHxWihy2vSlNicrLyJgQ5pQr-qG7DMQhUZVXzTHuzFd2rvhdW29VS_w6WFYb9Em8DkCzCGdmOPBSChzww_3vpaoNONxD_3ZShHZEoA_pXBHEomrnCweycMSsbwMgTVTmjosUcRmmz4DmVcErh1i7xDItL5wDGSe9303Q_ml4HgZEx8tmnI9KkSIV-QwnrTkNh47eL2lV5nWER1TfPMYyvPaOFQvmAmIp1VUQ6SETS9OI3CXboNmRk4woHrvx_NZuDx98z2LKcOg1udUqqPy5fma8GKiuNmXwaoiN8AsHm3R8puDo9zMOTGJxAEX-BSGmrdGJiK5LqbtdUsHgzeBLG_rQSClvIOMGVPr3hVw5RXHU8d4ukOVejlhIzEx4lX0KYPrT1E9M9xQP4MRb32S2RVGtKzASLTjydaAmFJXvS1PZsSA4CvsCfSr-csNJE4iaR-4a7w2QJCglu4YHsyzuBJXG2eu5jJLKi_NwMAwUQFf6BVXCC8BFAuYyQwQIGkBJjJni7vrZ2635obqHK03NU4z0X_ELrKH95bMJfJO0gRLbu-ySEU5AmYOzoHAFzLGTJHENcSJqk-Ba4zanRsq_N2JHlP17yMAa8B4h-87hESSErhJM-8Hxxme7XtdWsmqUJiJgqsiUZu2CFh6Unt5m_UfWTtZu6FF7uIDU1G8SnAsFsptOc8SUmTraSYORkDauXsFLfYFIJ8ZD5FLuk36MZkbavcn4L63FOCN6gc8LpZVI19h5UU-WcigjTuWLkK0V_Qej1b-Zfxkpeo3iL4BOezsEnZhrgWGttWSVfFSfraqWq4yhB8v5Cbym8q-3si-gvmugWG8o4vuOrd28O4LOxaTEUfIjyA1AxzoK1Zyoj9klG-k889ChGqkwoJLMhzBkPHSRguF72G-aSz80_cluy2AdVQkuPDWxIVavva0icOWDnmkvn5aaprSN03KYt9E11O0Jeind7pgOxtOsefogl6rhi3vwx8RmSv1kFVrc24tYvaByKLb4fVUUvR91xbe1X1tvrR2Eu1TIi45samz3398U8OTJE77Gik-pjRWSacbzYDXagFqIAEoYX1YtA-Z-_nOEVYURA5xbsff9_EndnhiOv1SglpDk6fpQPQTRF2Xago8EjUewWj159iza7sVSLOfF9PLS5x_G091bZDf1jWhi5zrvKIANS9j9smVpNmSEkn-TEbd3roNcI8rrwpFlDHW3s11GqzZtP_QhJCNPADrEK3A5bQf6YlUdhacq-TkeAl8CbR2YQM-Ix4E675Yfo28iI9CzVCQVw4hrT6ofQas5e8lNWPuTV_eoU8x7ZgKoMHv-I2m_U9GistxP2c7fv67BRBExlX7zK0QPAJEK_86LCBimXfQeUlrPjpFPrN8AaZv7Hpi-QtKpqNOw6uNTMr5Digkq4IlC5jijpARwq-T5asziKiKQEo5NzTIzf56CCoaEUqSFDWv3PAbL1YeqRBii43JqpDrPey32PNoI5P3-_qyxAiZko1_wDVkEDKqUdraoHN5ux5LR6VY4vXyffQ4FJ0Q9E4N9H1uTNWvndkZnPMokyoDTwNAPHU3SQYWqa-1T_xMcKtsRndOxKPqTY2PE-9dJUKokDBMa373BzXQ3POv9fC81Lk_7hrHMlBvztwNMhNaopiNEjI0F0mMA1JEovkjGDsL5sTTtHZ0mKkw4RJ_tpU3ZdqlhBh2QFEwlp10UtjocPtzzEJnz_BbwTfd2nnSuD3-XNP4zR45JcGNB6Gg-byy7l5XnOc6yTWMPr8bmxRUNayl_o-7pVD09SoMBVtrsjb8zGk40jyO_osHKj_qMyDR85LQ2g0QNN29e4aWAVeiIwyCM3n2k8DafCM6fvLjeKRkSt02haXmAsdG5PnIs7EJC8nOh6_IBp8bnKP59cLouKAOlN80FApn9qd_Znc4ZarXDhXuEfQH8aPvyT14Y-DXHymKus6J0x88P4Uzx7s-3dTcDlLAxIZQV-JpajRWvDd2QYBbkT1jTt_2tNuOk3T3-RIQTUAt92QV4GGDhzH4DvulD9kFrj59HZi-MfvKAn4n_6hXYguWf4GzjGnh_5TPdcTD0FB9Xzz0JT9UNRjf31mgJOVnSwTiA7WyEp1wLQt__M51uxA-miXIc0Zgj4dyzZsIqrszFGZs1YrSOBcjRGhYK3DibCjoDJzSiy-Nhbmr9CULQS5Hh9rcWlmM4YxgGKHnELYxzfotKKLDQF4E2j3XgnwRIZOayJ5VL6LCaVVqU09PiuTwEjo-tsyuEuRajPQ3oIMeOg_2886nHms-2SIDv964aGM0-N7Bdmlfvb4y1UugseUmb1ryDdLNjQEc4-Mixq9_rLYznqRUHqfphF7-1z97_Ra97SrRiyrl4pWxDW4vT25lFG2erl2tmIAw396lAmsOuJR50OkhO3N2mMx8FLvHT-rSrqEFbik6noiFJ14epqnEA8Nwt8K9Set8VfYmSxCdmZ9_hGw-WGCWVIMpD0j3TnHO0E3suk_aZ3kKEvIYG32iYcKiF8a7P3KYDVKTeNYJ7EiJWht4G0xgMpCZ0BnEh2ZEfh3gKlb-eq24LmFOA4DYhimUcOPXK-w-nT-HMRgEGtEIqhGeMENDywRKIkUX18V3IlFYfPFQT7Y53gCX29IfZceAvBG0jk4RI2NiEpqHQz0lhjap-z1CBTdo7njjoWJ1E1ZL-gNeH0fFwtcrwAPEq_xYFt5fcc9hgeHvPfes2SzdvUX9AiVnRFxVUslDACsy4NYJ14zXRj_YS1ZWFORz8ylHAecgiAal0hOeVwTKZwThMnCRGKAMusIzZEKi1oqUW9oic9iLQ7i2l90fDfAKqT14e-j9C97vkRHqwBTiDixT5__YiY6wSc-h5dB-5MutftnJVQdw-YcFvTA8q4k8NXINGfSLNUBtybmzwLV3AGlkA8dg5qCK3BeOX-6lhlwsEL6QtnwTGefcL2tcYrF7sPabKkJ4PQzkFim17CuyVMX9vXALlJo-adjWzy2_6mAzL61M5XJFBZv-Mj9mnVNPXCVdJF4B88s-KGHQMT4vAXNF2Yye3Aa1CjUNjpJce-5g-XMeN6W5rb9hYF5pte33G2plN96iFA-uJeKgbXv_WvB_L1GGxRamoVTJyFp3imIKKWyt2Me1qhl1XkhBuA6BKJbSrHLNv3gF2N-3AglubWRPXEK4_mkGQwwPBm8GBWEyZfy5a0lwfdVbg3NPw2mjOEVaQprU9UOF12eSuP8XTWCVkCWLWrZQZb0gOez5tEmdsJrLWxV1Ql-xKEnYjQL9Prd9nCgAGhmTDCsQ-kLfDXOc6KTaLwYTtxAE1IA7vkNh3KCKWKMuc2CwN19yYtMOwu8H0BR7DeASNVCNZoT0LkblE2btP9FRtSmuVGIORz9CpN5P0JNKMsDjRxc2kLFAtNIbHjTuufwxC-2EMc9W-kY4MjlFDbscuReCa3qKGZXv1tmfurR7N41DQwe-DVsZqbc_ZDhejBIFmogD_wnhWDgzwoczOgupuRCM5x-yVELg4rdluF4YQ3ztwcmfA8u7z0X79mwNIP7tFWZi080OXcqbZLhI2OUHDKriUnEQFrQoHljwOqx687xdDnR0FU-Md1HBhhN-3IS2tXtPqr-NDAC5I5RuwgrE9NjtAGp6Tq1PVzlvmWUojv4ty90CAGrvEBf5C5pe_fWcigM6aOgYqRhIPnjqvTsBFymmFgpWlbs9s9cT4f8h1LLwSbKDvgHYTC-b3XwzCZB72R3DnDbEpaSkAFPuC6fY8gYMu4eYVeDWGVAgmiaS2ImKTtHYjpaXiQ7227fj8yhen7hhqOpiqIEWIBo6_M8QGbIowUaj9CTw7OSPvfKKCPF7C-T8o9M2gKblXV66vL09mCBmeWI-dAw5EtKwmMakSEWvoM_fbgC-pLrWn8v6A8SS-6tlOxjHkf8ISc0bNU-FuFSiLYXtZ5ZIDChgNMJT3mGSTnC8OOCLbOeAXEzIU7EQbKbiNJeBN6e0Ot_gkJ1eqowCBzloqHEcm5aGS9hi7ktG9dp8IABUmsQmb5xR79J3fV5xBoMksHJDyHMtIAcHfLXnSJZhCl-7f0VqlS0guLQDZr5tcC3xUOnmdUSGJhnW7So92d83H8z-BLAirRsm0YKNq4YJvny_eTqHv4x37ITv5Nll6X_cwKbAWHyw7Bbb29Iehqwv1DtQW2QI99p6GjvOL6Vo7lGjrYqz0UHhkx2rvDkxLJPdHFi1KEpXla3QzqC6PfEco7a5_Lb6_N12lKacWyqaFKAF34KNtGyZ2ydA-aJ7RDg6swjYLU-fYOOY2R53Xd5-y7s1pTPsAC3xH-WDkE9fg_IaWN2_XkxP0mULOReMgp4UCYpHkKtEj4NCWy9iB0T-JrtEGjJSEb82HFtWHzWmW3NlyEtTBAoEC_u5xSShr_PzjsK6NvfmplURO0Wro_GYdgYiYiFiQy_VB_RqIT2Nzif30UCRo0b3ZiGB8DAn_hzYgzBJYeh4BCwu1dpm-mMqxZxZa54f-1g_F3qLHH535e1X4IBMmchtXJLFvou2XXhRcy12bbm90PYZhug5DjvQp7YfH_RzOO3vZengL89Rp67GAuo_DalrYymOFUGnBQPv2qE0n4nZqZSj6qfSkVs-FFwtKbZKs2JxybeZn61eVEXMGTbQGq_vL0AJm9SUgDRApYejDbMo5_KhcItVwKqwq3YRdyj0J7-s9eAoUeCOaJyZmeGOVXvDT-yYZMDZQRmyI8BGZXyP5GhI1NGjE85qxRJnZkSzMc4lbe2kkKpXTITbAhKqlUjvhosDWTMR3Z-ZbkSvg0RIsJJxj5eB33TlFrhr9ffMT1pdnxgs1QLWvA8jHS0eIMOwHHWW35ojtab9ReU0t1m69h-WSkWb_TpHMmNwfasv1b642MSRHeTk53ZxZkUMygLjbiUpLE9qAsy9lH7jTTGA2YtjSAX0vYC53ZUwDtSLqCb1pBWxNY_6P_Yf5k6pHC4EKODjpOc8cJbw6cZey8wv_cB2m-s6tq9di29UAEBCw3EiXz3uG3i94rerHYcE8UGMU6Kav0XQk46wk-Vjy_XyOHzketHHejPIpZ-eBJMp41IC8rVDkUymuV_RnB6qF6wR1f5iQP4uObr459mXMtptKushnzfwikXidZzFYwQfwzYCwmewNqssYnTDnX8boK44gGP8g6XjrcgYQjPVqCPf8o9iXdp-s85ckaxnanxztMjefPpFIHyaCilgupF63_dKYBLNm7lMQI6f65mrVFaQACmU9Q5665Ibys80S9z8FCerJpevKgYxbGK_aAlplOYHpByWhMLitRu_XhW-FxXet7gM7XjaZDVasFg1nsqrw7yGMGC0MFIfEyg1se1icu7yU5zemJgPYnDsOgbhvzTEDZCF-zongJCRIqcQQWKIsx7ykgnN9mnn-c8tlP31MGXEEgSNHXA_6fAppNIjuM5B_bpZuZYfrnX-l0nODazR7bbvvyeZh60tjMIPOLh7yzYVutAfdPKnH3TgG8EtWGsOql-6DNI1FIYXH8Z8nkT6ZCZ8STMoGa_Tjxhn8paOJtZ2VHre9ZTXY1JY3YwebP4C9KmXLtoCteCpGD-Ms8Z0PXsLl2UQSqq9Nx034Zzk38OdSlQj56pen8beci7BTVEJw3tANIaFJaWjGyle7RF1TlHhW1-v10HqT1M2FMGADkjSbi5VAh6OdyFdvJIymlrUBk5MPxj7vBNOmbBWIvZrkcDXEzD6GfFyIM03RtnVuc3s8-MUVfMDLi50c3MK8_hgirTl8WVeKKapTZp55fa7LpXjlNLLnPG8aw1U-7JD3UgwWitm3fJWHtQc10mohjodfJiiH_9VaqfRqxZVNwlKRjNxUyRo6LYeMYiW0oUZLO67csZd20d3TEAnms8zBUtdAeR7-QnYD-uxiWXy4Jgpx49OguX8SaFlUTAy-XxVFI_8llWyRfMyT98ujAeCarq_Io_PDRLrJrWpffxj8iOI40ieAaYPlXpWO6YqcCtotxvIDZufzoXFAu_63It5S9q2bjj7hoPB1_TQh0uH3P7v0bw4Y_YC2s6L8sQGH7ZbTeXByN-xwjCSD4ijQhoc1YvlznvSkMZ2RZ5Zwc4UWDwFtWzJR1IkyUuXOROM8o5Prkop41XnY5vJaguTewSQdgo5pfAiJvPrstsR6jsnkrrMKGQ7wEJnJAl7ivjSnY2OAwkN_l2cDwKsBp4XoY9OxaPO35zPj84N2oGd5oEZDo2Om4XEF6k7mxF2FdYFZLD5oCySK6uJZ4qA95UepdHugmEkMIXZwTeLRuLuYs_lretIixV7xBmlUdQg2mVaOZDqVioajtgHIEWUKcMrIaCKmdr9Q9mMQcpEK3AjZhXdt8hVDgY7-yxcd_4P-QJ5IBmAo-4ZI3d4VJ2OHjWyvI4o9QPOTqBjf61YDIbwJPTYNPeFplfLEHY3m5G1lq0hnl5rDuwpm7bs13Must4C2ICpyMum2_u4qbc3GuTg7JF4BHci_GbWbgOYbbU7SDxm0AM0M-rIHpXSW2jZjE=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_095ad3e750b079a2016adf488b9c2887d1a0b744c0855e5cfd",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 106,
+      "completion_tokens": 612,
+      "total_tokens": 718,
+      "cost": 0.0003166,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003166,
+        "upstream_inference_prompt_cost": 1.06e-05,
+        "upstream_inference_completions_cost": 0.000306
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 516,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

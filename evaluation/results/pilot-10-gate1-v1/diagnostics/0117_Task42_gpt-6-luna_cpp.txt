@@ -1,0 +1,4 @@
+Task42_gpt-6-luna_cpp.cpp:9:10: fatal error: 'openssl/crypto.h' file not found
+    9 | #include <openssl/crypto.h>
+      |          ^~~~~~~~~~~~~~~~~~
+1 error generated.

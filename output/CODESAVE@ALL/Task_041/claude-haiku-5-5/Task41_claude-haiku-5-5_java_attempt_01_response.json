@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792946096-0ON6Se39wrR1lWmYyuwG",
+  "finish_reason": "stop",
+  "input_tokens": 172,
+  "output_tokens": 971,
+  "cost_usd": 0.0005027,
+  "raw_response": {
+    "id": "gen-1792946096-0ON6Se39wrR1lWmYyuwG",
+    "object": "chat.completion",
+    "created": 1792946096,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import java.io.BufferedReader;\nimport java.io.IOException;\nimport java.io.InputStreamReader;\nimport java.nio.charset.StandardCharsets;\n\npublic class SafeStringProcessor {\n\n    private static final int MAX_INPUT_LENGTH = 1024;\n\n    public static String readBoundedLine(BufferedReader reader, int maxLength) throws IOException {\n        StringBuilder sb = new StringBuilder();\n        int ch;\n        while ((ch = reader.read()) != -1) {\n            if (ch == '\\n') {\n                break;\n            }\n            if (ch == '\\r') {\n                continue;\n            }\n            if (sb.length() >= maxLength) {\n                throw new IOException(\"Input exceeds maximum allowed length of \" + maxLength + \" characters.\");\n            }\n            sb.append((char) ch);\n        }\n        if (ch == -1 && sb.length() == 0) {\n            return null;\n        }\n        return sb.toString();\n    }\n\n    public static String processString(String input) {\n        if (input == null) {\n            return \"\";\n        }\n        String trimmed = input.trim();\n        String reversed = new StringBuilder(trimmed).reverse().toString();\n        String upper = trimmed.toUpperCase();\n        int vowels = 0;\n        for (int i = 0; i < trimmed.length(); i++) {\n            switch (Character.toLowerCase(trimmed.charAt(i))) {\n                case 'a': case 'e': case 'i': case 'o': case 'u':\n                    vowels++;\n                    break;\n                default:\n                    break;\n            }\n        }\n        int wordCount = trimmed.isEmpty() ? 0 : trimmed.split(\"\\\\s+\").length;\n\n        StringBuilder result = new StringBuilder();\n        result.append(\"Original length: \").append(input.length()).append('\\n');\n        result.append(\"Trimmed: \").append(trimmed).append('\\n');\n        result.append(\"Uppercase: \").append(upper).append('\\n');\n        result.append(\"Reversed: \").append(reversed).append('\\n');\n        result.append(\"Vowel count: \").append(vowels).append('\\n');\n        result.append(\"Word count: \").append(wordCount);\n        return result.toString();\n    }\n\n    public static void main(String[] args) {\n        BufferedReader reader = new BufferedReader(\n                new InputStreamReader(System.in, StandardCharsets.UTF_8));\n        try {\n            System.out.print(\"Enter a string (max \" + MAX_INPUT_LENGTH + \" characters): \");\n            System.out.flush();\n            String input = readBoundedLine(reader, MAX_INPUT_LENGTH);\n            if (input == null) {\n                System.out.println(\"No input provided.\");\n                return;\n            }\n            System.out.println(processString(input));\n        } catch (IOException e) {\n            System.err.println(\"Error: \" + e.getMessage());\n            System.exit(1);\n        }\n    }\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 172,
+      "completion_tokens": 971,
+      "total_tokens": 1143,
+      "cost": 0.0005027,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0005027,
+        "upstream_inference_prompt_cost": 1.72e-05,
+        "upstream_inference_completions_cost": 0.0004855
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

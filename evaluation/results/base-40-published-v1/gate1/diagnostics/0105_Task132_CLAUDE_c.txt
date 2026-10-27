@@ -1,0 +1,7 @@
+Task132_CLAUDE_claude-3-5-sonnet-20240620.c:15:42: warning: multi-character character constant [-Wmultichar]
+   15 |         time_str[strlen(time_str) - 1] = '\\0';  // Remove newline
+      |                                          ^
+Task132_CLAUDE_claude-3-5-sonnet-20240620.c:15:42: warning: implicit conversion from 'int' to 'char' changes value from 23600 to 48 [-Wconstant-conversion]
+   15 |         time_str[strlen(time_str) - 1] = '\\0';  // Remove newline
+      |                                        ~ ^~~~~
+2 warnings generated.

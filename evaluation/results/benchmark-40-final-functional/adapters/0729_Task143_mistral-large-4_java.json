@@ -1,0 +1,18 @@
+{
+ "status": "rejected",
+ "bindings": [
+  {
+   "canonical": "Task143_CLAUDE_claude_3_5_sonnet_20240620.bubbleSort",
+   "target": null,
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "artifact returns a new array; test requires in-place sort of its argument",
+ "combo_index": 729,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-02-real/Task_143/mistral-large-4/Task143_mistral-large-4_java.java",
+ "artifact_sha256": "7bb04729c9f0e35f30c991924181b35d39ff0c83b203d08ef8256c55bd0c67eb",
+ "oracle_test_path": "src/test/java/claude/task143/Task143Test.java",
+ "oracle_test_sha256": "c1ddc6c4ab55a9f9f417eb7956e2c4ec01c6ceb8fec6692fe39d93551db037d4",
+ "author": "functional.py draft_adapter (static)"
+}

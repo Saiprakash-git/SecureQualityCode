@@ -1,0 +1,11 @@
+@@e9a09bc3497ffb30 STEP 0 BEGIN@@
+test_oracle.c:18:13: error: conflicting types for ‘odd_or_even’; have ‘const char *(int *, int)’
+   18 | const char* odd_or_even(int arr[], int size);
+      |             ^~~~~~~~~~~
+In file included from adapter.h:3,
+                 from test_oracle.c:8:
+impl_under_test.c:3:7: note: previous definition of ‘odd_or_even’ with type ‘char *(const int *, size_t)’ {aka ‘char *(const int *, long unsigned int)’}
+    3 | char *odd_or_even(const int *array, size_t length)
+      |       ^~~~~~~~~~~
+
+@@e9a09bc3497ffb30 STEP 0 END rc=1@@

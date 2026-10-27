@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793017479-bNco48CdaiFtzQ0qCARb",
+  "finish_reason": "stop",
+  "input_tokens": 158,
+  "output_tokens": 2001,
+  "cost_usd": 0.00762225,
+  "raw_response": {
+    "id": "gen-1793017479-bNco48CdaiFtzQ0qCARb",
+    "object": "chat.completion",
+    "created": 1793017479,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "import argparse\nimport json\nimport sys\nfrom ldap3 import ALL, ALL_ATTRIBUTES, Connection, Server, SUBTREE\nfrom ldap3.utils.conv import escape_filter_chars\n\n\ndef domain_to_base_dn(domain: str) -> str:\n    \"\"\"\n    Converts a domain string into an LDAP Base DN.\n    If the string is already in 'dc=...,dc=...' format, returns it as-is.\n    Otherwise, splits standard domain names (e.g., 'example.com') into DC components.\n    \"\"\"\n    if \"dc=\" in domain.lower():\n        return domain\n    parts = [part.strip() for part in domain.split(\".\") if part.strip()]\n    return \",\".join(f\"dc={part}\" for part in parts)\n\n\ndef query_ldap_user(\n    host: str,\n    port: int,\n    base_dn: str,\n    username: str\n) -> list:\n    \"\"\"\n    Connects to the LDAP server, constructs a safe search filter using the\n    provided username, and queries for matching user entries.\n    \"\"\"\n    server = Server(host, port=port, get_info=ALL)\n    with Connection(server, auto_bind=True) as conn:\n        safe_username = escape_filter_chars(username)\n        search_filter = f\"(|(uid={safe_username})(sAMAccountName={safe_username})(cn={safe_username}))\"\n\n        conn.search(\n            search_base=base_dn,\n            search_filter=search_filter,\n            search_scope=SUBTREE,\n            attributes=ALL_ATTRIBUTES\n        )\n\n        user_records = []\n        for entry in conn.entries:\n            user_records.append(json.loads(entry.entry_to_json()))\n\n        return user_records\n\n\ndef parse_arguments(argv: list) -> argparse.Namespace:\n    parser = argparse.ArgumentParser(\n        description=\"Extract domain and username to search an LDAP server on localhost.\"\n    )\n    parser.add_argument(\n        \"username\",\n        type=str,\n        help=\"Username to query in the LDAP directory\"\n    )\n    parser.add_argument(\n        \"domain\",\n        type=str,\n        help=\"Domain name (e.g., example.com) or Base DN (e.g., dc=example,dc=com)\"\n    )\n    parser.add_argument(\n        \"--host\",\n        type=str,\n        default=\"localhost\",\n        help=\"LDAP server hostname or IP address (default: localhost)\"\n    )\n    parser.add_argument(\n        \"--port\",\n        type=int,\n        default=389,\n        help=\"LDAP server port (default: 389)\"\n    )\n    return parser.parse_args(argv)\n\n\ndef main(argv: list = None) -> int:\n    if argv is None:\n        argv = sys.argv[1:]\n\n    args = parse_arguments(argv)\n    base_dn = domain_to_base_dn(args.domain)\n\n    try:\n        results = query_ldap_user(\n            host=args.host,\n            port=args.port,\n            base_dn=base_dn,\n            username=args.username\n        )\n        print(json.dumps(results, indent=2))\n        return 0\n    except Exception as exc:\n        print(f\"Error querying LDAP server: {exc}\", file=sys.stderr)\n        return 1\n\n\nif __name__ == \"__main__\":\n    sys.exit(main())",
+          "refusal": null,
+          "reasoning": "**Developing LDAP Query Logic**\n\nI'm currently focused on building the core logic for constructing LDAP queries based on parsed command-line arguments. My aim is to dynamically generate the search filter, incorporating both the extracted domain components and the username to pinpoint the correct user entry.\n\n**Building LDAP Connection**\n\nMy immediate focus is on establishing a reliable connection to the LDAP server. I am integrating the `ldap3` library to manage server details and execute the search operation, aiming to retrieve user information from localhost.\n\n**Constructing Search Filters**\n\nI'm refining the construction of search filters, aiming to support multiple common attribute types like `uid` and `sAMAccountName`. My goal is to dynamically generate these filters based on the parsed username and domain information.\n\n**Refining Domain Conversion**\n\nI'm optimizing the `domain_to_base_dn` function to handle various domain inputs more robustly. The goal is to ensure accurate conversion for constructing the LDAP base DN, preparing for the connection.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing LDAP Query Logic**\n\nI'm currently focused on building the core logic for constructing LDAP queries based on parsed command-line arguments. My aim is to dynamically generate the search filter, incorporating both the extracted domain components and the username to pinpoint the correct user entry.\n\n**Building LDAP Connection**\n\nMy immediate focus is on establishing a reliable connection to the LDAP server. I am integrating the `ldap3` library to manage server details and execute the search operation, aiming to retrieve user information from localhost.\n\n**Constructing Search Filters**\n\nI'm refining the construction of search filters, aiming to support multiple common attribute types like `uid` and `sAMAccountName`. My goal is to dynamically generate these filters based on the parsed username and domain information.\n\n**Refining Domain Conversion**\n\nI'm optimizing the `domain_to_base_dn` function to handle various domain inputs more robustly. The goal is to ensure accurate conversion for constructing the LDAP base DN, preparing for the connection.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 158,
+      "completion_tokens": 2001,
+      "total_tokens": 2159,
+      "cost": 0.00762225,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00762225,
+        "upstream_inference_prompt_cost": 0.0001185,
+        "upstream_inference_completions_cost": 0.00750375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1179,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

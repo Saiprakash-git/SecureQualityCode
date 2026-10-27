@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793016589-P4c0LyWAHcmXcKXSgHOd",
+  "finish_reason": "stop",
+  "input_tokens": 186,
+  "output_tokens": 792,
+  "cost_usd": 0.0004146,
+  "raw_response": {
+    "id": "gen-1793016589-P4c0LyWAHcmXcKXSgHOd",
+    "object": "chat.completion",
+    "created": 1793016589,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nchar **number(size_t n, const char *const lines[])\n{\n    char **result = calloc(n ? n : 1, sizeof(*result));\n    if (result == NULL)\n        return NULL;\n\n    for (size_t i = 0; i < n; ++i) {\n        const char *line = lines[i] ? lines[i] : \"\";\n        int prefix_length = snprintf(NULL, 0, \"%zu: \", i + 1);\n        if (prefix_length < 0) {\n            for (size_t j = 0; j < i; ++j)\n                free(result[j]);\n            free(result);\n            return NULL;\n        }\n\n        size_t line_length = strlen(line);\n        result[i] = malloc((size_t)prefix_length + line_length + 1);\n        if (result[i] == NULL) {\n            for (size_t j = 0; j < i; ++j)\n                free(result[j]);\n            free(result);\n            return NULL;\n        }\n\n        snprintf(result[i], (size_t)prefix_length + 1, \"%zu: \", i + 1);\n        memcpy(result[i] + prefix_length, line, line_length + 1);\n    }\n\n    return result;\n}",
+          "refusal": null,
+          "reasoning": "**Calculating safe string length**\n\nI need to use `snprintf` to calculate the length safely. First, I\u2019ll compute the prefix length with `snprintf(NULL, 0, \"%zu: \", i + 1)` to avoid overflow issues. I should also consider using `strlen`. Then, I\u2019ll allocate enough space and use `snprintf` again for the actual data. It\u2019s important to include limits since if `n` is huge, `i + 1` could overflow. I might have to wrap the index to avoid issues here; using `i + 1` seems fine if handled correctly.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Calculating safe string length**\n\nI need to use `snprintf` to calculate the length safely. First, I\u2019ll compute the prefix length with `snprintf(NULL, 0, \"%zu: \", i + 1)` to avoid overflow issues. I should also consider using `strlen`. Then, I\u2019ll allocate enough space and use `snprintf` again for the actual data. It\u2019s important to include limits since if `n` is huge, `i + 1` could overflow. I might have to wrap the index to avoid issues here; using `i + 1` seems fine if handled correctly.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30MUbstp4tSvBPk-t1RC63_da3brGSgUFTNBxQgE_3F9yQuxxEuwD0Ti5g8FiexCEsxiDGlOkkhoFdDkldQpI26Ek_Fh-j9NsoKQfa5R66b8R7YX16gfV89nPbb98MhtXwUlNYTfqC7tGppzix_tcc3SbHZaO2sWqYw7g8OQrRft4a0iB_U1y0whPLyYXXKB9LzFFaPhouyVQ3mlAo_aS9cnXgVh_VRhwNJiiXRupqqLjhxi1u3L9zdT3yjC8wRPcmhWM1DgFnp5fKRSncdyCvmx6T_FUvKFS0Gip0KAHqpDkzuJdQD4iTQZCan8uy55NXXBRVW5m55uRzOqTiNFsj1xC6hh1Cfsl-6oQSWd_6G_nSuPtWPrzzJs5_P8m2zWZNinOBewlJougirracxDP1en1Y_GwHbl5-EutqPgDby2pZpRg6ZHYNNPz25GarCDe-VZ1GVtx2bE55kf2Bmo83VpZdJ4WhRa9rCswvnSq3qZ3zafuWeoK8J6dq685q-D0FgUxEPRrUrHbvskrsHNDiR5Wiz5XDrxNNVX4SMUPd-Fj01SAMg6VSWaDjzwpHmdPOYuMZGiI1SdEtAQqexTBYvXmd7OsWyQMUzz3UjkZSTkUd-LP5nvvDD6yXlAZrtyar2HiFmVMJa_MvJfdHJNJL4d5sZZDzIqCBce6kElx-VBD9swZP7E-oaTsXsghgNx36l7lCx87K2-YEyVOFe8p6_7ntpRtCFlzDcCU7vc6CHXhwFwKjAS7x-9kTZHPZOcRfXA1lzk7cchd4eEbcXB_WU94am_z7R__6FPYOJNj-zsB2N3mqoqZQsYk_K10Cw6NvWu6iwUNqqTeaYxd7NrMhDKJtvdpyFvsAsGr5SJWfx2URJ_an0dB50wReSwpLE6eZyoOsPTBedV4NbeLBqFlmAndpOBKNkLsWJDtoS4fgNHUevLJMo5VdCZK22YDTgPLB3l81I7njl9C0weHpc5pqux87BQXfa4BXvJsJouiBr-OgZ9pIeeIlLPtHhfdu23_s9FgikwpuiKihTsZkaWwZXMzuzw8KfRR-Gn5yV2Jqf4Nzcr5GQ2-Xqv4-csiGMhdqA2lcuDOtYmOoxYgB-DjjGnNzXiC6VSqlDZTiDDquZdf0tiK-Z75QU152bd9UVNy-AKuf6h5UUnn-MF44pe9PVvBHfcM40W_LdW6fX3g5kBMgg9tI2Hs8trLExcYk-JXf1t5nVQ322XMc-6iDXTRvKbMjd6aCqGyD4Oi-u8nU055wsX-EGT4fRbnTXyZrpJqM6UOX4vHVw0LqCBpL9uJ-yovzFNYvuLniPTmpdybAsS8Dj0UWDOCIpH035b56_2gumkl-Ix9TBxe-7KSgmEtnbNfrLHT6PCLtEQMQ575Hl9GhFAiaGGOtoppFB_u-Hy742YgZOWcXwHRll1rimHUtgY-_bt17xc4wgA88kQd8JGppjR_KJdDNpyNYrJsIAS6aL6eYq2wGniwPpzNNN8YOZ91MTvh4DikZO3CPh_g-VR3aWzGdSnH5EKLUGet8D6Fy1sBhsyFtfSCzowfFS5Yy8Lzt7jUMWsN4GBtNz055kPqlVov2OZqXE6qtv5Tpum6acET616iCIz8FE4b04ktVWboBMmKbvy9_zv5BMzqW_72oZhGzt4byGrrboSLF03BqWBnlP0O-Tf24LDDzaQ1kvq0noIuhI_uaqiPzZevpVzGaOjUMjQ5tbiX2mNhQ_XUYQ43NMT2J9nGQEMXH1TWxeDpp2fzShl3fgkuKlOjS4gVLW9EK4RRYp1s-lRfapXnZPyhm_jcrJCOHxSNcyMN29PkXiINpoHoGwHZxVi4a2egBsSUKPi2vdbpgXunQURnDUppIJU4bcAl_xpldrOWOKC90YIcvu7dU9v7_rok5OlIRVo698_yI5wp9Zkykin2SQRydRh2TzRwNWPa_6Q9C8rN9CtoaV1nNvV_cu_PzmzDjjgawWvvGp77NLcfoEy7b27QBh7gxEqiq86ra3sdy6rbITWkKBSoXkoDZNB5W6LZ5u6i9iU1ND9ZlXi1eAq1bPbTy9qqK0NzekUF4vPq2-xSJJZyHj3oZ85Jp4RXIcQrKWZLQGZSfbUbFt8l19xLm1AIZDWHG7u0FzJ1hk7B0pSAHC2XIW_-OIu7jMVYjJlqcLbDknCN1MBFpKRxzCRYj2V3KC6UT2XHHNQBIX-8ZBNzjzdYFfj6SqsCre0y4v-pe7omue43n8DU2gq68X6oQbAMulOAnnpbSFvsAUztBmaGOgIT9CeRgAaJYr7oaSu-bd31CzI5hmiciTRQA7jVAKK4xVypyEuExJgyOm7KX7p1S21cGIueX3RYLMRl9RPj7-jh-XPDoaa-0Lpf4Ht0oH0Yf5ZruSFvFZKoXyLHV9ijsDvMpuP7GQ4EciPGwQCdq--LUCjfnDBD9euRehBREmNhoKihQvllaJRQX_vEc33nhbJYzXPF0aQypD8dXAecEuNuf36tiyOieqw5WY0Gcnl1pRTNFO-XJmF7YMjgucnkHJYysBoFMD6aKCrJP33K61hcmJERFX2CXDGpCPg1SIa9hJWIzGvQ2nM_kFWQY54VLJI_zEDnlQ_0LaCw64lZzYuEO_XU2WTTlzXgwKsEze0E5ShLdQ4Cn0Zr_vZyEQiPnKN4DG8MYssVwpLZoxJ0kFKmip7leWJxU91BH9PwAsGzkBpQp4xFUYQSgCn4FNk5eruFPlVFS8S3nIbLtY_VlRxUtU0BpGca5p1QeP9uM5B6wk8IsjoqXr33ERA946jpy7NTDF5EvCz-ADv-k6Me3vsovLS5_d0e-SaQatnREyKgHyBNqsgtXQ-PVAwTwrUtdifQySMx05B1G051nO9FKQUZ8gcz6vqkAum6pPPOA79gc5w16wirZEfdopwovqWEYgBJBRg6_LEreZtgT-ImZiGeT3NFMp2DmekojbWq5uzQV6Z4x9f2wnaj0tAVy6QsuS7KECWhzSULw4yBOrV5Vp6B8CFXCicsTQ20PTVPDqrTGDiUKxtXxNsjouzNWc4CUACb0tdSPvkPx69VKxEZQNAoExd6_OjvF064ry3y5DcADi7TGBGpStBydAckoOPqAxKz_Rbk2vH5L7a2E7jZq7WKrvBu4IU_n1a4j9PKOgHMiVNYBxBC-FGfnvb2kZl16Zou12EkWLP-rUusup5_EkaZNJ2ZfmVK-4V35oxYi4sCRi6yXen98z-vzPA99kwKuVZfqX1WeMszY3E2UeUCW0Apy-Gl7i2fKPaIPH-HZ4tXXdYmwpn04uzMeDG3LoqAbQv2jl5JNuasa9UJ_678Fyl3GpV1T0p5KuCvA6lovicnzqDypqavMFbaIE-euPSSdCWvCQK6uzpHDgyUsZxPxYxEOgahRp03iqkeTz_QB8UpqjHFa4xFC2m25ngahOSo4ZGLD8wYdo6sP5uYRP2AtWI5M3CC2kO8yQZdVcCUD0qXYHhvTE2z1Xm7qmhhU4oN2Ggqhpb-L41k7maVajD3Lsi2CDWXX7ab7J68GfVnZzc_Tbe6y2Ntg7EFqZuk1PbyXEyyHalBFixmn7yMHBirM19YgXWhqIQoZx_AotQuMkj-l3tDGGJ0gaMUzdCjl9RD7kAY4Wp1Fba6Xz3lcKi37pN4UOkhF47sV684VtspM-Zy42DPlIIpoOR4RXJc9MeYkhLoEHOAuHkZo7ojWQ92PVc0_FIeuEx-Vjk7LNXdDZP0HBlzjhs9jyIzbmowEl2blxZKAvFF_LJZjMN26C6DMoZ5dFZRdv6EZWtp1JaZ1cOV6OhhhTQGtj1pYrtY6Elki8QF9p9iFPA9a1DD1cP6bKb4JI68xktZE7NsV18EbkwVHb7BLdTRN8mE6sojHXUdBUx7qdB-xfyVhitXgW2HxOTTTRyv392fKVp7qGFxXbCSlzrfThiEfVC9iWlYZ7mSK8hU4rstWTZWKi-TTIJI83EJ0oeRzvsPvNvbLfu0e5zrQJ_XkZNiYfi3kAccIxpRBOBpO1ZFp6dzkvMw-4On5LszNzLBivgffpr9T9HquaWcFf0sghniWo6s09ubrG8JsD64yh9uWE3dJZzxOR9tl-TjNe5byMbk-Hc6YbYugXgaSctNGpa7u999YxORCk0cRuN05vcg9ahqYb4-nVVxkMRy_A2oxBgPOAH85DyEsIuueSrMyIKry2XhBDUysAK6paSjuZdqVHpldWQ-7hoFy3uR-uC3xzAh4_AdJYMWNNa8Ex714KgR29Fif2JZc7X-BaZcf73NcJjrWAwyh31Uws0Hw-KF-QY3sra-Baes8aTHk22J-ECETymAksbwy487p71ja6sJbK9ZQdXpxWdqv2tFgruUBNxteTyQuJ7UWbpgf98iRXcTn5aDOczJLbBz7-m8stBHVo3BkD61ZZBxppJE-BlW1i9RdHm6sOC4oGBNvZFcu-ZkFafB2J44Zsfoa8x1bd-Drulct6t0npolR_sWrOJWi9JP_q9_BsDOARzaSxu3JFXPAOTWeS_DGz1QbozJjwyXWdjDyEc5aiIwC8Ma8giupm4M3CxgD9q06lGu-DG5yGR4X1gcnrwfXQbXJ5LsVvio_5Wp5Jt9ctXPVjpIMnmf_DHiNwrZGsY6_sb2U8NkVcagmVqu4SC5FGVN-gM1w5XlFb_s_CtuS8pZ5Z0-eVv2ZVYo4gAfpJCo99HB5XZF1uQAfAZN_Ai_YN1TeQMJB0T39ISFHxlqsU2Ze3OxLNIfpj9pTL2vh9MYqvSCtVJpKU9gLBOKv2J2CJ_o2JfT1prFXP0vE9i5521fuM4gNP5veyfNBUdms23fngAswd45L8a9lVGDtP6hT9LP_YiuwYAylMWn5ehEMNSKFH3DPFN5gMlm3Fto7XciNz0_k_9C1MW7mZZ50MF13aikLYHOBV3mc4iixbOxMPc35JHo-nFGzi3zipNb3PJyvknjjEeXm-WoLPYr05vEqiBVcVAu7os8b80dXnIbDE0loB1VRz7GmWxCkapHZbPNUetOQi9VxG555_ZUBaFtGbPzSLg9FPjEiGQ8qW72_ZaAUOjyEjaT1YyUb3lU-vKIP3oShwmf04D8nD0aZU_2-OupbMITYO5NqO-siKGmpJgefcvNv9AJW-gR73E0PdZNXYbeLcX1zNqQclKylUxOy4mDDW9jDhw-DkT4UpQ6fFeFLUljLIhfT95GnjD-CVVEobLjofM8Xu_yJhsavhAw58DFAzz5Tc4yCKT7dvyqYr8hI90oAkPJNz00gXzEdPPeYfaNN3t11VxdklBq0PUxOL55GjoShPDe1iKKknIf1VYutK8xOdt7Rm9gJcdEkzBizNeUSfy7ZOMkczq55HxxBY-UQ3YHvEdU5PTNg6HUkWQNwHk2JTnTzASCnsG19ZyrshZ3OFkJEqWGdQmJPUnwOy0ajj2Zw8D6yTqrORWPu-7y7y9zViZQAGSHLa-3WMd3p-LMKXRyuUFyOK6f0mrA6RwUgs0SbTe1uHQcsrphebwcomiGLRqSMsYqGIRfCnndeP6IVD4JHgrKX1Qd3iRByX6tqXwER359HUaGkaId0GhawqrQvYYTlVp85h9VNNArJwS7Ym-phD8cRpRCqh5q4xqKdhKCP13OxD57Cs5AydjmIM18R_PYtwEZWDSrQdc6RtMZ8_4BLAzzkDY7LVDfGB23Jkwn88RCMkcW5nThFlhbhpcdKckUpnoe4YoqOx7QyqrLf6uLyskgO2k6A4MI1GHow8CWvp5YmtJzFpWXDIJcUZoOf8Z7zSnIbSU94YoMr228gGo_OsCS-WTteY3a7yw6bljgcNxs5VAAdL9vAKEbZCd0Gn3oGpjSCgfubXOfJIxcNwxC5CT3LEUZulNP0r4uLvtxhK0k-Ll5f2rSENcNyModgifkJwwVii-8_1_4lg3syIPfJaJYVN-C_QFMEW6V7Igquc2MqWQ93z6an0dNgBI3l0JBn3fHZV9F-NBsHryLtN9cOay45WfseN9dFAVfG4ey1N0UWL26JogICMFb4BewCwhv4-hkIQ-gUVezfrndajItr3JclZY0zXo9AOv0zQLnJsaN1Xi8A2gHYhsYV-U4CSkRz_jJ62pDYkOT3VnlZsVoZsg3Klmg0LHNlsRlnlreNv3SB1FrbuEH6yGPmQP6h3EQqbROBTrlJzZaCEziaNg2es7OULj_j0dfaHaNurIiDO92qph5hDgdmfwz75FdVRfr5_FFXUww6A6swOoHBzS6c7Xi2Mf0hBYwws5GKtXQWzU9TcQ-Y5GBc9QY19ZW81QEkHm5wh6_3CQL7L8tkAMqvpCeyWTcoHd9P1yE7Jf9ySO5Fr8D4X8XwraKS3JTBU60a6K_SJ8zqfIDKQCyp6gzuYsqfJ_eDEkX46lxxW8WHNYnIMNXSS5P6PEsbmKlgn1nxuGS1y_HdGo06mB0aJz8rPFTdHsqSZxs69fn0PdH7DKGiokpAmnem5A3BIc5inXkzqyTXRIgIftqdE187hS_94HsxAE2IGTI5VmWjn45Wa3hmdSbfHhOljvbhbMcau_rC-qZEJmNMspG2TYdVTvcZ_l_IRWinLddSbtPyUbbj9HzyAqzjXsEs4QaxaaOBnRno3wdcR2WOxErn81ZEyzISvl6bZDuSZtwNNLWXsT-AjRDlJCW3tzUkmGZi-j_Yxokg8_qqAY2GYJ2QO0j0lD7VfTDF9MFMAgjc3NHFhR0co-Zk1-fZ1YoueOjtkUVCM0cdl1qG2I0k-u0Wb6dyS765DVxC7S9kntAge15v4qLrYDoi3016V-k8HeNoBxW69NEY2JNp2edjwuMbxoMZAmjjhGBElD0BsbiWYooWOPiWWwf6D3u0_4eAi94sNsK24gQE8CA_5e4b9z4l68VmMLCZiW0TCQSjDizSjHfOQ9Swx5ABR7paaz3_cY1FTxRGcSo6-biDVTSjH8DjTXeNEs4uv8qMJzcdh5oFYGJXQaIObYXLf2GNeUsiR7fHMbKc79oOXIY6m6Qr8rnesgRowniF9ZOZ327ey_tpq4PX2OlOREu3G1beTvt8ICOtjpKo46AR33-IGK-CsAXRcROdqMK5EkRlDd1wNmZF1UlNEjZNQyCq30NPcg6UytVk5hLnWTHO7CpJ-T6C47OTwfzg0NxwuFFoKzhOfJ3TwODVpGy7CbGyFJmLvA1dLkC1ClbdsGlUY1OvdQ0RNz7K00czQrWLjd98YqhbqxyMlgY99_tPD--YANtdoDgCoaNp8obTovMXDLmxVFADwIIm9ZfX0-Dz0_APevxN8qn2LXW2LdTPdHpS-0fGQ8u2PyiOYj3Ui6ACBOftuGp6VOLGDrCDQAdO36sk7OTM-Fj6FsSNhbcxvJmSoWSOxTTsU3sC9tX-C60K2RGjR95pfqt0VkL2OX9MES-qCEhXl6XKG8Y6yRMMdevqvqrE6fjOTlsMgRwA5MXDw4mjEJM0Gk6CBZ8oCHfhWQqhdqn4HAHDz8d9q_Agk-ulYLfMlkQcm8CYthzBrAbIwhpLVXS8xWEnVxJXvPUicysvW_loIw81zz_lgaWOBQByltf1Vfxwjtfr_ZnlL8hF6KX53Q3qTOaa4mqhnJciG-0RmAxpuyVS0KjnuEheIwxDz53Nw7xAuRdutnz6I4nsPbqYO_WHhCf3Aj1FPazwuaig3pXv2JLHI9bIBPtcdidyDCt2MRLja6NvjZDQ4b6cwHu-K9GMLyAgp1oFzFhZtrbodq4PW-u8smE05HJ57BNINUzDXqyZ-wOXGfZcBfqm-dssagCksgoEIOSXKycYyrBTCnCN_DaCV2-yWOKjNA9Dkn9bUTzrVCHJZ7Z1mgw7BqqVwpk4cWaWdtirP3BU_Suxr2RS0noNXK9dP8QCEeZT8c5Srf6wY0fkBEDyf5TErVrGWceFsLS-nXqqfO6wBSlUPo82teCsDxByfABpGcl796cT3UdzZydRoi4Iw3piQTCRj1jzy7OGZNAJH96cy0d2woKxIneI3caUTzWCGJOd30Hfo447IIPHuckNSNo3bE4DRPU29AiYTUBZHmhTGbsBb-YG7mQurCK3rdchqee1Z8ek5sUlbQgxYPDo4nRGDXR7HzA6kxSozcmLWvw51lhveg_scer5rdVFDBhVsAfh6_msviBg0oAqghYD632fSVbb-GYyb1Lj-HPmSltnU4CQFxQFcAXY67HvMFVzWwEHWWPCvJDen2HB0=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_08a16d97fee6fbb6016adf430f067087d19a1cfb9bf0acb975",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 186,
+      "completion_tokens": 792,
+      "total_tokens": 978,
+      "cost": 0.0004146,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0004146,
+        "upstream_inference_prompt_cost": 1.86e-05,
+        "upstream_inference_completions_cost": 0.000396
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 516,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

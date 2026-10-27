@@ -1,0 +1,31 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "high",
+   "target": "high",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "char*",
+    "params": [
+     "const char* inputString"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "const char *str"
+    ],
+    "return": "char *"
+   }
+  }
+ ],
+ "combo_index": 72,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_012/gpt-6-luna/Task12_gpt-6-luna_c.c",
+ "artifact_sha256": "f3d2a06311d1b6b0298b2a07c34588020c3eb32c3d901c5f6ebcf629b758597f",
+ "oracle_test_path": "tests/gpt4o/Task12_Test.c",
+ "oracle_test_sha256": "7873ef13ea9dad148a3b57569378dee7d20b0fc45a1d5465bd0d7d0ec3f5ebe9",
+ "author": "functional.py draft_adapter (static)"
+}

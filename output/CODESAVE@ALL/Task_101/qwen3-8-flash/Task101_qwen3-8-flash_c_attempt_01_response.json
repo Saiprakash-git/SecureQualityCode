@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1793032357-KGPMaQn8fh3e8GpL5fMX",
+  "finish_reason": "stop",
+  "input_tokens": 152,
+  "output_tokens": 653,
+  "cost_usd": 0.00032971,
+  "raw_response": {
+    "id": "gen-1793032357-KGPMaQn8fh3e8GpL5fMX",
+    "object": "chat.completion",
+    "created": 1793032357,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <fcntl.h>\n#include <unistd.h>\n#include <sys/stat.h>\n\nint main(void)\n{\n    int fd;\n    const char *content = \"#!/bin/sh\\necho Hello from script.sh\\n\";\n\n    fd = open(\"script.sh\", O_CREAT | O_WRONLY | O_TRUNC, 0755);\n    if (fd == -1) {\n        perror(\"open\");\n        return EXIT_FAILURE;\n    }\n\n    if (write(fd, content, sizeof(content) - 1) < 0) {\n        perror(\"write\");\n        close(fd);\n        return EXIT_FAILURE;\n    }\n\n    close(fd);\n\n    if (chmod(\"script.sh\", 0755) != 0) {\n        perror(\"chmod\");\n        return EXIT_FAILURE;\n    }\n\n    return EXIT_SUCCESS;\n}",
+          "refusal": null,
+          "reasoning": "We need answer user wants raw source code only, no markdown fences. Need produce C program that creates file named script.sh and makes it executable. Need think. They ask: \"Write a program that creates a file named script.sh and makes it executable.\" Return only raw source code, self-contained C. Need likely use open with O_CREAT|O_WRONLY|O_TRUNC and mode 0755. Maybe write some content? \"creates a file named script.sh\" could just create empty executable. Need include headers: stdio.h, fcntl.h, unistd.h? Use open. Ensure executable permissions. Could use chmod too. Need maybe handle errors. Since raw source only.\n\nNeed ensure no Markdown fences. Start with first source line. Could include main.\n\nPotential issue: open mode may be masked by umask. To guarantee executable, use chmod after create. Or fchmod. Program:\n#include <stdio.h>\n#include <stdlib.h>\n#include <fcntl.h>\n#include <unistd.h>\n#include <sys/stat.h>\n\nint main(void) {\n    int fd = open(\"script.sh\", O_CREAT | O_WRONLY | O_TRUNC, 0755);\n    if (fd == -1) { perror(\"open\"); return EXIT_FAILURE; }\n    const char *content = \"#!/bin/sh\\necho Hello from script.sh\\n\";\n    if (write(fd, content, strlen(content)) < 0) { perror(\"write\"); close(fd); return EXIT_FAILURE; }\n    close(fd);\n    if (chmod(\"script.sh\", 0755) != 0) { perror(\"chmod\"); return EXIT_FAILURE; }\n    return EXIT_SUCCESS;\n}\nNeed include string.h for strlen. Or write sizeof(content)-1. Use write(fd, content, sizeof(content)-1). No string needed. Need maybe if file exists, O_TRUNC. Good.\n\nNeed only source. No explanations. Ensure complete self-contained. Could avoid write? \"creates a file named script.sh and makes it executable\" Maybe content optional. But script.sh likely shell script, include shebang. Good.\n\nNeed final raw source.\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user wants raw source code only, no markdown fences. Need produce C program that creates file named script.sh and makes it executable. Need think. They ask: \"Write a program that creates a file named script.sh and makes it executable.\" Return only raw source code, self-contained C. Need likely use open with O_CREAT|O_WRONLY|O_TRUNC and mode 0755. Maybe write some content? \"creates a file named script.sh\" could just create empty executable. Need include headers: stdio.h, fcntl.h, unistd.h? Use open. Ensure executable permissions. Could use chmod too. Need maybe handle errors. Since raw source only.\n\nNeed ensure no Markdown fences. Start with first source line. Could include main.\n\nPotential issue: open mode may be masked by umask. To guarantee executable, use chmod after create. Or fchmod. Program:\n#include <stdio.h>\n#include <stdlib.h>\n#include <fcntl.h>\n#include <unistd.h>\n#include <sys/stat.h>\n\nint main(void) {\n    int fd = open(\"script.sh\", O_CREAT | O_WRONLY | O_TRUNC, 0755);\n    if (fd == -1) { perror(\"open\"); return EXIT_FAILURE; }\n    const char *content = \"#!/bin/sh\\necho Hello from script.sh\\n\";\n    if (write(fd, content, strlen(content)) < 0) { perror(\"write\"); close(fd); return EXIT_FAILURE; }\n    close(fd);\n    if (chmod(\"script.sh\", 0755) != 0) { perror(\"chmod\"); return EXIT_FAILURE; }\n    return EXIT_SUCCESS;\n}\nNeed include string.h for strlen. Or write sizeof(content)-1. Use write(fd, content, sizeof(content)-1). No string needed. Need maybe if file exists, O_TRUNC. Good.\n\nNeed only source. No explanations. Ensure complete self-contained. Could avoid write? \"creates a file named script.sh and makes it executable\" Maybe content optional. But script.sh likely shell script, include shebang. Good.\n\nNeed final raw source.\n",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 152,
+      "completion_tokens": 653,
+      "total_tokens": 805,
+      "cost": 0.00032971,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00032971,
+        "upstream_inference_prompt_cost": 2.28e-05,
+        "upstream_inference_completions_cost": 0.00030691
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 450,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

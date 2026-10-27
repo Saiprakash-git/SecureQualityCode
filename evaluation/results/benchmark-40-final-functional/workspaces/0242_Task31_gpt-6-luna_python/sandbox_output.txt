@@ -1,0 +1,18 @@
+@@95cb35f695d6e12d STEP 0 BEGIN@@
+test_alternating_characters (test_oracle.TestMakeComplement.test_alternating_characters) ... ok
+test_complementary_strand_1 (test_oracle.TestMakeComplement.test_complementary_strand_1) ... ok
+test_complementary_strand_2 (test_oracle.TestMakeComplement.test_complementary_strand_2) ... ok
+test_long_strand (test_oracle.TestMakeComplement.test_long_strand) ... ok
+test_mixed_case (test_oracle.TestMakeComplement.test_mixed_case) ... ok
+test_repeating_characters (test_oracle.TestMakeComplement.test_repeating_characters) ... ok
+test_single_character_a (test_oracle.TestMakeComplement.test_single_character_a) ... ok
+test_single_character_c (test_oracle.TestMakeComplement.test_single_character_c) ... ok
+test_single_character_g (test_oracle.TestMakeComplement.test_single_character_g) ... ok
+test_single_character_t (test_oracle.TestMakeComplement.test_single_character_t) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.001s
+
+OK
+
+@@95cb35f695d6e12d STEP 0 END rc=0@@

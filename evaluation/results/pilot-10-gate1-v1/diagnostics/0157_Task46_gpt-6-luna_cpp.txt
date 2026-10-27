@@ -1,0 +1,50 @@
+Task46_gpt-6-luna_cpp.cpp:329:22: error: expected '}'
+  329 |             const std
+      |                      ^
+Task46_gpt-6-luna_cpp.cpp:240:20: note: to match this '{'
+  240 | class UserDatabase {
+      |                    ^
+Task46_gpt-6-luna_cpp.cpp:242:51: error: member initializer 'filePath_' does not name a non-static data member or base class
+  242 |     explicit UserDatabase(std::string filePath) : filePath_(std::move(filePath)) {}
+      |                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task46_gpt-6-luna_cpp.cpp:290:32: error: use of undeclared identifier 'filePath_'
+  290 |         std::ofstream database(filePath_, std::ios::app);
+      |                                ^
+Task46_gpt-6-luna_cpp.cpp:311:32: error: unknown type name 'filePath_'
+  311 |         std::ifstream database(filePath_);
+      |                                ^
+Task46_gpt-6-luna_cpp.cpp:311:31: warning: parentheses were disambiguated as a function declaration [-Wvexing-parse]
+  311 |         std::ifstream database(filePath_);
+      |                               ^~~~~~~~~~~
+Task46_gpt-6-luna_cpp.cpp:311:32: note: add a pair of parentheses to declare a variable
+  311 |         std::ifstream database(filePath_);
+      |                                ^
+      |                                (
+Task46_gpt-6-luna_cpp.cpp:313:31: error: use of undeclared identifier 'filePath_'
+  313 |             if (std::ifstream(filePath_).good()) {
+      |                               ^
+Task46_gpt-6-luna_cpp.cpp:329:19: error: unknown type name 'std'
+  329 |             const std
+      |                   ^
+Task46_gpt-6-luna_cpp.cpp:329:22: error: expected unqualified-id
+  329 |             const std
+      |                      ^
+Task46_gpt-6-luna_cpp.cpp:329:22: error: expected '}'
+Task46_gpt-6-luna_cpp.cpp:321:46: note: to match this '{'
+  321 |         while (std::getline(database, line)) {
+      |                                              ^
+Task46_gpt-6-luna_cpp.cpp:329:22: error: expected '}'
+  329 |             const std
+      |                      ^
+Task46_gpt-6-luna_cpp.cpp:310:74: note: to match this '{'
+  310 |     bool emailExists(const std::string& email, std::string& error) const {
+      |                                                                          ^
+Task46_gpt-6-luna_cpp.cpp:329:22: error: expected ';' after class
+  329 |             const std
+      |                      ^
+      |                      ;
+Task46_gpt-6-luna_cpp.cpp:329:22: error: expected '}'
+Task46_gpt-6-luna_cpp.cpp:11:11: note: to match this '{'
+   11 | namespace {
+      |           ^
+1 warning and 11 errors generated.

@@ -1,0 +1,33 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "odd_or_even",
+   "target": "odd_or_even",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": false,
+   "canonical_signature": {
+    "return": "const char*",
+    "params": [
+     "int arr[]",
+     "int size"
+    ]
+   },
+   "target_signature": {
+    "arity": 2,
+    "params": [
+     "const int *arr",
+     "size_t n"
+    ],
+    "return": "const char *"
+   }
+  }
+ ],
+ "combo_index": 51,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_009/claude-haiku-5-5/Task9_claude-haiku-5-5_c.c",
+ "artifact_sha256": "92bbec7025a0557e9fb4bdd6bdbb66f4f977dcca798744cca1008b3723e0100e",
+ "oracle_test_path": "tests/claude/Task9_Test.c",
+ "oracle_test_sha256": "8c5d75303fa54524247336c03d79eba8d81ac80c423b5ddc25539bd1c7ddd3cd",
+ "author": "functional.py draft_adapter (static)"
+}

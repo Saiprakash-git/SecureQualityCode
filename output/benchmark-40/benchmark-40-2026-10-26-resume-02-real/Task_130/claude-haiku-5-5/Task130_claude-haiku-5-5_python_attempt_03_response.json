@@ -1,0 +1,69 @@
+{
+  "attempt": 3,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793024695-mKeW8wm2P8pHEmB37sVi",
+  "finish_reason": "stop",
+  "input_tokens": 201,
+  "output_tokens": 2944,
+  "cost_usd": 0.0014921,
+  "raw_response": {
+    "id": "gen-1793024695-mKeW8wm2P8pHEmB37sVi",
+    "object": "chat.completion",
+    "created": 1793024695,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#!/usr/bin/env python3\nimport json\nimport sys\nfrom http.server import BaseHTTPRequestHandler, HTTPServer\n\n\nDEFAULT_CONFIG = {\n    \"allowed_origins\": [\"http://localhost:3000\", \"https://example.com\"],\n    \"allowed_methods\": [\"GET\", \"POST\", \"PUT\", \"DELETE\", \"OPTIONS\"],\n    \"allowed_headers\": [\"Content-Type\", \"Authorization\", \"X-Requested-With\"],\n    \"exposed_headers\": [\"X-Request-Id\"],\n    \"allow_credentials\": False,\n    \"max_age\": 600,\n}\n\n\ndef normalize_origin(origin):\n    if origin is None:\n        return None\n    return origin.strip().rstrip(\"/\").lower()\n\n\ndef is_origin_allowed(origin, allowed_origins):\n    norm = normalize_origin(origin)\n    if not norm:\n        return False\n    if \"*\" in allowed_origins:\n        return True\n    return norm in {normalize_origin(o) for o in allowed_origins}\n\n\ndef is_method_allowed(method, allowed_methods):\n    if not method:\n        return False\n    return method.upper() in {m.upper() for m in allowed_methods}\n\n\ndef requested_headers_allowed(requested, allowed_headers):\n    if not requested:\n        return True, []\n    allowed = {h.lower() for h in allowed_headers}\n    if \"*\" in allowed:\n        return True, []\n    wanted = [h.strip() for h in requested.split(\",\") if h.strip()]\n    missing = [h for h in wanted if h.lower() not in allowed]\n    return len(missing) == 0, missing\n\n\ndef get_header(headers, name):\n    if headers is None:\n        return None\n    if isinstance(headers, dict):\n        for k, v in headers.items():\n            if k.lower() == name.lower():\n                return v\n        return None\n    try:\n        return headers.get(name)\n    except Exception:\n        return None\n\n\ndef build_cors_headers(origin, config=None, is_preflight=False,\n                       request_method=None, request_headers=None):\n    \"\"\"\n    Returns a tuple (allowed, headers_dict).\n    allowed is False when the origin is present and not permitted.\n    headers_dict contains CORS response headers to attach.\n    \"\"\"\n    cfg = dict(DEFAULT_CONFIG)\n    if config:\n        cfg.update(config)\n\n    result = {}\n\n    if origin is None:\n        return True, result\n\n    if not is_origin_allowed(origin, cfg[\"allowed_origins\"]):\n        return False, result\n\n    allowed_origins = cfg[\"allowed_origins\"]\n    if \"*\" in allowed_origins and not cfg[\"allow_credentials\"]:\n        result[\"Access-Control-Allow-Origin\"] = \"*\"\n    else:\n        result[\"Access-Control-Allow-Origin\"] = origin\n\n    result[\"Vary\"] = \"Origin\"\n\n    if cfg[\"allow_credentials\"]:\n        result[\"Access-Control-Allow-Credentials\"] = \"true\"\n\n    if cfg[\"exposed_headers\"] and not is_preflight:\n        result[\"Access-Control-Expose-Headers\"] = \", \".join(cfg[\"exposed_headers\"])\n\n    if is_preflight:\n        result[\"Access-Control-Allow-Methods\"] = \", \".join(cfg[\"allowed_methods\"])\n        if cfg[\"allowed_headers\"]:\n            result[\"Access-Control-Allow-Headers\"] = \", \".join(cfg[\"allowed_headers\"])\n        result[\"Access-Control-Max-Age\"] = str(int(cfg[\"max_age\"]))\n\n    return True, result\n\n\ndef evaluate_cors_request(method, headers, config=None):\n    \"\"\"\n    Evaluates a request and returns (status_code, response_headers, is_preflight_response).\n    status_code is None when the request should proceed to the normal handler.\n    \"\"\"\n    cfg = dict(DEFAULT_CONFIG)\n    if config:\n        cfg.update(config)\n\n    origin = get_header(headers, \"Origin\")\n    method = (method or \"\").upper()\n\n    is_preflight = (\n        method == \"OPTIONS\"\n        and get_header(headers, \"Access-Control-Request-Method\") is not None\n    )\n\n    if is_preflight:\n        req_method = get_header(headers, \"Access-Control-Request-Method\")\n        req_headers = get_header(headers, \"Access-Control-Request-Headers\")\n\n        origin_ok, cors_headers = build_cors_headers(\n            origin, cfg, is_preflight=True\n        )\n        if origin is None or not origin_ok:\n            return 403, {\"Vary\": \"Origin\"}, True\n\n        if not is_method_allowed(req_method, cfg[\"allowed_methods\"]):\n            return 405, cors_headers, True\n\n        headers_ok, _ = requested_headers_allowed(req_headers, cfg[\"allowed_headers\"])\n        if not headers_ok:\n            return 403, cors_headers, True\n\n        return 204, cors_headers, True\n\n    origin_ok, cors_headers = build_cors_headers(origin, cfg, is_preflight=False)\n    if not origin_ok:\n        return 403, {\"Vary\": \"Origin\"}, False\n\n    if origin is not None and not is_method_allowed(method, cfg[\"allowed_methods\"]):\n        return 405, cors_headers, False\n\n    return None, cors_headers, False\n\n\nCONFIG = dict(DEFAULT_CONFIG)\n\n\ndef make_handler(config):\n    class CORSRequestHandler(BaseHTTPRequestHandler):\n        server_version = \"CORSDemo/1.0\"\n\n        def _send(self, status, body=None, extra_headers=None):\n            payload = b\"\"\n            if body is not None:\n                payload = json.dumps(body).encode(\"utf-8\")\n            self.send_response(status)\n            for k, v in (extra_headers or {}).items():\n                self.send_header(k, v)\n            if payload:\n                self.send_header(\"Content-Type\", \"application/json\")\n            self.send_header(\"Content-Length\", str(len(payload)))\n            self.end_headers()\n            if payload:\n                self.wfile.write(payload)\n\n        def _dispatch(self):\n            status, cors_headers, is_preflight = evaluate_cors_request(\n                self.command, self.headers, config\n            )\n            if status is not None and status != 200:\n                if is_preflight:\n                    self._send(status, None if status == 204 else {\"error\": status},\n                               cors_headers)\n                else:\n                    self._send(status, {\"error\": \"CORS policy rejected request\"},\n                               cors_headers)\n                return\n\n            if self.command == \"GET\" and self.path.split(\"?\")[0] == \"/api/data\":\n                self._send(200, {\"message\": \"hello\", \"items\": [1, 2, 3]},\n                           cors_headers)\n            else:\n                self._send(404, {\"error\": \"not found\"}, cors_headers)\n\n        def do_GET(self):\n            self._dispatch()\n\n        def do_POST(self):\n            self._dispatch()\n\n        def do_PUT(self):\n            self._dispatch()\n\n        def do_DELETE(self):\n            self._dispatch()\n\n        def do_OPTIONS(self):\n            self._dispatch()\n\n        def log_message(self, format, *args):\n            sys.stderr.write(\"%s - %s\\n\" % (self.address_string(), format % args))\n\n    return CORSRequestHandler\n\n\ndef run_server(host=\"127.0.0.1\", port=8000, config=None):\n    cfg = dict(DEFAULT_CONFIG)\n    if config:\n        cfg.update(config)\n    httpd = HTTPServer((host, port), make_handler(cfg))\n    try:\n        httpd.serve_forever()\n    except KeyboardInterrupt:\n        pass\n    finally:\n        httpd.server_close()\n\n\nif __name__ == \"__main__\":\n    run_server()",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 201,
+      "completion_tokens": 2944,
+      "total_tokens": 3145,
+      "cost": 0.0014921,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0014921,
+        "upstream_inference_prompt_cost": 2.01e-05,
+        "upstream_inference_completions_cost": 0.001472
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 376,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

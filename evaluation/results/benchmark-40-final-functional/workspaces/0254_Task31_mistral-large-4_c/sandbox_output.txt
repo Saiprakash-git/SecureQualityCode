@@ -1,0 +1,7 @@
+@@3f975f7d87074b66 STEP 0 BEGIN@@
+
+@@3f975f7d87074b66 STEP 0 END rc=0@@
+@@3f975f7d87074b66 STEP 1 BEGIN@@
+All tests passed!
+
+@@3f975f7d87074b66 STEP 1 END rc=0@@

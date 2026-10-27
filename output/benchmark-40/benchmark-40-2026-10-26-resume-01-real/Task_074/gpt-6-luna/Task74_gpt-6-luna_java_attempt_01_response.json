@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793017969-yRdpdC8urFbvRyeHAHWS",
+  "finish_reason": "stop",
+  "input_tokens": 106,
+  "output_tokens": 620,
+  "cost_usd": 0.0003206,
+  "raw_response": {
+    "id": "gen-1793017969-yRdpdC8urFbvRyeHAHWS",
+    "object": "chat.completion",
+    "created": 1793017969,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "import java.sql.Connection;\nimport java.sql.DriverManager;\nimport java.sql.SQLException;\nimport java.util.Properties;\n\npublic final class PostgresConnection {\n    private PostgresConnection() {\n    }\n\n    public static Connection createConnection(\n            String host,\n            int port,\n            String database,\n            String username,\n            String password) throws SQLException {\n        if (host == null || host.isBlank()) {\n            throw new IllegalArgumentException(\"Host must not be blank.\");\n        }\n        if (port < 1 || port > 65535) {\n            throw new IllegalArgumentException(\"Port must be between 1 and 65535.\");\n        }\n        if (database == null || database.isBlank()) {\n            throw new IllegalArgumentException(\"Database must not be blank.\");\n        }\n        if (username == null || username.isBlank()) {\n            throw new IllegalArgumentException(\"Username must not be blank.\");\n        }\n\n        String url = \"jdbc:postgresql://\" + host + \":\" + port + \"/\" + database;\n        Properties properties = new Properties();\n        properties.setProperty(\"user\", username);\n\n        if (password != null) {\n            properties.setProperty(\"password\", password);\n        }\n\n        return DriverManager.getConnection(url, properties);\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Creating connection source**\n\nI need to provide a Java source file that creates and returns a connection object for a Postgres database. It should be self-contained, using JDBC with a function that accepts parameters and returns output without needing an external driver. I think of creating a class, perhaps named PostgresConnection, with a static method createConnection that takes host, port, database, username, and password as inputs. I'll also ensure no hard-coded credentials and set the URL format correctly. I should validate the JDBC driver and handle SSL if necessary.**Building connection URL**\n\nI need to consider how to build the URL for connecting to a Postgres database. The database name should be part of the path, and I might want to URL encode it correctly. I think the format should be something like jdbc:postgresql://host:port/database. It makes sense to create a method called createConnection that accepts host, port, database, username, and password as parameters. I should validate input parameters and perhaps structure the class as PostgresConnection. I might decide against including a main method since the focus is on returning the connection object.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Creating connection source**\n\nI need to provide a Java source file that creates and returns a connection object for a Postgres database. It should be self-contained, using JDBC with a function that accepts parameters and returns output without needing an external driver. I think of creating a class, perhaps named PostgresConnection, with a static method createConnection that takes host, port, database, username, and password as inputs. I'll also ensure no hard-coded credentials and set the URL format correctly. I should validate the JDBC driver and handle SSL if necessary.**Building connection URL**\n\nI need to consider how to build the URL for connecting to a Postgres database. The database name should be part of the path, and I might want to URL encode it correctly. I think the format should be something like jdbc:postgresql://host:port/database. It makes sense to create a method called createConnection that accepts host, port, database, username, and password as parameters. I should validate input parameters and perhaps structure the class as PostgresConnection. I might decide against including a main method since the focus is on returning the connection object.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30h4rkBxa4dnuGpbJAIUvnPc1807jwNeMHRc2wPqwAfjjNpcFOEcc5k5iwbMa6gBCNuZAlU9I1EqPn8d2rig_eHo0CqjsxaxLoTqstR2YzqTi3QAC0SihO1COu_7VqR97xF0lZQMicEykB3Mv8so1whnUzI1Dz9sbQucM_KJYt-Ppe425OECpZlJj2tUbQqrRl9MgNMdSL0SKXA4mjP_dC7wttApCBoBRh4tIommNNbkzwVWln1tquqhbf6-DvbHyS9OaOsK_4mOznfC220qqEflG0sRgJfbzdg7M30f2hon-9Efp5opAofs5LNCeuSYfM5HY9ApVtUYGg9b3XlxIzkl2qpJJZzOKpqYdg52MCJ9-xFo7TSg8YXrXVbrFdZA1gJMDdh7SpgTakSnl9fkC_fHHOhgdaktqH9_RuT5XdXKw9c3nWEL86ckoahPbx_komtGxiSmAcb33AiWZhu2TN6OyYgoSPzuvQq1UVuZ6_MvxMk3TibufyEh7wXlVkbDQfDywVyFdj_N8_xePLSq7wcnNVXciNV1Mc72dWJc-Br4x2xyiXQWKTjz0Qo-2mBEVYFfr4dJ0s7Xy-K1mRFtZl9ViUinD1GKpo6AA0CcmW3QwLgJpImqNMS2HaZyqiwBFvR8Ak5edjweJKl4LG1JwAWJEttHrWzNZWFpIJU7D4IJJGWuJBmnsapRWXIH1PCdd6PYdOBrOEDmMbk7wWDqDsUEPSnH6vZLwFXl2BOCJLL_1GA3O-sPkHgfp8lLFuQo_NCu0KlGsqdXCmW3yT7a9bRtd_K_Sz6ZvBGG0Df1T9xDnVrs0NHDmHvXJWVLoQ1HMaK3X9cQORMs2XjXiFN7X96V_YbKhV5CfkRdHy2cG_sqocQJRkXX1JiU-KY4cFJVw4IWfWJRAf_oHH9eSZY-Xpp2zhWeZ5muLhOcOm29SJpFHYSPGTt28K0SvQ5Ab01kCnU6ahTTqiKmFvr0KuxoN4WElfFnIM5w_BNnPJCuoHQbfv6p--oR4N8gOYrBe2iik6PlDn2N4p9De9uNNU88POFDD4A9AkyKeHPJAk6qANRzfjPN8TUIP1m4bsHJ1-OZ7hJMRDKTwG-HFiR-6NIWPYyLTlvqp_N-e-R4KUEk3KC07ZzSdIe35cGBctGICef2Wf71fb8JdPjyfJuothQX2THIBJwchcQFYBZWXvQupMaNFbUsY85yv8l17VwNY8OHknG9bQuXzLVzbfwkm8R-40NdSrsQp9Sik9WNJnb-zeUJ00gfOef1B_cTlOrmm7Rtp7ReY9uQdERDfToSu_Q23fK1_hNVnFcoCcYyIoaerNmoJ7BgNzYHnSmmBhwJ0EA3V2TcYdd3CVA5ykxIlp7DdXRW5YNAcMuqo1KZP7bxORxDYq02vnWvV7KKi23q60eDjyK4oGUBQMU4jhvhyopngEph3gUa9ipGUU-LKiZkYQ6XmqKKPWUGtnjZ-c82WDWbDTjtJCk98MszA5VVHGhYPp9YgY6iS_RgltXmLt34zB6HVoodqCyjl8XRv-cHkj4EaYBenyZqmutq2wN_yJgPUloaj33L9SElwoqcM_gRyUdO7JPpomsz3bOtIZW_q0xvtAGKSR88eQ5p7RUA0gqaWjMwUZykdtUXY1ixSd2b5V9UVchTMceOw5Hi1vdrURWLrSUMOJRJNbbCaj4fvSuOS5t-1XRQ9kzg2ylcs5SDtABUoexVluwMGkCW11C2l2o7UTZ_l0eFIPImz4jBLe3CDkSJ_ziHvKYPs8Wtr1SHRE1vT0QFSnsn2sPvpspFfj1mZw6ptF0wNoVAwThg8UL1XcC1Pbel9IuZKC23J_kicU2ez8xDAtyQAHbIP9fe-EbtLUeq-9aa_Ed7gRKMo2jZgoJDfd4666O-sDUN6z8OO-iA0ajdJZ1kWYfp8pSe4m55zrl-iLVg_WrD22v9Yd4wZ0delSfxhRtcoLHh4gvfddFNmc4kkSjQSC1UShvaP-y9NjnLr0ryKr2pTJn6osUkduxS7MFYzhziafM3-HswnPfRXlrlrI6tg3xUc6gNs1We7V6JynS7-B0_clHAhWa7hdpjJAyuHy7alF34JTqOOnG62bTWf05dyvLuxH4hC0yJ9NRAQ30wKmbxQ8T7OHdC4KwG7p96YGQTDnzhNrCqCmSW46p07Rek4kL5MVyVGGZC4L4dAgJnQtrOlhVgd_TZQot6MhDrHm6yDMc8Syr5mIcNXKArb3-4JkejsA6l0XKODUmSmJy55MxdQHb-_gUCTjJwp3wt4nV3KgxuFxC4Y0rAGtTbXxxqiOc9_znvTg6z3TtMCGD1JNZLtwdF_l42w77ohijENV7gNl3Tct_07sgAFWbdxn8YckPw_jC3Q3zd-4DoTYn8iCh11-VzxaxNdJVwept9kBJUG19cScGYp7OmDNgEuZb6X35O0guQTsWS6KCllmAvravkVYAX_OQJK8WEiAQaYAIHbw4gdIDK29GJc9KCBFEbOC1dfJEpgGJIrkEZ4abOBDi1U0x9T_hnFwO06BYP93b19dQzQpkL2Vge4g22swVQjedQgKdPYsQRS-cnbPsA4C6kP79nam1KLlQIowdo6tw5DX9paq-fVbWS9in84TG9gauhfcWuq5WzPBs0b2_lp9Dzrk7326HrL5boYFLEy8rA3E-nLlxgW1H70kmMDb4-YzqlyPjYAGUF0a2zn1vS9ofYtE2bqBCKTzc3Zsn2TRDOR3WT_fnaj2GadQEybpDsxA866qsMkD1gOmD783MFOW3W6JzC31eNuHiq_ABEfCUzSVj8S6CJ6t2knAiRwX1TBgvtmHZHYBY3hzV9rnYLrh9YfuenCquUANBuf1VO2Pz3RFOWknOtPIklwIRQX5bTbAfP2p2mIBU15PNJrb5woJzSlkmkHQaRyV7bgq5GJfSKZGarh6kMYfL0A1a59yYynAgN25sqfDqx8t-e-8MWijmgXk9R3tw01r3yYc_M9MBKzzQZuOxud09e6k4ThJte44kbbTzUvPi5GXQ1NqtaSKojUMMrg53a7M2NyUczGv5ADb81XBAcv_6pPMaK-bA1gVHQJU53U3dDEAmNaRbd9kz-k42KpyHnhYE3ErYZax4Y0Hb8Zi52-0xT0HAtr4Hv1HFvJv7KyTvUqSEMyW_8hnWidNYmNrOc-DuGj2MVteE71aZUa1ovveLk2n1JWnxnlkNP-mnz5DyFX7s8WwFUBIohhD2Kp9OsZBQSubrzuy9TFPuzx_2tf35fPJb7ETapnAwrpoHvl4hFcpd8feEd9FLDC1Cd0iCBFYnNXpfzrHG7uf7J2cRpdkLLCwcn67qRk9ZZ4-njJK3LVRJqCNj9EPsYLYVFtkHhLliAGQI8bfb99WxH5J3SrQlNN7IXgobg73T2j73z8xx7sNsUTBVpNq1o-UF0WADX1JhuZ9Rol0RJ0801GoTTEF1R5_Rny1mOxVVNNd7iMSQcwvOhdDH0Z2k1yC1bbI_UFc9MSwKRFCM2TLgTECo37UVtJ9H3pQEW-HXL_SKywSsd27ZWtLlMjG6u8GHNG2jBuXdfxhFZR6uMKVfXTP4uSH9KAzmRFIEZ7FuOIa6FMhu-8bHFRhXM5_RMORPYezM3kdv2HCju2N88gC3if-_3FiEYkH3et28XKexvIPujpyrm_QfsyOEfFeCR5CFEugvE57tHL9bePgShZcd3IyATJXwpKhksKAJRczf5HpBGtyODr-l8zyq7q-vLOWN7LmBcBeJcMDoegFT1cJzw65GV62AIEB9QzbZ_BHEk4pHU5UBd2wyAE9UkMrmJ2xgUJYzuk7a7UvScXjEIPEkI2kTOs4rIFbIHZ3JJ4ENQZvILePo3GBSrNpui60CCdohX2iAb6Nj5jtkoqXTxw5B67Qb1tgwJOlfn-IzIB1cv0HSwdPblIhOD2RdEL-2sgWaqGyPx-OTB8PlvyJQfEjAcgqUerO77o34DYehBsZzinQ7-ldCq7SutCSk0p3kOH0tSMCmQD-KuuMF-dqs26QSZLHhgoF5lrut5yinPs-8KXPl5hd9totWjIz28UJPGFZ39G3q6od7B6jwtJo7Lnx8keznhnpDcfkIxeihBMzu_q0hOK03PUHigAu2fy65Cmt2Gu14CrXJr2dlCe31BbVaT-crNTSGJEvdE5hzQMlNx--9GoUUkyH9fFkNBKDYfchgArLNEY-k8gWGoGqKHB90_tIvO6cY1cIwlUaz9vaygreEl5K8ejAXfZ0L9R8h-zOZTLZ-u09s0w2CiO8T8diwS_fOGhIxoUWeQIF9Z9NFkNHt_5R5jOh6JHILouANTJUpLbrdYvJFNRtPWCsxm6H9Qpn2nEZO9iICVinlaXPjx4JGRKwieS9BpBmDB1U4JQCkcM58z1FsFvHqgsQIL0NImqqX7Uin1xGYbIjkv-vNonuBDC9hHrWoGnk2zOGr3XvQoKxBp8cu34DoDR8y-4wDGUtDbDsb1vqm_uQYU-swZHDFrJzka_a4OdFk5mBsTr_ARqOXe2ip9Lyd8YBjnvMXfmq7zXt6lWXPBJGCuBns70TFJTuXn-6hwIqTt5XA4WlkcP5j6EQHh4yaVwQ7og7soQaBMLWrkmPtkSnNE7uW-QFAKuTfRWB5Owx9WRmJr5hyceKVwMs7NRhlOYypUIsSu05Vf7RHxNZ2-nJHJJjpuvDhJf5cpGFbK1m0ICd9s7XYPxNdURezA1ISeGfiI6bfFjbqhLDkmZKWraqBQ-3KlaaRfsOHBwOMC1m7OZ-h0eT36-wVkZkwP4chVGOp8yRlP2oCEfafE1EeEL-XTFO7zlDijYRejQXoO4j-N-MuS46e8Vz-goYATNIhRomiKg3_8rOxpIhwC0knvt76WMMxLUnH7rYExW1hR3HEvbO-2ZnwAED1tsrUQStbN0kEe135MbOP0kx6W9pGTq7xShqwH8A8qKZxfg4pqd500hUGUdKmFQMa1QU-6bkCEzbtrAlqRr9obL_p8aFTf7EU_9-317DrAa8IaZwUKUtCXto9cxCgorbdtKZUMvBEaiLKRnmVGfBd_8wgO2j0zLsuvEOsZEYdIJbmZqzrDx9wFzlos-69qCKsZX_deHIwDblyL8-rAY6_1OQDM0VZemNM5mkXvfDy-lZJNr-_huHSjLZ7_49hyctLiPaXQjTcmboVhnem-r7x_HaIPX4bFgDYUWQ4fcT-S4uK2mciShkpKnOUZSp-lHUJD4FVhH-aRTpI02OXSqeaY86-JwPThjLmmqk20TYC-2s4sWj2bRBwmZZv6q145kBiPwSbaKNDpdhffD2s_GdrqURR3aT7kQ4gzgHSXaNqr93D-3hC-cqGlVFYGtoljE_bMzfqoPvV2zvkQJUFzsfUseHOmpl8gJ-GNlyxq9q0rmkWZHWNbSUGRCdZb-lVvin7ig0pXo-M7Cv23qWF7wEZdfb9tIPApw0NEMj4rdSBh5ZOakPoJbBp6kk9Ue5lIsw_oXHgrMwsk0pQcvA6_quWmCgZR9RWk44H_WxqCACMJYknuZj6aQrTWf86-M5GHvmfrg_zJmAYevOi9KVgCwDGuGkxbZCfj5I-lXeNPYmoJz0nzE0InHslW2dayXofqTBYn0TYaUHvFhXmH7OHWHPpAAUpY_UhfJ5o5965x6R1_vGV_2ElmqbmZ6Nqfj_rZj5UQxl2XDPsRBmuh8Uls9wTG9o5_HP9Wm_Il1QLdx_POdQQYmIMAynDis1B4MbzuBpB9aEQ9b6ryi2qa9umgK7XHO3iuZrXJd5GOgGIRuyEWVzZkArKpxAYI2l_t8VpBoE6y6r-TQkQy77Aw_IM9fpnBYE6XFeRmAjTOYIMTddFpUWN_cThvIGbuMNGyHCUYWLfn8bqe6rTluSJXcPuFoLej1O7ETpMVcJjFSSiVqWIAb256gu0vDvlbyC9kzr7ddvdMoH85h_T7awQhO4bvq8AL9ctBij3wwuhj0H9a9BDpw4YVwiUEo2rbvsKMoTZc2gU9s-F0HvnLle4j0emUaq3CZ-ZKfGm9Xhi0-JHIADa7DG8sAPSWn2yC1UzfrzzTGhLSBEo0Lhy6KvtmGVI_lVKrqYoAK6HyZYMscT_X3u6XPomboYBAHtewlwYI63zIw_UI1h1Bb-6bW3rXRyoQbOav3n-mx650J1lUr5DcvxxCagsmydFn-4vkn1xZNIQxKVlD5qD4EGGZ2Ajfprslrzpuh-UE2HDIlZ7ryP50ZHpaGq0dxMzUUrN1vivlLBrKWWtbfe3Xlr1oX_DEmlPlO672hzyM0ohsh6M9TiNVveN5rNEHo65_W3BP5SaxOZBwgf5ZbOGgQ6Xoa_LNI0WO2u08DZl-D36mx1G-ePDzFElXRUGd4MeLI6gsG2u5COVa5JCaeV8w97GriUwSsql6vOp1KOspTjII5QePM66Yio6OQ9yhNBI-wIZEuf6RQYzmKclqMX7tLZVXiSHFyzJ8AbnWVZVNpO8pChqnMLvBQ0iWSk3_WwuyewFKjEGbzvcqtJAX459MrQ==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_092a7524238f02c4016adf4873604c87d1ac3a6e109375682a",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 106,
+      "completion_tokens": 620,
+      "total_tokens": 726,
+      "cost": 0.0003206,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003206,
+        "upstream_inference_prompt_cost": 1.06e-05,
+        "upstream_inference_completions_cost": 0.00031
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 362,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

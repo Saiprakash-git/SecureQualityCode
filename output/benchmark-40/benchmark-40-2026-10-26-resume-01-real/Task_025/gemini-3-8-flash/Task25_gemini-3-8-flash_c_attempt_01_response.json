@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793016597-IwWbaO5YweLX7Zifw0ZK",
+  "finish_reason": "stop",
+  "input_tokens": 188,
+  "output_tokens": 1221,
+  "cost_usd": 0.00471975,
+  "raw_response": {
+    "id": "gen-1793016597-IwWbaO5YweLX7Zifw0ZK",
+    "object": "chat.completion",
+    "created": 1793016597,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nchar **number_lines(const char *const *lines, size_t count)\n{\n    if (count == 0) {\n        return NULL;\n    }\n\n    char **result = malloc(count * sizeof(char *));\n    if (!result) {\n        return NULL;\n    }\n\n    for (size_t i = 0; i < count; i++) {\n        int len = snprintf(NULL, 0, \"%zu: %s\", i + 1, lines[i]);\n        if (len < 0) {\n            for (size_t j = 0; j < i; j++) {\n                free(result[j]);\n            }\n            free(result);\n            return NULL;\n        }\n\n        result[i] = malloc((size_t)len + 1);\n        if (!result[i]) {\n            for (size_t j = 0; j < i; j++) {\n                free(result[j]);\n            }\n            free(result);\n            return NULL;\n        }\n\n        snprintf(result[i], (size_t)len + 1, \"%zu: %s\", i + 1, lines[i]);\n    }\n\n    return result;\n}\n\nvoid free_numbered_lines(char **lines, size_t count)\n{\n    if (!lines) {\n        return;\n    }\n    for (size_t i = 0; i < count; i++) {\n        free(lines[i]);\n    }\n    free(lines);\n}\n\nint main(void)\n{\n    const char *lines[] = {\"a\", \"b\", \"c\"};\n    size_t count = sizeof(lines) / sizeof(lines[0]);\n\n    char **numbered = number_lines(lines, count);\n    if (numbered) {\n        for (size_t i = 0; i < count; i++) {\n            printf(\"%s\\n\", numbered[i]);\n        }\n        free_numbered_lines(numbered, count);\n    }\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Developing Prefix Functionality**\n\nI'm currently focused on creating a C function to prepend line numbers to an array of strings. My immediate goal is to iterate through the input strings, allocate memory for the new prefixed strings, and construct them correctly.\n\n**Crafting C Line Numbering**\n\nI'm deep in the trenches of C, aiming to build a function that injects line numbers into strings. My current task involves meticulously defining the function signature, considering how to represent the input array of strings and its count, while also planning the output of a dynamically allocated array, handling the edge case of zero input lines.\n\n**Implementing String Prepending**\n\nI'm currently refining the C function to prepend line numbers. My focus is on precise memory allocation for each prefixed string and utilizing `snprintf` to accurately format them, ensuring each line follows the \"n: string\" pattern. I'm also considering error handling for memory allocation failures.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Prefix Functionality**\n\nI'm currently focused on creating a C function to prepend line numbers to an array of strings. My immediate goal is to iterate through the input strings, allocate memory for the new prefixed strings, and construct them correctly.\n\n**Crafting C Line Numbering**\n\nI'm deep in the trenches of C, aiming to build a function that injects line numbers into strings. My current task involves meticulously defining the function signature, considering how to represent the input array of strings and its count, while also planning the output of a dynamically allocated array, handling the edge case of zero input lines.\n\n**Implementing String Prepending**\n\nI'm currently refining the C function to prepend line numbers. My focus is on precise memory allocation for each prefixed string and utilizing `snprintf` to accurately format them, ensuring each line follows the \"n: string\" pattern. I'm also considering error handling for memory allocation failures.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "AY89a18qoUtj8E9meaxE3RFeCWW/rB7isBKJ/7297gAwqKh80ZQAfQYli6eFUhwCxJiQVoEH9UHej8WER3watmVjeSxwvD2JRfHm/e1iid9iq8Tz1aVrDJOOZlFmM5n1fO2W1u3PptOolLdWR9TybOZi31IowLAb8FJJXt83AkpaPRI1Kvt/9UpbMb3kH2jD/ZrSKhwqR1Pc37HWmnZh4tWSd1tbmYB+8j3XDVDHVXptQL0WV9PnKZnt5UGGoT5uvY/iaAvZ0qPsK/5EXLbH6pXkzZj5SQfjJWD1DLNx1EfQ51stPNoaSBWt7tf6+cNDwLIAr9Ij8R+kwTy3tzGt46MeUaSJo6ihsCiRW7vjUhkDko68SU5/YvfvY6YG6LTOpHBUR4qjYUAbGZcL1xV/vWOaMzQshUOkobqr2fbOgVIvj3/vvzCZvVB61wKhMX77awiueSu6F0vApsIzwWUD78qNtQacNZeK9QJlYgPC/WIjzfrDTQH37rMuHxUU8eRymfCvFr0u2WRzWfHSOtDbPoKJgWmObrJCCt2D+92QldCt1O1eb2v/0EGIkFiH/07BA6vQVq8UGC8i0iuGe6DQRm3EuNbo0pRDFfPAdCYA5mO3V1qw3vOhcdedJU7w5d6UdavsW8011TAUjbz2fDUitYanzWV3CktQ9ebWTPGzKnJgauAAWFBwk+VFRhqEi0N/oi5nl8bk5CLvkOVeUUfoK3bSFK3vYUX/Uk753VpnL/A79wwugybAB885qyDGDKfb3AD9KXAUd1y+CWZLUhees/7QFtvj1adx6DEe8evrJ8ITGfFr68Kz1ZvnH5dnDk/EnrTU8uwsw6Rmd9CSYkRG+KEbzE6N2yCcYndCAl62g5F2I9RLEz4ZxlheSh4smsh9jhJI9TsLd7pocnGwY4tQtr4DWcIChPjemjNuQgvJVr2bzVqnDcCTfc6uFb3tPLYnMoDv03D0yXWU7MqGkVfDibw06QEH4hop2GH7ySn7sQmuzAsy3ZULWgiKqdZos/ynbtZH0xjfRpVdOOKuy/OIwa/5xKdn4Upb+Z9KnuVOOC3N8gvUp+DpddZxyiVGp+EBYDs6Gj0kOYFtiUQqKZvRWSeM0C+C9V0aEGkALf8ebOSRbpSp22CROXcAxuteb4HUDHFeaNJ4dHDxsQD1DKJyEB3hy4qosMKlxdSMmVRTkLcbfwKGwe8wRC8hw5OLPVztr2DWIxyYhAMbfAZ+j/01AYgNSw1YU50zplScBsBtY43doAZaVhntPEDUS8KEGH92TK+AQV2neewG97TsejdZnHFR9BbCPXcKYOAfokF6uI3SR2n8RwVQX5mADGu9No8qVQT2JurE+ZXDssOcz94cfh+wWjY1WAM9AonBGn4C6Vn7qs6CeTsIi6kTNzW6ysZlG7CXJ31Y77JMOXvk5YIssegHuOXofS4qxNZIvy+EwSBwgft9qfuO+RpmoZB6Evt3qrfO3WRAZdfwHI8Rg9o6HGZbDaKLgiAxfiK6zLZapSW4mfrTk1gf/MB+PI/KNc5Y0+yZNEcmlU29I18xb2QJ3OmqCOgOzvlHUqjysskRZJKKsKbod/WaGjmZVIsnLfBnlZMtQkoliQ5Tnv1MK9BsrysiKfx+oOv0hchv/33bMn3naPrxGpyknukhIA2w61EVaL1DQNfgxppjmGsVhcLz5HIu7fETC8hmjS3P5UvsMbpeyzgcnSLK6n7ZohHlWT0vnyHpCw+cK92Ftx7c0qfpNtgL29bV200+IEcyAP6VaCRRzdPVDPU4XdVymZpPKOr2iMYG+uoQ1DtrANpM/rA4hRNIeeuWq7xVB8yGTjI5ys9NNWJl3gu7s/xccbOKIr8ypuM2aRB7VaOOm05QsVD7lnBrYi6FX5rhjfGykX4/0Lqc8Mnp+dBmvZO7GD9F6pZKupO/+w85m/caFCjTuN15FuoiaB+A7dERpp1jwCB5EXWPAFV2JsukZB0pOMfSTeWhvB+OHYTTcWKvg//ujLFxS/As5ZfsE157F0k+f2d46nlT8LkbD2Cv6qSnuyIvVjFw0Qjz4iJTjMzepAOQFgmGg/gFvY+wtcw1FWtlPWo1o1lJXhG78xUy/0Zy8bENmMVYT0VYUVfQXJLZCkL4FeT89FumK4P6F9qL7od+Nh8zLGF/e3XQ89MCY6JXBwp9+TWP9941TYuZ+yaqHBytNrO4aoidJ7l1JYg1Q1RoLq0CbbUBKe0OAPr44/QZ+suRiP8aXXjo8J0VR8lpm5fQ7ug87vi/DEicioV0j5gURdmaB75dQF8AKk/S8gppnyBLx5ag3aMKCfw7/JdLU/rN/f/Ikqp50WY3vdGr/HJaYiJ3jbWt7UcKwk39H3tkO8eCfu5QOMAsj8Q5pWtDvqvkqiREYHnqhX5uyQGzYBoMD8T3D7dVCCXjjiXRFHKh0YTCQaePnvca560VXSginqEXqy1qwOxXeWMLcKz6ZOFAh6lh2sbChZgeNrjFj5niTfZiPyeAocZy2spHyQetDZurfAAQT+YhayiL9kH3gYDeBX2S+F8FZsjkwNjMFe2AOif35lZansw3bAGfuFPRIMgxSH3w/82qP6MKod8eLevYD4FhZYMUXzP069a1FWPtS6tqQ8ey144iMZ04sgDBGjtZpF8p2cSubAxGyAEo8jaz27maEQ09CFyP2vB3rjWfvHyJ9+Tk6+gFNmHHIErR1Uxt4ndTWcSVfVneHGoBr9MntFGNXiotlODWXqhbgHJTcuXP5c8HRt39dqxwsQHca4gc8QDz/uQCkMl4/unQ3J2z0re6zEqB+INeI4bVSH03wTBNVQWzkr1lfiHFEWM6ac7BchKlMh7Wo8jMpuv1u11D4xcltX02cLeFmTdZ1DdBhOJD/atkfXUoHF2TXwH8knV4QZNxf/khumkdlIz0IClgp3yjLivUUtL1Nmp4lhsG6JVaQie1EVQJiYjdqQDYOI22I+Tk05lto7HnXtazOkRn2bz4sg98YysRJtCQJdaO3B339n7ocOpl+WHXrHG9OnMWGGNeknSP0ZIX06McKRxbac6i7brmYRvWfZdWK9L0jwzugZ1c77CXno7itnlbfM0j3giMTrvlAcRArmvB3//yKai65yBd6qq4XW4FJPlBU84tO+/vjIrQcJmBPXBfyvje7Tocj+AMl3EwmHkpS4LEi7b3niqZ2dZFkfGCVHRJvEPV5Aqa97cnOwZzaOQkY9nuOr8sd5VhL7mejmZKDiVnnN6xFVqPmEjzGJwxDXupruie0FimrXk7Pz6JsBGGCMctgB4vdTCyEMvEZxh/K7hWzPkY4Qfzp++/ZzZP6/n4mzCzwNiwYUsrNPHGeX0IgYrwzqSzYuXwFLxmUz5Q/KM1FNr0mKj8ULINN/hSEHpMNrwJPJGHxiUcQFNXNda+S17bq5ByXaFkjQyBHK1mbEjy7aA3erY0dg5/DY3yMC6HWoW20sgTCzIEnuyQkqXdDZ3p+t1/3fLr1g2qdJsZ2prX6IHK5emmhzuqY0EJsTCFdpf+nquakUHakI/tltmYoe9L6F9URiPkpk2ARbISQHhy0PmO4+APqR1r+Z6op9IQ43x97nYQqf2A577LbjvQ9dRLYhViMj+MM3LpLqQtY8NOb1Uue4jysDcbLX0cBEeKfiwRTrHMAiu+6vayeypQLDZ9vYfFDlRd9+XU1VLewc1iEfZhEwZdUgAXjzkjcU55b7ZaYMYoOOlbO+7lpnnRM+XVqx7C4qorCi5zKiwTblnjuOfrPnSEaoNKEPtTCVCRVvsKueJgmkSVGDMIbKlX4RWr2e+JmKbM0IS2yLBpY53ZTuEbsHq2RE2aleQL3yaBT5Bm4wqYm2ud0u4yg/wQYaxCP4qQPCkMNSc5xxTMxMuHGOU3v/BoXESgUu+UUxCTTfTV8Tmlkb5mIONW/QzEcOOUwUc+40uz3WBj1Lc0Sfwk7x84fb7eEIoX/LocM3xNwQdK2onGJyzwLPcVNfHhr5R47MCsN1EO4Km3gpdJ2lCaElkHDDJ3elq67j6OWVDcyJyoVeQ9h6inttm7IwLxGXP+zfmoR70ZP6Ca4QWXy6JEGkh/50vI9KGrmQio4KPkH4y25CFzCp9xE0KuC9IEmY6qqBLVaXxn5/H/AMi+Ult2jyvabGWr6WJoW1u7QDpPOM1Wqm2rBvrSMiTmbNOg0v64Sn+1oUiyaVtA1+UCY+EW/IbKMmrSujfjDEH6GmLMvz7iuahx25m8g09TOzdOjGtBn0tYPXXCGxbBDqYBhcrz4M5jDK+Sb8t03RrygYQ0FU5qXmeuwUrSDlV7OHUUNd6rLCa6VO/4CfVIlVNEptlZSSliYZ4QRCm3uKWF8ObUV/OlwP8jJWhTmx23PE7D3lnrLcGk",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 188,
+      "completion_tokens": 1221,
+      "total_tokens": 1409,
+      "cost": 0.00471975,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00471975,
+        "upstream_inference_prompt_cost": 0.000141,
+        "upstream_inference_completions_cost": 0.00457875
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 721,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

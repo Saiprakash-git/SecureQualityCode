@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793009022-8gHsZxELEMSerF5tqfgP",
+  "finish_reason": "stop",
+  "input_tokens": 512,
+  "output_tokens": 223,
+  "cost_usd": 0.0001627,
+  "raw_response": {
+    "id": "gen-1793009022-8gHsZxELEMSerF5tqfgP",
+    "object": "chat.completion",
+    "created": 1793009022,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "class Solution {\n    public static int findEvenIndex(int[] arr) {\n        long total = 0;\n        for (int value : arr) {\n            total += value;\n        }\n\n        long leftSum = 0;\n        for (int i = 0; i < arr.length; i++) {\n            if (leftSum == total - leftSum - arr[i]) {\n                return i;\n            }\n            leftSum += arr[i];\n        }\n\n        return -1;\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Generating Java Code**\n\nI\u2019m focusing on creating a Java source code for a coding challenge related to the equilibrium index and need to produce self-contained code. It looks like I should design a class named `Solution` that includes a public static method `findEvenIndex(int[] arr)`. This method should accept an array as input and return the output, while also ensuring that no main method is necessary. I might consider using long totals to avoid any overflow risks. I'll generate the raw code now.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Generating Java Code**\n\nI\u2019m focusing on creating a Java source code for a coding challenge related to the equilibrium index and need to produce self-contained code. It looks like I should design a class named `Solution` that includes a public static method `findEvenIndex(int[] arr)`. This method should accept an array as input and return the output, while also ensuring that no main method is necessary. I might consider using long totals to avoid any overflow risks. I'll generate the raw code now.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3yWCrw7ojMJcUSkx64bA00FOBhXLe0xJ4PQ6VNr9mFSMnCMOJHvfeYStLel29u_eqoO0U1wSKD_XSDotGANUPfOYb8Io_wKvCPlWQnxhgMRco_VoKZY-xDY0Jyzcr3XNy1N4XG6K9lEvj5J5XdbLq9ctNzK_yHxM0yuXIhdlzwbiluW5kDu2nJFHsd_qcD2-3oz0fLpE3pLURX1mDs_CeuCScrPaCpHDjuVMHyErek6bjXRb-_i2axWUV9zCiTphn2s_QwRRfYo0J2Uoz4r_WuC1Abt769eFRR9eiiPJJT55nwFkqS_RodZ8hZvGwEN1B3pC4Q53mZHo0_ltOLCkU43UKaA67sdTQbsMUITz3pF4FQPOXo1veAjQvYGXZlOEM3L34s99ImY-8noX1CmscHN9xF70UvbhAZ-U_WBRkBJ9CjvQwfXWTGpY5BESuVtomjuDkaCs_QH-8UZcPlJUhN9tBJ0uVZt-y7GXIBtkhMuN-9c99AZYUIEZTP0cTtM_G3cn0VPDszGOBwuBygLh3Z01o4_dUc1Ngz9Pl1p1QzFIUr4LMon-KggG_lVnC6yWwK9L7i-JGGRM2U7OsXQvBmkAc3amNVSWnOtTeSlQaepn9mpnN5nOsNiPoy-5U0-gHVfzd7V62w2Q5NkBa886Ks2xJH9KAuOI7UBigUTMYS5mlFf0RkpG5-9aqKXSqJ0sUW7aRZg1qlk8henHhfNxnXB6PLKZmNMyBnpPdNMt-wH1uom8o0hSCtcd51MqO_JgD9aRtd0adyT0ZlwuIWC-9KX5itV5nIm8LACuLvlbbxsWLK7HUHRG3YYQ9opN8qPbdtNmX_XMxYDyohYIAVHa8Dq4v127hkLMJINMynvKuEUNW1zo-KTDoPvMdyYG0dt_R49tLBwtAvhh3UP9_Hg7AjAapjeEvz2VE-zWIpvK3B6gKUJ2DqHbGkuxcgb03ygbZYfDp6YCgIk-A5VsKniXAnL_uOezDf8EuTPAbSHlDZ5cdqMEqtSc4DZy2fbgnQXGVGuN-adT7YjbxUbJU_sRTL0fUrMXgQ73keYNuETQudUKYMZQ94wlrDJE84mMkBgMfvaIABB8kgFooXZE-i_SPZ5UXqWPlR9kZcSzHpC_0-WNbk1ZXJGUysXebGu9yKBevv_mDRF2xOgsqxJwUCzz61fNvV069ByyQ_Hi5IyB-GFEKPUrglxNrDCZO7AzQzo6RyqPFAMAaOd6S_XmvAewIAL0eCnXAM2NpH8LhPLw5pgImO8-ihKcqlX16laaENMkmdn7XyuW6G9F87DeVi9cbsRuJqtjvlsgTeQ3yJS1VW28to2ULyHvOqaNuArZ7Kt5INvLMJ-pp2dcGC-u-UIXoug4-v_ntt7nbHa5pUz27Qjd4goZBpfqbN1f0PbcjvBCtN7I9tjAOvu-XK2F4dVuqbIvTUbImczjd0PMf8UEihMM4sjqIzhr6WZRgbMlnwgCXVHSykSs0ujFZ5bEB6hEpZqYhZxJ3Mq1CKkj8R9Y3nhV-X8TYNrB7BBwPR17Yjkf-QRtVYQI_WdHuIrM18BhLu0jtY83fWgpz8gL-M-ueBBe4XRxPK6Pn2J3tfmD5bhqQrrlmIma72NNDM5ZCDQ2AoAsbHWCzhAPZ8xKTwsJpZ13eMhRAtB1fHeKPKGKOXvd8P2HJsbKfXuBrVsbS2yFRijvxCAajb3CqNi6p5deuBZdV3DpJzOUk_6vCe94u2rentNhk7yDU-Jam87dCBJILd1OaD-CGRqs3E2NpWEhIlcKz2qH5SupxhcsVDqPaNAdqWOzNwH4eUnfB5qKxujWdBwtYcozuUTFoa_IzTjBBAbZQfl9IHZ2NrkkPqLA8d1kOo3LHP80j1OyGzuAEm1FmpKkLZY5K3OpHKzoLrYIUn86e_fgLzTYdK-le-4ok45VZPti5RM-12lJqgptmq9OK_loPoMgXAcbSIdpLc-5rxe3GAzGg7ra6uvAGjB8RfBMUl4JO0Y6OczxkUrlZ0UC65OkaMW-XS7hG-xhEjXB2688-lqg5t_tav6uwQLrglIBPM3_zVePlzAjASphNWtrQCAxWnCme-d7c63YWhg10x-vGkf8crgMYCeRaljRtXRCsCVuDZ7NOSUIgm68rmGTJ14agi8_oRejuz_oT1oqSU_qkRLYD-PlO9LF4NE-IIIs6yNEUwv7Uyl_l8ahrsML-G8NkS3Nq23_VVj6qAL0wrUmpTGJmMfMQEGV8WdgWrLYJmb7G8Aa5q1ChOIFk5ORZFA7EbAhHoDvyhhARi1GHlPuvYgCKE-BxGl5KJjhQm3mLeZcTJ3ds3i5Cyj7YQPUMCV9lXcP0h7MdLhRwH4eHXxwqMmCVTksOfdB-6A1QKmx2YjIWLoqrjWkqqjWAOZp7Tor07gGdiRqUH2TMXXcjeVZrndUNvsks_ar4ijM4DPMsFXYyS5ZjMoN61azkAlie0jjtgnbAaNxf34LFi3nnuu4_CU9YoS_yz8Cxb6mZ5PHJNJ-FXDOHey_ZfT8Q_cikUkUFoT8SJ8SvhE5VJayqedIIuOTYyeUzxtXQ0NotQqAv61VyHjAbpjABJoGcz4IfMx4yOk8hpjR801sj2aPzMfw3EiH4mPfSis84QsVKPaMdvlwsfAeefSey6GIwC7WKwNtSOzz4GJfW613dTIoWWTxzgZaUmi-gEbNn7fKzUJVZtNScV69_Khm8-5EPBzCXePb3KM4BprfO5d8bJ79Xy4DHMdphkvqQA6raHBduGOMrMt6YpmNjFH5QYA_Fq5yTzDFsFxRAkPNsI1fPDcHRTmJMf2hKZ6GSlALqMJP9g1VSiUbQDOYuS45MR5jt9UOmVBvVRSzmDUXwgq8Ttk75mBUAIbyASPs6Kf1h6OppJhtuyXH7cO6ax5q7xi0ii8Qnh8tfhB7QSctHRl4LOq9G2bxglHSCCqJ3IUR-2ls-KDuDeebjqmnhsJCJ_ww0lm7-uAnf0S-wCRWIu3FHqeslxcFI5ajAjiOT4yzTc-n7x6I2KKiBAR8QYEO1GrkYQf-i7at91GZTHD8mJ36KP2G7b9aLMDym2Lv0f3X3ZVMZx6QkZS7zepQuvefoUdV_EtPchodXw==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0ba0f9a26746cb47016adf257fbb7487d193c17945c773577a",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 512,
+      "completion_tokens": 223,
+      "total_tokens": 735,
+      "cost": 0.0001627,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001627,
+        "upstream_inference_prompt_cost": 5.12e-05,
+        "upstream_inference_completions_cost": 0.0001115
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 116,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

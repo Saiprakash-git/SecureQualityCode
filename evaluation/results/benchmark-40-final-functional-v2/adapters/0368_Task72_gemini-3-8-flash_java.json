@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "Task72_CLAUDE_claude_3_5_sonnet_20240620.encryptData",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 368,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_072/gemini-3-8-flash/Task72_gemini-3-8-flash_java.java",
+ "artifact_sha256": "aea1ff28a6a8c832ccfcf2ff0432c18881927959c04990c60d7114529418d5c1",
+ "oracle_test_path": "src/test/java/claude/task72/Task72Test.java",
+ "oracle_test_sha256": "3265a4443d2ee3a7a21bfa97a9af059cb54f92fde0b9c118db7b3325c5919a02",
+ "author": "functional.py draft_adapter (static)"
+}

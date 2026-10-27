@@ -1,0 +1,14 @@
+Task44_qwen3-8-flash_cpp.cpp:65:44: error: expected expression
+   65 |         if (input.empty() || input.size() >
+      |                                            ^
+Task44_qwen3-8-flash_cpp.cpp:65:44: error: expected '}'
+Task44_qwen3-8-flash_cpp.cpp:64:59: note: to match this '{'
+   64 |     std::optional<int> parseAge(const std::string& input) {
+      |                                                           ^
+Task44_qwen3-8-flash_cpp.cpp:65:44: error: expected '}'
+   65 |         if (input.empty() || input.size() >
+      |                                            ^
+Task44_qwen3-8-flash_cpp.cpp:6:11: note: to match this '{'
+    6 | namespace {
+      |           ^
+3 errors generated.

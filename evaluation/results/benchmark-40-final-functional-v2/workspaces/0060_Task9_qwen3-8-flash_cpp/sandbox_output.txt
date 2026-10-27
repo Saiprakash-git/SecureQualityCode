@@ -1,0 +1,7 @@
+@@56f0bf843ca64fa4 STEP 0 BEGIN@@
+
+@@56f0bf843ca64fa4 STEP 0 END rc=0@@
+@@56f0bf843ca64fa4 STEP 1 BEGIN@@
+All test cases passed!
+
+@@56f0bf843ca64fa4 STEP 1 END rc=0@@

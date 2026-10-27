@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793025298-8r78twL6wpSGGZnqpuYn",
+  "finish_reason": "stop",
+  "input_tokens": 163,
+  "output_tokens": 541,
+  "cost_usd": 0.0002868,
+  "raw_response": {
+    "id": "gen-1793025298-8r78twL6wpSGGZnqpuYn",
+    "object": "chat.completion",
+    "created": 1793025298,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "public class MaxSubarray {\n\n    public static long[] maxSubarray(int[] nums) {\n        if (nums == null || nums.length == 0) {\n            return new long[]{0, -1, -1};\n        }\n        long best = nums[0];\n        long current = nums[0];\n        int bestStart = 0, bestEnd = 0, currentStart = 0;\n\n        for (int i = 1; i < nums.length; i++) {\n            if (current < 0) {\n                current = nums[i];\n                currentStart = i;\n            } else {\n                current += nums[i];\n            }\n            if (current > best) {\n                best = current;\n                bestStart = currentStart;\n                bestEnd = i;\n            }\n        }\n        return new long[]{best, bestStart, bestEnd};\n    }\n\n    public static void main(String[] args) {\n        int[] input;\n        if (args.length == 0) {\n            input = new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4};\n        } else {\n            input = new int[args.length];\n            for (int i = 0; i < args.length; i++) {\n                input[i] = Integer.parseInt(args[i]);\n            }\n        }\n        long[] result = maxSubarray(input);\n        System.out.println(\"Maximum sum: \" + result[0]);\n        if (input.length > 0) {\n            System.out.print(\"Subarray: [\");\n            for (int i = (int) result[1]; i <= (int) result[2]; i++) {\n                System.out.print(input[i]);\n                if (i < (int) result[2]) {\n                    System.out.print(\", \");\n                }\n            }\n            System.out.println(\"]\");\n        }\n    }\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 163,
+      "completion_tokens": 541,
+      "total_tokens": 704,
+      "cost": 0.0002868,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002868,
+        "upstream_inference_prompt_cost": 1.63e-05,
+        "upstream_inference_completions_cost": 0.0002705
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

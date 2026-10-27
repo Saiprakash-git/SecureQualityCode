@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793016451-0ZWCm8Vm61nkkYQgXzoY",
+  "finish_reason": "stop",
+  "input_tokens": 455,
+  "output_tokens": 550,
+  "cost_usd": 0.0003205,
+  "raw_response": {
+    "id": "gen-1793016451-0ZWCm8Vm61nkkYQgXzoY",
+    "object": "chat.completion",
+    "created": 1793016451,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import java.util.Arrays;\n\npublic class Main {\n    public static int[] removeSmallest(int[] values) {\n        if (values == null || values.length == 0) {\n            return new int[0];\n        }\n        int minIndex = 0;\n        for (int i = 1; i < values.length; i++) {\n            if (values[i] < values[minIndex]) {\n                minIndex = i;\n            }\n        }\n        int[] result = new int[values.length - 1];\n        for (int i = 0, j = 0; i < values.length; i++) {\n            if (i != minIndex) {\n                result[j++] = values[i];\n            }\n        }\n        return result;\n    }\n\n    public static void main(String[] args) {\n        System.out.println(Arrays.toString(removeSmallest(new int[]{1, 2, 3, 4, 5})));\n        System.out.println(Arrays.toString(removeSmallest(new int[]{5, 3, 2, 1, 4})));\n        System.out.println(Arrays.toString(removeSmallest(new int[]{2, 2, 1, 2, 1})));\n        System.out.println(Arrays.toString(removeSmallest(new int[]{})));\n    }\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "CAQSzwgKEAgTGAI4AUIIdGhpbmtpbmcSDIMhmEJepnzbCgzupBoMuXXWUHk6cS8XC2jRIjC6hL/aSwt/dY4yIJM7k5t0azbHKB1p961YZFU11qIMeqsWakqderW8TpdX7bpREhsq7AezVXVvF7XYFoG1pyLtgzt9nT5RTMQJtdNrTU6ca1NVGQp27q6+URIcqAB4mlINIJMptS7/Xuthh4hU+THuT+e28OfleK02Mq6du4rDFwACHZZ16V+WJci74EQT8T4WcPjsxkd+9atcSEKVUWS4EUGBDG+u975TEVlGimyVwnZ4ogMP86Drz4EMPP5m+7Nlg6kPBc5JHkmzSCcGNxPNS1mV1OQ/fTTCum4iKXOZ/VYCu842OYbmEXVH3lFnykKLdzC2jN4O9XGYBztdRBjVI5f4PkJ5GWoyG3klycdLNCp0AA10viQ1xPpv+UDEbT5rVPDjv73Sa2llJEcHNqKNVD3ssLllU6CTOJOCEqC0rwZMPKgXlpdApS/pp4RIJgJagoi6eAiAvrR6Xg7ifgakJjw1TpLtBm0VwtUq9PHUEX/NJr99Y0VxP1EvhvM+3LrRh9oDtU59s64iqHIBCTUg8cIOwXztoFeebIU0OmY9mZcd6yL+k0Qi7oB5iLxeBTAhAqeWx6b5KQAz6VuR6rNuI75aT3ptqrB8kFOFlu2+bMZf2/YPsKyt5/mh/HAcUdmke/JGe94JTQryzjcZxkubsQ+ZHcZi33PRQ5oTWT/uG5AtBR4KqQazgaIWdPXdrDS48WSVl5O2fRjbbxd6TVY2Lq96mOZkbV4hCxlFnTgFAAF0VmHAU8suTytkfFRyJpzF+/SlgbVXTve8FTIg4JkwUPuvhrwoZOqCvZx8zjECFvvB5wMHdYu6MV66P2uGP1HwpTENpx8tTEztUyTRhdUqShQc7j7umDaQnthNmI35dxyZg4VCu4cW71qFr7b/9WJKCAArY0GwcCLYZ52WDsPyfJKaqEBHfcimHSi8i7f3exprU9bz9jr11oFKfSWD3tfDAGOxYz5HfdL4X4GK/LuL9nlQetC+SHhRiEmFdn9JO6sNdc2MYyvIfUa6ZaXggZNn2Lb/m3YJSAYDETKwHWKrSUHLfPLqVuJRWLXImSmhP41PGKyIM/6IVAmX1H7QhAYspV0koMD3+AoMF6EwtVBqBtHAhCcflt0ksYd+YMHKzXEx8JVE6khFDii5aD3KKihdG/kq9SvrncWwMRn08l+jGU6ZyojTexRcGRSI0juBZaIuJQJP13OGGdKFFSlHJJMf70sF1E6P6ebl23FViKmUtI05Hr7xHwWX/N0zNT6OzeDST5Qw1Vhxo6SGNo8OWuom8AtUlwxbbaoVNpojI0c/88cHTHfuhrdCzGmf+JtLYykjz+CgD4Wh1RRHs+ox0Vux5i0GZ5mPOkFl73sVE76eiyCSQMlqypWNefF/l6G6mxQKBWgcX04Yiu4X5E3PkxgB.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 455,
+      "completion_tokens": 550,
+      "total_tokens": 1005,
+      "cost": 0.0003205,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003205,
+        "upstream_inference_prompt_cost": 4.55e-05,
+        "upstream_inference_completions_cost": 0.000275
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 164,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,32 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "Task31_CLAUDE_claude_3_5_sonnet_20240620.makeComplement",
+   "target": "DnaComplement.makeComplement",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "String",
+    "params": [
+     "String dna"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "String dna"
+    ],
+    "return": "String",
+    "static": true
+   }
+  }
+ ],
+ "combo_index": 246,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_031/claude-haiku-5-5/Task31_claude-haiku-5-5_java.java",
+ "artifact_sha256": "b35b8cec6a1c5b1a1a04f60fc80d152268b7df4e883cbd34c0951ddc8952639b",
+ "oracle_test_path": "src/test/java/claude/task31/Task31Test.java",
+ "oracle_test_sha256": "22f2669d016b7526c851ca4797b0f8c65dc7bd4809d449e36a8bb98b938c0cf7",
+ "author": "functional.py draft_adapter (static)"
+}

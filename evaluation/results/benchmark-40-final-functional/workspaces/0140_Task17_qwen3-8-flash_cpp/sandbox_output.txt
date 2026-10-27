@@ -1,0 +1,7 @@
+@@6e571240cd4278a6 STEP 0 BEGIN@@
+
+@@6e571240cd4278a6 STEP 0 END rc=0@@
+@@6e571240cd4278a6 STEP 1 BEGIN@@
+All test cases passed.
+
+@@6e571240cd4278a6 STEP 1 END rc=0@@

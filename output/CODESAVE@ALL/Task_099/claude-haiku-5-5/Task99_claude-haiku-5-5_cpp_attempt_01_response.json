@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793023846-A5q3XurtTbcpzMAPmcxC",
+  "finish_reason": "stop",
+  "input_tokens": 163,
+  "output_tokens": 829,
+  "cost_usd": 0.0004308,
+  "raw_response": {
+    "id": "gen-1793023846-A5q3XurtTbcpzMAPmcxC",
+    "object": "chat.completion",
+    "created": 1793023846,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```cpp\n#include <iostream>\n#include <fstream>\n#include <string>\n#include <vector>\n#include <regex>\n\nstd::vector<std::string> readLines(const std::string& path, bool& ok) {\n    std::vector<std::string> lines;\n    std::ifstream file(path);\n    ok = file.is_open();\n    if (!ok) {\n        return lines;\n    }\n    std::string line;\n    while (std::getline(file, line)) {\n        if (!line.empty() && line.back() == '\\r') {\n            line.pop_back();\n        }\n        lines.push_back(line);\n    }\n    return lines;\n}\n\nstd::vector<std::string> matchLines(const std::vector<std::string>& lines, const std::regex& pattern) {\n    std::vector<std::string> matches;\n    for (const auto& line : lines) {\n        if (std::regex_match(line, pattern)) {\n            matches.push_back(line);\n        }\n    }\n    return matches;\n}\n\nint main(int argc, char* argv[]) {\n    if (argc < 2) {\n        std::cerr << \"Usage: \" << argv[0] << \" <filename>\\n\";\n        return 1;\n    }\n\n    bool ok = false;\n    std::vector<std::string> lines = readLines(argv[1], ok);\n    if (!ok) {\n        std::cerr << \"Error: cannot open file '\" << argv[1] << \"'\\n\";\n        return 1;\n    }\n\n    const std::regex pattern(R\"(^[0-9]+.*\\.$)\");\n    std::vector<std::string> matches = matchLines(lines, pattern);\n\n    for (const auto& m : matches) {\n        std::cout << m << '\\n';\n    }\n\n    return 0;\n}\n```",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "CAQSvwoKEAgTGAI4AUIIdGhpbmtpbmcSDEExP0grXcMC4B6Z3xoM//5+QWhQ9bPuTDdpIjDL6OBGL5OqfIsTmJmzQSZ0cdiJnTRLg93RJtOeVTSQ0fS7fEsMwAIfBFPUhUw+TVIq3Alq1KMPnI4+9+ygGCKa4mvURWT55THa8xAl6dhTpxbURsNhlKZIC/1FQP3Ks6qTgDDxmTYD93xGisPpALkRN0edheFOw74zl6weLURSpptt9957CesLbNH5utvhnQDm4rAQU8y8/kbSVSmWt686zG9/kmaQDTCG2PY17QouCxe0MzaraiIxKaJl3zkMqxFIX/tpmaqGIapFsFAQ5tiaXBiGGeuuEGlESsPey6SaWqAULNHukWDQSEz0aTcDE9+Iu8huATFPYDpxFf6abIHDvtAaHLlJe8k3EX5EOncoNa3FfOvYmp4UoZVnpJrrJjsrDOLibd6aaFM1CgAMgWDFofSFQWP8IKwz4VYW5JjSfU837qQGIoIm3yP7QL3myy8Tzg+9P01vczCjtfzgLt7mtHzBj8wfrAPBgwDPwhCUPGBR9HqA3jGkWefA4dc8zveA+rSeAqc5JZisnFXpdWZDgnVdP4J0+wh5FyGvMKk8Lner7ZHxdmbphNILy+tq3RwURrG/ql/Iw/iAILM4fqbtyH9uHVRDX/kID5ak6hT/1WuhvqfMk0CmL29qrj0mcFYM2w0jmll61vmY79z8jCs3OipbpWKNRab/T0MXGYC5P83Kcq1HTnVsl1qwqrV24mSPWUaYPPXLJjBxxPxb7rNwGxK2XVrngJxaN/Y43pz4gcWjS8wVakjMgbkKv5ZZeFo4m9laAhvFlPHjBzSlEWhUqQUjszeoXnrc61C9ku8DC/UEg/rguDYVKSx22PiAfxYvh/I7NNfNmKLLygE4E+mrZZEFtASdqwcEVLs5hIWMUxu46n1ucBG40rjAKyvY9MEPlGwlhr5OIIVpsHqBzDHDlG6P150hSk5Ght9ztBLQQofLVJbdBPbam0nvdUMrHDrm3mtshYAL90A4nIYlRfQj0R/J4E5fhtS2zJfpKCL+K2rVvxr5rP2RF75Wl3sjXBhvLzyE7mdp37lXwMEUn8+pePajT8I0hOcHf8rmVhFYR/ien/27QsKiknZJezDMOGzk9DpXAFxaMNZ1lasy1AmfXHhJKXHnsGMG6UIfPhRm52BiOszUpNy34wzk2BIgsB0uMUyFkvh3WU4xDVqzUjr1sSxtJbme6olgqfJzw2cIUYhtXARW6VxPh3anhTpaD0FRQtdtfI7zgm+x5+Q9tAxI2DblLKvz7XlZpdyLGo9PL4BQYINWc4OSztQRzVteYy7Fw/mmm2J7Mz0y41GGiO5Pdc65x92yCDCoQ8puwjYV+squ772anwTDn9CIEHPDUp7UBysj1nWue+WwsTMNgoJlcj0BUWHQUAi1AP8HBTiVTHkTypUd5tG4sFINX662e8cfbg6hrSGS6Cpc6b+PUq6LVaVWSLL+v0z4z829udcp2FCkHHs2bay3TjygMIm/MHcYa5A+YJhgJqezhJG2lQGN6dVeTt2DSmSEzqrf/lDjxR9cGQTE7wdE/cMNUONkaW4F9AXg3/sFGZyFMMUSb3nHSc6Ujmaj0jDUO1F1FYpi/911VleyS5xK5uaivGJCh6zmBfh/c5LxQ/Tv1hZ4Pq43k05NL7be5iAESV/aXKxMrdkqaWeuZEwgPC2t2R1DwUOyT/6jwocPkbiF6VH/7PdWAHLq+UrNjmGXL9dXf664EpAwtX/eKc9JFfwPbYo6/xgB.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 163,
+      "completion_tokens": 829,
+      "total_tokens": 992,
+      "cost": 0.0004308,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0004308,
+        "upstream_inference_prompt_cost": 1.63e-05,
+        "upstream_inference_completions_cost": 0.0004145
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 272,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

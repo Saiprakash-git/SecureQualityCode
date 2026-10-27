@@ -1,0 +1,3007 @@
+{
+  "snapshot_id": "1736c9c488b27f236050049ffa3fb4a3bb7198c4259a97a9c958861f1593e4c9",
+  "description": "Base paper published outputs (dataset/output), 40 tasks, C/C++/Python",
+  "created_at": "2026-10-27T11:43:45",
+  "artifact_list": [
+    {
+      "combo_index": 0,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task0_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "9bb82193c76ce588773d9ed6834d32e9f2cd46f720a8f5aef8c89e55297e6114"
+    },
+    {
+      "combo_index": 1,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task0_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "52b4e48249b3657b8eee29580616b87f5c06d544f6c62cad72c8f653dc9e1970"
+    },
+    {
+      "combo_index": 2,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task0_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "f717696dd0aa258c05442361ca38e93732b23e8f9b352960b9ee953c7f790135"
+    },
+    {
+      "combo_index": 3,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task3_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "0901413a10c0554da8607a839c0b12a186eff06a0c6e3bcddf91c82eff71f50f"
+    },
+    {
+      "combo_index": 4,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task3_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "f15fef2fefbcbf6330c23710abb710078639f4118a2ce0c4899c5a8ee9eedd4a"
+    },
+    {
+      "combo_index": 5,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task3_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "68fcc7e5c45f178ef4fb8e8218387a570ad2f0b5ae1bb63cfdb0fba00cec49f3"
+    },
+    {
+      "combo_index": 6,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task9_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "eda650235c6a967c9ec29e6372658aac1e1110c622613d5e11f42e57a3f29a70"
+    },
+    {
+      "combo_index": 7,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task9_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "9b8a7c71fcefef9ced0c381e1e108ccf84bf761042393fec5828e355302f2a5b"
+    },
+    {
+      "combo_index": 8,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task9_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "016b640c62152940b44b058434bd53ad941ea30f4c9c3c789ddd16e25a0742b1"
+    },
+    {
+      "combo_index": 9,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task12_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "63be5dc483eb4376bfbd8dc88d2f2a81760a4fa214a2d55445d382a6ee4e7a81"
+    },
+    {
+      "combo_index": 10,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task12_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "8554a33f28c9e32a07ab9224ff6cd9947adc697635c656f0f182f4ceed759c99"
+    },
+    {
+      "combo_index": 11,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task12_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "e237ede2833f3c2e70f8e198cb7aaad5795d8010e1e245e73a7480bf2a31748b"
+    },
+    {
+      "combo_index": 12,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task14_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "6fec7616542c29abb38a70636090c321a2ef662859631c0b45263ec07d6c733c"
+    },
+    {
+      "combo_index": 13,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task14_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "8bb7fb8cd07a42f5c8219761e6176740f86011426c923ef2e925e59a7116ef73"
+    },
+    {
+      "combo_index": 14,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task14_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "4ebacb688b3c3da6341bf93c6bf7ab246cf1c74e03efba28c72ef8d45980d1eb"
+    },
+    {
+      "combo_index": 15,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task15_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "f03d897b367bda3a3b0351c9cd0e481ebc7aaa770c65e7b44b47929ea252c4ba"
+    },
+    {
+      "combo_index": 16,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task15_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "cad3c926e0505d786ee54fcf7462527f0e44c4c7257ed1a9243e927105b119e5"
+    },
+    {
+      "combo_index": 17,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task15_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "5c7ba2833b361bd9b671da39893051fafe4b205ce77cbd397c5219543f411d11"
+    },
+    {
+      "combo_index": 18,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task17_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "143ca9a9939ba4744593c9fdef47da877312bc3a2d64ed68448bc7657a886e3d"
+    },
+    {
+      "combo_index": 19,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task17_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "e852d6e53233acee423abbb4652c2e12107fba410c410472f54cc9d91ab4ab95"
+    },
+    {
+      "combo_index": 20,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task17_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "47f46094c5852db47bafe71b518d5f3d32c88a96da10204bc63ba50d4a942027"
+    },
+    {
+      "combo_index": 21,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task18_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "92a1a742efbb4a4a799e32832158a253b395a3f37e4da0c33a68032712721925"
+    },
+    {
+      "combo_index": 22,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task18_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "efe7a25c0d681c19de7faf606d9a1574e77180943e99ba7dd9f7c0c3453699d9"
+    },
+    {
+      "combo_index": 23,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task18_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "1696116080fe5892b77490300d13a0ac2949c6630358572063c11059e9097e9b"
+    },
+    {
+      "combo_index": 24,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task21_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "5e7bcbe2aee5221489cf4be69ca19dae3db111c609ff4ba60c21d428e0eb677e"
+    },
+    {
+      "combo_index": 25,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task21_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "abc7b84ed879c844a2ad56779617a8852cb4a4be0f62c949cbbf022955f7d7a8"
+    },
+    {
+      "combo_index": 26,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task21_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "c1c59ad1d817b363519d3eedb289528709664e48351d377123811948c46b1d5a"
+    },
+    {
+      "combo_index": 27,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task23_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "4d1657eea1fa7d2d11b9006fdb69d96b63da3196936c1d94ac9a478e4002c8ba"
+    },
+    {
+      "combo_index": 28,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task23_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "35c96c19a67f6d43dcb77f5276f8c85a3c1aac9de8783a404e223c908abb5d72"
+    },
+    {
+      "combo_index": 29,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task23_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "ec27216ac5804dde5d9be32fb79c02b4503c448bc8f853bc4f4e3debe7c7595a"
+    },
+    {
+      "combo_index": 30,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task25_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "d66c3bddca3c92ba1e8bd60e9550befa9ad269ef8fc19aec5b98102ab445ee85"
+    },
+    {
+      "combo_index": 31,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task25_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "7b5429c67df730afd6039b1e6d4704a876d06c4a5c19536bb7d7bb1723b49191"
+    },
+    {
+      "combo_index": 32,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task25_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "b0c0dcf11af32f9170cc3506b3df2a5cd35b910c48eafff1122820e28de6c893"
+    },
+    {
+      "combo_index": 33,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task28_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "2d0299cda36cc32e35bba6d3ef2a38ee8a6824a4df5286a8cf8cbd8c83c2d9fa"
+    },
+    {
+      "combo_index": 34,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task28_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "73122a21e1b437bf28fd804f17741aefdefb9cd42a01058f01e7720e551e9ce2"
+    },
+    {
+      "combo_index": 35,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task28_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "f8c4e94c4c66f7458a2077605b59a80d76d060edb2e6c0e8183f531ecf265cad"
+    },
+    {
+      "combo_index": 36,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task31_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "3bb69e0c03df2dae7997b65a8870e0ebd26f96384599bcf56e15974e5b1f1a9a"
+    },
+    {
+      "combo_index": 37,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task31_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "3a20fb7ac293a24996b47cc95ca3ba89ee90e5fa6cc3ac46cf07069a6b152d57"
+    },
+    {
+      "combo_index": 38,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task31_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "68e9d8d9a933a2bf7e61302d21994bf1c6bd858461a04c60fc681791bb5f2aef"
+    },
+    {
+      "combo_index": 39,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task44_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "a4f52388436ae3e815ce71a9f15f83cba6a98ca10a00dd55a31d560203c6ea16"
+    },
+    {
+      "combo_index": 40,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task44_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "721d3ec5f174327239418e805b6d107269b0879b6260753b339aecfff01fb457"
+    },
+    {
+      "combo_index": 41,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task44_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "07f3c0d19d3ca811f85284aeaa5f835a4a5a6b2c90860c36cb9bb2d6e8740ebd"
+    },
+    {
+      "combo_index": 42,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task56_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "734db698e044290d62a5d2360efb911897cf61d2d6637b73c00f687698c5daaa"
+    },
+    {
+      "combo_index": 43,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task56_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "852ac312d1f0039ce57bc5ac13c0773c3dab05cf4cf6cca6ae171f2a63af6e58"
+    },
+    {
+      "combo_index": 44,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task56_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "9b7f630bca9387b92c3bc524df702adbad95e85df6c3f80545b2ea7e676c963c"
+    },
+    {
+      "combo_index": 45,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task66_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "65d9071c7347411b476bbe7eb357842779b3b80439601f171dac18c5b9d2f574"
+    },
+    {
+      "combo_index": 46,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task66_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "b264b861f84f82a12d817ad434709255846e1fb2510138016ebe1a21c53d1721"
+    },
+    {
+      "combo_index": 47,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task66_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "0d5c56b14cfe6ba473409e23deb6a6a4f6a405af8573343c3df0cbc31b7bbe15"
+    },
+    {
+      "combo_index": 48,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task67_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "01743727c99bbf58972f2a36e173ce37c27695c30d101a48cdfd7d90ad932f0b"
+    },
+    {
+      "combo_index": 49,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task67_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "5db82cfe1696b070c8fef13ed297e05d0c57b81f5bc942641b5320454985c429"
+    },
+    {
+      "combo_index": 50,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task67_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "525fa69acd18b9bc389278185219a0ecb3c8da6daa615d89e6026fcdcadbe436"
+    },
+    {
+      "combo_index": 51,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task68_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "c609760aa40dc513a2db2b5657632b59bc21e028e245c959fa3394b6def39e16"
+    },
+    {
+      "combo_index": 52,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task68_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "68a098da6f61122c036da9f2e85bb285f2a17ecbb591270173995ade374e89c9"
+    },
+    {
+      "combo_index": 53,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task68_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "dc95c0e0e983336b12191d7835792e0c7ec83e5d04b15a816c51e7eae37b5764"
+    },
+    {
+      "combo_index": 54,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task72_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "29ac2575f568b2a7442eec58446fb7f11fbd8d3565086df249c49b9c0a8eef13"
+    },
+    {
+      "combo_index": 55,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task72_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "1dd561e2ac48df3160bf8f967f14e2cd3159ecb14b5b93bf785bc539bfac3e7b"
+    },
+    {
+      "combo_index": 56,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task72_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "5224ac70c5a7f62ee077bb67e6ef800bd519c465bf55328da2f7f1317bf7664d"
+    },
+    {
+      "combo_index": 57,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task73_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "ff3588bf2641cb253e500c3fcd0ec8cc04893a47dd36a26583af80738d326a25"
+    },
+    {
+      "combo_index": 58,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task73_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "62233b11020387d5f5d4fcca1624e0badffe7f7384473551d3ea4106b1b87298"
+    },
+    {
+      "combo_index": 59,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task73_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "7f4d537fe6afe38cc230b36b04308914d617a7f8069318bdf36ef8c1284f0a5a"
+    },
+    {
+      "combo_index": 60,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task74_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "bf2fcb6c0e43aeb9ceccbaeb5d97479c2baf6613c3a02b61812b0ec9a73d04cf"
+    },
+    {
+      "combo_index": 61,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task74_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "60a5a47f20fe1e6f0397489b5d6399d9c0ac2b9a9c8aab21a651ba2287c33ce5"
+    },
+    {
+      "combo_index": 62,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task74_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "8cd644ed4a252e3e6740ba5f24840f2f209c8873277fb394cbe3c68d928e0216"
+    },
+    {
+      "combo_index": 63,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task76_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "511d9956cdeb5f526a7f47e916e627395626e6f475b35a5e9de74d4e56e78571"
+    },
+    {
+      "combo_index": 64,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task76_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "008dfedec1e731d2a07af2ad76f801736f9457f184988d55cca6368ee688c3ff"
+    },
+    {
+      "combo_index": 65,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task76_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "dc2db7b8757147b9bacd8f31087372a672152b3bc837f454df87a63e9d65c7ce"
+    },
+    {
+      "combo_index": 66,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task78_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "83568258f6b0b96429a112bb710f1a3b84eac97be13e4c91a375d5b652beff13"
+    },
+    {
+      "combo_index": 67,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task78_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "793a1d5cd6346640d15556f6f639c8b297f522d748a0c5e4ccf1f03c5400c873"
+    },
+    {
+      "combo_index": 68,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task78_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "504b522cd99c56f199886b74159be80268d33b39bb43c07b5875b3cfe707ff9a"
+    },
+    {
+      "combo_index": 69,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task82_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "c4679df50bbc5f0040791654faa5037d04baa8dacfe9d723c861cc038f67e52f"
+    },
+    {
+      "combo_index": 70,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task82_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "e6b671022383f79c79589a72202da2d2cbeb18c856aa7aeb39cc7e49ad422b91"
+    },
+    {
+      "combo_index": 71,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task82_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "5b28c17d39b1e47911ede51a39e39c859c9c569688434edd282e672193f06a67"
+    },
+    {
+      "combo_index": 72,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task84_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "1199a7ecc60f8bf97661895157d3a45d45303e83f0ff65153857ee4db7767f9a"
+    },
+    {
+      "combo_index": 73,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task84_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "8d9a58151c5e9b8e1fdcd6e0719a6cda96a6344766a0492d05f769e29fbdcf95"
+    },
+    {
+      "combo_index": 74,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task84_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "fc06cd88ab47baa2dd19a6c8f0827fd99ff13992b5d2d7a6bae6e47ec134218c"
+    },
+    {
+      "combo_index": 75,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task86_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "f417a7001926c9cbab7d134696c19479b3e8caad865953a7fcdd758e1fa6f04d"
+    },
+    {
+      "combo_index": 76,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task86_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "82ac9310040cfcab1a39b5199cff51e9da850e4d611fcd48f6f28dd289db7c1c"
+    },
+    {
+      "combo_index": 77,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task86_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "ca79e7746d717ab82bab68e296f0057cff90353388f4ff5e3c93b6098efbab29"
+    },
+    {
+      "combo_index": 78,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task89_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "24d832439e66bd46c4171209854423ef8dbb0066b91156b588987fb4ebc804e2"
+    },
+    {
+      "combo_index": 79,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task89_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "13850cb7dcec8853d1954556119a135169cf3b40badeb06fda08329f63288d26"
+    },
+    {
+      "combo_index": 80,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task89_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "e23c073c6d8cdd0562db06d8ac626997ea6cbf60cd1a9d364d2f3225f4329b69"
+    },
+    {
+      "combo_index": 81,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task91_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "bbba7b9fde6c9f749c2726a53b85fb96d1455faa905acec47ae231b2c448ac4f"
+    },
+    {
+      "combo_index": 82,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task91_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "3d98439a50b1676718a7fcf49864f5344b4c261d457e5cb6f91da4eb38d0e83c"
+    },
+    {
+      "combo_index": 83,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task91_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "b98034dbd298868ade12fd28b439eac1518591c7b66cb4fe925ecbb3744afb0b"
+    },
+    {
+      "combo_index": 84,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task99_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "0549b408c66dffac5b753174ed9aa5b15f741c3dd9bb017bb33fc81e841a8182"
+    },
+    {
+      "combo_index": 85,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task99_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "0695adbb41a72a2ca1d8bcb2db3969a75cd758201733e344217d71cf0037aef7"
+    },
+    {
+      "combo_index": 86,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task99_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "b9c459ab31cd9b05d4819b620869a5aa1d1ce1b9f747e7b1e531fe5e281fbc08"
+    },
+    {
+      "combo_index": 87,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task101_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "9f10f075dc369f59285adb51cee7841e9628ca3a58e21f2416ac36732ff843dc"
+    },
+    {
+      "combo_index": 88,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task101_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "69745c772544a5773fb2367cd6ad1cec11853f5a4e34c51d1ff3e25374c05a73"
+    },
+    {
+      "combo_index": 89,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task101_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "4b06136594e432a094eefb448b50a617a869c046b605461767f55da1db734fd2"
+    },
+    {
+      "combo_index": 90,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task105_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "7fdb85a1b199cc33fa3172550093cb3c100651e1a134e4fa57a2c6f2b395d3e4"
+    },
+    {
+      "combo_index": 91,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task105_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "54832eeb90ba86794983bc6002b93bf8462e1af1ca4e95f183b46b2ddbf0f486"
+    },
+    {
+      "combo_index": 92,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task105_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "5309b4a6754568399e0ffe98541501c3975aac9ba668091675e86bb7e515def4"
+    },
+    {
+      "combo_index": 93,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task113_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "90932c5a93af6ea09c5f61baaefc65510a1d70ee6ac04e83185b41124fc26a27"
+    },
+    {
+      "combo_index": 94,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task113_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "1c8853066d8df96a1bebde2cef97c66b2ec608ddd6702cb2676614127c743582"
+    },
+    {
+      "combo_index": 95,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task113_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "6b155da1be4448def93bd6ac7f27dddeaafc96b16fcd34798d1bfa4d2da3a3c2"
+    },
+    {
+      "combo_index": 96,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task114_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "a3127ecdb2155d7bb253adfb868f197566cb95cbfb187b5ab18af45e8f54c494"
+    },
+    {
+      "combo_index": 97,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task114_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "55f8f8eaa92d587ed5c7e34203a6e9bde26817b8dc15ec97c28998f4d4fc2743"
+    },
+    {
+      "combo_index": 98,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task114_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "20253ecd6f2453b11e7099a162d9fb499da5fbf5c794f21929d473bbbae1ad80"
+    },
+    {
+      "combo_index": 99,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task124_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "128547f120703fbba0ede9eba2dea40d437c6a63b6e97daa78e58c670e137baa"
+    },
+    {
+      "combo_index": 100,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task124_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "525af808ab5822572b4a9f85778f5e96280a70ddbbf19f7e77d1183c461f828c"
+    },
+    {
+      "combo_index": 101,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task124_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "7095d2d8e9bafc54e1e75a67eb6008735b1442d240df24e1e1f50b0d5322842e"
+    },
+    {
+      "combo_index": 102,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task130_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "af02bf116efd7856af0c28e665c76e562ecfaa7514b263eaaf152cd7c35731d1"
+    },
+    {
+      "combo_index": 103,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task130_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "d099a737315f1390a27892407dfa16cfa5ff295233ed97d92379c55118e40db9"
+    },
+    {
+      "combo_index": 104,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task130_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "0f477e8b570acc162ba414cfdc7ff61e090df77045adc3576b27c3ee3928900f"
+    },
+    {
+      "combo_index": 105,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task132_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "a40dc85ca2fae94e188cade7c79863d344d53aacdd82399565727b456319a388"
+    },
+    {
+      "combo_index": 106,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task132_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "3e86e6e13a9dff2c1096991f97479f81441d8e21052261489500eb45cae3cf00"
+    },
+    {
+      "combo_index": 107,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task132_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "c2e812f51eafc1977bc8ea734dacd37d6bc1ae249eba285cacacf8d85e3386fd"
+    },
+    {
+      "combo_index": 108,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task143_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "9538f61bf8bc06f7762738156a25c3ad194aae478cee01d7adec1b3eeb658ad8"
+    },
+    {
+      "combo_index": 109,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task143_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "851f416c5278c43de266b7b71768c3a01e08b2c468d26d2af509f50a6fcf7c40"
+    },
+    {
+      "combo_index": 110,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task143_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "0ed75d3c3dcbe00fcfa3ae4dc9f8eb533ef42ac8e8863a39611a1b63ccdfa32c"
+    },
+    {
+      "combo_index": 111,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task145_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "7abdb56f1b08ea2bb0174c82af59b7841e9f7d90c2bec0dcb87f9c1ec83bebbe"
+    },
+    {
+      "combo_index": 112,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task145_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "6350857cc526b17b616b7ebbf6ce8797ecb291d3a18ae97897425b7432536825"
+    },
+    {
+      "combo_index": 113,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task145_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "e327f7e7d45a2abb6c302f4cb096b4c6d4d89db9d5fd1b04fd8a56144fe1b0fa"
+    },
+    {
+      "combo_index": 114,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task148_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "468bd44a84adac4ca0088533a12740837b6e839e14b7f76dc1c159ed61f73a2f"
+    },
+    {
+      "combo_index": 115,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task148_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "c01d3eab99437e445b9b63763ae832b585c5110c9138d513d66380dde85308ce"
+    },
+    {
+      "combo_index": 116,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task148_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "33ac6597b026b6e8db1681a07d08b45ce14634f536b4200a9c9e0210061aef23"
+    },
+    {
+      "combo_index": 117,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/CLAUDE/Task149_CLAUDE_claude-3-5-sonnet-20240620.c",
+      "sha256": "dbddaf85767193a4901647a426a128ad894f3ea9b8e2539f4de6d4a5d0d384f0"
+    },
+    {
+      "combo_index": 118,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/CLAUDE/Task149_CLAUDE_claude-3-5-sonnet-20240620.cpp",
+      "sha256": "968b80f413e76d65a39d1d59ff040f34d2efe6ba48f9913da342c0d0e423b97c"
+    },
+    {
+      "combo_index": 119,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/CLAUDE/Task149_CLAUDE_claude-3-5-sonnet-20240620.py",
+      "sha256": "a0fe7dc441c75ebf264cea16f1228655e8143073008819028cd9ca8188dcd222"
+    },
+    {
+      "combo_index": 120,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task0_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "26cb618e4220ffe662b3fba95768296e724b7354b0d518329c0a771c440eb0f1"
+    },
+    {
+      "combo_index": 121,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task0_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "fcccedfd5856f8280e49359fd02926b31c128eb4dcdac4523f924669b7b94398"
+    },
+    {
+      "combo_index": 122,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task0_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "af48059fdc05a59e2ead9b48620bb02272851f8c98fa7b84c9703f514f1b1df7"
+    },
+    {
+      "combo_index": 123,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task3_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "fa43af52db0b14db5e67e1ed3b467852a1f9ebc43ae34c995285f1c2f2c37dfd"
+    },
+    {
+      "combo_index": 124,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task3_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "69d0fa8d15c8a812edc33bb3ee0836ae911550b5cd8a6f0e46a1eb4a5e6b7f6f"
+    },
+    {
+      "combo_index": 125,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task3_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "403609a89b1ca5cece031e6e0f5779222a121e3911e456220b7ab9467cab8833"
+    },
+    {
+      "combo_index": 126,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task9_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "45f375e31771c4e2e72716c5326f25f1f692771bb48169a212c24e9119e0dfa5"
+    },
+    {
+      "combo_index": 127,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task9_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "6ad17f303e8b3fb5491d208806bd540d39061dab5c43cff381007a0474964b81"
+    },
+    {
+      "combo_index": 128,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task9_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "5b14eba193e29155a65c728e0a394dfb532a2e17eab57e0e11d5eb83478f7d95"
+    },
+    {
+      "combo_index": 129,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task12_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "dcff24609646c6ee3f0ee0b65674b72c5ccc5cfa9f10caf3ad99bca86ab7340b"
+    },
+    {
+      "combo_index": 130,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task12_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "97a5993b4dad220f4b9f9b6fb95920ffa64574441e397b1bacecb06a0a657e85"
+    },
+    {
+      "combo_index": 131,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task12_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "c49923fb25953d1cf5fcf5d5553286d26809cce07e077c16e94347e36e635795"
+    },
+    {
+      "combo_index": 132,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task14_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "7c8b8217372def25db97c581489241c2b7c5239e521b642a19fcf0579e423967"
+    },
+    {
+      "combo_index": 133,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task14_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "c83d10cfd05a1bdcccfd060f9b1fba840cc6715e7433155f9bc42698c62cd762"
+    },
+    {
+      "combo_index": 134,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task14_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "bea162578a3f230ebeff0856750c4cd2c46b2f1f8d39c5838c84de42e7c72f76"
+    },
+    {
+      "combo_index": 135,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task15_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "1cb23f7b4cbef7be9bec283f9e41f66f839f0485008f9558e8686c48bb311a55"
+    },
+    {
+      "combo_index": 136,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task15_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "839a1a86060b4994ff5c777d487add2b4e4ab1ac248582f78c5f7b58997041fc"
+    },
+    {
+      "combo_index": 137,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task15_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "49a23fcc6189c1ba12fa24ab393573f4d156e55ee6527f966b8050110ce3cf9c"
+    },
+    {
+      "combo_index": 138,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task17_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "c66febae7384afb7af91c1f03920d43fd1ee430d1d0b73cd93515f5cef6ffd87"
+    },
+    {
+      "combo_index": 139,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task17_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "32573dfeaa9c98e5047888ec0563239e5ef7965fda70824a8f9ec7b4a08e82d6"
+    },
+    {
+      "combo_index": 140,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task17_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "edca8fcd265abeba88d7c05e7ec753ef0db7b5771515eeac953a2850684d5afb"
+    },
+    {
+      "combo_index": 141,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task18_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "14a4002fd7dc85ade59d53c2b4ab70cc20a3bf6a9c7668183bedde17a1100f4f"
+    },
+    {
+      "combo_index": 142,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task18_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "0a7ef84667b7a0a120c242cbcacdb0bb5590b9d54eb5da21d2d6fe115c1d05d3"
+    },
+    {
+      "combo_index": 143,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task18_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "4d08382acb05ced7283f743d73e9cd02a0d09b3c8cc8b261f6fd0a5ebd8c1fbe"
+    },
+    {
+      "combo_index": 144,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task21_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "71d4198314d8b071ff81f285c2b80cc6bc8570ad9f5e260cc2fb7cee1f1a955c"
+    },
+    {
+      "combo_index": 145,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task21_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "867b3c1024df4e9fd963665e640e8a347d2e507698cc156be17de22cf0f960bb"
+    },
+    {
+      "combo_index": 146,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task21_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "17aaab935106c85c72db0de9f795752207c93c3175fba8cdc6da16a2b5596235"
+    },
+    {
+      "combo_index": 147,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task23_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "cf7ca2341776564d54dc3f0b95de0de82b25101863fdd9afcdf190721a993e57"
+    },
+    {
+      "combo_index": 148,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task23_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "a742f6074c5e4abdfb58edf4660bc816236909b279e182a25ac699b1fcb3aa54"
+    },
+    {
+      "combo_index": 149,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task23_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "98f6894e3a26867fd16e483b675295a8cb67fc821b0bf44d4a053f739b2e497b"
+    },
+    {
+      "combo_index": 150,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task25_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "4711e1a2139ac51455f9b202abbd69f5d5b97c91bff149cdf612613adfbb5863"
+    },
+    {
+      "combo_index": 151,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task25_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "9e58fa0676ade6b799df2618dcdc277ef56a71392830b793fb9363884ae1c960"
+    },
+    {
+      "combo_index": 152,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task25_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "66585374c51129297b796ccd1932f6204ec6139c95c5bcf506cd0e45c32be714"
+    },
+    {
+      "combo_index": 153,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task28_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "bbad864b4c1c19667ce085032a9dfb90df3dd6fee7bce00355f6b28e28e7c5ad"
+    },
+    {
+      "combo_index": 154,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task28_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "f272855ca44b9fef3019445bc57799f4c84fc59b33ea6ca20cef1689c828059a"
+    },
+    {
+      "combo_index": 155,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task28_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "1e158d499b6ee9fbeb8acb49c7f18b414d42c9c7d3854ca4a85603bce3f41fbd"
+    },
+    {
+      "combo_index": 156,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task31_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "5f3fcbca73fc9bd66cabbdb5a26ffe6b79eac0cc387c8cc30c9a99b7c57b0701"
+    },
+    {
+      "combo_index": 157,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task31_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "5816ccd01c980cdf49528bff915abf8df5a3dc5a51f69c6023e798e4b6dbd4c2"
+    },
+    {
+      "combo_index": 158,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task31_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "1aa6cae114a0d6e389f5482d933e13dca4b07f6cd740f7a4c60c21c91767952f"
+    },
+    {
+      "combo_index": 159,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task44_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "9419bfdbadecd765a1126c777332403f5236b803387c8451b0c29045474cd6d5"
+    },
+    {
+      "combo_index": 160,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task44_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "06ea5ae729729fc8166ad72f9b72786da3e4c60976319d14cc86ccf5987a7670"
+    },
+    {
+      "combo_index": 161,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task44_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "94c8ed2bcdafcc24e1d94ab3734598762c0199691cb9d1fe5571e72b56f48be9"
+    },
+    {
+      "combo_index": 162,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task56_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "d53b3516d16f151a2304e93bfd7eb6a1b08d3c0ecda50d090e7e92ee3e09e7c0"
+    },
+    {
+      "combo_index": 163,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task56_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "c60a41740c099cbba14a9493e4c2bc40f01a2b0fe3422d01c5963b2caff8bb79"
+    },
+    {
+      "combo_index": 164,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task56_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "ac0d1317cb214b9c4e906ece5fbba9660f9fdb7450af66d9a54ddfa60d66560d"
+    },
+    {
+      "combo_index": 165,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task66_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "8957d114e8225b098f16a9f8e45ef7933d3df7e1b12afdd5428ecce44fefc1b2"
+    },
+    {
+      "combo_index": 166,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task66_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "6e87d913cd67b9c938d5f6cfdc53c0220cd7fcd472a6fc5edb0eb086ccfd73ec"
+    },
+    {
+      "combo_index": 167,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task66_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "4c263be65aeb62db2ac301b90a5c4f50c3735909c36371ad6a28d29b3a62dbe1"
+    },
+    {
+      "combo_index": 168,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task67_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "bb1c48d39030fbf8aaf829d88fade28aa3461860e4dd9b4b523796642e0cb14e"
+    },
+    {
+      "combo_index": 169,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task67_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "e98e13e9dcdfe35ed849460400d0ce50066c5638eb8157c6d0ab2696c84364ad"
+    },
+    {
+      "combo_index": 170,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task67_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "39abf894b30021fbcfd3bffc2e3b5d4569372575f907f5f52922db236c669af4"
+    },
+    {
+      "combo_index": 171,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task68_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "16a8d64802e169924e6d91529d305dc035ff92d39a8acff0e4427d1ecdfc17d3"
+    },
+    {
+      "combo_index": 172,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task68_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "8531b3b700831c8da559396fc3935456e9d5d1e583e22e917e72b5685a70cc69"
+    },
+    {
+      "combo_index": 173,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task68_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "8a19bed42643eb4d0cee5af10aaf53058683d2748035b3c2b1f590f2c10440ef"
+    },
+    {
+      "combo_index": 174,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task72_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "ccbd536874cd574e1c6992e159395bc7e60270c00949d36cffe7f18b70913f00"
+    },
+    {
+      "combo_index": 175,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task72_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "8875c7a8261650d1aba809ba177b5666ab44eec31176a8f842a94ab8e5ae577e"
+    },
+    {
+      "combo_index": 176,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task72_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "19265662f962432e5ec6a01368bc0af0e1dfc071973930a9c7aecff810a2b526"
+    },
+    {
+      "combo_index": 177,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task73_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "f8069c8276e5a06d50631b9c61ecaa856303ee4c0fbee63041c7a2fdaa075824"
+    },
+    {
+      "combo_index": 178,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task73_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "9a075783bdf7bf8a2870a2a9a0fddef51219e4bb054ee352fa668ebcf99653a7"
+    },
+    {
+      "combo_index": 179,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task73_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "5607a84e75e773287987156fd94984f86f705aad1c1939b7aa7e003935e52664"
+    },
+    {
+      "combo_index": 180,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task74_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "c8397d96b1391ec0ea4e47f63d084d5931b4d50cf9d296d77237e7c6fb556bda"
+    },
+    {
+      "combo_index": 181,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task74_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "58fdaa3c82a7a3c08fde26f5e6b3130c40b3af95d9762dfbf22825259886ccdf"
+    },
+    {
+      "combo_index": 182,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task74_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "90c65b5cc8c37acab1cefa83dd01ded98022bc6a97b1936948c40655a73a0179"
+    },
+    {
+      "combo_index": 183,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task76_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "9a533d061aaa2b8cef94482d5a54b5acf223eaa220061a724fcf8bd38e0d4bbb"
+    },
+    {
+      "combo_index": 184,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task76_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "bae34dbafc1958ac9cec193872f4cfabab91ee6ab676ecece486518fabbd4afe"
+    },
+    {
+      "combo_index": 185,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task76_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "e7020488305210b4aa8efa89fc11c770c72ad3aacfe8a8396e77db5fdfe67475"
+    },
+    {
+      "combo_index": 186,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task78_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "6741f3068a61eb0336c527e7b877fdf4eb2a6a84a6527f54a23b5061f9afd646"
+    },
+    {
+      "combo_index": 187,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task78_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "2e8ecc1c36f0a9b9068b6315bbebdd696e57d91c6dda6a5ad7443a59d6d155c5"
+    },
+    {
+      "combo_index": 188,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task78_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "0f73f211c775780f4be26a5492eed9cccf6f52a101481d153182549d15957ec1"
+    },
+    {
+      "combo_index": 189,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task82_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "37fc59036550774df6973f5fe2edb9acb773feae4920bf3e2f5f6edc26a45497"
+    },
+    {
+      "combo_index": 190,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task82_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "ff08f5cbb531e5b4de65195dfc6698df2c5b1cf04939c41be64f6e720b8c1fe0"
+    },
+    {
+      "combo_index": 191,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task82_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "37e139d7cf26f4095b44c685119225a2451d120f2a17b34406beaf1f5f85a09c"
+    },
+    {
+      "combo_index": 192,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task84_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "40d99228bcf377159e836d680cd185a26181bf75a94b43fa55257765e7d8311b"
+    },
+    {
+      "combo_index": 193,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task84_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "6ec7313353156aeed86c00516d4107f4e7656235e06ee9be8935e30ca9acf09e"
+    },
+    {
+      "combo_index": 194,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task84_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "6479d06d0aa1322d953289aa0755284a0e9434880653b068704c369a6d755ef2"
+    },
+    {
+      "combo_index": 195,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task86_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "aceb501f8f2903a682918f87d0c32cad451cbf7d772d296fb2eea37ecc252467"
+    },
+    {
+      "combo_index": 196,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task86_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "f96ee037afc0633793e50401cee57716e8200d44a6f9ea5e554174eae0b4eeae"
+    },
+    {
+      "combo_index": 197,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task86_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "d7f7c01721ffa3c26369e4ee6ef5fe5c471da16b1c64900fb0aeb9f07cf4cffb"
+    },
+    {
+      "combo_index": 198,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task89_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "e6f0757624c186afaa16e1422f03bcc89d05fe502dec974ce887fdc7fd15bebe"
+    },
+    {
+      "combo_index": 199,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task89_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "1e2fbcb52c834c933c2f8836cdb19f797b6f53c4baa375b5981a71e117d0e509"
+    },
+    {
+      "combo_index": 200,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task89_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "e8e784dab4e266d863dba7941feab9efdba35a5b4730f593438b3983fa94bdd4"
+    },
+    {
+      "combo_index": 201,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task91_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "bb63f1c1ced8c900dad114dfec79f31fa2e57ada9b475e56307611d57fb23579"
+    },
+    {
+      "combo_index": 202,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task91_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "558ce457eaf40635b4edcc8befbde828d4cce34fbe89d4684a980587148fdf84"
+    },
+    {
+      "combo_index": 203,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task91_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "08d74a0240e9a50086cea50b7de4bd312f4c50d0a93714933f5147d98fddff3d"
+    },
+    {
+      "combo_index": 204,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task99_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "c7f3efc8b55a4ca3ee06e301840682e95f1976b9d7864620c2bd616e97fdfc66"
+    },
+    {
+      "combo_index": 205,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task99_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "890f432bd5b4de5ea212dc2f6b47ac176b19e7dda8714bf920f842b348b07889"
+    },
+    {
+      "combo_index": 206,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task99_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "a24a67bc5c492ded056d9c3b4e6bf1f4568527062e820cca432dbc016c10444e"
+    },
+    {
+      "combo_index": 207,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task101_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "7b528afd84e31e278914485645e61482d6cc347c4abdba308f71a5d8020804af"
+    },
+    {
+      "combo_index": 208,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task101_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "84560b8e2db8193638c126aa5b341b7f02c1203f6da3bac30fe3b9f4737efed0"
+    },
+    {
+      "combo_index": 209,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task101_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "b671216751dc175e0385d1460b8b4fa6810f1c01b3f5bb3994404253897b8fa8"
+    },
+    {
+      "combo_index": 210,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task105_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "4edb728135810319d1f098497d52fbc3bc77b82f81949ef8ecd64fd776e3bebc"
+    },
+    {
+      "combo_index": 211,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task105_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "0f79ad7c24f9783a9bad16d7aa741737c49dd258b9d744c80d9e1010c3da66d7"
+    },
+    {
+      "combo_index": 212,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task105_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "27aff95c5a5cbca29ef86bfc76e0dfd7807a696de4aa95111074f80bb4a9a51e"
+    },
+    {
+      "combo_index": 213,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task113_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "6a34539a08f01935406895b997633581da55d9ce7386ee9637aab86a5fc8ff4e"
+    },
+    {
+      "combo_index": 214,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task113_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "980a3e0fc9f5b50817d2f179d9f5ee19d881a375b10d75d8919ee12569d42a36"
+    },
+    {
+      "combo_index": 215,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task113_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "29c3178c991d3255f75067c191ae3e240db46228d0757318f88e70ed1ce00f86"
+    },
+    {
+      "combo_index": 216,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task114_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "31fa6022af7bd4a9ac9313e07bd67e0b234f454c3afa7e7acf80d8eabca66e81"
+    },
+    {
+      "combo_index": 217,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task114_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "b3aee4ce21b7bf0c4d8b416dfc255b7f21be15d4c08321f05e2dbfdd3f9ad3ba"
+    },
+    {
+      "combo_index": 218,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task114_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "24dc416096dd8fb20282f66423638d689594faab4c7e806de01b8480e4bd8164"
+    },
+    {
+      "combo_index": 219,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task124_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "72a6f6a057d72014c371c5623fdd39c8a645e58346280385840323769c1351c0"
+    },
+    {
+      "combo_index": 220,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task124_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "72a6f6a057d72014c371c5623fdd39c8a645e58346280385840323769c1351c0"
+    },
+    {
+      "combo_index": 221,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task124_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "5a8f2f789a8fb962e669e6c28d955624d6261334d3bff96d6ac8f3bcfc1e2cab"
+    },
+    {
+      "combo_index": 222,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task130_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "c3d930d92fef891568d89277bfd1d834b1e0e6b79ee9876e3a0b094d9a31380e"
+    },
+    {
+      "combo_index": 223,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task130_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "4f7a5e4595b46aea5e66d33b0b687cabc8a4b29d0fb41b34e5472613c073ea98"
+    },
+    {
+      "combo_index": 224,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task130_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "e98f24dde269d012e80cd4be14e3bdff76bf8ffa270ae45aecb4c52e3a6f83b5"
+    },
+    {
+      "combo_index": 225,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task132_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "961b06bc7d5f694df7849b621b2993288c2021de23798d180edbd292c5bcaa94"
+    },
+    {
+      "combo_index": 226,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task132_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "130166958126b7675d1293bda33be8c6af1a6cace61d7af7ec382981b4a2021b"
+    },
+    {
+      "combo_index": 227,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task132_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "8d536074820f939a8d43b7c47daaba5589c6bf508f092f7ddfa90902c711d19a"
+    },
+    {
+      "combo_index": 228,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task143_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "5ce7ebef7645d169390bce952fd43b191dff57fc3949b807ed5bd6649d74fbf8"
+    },
+    {
+      "combo_index": 229,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task143_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "3524353d7f9aa90229ca78e419c90ec8f0ffbaebea09ec616f8bd29441757ce2"
+    },
+    {
+      "combo_index": 230,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task143_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "cdeaec242df0597a441e01674d99c6c1c6af051544391979c2ab4af752314597"
+    },
+    {
+      "combo_index": 231,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task145_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "bcb231cfec63b83513dc34945175208c61332ed11915c99e693094c2c8ccd64c"
+    },
+    {
+      "combo_index": 232,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task145_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "61f4c96d67ea751648a98885fe1e387dd9368bf292a9952f81a77281e14e0a9a"
+    },
+    {
+      "combo_index": 233,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task145_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "bd78c7d400ae0cdb9a5ebbf2857fdb209ea98de66dc80e4fdd8fee2db9eb79a1"
+    },
+    {
+      "combo_index": 234,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task148_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "bc7bca9ceaa62b09d82db40f431bfcabcbe8fd89b040927bdbe11958149abb06"
+    },
+    {
+      "combo_index": 235,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task148_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "4901ba6412f7099b82ea2a7228806d4c37b7f1fb182c6823355da10ce18dc94f"
+    },
+    {
+      "combo_index": 236,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task148_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "43a321b48109be273bbca84749e402194a185d918d187c4d978622d786590953"
+    },
+    {
+      "combo_index": 237,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/GEMINI/Task149_GEMINI_gemini-1.5-pro-001.c",
+      "sha256": "76f2d875027770224828d7bcfffc0ee034a3b36568f6af835a068292a9e2f0ce"
+    },
+    {
+      "combo_index": 238,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/GEMINI/Task149_GEMINI_gemini-1.5-pro-001.cpp",
+      "sha256": "a4735a40a773400333255eed59fc04c5cbeb7cdc46d3f8545bad9ff1fcb0060c"
+    },
+    {
+      "combo_index": 239,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/GEMINI/Task149_GEMINI_gemini-1.5-pro-001.py",
+      "sha256": "b6d174f507af4c8418394669e7f892389e01412c907f3d2f32f6ac6c99125c57"
+    },
+    {
+      "combo_index": 240,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task0_MISTRAL_codestral-latest.c",
+      "sha256": "856fbdaf9b0344a953fe4bbc32f7bd7e5bbfbca35ca304a6c720423b71d09bf7"
+    },
+    {
+      "combo_index": 241,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task0_MISTRAL_codestral-latest.cpp",
+      "sha256": "449c2b92da8c5fab51d44bcddfc9b84fea55e90d40a4830571046f20a6f383f4"
+    },
+    {
+      "combo_index": 242,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task0_MISTRAL_codestral-latest.py",
+      "sha256": "ff5215e01e69c8968b7cd0cddd1feb0d2147ae53035113e90058d807e80fdaae"
+    },
+    {
+      "combo_index": 243,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task3_MISTRAL_codestral-latest.c",
+      "sha256": "12c6ebb190031fc57e197d665f521c39f30c3a4549cb9f67be3c707b30f2ad31"
+    },
+    {
+      "combo_index": 244,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task3_MISTRAL_codestral-latest.cpp",
+      "sha256": "1e7eef2387b95510982d554b5935198275af47e1a37c5b1060c922f16330c312"
+    },
+    {
+      "combo_index": 245,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task3_MISTRAL_codestral-latest.py",
+      "sha256": "af11d071aff42e502da3b1688f3545af5decd560b256ef11e473cc911db7fbf3"
+    },
+    {
+      "combo_index": 246,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task9_MISTRAL_codestral-latest.c",
+      "sha256": "d83fb49224f8b874c64a86da49b384d4c9156b47f142bc17465f752e498486dd"
+    },
+    {
+      "combo_index": 247,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task9_MISTRAL_codestral-latest.cpp",
+      "sha256": "c76cd2153463f754b1606039d23c631d28ee8bcb1e23b12eb75ae9e78230b618"
+    },
+    {
+      "combo_index": 248,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task9_MISTRAL_codestral-latest.py",
+      "sha256": "9dc8b541eedd6fafb559b5c46cf6d6a7e985000cfc29aa0fae598824a27e07a0"
+    },
+    {
+      "combo_index": 249,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task12_MISTRAL_codestral-latest.c",
+      "sha256": "c2b09510dc251c1cedc61119931a13210b8345ac983fb73b381653d3b63db1d4"
+    },
+    {
+      "combo_index": 250,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task12_MISTRAL_codestral-latest.cpp",
+      "sha256": "7bd2ea09924ae6e6e59d01b78d2e76683967b35f82af2951cebc14ad86364696"
+    },
+    {
+      "combo_index": 251,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task12_MISTRAL_codestral-latest.py",
+      "sha256": "985ef35d41ffb2370957419b445f76ad13028082222846031893cef61abab05d"
+    },
+    {
+      "combo_index": 252,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task14_MISTRAL_codestral-latest.c",
+      "sha256": "78ad706b2695fb6898f48cf372af5297aab121fc89495877210a70ae8c0a132f"
+    },
+    {
+      "combo_index": 253,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task14_MISTRAL_codestral-latest.cpp",
+      "sha256": "6c2c88657d881d4e41c547dc0878e1bd9ba8dc3653225480ecc3c265cfdfcf5f"
+    },
+    {
+      "combo_index": 254,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task14_MISTRAL_codestral-latest.py",
+      "sha256": "bea162578a3f230ebeff0856750c4cd2c46b2f1f8d39c5838c84de42e7c72f76"
+    },
+    {
+      "combo_index": 255,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task15_MISTRAL_codestral-latest.c",
+      "sha256": "f2f38b52e66368b61941d16568f57f7ae8f04eab2bec70e83100a08f7f550209"
+    },
+    {
+      "combo_index": 256,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task15_MISTRAL_codestral-latest.cpp",
+      "sha256": "c55ecb186c0bc0a29337f3eb6c161fa855dd0a142b469ed301a4ad2c29b576d4"
+    },
+    {
+      "combo_index": 257,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task15_MISTRAL_codestral-latest.py",
+      "sha256": "73da6b55f949820e190b23c6dc2ca25b07a5e5628164f59c12cd8a3a95bfd2b2"
+    },
+    {
+      "combo_index": 258,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task17_MISTRAL_codestral-latest.c",
+      "sha256": "27c3baa0a3bee346ffd19f0b0e37bfd58a57bbc1e715c2b1657560765520ff4d"
+    },
+    {
+      "combo_index": 259,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task17_MISTRAL_codestral-latest.cpp",
+      "sha256": "cb019d8b94e2813b084b600cbbb4d3ccb7227520d5e640a3c996feda903691ec"
+    },
+    {
+      "combo_index": 260,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task17_MISTRAL_codestral-latest.py",
+      "sha256": "e84da9c43dc930de8d0fb2e85c41050facebd6a636dc8d473487c435ecd6cd7f"
+    },
+    {
+      "combo_index": 261,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task18_MISTRAL_codestral-latest.c",
+      "sha256": "e8e97492bb156289ba32d0d199ad7d4220050800af277090bb02fa0ebf391677"
+    },
+    {
+      "combo_index": 262,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task18_MISTRAL_codestral-latest.cpp",
+      "sha256": "74bc1dbf97c7e585107fb9b02f16cc91f86b712a8c3fe9aadcf3377a3d4c9412"
+    },
+    {
+      "combo_index": 263,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task18_MISTRAL_codestral-latest.py",
+      "sha256": "c900598eb2619e45f4b13fa1919f3ae4b6d2703bbaec7527910e1f2dbeeaac83"
+    },
+    {
+      "combo_index": 264,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task21_MISTRAL_codestral-latest.c",
+      "sha256": "ddbc6af16776494d4b3a20bd0d656ce0e7a3be2a8c473806de2a5d32c720a899"
+    },
+    {
+      "combo_index": 265,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task21_MISTRAL_codestral-latest.cpp",
+      "sha256": "1a0917a17f5834e2edafdb373d97a87020e93a78b21a55aa118c96cdede18d68"
+    },
+    {
+      "combo_index": 266,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task21_MISTRAL_codestral-latest.py",
+      "sha256": "2c77db4ce69c3301cbec0a37d26fc2fdf6ea1414bd5bb3cc824346c6dd0ce422"
+    },
+    {
+      "combo_index": 267,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task23_MISTRAL_codestral-latest.c",
+      "sha256": "77f035e56f8c7cb7a879ed71e18816cfe15f5bc2c9890c86fdc8a5099658993b"
+    },
+    {
+      "combo_index": 268,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task23_MISTRAL_codestral-latest.cpp",
+      "sha256": "f2940994b003ae882ba35a924b4db1e71c0d67b7c86f00ce891d0afad64d40d3"
+    },
+    {
+      "combo_index": 269,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task23_MISTRAL_codestral-latest.py",
+      "sha256": "d1909dbaa5f63d6779648fd162f3f6c57ae6031063962bfd8e98883e537b030f"
+    },
+    {
+      "combo_index": 270,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task25_MISTRAL_codestral-latest.c",
+      "sha256": "dc7913350505ec2a4e4592dad86ea9b467d850af88ebe0550fef1c36ebcbed55"
+    },
+    {
+      "combo_index": 271,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task25_MISTRAL_codestral-latest.cpp",
+      "sha256": "8d053ddae62f96f847e5d5b040015eca44e10269fccc7571b642d6ec9353f14c"
+    },
+    {
+      "combo_index": 272,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task25_MISTRAL_codestral-latest.py",
+      "sha256": "c9b68deeeeb76f9c51645ed854a4f47da0239c5c6479405c19f7ee06b0dc7b31"
+    },
+    {
+      "combo_index": 273,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task28_MISTRAL_codestral-latest.c",
+      "sha256": "f77aea872b06c36e8857c4be1847790f7a4def8da593c1cb9a2912942269212f"
+    },
+    {
+      "combo_index": 274,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task28_MISTRAL_codestral-latest.cpp",
+      "sha256": "f0b45bb05746d04b53f3bf49c7dc2ee145c704d87a5f8586b11562339822fa46"
+    },
+    {
+      "combo_index": 275,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task28_MISTRAL_codestral-latest.py",
+      "sha256": "1d36d026c8ba220fc17e3f13190ba4b279508ddb05cc1adaeb0da10757b53a2d"
+    },
+    {
+      "combo_index": 276,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task31_MISTRAL_codestral-latest.c",
+      "sha256": "ea8a7ed7afb4f8dfc69223189c4cf608fcdefebc236ff75f913cb19fb1453707"
+    },
+    {
+      "combo_index": 277,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task31_MISTRAL_codestral-latest.cpp",
+      "sha256": "59d0220e72777c88313122fc7ef26d02e138b81c7081e3bada443727455b9c43"
+    },
+    {
+      "combo_index": 278,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task31_MISTRAL_codestral-latest.py",
+      "sha256": "b5b8977ec4e92fea3a73b9a76aef69fa599538b02cc707c66ea75c5d22d8b4fd"
+    },
+    {
+      "combo_index": 279,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task44_MISTRAL_codestral-latest.c",
+      "sha256": "3ee650d7f421454d79eae858588c29308216f683400d1c68b9e29e65f0df5c10"
+    },
+    {
+      "combo_index": 280,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task44_MISTRAL_codestral-latest.cpp",
+      "sha256": "2bd37cd9be03ea3d405a4cede9f0d2cad0bcf4efd4a6a9ed943e06fd5b64d1ad"
+    },
+    {
+      "combo_index": 281,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task44_MISTRAL_codestral-latest.py",
+      "sha256": "d24bceb51c9d9194debc29bde99ba9fe3cd573d9556c11cf0aa3140c5ef06a5c"
+    },
+    {
+      "combo_index": 282,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task56_MISTRAL_codestral-latest.c",
+      "sha256": "3e347256e5c53ab9ccbe40a98d5aa85825a0d7c6087d234f7b0dd4878839a412"
+    },
+    {
+      "combo_index": 283,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task56_MISTRAL_codestral-latest.cpp",
+      "sha256": "8d5667d9214c3dcc6d876ff2cac822e18f4cac047b9fe47f50804c432c628a36"
+    },
+    {
+      "combo_index": 284,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task56_MISTRAL_codestral-latest.py",
+      "sha256": "266b6fbb2634329572da6fbb9c0eee99588c7c75689cfac8f802541db455a66a"
+    },
+    {
+      "combo_index": 285,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task66_MISTRAL_codestral-latest.c",
+      "sha256": "780937ac4ab5b013e02417de21f2b5e7a0aefa720f1f98d293def56a6d8ed9a2"
+    },
+    {
+      "combo_index": 286,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task66_MISTRAL_codestral-latest.cpp",
+      "sha256": "3dd6b229d297ac9a1745e1f8662d27d8edca1d32ae145a4158b615dd722fc2a7"
+    },
+    {
+      "combo_index": 287,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task66_MISTRAL_codestral-latest.py",
+      "sha256": "ce6397d673dc8238985760eac4cd39141960dd659b71a1c0b349c94be36b85cd"
+    },
+    {
+      "combo_index": 288,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task67_MISTRAL_codestral-latest.c",
+      "sha256": "edd4a2fc856885aafde4859410b6e36f1a5dcbb81aa594e08a8d646e8736bf8a"
+    },
+    {
+      "combo_index": 289,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task67_MISTRAL_codestral-latest.cpp",
+      "sha256": "db28fc7bd46ed66e78e2f58586631e524f9f81a71163ed32e18075f1f28283ef"
+    },
+    {
+      "combo_index": 290,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task67_MISTRAL_codestral-latest.py",
+      "sha256": "7320238055b4604a11e2ed60fb3993e20addb95a029dc8c1dc06d99ccc48d50f"
+    },
+    {
+      "combo_index": 291,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task68_MISTRAL_codestral-latest.c",
+      "sha256": "34eab846c008f439bb9332d13591368748180f3b2b7bc70da320c3d4964626f1"
+    },
+    {
+      "combo_index": 292,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task68_MISTRAL_codestral-latest.cpp",
+      "sha256": "3991640fe0cf01da89770c546813b7da133db28f381003c0620eb4cda744d70a"
+    },
+    {
+      "combo_index": 293,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task68_MISTRAL_codestral-latest.py",
+      "sha256": "96872955f2e0522e1017e6dd268973a820857192d6e2882095992202167b2552"
+    },
+    {
+      "combo_index": 294,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task72_MISTRAL_codestral-latest.c",
+      "sha256": "a98c701fcd8f1e3efa85840c7f2868a20e539740a1373d476cebcd7e164b67d7"
+    },
+    {
+      "combo_index": 295,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task72_MISTRAL_codestral-latest.cpp",
+      "sha256": "1c4cdb49f8368dd7fb7b9a45f475d4c342db0b1256a4e803de509b30578bbbc1"
+    },
+    {
+      "combo_index": 296,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task72_MISTRAL_codestral-latest.py",
+      "sha256": "668adaa580e4ebc63a4706ce9d3d3470a6d969c2d2ca652b493968ae6bd86a49"
+    },
+    {
+      "combo_index": 297,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task73_MISTRAL_codestral-latest.c",
+      "sha256": "3715d82220376c8061c0fa430774cf0cf289bfd8ef5c298c8ae8eea94b6de7f2"
+    },
+    {
+      "combo_index": 298,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task73_MISTRAL_codestral-latest.cpp",
+      "sha256": "8d4b1b57b9022fc1765cf29477dddd7f6ae731a50f617215d1ced641ef76690f"
+    },
+    {
+      "combo_index": 299,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task73_MISTRAL_codestral-latest.py",
+      "sha256": "b13e16709bb4f4cf36c19c2aea02fef78715b63a38ddba365a5813bae43f0113"
+    },
+    {
+      "combo_index": 300,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task74_MISTRAL_codestral-latest.c",
+      "sha256": "88d68763ab682bca174df618e03e6f9560eed262b51a90be062626053ba538e5"
+    },
+    {
+      "combo_index": 301,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task74_MISTRAL_codestral-latest.cpp",
+      "sha256": "4b6b15c5ba0c3469080980aa24d6fa4863187cfbd9c0736daa885875a0cff00a"
+    },
+    {
+      "combo_index": 302,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task74_MISTRAL_codestral-latest.py",
+      "sha256": "42c9b8ba0ad90f492dbe9ca50147670ee8abd00db304813de49b98960040824b"
+    },
+    {
+      "combo_index": 303,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task76_MISTRAL_codestral-latest.c",
+      "sha256": "4d4947423c243427fc6fd6c63c9bc308bd702defd4b4d9d3619ce01e7d1cc7fb"
+    },
+    {
+      "combo_index": 304,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task76_MISTRAL_codestral-latest.cpp",
+      "sha256": "2c6e3dba6d94121fe97aa007ac102d81b4b755e55f1a9f8cb20ee0e1f0ead00c"
+    },
+    {
+      "combo_index": 305,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task76_MISTRAL_codestral-latest.py",
+      "sha256": "3ce59ddc5c9a9ed4e733019cb3725e70ebeb47237b4556b243534c12f54923fd"
+    },
+    {
+      "combo_index": 306,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task78_MISTRAL_codestral-latest.c",
+      "sha256": "ce3ebbd0c78deca3ed282a60196cbbc37804eda12c32f4469dd6c16bce11324b"
+    },
+    {
+      "combo_index": 307,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task78_MISTRAL_codestral-latest.cpp",
+      "sha256": "f2293028f2fdec4069b1c1e0df2bd7236798781c359b7371f6f1aaf49b8e4d8e"
+    },
+    {
+      "combo_index": 308,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task78_MISTRAL_codestral-latest.py",
+      "sha256": "4ee1070d24cb1bf57627a8c033a908217272bc05faa933fb094d48922785f928"
+    },
+    {
+      "combo_index": 309,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task82_MISTRAL_codestral-latest.c",
+      "sha256": "0f541e0d34e754713a052c0f7c7abd681f7fc7ca3693bdc37552d1dfee877b38"
+    },
+    {
+      "combo_index": 310,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task82_MISTRAL_codestral-latest.cpp",
+      "sha256": "ef8d1fea06b8a6937ca8e75baf9d0da6b29beb0d695a3394b00077b87802e144"
+    },
+    {
+      "combo_index": 311,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task82_MISTRAL_codestral-latest.py",
+      "sha256": "c44379a6a5821125e92c4d986a9dab658702800749a62bac1f0c228544d58217"
+    },
+    {
+      "combo_index": 312,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task84_MISTRAL_codestral-latest.c",
+      "sha256": "ed0785bc1ee11fb8e3ed39ae03dbd8b35d1b4cb170af02497724f9c6162aed84"
+    },
+    {
+      "combo_index": 313,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task84_MISTRAL_codestral-latest.cpp",
+      "sha256": "fd6699574a9fc8060bdd8563c282cd4aada671e8992537fe59c0d027aac28edd"
+    },
+    {
+      "combo_index": 314,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task84_MISTRAL_codestral-latest.py",
+      "sha256": "0e10bd76475cff6961360b42333e9d1ca67d308d28e82d7ecfea88a576f3d172"
+    },
+    {
+      "combo_index": 315,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task86_MISTRAL_codestral-latest.c",
+      "sha256": "a2c0e04e6d30c470b11312bcd0557b80c7b04d327d4b4a57bd7940a7326c578e"
+    },
+    {
+      "combo_index": 316,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task86_MISTRAL_codestral-latest.cpp",
+      "sha256": "795a5fe3aca9ef6471339b8408f8cab009c03730f4a2b531975827e14be95146"
+    },
+    {
+      "combo_index": 317,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task86_MISTRAL_codestral-latest.py",
+      "sha256": "811c236db8271da69438762d98ac4d59d6c31eb1cdbb7ed57bb8ed69bea3a4c5"
+    },
+    {
+      "combo_index": 318,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task89_MISTRAL_codestral-latest.c",
+      "sha256": "39c99aebde4724a95b4f0ae42ad72e01037dae53e7c8515b850d81c736a618c1"
+    },
+    {
+      "combo_index": 319,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task89_MISTRAL_codestral-latest.cpp",
+      "sha256": "ef12cd4239b219a3f48f089dfa7f2c38e2a649d59b9f1e5dc7ae3632bd8dea59"
+    },
+    {
+      "combo_index": 320,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task89_MISTRAL_codestral-latest.py",
+      "sha256": "6f2a0524ebbe3f5c1b442cbb927f9890051816b5bf6d857c1f08919a623c5602"
+    },
+    {
+      "combo_index": 321,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task91_MISTRAL_codestral-latest.c",
+      "sha256": "0167e1d5f3d719dbb1e9abdb9aa7087d5a199ced57b304813eceed28a817944f"
+    },
+    {
+      "combo_index": 322,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task91_MISTRAL_codestral-latest.cpp",
+      "sha256": "594352a667ccaa227372f35f61331129817e0ea1d9f651e0900d4a5e655c3050"
+    },
+    {
+      "combo_index": 323,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task91_MISTRAL_codestral-latest.py",
+      "sha256": "564e39085ab8dfb67054d13cefb67cbc66753dd52b266ebda903c8c401c59941"
+    },
+    {
+      "combo_index": 324,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task99_MISTRAL_codestral-latest.c",
+      "sha256": "17721315219d96f5fdff1d542a01918d43df72eb8d5d2e61df2768a76e675255"
+    },
+    {
+      "combo_index": 325,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task99_MISTRAL_codestral-latest.cpp",
+      "sha256": "f8f924043be1494fa545bcf1a6573b00445886bbb76b7d769873651b3755dff5"
+    },
+    {
+      "combo_index": 326,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task99_MISTRAL_codestral-latest.py",
+      "sha256": "d3b03ecea15c3b02cc851f67c646a4f14071797b5c4374d19c00a3fd2f94fc4f"
+    },
+    {
+      "combo_index": 327,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task101_MISTRAL_codestral-latest.c",
+      "sha256": "d41a1bdd216992f996a42b540e6f9daf703a5aec893312db6706762c27782465"
+    },
+    {
+      "combo_index": 328,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task101_MISTRAL_codestral-latest.cpp",
+      "sha256": "5e65492c922ca7a9070abaa3aa41db9f020eb454d1766e14c1081a34d6ba9513"
+    },
+    {
+      "combo_index": 329,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task101_MISTRAL_codestral-latest.py",
+      "sha256": "24ee916fc723b9a04fee63778d636e81808c0c28322733868ed85e9508b0518d"
+    },
+    {
+      "combo_index": 330,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task105_MISTRAL_codestral-latest.c",
+      "sha256": "356646ed5091435c9a100e577a3cc73c9e3efb06b6893881acb18990815edc40"
+    },
+    {
+      "combo_index": 331,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task105_MISTRAL_codestral-latest.cpp",
+      "sha256": "85e6a054bc651aa8a97db8aa4469770378752480f21722e7150718031ae9addf"
+    },
+    {
+      "combo_index": 332,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task105_MISTRAL_codestral-latest.py",
+      "sha256": "f7f30a7e8d96520eea764bf0d441fc4da6116940a98ce3a8067ae3005c12651e"
+    },
+    {
+      "combo_index": 333,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task113_MISTRAL_codestral-latest.c",
+      "sha256": "d2917ad22ef230526f062193a142bf1fc4d5a8ca10dcd5294dcd424da3ba8b89"
+    },
+    {
+      "combo_index": 334,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task113_MISTRAL_codestral-latest.cpp",
+      "sha256": "f12efcb4d2951e0e2f0cd82f26b516d08fb4724a44b882c723f4be6e6011ab7a"
+    },
+    {
+      "combo_index": 335,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task113_MISTRAL_codestral-latest.py",
+      "sha256": "a0396849c18d3a1c870afe7aa286b3497a47be7c67bbaa6e3a4b135210776ed2"
+    },
+    {
+      "combo_index": 336,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task114_MISTRAL_codestral-latest.c",
+      "sha256": "1a2c9d49105db684f00069bb4d4e5dff9196ff6ca03d1bc970bbb56db0e73d4f"
+    },
+    {
+      "combo_index": 337,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task114_MISTRAL_codestral-latest.cpp",
+      "sha256": "b6ec77dabf27dba1cb566f2dc0621b72d5e529ff185d8f02fe1211228d886cce"
+    },
+    {
+      "combo_index": 338,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task114_MISTRAL_codestral-latest.py",
+      "sha256": "03ed8abe86ff60962f64f5f74f060c234883e198825acafdc14a50cb0f594f9a"
+    },
+    {
+      "combo_index": 339,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task124_MISTRAL_codestral-latest.c",
+      "sha256": "37a4655a3d903bbd5bca23a4a674634b7947a87d29656c42c58f34cec53a6059"
+    },
+    {
+      "combo_index": 340,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task124_MISTRAL_codestral-latest.cpp",
+      "sha256": "6eb7072cd4997f69c70d1fb4aa003222244a99b03d645ccd3927f993a91acb06"
+    },
+    {
+      "combo_index": 341,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task124_MISTRAL_codestral-latest.py",
+      "sha256": "68d0acaabf22f85096764c0df1dcce38d427d71de27698152959ebb4c3bbb559"
+    },
+    {
+      "combo_index": 342,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task130_MISTRAL_codestral-latest.c",
+      "sha256": "3a931a1143ce4237a5756af69ebb76abe9abe64ab50056ae030c176493e4e5c9"
+    },
+    {
+      "combo_index": 343,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task130_MISTRAL_codestral-latest.cpp",
+      "sha256": "5a3e73a3cb9fb87a43b6513caf279e98818b6c269c5b590266f666bfd9050eef"
+    },
+    {
+      "combo_index": 344,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task130_MISTRAL_codestral-latest.py",
+      "sha256": "2d164a0def030d9c4e7b893e95495a26d737717e8e0c647f786f3e16f4472777"
+    },
+    {
+      "combo_index": 345,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task132_MISTRAL_codestral-latest.c",
+      "sha256": "b61bd5f6786c12c5a96c56039e93673e04f4a7749e690cdb9d90d5bfd047c499"
+    },
+    {
+      "combo_index": 346,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task132_MISTRAL_codestral-latest.cpp",
+      "sha256": "31f82f4f6e2a4cb907b206cddd2c6342a4d42ae646ac43d6619ac14d832a83c3"
+    },
+    {
+      "combo_index": 347,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task132_MISTRAL_codestral-latest.py",
+      "sha256": "c1be3268081491001fa87e65f700e900fe288e97ee6ef2846e057205d9a0cd02"
+    },
+    {
+      "combo_index": 348,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task143_MISTRAL_codestral-latest.c",
+      "sha256": "b12bf9eacc16efe9bd92c4f3544de75e8426fcd0227943117e9df23b3ed089d4"
+    },
+    {
+      "combo_index": 349,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task143_MISTRAL_codestral-latest.cpp",
+      "sha256": "d02ff08ae003793ee616915606d6c6bcac41410a7e3009f7d15561c0ed2dcf7d"
+    },
+    {
+      "combo_index": 350,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task143_MISTRAL_codestral-latest.py",
+      "sha256": "3e0ded19e301eed861ef43465733232f7f8b9cfe943a48eca7b97969117d440e"
+    },
+    {
+      "combo_index": 351,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task145_MISTRAL_codestral-latest.c",
+      "sha256": "a64a5133500dcc5a28180dc38f82c80da8347a8ef5129d2cb2dc720f7070c69c"
+    },
+    {
+      "combo_index": 352,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task145_MISTRAL_codestral-latest.cpp",
+      "sha256": "9e966c39d86a94e4fec338d1efdace8621b0520b57432a8dcfcc5079b615d9c7"
+    },
+    {
+      "combo_index": 353,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task145_MISTRAL_codestral-latest.py",
+      "sha256": "908e5320cd8f7c69d358720a502fc75c4892a2f7a2fc9ec6efe138b6a4e96e2c"
+    },
+    {
+      "combo_index": 354,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task148_MISTRAL_codestral-latest.c",
+      "sha256": "cada38b2928c1ede15b3e8ab0d19ce1965f3395c661d3305683d4189b51b8e1d"
+    },
+    {
+      "combo_index": 355,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task148_MISTRAL_codestral-latest.cpp",
+      "sha256": "18d4e6b92972dfb7c6cebad88b0aaa887493f9af65d0244aa545bd0302700f17"
+    },
+    {
+      "combo_index": 356,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task148_MISTRAL_codestral-latest.py",
+      "sha256": "53fd88ba5716b0fc09d34f00ba23cf8934bcc22dbd01aaeba20cb007e4305a35"
+    },
+    {
+      "combo_index": 357,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/MISTRAL/Task149_MISTRAL_codestral-latest.c",
+      "sha256": "0542a40e0cd452dae6e568b7ed40fee273bbb00f59849d078fb36e785d02b940"
+    },
+    {
+      "combo_index": 358,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/MISTRAL/Task149_MISTRAL_codestral-latest.cpp",
+      "sha256": "f3f33b24d92568084f5dd8382da5d143786b25500bcc340208edaa380f416d7b"
+    },
+    {
+      "combo_index": 359,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/MISTRAL/Task149_MISTRAL_codestral-latest.py",
+      "sha256": "d4cf6478fc0a4b7345cab55c7d4a708b0d2acff4baccab210dbbfaee7ef738a4"
+    },
+    {
+      "combo_index": 360,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task0_OPENAI_gpt-4o.c",
+      "sha256": "f5828c0ffb579b4f7feb3c3201d5f3d3e8f0d677070f99614cf516b0714633dc"
+    },
+    {
+      "combo_index": 361,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task0_OPENAI_gpt-4o.cpp",
+      "sha256": "4d5a830c12854b04b14e0556012b05406a061bebce108487c01be233964672b2"
+    },
+    {
+      "combo_index": 362,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task0_OPENAI_gpt-4o.py",
+      "sha256": "4cbceea280adb45acfdf6ccc3ff20551ac718a4c326ae4c1e61b7fd1eba41229"
+    },
+    {
+      "combo_index": 363,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task3_OPENAI_gpt-4o.c",
+      "sha256": "9a38e50216aa6280539f64a3b7142b3c6438a4640de9259f9c8b8a1c84585df6"
+    },
+    {
+      "combo_index": 364,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task3_OPENAI_gpt-4o.cpp",
+      "sha256": "268e46ea067516d7b970a74b62bd281492c1eeb93cfc78b50f0e1d357cba1c89"
+    },
+    {
+      "combo_index": 365,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task3_OPENAI_gpt-4o.py",
+      "sha256": "a7b980bcb72ffa9abd693b90236a54188e33e44d1bbe53309e5b27280c191832"
+    },
+    {
+      "combo_index": 366,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task9_OPENAI_gpt-4o.c",
+      "sha256": "ed73e148975dc54f4b9d9796080e88345951f08ebf90a95fcc922c08d60a74b5"
+    },
+    {
+      "combo_index": 367,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task9_OPENAI_gpt-4o.cpp",
+      "sha256": "29d8d0e82d4c2420a174fad3f607dbe2b726f9e1a04303aeec97e28fd2116a6b"
+    },
+    {
+      "combo_index": 368,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task9_OPENAI_gpt-4o.py",
+      "sha256": "07d14330347ef375d13ffc9ff86d0d80690e33fa5f4cffe7d80f1cd48b92b530"
+    },
+    {
+      "combo_index": 369,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task12_OPENAI_gpt-4o.c",
+      "sha256": "e4e5760d4553c2b0f2f36cc97636584e0a1ab614493767e9b7e138b9565c5556"
+    },
+    {
+      "combo_index": 370,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task12_OPENAI_gpt-4o.cpp",
+      "sha256": "767b203bf4de58cb9ee5e7e382adacf37fe132496820d4e1d79fad8d2d0b19bf"
+    },
+    {
+      "combo_index": 371,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task12_OPENAI_gpt-4o.py",
+      "sha256": "3ed2b603b4b0ec5a443fdbd2287a72be63e8a1d49e8c1151c10e146549d52914"
+    },
+    {
+      "combo_index": 372,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task14_OPENAI_gpt-4o.c",
+      "sha256": "3db519dc2331ab793007dbed2b425287645239cd2125cc4b4f4e9cf08306240d"
+    },
+    {
+      "combo_index": 373,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task14_OPENAI_gpt-4o.cpp",
+      "sha256": "c6217ba0b7164f9c7b67c1f5be3c39438ab4ecb93435e669a276af224c7d91f7"
+    },
+    {
+      "combo_index": 374,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task14_OPENAI_gpt-4o.py",
+      "sha256": "93ce5c92939e37977f6c581da697fb1002ddc31d9907a03e9742320223a2d8fd"
+    },
+    {
+      "combo_index": 375,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task15_OPENAI_gpt-4o.c",
+      "sha256": "f1c829cc330608a1a4910230ff51b19a53b986f724898d97b880e7786e4687c3"
+    },
+    {
+      "combo_index": 376,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task15_OPENAI_gpt-4o.cpp",
+      "sha256": "92d4f6d7a29a096c9f01ad22739eb364aea20ab5e6319f420728968ffa1e82f4"
+    },
+    {
+      "combo_index": 377,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task15_OPENAI_gpt-4o.py",
+      "sha256": "be077171e83d23fd2ab4824e7654cac1f37638ca1254e0852ad92ffa2af6df79"
+    },
+    {
+      "combo_index": 378,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task17_OPENAI_gpt-4o.c",
+      "sha256": "4614f0cb902a916363ad5ee99c545e8141f988b7ee009b8fc7a24b485b46debb"
+    },
+    {
+      "combo_index": 379,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task17_OPENAI_gpt-4o.cpp",
+      "sha256": "2c529d2adc1b8221999458d078a76eb516b7f6b7ceac77d2e299e1edb6854819"
+    },
+    {
+      "combo_index": 380,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task17_OPENAI_gpt-4o.py",
+      "sha256": "d8ae186f00d8ba58aae72f8c2b5d86f5cdd2e8c1da2a6a06d58a91d033357dd6"
+    },
+    {
+      "combo_index": 381,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task18_OPENAI_gpt-4o.c",
+      "sha256": "e8109784363c49a540179469a32f56b653f8d60852776acda424aff8d8cdac43"
+    },
+    {
+      "combo_index": 382,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task18_OPENAI_gpt-4o.cpp",
+      "sha256": "f96a2772c4f572421dccbce7cac91024085761aad80bdbeee38e8d1633904d7e"
+    },
+    {
+      "combo_index": 383,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task18_OPENAI_gpt-4o.py",
+      "sha256": "4cb928d440930c59d6c87ef952225d3de325c4184af39c32a47dd6bce5e13547"
+    },
+    {
+      "combo_index": 384,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task21_OPENAI_gpt-4o.c",
+      "sha256": "8ea30f407a2b5a36bb0494bf17cb1fc3d5f7b07e9c75b8187fbc56372d1313f5"
+    },
+    {
+      "combo_index": 385,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task21_OPENAI_gpt-4o.cpp",
+      "sha256": "2f1a31bf8ded4ccb181f85086669c14ece97ff4dd11baa1bca7c20fc4239b64c"
+    },
+    {
+      "combo_index": 386,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task21_OPENAI_gpt-4o.py",
+      "sha256": "bc245795785f1936c31bd2ddba0a4830a41c95581e7c6cf95ed5f1aa4509704b"
+    },
+    {
+      "combo_index": 387,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task23_OPENAI_gpt-4o.c",
+      "sha256": "238314b4d20ca22268a94323bca8d47bf4ed3cabdd1c81c957b5f87363fd0452"
+    },
+    {
+      "combo_index": 388,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task23_OPENAI_gpt-4o.cpp",
+      "sha256": "1c55a8f5e9b9186f200bf6b73eaaa61a91e1188db968f2aba657a5ebe274335e"
+    },
+    {
+      "combo_index": 389,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task23_OPENAI_gpt-4o.py",
+      "sha256": "82f17e33dbe122452e866066d6f467c32189aa59b22b4ca34395615f70f15d11"
+    },
+    {
+      "combo_index": 390,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task25_OPENAI_gpt-4o.c",
+      "sha256": "c49b1137a1dca9fb0303c809cbd4cbf826a9513f072b0f0a82d2b5d765cc072a"
+    },
+    {
+      "combo_index": 391,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task25_OPENAI_gpt-4o.cpp",
+      "sha256": "97b888e499518e705c3a75f02e3ee9f7ec1df4b883781d86c61e4589d73a821d"
+    },
+    {
+      "combo_index": 392,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task25_OPENAI_gpt-4o.py",
+      "sha256": "26ffc9bdfe10523ba545a71a22891ed98092dcfd1c0d87d815086b2b7eb96678"
+    },
+    {
+      "combo_index": 393,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task28_OPENAI_gpt-4o.c",
+      "sha256": "d310d75e894e28c23f7a9d15a9846a87be284e5ce538efe990c90eba843fe463"
+    },
+    {
+      "combo_index": 394,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task28_OPENAI_gpt-4o.cpp",
+      "sha256": "72b5f8e6c86f2efa23e1f86cdcc589cc36ee8bfe0ca46ced2cd7c78b3793b8fe"
+    },
+    {
+      "combo_index": 395,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task28_OPENAI_gpt-4o.py",
+      "sha256": "88abd561671adc2f9e4815f68a4f15d1ea6cce29a523aefefbcd804847a54d93"
+    },
+    {
+      "combo_index": 396,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task31_OPENAI_gpt-4o.c",
+      "sha256": "af617f6cab5fcb58117796ba6f9cb461fab6f7136fdea4b2ebb54063432cfb21"
+    },
+    {
+      "combo_index": 397,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task31_OPENAI_gpt-4o.cpp",
+      "sha256": "a97dd2c21658590b0f335a0abab46c68e70ef7c04e731c0656e35624efaf3ee0"
+    },
+    {
+      "combo_index": 398,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task31_OPENAI_gpt-4o.py",
+      "sha256": "fbbded619c74b224eb8090cabbe5f6c6c6d84de7ba2fe4db47efed7ae776e18f"
+    },
+    {
+      "combo_index": 399,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task44_OPENAI_gpt-4o.c",
+      "sha256": "37719f0e3e4eb377ba773c369e7df586c8ce4d4202453f6584c55a69b5359d7d"
+    },
+    {
+      "combo_index": 400,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task44_OPENAI_gpt-4o.cpp",
+      "sha256": "3f088e88254c8050289bbeedd30214244fca2fd072e1412371e8a3dd6ac719d4"
+    },
+    {
+      "combo_index": 401,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task44_OPENAI_gpt-4o.py",
+      "sha256": "84ca512be005756ab1b2c43d9b881f710c51679065e732a4bd460af7fee4de6f"
+    },
+    {
+      "combo_index": 402,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task56_OPENAI_gpt-4o.c",
+      "sha256": "97ed474aebfb2a2273fd7dd4d736b62b7c1f17a86b48e288216590bcfcd54e9b"
+    },
+    {
+      "combo_index": 403,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task56_OPENAI_gpt-4o.cpp",
+      "sha256": "cbe8f863d91358b7f49ce17b3d59a44782677738a03258a947adfe79825da92a"
+    },
+    {
+      "combo_index": 404,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task56_OPENAI_gpt-4o.py",
+      "sha256": "7c14f7dc7cb81b01dbcb324dbedfb8a8e9cf7635d3175b6d1bc8886b28d2b601"
+    },
+    {
+      "combo_index": 405,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task66_OPENAI_gpt-4o.c",
+      "sha256": "45d60f818555299fb69eaf48884344341dd81c87a5a3df4acb07053b0a1b8114"
+    },
+    {
+      "combo_index": 406,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task66_OPENAI_gpt-4o.cpp",
+      "sha256": "565fd825c0f7e0636d92a9b205827afa11bb89d6dcc59b17f03577193b569cff"
+    },
+    {
+      "combo_index": 407,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task66_OPENAI_gpt-4o.py",
+      "sha256": "c6741a4705fa7729bd68252750bbb6f4dbf71045abf54addfd8ae4f0b3fb239d"
+    },
+    {
+      "combo_index": 408,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task67_OPENAI_gpt-4o.c",
+      "sha256": "bcb5128c9d2f9c90ef6c2043f63c18c3ae64e462fc2ea2e603b2e35a9725743a"
+    },
+    {
+      "combo_index": 409,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task67_OPENAI_gpt-4o.cpp",
+      "sha256": "6af929b31c87b1ecc4c99a098d67dddb2bd2f89728a133ea27c67115cba65409"
+    },
+    {
+      "combo_index": 410,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task67_OPENAI_gpt-4o.py",
+      "sha256": "3b2a317113eb79513cb8643488b2d568caecb463cd9376ecb6ffe8e7352974b1"
+    },
+    {
+      "combo_index": 411,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task68_OPENAI_gpt-4o.c",
+      "sha256": "9fbfc16c906cbc94a9fe04a2acaf3c0d9e1a421a50aea3130c91e07e57d95014"
+    },
+    {
+      "combo_index": 412,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task68_OPENAI_gpt-4o.cpp",
+      "sha256": "1cae9969ef3daf74fd4b8c3f34a5bd71560d68ba2a087506313d001c4a18f2f3"
+    },
+    {
+      "combo_index": 413,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task68_OPENAI_gpt-4o.py",
+      "sha256": "e7d8b8d3607b203ef2f5c7af526ec3f53dc18f91e9597c8424755e559d36f70f"
+    },
+    {
+      "combo_index": 414,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task72_OPENAI_gpt-4o.c",
+      "sha256": "4cadfc5353e6209764be259e2c27ecb681d212784f10c0b8f5f78a7506e3c82e"
+    },
+    {
+      "combo_index": 415,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task72_OPENAI_gpt-4o.cpp",
+      "sha256": "ab915c36af7709173696ea8e5c88fa7c41d442064c2b551b5566d17742d3f006"
+    },
+    {
+      "combo_index": 416,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task72_OPENAI_gpt-4o.py",
+      "sha256": "5a382d5855643d8b666b256bf969a8fc5f10163d03b4af14cd8133174a19aa84"
+    },
+    {
+      "combo_index": 417,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task73_OPENAI_gpt-4o.c",
+      "sha256": "df13187bf616e3efb320d8c569f7f918aac1049e372512dc35ae9dadf7dba1d0"
+    },
+    {
+      "combo_index": 418,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task73_OPENAI_gpt-4o.cpp",
+      "sha256": "a831f8a43741d2f2abe3d58693cdccde4253203f9dcae96a74bd4066123537be"
+    },
+    {
+      "combo_index": 419,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task73_OPENAI_gpt-4o.py",
+      "sha256": "6e6dac82d3074716172fa2850078c3bbd81a0d88495bf6b0e1491c9dbf67e51e"
+    },
+    {
+      "combo_index": 420,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task74_OPENAI_gpt-4o.c",
+      "sha256": "ff984932344a6c6a5490731cacd3ecaffdf9f9b463ab03e0a743880bce07c7b8"
+    },
+    {
+      "combo_index": 421,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task74_OPENAI_gpt-4o.cpp",
+      "sha256": "8cc945a6928391c0400f1324c59418fd2cdbefa6947de8d0b0cf151cd1fb81b5"
+    },
+    {
+      "combo_index": 422,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task74_OPENAI_gpt-4o.py",
+      "sha256": "ab5a5673f88cc2d4bb67c1870771b3c184bd7a9a0db4f9f418c4178f298255ad"
+    },
+    {
+      "combo_index": 423,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task76_OPENAI_gpt-4o.c",
+      "sha256": "0204e56615d52befe025301805945b1166262f3c865e3f5289ad530f5f3a0487"
+    },
+    {
+      "combo_index": 424,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task76_OPENAI_gpt-4o.cpp",
+      "sha256": "24850565e3b4319a2533bd89dc9413282f82d6d8fa6842a5a623c248491f6b8b"
+    },
+    {
+      "combo_index": 425,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task76_OPENAI_gpt-4o.py",
+      "sha256": "860b4a27c34440ad937b43d87ee93b1a3fcf3acd28ea558114863b83b61bbca0"
+    },
+    {
+      "combo_index": 426,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task78_OPENAI_gpt-4o.c",
+      "sha256": "7ae8506a6f7b7e57131d9c0f5ed3a09c54df1a47974f421ed01f1a62f70c5569"
+    },
+    {
+      "combo_index": 427,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task78_OPENAI_gpt-4o.cpp",
+      "sha256": "4166451c82f807a549501707046c8d582a8d6c557cebfccc7527b3ab4b75d06a"
+    },
+    {
+      "combo_index": 428,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task78_OPENAI_gpt-4o.py",
+      "sha256": "523adcdfd353d6d2ecf003ed29f6dac642cc1054b4985e670e3985a3d7dc28bd"
+    },
+    {
+      "combo_index": 429,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task82_OPENAI_gpt-4o.c",
+      "sha256": "3a6724c61a5352ba5a610fdfe68446d58129f4ddde3016d50db6bc42eff52600"
+    },
+    {
+      "combo_index": 430,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task82_OPENAI_gpt-4o.cpp",
+      "sha256": "c9fc466b65b2ffb9f64abe4fd9605908b6c88dedcd879567373ee32791f1cef1"
+    },
+    {
+      "combo_index": 431,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task82_OPENAI_gpt-4o.py",
+      "sha256": "449101d1d2d0d43eb8e20ccb255bb705ae3bb0f599952dfe57d9bbf62b38c008"
+    },
+    {
+      "combo_index": 432,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task84_OPENAI_gpt-4o.c",
+      "sha256": "8a0fb1c0700091f0be9e5993628b70cc2d7b963b120f8f131cebb7562632ff81"
+    },
+    {
+      "combo_index": 433,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task84_OPENAI_gpt-4o.cpp",
+      "sha256": "801cd72fcfe92d3743aff147641a292e6b3310f37fe8898bb9c291f462e8c4aa"
+    },
+    {
+      "combo_index": 434,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task84_OPENAI_gpt-4o.py",
+      "sha256": "4834b0068e140d66a2af028a2fb562d45305ab718b7d8a482acc925d164a13ed"
+    },
+    {
+      "combo_index": 435,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task86_OPENAI_gpt-4o.c",
+      "sha256": "b361729ba5f5b31c84cfefd5b604c9f02cfd40c6ac10001935ded2795e9869c0"
+    },
+    {
+      "combo_index": 436,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task86_OPENAI_gpt-4o.cpp",
+      "sha256": "53c1277790db983c47c82e676c60a3931ce4a0262b0174ef9f84834397fa5a6e"
+    },
+    {
+      "combo_index": 437,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task86_OPENAI_gpt-4o.py",
+      "sha256": "6c766a52c7e8b99e97dbf17462147c10dfb18e94b9ebe7f5d8d32b1d8e18e197"
+    },
+    {
+      "combo_index": 438,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task89_OPENAI_gpt-4o.c",
+      "sha256": "fdd3feea6b1e542604762e5b2ec608e1a449afb3ee5425fd8bfd458ed94bf652"
+    },
+    {
+      "combo_index": 439,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task89_OPENAI_gpt-4o.cpp",
+      "sha256": "d29fd95143a3ffee5ed09209e1b49e8cffecc570552ce00333844e9c7c137ba5"
+    },
+    {
+      "combo_index": 440,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task89_OPENAI_gpt-4o.py",
+      "sha256": "606c230bd25e886ecd942f9603eeb005b61c48f340acf9e9261fa387572daab5"
+    },
+    {
+      "combo_index": 441,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task91_OPENAI_gpt-4o.c",
+      "sha256": "c98ceeae1c840d11b7fe332dcd24a22e79064ae3fd56ac0ebc3f824ac42ab082"
+    },
+    {
+      "combo_index": 442,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task91_OPENAI_gpt-4o.cpp",
+      "sha256": "3e8e817c57053c6e4a70fb4349e7643f5720c9789d8ceccb6d341a9abb5ca46f"
+    },
+    {
+      "combo_index": 443,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task91_OPENAI_gpt-4o.py",
+      "sha256": "3403aad1bee2e8a6ce36758634a695ce3a1539c411c1a230f9f980347daa529a"
+    },
+    {
+      "combo_index": 444,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task99_OPENAI_gpt-4o.c",
+      "sha256": "1ba8292dfbb7e521cfbdab63c13e6110819cac8997271cf98a33f8bd0d875bf1"
+    },
+    {
+      "combo_index": 445,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task99_OPENAI_gpt-4o.cpp",
+      "sha256": "fbde79f47ee7d6cb2d4c4baf5c97062b8d19cb95086ffaee0837440b0e1769d7"
+    },
+    {
+      "combo_index": 446,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task99_OPENAI_gpt-4o.py",
+      "sha256": "c5ad2798e6a5ff396febdc1f35c8bed0976540bf0179e0034edde965656df03a"
+    },
+    {
+      "combo_index": 447,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task101_OPENAI_gpt-4o.c",
+      "sha256": "9564da5401afd8a7d6b2a1cf05491cea976f94752f158da4f44c00ac8e301d72"
+    },
+    {
+      "combo_index": 448,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task101_OPENAI_gpt-4o.cpp",
+      "sha256": "de7a98fd2dc61c8c0e441c01d536c39de3c388ab2c9de7047675cdd5bd12ab2c"
+    },
+    {
+      "combo_index": 449,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task101_OPENAI_gpt-4o.py",
+      "sha256": "09f9710b91a992701789f74d09b5aa54409c9b155913a740864121055fa1aff1"
+    },
+    {
+      "combo_index": 450,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task105_OPENAI_gpt-4o.c",
+      "sha256": "6c9d33101d8cceb48002c79232002abdb1a23ea8e317cea6be63c85eb355abe1"
+    },
+    {
+      "combo_index": 451,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task105_OPENAI_gpt-4o.cpp",
+      "sha256": "c94f49a2f5aafa1c1ff5095dea41e2970f62f75b6d9bc5a55279694b923a37e4"
+    },
+    {
+      "combo_index": 452,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task105_OPENAI_gpt-4o.py",
+      "sha256": "1b065e6d16052c9a0322ac69225eb99b72631325dbb6f1944af39aa6b9838175"
+    },
+    {
+      "combo_index": 453,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task113_OPENAI_gpt-4o.c",
+      "sha256": "bb32a0c30d539b1128b5eeeae5decf247a272647d7e78fed20d1a064016c6f11"
+    },
+    {
+      "combo_index": 454,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task113_OPENAI_gpt-4o.cpp",
+      "sha256": "70e74413018cb7c828cabc46c5788ef9890cfdd203f4456ba6fd3bb9670ac3fc"
+    },
+    {
+      "combo_index": 455,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task113_OPENAI_gpt-4o.py",
+      "sha256": "d3eaf9b29d40c4f10645e053c2aa742b50d0b2b216dbb4ba678b6281c3ac81ae"
+    },
+    {
+      "combo_index": 456,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task114_OPENAI_gpt-4o.c",
+      "sha256": "ee5ede112509ec9720ec42dfd8e957181e597dd082e8fc58f413bb56368f5276"
+    },
+    {
+      "combo_index": 457,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task114_OPENAI_gpt-4o.cpp",
+      "sha256": "07cae502ad5e5ff601f91799f2682c8af04bac98a2cfbf8d4beb2944f263c5ed"
+    },
+    {
+      "combo_index": 458,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task114_OPENAI_gpt-4o.py",
+      "sha256": "dfb92e395c2b10739ea8aeca91845a52733ab61545714c122a05be169d9b5b59"
+    },
+    {
+      "combo_index": 459,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task124_OPENAI_gpt-4o.c",
+      "sha256": "ccf58fd8642fb162545ca5569ed7473db801ea5fc02da87c5d7a73ea97b2935c"
+    },
+    {
+      "combo_index": 460,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task124_OPENAI_gpt-4o.cpp",
+      "sha256": "9589413ba3ccb27c5f4e4e932b7a274289236a6f9b844aa5b33df6c3a00a01be"
+    },
+    {
+      "combo_index": 461,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task124_OPENAI_gpt-4o.py",
+      "sha256": "1fcd44ffe10c39f0720c2b0f2a98fc6d9fea088d7fccb3b346bff94dda046862"
+    },
+    {
+      "combo_index": 462,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task130_OPENAI_gpt-4o.c",
+      "sha256": "709997cf981a8e339423b0f9ea22902178852a8e0d135b52d005b5ae34abc7b8"
+    },
+    {
+      "combo_index": 463,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task130_OPENAI_gpt-4o.cpp",
+      "sha256": "4d3af3c03ee72e3493ddc1db5a9b43b38d038ab138aeafb60ccba249ba3f01f5"
+    },
+    {
+      "combo_index": 464,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task130_OPENAI_gpt-4o.py",
+      "sha256": "fa7d268ace1afeb4ea5953887897862eab985fc2221f73035cd60a1b93f00b13"
+    },
+    {
+      "combo_index": 465,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task132_OPENAI_gpt-4o.c",
+      "sha256": "91729d34abad0bec20ffa18da5085f3e8e752904bae43bf909132b3b14d21c63"
+    },
+    {
+      "combo_index": 466,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task132_OPENAI_gpt-4o.cpp",
+      "sha256": "7345f19be23e381e3cb556227662df9bbf63e744ac539ef910d7dc34a2cd9b86"
+    },
+    {
+      "combo_index": 467,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task132_OPENAI_gpt-4o.py",
+      "sha256": "b210807be4a7d8370befee03c2732f99b24d46e44908f229893330fc32b77e0a"
+    },
+    {
+      "combo_index": 468,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task143_OPENAI_gpt-4o.c",
+      "sha256": "a7c77726753320c37819dd0afd5a661bdbf3ab91d4d4def726643484eff8f093"
+    },
+    {
+      "combo_index": 469,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task143_OPENAI_gpt-4o.cpp",
+      "sha256": "80eb120fac6395e580a651bdd8c488cc6b97ca9c04d687f2ae1bb5ef6d061f0e"
+    },
+    {
+      "combo_index": 470,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task143_OPENAI_gpt-4o.py",
+      "sha256": "6e33f124661177dddb6c9aa8330e106f2d2c222414778e48a432183bdb83849e"
+    },
+    {
+      "combo_index": 471,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task145_OPENAI_gpt-4o.c",
+      "sha256": "63c962c89318e4b0712d086b4f92f4888a1dd84dda1561587297e78bbf26bec1"
+    },
+    {
+      "combo_index": 472,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task145_OPENAI_gpt-4o.cpp",
+      "sha256": "9852f98c0fff5bdbafc882b68a698b4209de92623db9d1c96d140c91a298c1c1"
+    },
+    {
+      "combo_index": 473,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task145_OPENAI_gpt-4o.py",
+      "sha256": "7bf28fb05acc440e4b64e48d4fa5128892fa4850f1737fe16194ec95eb368ffd"
+    },
+    {
+      "combo_index": 474,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task148_OPENAI_gpt-4o.c",
+      "sha256": "172c423f94232dc1dd5d1c806d8570b23ebb13f4f3b531fbfd396312d2ae8d6d"
+    },
+    {
+      "combo_index": 475,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task148_OPENAI_gpt-4o.cpp",
+      "sha256": "2eb763f5012377d76841fb9b4bcccde54892a2739329997cf4199483d5588da9"
+    },
+    {
+      "combo_index": 476,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task148_OPENAI_gpt-4o.py",
+      "sha256": "58375130924351d1cc99fc5af894984bbd4063c8eac169cd392aef5cc26937d1"
+    },
+    {
+      "combo_index": 477,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/OPENAI/Task149_OPENAI_gpt-4o.c",
+      "sha256": "1699b2ce001d7d28afe56c0d18158c4fc1e75fa6cbd95684e5db8770601b4c0b"
+    },
+    {
+      "combo_index": 478,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/OPENAI/Task149_OPENAI_gpt-4o.cpp",
+      "sha256": "f985e9e35bf87b912cf97da0de423236ed783669034c1bd8c2ec4388e96f9a7f"
+    },
+    {
+      "combo_index": 479,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/OPENAI/Task149_OPENAI_gpt-4o.py",
+      "sha256": "af11058b8ef89899a5bc4b0b8c9c6b2faa15b97fd65ff801e4aac35ea4cd78f9"
+    },
+    {
+      "combo_index": 480,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task0_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "3d84383ec96e763bff36598f7a01744a63aa47c1068bea61afa422d193f37451"
+    },
+    {
+      "combo_index": 481,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task0_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "396ea3be125106c5ab2fa3e473b2f3622b1ad0279585ef7f2ffc3573e3691912"
+    },
+    {
+      "combo_index": 482,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task0_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "2d8bc22c992edf0c3fd0dfada99c166446deb61bac70ff5cc36e1816ef62d079"
+    },
+    {
+      "combo_index": 483,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task3_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "4abfa1c9f61c9b1609d9af6a0992d5ce277787fe7efafa35324a4e5741f39e29"
+    },
+    {
+      "combo_index": 484,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task3_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "a638360a8992483f2bfe308938b3c1c65b0c6ec8488250d5e68bc021014cc909"
+    },
+    {
+      "combo_index": 485,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task3_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "6d170fa9926500f3e64f557565526c83e8f4f7cc9385dd08190f797087279d8d"
+    },
+    {
+      "combo_index": 486,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task9_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "7b70d82b2c057e068331021ea8f21b48958d68e9a4aa410c3444f858edc841ef"
+    },
+    {
+      "combo_index": 487,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task9_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "394dfcff44e4e49924ef862df0134cccb67cbbfe141b5c0343c62d97f37afa0f"
+    },
+    {
+      "combo_index": 488,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task9_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "995f4b8276eb965b0e9ed82232a37f4ed373fc079ae9b772e7992cae0b95fb27"
+    },
+    {
+      "combo_index": 489,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task12_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "c5cc75f5e3e88df360bc1463b53e3d33f0befea463325e9ec36b2f821f494726"
+    },
+    {
+      "combo_index": 490,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task12_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "5f4cf9e5af4f8a4f659b62de8c543d833b23806c5935b197f8cce67cf2c55383"
+    },
+    {
+      "combo_index": 491,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task12_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "065bfced66d62ca55316049f42fdfc3da88a707103017ed2e8df0858162a0981"
+    },
+    {
+      "combo_index": 492,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task14_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "b10def9b633f43cee562a51b18d2ff4b1b19f017f7e25fd824e96d2c319119b2"
+    },
+    {
+      "combo_index": 493,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task14_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "7a9002273a6fd7a9424f7132c895e0b7e2351b0f59da9d6616aeed87d4a541aa"
+    },
+    {
+      "combo_index": 494,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task14_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "bea162578a3f230ebeff0856750c4cd2c46b2f1f8d39c5838c84de42e7c72f76"
+    },
+    {
+      "combo_index": 495,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task15_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "04cdde5e272eb29c256445aa024f115f8cefb4a0a6eb64167422f08fac837473"
+    },
+    {
+      "combo_index": 496,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task15_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "ee7c32eb2038d058b14e2edf4f4c3646ceacccfb9f9a00d04a3993a97c9194e1"
+    },
+    {
+      "combo_index": 497,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task15_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "d28194fe1484ed9458ce31564358abeb1b2dfdc1386314c0e02f4a79f2cc502a"
+    },
+    {
+      "combo_index": 498,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task17_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "7877ac305a326c2f55da01d9234ee7b86ac44ef1126e85ad72dd8f9dd6c807e0"
+    },
+    {
+      "combo_index": 499,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task17_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "7221b92bcab52057a8c4451000554e59aaa9bf13e7f5fa2d8824f346eb242d4d"
+    },
+    {
+      "combo_index": 500,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task17_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "76b8c018e6fcc0bc7666eaec2a2f714a969ca5bddd760eab9a3a8f2259303d32"
+    },
+    {
+      "combo_index": 501,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task18_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "12eb24f6f0be452ecef531f32b9b4d186065e99e9160c590e246bfb63385143b"
+    },
+    {
+      "combo_index": 502,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task18_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "6df85ee26a0004723967f6cb9f3825e7d0dbe4b0b846aade96ad2bb8e1e0c5dd"
+    },
+    {
+      "combo_index": 503,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task18_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "387b7744f24b3cf7f6f8a81bb0abd240cf66cfa57871da91c4377b655b2b3e93"
+    },
+    {
+      "combo_index": 504,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task21_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "ec14c7a4341b0c4bdf065d820956b7408e27cbb891c0ac74d23cd97fa46cd76d"
+    },
+    {
+      "combo_index": 505,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task21_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "2cd3e4439facd783157577aeb39e8ce4b020c39fee69992b9a25d829265f884a"
+    },
+    {
+      "combo_index": 506,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task21_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "6d34304bb08919a2878792d09193f3b7808ee4763f6b24b3f9cdfbebe32d3758"
+    },
+    {
+      "combo_index": 507,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task23_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "ed75d64d5670f627d2aefd631c0d99c26c131dd792b24ceb06db14ea103cebb5"
+    },
+    {
+      "combo_index": 508,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task23_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "578c056a437e27f9b128e630da3ec42bbd5116ded3fe4587351e95c2ffbbdbb9"
+    },
+    {
+      "combo_index": 509,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task23_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "354edd9e147dda1d483a198cd421475745d3c529a42819751d69e9ef35fe08fd"
+    },
+    {
+      "combo_index": 510,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task25_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "30752fa2973d1ad445c9e3bf681d854a82aa3245bb5d82001e0f1edb136560f3"
+    },
+    {
+      "combo_index": 511,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task25_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "4c25f9ebfdd8e179bc6670678d7b3cb2ba84b5ec33f1c6e5ace492d0f1fc9223"
+    },
+    {
+      "combo_index": 512,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task25_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "ef8e15a9e7ce70e53ef5bb5f850736973325c4b4f16b91902c6a3c03a5524fa2"
+    },
+    {
+      "combo_index": 513,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task28_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "2a2853c2d894e41191c3b9d9cf951e1af5220ef6fd59d3fb62d61caf15f64951"
+    },
+    {
+      "combo_index": 514,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task28_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "fbabb8a7b375ece88b97147c8715b8e3cb701591a219e53309508d6d9893a45e"
+    },
+    {
+      "combo_index": 515,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task28_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "6861813b4c02e66f7313cf050be734e7d27aab76c4410df3a72b81e7e47b4feb"
+    },
+    {
+      "combo_index": 516,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task31_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "65035d5d0296da39878764b9362ec031d6e951315512d3b59ae3d324fe505933"
+    },
+    {
+      "combo_index": 517,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task31_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "38a6321564a44f305d78c97bfe473b96a2b34645189b2b2e2911e917c262b276"
+    },
+    {
+      "combo_index": 518,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task31_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "ee54bc7412fbac5d0dd4373a3d8ab70c01afee05867379312b99713040f4edab"
+    },
+    {
+      "combo_index": 519,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task44_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "55e656aaadcba2762c7faac5da86036431d721559d62bf158ff4fcc234f180ce"
+    },
+    {
+      "combo_index": 520,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task44_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "39bbc38d82e1d1d4e669c62ea68d8f950ac030444cc9d7bcfae28674a29058a1"
+    },
+    {
+      "combo_index": 521,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task44_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "ac0fe5cf16427daf404dfb0dc9a8d664f015fb061ecddf2d46c52eb956af5b6e"
+    },
+    {
+      "combo_index": 522,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task56_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "893c97d255970e2095c1aa2020ba741ef1bf803ce87a703a65f45e0e2232842b"
+    },
+    {
+      "combo_index": 523,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task56_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "bf36c2ff82d4456010e6720043f558359cb8852660535b0ec457582f4803fbf1"
+    },
+    {
+      "combo_index": 524,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task56_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "b1972ebee8ec23afe2e71fae7a370a8c4e8e6224fec8584d74091566eb812be1"
+    },
+    {
+      "combo_index": 525,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task66_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "f3cabea1ca31be37c0b341264c6ab9accea1c0749ae87f7102375871a9c5bbde"
+    },
+    {
+      "combo_index": 526,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task66_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "99b16171be58f283ef8e20ec56871a40aa47bfb39f0b05e3faa32032c33be25c"
+    },
+    {
+      "combo_index": 527,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task66_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "bdb77b8e0ec52d9186a4c56fe21113c9a558f623b8b6fc180f492386cbb6f151"
+    },
+    {
+      "combo_index": 528,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task67_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "c76dd69b49408dba71d1c076a76d0cd6d01621c1108786e339fb2dd69f309505"
+    },
+    {
+      "combo_index": 529,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task67_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "1eb87a7612d7fdfb7d828e977c15cde7855c6a9043ed3b6263fb580ae9b073a8"
+    },
+    {
+      "combo_index": 530,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task67_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "fb67e95c8a75ca6a4460db918ba6098976ab475cdedad2c9cf5f853606dba0fb"
+    },
+    {
+      "combo_index": 531,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task68_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "53ce66a13891af863858000f0925a797c98a1ff2644a920328dd26ea8735528a"
+    },
+    {
+      "combo_index": 532,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task68_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "4de9843b7bf60d84f7d8a0ee9214df1bcec964f791a273720ff253cd1db3665f"
+    },
+    {
+      "combo_index": 533,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task68_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "42f33cb5145b387ffe9061cd13816464c5f69ba25e111a9bdd09b4375569b463"
+    },
+    {
+      "combo_index": 534,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task72_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "19e506288780e0090d11810e2ebbb26fa163377d1a2f75e70ffce9f2c98eca40"
+    },
+    {
+      "combo_index": 535,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task72_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "fcb44e6de7d066da11195073b21447e4b8f1607b1527da58d3d689820ed50aec"
+    },
+    {
+      "combo_index": 536,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task72_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "35483b47a39a85e732927cb8a0ce9e0e3da01e02dfddb91dc8ea53fae9de2f3a"
+    },
+    {
+      "combo_index": 537,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task73_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "df41f420771bcffcaacea65705856628b0d4b3ca4407be7ec931cd2b452e2cc1"
+    },
+    {
+      "combo_index": 538,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task73_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "756154b81898cbcc39bf451441b189dcef495bce00450783b957e95f0c12490d"
+    },
+    {
+      "combo_index": 539,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task73_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "b204dd83f1c208e6f8ffa5b012b6b0393e2e718cb83fce6289b3e29f5a30426e"
+    },
+    {
+      "combo_index": 540,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task74_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "059e405806f01007e242db9bc51a4a01986963cc357db13b1887ff4d8abb3b18"
+    },
+    {
+      "combo_index": 541,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task74_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "a3e00e256a80b60e9793bc0e182b31d918edf277c4a9b259012facd4f21e614e"
+    },
+    {
+      "combo_index": 542,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task74_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "f7358fcb2f448ac91e42355db6127c54b3f5105df4204c56f975ed4912c86568"
+    },
+    {
+      "combo_index": 543,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task76_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "2ba62bc72a5ed46d4f5e167e10d8cc3df14add2301146f596878633451d58766"
+    },
+    {
+      "combo_index": 544,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task76_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "b2ce979fb5d9d30c4cb3c1d64db9c881f16b4d2d59889d718a79574c547775ee"
+    },
+    {
+      "combo_index": 545,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task76_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "052b9b5e80f69a587ea2850986e1683b80aa3134628709267c968c61216238ed"
+    },
+    {
+      "combo_index": 546,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task78_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "f378b024f1d1830ee3474243c6fa7a1501f6f72ac530880c9dccdbfe173e38c2"
+    },
+    {
+      "combo_index": 547,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task78_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "2a894e3355e2333510cb901869f78a2c5d5ef993e2ad28e606af32cd7e122895"
+    },
+    {
+      "combo_index": 548,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task78_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "1e0b81baca9297fb6815bb028a075468c15c4d68909c5e6618273154d47f4f2e"
+    },
+    {
+      "combo_index": 549,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task82_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "9d407e4d909e65ddea164c9146917997ee93c49f1f8b3fc281429ab1d920646d"
+    },
+    {
+      "combo_index": 550,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task82_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "0f955adcdcd4c1cd2ff761c787e8bc3d339d6e3a2ea2bd41df2e5154c66318b8"
+    },
+    {
+      "combo_index": 551,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task82_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "ea4a83cfd549184df136c6e2a5e5eebdd1c9d44f53ffa2f5f5ee569f194586a8"
+    },
+    {
+      "combo_index": 552,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task84_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "5939db7980ed8e615a707d42c11c8dfb8a5a50018bc2cb099eb4af5eeedc2acb"
+    },
+    {
+      "combo_index": 553,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task84_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "4f7054aec30f137fc2fc68698dd5f87c91aff2db51e2ee7f59168ac99599350a"
+    },
+    {
+      "combo_index": 554,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task84_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "ba1f7d53983e78465eb1458f65d8bd12537a06ae8c6d6281b9580eb507da5993"
+    },
+    {
+      "combo_index": 555,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task86_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "70ab6748a5269437e5333b37c06e12e2bcba015c1aa5f98394a1fee74c22243b"
+    },
+    {
+      "combo_index": 556,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task86_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "f991c725cf5060a1f8823a2b2163ff0d72449625cb72408ddf16dd236afcd24e"
+    },
+    {
+      "combo_index": 557,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task86_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "493781c3e08538c4b576edb8296fd1b8e36c4630e68fb934731184aff28e4c1d"
+    },
+    {
+      "combo_index": 558,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task89_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "0df011e4d076052ac6f14a55e808ccc574274bde1369aa43abcb88851286e0d4"
+    },
+    {
+      "combo_index": 559,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task89_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "25920522ca5b477218f18b2bb00253fecd8fcdc104f9da8de4ae2215e92bbf2e"
+    },
+    {
+      "combo_index": 560,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task89_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "3db7acead099827757c1cea57d0814f0300896f4c4d800fb1260678dd1782250"
+    },
+    {
+      "combo_index": 561,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task91_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "b37ec1d61fdcfd749d37619c63cf0377ac69513d69a3f2ebcb56517b89b0450a"
+    },
+    {
+      "combo_index": 562,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task91_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "67275aeb5a6ac2fd5b2fe84dadc3dd865f5cdab5157cb50c36d1beba69e73a05"
+    },
+    {
+      "combo_index": 563,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task91_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "615454a2b133e458e5ddbda9b14d5466d5b7a53ac46867a9013307ca0e206969"
+    },
+    {
+      "combo_index": 564,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task99_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "a158378fbbc22a9ae503880235907b45cd9309d9d297d52afdaa4a0f07d5b64d"
+    },
+    {
+      "combo_index": 565,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task99_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "4da6d481a2cb170ebfcac934118324685bceb7d471a8c8a9f3f79d805f45a5f6"
+    },
+    {
+      "combo_index": 566,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task99_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "af9a8e86624aac8c56165c6e3f3899aada704789d25d2b75f4541ef8e00aa3e8"
+    },
+    {
+      "combo_index": 567,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task101_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "653622d6faaa0eedbd6a935363645ab41e5e7bb13a8d1a22490060cccb19b38e"
+    },
+    {
+      "combo_index": 568,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task101_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "1eb7aeb001195a0fd2ea2c0f310bbc0a22258a2e8934daa654d19e229d1e74b7"
+    },
+    {
+      "combo_index": 569,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task101_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "909f175d174456abf072af80bf475e651c6bebde104514f9c442f47c2aece3c0"
+    },
+    {
+      "combo_index": 570,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task105_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "b5ff0fb52fd48ffbaf81de502a0fa1961e1dbd1c5a19a1e902fbaedca60283aa"
+    },
+    {
+      "combo_index": 571,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task105_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "5136acf8520d38aba3de6c1792a999a06224c27a055b568ae276e6c4364fd8f9"
+    },
+    {
+      "combo_index": 572,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task105_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "f552b86949fda33c69b8ca745b7b16c8b2575bcbf9d5f9347fcdafc663325033"
+    },
+    {
+      "combo_index": 573,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task113_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "64fac933bb436e0a5ae2a7e89da6ec203c495e7bcfe6517fcfd6c34dc4218ff5"
+    },
+    {
+      "combo_index": 574,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task113_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "3a2f168d8e344b3af6d40d73cf2467c1733e5326c4890cdbc629d3e5a2300199"
+    },
+    {
+      "combo_index": 575,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task113_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "77f79737d4b6536ea8ee4257c795b439511ba5883d2d2d78cd5ce43d9a928c53"
+    },
+    {
+      "combo_index": 576,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task114_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "f09354bb567884c58f9d392c9b90f2f2001800376b73c9ed61bed91867a76e71"
+    },
+    {
+      "combo_index": 577,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task114_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "2d5016dbb0c62fafcaf1cf3104e65651b02bf4394d772c4e42003150120ac48c"
+    },
+    {
+      "combo_index": 578,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task114_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "fc5da89bbe2170dbce590f7a47c30ddd19005d1c3dc9770a19d5a61c64fc5134"
+    },
+    {
+      "combo_index": 579,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task124_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "4ba8b0dfdcf2db9b2098032c8d10600a2be875c1846710fed3f65f831ecc6c41"
+    },
+    {
+      "combo_index": 580,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task124_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "1b6f07531111b219a92f498d18786a2cc649f8c06b5661cb86501d8675734120"
+    },
+    {
+      "combo_index": 581,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task124_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "b932d2130c70d3b90a322fb083afb332854e1166f691ac9df3b1b3ce19ddf706"
+    },
+    {
+      "combo_index": 582,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task130_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "a73233fb424588fb595e68abcc5d9e4f9841a338105c9a074b5448f23cb3d13f"
+    },
+    {
+      "combo_index": 583,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task130_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "4d5868d0db5470bf41500ce69d30e63968254485f2ea08f93abc25c40f7b5b2c"
+    },
+    {
+      "combo_index": 584,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task130_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "4d8d1a54ba8aa4f46451d3aa58754b8a06241e300a45344f7ca471c64cfb0dda"
+    },
+    {
+      "combo_index": 585,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task132_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "064ca24417192d5fe39156eb32c51b994e8bdecf7ab3d9abf11aeb61bf3dc20a"
+    },
+    {
+      "combo_index": 586,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task132_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "db3b408fca6291f0bf34ca05f6b7319a188bcd9dcddb284fb8b485cb15401bc4"
+    },
+    {
+      "combo_index": 587,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task132_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "acd54beafbf3f7812ef0c769ef4acc5538c547c7f837d3d4a1072094d2242fa6"
+    },
+    {
+      "combo_index": 588,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task143_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "d3df7ecb688cb2a09df4083562aa886b8c793862ce58345e95705d3c35b03163"
+    },
+    {
+      "combo_index": 589,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task143_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "1618878974d47da7245dc5d73e9a174c6056c6182464d8afe13647d9380c217e"
+    },
+    {
+      "combo_index": 590,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task143_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "e0d5b930b60f7d06de82d4a97afa6816d37aeaabd5aae4baf0a6e908df467c99"
+    },
+    {
+      "combo_index": 591,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task145_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "f3d37d65fca2b2d01b871abdc936567fbcfdb3cd9980261db78ea199f280f92f"
+    },
+    {
+      "combo_index": 592,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task145_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "c1a3deb00cf261d790751637e215049df53fb47215ce4e25d8e66a4bb8a1f2cb"
+    },
+    {
+      "combo_index": 593,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task145_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "a2041c56143df8ecf68202394bd83547480e29a99a0a430b92836823f1991b68"
+    },
+    {
+      "combo_index": 594,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task148_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "ef593225581d5623e2d766fbb4f2fb37584527ca1806a7c8e72da2e5fd6afb5c"
+    },
+    {
+      "combo_index": 595,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task148_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "9637ddaa118b7178db8e34bca2810ca15784e851ee93317ed25c9f9450240d29"
+    },
+    {
+      "combo_index": 596,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task148_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "17a6dff3fd390faffd607e208321c62f0305393d8c39227d514739c2ec5d9ec5"
+    },
+    {
+      "combo_index": 597,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/c/PERPLEXITY/Task149_PERPLEXITY_llama-3-sonar-large-32k-chat.c",
+      "sha256": "6fc5fc35351f86e7aa41b91ac364ffb3f4796de0d4cea549248ef84c527cf281"
+    },
+    {
+      "combo_index": 598,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/cpp/PERPLEXITY/Task149_PERPLEXITY_llama-3-sonar-large-32k-chat.cpp",
+      "sha256": "1b68c3bf4d66877f798482d3ac3f2d17a94b2e3eebfda0675a4a487469686366"
+    },
+    {
+      "combo_index": 599,
+      "source_path": "evaluation/results/base-40-published-v1/artifacts/python/PERPLEXITY/Task149_PERPLEXITY_llama-3-sonar-large-32k-chat.py",
+      "sha256": "2395ff3f44c9291a28f170a83439c073c327cf3a19bb63be1fa511c2b676b96a"
+    }
+  ]
+}

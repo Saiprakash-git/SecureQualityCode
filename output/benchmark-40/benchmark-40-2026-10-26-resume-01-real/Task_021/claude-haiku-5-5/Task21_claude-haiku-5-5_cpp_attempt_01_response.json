@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793016487-RLZa0RGYp5PBGbeVGNqC",
+  "finish_reason": "stop",
+  "input_tokens": 454,
+  "output_tokens": 1139,
+  "cost_usd": 0.0006149,
+  "raw_response": {
+    "id": "gen-1793016487-RLZa0RGYp5PBGbeVGNqC",
+    "object": "chat.completion",
+    "created": 1793016487,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <vector>\n#include <string>\n#include <cctype>\n\nstd::vector<int> removeSmallest(const std::vector<int>& values) {\n    if (values.empty()) {\n        return {};\n    }\n    std::size_t minIndex = 0;\n    for (std::size_t i = 1; i < values.size(); ++i) {\n        if (values[i] < values[minIndex]) {\n            minIndex = i;\n        }\n    }\n    std::vector<int> result;\n    result.reserve(values.size() - 1);\n    for (std::size_t i = 0; i < values.size(); ++i) {\n        if (i != minIndex) {\n            result.push_back(values[i]);\n        }\n    }\n    return result;\n}\n\nstd::vector<int> parseIntegers(const std::string& text) {\n    std::vector<int> values;\n    std::size_t i = 0;\n    while (i < text.size()) {\n        if (std::isdigit(static_cast<unsigned char>(text[i])) ||\n            (text[i] == '-' && i + 1 < text.size() &&\n             std::isdigit(static_cast<unsigned char>(text[i + 1])))) {\n            bool negative = false;\n            if (text[i] == '-') {\n                negative = true;\n                ++i;\n            }\n            long long value = 0;\n            while (i < text.size() && std::isdigit(static_cast<unsigned char>(text[i]))) {\n                value = value * 10 + (text[i] - '0');\n                ++i;\n            }\n            values.push_back(static_cast<int>(negative ? -value : value));\n        } else {\n            ++i;\n        }\n    }\n    return values;\n}\n\nstd::string formatIntegers(const std::vector<int>& values) {\n    std::string out = \"[\";\n    for (std::size_t i = 0; i < values.size(); ++i) {\n        if (i > 0) {\n            out += \",\";\n        }\n        out += std::to_string(values[i]);\n    }\n    out += \"]\";\n    return out;\n}\n\nint main() {\n    std::string input((std::istreambuf_iterator<char>(std::cin)),\n                      std::istreambuf_iterator<char>());\n    std::vector<int> values = parseIntegers(input);\n    std::vector<int> result = removeSmallest(values);\n    std::cout << formatIntegers(result) << std::endl;\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 454,
+      "completion_tokens": 1139,
+      "total_tokens": 1593,
+      "cost": 0.0006149,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0006149,
+        "upstream_inference_prompt_cost": 4.54e-05,
+        "upstream_inference_completions_cost": 0.0005695
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 362,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

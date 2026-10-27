@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793024158-SJ1Iu5SAtftihmQlWYFr",
+  "finish_reason": "stop",
+  "input_tokens": 151,
+  "output_tokens": 371,
+  "cost_usd": 0.0002006,
+  "raw_response": {
+    "id": "gen-1793024158-SJ1Iu5SAtftihmQlWYFr",
+    "object": "chat.completion",
+    "created": 1793024158,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import java.util.ArrayList;\nimport java.util.List;\nimport java.util.Scanner;\n\npublic class ConcatenateStrings {\n\n    public static String concatenate(List<String> parts) {\n        StringBuilder sb = new StringBuilder();\n        for (String part : parts) {\n            sb.append(part);\n        }\n        return sb.toString();\n    }\n\n    public static List<String> readStrings(Scanner scanner) {\n        List<String> parts = new ArrayList<>();\n        System.out.println(\"Enter strings to concatenate (type 'done' on a line by itself to finish):\");\n        while (scanner.hasNextLine()) {\n            String line = scanner.nextLine();\n            if (line.trim().equalsIgnoreCase(\"done\")) {\n                break;\n            }\n            parts.add(line);\n        }\n        return parts;\n    }\n\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        List<String> parts = readStrings(scanner);\n        String result = concatenate(parts);\n        System.out.println(\"Concatenated result: \" + result);\n        scanner.close();\n    }\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 151,
+      "completion_tokens": 371,
+      "total_tokens": 522,
+      "cost": 0.0002006,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002006,
+        "upstream_inference_prompt_cost": 1.51e-05,
+        "upstream_inference_completions_cost": 0.0001855
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

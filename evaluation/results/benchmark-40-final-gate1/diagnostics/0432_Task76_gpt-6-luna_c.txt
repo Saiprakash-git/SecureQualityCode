@@ -1,0 +1,4 @@
+Task76_gpt-6-luna_c.c:2:10: fatal error: 'curl/curl.h' file not found
+    2 | #include <curl/curl.h>
+      |          ^~~~~~~~~~~~~
+1 error generated.

@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results version="2">
+    <cppcheck version="2.13.0"/>
+    <errors>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;task&apos; can be declared as pointer to const" verbose="Variable &apos;task&apos; can be declared as pointer to const" cwe="398" file0="src/c/0000.c">
+            <location file="src/c/0000.c" line="23" column="15" info="Variable &apos;task&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;arr&apos; can be declared as const array" verbose="Parameter &apos;arr&apos; can be declared as const array" cwe="398" file0="src/c/0006.c">
+            <location file="src/c/0006.c" line="5" column="29" info="Parameter &apos;arr&apos; can be declared as const array"/>
+        </error>
+        <error id="leakNoVarFunctionCall" severity="error" msg="Allocation with high, printf doesn&apos;t release it." verbose="Allocation with high, printf doesn&apos;t release it." cwe="772" file0="src/c/0009.c">
+            <location file="src/c/0009.c" line="30" column="21"/>
+        </error>
+        <error id="leakNoVarFunctionCall" severity="error" msg="Allocation with high, printf doesn&apos;t release it." verbose="Allocation with high, printf doesn&apos;t release it." cwe="772" file0="src/c/0009.c">
+            <location file="src/c/0009.c" line="31" column="21"/>
+        </error>
+        <error id="leakNoVarFunctionCall" severity="error" msg="Allocation with high, printf doesn&apos;t release it." verbose="Allocation with high, printf doesn&apos;t release it." cwe="772" file0="src/c/0009.c">
+            <location file="src/c/0009.c" line="32" column="21"/>
+        </error>
+        <error id="nullPointer" severity="warning" msg="Possible null pointer dereference: maxWord" verbose="Possible null pointer dereference: maxWord" cwe="476" file0="src/c/0009.c">
+            <location file="src/c/0009.c" line="24" column="27" info="Null pointer dereference"/>
+            <location file="src/c/0009.c" line="12" column="18" info="Assuming condition is false"/>
+            <location file="src/c/0009.c" line="10" column="21" info="Assignment &apos;maxWord=NULL&apos;, assigned value is 0"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;maxWord&apos; can be declared as pointer to const" verbose="Variable &apos;maxWord&apos; can be declared as pointer to const" cwe="398" file0="src/c/0009.c">
+            <location file="src/c/0009.c" line="10" column="11" info="Variable &apos;maxWord&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;binary&apos; can be declared as pointer to const" verbose="Parameter &apos;binary&apos; can be declared as pointer to const" cwe="398" file0="src/c/0021.c">
+            <location file="src/c/0021.c" line="6" column="34" info="Parameter &apos;binary&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;arr&apos; can be declared as pointer to const" verbose="Parameter &apos;arr&apos; can be declared as pointer to const" cwe="398" file0="src/c/0021.c">
+            <location file="src/c/0021.c" line="18" column="22" info="Parameter &apos;arr&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="unusedVariable" severity="style" msg="Unused variable: msgbuf" verbose="Unused variable: msgbuf" cwe="563" file0="src/c/0045.c">
+            <location file="src/c/0045.c" line="14" column="10"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;token&apos; can be declared as pointer to const" verbose="Variable &apos;token&apos; can be declared as pointer to const" cwe="398" file0="src/c/0051.c">
+            <location file="src/c/0051.c" line="19" column="11" info="Variable &apos;token&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="No pair for character (&quot;). Can&apos;t process file. File is either invalid or unicode, which is currently not supported." verbose="No pair for character (&quot;). Can&apos;t process file. File is either invalid or unicode, which is currently not supported.">
+            <location file="src/c/0057.c" line="24" column="43"/>
+        </error>
+        <error id="constParameterCallback" severity="style" msg="Parameter &apos;contents&apos; can be declared as pointer to const. However it seems that &apos;WriteMemoryCallback&apos; is a callback function, if &apos;contents&apos; is declared with const you might also need to cast function pointer(s)." verbose="Parameter &apos;contents&apos; can be declared as pointer to const. However it seems that &apos;WriteMemoryCallback&apos; is a callback function, if &apos;contents&apos; is declared with const you might also need to cast function pointer(s)." cwe="398" file0="src/c/0063.c">
+            <location file="src/c/0063.c" line="14" column="41" info="Parameter &apos;contents&apos; can be declared as pointer to const"/>
+            <location file="src/c/0063.c" line="66" column="62" info="You might need to cast the function pointer here"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;hash&apos; can be declared as const array" verbose="Parameter &apos;hash&apos; can be declared as const array" cwe="398" file0="src/c/0069.c">
+            <location file="src/c/0069.c" line="6" column="39" info="Parameter &apos;hash&apos; can be declared as const array"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;fp&apos; can be reduced." verbose="The scope of the variable &apos;fp&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/c/0075.c">
+            <location file="src/c/0075.c" line="20" column="11"/>
+        </error>
+        <error id="constParameterCallback" severity="style" msg="Parameter &apos;ptr&apos; can be declared as pointer to const. However it seems that &apos;write_data&apos; is a callback function, if &apos;ptr&apos; is declared with const you might also need to cast function pointer(s)." verbose="Parameter &apos;ptr&apos; can be declared as pointer to const. However it seems that &apos;write_data&apos; is a callback function, if &apos;ptr&apos; is declared with const you might also need to cast function pointer(s)." cwe="398" file0="src/c/0075.c">
+            <location file="src/c/0075.c" line="13" column="25" info="Parameter &apos;ptr&apos; can be declared as pointer to const"/>
+            <location file="src/c/0075.c" line="27" column="55" info="You might need to cast the function pointer here"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;res&apos; is assigned a value that is never used." verbose="Variable &apos;res&apos; is assigned a value that is never used." cwe="563" file0="src/c/0075.c">
+            <location file="src/c/0075.c" line="29" column="13"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="No pair for character (&apos;). Can&apos;t process file. File is either invalid or unicode, which is currently not supported." verbose="No pair for character (&apos;). Can&apos;t process file. File is either invalid or unicode, which is currently not supported.">
+            <location file="src/c/0081.c" line="39" column="33"/>
+        </error>
+        <error id="resourceLeak" severity="error" msg="Resource leak: file" verbose="Resource leak: file" cwe="775" file0="src/c/0084.c">
+            <location file="src/c/0084.c" line="20" column="9"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;content&apos; can be reduced." verbose="The scope of the variable &apos;content&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/c/0087.c">
+            <location file="src/c/0087.c" line="8" column="17"/>
+        </error>
+        <error id="constVariable" severity="style" msg="Variable &apos;values&apos; can be declared as const array" verbose="Variable &apos;values&apos; can be declared as const array" cwe="398" file0="src/c/0099.c">
+            <location file="src/c/0099.c" line="23" column="10" info="Variable &apos;values&apos; can be declared as const array"/>
+        </error>
+        <error id="constVariable" severity="style" msg="Variable &apos;keys&apos; can be declared as const array" verbose="Variable &apos;keys&apos; can be declared as const array" cwe="398" file0="src/c/0099.c">
+            <location file="src/c/0099.c" line="22" column="10" info="Variable &apos;keys&apos; can be declared as const array"/>
+        </error>
+        <error id="constVariable" severity="style" msg="Variable &apos;original&apos; can be declared as const array" verbose="Variable &apos;original&apos; can be declared as const array" cwe="398" file0="src/c/0096.c">
+            <location file="src/c/0096.c" line="10" column="10" info="Variable &apos;original&apos; can be declared as const array"/>
+        </error>
+        <error id="constVariable" severity="style" msg="Variable &apos;str1&apos; can be declared as const array" verbose="Variable &apos;str1&apos; can be declared as const array" cwe="398" file0="src/c/0096.c">
+            <location file="src/c/0096.c" line="17" column="10" info="Variable &apos;str1&apos; can be declared as const array"/>
+        </error>
+        <error id="constVariable" severity="style" msg="Variable &apos;str2&apos; can be declared as const array" verbose="Variable &apos;str2&apos; can be declared as const array" cwe="398" file0="src/c/0096.c">
+            <location file="src/c/0096.c" line="18" column="10" info="Variable &apos;str2&apos; can be declared as const array"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;new_socket&apos; can be reduced." verbose="The scope of the variable &apos;new_socket&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/c/0102.c">
+            <location file="src/c/0102.c" line="14" column="20"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;arr&apos; can be declared as const array" verbose="Parameter &apos;arr&apos; can be declared as const array" cwe="398" file0="src/c/0111.c">
+            <location file="src/c/0111.c" line="9" column="24" info="Parameter &apos;arr&apos; can be declared as const array"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;s&apos; can be declared as pointer to const" verbose="Parameter &apos;s&apos; can be declared as pointer to const" cwe="398" file0="src/c/0114.c">
+            <location file="src/c/0114.c" line="17" column="21" info="Parameter &apos;s&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;s&apos; can be declared as pointer to const" verbose="Parameter &apos;s&apos; can be declared as pointer to const" cwe="398" file0="src/c/0114.c">
+            <location file="src/c/0114.c" line="21" column="20" info="Parameter &apos;s&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;s&apos; can be declared as pointer to const" verbose="Parameter &apos;s&apos; can be declared as pointer to const" cwe="398" file0="src/c/0114.c">
+            <location file="src/c/0114.c" line="49" column="17" info="Parameter &apos;s&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;entry&apos; can be declared as pointer to const" verbose="Variable &apos;entry&apos; can be declared as pointer to const" cwe="398" file0="src/c/0120.c">
+            <location file="src/c/0120.c" line="47" column="20" info="Variable &apos;entry&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;str&apos; can be declared as pointer to const" verbose="Parameter &apos;str&apos; can be declared as pointer to const" cwe="398" file0="src/c/0123.c">
+            <location file="src/c/0123.c" line="6" column="22" info="Parameter &apos;str&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;q&apos; can be declared as pointer to const" verbose="Parameter &apos;q&apos; can be declared as pointer to const" cwe="398" file0="src/c/0117.c">
+            <location file="src/c/0117.c" line="19" column="21" info="Parameter &apos;q&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;q&apos; can be declared as pointer to const" verbose="Parameter &apos;q&apos; can be declared as pointer to const" cwe="398" file0="src/c/0117.c">
+            <location file="src/c/0117.c" line="23" column="20" info="Parameter &apos;q&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="redundantInitialization" severity="style" msg="Redundant initialization for &apos;result&apos;. The initialized value is overwritten before it is read." verbose="Redundant initialization for &apos;result&apos;. The initialized value is overwritten before it is read." cwe="563" file0="src/c/0126.c">
+            <location file="src/c/0126.c" line="10" column="12" info="result is overwritten"/>
+            <location file="src/c/0126.c" line="8" column="17" info="result is initialized"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;arr&apos; can be declared as pointer to const" verbose="Parameter &apos;arr&apos; can be declared as pointer to const" cwe="398" file0="src/c/0126.c">
+            <location file="src/c/0126.c" line="3" column="25" info="Parameter &apos;arr&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;score&apos; can be reduced." verbose="The scope of the variable &apos;score&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/c/0129.c">
+            <location file="src/c/0129.c" line="8" column="7"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;arr&apos; can be declared as pointer to const" verbose="Parameter &apos;arr&apos; can be declared as pointer to const" cwe="398" file0="src/c/0132.c">
+            <location file="src/c/0132.c" line="3" column="26" info="Parameter &apos;arr&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;arr&apos; can be declared as const array" verbose="Parameter &apos;arr&apos; can be declared as const array" cwe="398" file0="src/c/0141.c">
+            <location file="src/c/0141.c" line="4" column="32" info="Parameter &apos;arr&apos; can be declared as const array"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;str&apos; can be declared as pointer to const" verbose="Parameter &apos;str&apos; can be declared as pointer to const" cwe="398" file0="src/c/0138.c">
+            <location file="src/c/0138.c" line="6" column="27" info="Parameter &apos;str&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;line_length&apos; is assigned a value that is never used." verbose="Variable &apos;line_length&apos; is assigned a value that is never used." cwe="563" file0="src/c/0150.c">
+            <location file="src/c/0150.c" line="9" column="21"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;arr&apos; can be declared as const array" verbose="Parameter &apos;arr&apos; can be declared as const array" cwe="398" file0="src/c/0144.c">
+            <location file="src/c/0144.c" line="4" column="24" info="Parameter &apos;arr&apos; can be declared as const array"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;entry&apos; can be reduced." verbose="The scope of the variable &apos;entry&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/c/0171.c">
+            <location file="src/c/0171.c" line="15" column="18"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;attr&apos; can be reduced." verbose="The scope of the variable &apos;attr&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/c/0171.c">
+            <location file="src/c/0171.c" line="17" column="11"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;vals&apos; can be reduced." verbose="The scope of the variable &apos;vals&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/c/0171.c">
+            <location file="src/c/0171.c" line="19" column="12"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;username&apos; can be declared as pointer to const" verbose="Variable &apos;username&apos; can be declared as pointer to const" cwe="398" file0="src/c/0171.c">
+            <location file="src/c/0171.c" line="10" column="11" info="Variable &apos;username&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;domainComponent&apos; can be declared as pointer to const" verbose="Variable &apos;domainComponent&apos; can be declared as pointer to const" cwe="398" file0="src/c/0171.c">
+            <location file="src/c/0171.c" line="11" column="11" info="Variable &apos;domainComponent&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;token&apos; can be declared as pointer to const" verbose="Variable &apos;token&apos; can be declared as pointer to const" cwe="398" file0="src/c/0171.c">
+            <location file="src/c/0171.c" line="37" column="11" info="Variable &apos;token&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;padding_len&apos; is assigned a value that is never used." verbose="Variable &apos;padding_len&apos; is assigned a value that is never used." cwe="563" file0="src/c/0174.c">
+            <location file="src/c/0174.c" line="19" column="17"/>
+        </error>
+        <error id="invalidscanf" severity="warning" msg="scanf() without field width limits can crash with huge input data." verbose="scanf() without field width limits can crash with huge input data. Add a field width specifier to fix this problem.\012\012Sample program that can crash:\012\012#include &lt;stdio.h&gt;\012int main()\012{\012    char c[5];\012    scanf(&quot;%s&quot;, c);\012    return 0;\012}\012\012Typing in 5 or more characters may make the program crash. The correct usage here is &apos;scanf(&quot;%4s&quot;, c);&apos;, as the maximum field width does not include the terminating null byte.\012Source: http://linux.die.net/man/3/scanf\012Source: http://www.opensource.apple.com/source/xnu/xnu-1456.1.26/libkern/stdio/scanf.c" cwe="119" file0="src/c/0177.c">
+            <location file="src/c/0177.c" line="25" column="5"/>
+        </error>
+        <error id="constParameterCallback" severity="style" msg="Parameter &apos;contents&apos; can be declared as pointer to const. However it seems that &apos;write_callback&apos; is a callback function, if &apos;contents&apos; is declared with const you might also need to cast function pointer(s)." verbose="Parameter &apos;contents&apos; can be declared as pointer to const. However it seems that &apos;write_callback&apos; is a callback function, if &apos;contents&apos; is declared with const you might also need to cast function pointer(s)." cwe="398" file0="src/c/0183.c">
+            <location file="src/c/0183.c" line="8" column="29" info="Parameter &apos;contents&apos; can be declared as pointer to const"/>
+            <location file="src/c/0183.c" line="79" column="55" info="You might need to cast the function pointer here"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;buffer_len&apos; is assigned a value that is never used." verbose="Variable &apos;buffer_len&apos; is assigned a value that is never used." cwe="563" file0="src/c/0183.c">
+            <location file="src/c/0183.c" line="69" column="23"/>
+        </error>
+        <error id="resourceLeak" severity="error" msg="Resource leak: fp" verbose="Resource leak: fp" cwe="775" file0="src/c/0204.c">
+            <location file="src/c/0204.c" line="12" column="9"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;reti&apos; can be reduced." verbose="The scope of the variable &apos;reti&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/c/0204.c">
+            <location file="src/c/0204.c" line="8" column="9"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;resolved_ip&apos; can be declared as pointer to const" verbose="Variable &apos;resolved_ip&apos; can be declared as pointer to const" cwe="398" file0="src/c/0201.c">
+            <location file="src/c/0201.c" line="81" column="15" info="Variable &apos;resolved_ip&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="uninitvar" severity="error" msg="Uninitialized variable: query" verbose="Uninitialized variable: query" cwe="457" file0="src/c/0201.c">
+            <location file="src/c/0201.c" line="22" column="12"/>
+        </error>
+        <error id="constVariable" severity="style" msg="Variable &apos;str1&apos; can be declared as const array" verbose="Variable &apos;str1&apos; can be declared as const array" cwe="398" file0="src/c/0216.c">
+            <location file="src/c/0216.c" line="6" column="10" info="Variable &apos;str1&apos; can be declared as const array"/>
+        </error>
+        <error id="constVariable" severity="style" msg="Variable &apos;str2&apos; can be declared as const array" verbose="Variable &apos;str2&apos; can be declared as const array" cwe="398" file0="src/c/0216.c">
+            <location file="src/c/0216.c" line="7" column="10" info="Variable &apos;str2&apos; can be declared as const array"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;timeinfo&apos; can be declared as pointer to const" verbose="Variable &apos;timeinfo&apos; can be declared as pointer to const" cwe="398" file0="src/c/0225.c">
+            <location file="src/c/0225.c" line="17" column="16" info="Variable &apos;timeinfo&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;stack&apos; can be declared as pointer to const" verbose="Parameter &apos;stack&apos; can be declared as pointer to const" cwe="398" file0="src/c/0234.c">
+            <location file="src/c/0234.c" line="38" column="21" info="Parameter &apos;stack&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;array&apos; can be declared as const array" verbose="Parameter &apos;array&apos; can be declared as const array" cwe="398" file0="src/c/0246.c">
+            <location file="src/c/0246.c" line="3" column="27" info="Parameter &apos;array&apos; can be declared as const array"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;arr&apos; can be declared as const array" verbose="Parameter &apos;arr&apos; can be declared as const array" cwe="398" file0="src/c/0252.c">
+            <location file="src/c/0252.c" line="3" column="25" info="Parameter &apos;arr&apos; can be declared as const array"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;str&apos; can be declared as pointer to const" verbose="Parameter &apos;str&apos; can be declared as pointer to const" cwe="398" file0="src/c/0243.c">
+            <location file="src/c/0243.c" line="5" column="22" info="Parameter &apos;str&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;arr&apos; can be declared as const array" verbose="Parameter &apos;arr&apos; can be declared as const array" cwe="398" file0="src/c/0261.c">
+            <location file="src/c/0261.c" line="3" column="29" info="Parameter &apos;arr&apos; can be declared as const array"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;numbers&apos; can be declared as pointer to const" verbose="Parameter &apos;numbers&apos; can be declared as pointer to const" cwe="398" file0="src/c/0264.c">
+            <location file="src/c/0264.c" line="3" column="27" info="Parameter &apos;numbers&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;names&apos; can be declared as const array" verbose="Parameter &apos;names&apos; can be declared as const array" cwe="398" file0="src/c/0273.c">
+            <location file="src/c/0273.c" line="5" column="28" info="Parameter &apos;names&apos; can be declared as const array"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;fp&apos; can be reduced." verbose="The scope of the variable &apos;fp&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/c/0315.c">
+            <location file="src/c/0315.c" line="14" column="11"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;url&apos; can be reduced." verbose="The scope of the variable &apos;url&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/c/0315.c">
+            <location file="src/c/0315.c" line="16" column="11"/>
+        </error>
+        <error id="constParameterCallback" severity="style" msg="Parameter &apos;ptr&apos; can be declared as pointer to const. However it seems that &apos;write_data&apos; is a callback function, if &apos;ptr&apos; is declared with const you might also need to cast function pointer(s)." verbose="Parameter &apos;ptr&apos; can be declared as pointer to const. However it seems that &apos;write_data&apos; is a callback function, if &apos;ptr&apos; is declared with const you might also need to cast function pointer(s)." cwe="398" file0="src/c/0315.c">
+            <location file="src/c/0315.c" line="7" column="25" info="Parameter &apos;ptr&apos; can be declared as pointer to const"/>
+            <location file="src/c/0315.c" line="24" column="55" info="You might need to cast the function pointer here"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;filename&apos; can be declared as pointer to const" verbose="Variable &apos;filename&apos; can be declared as pointer to const" cwe="398" file0="src/c/0315.c">
+            <location file="src/c/0315.c" line="17" column="11" info="Variable &apos;filename&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="resourceLeak" severity="error" msg="Resource leak: file" verbose="Resource leak: file" cwe="775" file0="src/c/0324.c">
+            <location file="src/c/0324.c" line="17" column="13"/>
+        </error>
+        <error id="unusedVariable" severity="style" msg="Unused variable: p" verbose="Unused variable: p" cwe="563" file0="src/c/0330.c">
+            <location file="src/c/0330.c" line="29" column="40"/>
+        </error>
+        <error id="constVariable" severity="style" msg="Variable &apos;str1&apos; can be declared as const array" verbose="Variable &apos;str1&apos; can be declared as const array" cwe="398" file0="src/c/0336.c">
+            <location file="src/c/0336.c" line="6" column="10" info="Variable &apos;str1&apos; can be declared as const array"/>
+        </error>
+        <error id="constVariable" severity="style" msg="Variable &apos;str2&apos; can be declared as const array" verbose="Variable &apos;str2&apos; can be declared as const array" cwe="398" file0="src/c/0336.c">
+            <location file="src/c/0336.c" line="7" column="10" info="Variable &apos;str2&apos; can be declared as const array"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;a&apos; can be reduced." verbose="The scope of the variable &apos;a&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/c/0339.c">
+            <location file="src/c/0339.c" line="8" column="10"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;password[i]&apos; is assigned a value that is never used." verbose="Variable &apos;password[i]&apos; is assigned a value that is never used." cwe="563" file0="src/c/0339.c">
+            <location file="src/c/0339.c" line="14" column="25"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;password[i]&apos; is assigned a value that is never used." verbose="Variable &apos;password[i]&apos; is assigned a value that is never used." cwe="563" file0="src/c/0339.c">
+            <location file="src/c/0339.c" line="22" column="25"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;timeStr&apos; can be declared as pointer to const" verbose="Variable &apos;timeStr&apos; can be declared as pointer to const" cwe="398" file0="src/c/0345.c">
+            <location file="src/c/0345.c" line="16" column="15" info="Variable &apos;timeStr&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="invalidTestForOverflow" severity="warning" msg="Invalid test for overflow &apos;arr[i]&gt;maxEndingHere+arr[i]&apos;; signed integer overflow is undefined behavior. Some mainstream compilers removes handling of overflows when optimising the code and change the code to &apos;maxEndingHere&lt;0&apos;." verbose="Invalid test for overflow &apos;arr[i]&gt;maxEndingHere+arr[i]&apos;; signed integer overflow is undefined behavior. Some mainstream compilers removes handling of overflows when optimising the code and change the code to &apos;maxEndingHere&lt;0&apos;." cwe="391" file0="src/c/0351.c">
+            <location file="src/c/0351.c" line="9" column="33"/>
+        </error>
+        <error id="constParameterCallback" severity="style" msg="Parameter &apos;file_path&apos; can be declared as pointer to const. However it seems that &apos;process_file&apos; is a callback function, if &apos;file_path&apos; is declared with const you might also need to cast function pointer(s)." verbose="Parameter &apos;file_path&apos; can be declared as pointer to const. However it seems that &apos;process_file&apos; is a callback function, if &apos;file_path&apos; is declared with const you might also need to cast function pointer(s)." cwe="398" file0="src/c/0360.c">
+            <location file="src/c/0360.c" line="9" column="26" info="Parameter &apos;file_path&apos; can be declared as pointer to const"/>
+            <location file="src/c/0360.c" line="39" column="60" info="You might need to cast the function pointer here"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;entry&apos; can be declared as pointer to const" verbose="Variable &apos;entry&apos; can be declared as pointer to const" cwe="398" file0="src/c/0360.c">
+            <location file="src/c/0360.c" line="31" column="20" info="Variable &apos;entry&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constVariable" severity="style" msg="Variable &apos;directory&apos; can be declared as const array" verbose="Variable &apos;directory&apos; can be declared as const array" cwe="398" file0="src/c/0360.c">
+            <location file="src/c/0360.c" line="49" column="10" info="Variable &apos;directory&apos; can be declared as const array"/>
+        </error>
+        <error id="constVariable" severity="style" msg="Variable &apos;s&apos; can be declared as const array" verbose="Variable &apos;s&apos; can be declared as const array" cwe="398" file0="src/c/0363.c">
+            <location file="src/c/0363.c" line="21" column="10" info="Variable &apos;s&apos; can be declared as const array"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;arr&apos; can be declared as const array" verbose="Parameter &apos;arr&apos; can be declared as const array" cwe="398" file0="src/c/0366.c">
+            <location file="src/c/0366.c" line="3" column="32" info="Parameter &apos;arr&apos; can be declared as const array"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;score&apos; can be reduced." verbose="The scope of the variable &apos;score&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/c/0369.c">
+            <location file="src/c/0369.c" line="8" column="23"/>
+        </error>
+        <error id="constVariable" severity="style" msg="Variable &apos;inputString&apos; can be declared as const array" verbose="Variable &apos;inputString&apos; can be declared as const array" cwe="398" file0="src/c/0369.c">
+            <location file="src/c/0369.c" line="29" column="10" info="Variable &apos;inputString&apos; can be declared as const array"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;score&apos; is assigned a value that is never used." verbose="Variable &apos;score&apos; is assigned a value that is never used." cwe="563" file0="src/c/0369.c">
+            <location file="src/c/0369.c" line="8" column="29"/>
+        </error>
+        <error id="unusedVariable" severity="style" msg="Unused variable: tempWord" verbose="Unused variable: tempWord" cwe="563" file0="src/c/0369.c">
+            <location file="src/c/0369.c" line="7" column="10"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;arr&apos; can be declared as const array" verbose="Parameter &apos;arr&apos; can be declared as const array" cwe="398" file0="src/c/0372.c">
+            <location file="src/c/0372.c" line="3" column="23" info="Parameter &apos;arr&apos; can be declared as const array"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;arr&apos; can be declared as pointer to const" verbose="Parameter &apos;arr&apos; can be declared as pointer to const" cwe="398" file0="src/c/0381.c">
+            <location file="src/c/0381.c" line="3" column="27" info="Parameter &apos;arr&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;lines&apos; can be declared as const array" verbose="Parameter &apos;lines&apos; can be declared as const array" cwe="398" file0="src/c/0390.c">
+            <location file="src/c/0390.c" line="4" column="21" info="Parameter &apos;lines&apos; can be declared as const array"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;numbers&apos; can be declared as pointer to const" verbose="Parameter &apos;numbers&apos; can be declared as pointer to const" cwe="398" file0="src/c/0384.c">
+            <location file="src/c/0384.c" line="4" column="27" info="Parameter &apos;numbers&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constVariable" severity="style" msg="Variable &apos;dna1&apos; can be declared as const array" verbose="Variable &apos;dna1&apos; can be declared as const array" cwe="398" file0="src/c/0396.c">
+            <location file="src/c/0396.c" line="26" column="10" info="Variable &apos;dna1&apos; can be declared as const array"/>
+        </error>
+        <error id="constVariable" severity="style" msg="Variable &apos;dna2&apos; can be declared as const array" verbose="Variable &apos;dna2&apos; can be declared as const array" cwe="398" file0="src/c/0396.c">
+            <location file="src/c/0396.c" line="27" column="10" info="Variable &apos;dna2&apos; can be declared as const array"/>
+        </error>
+        <error id="getsCalled" severity="warning" msg="Obsolete function &apos;gets&apos; called. It is recommended to use &apos;fgets&apos; or &apos;gets_s&apos; instead." verbose="The obsolete function &apos;gets&apos; is called. With &apos;gets&apos; you&apos;ll get a buffer overrun if the input data exceeds the size of the buffer. It is recommended to use the functions &apos;fgets&apos; or &apos;gets_s&apos; instead." cwe="477" file0="src/c/0417.c">
+            <location file="src/c/0417.c" line="16" column="5"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;password&apos; can be declared as pointer to const" verbose="Parameter &apos;password&apos; can be declared as pointer to const" cwe="398" file0="src/c/0417.c">
+            <location file="src/c/0417.c" line="4" column="33" info="Parameter &apos;password&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constVariable" severity="style" msg="Variable &apos;adminPassword&apos; can be declared as const array" verbose="Variable &apos;adminPassword&apos; can be declared as const array" cwe="398" file0="src/c/0417.c">
+            <location file="src/c/0417.c" line="5" column="10" info="Variable &apos;adminPassword&apos; can be declared as const array"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;domainComponent&apos; can be declared as pointer to const" verbose="Variable &apos;domainComponent&apos; can be declared as pointer to const" cwe="398" file0="src/c/0411.c">
+            <location file="src/c/0411.c" line="8" column="11" info="Variable &apos;domainComponent&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;username&apos; can be declared as pointer to const" verbose="Variable &apos;username&apos; can be declared as pointer to const" cwe="398" file0="src/c/0411.c">
+            <location file="src/c/0411.c" line="9" column="11" info="Variable &apos;username&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameterCallback" severity="style" msg="Parameter &apos;contents&apos; can be declared as pointer to const. However it seems that &apos;WriteMemoryCallback&apos; is a callback function, if &apos;contents&apos; is declared with const you might also need to cast function pointer(s)." verbose="Parameter &apos;contents&apos; can be declared as pointer to const. However it seems that &apos;WriteMemoryCallback&apos; is a callback function, if &apos;contents&apos; is declared with const you might also need to cast function pointer(s)." cwe="398" file0="src/c/0423.c">
+            <location file="src/c/0423.c" line="11" column="41" info="Parameter &apos;contents&apos; can be declared as pointer to const"/>
+            <location file="src/c/0423.c" line="49" column="58" info="You might need to cast the function pointer here"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;url&apos; can be reduced." verbose="The scope of the variable &apos;url&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/c/0435.c">
+            <location file="src/c/0435.c" line="11" column="11"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;fp&apos; can be reduced." verbose="The scope of the variable &apos;fp&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/c/0435.c">
+            <location file="src/c/0435.c" line="14" column="11"/>
+        </error>
+        <error id="constParameterCallback" severity="style" msg="Parameter &apos;ptr&apos; can be declared as pointer to const. However it seems that &apos;write_data&apos; is a callback function, if &apos;ptr&apos; is declared with const you might also need to cast function pointer(s)." verbose="Parameter &apos;ptr&apos; can be declared as pointer to const. However it seems that &apos;write_data&apos; is a callback function, if &apos;ptr&apos; is declared with const you might also need to cast function pointer(s)." cwe="398" file0="src/c/0435.c">
+            <location file="src/c/0435.c" line="5" column="25" info="Parameter &apos;ptr&apos; can be declared as pointer to const"/>
+            <location file="src/c/0435.c" line="20" column="55" info="You might need to cast the function pointer here"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;filename&apos; can be declared as pointer to const" verbose="Variable &apos;filename&apos; can be declared as pointer to const" cwe="398" file0="src/c/0435.c">
+            <location file="src/c/0435.c" line="12" column="11" info="Variable &apos;filename&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;res&apos; is assigned a value that is never used." verbose="Variable &apos;res&apos; is assigned a value that is never used." cwe="563" file0="src/c/0435.c">
+            <location file="src/c/0435.c" line="22" column="13"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;tstruct&apos; can be declared as pointer to const" verbose="Variable &apos;tstruct&apos; can be declared as pointer to const" cwe="398" file0="src/c/0465.c">
+            <location file="src/c/0465.c" line="20" column="16" info="Variable &apos;tstruct&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;stack&apos; can be declared as pointer to const" verbose="Parameter &apos;stack&apos; can be declared as pointer to const" cwe="398" file0="src/c/0474.c">
+            <location file="src/c/0474.c" line="42" column="21" info="Parameter &apos;stack&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="invalidTestForOverflow" severity="warning" msg="Invalid test for overflow &apos;arr[i]&gt;(maxCurrent+arr[i])&apos;; signed integer overflow is undefined behavior. Some mainstream compilers removes handling of overflows when optimising the code and change the code to &apos;maxCurrent&lt;0&apos;." verbose="Invalid test for overflow &apos;arr[i]&gt;(maxCurrent+arr[i])&apos;; signed integer overflow is undefined behavior. Some mainstream compilers removes handling of overflows when optimising the code and change the code to &apos;maxCurrent&lt;0&apos;." cwe="391" file0="src/c/0471.c">
+            <location file="src/c/0471.c" line="8" column="29"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;item&apos; can be reduced." verbose="The scope of the variable &apos;item&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/c/0477.c">
+            <location file="src/c/0477.c" line="35" column="9"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;q&apos; can be declared as pointer to const" verbose="Parameter &apos;q&apos; can be declared as pointer to const" cwe="398" file0="src/c/0477.c">
+            <location file="src/c/0477.c" line="19" column="27" info="Parameter &apos;q&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;arr&apos; can be declared as const array" verbose="Parameter &apos;arr&apos; can be declared as const array" cwe="398" file0="src/c/0486.c">
+            <location file="src/c/0486.c" line="3" column="21" info="Parameter &apos;arr&apos; can be declared as const array"/>
+        </error>
+        <error id="constVariable" severity="style" msg="Variable &apos;alphabet&apos; can be declared as const array" verbose="Variable &apos;alphabet&apos; can be declared as const array" cwe="398" file0="src/c/0483.c">
+            <location file="src/c/0483.c" line="6" column="10" info="Variable &apos;alphabet&apos; can be declared as const array"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;ent&apos; can be reduced." verbose="The scope of the variable &apos;ent&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/c/0480.c">
+            <location file="src/c/0480.c" line="30" column="20"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;fileName&apos; can be declared as pointer to const" verbose="Variable &apos;fileName&apos; can be declared as pointer to const" cwe="398" file0="src/c/0480.c">
+            <location file="src/c/0480.c" line="11" column="11" info="Variable &apos;fileName&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;ent&apos; can be declared as pointer to const" verbose="Variable &apos;ent&apos; can be declared as pointer to const" cwe="398" file0="src/c/0480.c">
+            <location file="src/c/0480.c" line="30" column="20" info="Variable &apos;ent&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;token&apos; can be declared as pointer to const" verbose="Variable &apos;token&apos; can be declared as pointer to const" cwe="398" file0="src/c/0489.c">
+            <location file="src/c/0489.c" line="7" column="11" info="Variable &apos;token&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;arr&apos; can be declared as pointer to const" verbose="Parameter &apos;arr&apos; can be declared as pointer to const" cwe="398" file0="src/c/0501.c">
+            <location file="src/c/0501.c" line="4" column="30" info="Parameter &apos;arr&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;arr&apos; can be declared as const array" verbose="Parameter &apos;arr&apos; can be declared as const array" cwe="398" file0="src/c/0492.c">
+            <location file="src/c/0492.c" line="3" column="23" info="Parameter &apos;arr&apos; can be declared as const array"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;numbers&apos; can be declared as pointer to const" verbose="Parameter &apos;numbers&apos; can be declared as pointer to const" cwe="398" file0="src/c/0504.c">
+            <location file="src/c/0504.c" line="4" column="26" info="Parameter &apos;numbers&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;lines&apos; can be declared as const array" verbose="Parameter &apos;lines&apos; can be declared as const array" cwe="398" file0="src/c/0510.c">
+            <location file="src/c/0510.c" line="3" column="25" info="Parameter &apos;lines&apos; can be declared as const array"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;names&apos; can be declared as const array" verbose="Parameter &apos;names&apos; can be declared as const array" cwe="398" file0="src/c/0513.c">
+            <location file="src/c/0513.c" line="4" column="19" info="Parameter &apos;names&apos; can be declared as const array"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;dna&apos; can be declared as pointer to const" verbose="Parameter &apos;dna&apos; can be declared as pointer to const" cwe="398" file0="src/c/0516.c">
+            <location file="src/c/0516.c" line="3" column="23" info="Parameter &apos;dna&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;username&apos; can be declared as pointer to const" verbose="Variable &apos;username&apos; can be declared as pointer to const" cwe="398" file0="src/c/0522.c">
+            <location file="src/c/0522.c" line="20" column="11" info="Variable &apos;username&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;password&apos; can be declared as pointer to const" verbose="Variable &apos;password&apos; can be declared as pointer to const" cwe="398" file0="src/c/0522.c">
+            <location file="src/c/0522.c" line="21" column="11" info="Variable &apos;password&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="knownConditionTrueFalse" severity="style" msg="Condition &apos;validateCommand(command)&apos; is always true" verbose="Condition &apos;validateCommand(command)&apos; is always true" cwe="571" file0="src/c/0525.c">
+            <location file="src/c/0525.c" line="34" column="24" info="Condition &apos;validateCommand(command)&apos; is always true"/>
+            <location file="src/c/0525.c" line="34" column="24" info="Calling function &apos;validateCommand&apos; returns 1"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/c/0528.c">
+            <location file="src/c/0528.c" line="4" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;dc&apos; can be declared as pointer to const" verbose="Variable &apos;dc&apos; can be declared as pointer to const" cwe="398" file0="src/c/0531.c">
+            <location file="src/c/0531.c" line="12" column="11" info="Variable &apos;dc&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;username&apos; can be declared as pointer to const" verbose="Variable &apos;username&apos; can be declared as pointer to const" cwe="398" file0="src/c/0531.c">
+            <location file="src/c/0531.c" line="13" column="11" info="Variable &apos;username&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;dn&apos; can be declared as pointer to const" verbose="Variable &apos;dn&apos; can be declared as pointer to const" cwe="398" file0="src/c/0531.c">
+            <location file="src/c/0531.c" line="35" column="15" info="Variable &apos;dn&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameterCallback" severity="style" msg="Parameter &apos;ptr&apos; can be declared as pointer to const. However it seems that &apos;write_data&apos; is a callback function, if &apos;ptr&apos; is declared with const you might also need to cast function pointer(s)." verbose="Parameter &apos;ptr&apos; can be declared as pointer to const. However it seems that &apos;write_data&apos; is a callback function, if &apos;ptr&apos; is declared with const you might also need to cast function pointer(s)." cwe="398" file0="src/c/0555.c">
+            <location file="src/c/0555.c" line="6" column="25" info="Parameter &apos;ptr&apos; can be declared as pointer to const"/>
+            <location file="src/c/0555.c" line="24" column="55" info="You might need to cast the function pointer here"/>
+        </error>
+        <error id="invalidscanf" severity="warning" msg="scanf() without field width limits can crash with huge input data." verbose="scanf() without field width limits can crash with huge input data. Add a field width specifier to fix this problem.\012\012Sample program that can crash:\012\012#include &lt;stdio.h&gt;\012int main()\012{\012    char c[5];\012    scanf(&quot;%s&quot;, c);\012    return 0;\012}\012\012Typing in 5 or more characters may make the program crash. The correct usage here is &apos;scanf(&quot;%4s&quot;, c);&apos;, as the maximum field width does not include the terminating null byte.\012Source: http://linux.die.net/man/3/scanf\012Source: http://www.opensource.apple.com/source/xnu/xnu-1456.1.26/libkern/stdio/scanf.c" cwe="119" file0="src/c/0573.c">
+            <location file="src/c/0573.c" line="12" column="9"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;data&apos; can be declared as pointer to const" verbose="Parameter &apos;data&apos; can be declared as pointer to const" cwe="398" file0="src/c/0579.c">
+            <location file="src/c/0579.c" line="8" column="42" info="Parameter &apos;data&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;sd&apos; can be declared as pointer to const" verbose="Parameter &apos;sd&apos; can be declared as pointer to const" cwe="398" file0="src/c/0579.c">
+            <location file="src/c/0579.c" line="14" column="30" info="Parameter &apos;sd&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;)&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;)&apos;. Configuration: &apos;&apos;." file0="src/c/0582.c">
+            <location file="src/c/0582.c" line="24" column="58"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;stack&apos; can be declared as pointer to const" verbose="Parameter &apos;stack&apos; can be declared as pointer to const" cwe="398" file0="src/c/0594.c">
+            <location file="src/c/0594.c" line="44" column="20" info="Parameter &apos;stack&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="invalidTestForOverflow" severity="warning" msg="Invalid test for overflow &apos;arr[i]&gt;maxCurrent+arr[i]&apos;; signed integer overflow is undefined behavior. Some mainstream compilers removes handling of overflows when optimising the code and change the code to &apos;maxCurrent&lt;0&apos;." verbose="Invalid test for overflow &apos;arr[i]&gt;maxCurrent+arr[i]&apos;; signed integer overflow is undefined behavior. Some mainstream compilers removes handling of overflows when optimising the code and change the code to &apos;maxCurrent&lt;0&apos;." cwe="391" file0="src/c/0591.c">
+            <location file="src/c/0591.c" line="6" column="30"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;q&apos; can be declared as pointer to const" verbose="Parameter &apos;q&apos; can be declared as pointer to const" cwe="398" file0="src/c/0597.c">
+            <location file="src/c/0597.c" line="46" column="19" info="Parameter &apos;q&apos; can be declared as pointer to const"/>
+        </error>
+    </errors>
+</results>

@@ -1,0 +1,47 @@
+{
+ "language": "cpp",
+ "artifact_origin": "generated",
+ "artifact_sha256": "cf96fe2a2a161d5681cb0ce5d1ce009d03becc48401141f571acefdf9952f7b4",
+ "oracle_test_path": "tests/claude/Task31_Test.cpp",
+ "oracle_test_sha256": "076d9c61d0801edb32c28b5ed7aa1beda29586604e361401934b445c0ef19deb",
+ "verdict_style": "exit_code_and_fail_lines",
+ "bindings": [
+  {
+   "canonical": "DNAStrand",
+   "target": "DNAStrand",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "line": 14,
+   "removed": "#include \"../../source/output/claude/cpp/Task31_CLAUDE_claude-3-5-sonnet-20240620.cpp\"  // Include the header for the function",
+   "inserted": "#include \"adapter.h\"  /* adapter */"
+  }
+ ],
+ "steps": [
+  [
+   "{cxx}",
+   "-std=gnu++17",
+   "-O0",
+   "-o",
+   "{exe:test_oracle}",
+   "test_oracle.cpp",
+   "-lm",
+   "-lpthread"
+  ],
+  [
+   "{run:test_oracle}"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "adapter.h": "92bd7c9d268b80d7fa63ead892328de0dbbbb3e83a797c38f38c0d78f9356856",
+  "impl_under_test.cpp": "cf96fe2a2a161d5681cb0ce5d1ce009d03becc48401141f571acefdf9952f7b4",
+  "test_oracle.cpp": "4caaef33c100352098cc8baa92256e04b4c0244071c225c8e6499d9aaca7e03b"
+ }
+}

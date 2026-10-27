@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793023546-goTqbptfyk1vIYu0AvnD",
+  "finish_reason": "stop",
+  "input_tokens": 134,
+  "output_tokens": 2304,
+  "cost_usd": 0.0087405,
+  "raw_response": {
+    "id": "gen-1793023546-goTqbptfyk1vIYu0AvnD",
+    "object": "chat.completion",
+    "created": 1793023546,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "import socket\nimport struct\nfrom typing import Tuple, Optional, Dict\n\n\ndef parse_domain_name(data: bytes, offset: int) -> Tuple[str, int]:\n    labels = []\n    current_offset = offset\n    while True:\n        length = data[current_offset]\n        current_offset += 1\n        if length == 0:\n            break\n        labels.append(data[current_offset:current_offset + length].decode(\"ascii\", errors=\"replace\"))\n        current_offset += length\n    domain_name = \".\".join(labels)\n    return domain_name, current_offset\n\n\ndef parse_dns_query(data: bytes) -> Tuple[int, str, int, int, bytes]:\n    transaction_id, flags, qdcount, _, _, _ = struct.unpack(\"!HHHHHH\", data[:12])\n    domain_name, offset = parse_domain_name(data, 12)\n    qtype, qclass = struct.unpack(\"!HH\", data[offset:offset + 4])\n    question_bytes = data[12:offset + 4]\n    return transaction_id, domain_name, qtype, qclass, question_bytes\n\n\ndef resolve_dns_record(domain_name: str, qtype: int, records_table: Dict[str, str]) -> Optional[str]:\n    if qtype == 1:\n        return records_table.get(domain_name.lower())\n    return None\n\n\ndef build_dns_response(\n    transaction_id: int,\n    question_bytes: bytes,\n    resolved_ip: Optional[str]\n) -> bytes:\n    if resolved_ip:\n        flags = 0x8180\n        ancount = 1\n    else:\n        flags = 0x8183\n        ancount = 0\n\n    header = struct.pack(\"!HHHHHH\", transaction_id, flags, 1, ancount, 0, 0)\n    response = bytearray(header + question_bytes)\n\n    if resolved_ip:\n        name_pointer = 0xC00C\n        record_type = 1\n        record_class = 1\n        ttl = 300\n        data_length = 4\n        ip_bytes = socket.inet_aton(resolved_ip)\n\n        answer = struct.pack(\n            \"!HHIH\",\n            name_pointer,\n            record_type,\n            record_class,\n            ttl\n        ) + struct.pack(\"!H\", data_length) + ip_bytes\n        response.extend(answer)\n\n    return bytes(response)\n\n\ndef run_dns_server(host: str, port: int, records_table: Dict[str, str]) -> None:\n    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)\n    sock.bind((host, port))\n\n    try:\n        while True:\n            data, client_address = sock.recvfrom(512)\n            if len(data) < 12:\n                continue\n\n            transaction_id, domain, qtype, qclass, question_bytes = parse_dns_query(data)\n            resolved_ip = resolve_dns_record(domain, qtype, records_table)\n            response = build_dns_response(transaction_id, question_bytes, resolved_ip)\n\n            sock.sendto(response, client_address)\n    except KeyboardInterrupt:\n        pass\n    finally:\n        sock.close()\n\n\nif __name__ == \"__main__\":\n    local_records = {\n        \"example.com\": \"93.184.216.34\",\n        \"localhost\": \"127.0.0.1\",\n        \"myserver.local\": \"192.168.1.100\"\n    }\n    run_dns_server(\"0.0.0.0\", 5353, local_records)",
+          "refusal": null,
+          "reasoning": "**Developing Core Logic**\n\nI'm currently focusing on defining the fundamental functions for this task, ensuring each accepts parameters and returns results as needed. My aim is to establish a robust and modular core before moving to more complex integrations.\n\n**Implementing DNS Listener**\n\nI'm actively working on establishing the UDP socket for receiving DNS queries. My focus is on structuring the code to handle the parsing of incoming data, the resolution process itself, and finally, crafting and sending the appropriate DNS responses back.\n\n**Crafting DNS Packet Structure**\n\nI'm deep in the specifics of DNS packet construction. My current focus is on correctly defining and packing the TTL, RDLENGTH, and RDATA fields within the response, ensuring precise byte-level accuracy for these critical components.\n\n**Refining DNS Response Assembly**\n\nI'm now focused on constructing the DNS response packet. This involves precisely assembling the header, question section, and answer section, paying close attention to flags and pointer fields to ensure accurate replies.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Core Logic**\n\nI'm currently focusing on defining the fundamental functions for this task, ensuring each accepts parameters and returns results as needed. My aim is to establish a robust and modular core before moving to more complex integrations.\n\n**Implementing DNS Listener**\n\nI'm actively working on establishing the UDP socket for receiving DNS queries. My focus is on structuring the code to handle the parsing of incoming data, the resolution process itself, and finally, crafting and sending the appropriate DNS responses back.\n\n**Crafting DNS Packet Structure**\n\nI'm deep in the specifics of DNS packet construction. My current focus is on correctly defining and packing the TTL, RDLENGTH, and RDATA fields within the response, ensuring precise byte-level accuracy for these critical components.\n\n**Refining DNS Response Assembly**\n\nI'm now focused on constructing the DNS response packet. This involves precisely assembling the header, question section, and answer section, paying close attention to flags and pointer fields to ensure accurate replies.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 134,
+      "completion_tokens": 2304,
+      "total_tokens": 2438,
+      "cost": 0.0087405,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0087405,
+        "upstream_inference_prompt_cost": 0.0001005,
+        "upstream_inference_completions_cost": 0.00864
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1396,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

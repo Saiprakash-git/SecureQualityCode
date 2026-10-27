@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "DNAStrand",
+   "target": "DNAStrand",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 257,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_031/gpt-6-luna/Task31_gpt-6-luna_cpp.cpp",
+ "artifact_sha256": "cee1c38df27734d1af11f169c1dbec7454454754628029352ae5b9727b5c1c04",
+ "oracle_test_path": "tests/claude/Task31_Test.cpp",
+ "oracle_test_sha256": "076d9c61d0801edb32c28b5ed7aa1beda29586604e361401934b445c0ef19deb",
+ "author": "functional.py draft_adapter (static)"
+}

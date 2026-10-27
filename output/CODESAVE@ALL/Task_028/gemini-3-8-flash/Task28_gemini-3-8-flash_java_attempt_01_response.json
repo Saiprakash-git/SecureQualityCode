@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793016634-lYhdvixyAW95x3g1BzvI",
+  "finish_reason": "stop",
+  "input_tokens": 269,
+  "output_tokens": 875,
+  "cost_usd": 0.003483,
+  "raw_response": {
+    "id": "gen-1793016634-lYhdvixyAW95x3g1BzvI",
+    "object": "chat.completion",
+    "created": 1793016634,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "public class Solution {\n    public static String whoLikesIt(String... names) {\n        if (names == null || names.length == 0) {\n            return \"no one likes this\";\n        }\n        switch (names.length) {\n            case 1:\n                return names[0] + \" likes this\";\n            case 2:\n                return names[0] + \" and \" + names[1] + \" like this\";\n            case 3:\n                return names[0] + \", \" + names[1] + \" and \" + names[2] + \" like this\";\n            default:\n                return names[0] + \", \" + names[1] + \" and \" + (names.length - 2) + \" others like this\";\n        }\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Exploring Input Processing**\n\nI'm currently focused on how best to ingest and validate the array of names provided. My thinking is leaning towards an efficient parsing mechanism that can handle potential edge cases in string formatting early on.\n\n**Refining Conditional Logic**\n\nI'm currently refining the conditional logic to accurately represent the \"likes\" message based on the number of names provided. My focus is on precisely mapping input array lengths to the required output strings, ensuring all edge cases from zero to four or more names are handled.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Exploring Input Processing**\n\nI'm currently focused on how best to ingest and validate the array of names provided. My thinking is leaning towards an efficient parsing mechanism that can handle potential edge cases in string formatting early on.\n\n**Refining Conditional Logic**\n\nI'm currently refining the conditional logic to accurately represent the \"likes\" message based on the number of names provided. My focus is on precisely mapping input array lengths to the required output strings, ensuring all edge cases from zero to four or more names are handled.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 269,
+      "completion_tokens": 875,
+      "total_tokens": 1144,
+      "cost": 0.003483,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003483,
+        "upstream_inference_prompt_cost": 0.00020175,
+        "upstream_inference_completions_cost": 0.00328125
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 694,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

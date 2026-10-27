@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793023398-fUOJB8sucXBdJDUmlDJj",
+  "finish_reason": "stop",
+  "input_tokens": 170,
+  "output_tokens": 690,
+  "cost_usd": 0.000362,
+  "raw_response": {
+    "id": "gen-1793023398-fUOJB8sucXBdJDUmlDJj",
+    "object": "chat.completion",
+    "created": 1793023398,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import getpass\nimport os\nimport sys\n\n\nPASSWORD_FILE = \"password.txt\"\n\n\ndef read_stored_password(file_path):\n    with open(file_path, \"r\", encoding=\"utf-8\") as file:\n        return file.readline().rstrip(\"\\n\")\n\n\ndef compare_passwords(stored_password, entered_password):\n    if len(stored_password) != len(entered_password):\n        return False\n\n    for index in range(len(stored_password)):\n        if stored_password[index] != entered_password[index]:\n            return False\n\n    return True\n\n\ndef verify_password(file_path, entered_password):\n    if not os.path.isfile(file_path):\n        raise FileNotFoundError(f\"Password file not found: {file_path}\")\n\n    stored_password = read_stored_password(file_path)\n    return compare_passwords(stored_password, entered_password)\n\n\ndef main():\n    try:\n        entered_password = getpass.getpass(\"Enter your password: \")\n        if verify_password(PASSWORD_FILE, entered_password):\n            print(\"Password matches.\")\n            return 0\n        else:\n            print(\"Password does not match.\")\n            return 1\n    except FileNotFoundError as error:\n        print(error)\n        return 2\n    except OSError as error:\n        print(f\"Error reading password file: {error}\")\n        return 3\n\n\nif __name__ == \"__main__\":\n    sys.exit(main())",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "CAQSjwsKEAgTGAI4AUIIdGhpbmtpbmcSDNnri2SGxtKtGaqTVBoMQ6+4j9RRHq+rEeoOIjCziSccwXigEjbxE/kgYdG85RQ1XPR9PavFfc8mRpsM68AFYwN4LOBsagwcl5BLsMwqrArzFL8oxxv8hMtwe9SPPs0TGuv/nvtVpc7oirJQCSyOIPysGU611zzQgFNI9Jls5FUb8srypa1f1P9poMJ8+wbDq6MsAGbs8/4PytQNTyhjYC8VBKFPDp/EYnopUVXQNbu7OXvOjMNIpKeBnE5qn3Ox2qgFg67PUaDCUjRunGmPrDAD+0LdizOh1opduXqAN3RHXQzLhmINgHUXCdMjg+6ZyuE0xSi74fC6MNVZrW25wSABOTxWMjRQufaOwbVDYsuU2SQW44EtgFnuK6kCTsk6+WFSASEjReMdwA2k+dl5uvDZRGkDeyzaW2puVWADk3khX298eqk/ETi3dMlQ6/q8INqULCToRY4r4W3lgtCC1NBQKyt+WGP2rUUDb9iC4Aldlu+XeCVmAS5dpuRE/1d0gQviBI/0nfxTaomdM/Z0p1YY4fkQ4iZsLHKg+s56o9Kof+FkA0nd0AzbADVvnPGMtZvxl1hSjwu4lCOcaxffbw1W9XiIwb9D8UVhq2GjaDNUn5akiJRUkVEv8qMKTYPLJsOtTwaxAanxOrhehuD3vx8DR5Zl7wup9QO3wgjY0RQSpa2ThTxH+X4yzTXREqJKxvpbYDpbcPS23E31BTU+h745Y3omxrsYABTuDpMIQR3RejmEQd0ClwrCZex+JVabnsk0YrfgC0noFESVqJrBxRi+hpCyFG/7e5kRDtycuFhG8x6vEdaw6ZZSN4OYCEE4vWcHG1jBEVOiDebt2MC4J9qzmQwQ6WdDGEdxNRCfwZS1fjAp+ipB9A/LVC80kmcB9uM2XISbsqKADFUun8HO+SV6XRATqXfZumPmY1admcoOPS6op7L4jkftMGpDtBo3jrb8L/Lq8Y+LH9To3MW5rMOzgZpUnN9ygZ34zWQUSOyuGFozyQE9lX2Vsoe0UH4J8AZLJEd8cNk79otmQdYeYLC8ww2f3P+HubdQFDDXjF6CBqA1Dr4yGQz++TrWHEu9g9+2fEnKiuk4XxVZrJgWDEkZZtRJAJi1zuAkSE4ebn7eIb6A3r2+HF2EtN9/sie48n1luy3nsw6Otbii8qzQe0yRX371jBQQYt6+vRZ4GN1BhEL1ePyWBcZEvDPr2zd+1kTQoggvoSkMwCVJExQcg7472r5JZT68F443MfGBIUuYFv1bYJIth3lO39h47+O2MlRWbK3DcBn5Zu/T2UciMOiWo8xSGfKw4lykvv/O/gPWuP7MbTcHjuzOVH83ZvQpFRVDzEMBd0ZjcUSbx1N1qtzxCAQnW8wyvUdr/jtZrGP5PzYkJUxZv1WprkjyKfWyjVgxLbirYyuimLwc0HD0Z8mzW1Qceh/9pf/uMr6bMXSdFBW8zFS6MAOHj1mlnp43xZFI4UlMP0WRERc9ncxDTs3i+yYGNmgpzM2atLKA4Ebxf6Me0IHfKgH1m65IJSuW9VmjTSPGpLArgfHWp9io/YicyDCo6s0FxXevywKIH8dhfygDvwUk52sONtT6DKwlWGhPQYDT7Wy/UHC88bYUve9szepo9qbSyNahVq5AHpwX0I51K7hF2QBiL6VbI/X4kAMJqBRde1P0EAjVd7KECbqpZSdsG1zTP4CviXKXztyl5E68H3razggnjphKL27QJKK0KwNFP4ulizN3OwpIQMnAVmw1KHZiKBmCPoALS8fLxkIao3L5WeHj6a4nh0oOeFJnrUbhuFJdggYJzcSdOpkkvXWjjMgi8aHm5TMtAa+ZCc7TWJwiiOgMw7stDQKpCCaUnKWpuCOho3odGAE=.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 170,
+      "completion_tokens": 690,
+      "total_tokens": 860,
+      "cost": 0.000362,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000362,
+        "upstream_inference_prompt_cost": 1.7e-05,
+        "upstream_inference_completions_cost": 0.000345
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 258,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

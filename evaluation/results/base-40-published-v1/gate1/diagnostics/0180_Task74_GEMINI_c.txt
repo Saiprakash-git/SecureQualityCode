@@ -1,0 +1,4 @@
+Task74_GEMINI_gemini-1.5-pro-001.c:8:10: fatal error: 'libpq-fe.h' file not found
+    8 | #include <libpq-fe.h>
+      |          ^~~~~~~~~~~~
+1 error generated.

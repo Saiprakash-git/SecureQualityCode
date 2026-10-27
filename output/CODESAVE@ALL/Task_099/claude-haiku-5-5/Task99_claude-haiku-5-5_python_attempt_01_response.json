@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793023786-ePnNnmvU8xqJh6KMwrBj",
+  "finish_reason": "stop",
+  "input_tokens": 165,
+  "output_tokens": 265,
+  "cost_usd": 0.000149,
+  "raw_response": {
+    "id": "gen-1793023786-ePnNnmvU8xqJh6KMwrBj",
+    "object": "chat.completion",
+    "created": 1793023786,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import re\nimport sys\n\n\ndef match_lines(lines):\n    pattern = re.compile(r'^\\s*\\d.*\\.\\s*$')\n    return [line.rstrip('\\n') for line in lines if pattern.match(line.rstrip('\\n'))]\n\n\ndef read_file(path):\n    with open(path, 'r', encoding='utf-8') as f:\n        return f.readlines()\n\n\ndef main(argv):\n    if len(argv) < 2:\n        print(\"Usage: python program.py <filename>\")\n        return 1\n    try:\n        lines = read_file(argv[1])\n    except OSError as e:\n        print(f\"Error reading file: {e}\")\n        return 1\n    for line in match_lines(lines):\n        print(line)\n    return 0\n\n\nif __name__ == \"__main__\":\n    sys.exit(main(sys.argv))",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 165,
+      "completion_tokens": 265,
+      "total_tokens": 430,
+      "cost": 0.000149,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000149,
+        "upstream_inference_prompt_cost": 1.65e-05,
+        "upstream_inference_completions_cost": 0.0001325
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,4 @@
+Task68_claude-haiku-5-5_c.c:5:10: fatal error: 'ldap.h' file not found
+    5 | #include <ldap.h>
+      |          ^~~~~~~~
+1 error generated.

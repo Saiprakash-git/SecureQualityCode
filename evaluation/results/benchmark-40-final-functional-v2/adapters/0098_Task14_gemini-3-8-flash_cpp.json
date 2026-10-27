@@ -1,0 +1,18 @@
+{
+ "status": "rejected",
+ "bindings": [
+  {
+   "canonical": "findEvenIndex",
+   "target": "find_even_index",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "rejected after execution showed a build failure: the oracle test instantiates class Solution (Solution s; s.findEvenIndex), which the artifact does not declare",
+ "combo_index": 98,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_014/gemini-3-8-flash/Task14_gemini-3-8-flash_cpp.cpp",
+ "artifact_sha256": "69d45d8f1971bb00d1f2ae603210571363b3da19313e415f03b4a945e63e2c42",
+ "oracle_test_path": "tests/claude/Task14_Test.cpp",
+ "oracle_test_sha256": "c28511e54a31b60e4bda5f1af23c9a249855e73f1e4032b57c71af5f576f7e37",
+ "author": "functional.py draft_adapter (static)"
+}

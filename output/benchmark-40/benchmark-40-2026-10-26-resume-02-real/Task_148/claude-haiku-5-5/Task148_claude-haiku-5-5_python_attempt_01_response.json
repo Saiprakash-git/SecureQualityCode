@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793025363-XG1VLTiFn9UpQnpB4GrN",
+  "finish_reason": "stop",
+  "input_tokens": 156,
+  "output_tokens": 372,
+  "cost_usd": 0.0002016,
+  "raw_response": {
+    "id": "gen-1793025363-XG1VLTiFn9UpQnpB4GrN",
+    "object": "chat.completion",
+    "created": 1793025363,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "class Stack:\n    def __init__(self):\n        self._items = []\n\n    def push(self, item):\n        self._items.append(item)\n\n    def pop(self):\n        if self.is_empty():\n            raise IndexError(\"pop from empty stack\")\n        return self._items.pop()\n\n    def peek(self):\n        if self.is_empty():\n            raise IndexError(\"peek from empty stack\")\n        return self._items[-1]\n\n    def is_empty(self):\n        return len(self._items) == 0\n\n    def size(self):\n        return len(self._items)\n\n    def __len__(self):\n        return len(self._items)\n\n    def __repr__(self):\n        return f\"Stack({self._items!r})\"\n\n\ndef main():\n    stack = Stack()\n    stack.push(1)\n    stack.push(2)\n    stack.push(3)\n    print(\"Stack:\", stack)\n    print(\"Peek:\", stack.peek())\n    print(\"Pop:\", stack.pop())\n    print(\"Pop:\", stack.pop())\n    print(\"Size:\", stack.size())\n    print(\"Pop:\", stack.pop())\n    print(\"Empty:\", stack.is_empty())\n\n\nif __name__ == \"__main__\":\n    main()",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 156,
+      "completion_tokens": 372,
+      "total_tokens": 528,
+      "cost": 0.0002016,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002016,
+        "upstream_inference_prompt_cost": 1.56e-05,
+        "upstream_inference_completions_cost": 0.000186
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

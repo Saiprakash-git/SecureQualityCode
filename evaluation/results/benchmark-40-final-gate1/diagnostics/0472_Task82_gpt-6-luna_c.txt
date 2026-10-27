@@ -1,0 +1,7 @@
+Task82_gpt-6-luna_c.c:289:6: error: expected '}'
+  289 |     }
+      |      ^
+Task82_gpt-6-luna_c.c:268:1: note: to match this '{'
+  268 | {
+      | ^
+1 error generated.

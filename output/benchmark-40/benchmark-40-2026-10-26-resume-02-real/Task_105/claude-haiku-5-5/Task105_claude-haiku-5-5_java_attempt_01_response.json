@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793023999-nNiOE7uNykPu3hMg5IIo",
+  "finish_reason": "stop",
+  "input_tokens": 155,
+  "output_tokens": 3018,
+  "cost_usd": 0.0015245,
+  "raw_response": {
+    "id": "gen-1793023999-nNiOE7uNykPu3hMg5IIo",
+    "object": "chat.completion",
+    "created": 1793023999,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import javax.net.ssl.SSLContext;\nimport javax.net.ssl.SSLSocket;\nimport javax.net.ssl.SSLSocketFactory;\nimport javax.net.ssl.SSLParameters;\nimport javax.net.ssl.SSLSession;\nimport javax.net.ssl.TrustManagerFactory;\nimport javax.net.ssl.HttpsURLConnection;\nimport java.io.BufferedReader;\nimport java.io.InputStream;\nimport java.io.InputStreamReader;\nimport java.io.OutputStream;\nimport java.io.PrintWriter;\nimport java.net.URL;\nimport java.nio.charset.StandardCharsets;\nimport java.security.KeyStore;\nimport java.security.cert.Certificate;\nimport java.security.cert.X509Certificate;\nimport java.util.ArrayList;\nimport java.util.List;\n\npublic class SecureTlsClient {\n\n    public static class TlsResult {\n        public final String protocol;\n        public final String cipherSuite;\n        public final String peerPrincipal;\n        public final List<String> certificateSubjects;\n        public final int responseCode;\n        public final String responseBody;\n\n        public TlsResult(String protocol, String cipherSuite, String peerPrincipal,\n                         List<String> certificateSubjects, int responseCode, String responseBody) {\n            this.protocol = protocol;\n            this.cipherSuite = cipherSuite;\n            this.peerPrincipal = peerPrincipal;\n            this.certificateSubjects = certificateSubjects;\n            this.responseCode = responseCode;\n            this.responseBody = responseBody;\n        }\n\n        @Override\n        public String toString() {\n            StringBuilder sb = new StringBuilder();\n            sb.append(\"Protocol: \").append(protocol).append(\"\\n\");\n            sb.append(\"Cipher Suite: \").append(cipherSuite).append(\"\\n\");\n            sb.append(\"Peer Principal: \").append(peerPrincipal).append(\"\\n\");\n            sb.append(\"Certificate Chain:\\n\");\n            for (String s : certificateSubjects) {\n                sb.append(\"  - \").append(s).append(\"\\n\");\n            }\n            sb.append(\"HTTP Status: \").append(responseCode).append(\"\\n\");\n            if (responseBody != null) {\n                sb.append(\"Body (truncated):\\n\");\n                sb.append(responseBody.length() > 500 ? responseBody.substring(0, 500) + \"...\" : responseBody);\n                sb.append(\"\\n\");\n            }\n            return sb.toString();\n        }\n    }\n\n    public static SSLContext createSecureContext(String protocol, KeyStore trustStore) throws Exception {\n        SSLContext ctx = SSLContext.getInstance(protocol);\n        TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());\n        tmf.init(trustStore);\n        ctx.init(null, tmf.getTrustManagers(), null);\n        return ctx;\n    }\n\n    public static TlsResult connectRaw(String host, int port, String sniHost, int timeoutMillis,\n                                       String requestPath, KeyStore trustStore) throws Exception {\n        SSLContext ctx = (trustStore == null)\n                ? SSLContext.getDefault()\n                : createSecureContext(\"TLSv1.3\", trustStore);\n\n        SSLSocketFactory factory = ctx.getSocketFactory();\n        try (SSLSocket socket = (SSLSocket) factory.createSocket()) {\n            socket.connect(new java.net.InetSocketAddress(host, port), timeoutMillis);\n            socket.setSoTimeout(timeoutMillis);\n\n            SSLParameters params = socket.getSSLParameters();\n            params.setEndpointIdentificationAlgorithm(\"HTTPS\");\n            params.setProtocols(new String[]{\"TLSv1.3\", \"TLSv1.2\"});\n            if (sniHost != null && !sniHost.isEmpty()) {\n                params.setServerNames(java.util.Collections.singletonList(\n                        new javax.net.ssl.SNIHostName(sniHost)));\n            }\n            socket.setSSLParameters(params);\n\n            socket.startHandshake();\n\n            SSLSession session = socket.getSession();\n            String protocol = session.getProtocol();\n            String cipher = session.getCipherSuite();\n            String peer = session.getPeerPrincipal().getName();\n\n            List<String> subjects = new ArrayList<>();\n            for (Certificate c : session.getPeerCertificates()) {\n                if (c instanceof X509Certificate) {\n                    subjects.add(((X509Certificate) c).getSubjectX500Principal().getName());\n                }\n            }\n\n            String path = (requestPath == null || requestPath.isEmpty()) ? \"/\" : requestPath;\n            String hostHeader = (sniHost != null && !sniHost.isEmpty()) ? sniHost : host;\n            OutputStream out = socket.getOutputStream();\n            PrintWriter writer = new PrintWriter(new java.io.OutputStreamWriter(out, StandardCharsets.UTF_8), false);\n            writer.print(\"GET \" + path + \" HTTP/1.1\\r\\n\");\n            writer.print(\"Host: \" + hostHeader + \"\\r\\n\");\n            writer.print(\"User-Agent: SecureTlsClient/1.0\\r\\n\");\n            writer.print(\"Connection: close\\r\\n\\r\\n\");\n            writer.flush();\n\n            InputStream in = socket.getInputStream();\n            BufferedReader reader = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));\n            String statusLine = reader.readLine();\n            int status = -1;\n            if (statusLine != null) {\n                String[] parts = statusLine.split(\" \");\n                if (parts.length >= 2) {\n                    try {\n                        status = Integer.parseInt(parts[1]);\n                    } catch (NumberFormatException ignored) {\n                    }\n                }\n            }\n            String line;\n            while ((line = reader.readLine()) != null && !line.isEmpty()) {\n                // skip headers\n            }\n            StringBuilder body = new StringBuilder();\n            char[] buf = new char[1024];\n            int n;\n            while (body.length() < 4096 && (n = reader.read(buf)) != -1) {\n                body.append(buf, 0, n);\n            }\n\n            return new TlsResult(protocol, cipher, peer, subjects, status, body.toString());\n        }\n    }\n\n    public static TlsResult connectHttps(String urlString, int timeoutMillis) throws Exception {\n        URL url = new URL(urlString);\n        if (!\"https\".equalsIgnoreCase(url.getProtocol())) {\n            throw new IllegalArgumentException(\"URL must use https scheme\");\n        }\n        HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();\n        conn.setConnectTimeout(timeoutMillis);\n        conn.setReadTimeout(timeoutMillis);\n        conn.setRequestMethod(\"GET\");\n        conn.setRequestProperty(\"User-Agent\", \"SecureTlsClient/1.0\");\n        conn.connect();\n\n        SSLSession session = conn.getSSLSession().orElseThrow(\n                () -> new IllegalStateException(\"No SSL session established\"));\n\n        String protocol = session.getProtocol();\n        String cipher = session.getCipherSuite();\n        String peer = session.getPeerPrincipal().getName();\n\n        List<String> subjects = new ArrayList<>();\n        for (Certificate c : session.getPeerCertificates()) {\n            if (c instanceof X509Certificate) {\n                subjects.add(((X509Certificate) c).getSubjectX500Principal().getName());\n            }\n        }\n\n        int status = conn.getResponseCode();\n        StringBuilder body = new StringBuilder();\n        InputStream is = (status >= 400) ? conn.getErrorStream() : conn.getInputStream();\n        if (is != null) {\n            try (BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {\n                char[] buf = new char[1024];\n                int n;\n                while (body.length() < 4096 && (n = reader.read(buf)) != -1) {\n                    body.append(buf, 0, n);\n                }\n            }\n        }\n        conn.disconnect();\n        return new TlsResult(protocol, cipher, peer, subjects, status, body.toString());\n    }\n\n    public static void main(String[] args) {\n        String target = (args.length > 0) ? args[0] : \"https://www.example.com/\";\n        try {\n            TlsResult result = connectHttps(target, 10000);\n            System.out.println(result);\n        } catch (Exception e) {\n            System.err.println(\"TLS connection failed: \" + e.getMessage());\n            e.printStackTrace();\n            System.exit(1);\n        }\n    }\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 155,
+      "completion_tokens": 3018,
+      "total_tokens": 3173,
+      "cost": 0.0015245,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0015245,
+        "upstream_inference_prompt_cost": 1.55e-05,
+        "upstream_inference_completions_cost": 0.001509
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

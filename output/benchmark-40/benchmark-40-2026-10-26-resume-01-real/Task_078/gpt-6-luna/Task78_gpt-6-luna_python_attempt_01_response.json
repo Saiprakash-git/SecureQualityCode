@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793018198-iYGGorGPZfX2iUDTGWwp",
+  "finish_reason": "stop",
+  "input_tokens": 118,
+  "output_tokens": 484,
+  "cost_usd": 0.0002538,
+  "raw_response": {
+    "id": "gen-1793018198-iYGGorGPZfX2iUDTGWwp",
+    "object": "chat.completion",
+    "created": 1793018198,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "from cryptography.hazmat.primitives import serialization\nfrom cryptography.hazmat.primitives.asymmetric import rsa\n\n\ndef generate_rsa_private_key(key_size=2048, passphrase=None):\n    \"\"\"Generate an RSA private key and return it in OpenSSH private-key format.\"\"\"\n    if key_size < 2048:\n        raise ValueError(\"key_size must be at least 2048 bits\")\n\n    private_key = rsa.generate_private_key(\n        public_exponent=65537,\n        key_size=key_size,\n    )\n\n    encryption = (\n        serialization.NoEncryption()\n        if passphrase is None\n        else serialization.BestAvailableEncryption(\n            passphrase.encode(\"utf-8\") if isinstance(passphrase, str) else passphrase\n        )\n    )\n\n    return private_key.private_bytes(\n        encoding=serialization.Encoding.PEM,\n        format=serialization.PrivateFormat.OpenSSH,\n        encryption_algorithm=encryption,\n    ).decode(\"utf-8\")",
+          "refusal": null,
+          "reasoning": "**Generating key program**\n\nI'm thinking about ensuring I can create a program that generates a key and returns it in a standalone format, possibly as a PEM output for OpenSSH. I'll need to make sure that all functions accept input parameters and return output when necessary. I\u2019m wondering if I should include a main function in this code, but it seems I'm leaning toward not needing one. I just want to focus on returning the generated key directly.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Generating key program**\n\nI'm thinking about ensuring I can create a program that generates a key and returns it in a standalone format, possibly as a PEM output for OpenSSH. I'll need to make sure that all functions accept input parameters and return output when necessary. I\u2019m wondering if I should include a main function in this code, but it seems I'm leaning toward not needing one. I just want to focus on returning the generated key directly.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30lbrDyWf2hLK3RbFHxDiZFPfWkaeufjmvd0mDCW0FYjMo7JtxGbKBDcZYBUwm58SLqeXUKhJPWTfNWRJhtlM8Nox511QkIwjE_eaKyKegdhIPeoM2me5ENjnuCZh6de1Xpo18BAEB7u_skadKeFHMOYfUyHlNLpE_edpLrrJpZrVnw6IwTUer_KpljoPqByFR9n9V8SeciVKMwVpaw7WrzaPEzCfAJ80e9pMYIZP9uSLjwolIH8QPN0KFLYbG7wxIN6g4RRrbarE1trgEA0ge1c7S3L91uvk2oQwHGoT5HUCtlAiF7pRF62768yuHXi4Ul8fHLIS2P7xea597GJBzygr_FZ0K7ZQCYO8pTP8M-j1F3Nb5Zrbocswdzb3iC6FpbCKG98Pzp7sbWYyIcRiDn3EcqlnaTyzIq9WytKQbHorm9u9pyfcyi7ap77MFkxaiTONPjOiFFA-EkPM2G4X7yrvKzOa1bvM-F4Ln5glwTpmd2aMXqZX5prZDpxrcfha3F8kSdd4dpuYwEUpDz7tZ3LGDVi2zr5ftLrvdJHPB5U6Fuk2NRiMgtGvH_e4L0ShptkXmtmWr7bHvysFC1HkUKHfzIBfVVxzhNdYYGVw9XNmXZgkRtL_3PiXk6L4q1rewY-TPtLnnS8fKaCzCkIg9IqDthC0iE8riGy1gVvb2DLpAONVCjnZp0hTSAwV3aLf-FDs87-3rP0w0DFDQK5ELhFycCYADhUvcegsoUHHE4puYKfAdkROR3qAbig4KGIHLM4kxY5WnFOnDIQP4-3Elvh2kEVc7PHlLx0LTKCp2qdWUPBSANeqO52de1j-hphkIc9Gtdyk74QoUfNgeMmGTi5heqAoJ2Rrl3wBoNiKa7dr43XbuLZPzizf_a-85EaYpBgJejJPwH5cLzkim2ncOSkDH48QKtAstIwtFmquObDUVxLBwmKpCi_YubNoIYx07ycTJjf5ZAaWHKXgFqFz8dBYUiwPso6Dl9ErKruZaNbJNL8UCcL4rGc3_hYDswpD0A4GwCi1Fbv-d8I4pVG2UbviUr_LsP_9uiC1fUrABFULSxnuH-P85vJ38kpj6JTobgK4iVEZk-dRet205caXgA1rCaaFGQPNOB1ACkvhQwGbg56f-ufEUbzUH7FnzHqS-GPh7UX0JUsx0JiL4R154gj8cnE0tzSjuP1alvvQLeYVFwG1lZRHs-ndlLut2xiSnApIfqS2vqg6PZdlu8vKh38EeUNcdzGl0NcnnmOgjnCuJzou4FRwPP8UT8se0kFuTmdZ9ows_mKukQOc_wD5DiDxBO0f4Xyy94q73eELRRZe2X-DRjow_Becfs64MAplfr0ghAlyD4IvOF6W0vIqqrUbKBPJyr3RP2dipcKCTDylT6gF6TqpAt6aXG0bmLbRTgnk4JcyMFeeF3lsFCLc5JjoteFxqcVMPRDIt7_3084pivGGUrrXt8zGNr1BCyVpVE62B26PhjbH3QYBXjIEQDbBEvR7OanbaTYWgA8NW4MFB19K-y22vQwwcfQgDZtPOpTWF8IbHivPzjIwfc33eFGFe7ZG3Kwy_4kB7beHP9Sj0BaPIVgiZssI4SyVs1_MdGviNwsTHVNeCMsw00yXEwLYvs2negZayqVKwyKSPEaqdRXCnBdLxzOezCiTiGFXQVup9Syyg0dXaDyWdQXJNL3Y3Nlq22Dxk2QmJWhDfNyZS6obP66LC4kYuKDsZhnc9cKLkgmYNmrRLzsuXOxGVvmdV4Nst4IYrzs9n1MtxOG3TNTMieBbgDV5dKn_BM9CL7VAL7r9Klf1IYOJkcE6WH8ljfhfuBMLFaQeAmqsOiVAElXEdUf2tGikJtx94Z3ouqSmXTDsoCTGruIkbveZpGSir9PxnNthxsTBYyNTOERFY_OSTcf2VWR4EjAJoJ77bVPsOQnaOf8wvCGOhAU9B-1HI69C6KENLE3KF22SJO58Oft1_sp3wb907hRBLlNUQVqR5pJVTUoxe5D56usm6YoY721CbcIGfoOD1ra0IqBp1b1RA6PYdienWPV4-GHszPKjn_MSFC7hLrAlvUIDH0_jq3UGWOttR2Uei5ng2Z2cpS0-EiyZs7sk-qdDKMSP-aTwyBSI9q0MFRUqdfbE6PrO4GAMcxYa5FCB0uDj0PULQuiJIjd1yNLDC5ZPCHznVwz41uADETAW3tNaDvew0Sa5QVDdMGw4msB29TU5ZDSLKNve119UKvpLNcUskhvAABKuKXFXeE7IpzaxwzrG7CqtbqjEEdmyOxTPkF9gEoEB17pHR3MJXjqQdzcDHJeTaVZK0wyDqES4VqAQtWIW3Lo1RkNKZyScBXbBdnSrLGJIoQ5UmMxpXayWr4qY944dMrQSV0LswRdcHBObo5EuQJ5XZmU43N4Ksy8DlznJtksBpNse6tb0UF-7eKfEJKLKRdh4KufaQmjso8Nzs3pxyhGtPOYeafECnjIRQfFoQy9Ih94C1x-1IdIBeOJe2Yo0N7n3SC8v0nFVNQ1Uydw8RApZKbJb76gQBnK9NMCMAznQFxA3bzjg-w1HOuwblts7wwiwKsZdae2stry1ioYwG_rCe5JR9MD_6W8Hu9zMAhrOas3UeXCcexhXU2nc5z3bZu7KFVMTfDsvRZBROAJ02srD0zu-howo1gffpDkuzgatb1IANRUwpjUsUU-I2lnEVShnLsHLjxjusVTZAj7od00QxwwUhsUdXbXLp6dcjJrWBu6ofmPdFJ4P5SnIjhXPvadIUnRW9soMGY9vwfNCtAD7xeP3P7BNX6BkYlcoN3rHa1m6lxtibPtEPPJ9M1WMSU0PwM8JyxCR-55HUkm4mcgiMnpT6U67OEeVFsbrkhjVHh_BXZvhs_2T5QoHl8KU6Ag-LjwI6DgW3CYmCqz_r4KVp7df2fNhK1ppfH_O77fWZ2UqSixX-Hs4bWA0DFHliOs2s6Hh3QsMi8vP7f1rM2PfNJ5hBn73U1Je3OUVgPeE_ZBt0sja7WR9Msy3qZDC8p1zXDB2IBAZcEQGOSBIvHNMO2ks2SdWPwGyBZaaj1xCnRFFRBH_a4nsv6Hx83ykkP4IfRL8zZX3iNwWbJm4bEVD0NQP8A66lMPjiibyWVMEkSRdZySNY2ZSWV9oL9JKKDM2nZrhP02Ggr8KFtgyqYF0wohcQbEFpM1c-S7y9saIqFZ0iOzKx0rvj-FvKLo9nMJf-2dBXjqyExlhtUmcWIAyxbZghdA9TBgHoziWMSGsZQw0xkASFFy6_ARFBdX8z-ItpFHlp70pBvEyex7zV57g_0ua7_qszTDfLarFdlDTkLv1RYzdq3K--CZ6nQ5K5MdRL5gl0dGjijib2Z7j-zYrydUPQgGS1ZrNhEkC60ue7mft_xdpV3kDiq4s-mlYL0zUobg-BZC9eWimAfOBMAMYdwC-AJ_wweSkTqdopeIu462bRUnBZD-r8GWUY3CshwhrDbCDsU2Tt290hHzvSx_4pRUpd12BQe7YbdnvyBsGZRK-Ly4n4W4jNtnK55f7bO92o8z8CMbLVe0f_5SNP6i3unU09BAgqlRUqm32ZoqMUwNXgtVxYEJxJ6GvvIUiDEL44GTPTssN_AUvAPaaxgIDYDn1cF5KGhh0phRHQp7XboUhNE15TsihDoNEKH8XXlEx1tS4ald14aj55xagAm1d1FdS6-ljw56zXS09Etol7qOkw51HdZooOW414brRFQmVfkXAXSGUvTJLATV444bY5Z49elXQCb40dFRmca4YxUVrSx1J6djOcpZNx8UoPRZ0d3M6xnDUWs3YTsWnexWnezCdiuiooccuf3rdjIxnSb28FY7z-8OF9o1I1H1AMYrsheQB0mb4-uL34-T6xt4yEdw815utm1IJoUUa1ZWq3DZg969XHq8wrLf2-d7ujgjRbDXzLXBFDZ1G8A8IzQEJ8JwUhgw-V2J45bgoNQxkOXePult7qCEYl5w9dHK9TLomAj3ltDHNgDzTFRheAuDKlt0a-ggdphzKctLPzO_oSFhxR32XOR3kxQjwevaaz9Mnz-SUlri74QqlQX_SeXlTU2s3mEmGN9DWQ2kB-ZCoTyrGtSRZfx_0vOK7ClG3sD1tNlgUCvybRTSLrm-g9LatujPBybwPV2LY4lCQc--vwiVpzDyCYsltFSCPB4Z18t4SQ8A8fDhUA3XXB3Pqb3gPh51ComKbWPGQhWZukquIYm7I3jXz7lb5aqZYxxtRHKLmB_b6xbcYkU8ft1G5aU0h4W7CnmrMP4RpKg-H-7Z5CiY59zUsW7JuBpviS1klG3Xs3LbRgJfMmOOMAP2FH3M5vHHpv0rlhxFmH4c9w6rYevDF_-B0jjz8ZppdIw3TrRJgqlnVd2J_KagX9R83cO7kmlMl_EtmjN_s4X90FpscBGhIlQWWkvbpWxsuHzfoU3QUwrv3dCuEf2uEXaUnCUPfTDBrK8jJQiwe5gGACHLruYGZr8AK2Sg-Jf5fGl38eI2PaFv24HxENGgHbsolhqXvFfqBFFyjaEwwXH_VGUDrEChe8_0S2B6vRmBiGky8RaFkmnBYhM_kXUeZV0O0md3xSZzqhtt9IYVtdcyq153BqbvTEnsY1N5Bs9osJcgqQAyRNBm4yTutjsYZ9MZ02Ttpxpm4Lys-Qo8RenUoAWZQW3HCSk3NhjNm4NLc8uPwzJmyahGuPhkP_ok7zAIm7rRrhHJ1XAiuhRFjlpN7CLDaBtx0Vdrnup7_-L9m5fhqvpWVEIkr9TcAAkal9Xn6GqR3fLWOK6Sk4idzPmyR_yhktvX1kCWPKUI6Qyhc4RFyZCTaClz2rcAxyIYJ-Q8ZryiMc_gwXBptIUYTmeYkx1VKBt3y360LBtX0HeMOrOkRhw7zmJBxkFyNScSefvNiY-Dk55jbbkS-7juVcMMij77Ggb4xma5g7ofG6GqEGRVgVVxDJmNsPmva_X2JEdJKLKGa0bnvswaVoD2JZaJPxgMeGKhoAniesF3j6iJsjHeIdT9ShltWNysMRSLYz73Wp7SaZis7Ik5QB1e9fWm6uehVh0CulZqwUp3SShpJegp87YuzCaj0P4a7_C3CQlVf8h_zM8kpLoUQXNN_9kkXm_AHbKPVh4ICZhT2M4cRTljTdYvfYIrSZb8ewIwZQQHg5EcCa6uB8n0k8wZ6uX8v8aZjSOPd9bTYXzCVXNoIkuqBqu_qzKrN3ulXbFxWL_-p71USRJVb9G-5K_1xUjhNUN8wQQ7pUMClSiDT6XjxKN2VDamU0A_McxCH8vutJP4h8aDyyUxd-3tdu3fg6eUN9P5XsVEC-vww-9lD4grClZda6PVCyTJ4VzsqH2DGXPpA_t8mJWb8IesVGmrETTfBLWKv5inEsKsbxEcLmTT_IcmFyaz4AllJSSwAGtzp8V5AVZtWslCGq0jzFiVQjQoaH9iVRg=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0740a7b3ede44d1c016adf4958257487d1a59b04ce23edd4fd",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 118,
+      "completion_tokens": 484,
+      "total_tokens": 602,
+      "cost": 0.0002538,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002538,
+        "upstream_inference_prompt_cost": 1.18e-05,
+        "upstream_inference_completions_cost": 0.000242
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 284,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

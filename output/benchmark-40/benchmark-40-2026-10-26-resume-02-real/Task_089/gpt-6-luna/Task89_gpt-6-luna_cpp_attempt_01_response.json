@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793023477-f5zHoQ0k1faBtPiF6YDT",
+  "finish_reason": "stop",
+  "input_tokens": 120,
+  "output_tokens": 607,
+  "cost_usd": 0.0003155,
+  "raw_response": {
+    "id": "gen-1793023477-f5zHoQ0k1faBtPiF6YDT",
+    "object": "chat.completion",
+    "created": 1793023477,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <fstream>\n#include <iostream>\n#include <string>\n\nbool passwordsMatch(const std::string& storedPassword,\n                    const std::string& enteredPassword) {\n    if (storedPassword.length() != enteredPassword.length()) {\n        return false;\n    }\n\n    for (std::size_t i = 0; i < storedPassword.length(); ++i) {\n        if (storedPassword[i] != enteredPassword[i]) {\n            return false;\n        }\n    }\n\n    return true;\n}\n\nint main(int argc, char* argv[]) {\n    const std::string fileName = argc > 1 ? argv[1] : \"password.txt\";\n    std::ifstream passwordFile(fileName);\n\n    if (!passwordFile) {\n        std::cerr << \"Could not open password file: \" << fileName << '\\n';\n        return 1;\n    }\n\n    std::string storedPassword;\n    if (!std::getline(passwordFile, storedPassword)) {\n        std::cerr << \"Could not read password from file.\\n\";\n        return 1;\n    }\n\n    std::string enteredPassword;\n    std::cout << \"Enter password: \";\n    if (!std::getline(std::cin, enteredPassword)) {\n        std::cerr << \"Could not read entered password.\\n\";\n        return 1;\n    }\n\n    if (passwordsMatch(storedPassword, enteredPassword)) {\n        std::cout << \"Password matches.\\n\";\n    } else {\n        std::cout << \"Password does not match.\\n\";\n    }\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Developing a C++ Program**\n\nI need to create a C++ program that securely compares a stored password with an entered one. The user wants a character-by-character check, so I\u2019ll implement a simple file input and a manual loop for that. I\u2019ll develop a function called `bool passwordsMatch(const string&, const string&)` that checks lengths and compares characters sequentially. I need to ensure I read the entire line from the stored file and handle any spaces properly. It\u2019s crucial to manage trailing newlines and avoid echoing the stored password.**Addressing Security and File Input**\n\nI\u2019m concerned about the security of storing the password file in plain text. The file path might be set using `argv`, with a default of \"password.txt\" if no file is provided. I should check if the file exists and output an error if it\u2019s missing. All functions need to accept input parameters and return outputs where applicable. I'll ensure there are no hard-coded file names, allowing flexibility by using the command-line argument for the file name.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Developing a C++ Program**\n\nI need to create a C++ program that securely compares a stored password with an entered one. The user wants a character-by-character check, so I\u2019ll implement a simple file input and a manual loop for that. I\u2019ll develop a function called `bool passwordsMatch(const string&, const string&)` that checks lengths and compares characters sequentially. I need to ensure I read the entire line from the stored file and handle any spaces properly. It\u2019s crucial to manage trailing newlines and avoid echoing the stored password.**Addressing Security and File Input**\n\nI\u2019m concerned about the security of storing the password file in plain text. The file path might be set using `argv`, with a default of \"password.txt\" if no file is provided. I should check if the file exists and output an error if it\u2019s missing. All functions need to accept input parameters and return outputs where applicable. I'll ensure there are no hard-coded file names, allowing flexibility by using the command-line argument for the file name.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3137UbhbDQ_FtD0erZSVP0IQgA-6-TFd3EGCJX_Vfugh9ghA1Dk17xAXrfmfQFTMSUEmbbZX5Y62ordOjQD3ZLemRPA-W-DD_5BUgXlxkSPHcaRHkTbIhkRz0YnnnWqkHt-IHELNPGvGOR7_G_epLM-Mc2jCuDc0Ap5raKGz1hvqbi8thq1hLxwMVkbdNh4tVTgNx1fxoTB76guyk9mDaaFypPvfX0QmQ9dDIAjSvthlABIdVONfRHwtmwcf6-8BGoRJ_WcZM5NCRWFPXmBhIjihBijQvaBcmKUySzXbfi4TuVuSnpEmdUsHQoWghPZgMC4cKSW_E6eB8aLkXfQEzcGArkUwR6_oSC7ICbt3b-dsh072y9731lS2EbZ3A77kluM_ZVDr7ev3H3z0jZXrQk51x9xiQsgyFzf6_WVIurwU3X0L3YPwfwYuHwg1mdfgk9XSAfiVYlQGN3SMzzmA3Tdryg1OQLcJQ7cqQ43i2vdg485Do6V8ut1_XVBzwwY0fiTOi477ZtI9JkBH-_OLmiew9iJdwiYGtYSmQ1EuVFJ0X_xVMN_Lob3EWGfszPLCVGnNOmfIynOk38QIG6D0y2jgEtq5dfFRen2JE9RJOC1KxgIPX-sGJzNLSH1FF8sI1V_LOpOeJvP-B3I5ejf_GBObdh98Rjh9cvHwwAEmV92O1RDkbYp4lU0zv2GY2KYk-iTu7NDaH0AdXW_nhjig60De1t4PPzhR-MKqufVoXF-jVi04ncXAA7yNZpwUSNwhwYp7next703oe3BBiYKLnGGbR8eT1_daJpdzZKkNBGvJT1VOhQ_OuB2mfm7NLPX5Pvc8i6XXO6s8r8JPPflxrXOgN-E2ADa2gwRobU861Gy53peombv2jw2GDJswjNirofOcG0HhBb3zPOtfWRawvmVZjHwkwrZjU2cW-agVWR7kFvRvPtPpCKA_82BC9ZJ75qDupwdmHcxPGP1vU_rJu_KacYB8GCIqRMFqyUlOr_CmfBPsIJe4OgDj9qkVEoJGkPaNYXv-_dLB7Y4OUyrZyBo6O1lek5FIJq6hRz_-TzQg8JDbkAciKRH57-4oYxrxdx8Pl2_C8f7doqmFZDl5aJvs-9-HZ0nJe5dwOT8Hdv60EIYRombc1uJJNrcCdlB7r2AiZ_7jL2JsYMWhAbIwajfgYO5oP9ySu7sAB2-BujwYw2INvQ0rsWIHQ94CA8mqogCXDrIxXn1al1PJCOhdbw9Jx3oCl0dNgAm5khcdfqFjABe-2-LSYaQhiYevGholRL01xM5J9fiRpCbrCdKznXziHwSXTwRFMGAm1GPEqRdBznjU5D7r3ZNd5_cwth3tzbrjRGnUWFjnVC9wtjpXJAB3J1d2XVdRGBU4ccn8dBOsMiaperYKXII3cCnwuaAb-a7f0PhLZcJNf040iHCoZRTEe9fJuw5h_hHJd7bMWswcKuWN83cbHl4lTpkvPwto8WVdk9Pkhs0ibJO_bM4bSf5xYdfVp0uvYHrgcagS00gUCt7g4VKEe7J498QaOvXEwAIZz4nx7f1ntR2Lqtx-mssa7Uhtj6FZKYpsnR4Ak8-HtaS_7AKStTHd0ngMI0irNEHfzvJhcUAxqdPZ7X6bIsaJFbXS_ng3YqpDWxBiaT4vlGZj3R8yMb9qWcT545-xa5TgdhxgGvvdjc3MRbj_eSvp2WzM6sLJGmS81BldlhL9dDgSoX8xPJqrz6O02f0T3sNC8IqfKN5pe6sKUxBVyiTyewFXe96fsXxsCjZ5vOPM4BLJtqHseGClIv7AE52wnRc94TNH4QbXlpxqdp0UHnFGEKGm7zEvsD3NV3Xt46A1dr9EwFdn-bJEOmW_LfRUA-yZiaceKRxe2p46ZqDMrz0lZtBClaGg9vwRa9Dpcsy7ymqvPDfkNr-HCyIcHLxkgNel2sFBdYRCkDW8KJFEzPONqeKNPJI5qI_JNvJ-697GihKz3KnDGbB2RDGn0tv1K1I7Hs9XY4do8bvUmAFJGU_YP_0qV0OfpxttpPJ3xu8aoCTkvA50C7tN5V2GHVCjPGliQdX1g2CrK1ksTq2Y7bXo5OAxjX_2BrkKY7JDEl318duCU4HHYn_T6ZBuSK-J7ZWNnBtSz6G9T_nXNikZem85S0ihotLPpKODSE0w7stMlwU_mxE0Fa5jBUvewFzLt4oM06sn50W5ntzD8CjJd7zE3GVNxdxUn7dwUd1R2sNkBWt5WOIOXsdtd7onqAYdCpSYNN140W_pB_a72zgBJvAFWwpB2jsm_B7Pw8bgSC6Fjb_QnZmobWnxM92uu-MsCUNN1s4gdM8dMnqZ32sNEd8PBHo9gxE8mRVcJw8rjMDpaEoPEm7HBBtR1muAB3rEcWKB8N4hw9jU4_0qz_P7BtQr4ByD_RGGIQ1mtWD3fiZ1e1FJy1upVPrCo6DSCkqylnb8xVNH2mVpx2AAXEsM42yjbLzYWFRa73Ga31SUtcd1JGTW-jHjzjY_CNx6n62kHKNSATI0xBQ_kN-2pR_U6nxFTyEDmgHwqtQeGufhIBJdCPRjUWbg1PijbYRNNsi5OKks4APhbgj19AmO1NP-kIGz-eYLNs4lQYkRuPJzhoRs_WjUd-MULwFZG3dAb4eqGQcoHVINuYWU74t2rHA6EP8UCLg1ce1Ax5FCaItSpsGKWf7Y9pqIe8LRzxtj2to-BCYg2gNCupHeh-6O4WMT6_2ZQbmSFM6AGpRIe7tOAg_v0h_dYVp3fUSWqcA1ItEFCnM22dDa1hKoZgeJWczYKPx_MNJu4xTb6EMOVPfALUwyTteY99CAVnmnapOZrP6aCOyyTsS-jtHdTDqv0H6ycDdUm8veyRWwDFMlF8oxz_XbrNyKkJbVpAFmrwUotYD3ldLL_vdQjuY0jaMutZQuMtWyF9bSHzDqM6w3iVa6swMYaONy3DuRxXWjkkIT_EiZxhqYNRzOMwepccmXzmd8r0g7d60BM5AHVRLWILuoDbAGocfi1QpLAw5yjEgT1wMGoPCM36O4rlJWWafPY2K_uPlpTzgeVqpkxx-A8nkoyma-WUIj6Ty28K0mkREepbbn0I-UrtDqgHOaHRqCsW8aoIaxW1c8qnzjx8CLR5TLaL8hWKL15hZ69XpbTg6pBuF2WX_TVY8_1YQLmYlW1pmtOUoJny15pXV6YIwrotyvQC0HehO0Wo3qUJlNh3hQisotQQPUmBCD6-hp9LlklJKe83rlcHFK0u4w3a3WdMZ8S8NVLAA5lmvgT28l1cgQt2wHX33UCv4edEPDoKhrUifjJIFS6a9CSckVwEx2OrF-gcGGc9Ht0UORp2FpOiAVZvT5PZ05B6vczIL-xWGyv7OCndYDj9cX9ApTQpxJXefpB-LVNlfiVWDOlwsTQ2FIxESHb7SyV6T1yc6rm6qf_4OUb82kgyQF48mbpH_0M9wE3FYVqLk3UgER5XjjHLoOV8cCPIvOV_97jY2VU_6j5w9pFRs7yPD8dDixjrJD1GZtJj5RLThFk0RW0MeHMrDQ7V3tdrgVvuBnNzf19rXiz0HsfZJKeawevO5pK-nlVp2VfJB28H8lXKZlcaK_f6wHqe9sUYgiR594K-kRJ9bj-inkD7b21NgZweFjGmfpvDb6XFDsyfLyjwYEfInD_PdB68NCldS99OQ5h2cEknhOqx7Qo_58BHlPCf3Frw17YxmhynVKMzrVjxcLSHIohJDWeH2eS5EmgP1geCkAHYXAQLi3eoRFmfY9s-8OwGIFY2IGg1oh_VYgoFGl6LzVqICOEdsQFZUXoq3FIwbN4nL2oB3JV-IrzLr4-Z0MgSQP9wgs1BoBD2ffpLx_X3Wy5MCIoIrGiYx8q24gU6UErfWULofn1wtNFjtW-2pwJwvwQVYahTCgucrSYLVfo0IYYN60FgRq-NKFBvfHnIcmy7KvufGrE_bvaw9-f5L0fhmrLl2DxRr0V5LdnuUrDd9BEu4kK7htDEZpIK0LTCbN9m1cb1lplP2R1c2RGZ7Cs6QRrAwmXULk5irB7zsfEAdaB3x4uT9aliZLsTtTOmPbQL3_pWUkYwFnXu1y91xA-jyaZtvDjUsthBer7OonZXIT3DdUJ_Dyg27pUVluxsm-_4UW3ey3x-GImFXDvyqVTKIi0dkGxVnPjzep_k5Y3nrhYRemXMcTJxPTP1OLHcbRW27JrmxALVHJ5NY6RgxAW-VbVvqssA-bTADz_iOS5cEjVe4vIUP90Oe2XM8rmztD1yGa9InmWtLLIsVCp-NL63RK4rnSZHgZlDjO3CdwNn8SER87ye-LG0ctzDS53tdyGnb4FIrLT4jQNj8DmL-pBkIgiZnI2cwPM5-4z_eQS0pbn0Az3IRQhi4W_AeKVcNxxtI3U-R3v-52Pz3WJiQwSLEuVl6UiMIXkAN0sj3F41NRiw84jQfz2Cq2W_gkxdDVAHIY-B05L0WxDDM83l3alJngTOgLih6oBOfy9hW6IQwOBcJvhCZXWctXamiwzrpDHj0nkimDYBvwMAhB8jRNsoGxDoL_eElhmD7vqxkvNZeA5FMHpLjG5WfLnTwPpAP20nwT52Brhfw9pi1W4YrclRVgLgy1xUzfDUbtB7cgJsjtkCaw-2xJ2lFXsDR21o2eQfRb44378a1c5av1VYbGX6DUZaM3bpfNW0RFdBAWBvdCdLf0zQDKki1Mb8gnT9IUgBm2mQVHLmoytjpgyFlWqetGFgzSO3cONcYqXYNBW0AUWO6ZgemzNbL3rVz5LvEzlDUyoSddeYRzN1zcnBJnokUF35dm4N0xt2WuXuL4i-f0uIxbpIWwposMeNh0McXv6gK8shOP5jI8QvrltZGdY0wF92nyRgrzeENNBof6mEccr1n8qfntLlpu3i3v1SvzzMJqHpnAEcNgBMnJ7sGy0Wo9vzKD7RvfLTCfeVrG6OZ9M1kUc_jk9whrIdm3UuNF74XOtgm3sbXF-fFV6q4Ml2V6ucVX2xCvDQmXyH1JwXdaXiBhTuy6Cb88AzHNIN02TJ-tL-vOOd4CBIVKIP_2Z4yt8vUf4_B7aqGEpu9mXLAQucvtPBbO2tlzBoruY_nZQ7THVwK_mVYy_SRuTnhb-WlEvnLO0SDuF4YzqEDN5yhT8hUaPSE1X2awLEaK1oKyufDuu8d3Nv5RY5DZYTB8rOMggdYm5PLVIiTQSqWtxmeNn4uSmhiZJdv-R1YsJ4adw87BVOTRab0_i756Cke_hizpendFszbPvFgTcTmI4wOBIPXOi0Uj0n27E-BrZUO-BshxxIi9rW1VhFTV94fQjFrgMq-4NERBlpg47g19Q-29LsGvuVr4Mv1lmlNwAQWMtwJP_XSaHi2Gv9NjUjUYEgGuT8YDnUQFRqoMGWe9SwTa2GSg-PF7i6PUIBUl3e6CauCoaneLYvaB0ImDw-jntvCBOVge_4UB1eqTqF8mAErvb_Imv4XGPn0k.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0b37032fddc6b850016adf5df66dc487d1a2ffe15631fa0451",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 120,
+      "completion_tokens": 607,
+      "total_tokens": 727,
+      "cost": 0.0003155,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003155,
+        "upstream_inference_prompt_cost": 1.2e-05,
+        "upstream_inference_completions_cost": 0.0003035
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 282,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

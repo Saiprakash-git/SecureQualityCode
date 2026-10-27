@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793008986-Nzo22mZb3oaEKcYpyo4u",
+  "finish_reason": "stop",
+  "input_tokens": 513,
+  "output_tokens": 138,
+  "cost_usd": 0.0001203,
+  "raw_response": {
+    "id": "gen-1793008986-Nzo22mZb3oaEKcYpyo4u",
+    "object": "chat.completion",
+    "created": 1793008986,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "def find_even_index(arr):\n    right_sum = sum(arr)\n    left_sum = 0\n\n    for index, value in enumerate(arr):\n        right_sum -= value\n        if left_sum == right_sum:\n            return index\n        left_sum += value\n\n    return -1",
+          "refusal": null,
+          "reasoning": "**Providing Python function code**\n\nI\u2019m focusing on creating a self-contained output, probably inspired by Codewars' \"Find the equilibrium index of an array.\" I think the function signature should be `find_even_index(arr)`, and it needs to return the lowest equilibrium index. It looks like I just need to provide the actual code without any extra details. I\u2019ll ensure that the function is neat and meets the expectations set by typical testing formats. So, I\u2019ll get to work on that now!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Providing Python function code**\n\nI\u2019m focusing on creating a self-contained output, probably inspired by Codewars' \"Find the equilibrium index of an array.\" I think the function signature should be `find_even_index(arr)`, and it needs to return the lowest equilibrium index. It looks like I just need to provide the actual code without any extra details. I\u2019ll ensure that the function is neat and meets the expectations set by typical testing formats. So, I\u2019ll get to work on that now!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3yVeg1QnZ7GdAT-mclC_0FqyMgMRN3hWm43eS8Sdx19vt2cmOKB8zunKK4XvGUA42dlotqZr5BSgo0sFo4tejmz4_OTnP7oYubLftHthLrepIuhRa8mdUyv_5dKxozH1KGPTx9-Sa69X_DPnlydehyaf1MNMuQrcQNbV4mrulJooaa9C9uuQMK13WpVdQKeNZaTnEjMmNAQ4AZTSOKYQ3E_uRkxy2vsNfZMiqsbv9KHlwlBk34BzWS91ph36moAq3WsFHTc9ctMzjLDTSW2OsMEvTsLvy_x7mPASK0SspWqFYL61dC64cj4Msz7-gAkIqOXxS3CwceEia20_p93NQyZMgx0fcYFjYLPBfuIJQj4JESjmdU6UVtXm0OqYoomWR8qmq98sb-7DlN05g71HJm1UU7p2uRwRf7Z_vvo-BWv26E2Tr77M7Qk27HZMLWk7oS0Z22AF2TvxLXANuDqwFanuFxXOwukPBfkBEKdBAg-sBZzKXudzeGVOxJ4F9_X7Aht9DR1WNZ9q_pBEWENRqsSGkVyD5LKbSLkYzwV46KewuvisTqkPMVIbsaoLBZLpbjRFk43_LybyQ-PLkrdfEDGclRYgzXXnq6znrOnIkukt7vffHJfCjLFBz_z3ebSAszVloETF9X4Ji9q6iF36xqoa_Qi3tJaZcrPUquSZwT65hRMcIWxsm_5P-lQvC7ACcPMv_bR_QqZ9n4fk2AZf-gvGR5jf_lk0h82398tgWvsG0dx8j5Ijode94nIC2R3fwrbuAxDgNCCirYpulW5gM3QaO5QmJowp6t3l3ILrMZXwpxrGo05xCC5qsgIHMXwpUJM8Sq5SG4kUWO5tEVEV6-j-UCFW2UhIqsat8CourRunYu68CKbkt2M0stDbGIcjawkcaos9MFZMKXFCubibA5Imih-gb2YUEh2MUiVSwEpwW37oq1SPj44wxFxFnLSP9RzjnxUbecFKtsWWsCES80gXoEXtmHVQlNmrGb51_XQMmQnr8K6e8qj05xS3weJ6cRdQzHaSIEzLpceRPkzyGxSiDQ-eB1_goeKgVLGWrA8E8uZzt5hl6V6OUU6OQQ_Tp2ctc1vs0pe2WOxEN-mVey1dZduja9Eu8azeQLlbfuxXshbBD1eB6e13RII0sK0fSWEOBt7Jybigh4cGumGgl5CjXk3P3t7Vp2pRJFeBdQ4lUzmduSpmTHoIqiZwJ4pzWj-JPX_Uy5XZQUF4Arm_pORe9XYwDwdvfwpoRgDZzxFuqbbsliY8mE4trepfksXObLDQBv-9doCdr452I-l0rNKfFsiA68Af7TxEcPutSCt6R9RrNtdVDPBrPksuOiNU8my7CqmXK9mI9SV2EZNyaK3XF0sXc9mbXbBziSJTFk5dxERkoXRUhyimOyQHi4TmyV1PxSR--6hQY4JDMEhRp5aFF5VW_jAjBULqoFhEJvxO9BC9AC6wQxVJXyZ1sBojNE05jbd-nyVZ5VYMeGSTwK3qRZ30TLVj1OxISjuneBfYqX9XQggdd92QFwJGMkiqvhdnKwAc8GDd91zyCx-0ZG2V-YrJ2IQV6kEmx-ePCHi9hvpUHyK8UYo4OmEr4Au9Hr4ldQgD_8rGicKIB1X9jOhFm2QmyLUKpGPmD3MPvQ0nmXEt6CPkeVtMSOzx41GV3WlLRrXBxZKTtE239gtz0eqlBI9dEn2Fx2TfWGoam013oH0qfSTU76TGvbzaEMoQndWHi_XlmQbB5rQzt-BxgnO2z-NvTROGSweUQDTIQ6JGyiGZoAm_GT94WVuujkfVEpxY3mBeFRK7ginU4Yjso1j_x5R4Svw3rmIQ6jpKG4WdmQsFa5ITdLyRY9T5gSfJlWIG4OJ-4DcUYQig63ko-2Jmu1j7M7FXnHlJtYNRAMPc9SNiMNYw_Fiih6wzYil7PJKWi_Ud2h1_eRrFScM4QXg8TJ65q5ZO78h56X1BRVw1L5c8HBzQt9er7POEFta0ORdch2z29nVVkmf7hJwgPHH4SFduaGsRlTFCb3Rttv3sNlXxA_uKrETG0Il-5XpSbHepHeoYk4gn8S95wRpPgqI9YAWHQ3FUgMxPumv66akuD-lHS_jQOLbP2yG5tF-jMneIatg8ADzbBwvO9f6ofHLowvZlKB62VmEHxMzUMFqQ8z8cP5apvKNuR608x-9Y5tF1d_VARnCYlbgtA7648aLnAlPhh1tgeYfGSSOp_Fie0ojhbL-weu9xQfJipZC0SAzSwb-vYR0hzsxNTjzsI6UnJTrbNd5JZufl3IrwlZZ7eNSOkE3Hlosg_SjMOw4VTsUxdpnxNScR8mPnD1XqL3lqu2kGIQgJA47fGUx9z15kD-mJaeG4HF8lzpSat8LFlSQAIrioDR8U-a8eS8qDpy7VwkBStopiPfyk2i8qWIuMo9HB5Q4i8SJzoDvlYUFg86jwQ05tX2ei5btXiv7XWNqYZYrllNH0j-XBceciDzbUSTptldf7AxJZkP6uzXMSUDFMvDkNa7OsX5cFK3hGz3QLy9mImcH-aJdKFLAfHVkquYtNQSlMoy_nCYY8Ps0WS3-s_mrN6W_o7KYMjvjWmBBmNQ==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_07815680346d896b016adf255c2cdc87d19923d627e6f89139",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 513,
+      "completion_tokens": 138,
+      "total_tokens": 651,
+      "cost": 0.0001203,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001203,
+        "upstream_inference_prompt_cost": 5.13e-05,
+        "upstream_inference_completions_cost": 6.9e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 75,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

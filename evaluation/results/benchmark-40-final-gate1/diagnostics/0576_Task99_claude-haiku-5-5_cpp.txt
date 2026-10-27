@@ -1,0 +1,7 @@
+Task99_claude-haiku-5-5_cpp.cpp:1:1: error: expected unqualified-id
+    1 | ```cpp
+      | ^
+Task99_claude-haiku-5-5_cpp.cpp:57:1: error: expected unqualified-id
+   57 | ```
+      | ^
+2 errors generated.

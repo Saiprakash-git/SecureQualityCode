@@ -1,0 +1,18 @@
+@@e5b696453202ae02 STEP 0 BEGIN@@
+test_case1 (test_oracle.TestRemoveSmallest.test_case1) ... ok
+test_case10 (test_oracle.TestRemoveSmallest.test_case10) ... ok
+test_case2 (test_oracle.TestRemoveSmallest.test_case2) ... ok
+test_case3 (test_oracle.TestRemoveSmallest.test_case3) ... ok
+test_case4 (test_oracle.TestRemoveSmallest.test_case4) ... ok
+test_case5 (test_oracle.TestRemoveSmallest.test_case5) ... ok
+test_case6 (test_oracle.TestRemoveSmallest.test_case6) ... ok
+test_case7 (test_oracle.TestRemoveSmallest.test_case7) ... ok
+test_case8 (test_oracle.TestRemoveSmallest.test_case8) ... ok
+test_case9 (test_oracle.TestRemoveSmallest.test_case9) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.001s
+
+OK
+
+@@e5b696453202ae02 STEP 0 END rc=0@@

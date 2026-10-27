@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793017840-JlEv7PAO2O3MrRA4yViF",
+  "finish_reason": "stop",
+  "input_tokens": 148,
+  "output_tokens": 1905,
+  "cost_usd": 0.0009673,
+  "raw_response": {
+    "id": "gen-1793017840-JlEv7PAO2O3MrRA4yViF",
+    "object": "chat.completion",
+    "created": 1793017840,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import java.util.ArrayList;\nimport java.util.List;\nimport java.util.Locale;\n\npublic class AdminPasswordValidator {\n\n    private static final int MIN_LENGTH = 12;\n    private static final int MAX_LENGTH = 128;\n    private static final String SPECIAL_CHARS = \"!@#$%^&*()-_=+[]{};:'\\\",.<>/?\\\\|`~\";\n    private static final String[] FORBIDDEN_WORDS = {\"admin\", \"password\", \"root\", \"login\", \"123456\"};\n\n    public static List<String> validateAdminPassword(String password) {\n        List<String> errors = new ArrayList<>();\n\n        if (password == null) {\n            errors.add(\"Password must not be null.\");\n            return errors;\n        }\n\n        if (password.length() < MIN_LENGTH) {\n            errors.add(\"Password must be at least \" + MIN_LENGTH + \" characters long.\");\n        }\n\n        if (password.length() > MAX_LENGTH) {\n            errors.add(\"Password must not exceed \" + MAX_LENGTH + \" characters.\");\n        }\n\n        boolean hasUpper = false;\n        boolean hasLower = false;\n        boolean hasDigit = false;\n        boolean hasSpecial = false;\n        boolean hasWhitespace = false;\n\n        for (char c : password.toCharArray()) {\n            if (Character.isUpperCase(c)) {\n                hasUpper = true;\n            } else if (Character.isLowerCase(c)) {\n                hasLower = true;\n            } else if (Character.isDigit(c)) {\n                hasDigit = true;\n            } else if (SPECIAL_CHARS.indexOf(c) >= 0) {\n                hasSpecial = true;\n            }\n            if (Character.isWhitespace(c)) {\n                hasWhitespace = true;\n            }\n        }\n\n        if (!hasUpper) {\n            errors.add(\"Password must contain at least one uppercase letter.\");\n        }\n        if (!hasLower) {\n            errors.add(\"Password must contain at least one lowercase letter.\");\n        }\n        if (!hasDigit) {\n            errors.add(\"Password must contain at least one digit.\");\n        }\n        if (!hasSpecial) {\n            errors.add(\"Password must contain at least one special character.\");\n        }\n        if (hasWhitespace) {\n            errors.add(\"Password must not contain whitespace.\");\n        }\n\n        if (hasRepeatedCharacters(password, 3)) {\n            errors.add(\"Password must not contain 3 or more identical characters in a row.\");\n        }\n\n        String lower = password.toLowerCase(Locale.ROOT);\n        for (String word : FORBIDDEN_WORDS) {\n            if (lower.contains(word)) {\n                errors.add(\"Password must not contain the word '\" + word + \"'.\");\n            }\n        }\n\n        if (hasSequentialCharacters(password, 3)) {\n            errors.add(\"Password must not contain 3 or more sequential characters (e.g., 'abc' or '321').\");\n        }\n\n        return errors;\n    }\n\n    public static boolean isValidAdminPassword(String password) {\n        return validateAdminPassword(password).isEmpty();\n    }\n\n    private static boolean hasRepeatedCharacters(String password, int run) {\n        int count = 1;\n        for (int i = 1; i < password.length(); i++) {\n            if (password.charAt(i) == password.charAt(i - 1)) {\n                count++;\n                if (count >= run) {\n                    return true;\n                }\n            } else {\n                count = 1;\n            }\n        }\n        return false;\n    }\n\n    private static boolean hasSequentialCharacters(String password, int run) {\n        int ascCount = 1;\n        int descCount = 1;\n        for (int i = 1; i < password.length(); i++) {\n            int diff = password.charAt(i) - password.charAt(i - 1);\n            if (diff == 1) {\n                ascCount++;\n            } else {\n                ascCount = 1;\n            }\n            if (diff == -1) {\n                descCount++;\n            } else {\n                descCount = 1;\n            }\n            if (ascCount >= run || descCount >= run) {\n                return true;\n            }\n        }\n        return false;\n    }\n\n    public static String checkPasswordReport(String password) {\n        List<String> errors = validateAdminPassword(password);\n        if (errors.isEmpty()) {\n            return \"VALID: Password meets all admin requirements.\";\n        }\n        StringBuilder sb = new StringBuilder(\"INVALID: Password failed the following checks:\");\n        for (String error : errors) {\n            sb.append(\"\\n - \").append(error);\n        }\n        return sb.toString();\n    }\n\n    public static void main(String[] args) {\n        if (args.length == 0) {\n            System.out.println(\"Usage: java AdminPasswordValidator <password> [more passwords...]\");\n            return;\n        }\n        for (String pwd : args) {\n            System.out.println(\"Password: \" + pwd);\n            System.out.println(checkPasswordReport(pwd));\n            System.out.println();\n        }\n    }\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "CAQSpAsKEAgTGAI4AUIIdGhpbmtpbmcSDCZ2sT4b9DTP2xydbxoMW9rVoQUlQ/tOyEsaIjCv0VuTHSS/LvKTpYxcq85n8mykU+Xegt5pDMkZ1I7OXiy3i0t/HNrHW0mguy+sMIYqwQrrSTAFeurjW3we1NUkB2UXyXmqnN4d6c2UVTkA9wFjMuO2FKORj7zxTAQshtEeCYJQit8OLFrJ5NKhKcgcfcDCzM8sf6NA470GVkBP6wFMTZXoDVk8+p1VPL2Jws2BC+ZOITulcxpCZvcfZcUFKjE30VgbmbUch2af7Lh19p+5LYFHaFpMVZlo63/SxUk3haFXSeIYiLMdj5VyBXWYo2zpq/lBnVGsw09zt7fFNJYKuDcOtcRkNqAAro6EUgVPj0Wu4EC0jS3wpcxXhv9yRq0pqkFB42mrJUfikoIUUGPVivTIFrlkUtUUeVSoCXjqbIChasg5EsqlG9uusrI5ryYPf847a6il3jrRXdNcOtAxeQyC8KLJS9IG36bl89nohXd030GMiAj1mqeKYeJ3V5kqwQB7EiHcsAI8aeaFmVH4X/ahL0U7DDIzdUOMOwm0iq/YjlbSrVn5GML5/5Zyy3bP50d/qLESOXaiw1iRDUbK3giWaOEhvuvtwASUom2NDkwn4eABYugmFqhQ5biqKzXYxbqvqRfDxQv/jL/9UDWgPWVDUq4RkPBmcoQmRRrYIepnxkm45ycKEwgRDavRqwZwWhSO8d9rgmiz+dQH7CJLyxwbxTFDXy2wePw/vNL11PtkhA0z51RfJ51SnwJmxb4fRr7P4susWLpHpku7tWBsenMFGranq2P00M73By6tQZQX9Sm4SBFNOMOs+trclMMlYwZuuPnkjrskQFxSwSyyKePRn4W/T6iBjFFgxskJkWX6z7HC4zuqaUYAK8y7naQPrX88xGYpZqMFd8xHcLh96Rzdyj61scSOliYgYfM0NaExUI4v2EQurzMvoVnBsnUoL8A8BDsnXIz7N1Fwx5C5S7abgrZG9j0D4UYN5CTVlwhxNZH2N9KQeUeNwbQG2muHtBCt/V8QCvatoYgmJ0jG8BG0nXAVJbO9pFww+ApfE/PFonbbJd9B1PO6qpLlHMPSpoQGPtz1BuiXMadR5AMgGRHtRGKmVH8aOtkzjNrLL0fAVrCbJ21SN7+inlZgRqv6CmtM7paY6h4ss/rYW7oc5rUM4bXkggq/24snrQ2+MJUyTa/aG4TjX1fp+V+SLFsSLYiVSbP6NlMCty8+sk1ZSjKyXZi75ik7dxzucelZPdtP526Hdi8rX7PBoNqAVXJtA3qnhWVGy5Blf0n1wjlkCnpARB//IsFE0bLJYUgKgtqF8Qz6XMhrUlYnlKu7rwU901qYheOQsGkQFq0wmH6Njg8QqDwfpMSSIHDH5N4Fn0URsRuaLxqkDmGFqwdOQzRyMsSKFgESFsAh3l6SKG5wFJK4LYlfFi4jL1ezKiex+lqGdvETMJIOOUsT2pES3Iy9jJF0H5QJjh1ZVttJ6SZ479ZIRrWx/PEzwZYXOBHnxUo708i9vOVw6kyhYKuz4nJqXpGA100ZcUxparBZqwSMQcjU7aXmrsR4jT711u6ZtDYFYRNSz1P+bJcVAonjoW3p0S8AVJ7/5R916igciHCDf/Eff1qYuwVXPWLMdc0Wcjwv1pySoa+ULwlx372nXotmzrrgKR9dV2ZYXCQQx8MPZL0PAOWTJO7SIHeQv6GiDgRp0bpoccRQCm4mdZ90dSs1N4EHHZmXU/UzYh1xPG2cF8AKMMerd8MH8wosAXuqsRZWbUG73Hz3Niy2g3awjj5GQ8ZSzBQpeaJD6h0ljWQpTTVyCnlJlwiLBA48m33Av+CO5QyrNCSvS3YI9Fs+0OCktPVDOULOzvSI1bisDkCGpl0XZuKxt45oOtyTRjTQFObPGAE=.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 148,
+      "completion_tokens": 1905,
+      "total_tokens": 2053,
+      "cost": 0.0009673,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0009673,
+        "upstream_inference_prompt_cost": 1.48e-05,
+        "upstream_inference_completions_cost": 0.0009525
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 243,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

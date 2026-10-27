@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793024177-Mfh3B96JdWTMKYbikWb2",
+  "finish_reason": "stop",
+  "input_tokens": 148,
+  "output_tokens": 1563,
+  "cost_usd": 0.0007963,
+  "raw_response": {
+    "id": "gen-1793024177-Mfh3B96JdWTMKYbikWb2",
+    "object": "chat.completion",
+    "created": 1793024177,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\n#define LINE_BUF_SIZE 1024\n\nstatic char *duplicate_string(const char *src, size_t len)\n{\n    char *dst = malloc(len + 1);\n    if (dst == NULL) {\n        return NULL;\n    }\n    memcpy(dst, src, len);\n    dst[len] = '\\0';\n    return dst;\n}\n\nstatic char *read_line(FILE *fp)\n{\n    char buffer[LINE_BUF_SIZE];\n\n    if (fgets(buffer, sizeof(buffer), fp) == NULL) {\n        return NULL;\n    }\n\n    size_t len = strcspn(buffer, \"\\r\\n\");\n    return duplicate_string(buffer, len);\n}\n\nstatic char *concatenate_strings(char **strings, size_t count)\n{\n    size_t total = 0;\n\n    for (size_t i = 0; i < count; i++) {\n        total += strlen(strings[i]);\n    }\n\n    char *result = malloc(total + 1);\n    if (result == NULL) {\n        return NULL;\n    }\n\n    char *pos = result;\n    for (size_t i = 0; i < count; i++) {\n        size_t len = strlen(strings[i]);\n        memcpy(pos, strings[i], len);\n        pos += len;\n    }\n    *pos = '\\0';\n\n    return result;\n}\n\nstatic size_t read_count(FILE *in, FILE *out)\n{\n    char buffer[LINE_BUF_SIZE];\n\n    fprintf(out, \"How many strings do you want to concatenate? \");\n    fflush(out);\n\n    if (fgets(buffer, sizeof(buffer), in) == NULL) {\n        return 0;\n    }\n\n    char *end = NULL;\n    unsigned long value = strtoul(buffer, &end, 10);\n    if (end == buffer || value == 0) {\n        return 0;\n    }\n\n    return (size_t)value;\n}\n\nint main(void)\n{\n    size_t count = read_count(stdin, stdout);\n    if (count == 0) {\n        fprintf(stderr, \"Error: invalid count.\\n\");\n        return EXIT_FAILURE;\n    }\n\n    char **strings = calloc(count, sizeof(char *));\n    if (strings == NULL) {\n        fprintf(stderr, \"Error: memory allocation failed.\\n\");\n        return EXIT_FAILURE;\n    }\n\n    for (size_t i = 0; i < count; i++) {\n        printf(\"Enter string %zu: \", i + 1);\n        fflush(stdout);\n\n        strings[i] = read_line(stdin);\n        if (strings[i] == NULL) {\n            fprintf(stderr, \"Error: failed to read input.\\n\");\n            for (size_t j = 0; j < i; j++) {\n                free(strings[j]);\n            }\n            free(strings);\n            return EXIT_FAILURE;\n        }\n    }\n\n    char *result = concatenate_strings(strings, count);\n    if (result == NULL) {\n        fprintf(stderr, \"Error: memory allocation failed.\\n\");\n        for (size_t i = 0; i < count; i++) {\n            free(strings[i]);\n        }\n        free(strings);\n        return EXIT_FAILURE;\n    }\n\n    printf(\"Concatenated result: %s\\n\", result);\n\n    free(result);\n    for (size_t i = 0; i < count; i++) {\n        free(strings[i]);\n    }\n    free(strings);\n\n    return EXIT_SUCCESS;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "CAQS0w0KEAgTGAI4AUIIdGhpbmtpbmcSDAGV+A1bvtolSj48cxoMsOcp84H2vTid9oufIjDFe9uPhLI+cLpensqA7UaeOS65mhRd3GKEl1MN4se6GgZG8i3zs03lwvMrNlkXvP8q8AzLfTuSnmzj3qGqRoY6B52NdxsdmF+kIhSaZLHY05Qusjpf+xTcqMSLUNWOWrm65NiJdYG+HBXwmscyx6hN6HY+Jxs3/4PVpR+RIyv4NfYR9AdHqtvmQ6n8dXcQNtUikwAwMKDwQYSdIotkHRtZFtmx+rLG8UOQPpmRAxUutH3mGCq3Bq2GqcdavLkbJ/csowLUXhblBYAeWXCFOaEW8EAWfyOitdmS1tuDCk5ncFbt3QobLJ0ivMpPm2XVtdbL/uXs3VYGk21YCNFkbZwCcpvQMnPOpPve1EAFRamlkOxAhkiOj+KPff3M8BtxDG+mbb3FhIrSiY4RxmR5qeA9gWZIrXWg5oVBAT1aTOG2NguUnNzLhZ0hbYt98svVxXBJOtaL/5HekujLXCLEF3Zb1fMLiBn1WEcoB9wZgFnnv/KvdcTutNJn1sA0qw26j8OFfMfMLBoBnvch2cwAzSkCrDVnWukKTQQVpKynQanFqCmAkkrQmUfx6cnHS/C94o0wkIccYdq0n7suG8eRz0V1F5MyTORbkuOIXPsMa2H3oYgT0K8gu+0t7jFCyEOnSVRUcMlmBIvM/h1dt1GsqvWUHagLEs/J4ij528qZUlfXyIBUt1WnUQpbWBYR0A6cJAXANhW4tMPzmaxtDA0VWTdO+A2fzy8+Tuh1dZVmLzzLypUx6Xd0dABBJekfvzBLiJ6oDJdznvVZ4x6l5TcLWEd/kK1b1VfTcvqAbGOMZ4EBwPeBfk0tM5nxC7fzULVqxGgnLaXmPZ3JKLWQr0YBySQDJ6b2zbvhqFLVIy6gqAwtUqfixMUmSNqL7YdwuNiTGubTYowCdS6wmKFTJVZmwomcAsTwIezmt3GokPLu8GOeI0C+WuzYgg3AQzFO7U2+Pyf1M1eXIC9oASkgl4MN3Sp0M/8ei1kOhfqI6nRfzCULRMxt1tftNQMGRHjwtfDmbMYwEWqnP2YxmoBRaNfNhzkdLAJWs4nFCrrz4Arg64lcZ1g29zciwpocuW2RDUTM+h3smWPFpBcoukusjA3Vc0+S+ZQQUYO/qjSaH5HshKJWXw6aU+qAD9+V3xDaKXWS/KhKybjlgO6ZQ4xYX5U1LUaB3sR9QiNrl9AkoT9TZsg2VzUqzRU7ax4QR3+QeMQJynBYMsDVuGK6HsfSprKNeV7lseeEo7h8epcm0b8xo7AJ2opL1BlkM0lGjqwFRHwYI2m8kqBeuLNyze47iw4yesiUksKc0VXHI0TShLXq5afOZOeKOs3eQLsc8aUzWsV+ZzFaC3Ny+jByUG1XGsi/IzZmorEZiskOqAH5xb4TUwf90LiyONEU2BuDys7/5H904AVjtBPeUpbo0KMt9EElNyj+m58YFJkJd3meedRWNBv3QH5hGYI8h/tWvP46/3mz2x9/f/vvnToFOSFs6ao0qdPbBcB7eVHMpOiy1UYugWl4yF0V0rRjCDLsYMkirLMDGZ9iyPOAoovs+XmIABdhNV+oS5diaZXwMFpXLUP4BAr4fFEEXJGmoH3vZ9d6hEa3g2j1EnrKXS0itbt6TSLDZx7ugDXQaCYw2sbkNcNiGt/uBJITV0JDG7E5G0Who8VxhKQXFB3VXjU5mbpEasfZZUbSJmqaBQtrfo+KaTDVkTGqT7un1p/83lQr/yEHGaZGrLWCaL+CWHCsUpt25Pitdgy9CWFwjsZBMXqMEITzobHZkKpl4L1a5CMqjvghOpBQe4sOswAV+gd6QfDR2Pz45zlQJGJdjP8aWQLOXnvVbWPuOSIykwGmxbd5fNYi95CZHDGu4FW2JEGPBV3z1L/TcMtlApc42+DDGTpZ1I+hxOAkwj4HKizQ/GRS7gTDND4+FTHljuN3DBpQcrk+HenKy2cuUpT/mm4ggJB76MtB2WY/Ue3z7VmsDh+dfCe86UvXgJCki7TgQ6vD75Z6ECAdbgaDEwijg8swjh1rezTw2kfRA3Zux3t/VLhom/yuBKlzsrN4aF4muc8k/ON3SzKXX8+PHo7i5Iy3vgIg8o9s/41jXdbadXga6QrsqZamPHX8Ml0F7OQopxc9uTJWiAn2V1aBonpTpCkQzlN5xh14C6+sCoKeqCUvjF8X14WRMQM00p6MADqkDglSUAAtsPZQIo7F63Mkgj6Nw6OokiojNHdWlsUcIE6pA8G62hmKgTsps4TU3sbavcFVrnC7z+z2/L1NFvguGAE=.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 148,
+      "completion_tokens": 1563,
+      "total_tokens": 1711,
+      "cost": 0.0007963,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007963,
+        "upstream_inference_prompt_cost": 1.48e-05,
+        "upstream_inference_completions_cost": 0.0007815
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 408,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

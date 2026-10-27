@@ -1,0 +1,23 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "Task44_CLAUDE_claude_3_5_sonnet_20240620.processInput",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  },
+  {
+   "canonical": "Task44_CLAUDE_claude_3_5_sonnet_20240620.validateInput",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 268,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_044/gemini-3-8-flash/Task44_gemini-3-8-flash_java.java",
+ "artifact_sha256": "65df4e104c65ce48172542bf5a3719ffd87091de952fe3bb20b6d70695e41c7e",
+ "oracle_test_path": "src/test/java/claude/task44/Task44Test.java",
+ "oracle_test_sha256": "efc7ce03f28c30057e46c3ff96faca5466c4acafbf70fee7bf58f7987cb17b6a",
+ "author": "functional.py draft_adapter (static)"
+}

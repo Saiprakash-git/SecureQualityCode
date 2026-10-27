@@ -1,0 +1,7 @@
+@@076762bbb5903099 STEP 0 BEGIN@@
+
+@@076762bbb5903099 STEP 0 END rc=0@@
+@@076762bbb5903099 STEP 1 BEGIN@@
+All test cases passed.
+
+@@076762bbb5903099 STEP 1 END rc=0@@

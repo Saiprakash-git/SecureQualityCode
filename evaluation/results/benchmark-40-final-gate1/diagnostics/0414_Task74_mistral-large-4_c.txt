@@ -1,0 +1,4 @@
+Task74_mistral-large-4_c.c:3:10: fatal error: 'libpq-fe.h' file not found
+    3 | #include <libpq-fe.h>
+      |          ^~~~~~~~~~~~
+1 error generated.

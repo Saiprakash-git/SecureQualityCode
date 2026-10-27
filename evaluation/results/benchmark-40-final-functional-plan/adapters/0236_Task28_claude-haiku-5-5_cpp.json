@@ -1,0 +1,31 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "likes",
+   "target": "likes",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "std::string",
+    "params": [
+     "const std::vector<std::string>& names"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "const std::vector<std::string>& names"
+    ],
+    "return": "std::string"
+   }
+  }
+ ],
+ "combo_index": 236,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_028/claude-haiku-5-5/Task28_claude-haiku-5-5_cpp.cpp",
+ "artifact_sha256": "4f551efff1e99619b9244f153a368d500177c5e4b292e739df2611b1b0ce8143",
+ "oracle_test_path": "tests/claude/Task28_Test.cpp",
+ "oracle_test_sha256": "77913705510812b0f1891753f39c2df01da0335ad8cff6630155cbc44ef34a65",
+ "author": "functional.py draft_adapter (static)"
+}

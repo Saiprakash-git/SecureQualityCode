@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793017747-GQkyKsyHOS3f9myaCUZb",
+  "finish_reason": "stop",
+  "input_tokens": 150,
+  "output_tokens": 2025,
+  "cost_usd": 0.00770625,
+  "raw_response": {
+    "id": "gen-1793017747-GQkyKsyHOS3f9myaCUZb",
+    "object": "chat.completion",
+    "created": 1793017747,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <openssl/evp.h>\n\n#define AES_BLOCK_SIZE 16\n\nstatic const unsigned char STATIC_IV[AES_BLOCK_SIZE] = {\n    0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,\n    0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F\n};\n\nunsigned char *pkcs7_pad(const unsigned char *data, size_t data_len, size_t *padded_len) {\n    size_t pad_len = AES_BLOCK_SIZE - (data_len % AES_BLOCK_SIZE);\n    *padded_len = data_len + pad_len;\n\n    unsigned char *padded_data = (unsigned char *)malloc(*padded_len);\n    if (!padded_data) {\n        return NULL;\n    }\n\n    memcpy(padded_data, data, data_len);\n    memset(padded_data + data_len, (int)pad_len, pad_len);\n\n    return padded_data;\n}\n\nunsigned char *encrypt_aes_cbc(const unsigned char *plaintext, size_t plaintext_len, const unsigned char *key, size_t *ciphertext_len) {\n    if (!plaintext || !key || !ciphertext_len) {\n        return NULL;\n    }\n\n    size_t padded_len = 0;\n    unsigned char *padded_data = pkcs7_pad(plaintext, plaintext_len, &padded_len);\n    if (!padded_data) {\n        return NULL;\n    }\n\n    EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();\n    if (!ctx) {\n        free(padded_data);\n        return NULL;\n    }\n\n    if (EVP_EncryptInit_ex(ctx, EVP_aes_128_cbc(), NULL, key, STATIC_IV) != 1) {\n        EVP_CIPHER_CTX_free(ctx);\n        free(padded_data);\n        return NULL;\n    }\n\n    EVP_CIPHER_CTX_set_padding(ctx, 0);\n\n    unsigned char *ciphertext = (unsigned char *)malloc(padded_len);\n    if (!ciphertext) {\n        EVP_CIPHER_CTX_free(ctx);\n        free(padded_data);\n        return NULL;\n    }\n\n    int len = 0;\n    int total_len = 0;\n\n    if (EVP_EncryptUpdate(ctx, ciphertext, &len, padded_data, (int)padded_len) != 1) {\n        free(ciphertext);\n        EVP_CIPHER_CTX_free(ctx);\n        free(padded_data);\n        return NULL;\n    }\n    total_len += len;\n\n    if (EVP_EncryptFinal_ex(ctx, ciphertext + total_len, &len) != 1) {\n        free(ciphertext);\n        EVP_CIPHER_CTX_free(ctx);\n        free(padded_data);\n        return NULL;\n    }\n    total_len += len;\n\n    *ciphertext_len = (size_t)total_len;\n\n    EVP_CIPHER_CTX_free(ctx);\n    free(padded_data);\n\n    return ciphertext;\n}\n\nint main(void) {\n    const unsigned char key[AES_BLOCK_SIZE] = \"0123456789abcdef\";\n    const unsigned char plaintext[] = \"Data to encrypt using AES-CBC with static IV.\";\n    size_t plaintext_len = strlen((const char *)plaintext);\n    size_t ciphertext_len = 0;\n\n    unsigned char *ciphertext = encrypt_aes_cbc(plaintext, plaintext_len, key, &ciphertext_len);\n\n    if (ciphertext) {\n        printf(\"Plaintext: %s\\n\", plaintext);\n        printf(\"Ciphertext (hex): \");\n        for (size_t i = 0; i < ciphertext_len; i++) {\n            printf(\"%02x\", ciphertext[i]);\n        }\n        printf(\"\\n\");\n        free(ciphertext);\n    } else {\n        fprintf(stderr, \"Encryption failed.\\n\");\n        return 1;\n    }\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Developing Initialization Vector**\n\nI'm currently focused on generating a static initialization vector. My thought process is moving towards implementing a robust method for its creation, ensuring it meets the necessary cryptographic standards for security.\n\n**Refining Encryption Process**\n\nI'm now exploring the specifics of the AES-CBC encryption flow. My focus is on leveraging OpenSSL's EVP API to manage initialization, padding (specifically PKCS#7), and the encryption step itself, aiming for a clean and secure implementation.\n\n**Implementing Padding Scheme**\n\nI am actively working on integrating PKCS#7 padding into the encryption routine. My current focus involves carefully calculating and appending the padding bytes to the plaintext before initiating the AES-CBC encryption process with OpenSSL.\n\n**Integrating Padding Logic**\n\nMy current efforts are centered on precisely implementing the PKCS#7 padding calculation and application. I'm ensuring the plaintext is correctly augmented before it proceeds to the AES-CBC encryption stage, utilizing the OpenSSL EVP API.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Initialization Vector**\n\nI'm currently focused on generating a static initialization vector. My thought process is moving towards implementing a robust method for its creation, ensuring it meets the necessary cryptographic standards for security.\n\n**Refining Encryption Process**\n\nI'm now exploring the specifics of the AES-CBC encryption flow. My focus is on leveraging OpenSSL's EVP API to manage initialization, padding (specifically PKCS#7), and the encryption step itself, aiming for a clean and secure implementation.\n\n**Implementing Padding Scheme**\n\nI am actively working on integrating PKCS#7 padding into the encryption routine. My current focus involves carefully calculating and appending the padding bytes to the plaintext before initiating the AES-CBC encryption process with OpenSSL.\n\n**Integrating Padding Logic**\n\nMy current efforts are centered on precisely implementing the PKCS#7 padding calculation and application. I'm ensuring the plaintext is correctly augmented before it proceeds to the AES-CBC encryption stage, utilizing the OpenSSL EVP API.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 150,
+      "completion_tokens": 2025,
+      "total_tokens": 2175,
+      "cost": 0.00770625,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00770625,
+        "upstream_inference_prompt_cost": 0.0001125,
+        "upstream_inference_completions_cost": 0.00759375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 975,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

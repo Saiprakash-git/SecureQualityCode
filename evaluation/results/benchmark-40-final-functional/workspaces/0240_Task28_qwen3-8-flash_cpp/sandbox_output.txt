@@ -1,0 +1,7 @@
+@@9c8030f04790c38a STEP 0 BEGIN@@
+
+@@9c8030f04790c38a STEP 0 END rc=0@@
+@@9c8030f04790c38a STEP 1 BEGIN@@
+All test cases passed!
+
+@@9c8030f04790c38a STEP 1 END rc=0@@

@@ -1,0 +1,31 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "to_jaden_case",
+   "target": "to_jaden_case",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "char*",
+    "params": [
+     "char* string"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "const char *jaden"
+    ],
+    "return": "char *"
+   }
+  }
+ ],
+ "combo_index": 132,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_017/gpt-6-luna/Task17_gpt-6-luna_c.c",
+ "artifact_sha256": "445b6df1b6349f517f449e1cf9747f6c79bfcd550bc5388b7d4306bb327194d8",
+ "oracle_test_path": "tests/claude/Task17_Test.c",
+ "oracle_test_sha256": "fbf93d1c61c0e4ad6544e76ffb31ddf7c21baa233e7f5ff9dcf60afc663c7015",
+ "author": "functional.py draft_adapter (static)"
+}

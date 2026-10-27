@@ -1,0 +1,7 @@
+Task37_claude-haiku-5-5_cpp.cpp:1:1: error: expected unqualified-id
+    1 | ```cpp
+      | ^
+Task37_claude-haiku-5-5_cpp.cpp:5:10: fatal error: 'sqlite3.h' file not found
+    5 | #include <sqlite3.h>
+      |          ^~~~~~~~~~~
+2 errors generated.

@@ -1,0 +1,4 @@
+Task86_MISTRAL_codestral-latest.cpp:4:10: fatal error: 'curl/curl.h' file not found
+    4 | #include <curl/curl.h>
+      |          ^~~~~~~~~~~~~
+1 error generated.

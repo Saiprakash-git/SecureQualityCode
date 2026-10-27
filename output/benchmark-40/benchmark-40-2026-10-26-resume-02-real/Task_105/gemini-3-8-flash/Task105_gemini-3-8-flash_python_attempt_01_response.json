@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793023957-8MWJctD4tLZidvxi1x27",
+  "finish_reason": "stop",
+  "input_tokens": 99,
+  "output_tokens": 1620,
+  "cost_usd": 0.00614925,
+  "raw_response": {
+    "id": "gen-1793023957-8MWJctD4tLZidvxi1x27",
+    "object": "chat.completion",
+    "created": 1793023957,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "import socket\nimport ssl\nfrom typing import Any, Dict, Optional, Tuple\n\n\ndef create_tls_context(\n    verify: bool = True,\n    ca_file: Optional[str] = None,\n    client_cert: Optional[str] = None,\n    client_key: Optional[str] = None,\n) -> ssl.SSLContext:\n    if verify:\n        context = ssl.create_default_context(\n            purpose=ssl.Purpose.SERVER_AUTH,\n            cafile=ca_file\n        )\n        context.check_hostname = True\n        context.verify_mode = ssl.CERT_REQUIRED\n    else:\n        context = ssl.create_default_context()\n        context.check_hostname = False\n        context.verify_mode = ssl.CERT_NONE\n\n    context.minimum_version = ssl.TLSVersion.TLSv1_2\n\n    if client_cert and client_key:\n        context.load_cert_chain(certfile=client_cert, keyfile=client_key)\n\n    return context\n\n\ndef establish_tls_connection(\n    host: str,\n    port: int = 443,\n    timeout: float = 10.0,\n    context: Optional[ssl.SSLContext] = None,\n) -> ssl.SSLSocket:\n    if context is None:\n        context = create_tls_context()\n\n    raw_socket = socket.create_connection((host, port), timeout=timeout)\n    tls_socket = context.wrap_socket(raw_socket, server_hostname=host)\n    return tls_socket\n\n\ndef get_connection_metadata(tls_socket: ssl.SSLSocket) -> Dict[str, Any]:\n    peer_cert = tls_socket.getpeercert()\n    cipher_info = tls_socket.cipher()\n    tls_version = tls_socket.version()\n\n    return {\n        \"tls_version\": tls_version,\n        \"cipher_name\": cipher_info[0] if cipher_info else None,\n        \"cipher_protocol\": cipher_info[1] if cipher_info else None,\n        \"cipher_bits\": cipher_info[2] if cipher_info else None,\n        \"peer_certificate\": peer_cert,\n    }\n\n\ndef send_and_receive(\n    tls_socket: ssl.SSLSocket,\n    data: bytes,\n    buffer_size: int = 4096,\n) -> bytes:\n    tls_socket.sendall(data)\n    response = bytearray()\n    while True:\n        try:\n            chunk = tls_socket.recv(buffer_size)\n            if not chunk:\n                break\n            response.extend(chunk)\n            if len(chunk) < buffer_size:\n                break\n        except socket.timeout:\n            break\n    return bytes(response)\n\n\ndef execute_tls_exchange(\n    host: str,\n    port: int = 443,\n    payload: bytes = b\"\",\n    timeout: float = 10.0,\n) -> Tuple[Dict[str, Any], bytes]:\n    tls_socket = establish_tls_connection(host=host, port=port, timeout=timeout)\n    try:\n        metadata = get_connection_metadata(tls_socket)\n        response = send_and_receive(tls_socket, payload) if payload else b\"\"\n        return metadata, response\n    finally:\n        tls_socket.close()\n\n\nif __name__ == \"__main__\":\n    target_host = \"www.cloudflare.com\"\n    target_port = 443\n    http_request = f\"GET / HTTP/1.1\\r\\nHost: {target_host}\\r\\nConnection: close\\r\\n\\r\\n\".encode(\"utf-8\")\n\n    meta, res = execute_tls_exchange(target_host, target_port, payload=http_request)\n    print(f\"Connected to: {target_host}:{target_port}\")\n    print(f\"TLS Protocol Version: {meta['tls_version']}\")\n    print(f\"Cipher Suite: {meta['cipher_name']} ({meta['cipher_bits']} bits)\")\n    print(f\"Response Length: {len(res)} bytes\")\n    print(\"Response Header Preview:\")\n    print(res.decode(\"utf-8\", errors=\"replace\")[:300])",
+          "refusal": null,
+          "reasoning": "**Developing Secure Connections**\n\nI'm focused on building out the core Python functionality for establishing robust SSL/TLS connections. The current objective is to implement the client-side initiation of these secure links, ensuring proper certificate validation and handshake procedures.\n\n**Implementing TLS Client**\n\nI'm currently drafting the Python code to create a `TLSClient` class. My focus is on defining the `connect_tls` method, which will handle establishing the secure connection with specified host and port, along with essential timeouts.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Secure Connections**\n\nI'm focused on building out the core Python functionality for establishing robust SSL/TLS connections. The current objective is to implement the client-side initiation of these secure links, ensuring proper certificate validation and handshake procedures.\n\n**Implementing TLS Client**\n\nI'm currently drafting the Python code to create a `TLSClient` class. My focus is on defining the `connect_tls` method, which will handle establishing the secure connection with specified host and port, along with essential timeouts.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "AY89a19Vx4tiwGwWkkPCbeyKtT7RWr9g3aI8LX2Gw3/Ac/YqhtFlzU0SDDfK0kR3UR18CDxxctog6s+ZTj+3IWRkY0b9fBJv+0aYNNNDXjeqpLDNQcy3u2nK2F7+XgQDi6GlA72DhUWRh4svA/VDbh3Ot74mCB7Si2lmNrSDeDOa4D2ZxPVe9+QvUsr030LI4LO5Zy/7+qGIoYtmT8MHLXZbz/mgr+hpeMogPNdmXKDAg5Yz+2nP+dtW2Js9L8xXNEKbdeszv09/d237p38PW/IA8QQ0jHrO+mDGdAfPK88/+uQScwCtpC6uynCq1w5gZrPbWdEZtjh5ZC8xE+514Oiyv7QvXPuvSO6B93kAJ8kuvgpQgO9cWB5Y40Xo+gh//0LGlEZGLTib7faynMoAtzfGXnAWgvnBKiKtHxiGB8W+4RF83lLjopR+fYHAYjG9LeWi7XyMTIwFDoUy8h7liy+ADg5/pZhQhD5HfIQDVl8PrRO35DDmZzP7yBjJDprgrC8c5LjjiZxQE5y7sTNjfwMgddaL+kWSLbbFHAYz1QKULOZmUueDt7Rcg2ocHGLnKuAWwvo2o7yBkgG4FRokVxswewKoQOpDt5HkUz/rH5NtsZs4ON135SQA8S0MWEKh68GLkMPGrjBjqDdxdOlKIXlENkjwHqg+ny9aj634bugonX9ca8Mh6f2WJybhktdCzw/4KY5I+mYKDh2bu7ldJsgoDoS/j5Wb+EOKw0CWnfjM564KhlgBUFonyRDERaqOhdR/OxouPaMn0FK+WfUsU26RstG6eKUUdzd6DgE0eI+7JofopY4Q5ex8QnBxfBYYKw+9iPPKeSOzak8MgGVTzybSW55TGh6QPNQ6dgLfnw8sEXHPc9/21lw3/ddIq7z1hi0qe/9aC0SlsdSAwxzi0bTYNzYbMiXzh9V8Z7vIx6UwuLQeDusRMKh13uIHKlz58zWoAA7C+9rCllgwA9ZKnihyJrXSW+5vrZOyb7Xb4foeDnL8LFkqJ6sM5PAShGlAfXIJmhtcUReoVMNO1G3iJtRInSf49yy2ToU0ajnPR3Aae0pIzL0uOd5ZrKxPHJBFdqwUcK8ujCf5X0WBKIPsZ8rLcwgywzxac0FIlsCRR+85izvQ4q+Lr5xg5OVmY6S2KTKIgJs3fj0QHw/aJ58u7Oa6rHT94qGoK++sTrClg7pc2YyiO2UczlzM+jyMfiG/prqomN1A5dHtHc5+iuM3+X0/ix2C/1YrgDV4EKXeQIS+qZWOfu1qNwQ1U795txDCKT+0YeJt7jCYBxOE+b08UVkMwfv1haXWMZrsvGsTKRnP+iC98xOUFi3H3anjrAUpV2en4MBGbenKmTM4iwOOJqoh7SuklyXR0+RbDI1Oi0B68w2Oov+qNcCsKRPkfGrJJ/PdeTA4+7XlBDyyw/vmx8TdjN9k2ezKPZe03KKLNdQGsj4s6wRQyYp1OUafXLJhqQzGT0qwb8q55W5VKsbZDwwDlf+PRHH2xUJ9QJFOO8QBb2bOH5mdE3JJsdvbz0VxS+8gsb9p9k0PuxJiXpbsK2uvgWtGuAh5FoXpDwS3FFKs4K02zxVzhc+bVYVourCXe484FGmyvg7ZXgyR1aLbf0kBzYlVucl+cb2WGNvOQJW4JqeFKTx1+WieiAlEU/gUBB6r7CDHl5oSlqoGibxpFtLMJD4TnWosn595czR8oHpqKfQunPOMb5k9EafFbCRLCy794jMMnlsfYccR2tBBk2KYgzVZNcH1E6WGPkY0++myrTgfIRmNVKpVXEn64Ik7egZERVHAvMEe86qhL6+FIZHoVJV7huvHvF7YGWrykdIrS7O7lWCgtUpU4pDTK2vPsNEhP4M98P87GMI4X6M8nDURzs5liGEriKCcbmOPxWvszcuYzE9CD8vyr8g/Mrad+3D5ASp4pRpk6Hf0f//jixoIv+cCooVNBMExoHCa5WcSQi+vhyi3e599SW9N6/voIMC2SsRFAslUxUvSFgphr08sZY2lzuwhzI1wEM6UFifyZaZRb239pqt0u2vrtv7eLQXewwlkuMRma6Q2aSYnY55RlSaI+rzjta+4vDakVOxD3uHDyRan+rQ/VGkLl1q5/nfgLUwjZapSF0la0vL0KqB+FpHeAoD6vEKQ2yAm+lLdAezO4DhpVLfpBkebkF/kofrCgjpOcQnbQUUXfDEQQiDJM4u7jYBSQNeOebR1X+YvwkpYqJjWDktMnjKLbTVjUDJftrJg25/ITE7ttUDUgdj8k3FhzVsoG44qQsICWcEGc4W4vxKRrrDbjgWkJsYJxS+fCRtCXiawilBAwp4hBpd2IgEM+1G/LyAJvh5RA35nHunEIzZvEB6vsyqIbkn/hi+wnHtg/ajF3LrKkMOrJOKA+8xuAJ/fPozsMDO5diMKzNvXwRjazwoy/YFmPF87/niOd/qLYRCzGwYfbZdRIuJdOGthbOm6Js++J7nfuK9P7YWX8jo536lZ5pTRqWPMr5CDaMe5PdPeUSm4OI6ckevTjD/E8mhChWIa2e6ziKgs0ac5oHCaKniyZn0uYfwEXjz/NNZe3S1cnbPSPg8RL43rHWZNvISzuX5MZ7l9UvQsVuEVf4o1zqZMJfkC+Aq92pWFEff10UGYyoA8l+Pd0maGt0mXxkUQglPklJPmQzG+mKGpDJTjxBnHrKNoq5S6+ccKdPPuql+vpjl2zP/fjEXQFf/ZjutfspTBCW0hw8ZwwxZWborOjEBuP2NU07AdEE96SjK8IggkT5/CL5BA7uy5HSJHbstVYxK5tOLuB4ecV3tUwZoqRuF95OV8JQuf+RV6LTu4e6XGzUz5i2UHiKIq7tyLTwpFpQ/78d5Qj0WGpMqRcIuY2U0GqqeJnP4+M5Oz6nih8OB3sMwbaEDmspj15ZhYzdphJ4s/wI8vRL+tlvRWUAFK/k14Bvf2pYFWGsuvSXVaydSAF6CjKY2tHfUjTnMOL5s9QkiHyoydRYhfo9o39vRGzIQEPr1+UURP+W0Xl0lbrUsTpgUzJLHoZV4gJ7zYhbYQImNatqRDvcn/ZHTBqth8qlCI5P6XYAc9rO6UZPxlQk/3YXWRK0CCCb7YuJ9XpkbtyBfhMqX//4EhCR5LCRaiRuyz0+g5ok1f/aV2RvWxBemu4QBg3aYNuHGm3QB/d7seYSSVh9/DUnwzspmUWuxXTtc0P802gYkClOX+OcwhBz9chy/PgZMX0YXpogvZnVvGWHlk8Xh5r2s9qoQ1n/Mh03eCH0RkuLtS9KbgA/EVcOIcar48VsuKtWYGMW7yd/X5qKpZSG7gi1CYfpSIKTstMtnMwgntMJfhb8vvU7yS0KhwyKWCj8vh430X2xh2huYzlvu22giRL/Y+lfNfEGKF8tlKTFpARP9ikmn3OwNTjvd8TC1kAQomLlHfsBMThAgIUAX7XxqxkOOhgijAdDvanpdT+/C7IgfspgImVh5w9R2Us0+ki602pSkKdElbSsYihdjvn47TrG+1dDioe0b+4YlaIp2GELMhupAvlfX0IUvHIlbT2WPbPucc2YXbHvOgDTmkn/0xRq7vD/KCw1bBQhAJ9yLXniwzbGfOEqgIIR1vEQuLlJbCYsKgha1Ew5uWvcvE6E4e0OJgw3oAg90COgVG0hBUJ1lY7HdBiQnlVw==",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 99,
+      "completion_tokens": 1620,
+      "total_tokens": 1719,
+      "cost": 0.00614925,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00614925,
+        "upstream_inference_prompt_cost": 7.425e-05,
+        "upstream_inference_completions_cost": 0.006075
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 622,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

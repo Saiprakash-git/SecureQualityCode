@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792946156-TezcHKNFUGwCXE961Nfz",
+  "finish_reason": "stop",
+  "input_tokens": 169,
+  "output_tokens": 1084,
+  "cost_usd": 0.0005589,
+  "raw_response": {
+    "id": "gen-1792946156-TezcHKNFUGwCXE961Nfz",
+    "object": "chat.completion",
+    "created": 1792946156,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <ctype.h>\n\n#define MAX_INPUT 1024\n\nstatic size_t read_line_safe(char *buf, size_t size) {\n    if (fgets(buf, (int)size, stdin) == NULL) {\n        buf[0] = '\\0';\n        return 0;\n    }\n    size_t len = strlen(buf);\n    if (len > 0 && buf[len - 1] == '\\n') {\n        buf[len - 1] = '\\0';\n        len--;\n    } else {\n        int c;\n        while ((c = getchar()) != '\\n' && c != EOF) {\n        }\n    }\n    return len;\n}\n\nstatic void to_upper_copy(char *dst, const char *src, size_t dst_size) {\n    size_t i;\n    for (i = 0; i + 1 < dst_size && src[i] != '\\0'; i++) {\n        dst[i] = (char)toupper((unsigned char)src[i]);\n    }\n    dst[i] = '\\0';\n}\n\nstatic size_t count_words(const char *s) {\n    size_t count = 0;\n    int in_word = 0;\n    for (; *s; s++) {\n        if (isspace((unsigned char)*s)) {\n            in_word = 0;\n        } else if (!in_word) {\n            in_word = 1;\n            count++;\n        }\n    }\n    return count;\n}\n\nstatic void reverse_string(char *s) {\n    size_t len = strlen(s);\n    for (size_t i = 0, j = len; i < j / 2 + (j % 2 ? 0 : 0) && i < len / 2; i++) {\n        char tmp = s[i];\n        s[i] = s[len - 1 - i];\n        s[len - 1 - i] = tmp;\n    }\n}\n\nstatic size_t count_vowels(const char *s) {\n    size_t count = 0;\n    for (; *s; s++) {\n        switch (tolower((unsigned char)*s)) {\n            case 'a': case 'e': case 'i': case 'o': case 'u':\n                count++;\n                break;\n            default:\n                break;\n        }\n    }\n    return count;\n}\n\nint main(void) {\n    char input[MAX_INPUT];\n    char upper[MAX_INPUT];\n    char reversed[MAX_INPUT];\n\n    printf(\"Enter a string (max %d characters): \", MAX_INPUT - 1);\n    fflush(stdout);\n\n    size_t len = read_line_safe(input, sizeof(input));\n    if (len == 0) {\n        printf(\"No input provided.\\n\");\n        return EXIT_SUCCESS;\n    }\n\n    to_upper_copy(upper, input, sizeof(upper));\n    strncpy(reversed, input, sizeof(reversed) - 1);\n    reversed[sizeof(reversed) - 1] = '\\0';\n    reverse_string(reversed);\n\n    printf(\"Original:   %s\\n\", input);\n    printf(\"Uppercase:  %s\\n\", upper);\n    printf(\"Reversed:   %s\\n\", reversed);\n    printf(\"Length:     %zu\\n\", strlen(input));\n    printf(\"Words:      %zu\\n\", count_words(input));\n    printf(\"Vowels:     %zu\\n\", count_vowels(input));\n\n    return EXIT_SUCCESS;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 169,
+      "completion_tokens": 1084,
+      "total_tokens": 1253,
+      "cost": 0.0005589,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0005589,
+        "upstream_inference_prompt_cost": 1.69e-05,
+        "upstream_inference_completions_cost": 0.000542
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

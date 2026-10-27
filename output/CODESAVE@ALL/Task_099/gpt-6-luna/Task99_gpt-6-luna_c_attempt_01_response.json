@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793023824-UDPZn5ERRh1SjQ6Hx1lK",
+  "finish_reason": "stop",
+  "input_tokens": 115,
+  "output_tokens": 775,
+  "cost_usd": 0.000399,
+  "raw_response": {
+    "id": "gen-1793023824-UDPZn5ERRh1SjQ6Hx1lK",
+    "object": "chat.completion",
+    "created": 1793023824,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#define _POSIX_C_SOURCE 200809L\n\n#include <regex.h>\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main(int argc, char *argv[])\n{\n    if (argc != 2) {\n        fprintf(stderr, \"Usage: %s FILE\\n\", argv[0]);\n        return EXIT_FAILURE;\n    }\n\n    FILE *file = fopen(argv[1], \"r\");\n    if (file == NULL) {\n        perror(argv[1]);\n        return EXIT_FAILURE;\n    }\n\n    regex_t pattern;\n    int result = regcomp(&pattern, \"^[0-9]+.*\\\\.$\", REG_EXTENDED);\n    if (result != 0) {\n        char error[256];\n        regerror(result, &pattern, error, sizeof(error));\n        fprintf(stderr, \"Regular expression error: %s\\n\", error);\n        fclose(file);\n        return EXIT_FAILURE;\n    }\n\n    char *line = NULL;\n    size_t capacity = 0;\n    ssize_t length;\n    int status = EXIT_SUCCESS;\n\n    while ((length = getline(&line, &capacity, file)) != -1) {\n        while (length > 0 && (line[length - 1] == '\\n' || line[length - 1] == '\\r')) {\n            line[--length] = '\\0';\n        }\n\n        if (regexec(&pattern, line, 0, NULL, 0) == 0) {\n            if (fwrite(line, 1, (size_t)length, stdout) != (size_t)length ||\n                putchar('\\n') == EOF) {\n                status = EXIT_FAILURE;\n                break;\n            }\n        }\n    }\n\n    if (ferror(file)) {\n        perror(argv[1]);\n        status = EXIT_FAILURE;\n    }\n\n    free(line);\n    regfree(&pattern);\n    fclose(file);\n    return status;\n}",
+          "refusal": null,
+          "reasoning": "**Developing a C program**\n\nI need to create a C program that reads a file and uses regex to find lines that start with numbers and end with a dot. It seems like I should use the command line interface for the filename. I plan on using POSIX regex, with a pattern like `^[0-9]+.*\\\\.$`. I\u2019ll have to ensure I handle newline characters properly and include error handling. Also, I\u2019m considering if I should read from standard input if no filename is given. Let's make sure the output is clear and preserves the matching lines!**Clarifying output formatting**\n\nI\u2019m considering how to handle line endings properly when the line ends with a dot. If I have a CRLF line, I'll need to strip the carriage return (CR) before matching. Using `getline`, I\u2019ll probably remove the newline and the CR before printing the original line. To ensure that matching output has the correct line endings, I might use `fwrite` for the line characters and then add a newline with `putchar`. I have to ensure proper error handling as well, along with correct regex handling of dots!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Developing a C program**\n\nI need to create a C program that reads a file and uses regex to find lines that start with numbers and end with a dot. It seems like I should use the command line interface for the filename. I plan on using POSIX regex, with a pattern like `^[0-9]+.*\\\\.$`. I\u2019ll have to ensure I handle newline characters properly and include error handling. Also, I\u2019m considering if I should read from standard input if no filename is given. Let's make sure the output is clear and preserves the matching lines!**Clarifying output formatting**\n\nI\u2019m considering how to handle line endings properly when the line ends with a dot. If I have a CRLF line, I'll need to strip the carriage return (CR) before matching. Using `getline`, I\u2019ll probably remove the newline and the CR before printing the original line. To ensure that matching output has the correct line endings, I might use `fwrite` for the line characters and then add a newline with `putchar`. I have to ensure proper error handling as well, along with correct regex handling of dots!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq319X_e8c_Vd2WMute3sgLSVzHdxgupjJs_7Pduo-E5lJU1_eGm1FfA1tXAzW-3DUbS2Ic7RqDzKOZb8Yj75MUIn3PiXJeoehienysTZtB_l2_d5BdkmxbgmLVjrrerH3aonTx1rRfQFdgmvYtf4n853pmmvnBBvEzJ3k9TwPe5-murKuBPNJsdq_xkdsOGVdKNRyBIJGmYnpy1p6la0L42LEB2RGxOgX5zs9T3mh-eHSQSdi9FSsUhCKkxH0ke-NchVe4itIbnseIO8c97ruZ3lJSnNiRjspMesEsuQGQSQnhQFRHEO_JvFzhbjUQI0ESgxxUcVcyP_pe3FrtYFmymmeGcQ0GuoawoEweRUT7O_uWNvty1h6DxsqNfB97QEenhwMXn9QMlgwg8wLtbdqqaifaoWyQMISNfpKlZ2LvYm9xUoOm2181h4TX3PJZ08lDJt-4OgjGKPnaYCQATQsqYPKudnW-iXiA8SWbTCxiQiRTe0VBJQenxTtF_W79J4FpggJK-0nAWrbFG0OP8aP5SmUgknx4k1aweIU_gwcEAiVrBdGhTFPfeEGz8SVLTCgjdaGNOcsnvLrcSvuV_pc4SUBY9gTdwpa2CPANLs_29d6IysfPAYO_f-LWEjwc6E8meJXwXwEbY0ANyomtRrhpg9pET8Os5qjxHyxjjtnQOLuETPPyqkS5iSUdOWAyRgHkv7AaqDnE0oyMzkXmCcfA-XONu4iXtapK9dxcf3P9mgqW-y6baeQCjQVehQLfmEjJhcfxSnKU3DbogqSBoPOEo0amxoSt8W7_OW5k-jOPwTMwB1pAKI9jxMm6oLCdzOQ_WDtneLosHOrit6YddyvAC249FXRZrHnoUiTY_EpZcTT0zuEBQ0WKhrMR7L2SaIEbGcNDS4QV1GlKFhs4N8n4ETmAhwdFJY5EeAWJbmldwTVUmrArL7s9ilRNPJpJEttO5_aSop-kXSpxfsZNsDyLyh7UqQ4CRviE8ZGLNwRCx18f1ObMJjM9lLiPYI-BO5cqPS1kRvDbT_RJKbvLUXzO610UOgwBFKISZoI9vmwzXNlUVntSBoeUsdTcwj4eJiMUC9htXHHzqiz24derz8i3JMpGTqKMFhl0-qoQjFdtcJK_mtwPr3dDP1DH4Y_Y60B9BQcPeSQA0rosu-EWWb5zUudvGgA-oGtZ1Oz6JPRDQvfv9klTAz86skR9tseu212PDTVq81lfYaFZrZUGf2PdIkJkHbQsqHqX3T9BVx9DWoAtoUl1fNTToj0890Kb7_dyg5-DjJLFI51g0P5j8jQbMEiG10bTpuLrpomrcmBZCEkrJqI_SPP2PcDv2s-8tRNpxHgbSX5dKouryYkw4SuqNULtf8l3XFgCbWLboKrk1qoAsb9A5z3-T94PeO-zvMtXz3CCneuoQJjY208afggMOcvg12wB-lHOgs-gcH9iT7LY9SIOEieJ0SMP1_S8tOYj2iYbk0Oc5nZxigBsTNb9tO33v3_cK1wTl6ArGtzXMfzxa9gb6J9zct3IY_NsbOVRw4VjV9lR_wWU_NTGjHnewvjWDIcgNejraUbMv-8ZDyMDsYiEYryyPiZXP70l1cWwnoW5hCuW-qbxWPkrg3IkyhBrljz0MfgR7ECEDah2S9BDT73wDsKy0eAkeMFKAPgfrIzCSi1kF-QMOzGSrRASUzCXyyVgaNCyaC4wy3EdYjZeGqPR0eWamEED5qIgxNZRluhNO2hE_2beeZ1d6b6lI8O3D3m82RHS4OLZ8wV97wc7OJ73KjL_iBlvh-ak2-I9x01kSnroORkYS-VuGX1wXF9H8GerMgLhP3IG3yDmXBNXLbmOsCzTar_h1PjdR87isczVpMQLFi72-ASKAMOp4AsSQcNyW4RGLnG-prfy3Vi6bqF-3ACO2F3DeLwhOqdacWedZ15-tejgQ6PqRz3UGjMUYyWUvqKSbcmJufN46bu0kCOazBprD5RUdgnBtbSNeN0WCMVR-aj1oiYtSN_Kk-emZsP01IJw_7lWX2OR2CP2hikPgwyODGVyHyZV-1hJWJiX_WlK0JQGNqDLCDai_lAXS1t9A8kKhxq0rlSkMseVGaGdorAtFSLtLHakS3350PV52tuFW2VtHaBuTii0YATE3vuNL6X2os1w-6RbsPFyOANYFtA0A-uzVd5rdeTWD0OzM8VpwSFw5gi3CjRNqV_5XBBFqA3xGDXZxHeaqvRxD51Toxd23h2GORc7JhHBha6aOny9s0zuFcTaZf1dcmthV3vZLBLrC-bbGhgkmIDfC5g3sGSYyKMhaqLUZXrMLJsTbaTdX1lKRihcJV_O9rTLHocYTclgNh9Ce23CrDN58ZuRa8nKQIa-S9VL2nVd9Sgqoc6vYyqkwaJQItk_a2yc96-reyGi44G8KajjqQs-298P9_5T1o62dIBWJJG6lMiVB9UG1ubcDMDh_RH61b0_Bs_e5gP57W8zMMubI_2oCfQWaC10WxkFBKq_tGAC1y5bINX9Hsqqr_cSyvmvelDEBqzHRJ7vdTtTqqyjLKh8Gci20oF_wF3MeokkNmDhFj_F5WE52ft6w93Tvy82GyvD06YDnMMUeXTc_2JF7mUl3voM7lbkF8dxZF1fsORnZwydgcRCIwNM4mnAkByfGJjvvkSFgAgpa2ZWXXXzSBx-dUhN_kwA2lakf6wQGTIxvH0NY6XjG-44bToumAep0jyPQA2sYbVphCBiIwsgd1XfWJ3b5RiZOR59mqNlA7z05tj2EAgeuG4k7ku-Ls7Wl1lhajQo_66dJcSzGlG9M6qR6axSzUaGGyewqfjtg7Tn3sEbiPQblWUwitA-8SX3LdmZsdkmcltC9yIsvQIrx_ZOsThcApdzPI_XrbDqS7SppTQliWztI2IwOOwxW0VQdhYAG8g22qgmJn9V_G-DxrDTgyNACfRi5mkizGEV9KozKaIZJrVYQM_rF4V5GKM2JLrn0b8zIqA1eeggvxcdNWUMK8_6PTtBkwn1cR__3-ujejGy_qu2Wai4UP0tdbeBxK6nLGGh2WSTCzUxacE0OIs-F3mUsh5BkkCwrX5wYAiPEh5jSvgQMopqPIX3g9r-j63szI-leVHrhk1FL8aSJAaCT6vITX8Pm7hA8silAT2NBXbdY6-EPf1G1EWndHDyE56nZS-Je8KwW6Q8lUaBdFpdQaW1Ga4SStScW5vzWKCk_nXnAEhPUji61QIjoXFDwnRBALo2l4SlJQO2g0xEXntQxhiDhNUzhrm7c7eBaZlZvOv_OSoNuKX7csFy_lC9Nvf5iPcKX5-pZt7t4kpunmKNU9sA9XcDQjkJN6S6lkEtz90RgKQWlTYHUSh0djCI9JndEaBStEBt8Xe4BXVKtfz2XxqlkaH7_WeFZn5WMuq6KPfAKQEequgbZu6L28M7AK6qWiX0FhrIk961E69Tm9aHNgE7zjFnpPjbmOFuApiqzfratYAwva2WE_h8k7RWVNI329DyWrs3fnjvrDLb8XicU5J-3u6dvdWM9-F_ZTH8RFYEhN67NQgatv_gShmX9eKlBqIeumdcvp1m40dXo-XolEqGf6esDwYt36_9oocuirgYSuPUSZ2w5r86KRxNsKCW8COx3DbVgqv6KUv53sZmx95_yvJFkRj3w_f4HkgjOrJJeqL4-415UVFnjyMLuMbLd2OwGKqUIkM3rl1yAFxUE_UwcRQo-HK7UQzm22r5_t9feQsW-ocKMmF5ZK4_lh8eyP03y0dpFifhJVtJ9hjIDcXXdBbxLPrQxQzptIgu7Dhu_mGzIk75jQ25aHbyyWYWHNWgdIjG8Qr5b83aFXXnVIFUURKvdXowgxXOLDNrfAP0HhjWG4rJs4wC0oWzwbBaSWVsqBejQN-QsKcgcSoGbBb1SmgmHbtjwDO8JNV_2Nk-5gXTE9O2FwXh4Q4afyTzpTM95QpzneaU2cH_DOQt5xuCRKMsSTggBMVw0T536sVg6TOPAbOc-eNim7q4RJKJLscQU1xzGNLtQ609wQtEslHfV2nwy5nGruzR1q7jEbPJ-P2Nqa0mzPaPIfScNLnyMLqhq6NvUUm4mhutGkMrFDbN7Yx4jgdVHAPhcIjxOk7T1EbhOVx3yGKGzn_uO_c5i3q46cqkDgGuqeZChiLFzpeQJVZ_0dn4B8wcYSHbLVF6pDPCMsoS3aAHzKT2nouL03juVWaM1HSrfI4ozvsM4cpOuePqBsL0YqBZYWGmlRYHYYNOl5GDB-_AcuGeqc4w_-DGAIAP9RZdjx4iZCGnUFqGseHPeTRkln6QJRms0RTvCslm2gY3lnSbIg2GXj4KemknSLrqU_yEiR9vRNFkuqwATafDQN3STKaINMUVB21fn0ZcpZIgFz0np1JFoH2UjNanPlp50ITJXhS5x9fK7KmIrAJv-K2n6801NSw4bo7rc7nQzY75fwLSb5zTtg9blGfGhquPdPKmh8Zp8PbJnbWEwTDid1xSCROml34aYokzBvSO-e3o9-uFMsCPS_IBXZulheKUeGpa-J_lPDxYJdkbfaJX24Z6y2f1-g01lK5VyLR8LGAElSmyR73sxL3m0xiqcnI3GEVqQfkQmXgm7DCUvUWm01hAmWJtD5P8u6DRlQk4nIlvUJMk5jbYkGN8uUKNsMpFelTk2oVToXtrUQYmsjHEWMlnSuAKxD2EXYwZbLtZczQDSKMBA98jRrUfscuJUKEnflEa25FF297vIAfLjROJfO8SaPyPFIae1rcQ3fGogGHFtC1hpZPB1eMW07CyFTxP_evnFSLrGKQl54FCi09iAuBlkPPMARfV93Qw_zcJGR6gqyNxWK9h0n0aRJCb35tHvU_kQdnkSPWpE1VfmVzGj1KGfzWJ_wdNgi-mQMZftzpkgPRUsnw_UpUVe29TPu__BhYPINnfSXeOfsOuRF8Woy5PyNqwi96I54YeZgPbpF6pu2AGcJuJi2pRNeHGgTPRDMjkH3NB8Q6qyReX8ANJR5wZlDQ_CHbEhFl4jOpXz4ys1k7ZiMdQmnVBnChVVZES9FTMPQbXxEgTsaM6raFZdnaUwljxGpNqHXN-ZGgvAKuy0oNCU_GtSQK2QPbad1P-tk8eSLiBojN0yoJekIDaepVK_etrCIQH-twBkKWe1fmpIvZ9YQSxtu2O8Vv-PXG6mqL0RDVi-uXbKLmPR6giAc3BkXw-B6MtabpkG8QswCKMuDDvT5K91JzvYQVAU_jk8WlJc70Nb4wN7dG5-EwzzAkgi5P2dBg6cYuMJufMG0ZugKF6l5zcJU_lZoFG_IK2hgPZ7qB2wjDNaLGimrGkQsKY7c3t8KYfyKpQ_JrCbF66E_wiU8dXTJD-_awLcIrd_EcAt1h063opLkfOQYkjAUuVv699TsNbUI2E8OA-AHQZfhF4t99Lm5UTHnguMHcwIBtk4MMiiBy1VwooQrfkvELtHL42MbqSPWmHlpZI_3imXIzFnfQz9Dopy1uOpfWh0DeAWsI3i8P62FOI58TsaNGn9aLJeWlqd_cjB3YK45_KxZUd0sGV_0Kl8ikCOD89FIvxuSDGKKj3Z5iq3yDb-4zoSjLSsD5uxes8OknJwhpfq7LDCVGlmhsAWLRUQ71_3_auxkvA1gG315n59YdWBUpELttrLv3WsNHEk6POClcFpL-WY7iSava-Bbgl5cgvY1nYXlxqWupiajt0hsaCTi-_Zi7vAVBXHCaoAawMwhCSNR2VXkiGIcHqZ9X0SvDYkp3QoDtIR1Zb-xuV50AX6oaDrSPI51oKX2Ot3KoPT82I6NbQu-y1sBgB5k9QQbWmXRAQA30Rv2kQh7RpovRvdu4pRkkGLjMpHbXb08DLcWFTvZOBHGgVjIO2w8W2As9mNYV5zrBV_2wfPaL1KZiF4im62inUq4xgT3FKqsLKVlqlOge6PcAuJ_H6av9btkH5bZ4JE_Wzae9yrSDJUW4YwcTZfdcOHxZwiSNg0ODodzt9E7ccEq2r6JhUtyBVqDOsq_zHUdd9Y-PdjNWU3M_V_1S8Zeg_Lb19j4qLYOoOzcptTHJrVbJMDbRwd1nDVs3cCyX1S10cOQBkAgUKUaTsFdnKKbT2zbPxe11Y6siJbMrDQ52qEJD1z620W-x4RGR3hoNOsDMQKw_54hZyHCekrw7_oZAntvfYmJEpp9ceTchN4jZQV0Hspu3cYtPS2k5Czt2veoSzKWyyeH-Z1nN7FRMjzvn-IGt--HzyOPILqFfABmXbXhUQObpvLCxJoer2CE6y5fk50icaOuhZowlFmiCElaUOX_R7mfWfjNlzv8P_CL3dglwLVirTg==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_072f7012df4270cf016adf5f524bf487d1888b41cfdc69fb8e",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 115,
+      "completion_tokens": 775,
+      "total_tokens": 890,
+      "cost": 0.000399,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000399,
+        "upstream_inference_prompt_cost": 1.15e-05,
+        "upstream_inference_completions_cost": 0.0003875
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 377,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,7 @@
+@@f73b849cbfe17051 STEP 0 BEGIN@@
+
+@@f73b849cbfe17051 STEP 0 END rc=0@@
+@@f73b849cbfe17051 STEP 1 BEGIN@@
+All test cases passed!
+
+@@f73b849cbfe17051 STEP 1 END rc=0@@

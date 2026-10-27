@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793023801-Wybp1U3b1xHqF0cIel6T",
+  "finish_reason": "stop",
+  "input_tokens": 164,
+  "output_tokens": 829,
+  "cost_usd": 0.0004309,
+  "raw_response": {
+    "id": "gen-1793023801-Wybp1U3b1xHqF0cIel6T",
+    "object": "chat.completion",
+    "created": 1793023801,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```java\nimport java.io.IOException;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport java.util.ArrayList;\nimport java.util.List;\nimport java.util.regex.Pattern;\n\npublic class NumberDotLineMatcher {\n\n    private static final Pattern PATTERN = Pattern.compile(\"^\\\\d+.*\\\\.$\");\n\n    public static List<String> findMatchingLines(String filePath) throws IOException {\n        return findMatchingLines(Paths.get(filePath));\n    }\n\n    public static List<String> findMatchingLines(Path path) throws IOException {\n        List<String> matches = new ArrayList<>();\n        List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);\n        for (String line : lines) {\n            if (PATTERN.matcher(line).matches()) {\n                matches.add(line);\n            }\n        }\n        return matches;\n    }\n\n    public static void main(String[] args) {\n        if (args.length < 1) {\n            System.err.println(\"Usage: java NumberDotLineMatcher <file>\");\n            System.exit(1);\n        }\n        try {\n            List<String> matches = findMatchingLines(args[0]);\n            for (String line : matches) {\n                System.out.println(line);\n            }\n        } catch (IOException e) {\n            System.err.println(\"Error reading file: \" + e.getMessage());\n            System.exit(1);\n        }\n    }\n}\n```",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "CAQSjQsKEAgTGAI4AUIIdGhpbmtpbmcSDH75WBgT6/cbagamrhoMAMu5cCZTQsmJQfyyIjCnrIF8pvy9jP5sTRtKACo7bJLx3bcZH1IGyBx702v2Od2w+S26wMM2JMo4aNu+j20qqgqXaYJfxjcVDoEMqwaewjNjZh+8Eed9ylV//qC0ACmJQPXOmxvlwj8ZrIkH+rCTfFx8G6Tddffg5pvgMXIzd0msvDQ4E5/8EzlDREest1SHLKM5cceOhAJK1D/PoCfFaPASR6r/6A6Wo2m2yje7mLUs9nu2Oq1KTrO5tsGs+GXtDM6zRijlHEXQFz3YILBE7236o57ynC6/g5vpi5UI5AN/0yuYjADBfIePx0FYOA/PeIyWi7oylblHiDzogq1uKr1RrX5zD0klnyhld9b/4XT9HC6uqZ8qNhRJY9in24laeTPDyeXeizM6vdUb5+GyKw8Glod28CKwV4atIfLY0bwi7y4TzLUVXJnYDCXa512L+UsXM6pK/ph+gWVmgXmFUdcuQOqmgxzQ4pVQ7qluS8OX/hMmW00xVgEqskpNJeMe+ZPUj0wG1LAGIPCPPO/jdzMv3bXVSfVNYHBB7e+oOJ/sMBpjOFMcopCsDU7DcOkVW6YcHzCLFSSQV3gVnkEPRi+aGZznLjXrVKnStYCfsP437OowQj64tVrkWUv7Z1rHxUbILOA5h8mxwD9XQopb3dz2sda10ZeaTVici8x5WnXgg+xpVanXtFID0y5mr6R3LuK1dIpeA+kC95yGRAXji6MmQbyN7GGFWt+M9htkbVuAX1xUhFBrCENYN2cHRKNOGFwDAf2VSEOV5L55YJIuED6fD6eCJj9ZxKMazr7aNYxyVoffHl4A8jKrGDuqTgg8ByYi9+lvN4Ie5rzJ33/eFv9QKbLgJqr/QjldUEJ8CJZwaRIV5Y3zOMC27DiyASCzIwWoKZ+uIp58aNSHPSD9EgzxRAtwfAROH7KFgCh8nv0P0pCQ8oI5SsfHqdssN/ni+ENtG010g6bFUZCaMM8l2AfM/zFH04sDfgE8gNhn9K8JDQ7MocOursSKxrEOdmLIfkUh1M6H/Bu52wG/1RCEJsKyZ9rQejoW1z4SDPtB84CJLNUrnzxoGnfk/1FnePycBJZR0di8CR961kanuL62L/jnTo3p12pDC8qEY3EoDv7tP1Zbfkqk1ACi74GKRrTkxg+JK4a+K3n7JA0xXmPMgUMpllwlO6RQuZ2XZ2xTA1eBKk4QYdxWwAOtaceyfeF2myy9NXO8iUQI/DBj3RwkFapGTaUH+hI9V6CnALTz5nIXl+X/Mf2Yi+pU7tn8j3cwXuFHhBBQIXJ/92NU144JnN5DZ2nCbf22cvjamkb/T4+NxqAchnk9r8ifQZjhC9NulCQJ3neVoxXflqeJ87zqDxXrzWXXHrhSno8jGeE3sfcO5fHLuODx4WeQZfBMFp8Mv9Ng+ETtWZa5u8vpxOAUe3X9N4elLdwB0fnHJtm+88tMINEQBqscadgODkyMywIv5O0OZcqPi1w9pFWJzpREUsgKOwuy5u1Lw2TMsgRM4gjnzSuCP0hdmargX3rQY2m9ts5NJS24kSFdzLf+wEJQCPISJSrE3JIOA/aWADhxCB2fUBuVvY1IW1npGxZsXRfEQEhuCiwl2w1ncec09KBxvJc+rJ5Xn1Zj1giQrB8qCcQSjQ0NCcwa8Vg3Fmoc7pX2YOvZQwAlQc1GiUCqpefZ8O5xmHP4LM6M/wJcPxkB8tx/DxxBZ7vM15WRWqbPnjlNoyMxlcpEtjI7v/Pt4yubWSxS7BO3OY1KaC5ftMl7wwnHkQb5AZ8ZsD27kOMwmoPRd3ZFehi2OblRgG6PJ/qPAjCR0ktcNwPwgI3S4iymquMGHCSOH9ULKYFUWxgB.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 164,
+      "completion_tokens": 829,
+      "total_tokens": 993,
+      "cost": 0.0004309,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0004309,
+        "upstream_inference_prompt_cost": 1.64e-05,
+        "upstream_inference_completions_cost": 0.0004145
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 322,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

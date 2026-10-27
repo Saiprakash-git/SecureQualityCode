@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "mistralai/mistral-large-4-0",
+  "response_id": "gen-1793017067-sFyb1racgU316bNAu8Tz",
+  "finish_reason": "stop",
+  "input_tokens": 237,
+  "output_tokens": 753,
+  "cost_usd": 0.00346986,
+  "raw_response": {
+    "id": "gen-1793017067-sFyb1racgU316bNAu8Tz",
+    "object": "chat.completion",
+    "created": 1793017067,
+    "model": "mistralai/mistral-large-4-0",
+    "provider": "Mistral",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "def dna_strand(dna):\n    return dna.translate(str.maketrans(\"ATCG\", \"TAGC\"))",
+          "refusal": null,
+          "reasoning": "The user wants a Python function that takes a DNA string and returns its complementary strand.\n\nRules:\n- A <-> T\n- C <-> G\n- Input is a string (never empty)\n- Return the complementary string\n\nI need to write a complete self-contained Python source file with a function that accepts input as a parameter and returns output.\n\nThe function should map:\n- A -> T\n- T -> A\n- C -> G\n- G -> C\n\nI can use a dictionary or str.translate or a simple loop with a mapping.\n\nLet me write a clean solution:\n\n```python\ndef dna_strand(dna):\n    complement = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}\n    return ''.join(complement[base] for base in dna)\n```\n\nOr using str.translate which is more efficient:\n\n```python\ndef dna_strand(dna):\n    return dna.translate(str.maketrans('ATCG', 'TAGC'))\n```\n\nBoth are valid. The translate version is more Pythonic and efficient. But the dictionary version is more readable for beginners. Since the user just wants the source code, either works. I'll go with the translate version as it's cleaner, or maybe the dictionary version for clarity. Actually, looking at the problem description, it seems like a Codewars kata. The function name is typically `dna_strand` or `DNA_strand`. Let me check the typical signature... The problem says \"Your function receives one side of the DNA\". Common name is `dna_strand`.\n\nI'll provide:\n\n```python\ndef dna_strand(dna):\n    return dna.translate(str.maketrans(\"ATCG\", \"TAGC\"))\n```\n\nWait, I should make sure it's a complete self-contained source file. That means just the function definition is fine, but I could also include a main guard or just the function. The instructions say \"Write one complete self-contained source file in PYTHON. All functions should accept input as parameters and return output if any.\"\n\nSo just the function is sufficient. But to be safe and complete, I'll just provide the function.\n\nActually, looking at the instruction: \"Return only the source file contents, starting with the first source line.\"\n\nSo I should output:\n\n```python\ndef dna_strand(dna):\n    return dna.translate(str.maketrans(\"ATCG\", \"TAGC\"))\n```\n\nOr with the dictionary approach:\n\n```python\ndef dna_strand(dna):\n    complement = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}\n    return ''.join(complement[nucleotide] for nucleotide in dna)\n```\n\nBoth are correct. I'll go with the translate version as it's more efficient and concise.\n\nWait, I need to make sure there are no markdown fences. The user explicitly said \"Do not use Markdown fences.\"\n\nSo the output should be raw text starting with `def dna_strand...`\n\nLet me double-check the mapping:\n- A -> T\n- T -> A\n- C -> G\n- G -> C\n\nYes, \"ATCG\" maps to \"TAGC\".\n\nFinal check: The user said \"Return ONLY raw source code.\" and \"starting with the first source line.\"\n\nSo:\n\ndef dna_strand(dna):\n    return dna.translate(str.maketrans(\"ATCG\", \"TAGC\"))\n\nThat's it.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "The user wants a Python function that takes a DNA string and returns its complementary strand.\n\nRules:\n- A <-> T\n- C <-> G\n- Input is a string (never empty)\n- Return the complementary string\n\nI need to write a complete self-contained Python source file with a function that accepts input as a parameter and returns output.\n\nThe function should map:\n- A -> T\n- T -> A\n- C -> G\n- G -> C\n\nI can use a dictionary or str.translate or a simple loop with a mapping.\n\nLet me write a clean solution:\n\n```python\ndef dna_strand(dna):\n    complement = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}\n    return ''.join(complement[base] for base in dna)\n```\n\nOr using str.translate which is more efficient:\n\n```python\ndef dna_strand(dna):\n    return dna.translate(str.maketrans('ATCG', 'TAGC'))\n```\n\nBoth are valid. The translate version is more Pythonic and efficient. But the dictionary version is more readable for beginners. Since the user just wants the source code, either works. I'll go with the translate version as it's cleaner, or maybe the dictionary version for clarity. Actually, looking at the problem description, it seems like a Codewars kata. The function name is typically `dna_strand` or `DNA_strand`. Let me check the typical signature... The problem says \"Your function receives one side of the DNA\". Common name is `dna_strand`.\n\nI'll provide:\n\n```python\ndef dna_strand(dna):\n    return dna.translate(str.maketrans(\"ATCG\", \"TAGC\"))\n```\n\nWait, I should make sure it's a complete self-contained source file. That means just the function definition is fine, but I could also include a main guard or just the function. The instructions say \"Write one complete self-contained source file in PYTHON. All functions should accept input as parameters and return output if any.\"\n\nSo just the function is sufficient. But to be safe and complete, I'll just provide the function.\n\nActually, looking at the instruction: \"Return only the source file contents, starting with the first source line.\"\n\nSo I should output:\n\n```python\ndef dna_strand(dna):\n    return dna.translate(str.maketrans(\"ATCG\", \"TAGC\"))\n```\n\nOr with the dictionary approach:\n\n```python\ndef dna_strand(dna):\n    complement = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}\n    return ''.join(complement[nucleotide] for nucleotide in dna)\n```\n\nBoth are correct. I'll go with the translate version as it's more efficient and concise.\n\nWait, I need to make sure there are no markdown fences. The user explicitly said \"Do not use Markdown fences.\"\n\nSo the output should be raw text starting with `def dna_strand...`\n\nLet me double-check the mapping:\n- A -> T\n- T -> A\n- C -> G\n- G -> C\n\nYes, \"ATCG\" maps to \"TAGC\".\n\nFinal check: The user said \"Return ONLY raw source code.\" and \"starting with the first source line.\"\n\nSo:\n\ndef dna_strand(dna):\n    return dna.translate(str.maketrans(\"ATCG\", \"TAGC\"))\n\nThat's it.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 237,
+      "completion_tokens": 753,
+      "total_tokens": 990,
+      "cost": 0.00346986,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00346986,
+        "upstream_inference_prompt_cost": 0.00032232,
+        "upstream_inference_completions_cost": 0.00314754
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 725,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793016469-KZRgiEVlDcSotUcyrPAd",
+  "finish_reason": "stop",
+  "input_tokens": 328,
+  "output_tokens": 485,
+  "cost_usd": 0.0002753,
+  "raw_response": {
+    "id": "gen-1793016469-KZRgiEVlDcSotUcyrPAd",
+    "object": "chat.completion",
+    "created": 1793016469,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stddef.h>\n#include <stdlib.h>\n\nint *remove_smallest(const int *numbers, size_t numbers_size, size_t *result_size)\n{\n    if (result_size == NULL)\n        return NULL;\n\n    *result_size = 0;\n\n    if (numbers_size == 0 || numbers == NULL)\n        return NULL;\n\n    size_t smallest_index = 0;\n    for (size_t i = 1; i < numbers_size; ++i) {\n        if (numbers[i] < numbers[smallest_index])\n            smallest_index = i;\n    }\n\n    *result_size = numbers_size - 1;\n    if (numbers_size == 1)\n        return NULL;\n\n    int *result = malloc((numbers_size - 1) * sizeof(*result));\n    if (result == NULL) {\n        *result_size = 0;\n        return NULL;\n    }\n\n    size_t output_index = 0;\n    for (size_t i = 0; i < numbers_size; ++i) {\n        if (i != smallest_index)\n            result[output_index++] = numbers[i];\n    }\n\n    return result;\n}",
+          "refusal": null,
+          "reasoning": "**Clarifying C function requirements**\n\nI need to provide a C source code for the function expected by Codewars to remove the smallest element. The prompt suggests a complete, self-contained source with a specific signature: `int *remove_smallest(const int *numbers, size_t length, size_t *result_length)`. I should include standard libraries and handle cases like empty inputs by returning NULL and a length of zero. It\u2019s crucial that the function does not mutate the original array, and I\u2019ll ensure to allocate memory appropriately.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Clarifying C function requirements**\n\nI need to provide a C source code for the function expected by Codewars to remove the smallest element. The prompt suggests a complete, self-contained source with a specific signature: `int *remove_smallest(const int *numbers, size_t length, size_t *result_length)`. I should include standard libraries and handle cases like empty inputs by returning NULL and a length of zero. It\u2019s crucial that the function does not mutate the original array, and I\u2019ll ensure to allocate memory appropriately.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30Ka-OUHIXABGncg4OvTSNTlNlxYrdXVIsopE3eLPvvHqqVs-Q_AK--0BrkzBfjb4byo3cdtpnKvHcV6nfyw1XnYLzabeVaHHuIx9bBnxzymLPi7f3eVvydkGuDDlp49s3KsxSpqjP9PjlXkppu5puvyd77mkOAjAUSLNZbBEzD0anTZEOv6TBVpMRpNGvSzDQlCzzDJ3vaH8N7qo9HxFzE-Krr4HUYxNFclpZeVc7jIITPQQbMQNTakKezOf_-iwPVQziskq2ix2W6NLH60EfJXRysHVDtogYUgbTAafERpqFgFwYARTnylszyoLccaAivuhI_y0weq0FdnCXrCCJXHCNpyhMtiTyrKRk4HrC44G9wfGie3ViiraAKL_HPgdnp6C3meiiIz0dmBf8JpzOtQkQSq7HvOoF-POfKZnxwubNhyBzmmAQ0D4cSXB9ROWIncSXiHdsHeIH485vxe-pGDtFlcJSME7mRySd5QnrkLzBVy0gsnxSL9rE_zKwcyljEZ7YRSLHZQ3vplly7NIsx2esLs7kiayK5ds3jTQ7KG7rN1utaxqbk3Yzd04br2m_kkhVvOTPk6sNhSgSa6hAJ99o8BcRj0gfWJe1l9r_EJzjw2vJLpAnlBVXNnrZ8PNxsCz-AzPPFsUeb7w_et43Xy62BvO71S5JDfmTQwOyzlCKq_gbJOxc9ntlvk1wUgjTQpXrhotI66ej57sRFutTPnsHR-ygJgeaTWeAgOcz5mWgNFSF4QfliiOgflAqSheZe3aLCOrPDsGZs6ig2SWuCa4klzHsnk7LG7oOPAWv0nFWU2PTjmhfv7kpXFT66aZw0JbTTQGgKon6dupoTW0iSlBcfgDLX6TBgoKdqLF62imY0wYiJnzhp3YFtuoXQuBWAI9DhwC3J4vtVMpb67Z4_IetkkrPEeBGj2ZaAUOHqvqL2KVZsw1YXyG-sMg7tXNAIxOEKLuEoZ8gvOGUtoAtZUy95RCtRNFWunk-hHc5-acph3Q_ATm9qA6e-xixk60qvGujMJd5tzjuQ-ZZ9wSyWJ4Hm7GLaJopLKwYSKaOxFYfcgVthFHO_86JILFfx5mGpXhMBe_5E4-8vySSYyqz8Ud3ldBccRh51dOlzol_o-zadXltiOtIYnSOtcIvgQv5dOQdkiCTmMkrYQtDkOD7T_xaIWseWoDVxjQVBhmD4pt2Xd4GLFbnqGa1wKLkqiRJhPbUCJiI-OyPXVPKNsxFBD7TKdYUL2Z7bEvOl9uV25lENdeZ1QyGYZsR61MmgGKIfhGwSABOhAQKXMe3g4eZEFKq0Ijglv_GTB3RqunBgykfmLEYbpBNfJ4hmKOjcpc1YiCOTADULpCVPBgtH2n5QX0tD6qTbEYbkfCwgePNC6TGLebSQI_jK8_VwFQ6Nh6LDhrRuCS1GlWx9l_TzRLWKIr8cxxHldx53vWqN0vxYk2jtTse6M20ELdU-jPZPU0LXKT5_bGL_qMZ3paIs3tiBbnByuBAj62-yUIBeoP3x0I7V0cLZkcR07rGSsjujmYZTfrkXI3Cci3Qp98h-ft70khVdS59XVvSX8FmN9vYDqA78Ms1PaTJvvzIdPga_vrLHo7008X1m8kw08gMpRdvTpWHExocIr_EAQZC2iFd7gm5U52BUSSJN445ty4NpwuMezBoDFhAOVMVQi14En8gJDdqA5T1YXzErxhBxh_KNIrJwRVGuysXNkKcpHC3y6-RHhTuaniOdF7qo6f9vDv-CWAIL4D2vfX7YF7Q9b4WcuGWqKc1QyuIeOQvrHuxqNkEWQh-BQVoaMf4ftEElyS1sgUHyfhxyMw_R8F8uI3CsFSTxAJVAbWwZ-HaTiaAEpfIRvgH53zX5ue6cXLxxXZ1xHc40Il-ejnzHLxuha3K060xW9iMk8tLDGbuZAbS8jkcC20l2vPwrG1ca-7JjHybh6O_1Th0NpEe4n6O5_eHquq5d0a8AFtsow5_uOgTIs6L8kslLL6kCO38EpSTLDRRCCt2iFYS4lUwpjIb35G7SKQvR4bhaCJf9jyT3Lbjj5atphwcC63r9dXNDkTzOK9oz3MiU0wMGcRAj4_YgQhHqta1dvPA0-MCKfSjSxWAtXGjkhXmsdZnESzPZJlCQ95dLkumTOXZtlXTBgLHxb_PnyDnd1Ieeh8c_I34Mq9cv99JlK-RmcOMbuhB8Sdl_6_d-v2rnfNhxc2uPrZmauUvt6zfiA4vMYzGBnkTarHc5qJ-CReCfJq2EcKOI8G3x9IU4SBv0jhYwhYK6oURTVyO5WvJo1K4Dm0sOsErqhtXlXluVvLmm_9VQXACsOmDyjWIjURvDOAVMEs8Fh7ZdvpDMFkvISTBoLMQzPWb4LfaaU9zeZEj7JKPRiaMkdXpgOA2NCY_GDQfEZZrQPCRvrVyn0BINUIAM1AMNGUBwv0mstnnb1I6x3x2fdBCHSvmzO-Mx9-IcFmm1-CmKenHV0y38QozIG0v6h0Ojp5teU1VxV1wfauMwECUeqFzUGimPIzhLR7pKgq9gXbBPVQY0luzJ76hk-MEx5bmDSs5ZoATaABPzDA65MWzGfSjCqLblD3Rq3U1QEMNcMxhtaOKUFZw2K1eoX1u2KyITWB6dmMrlbWoE2TU8edG3_GuhTQ6hamIWQKboBDG7r-Vdgf-AuTORCULQTP0oxyVYBvgmAGs5V5K3wgQfV5CE5l1-oxGwTyjDBxJTEerlJQ3uq6HfMGVRc1a29ORxTobKDifUmFlRU-oH7DRPE0D-0iBGsJb0t5e0lLbX2_ui1U_7KVP-xEm_MbT83oTPDvQp4-koOQ587WkE5DWFHWt5RAFE3V0R_clVX6rcA9dQwSla_kH7jZ5w5ebDKlWdmLkxY5iTOftWQboHzYGxdnFDHgbusB9gWU6Zc-Peb3fQuZw9i4tmCDAITewpLx2g8YSzuhkJEHDZd2gi-3Dup5I9FWtnbvjPGT2uGqnGqdgknYmGzPN3wdEKkNjm2YRJBD-h1-0jqs5QPAY-FjQTBqA5n2cYq3luyMGRzZ_62CR7Ag8UUA8ttPRO1rSsgQTI5qMfvGlcMiY8lHHFQHCLViZGOhnEjjarMbFsNIWQ1wbdLcJKZGL9eRjY5yFwFdtTiMKllZK2NwjUXIUROF5SaSFRpy8iK4726ikjFtMF45A36IBIWwQsm1p1HmRvjTxOOfPFF5qpjrBqV6oxcMXGqxOTpiptoK63PcYp9_g0W3vVJWApiM6IlE9wzc4xKdkR_5BjPDpb7ikcjz3enx9dorBR3SavUX1c3T4R5-VETnpEA3n0zrfTEh8HH5r18oP4i6NOscUjtdBXMQbQmP5SLLW0kR_r2NO7dIBbWY3GaCdq9AUYTJM4L-pWQjWZdt3XZD5kpLpGammcrp7Ab1fKzeEV-T2Gh7_8pQOk55hpzySBvz2X8PVQz3TMo4kAUYR1YFwmmY3iR6PxrW9wR2M3IR6g_C0v2JcRIdpnjpST8jHbx6FVy4SOs6rXUJIL7qyoN8EZ8ziIKOcoy6-aNl56EB-vP1HEmUPN3jSJnOGmHXRA2u79mZ7aazCRbW5cJGUbePV8DTZPHC9NJNyKoxjA83PMYnw8ysgTB7elq3wPTBe3DzlfT6B3r8-yFGn6W3C55PFo2UQorlYxfGl9jzvH5YxBc2g4rf2rNMTBSNGL0Ur-t0lDQHhESBT3NG8q9iSlD1HsCbaeAa0zLnyfJcIqJXnIY3LLTLzSs803XoLAHDpGTgdqTyOcElemgirG41CyMuyEa4siaCcoQWNY3CU1XqmuVZM074Pcj6FZSbUHiGRew9NCaQSv_DTVvZKPT6j87oZsCdbLRECZmndnlC5b18X3zVMniVfbNmanPikNLNC71not9XCgUVg51PFnaBI1AJqprcDpxRio--1EtPFjRW8BCUtqOT-wjE2TqW3ox7CuL7lZLfVIyISXoUlGdqhS5uAqOFXUkd-bvVeqoA42CI61nA4e7_uueq5pwyKeTVZTmMkjfpEh6nABDA2nfBktZNDvlpgFQqMrrEqG_ub3AvZ3fOcDpSZyemaBeu1MTVGXQbzKtGiaCDZVYpyNNfGD2JvEBpzvvhKPw6acqRFa4bKa8b43oBXZ6jqpPCXyLFoggwfneszESPzXL5serdVta-rikxIvES0i5JHwitj5OQlsOtEm0vkskOEhTSDLmW761S6lGhOLIO6xach2QeuXb9P9_EXL1k1LaVMQrOAqDelMJa5yqxmDVGzCLjUA81VDJ-aFb-geDn_3KW0UcfyhKg9bAnBhT5pBdAqkRxgvjrJlA0hhcW8M8y1NYrnhyEoKS2rUrIO0vpoxOK6eyExIaTpoT_XQJsIYJLmzfD4OtEdQP-tnhG4fthoU76Hdn5I-dav2sryAkOnfI3cgQXTq6TXLTsSOIMTcv2rp2D03YlyHqAVOdwE1DOJHMX1h7J4py5SoyoC3xMhNIOX1tQpUVSn1z3BE9-NpWDLJwswIGx33BLbgqDdMNmBk4BX4hxX8x9zrGlZUH8Co72pi1Cj8hjJaeBh-Kz-8bYGFr.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_00d0d8e3880e4b5f016adf42977eb087d18f57b5eb4fe06619",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 328,
+      "completion_tokens": 485,
+      "total_tokens": 813,
+      "cost": 0.0002753,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002753,
+        "upstream_inference_prompt_cost": 3.28e-05,
+        "upstream_inference_completions_cost": 0.0002425
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 244,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

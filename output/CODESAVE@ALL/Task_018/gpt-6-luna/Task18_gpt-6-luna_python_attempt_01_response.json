@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793010302-ISqh3i7SYADqaYmYY1Xl",
+  "finish_reason": "stop",
+  "input_tokens": 300,
+  "output_tokens": 100,
+  "cost_usd": 8e-05,
+  "raw_response": {
+    "id": "gen-1793010302-ISqh3i7SYADqaYmYY1Xl",
+    "object": "chat.completion",
+    "created": 1793010302,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "def binary_array_to_number(arr):\n    return int(\"\".join(map(str, arr)), 2) if arr else 0\n",
+          "refusal": null,
+          "reasoning": "**Implementing binary array function**\n\nI'm focusing on creating the function named `binary_array_to_number`. It should accept a list, and the goal is to convert this binary array into an integer. For simplicity, I could just use `int(''.join(map(str, arr)), 2)`. But I have to consider the case of the empty array, which might trip things up. I want to make sure my solution is robust and follows basic arithmetic principles. It\u2019s all about getting the code right!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Implementing binary array function**\n\nI'm focusing on creating the function named `binary_array_to_number`. It should accept a list, and the goal is to convert this binary array into an integer. For simplicity, I could just use `int(''.join(map(str, arr)), 2)`. But I have to consider the case of the empty array, which might trip things up. I want to make sure my solution is robust and follows basic arithmetic principles. It\u2019s all about getting the code right!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3yqBUatG9bY1aRGVrjAHE5ZN7Syo2AN_qVKb3Ad6jO51b3MOBG1Qi-dldiqJggTbpSgUkbpELAWyG3y3d2OsWw1HJOBVgYG0VE-fF5zl0G3imnLRQ-AB-WRlMsiqrIQUHcO0fCd2I7gaxw_UZH7vIjG59MVxsDhH8tewuAPi8BARRwZQkbTudnOCRtyrh8qx_lcD0d96SDKgE678WxLKVOB3B-6jowWze5QlZTpH4HuSAYHl8dKD6CiOCf_H72nW4VFpvYTwWAwJALCo08o8daCal-N6r687mfMO9mCQCL5y0QnJiGVT0zlF7EPo2q8m1IPgYkwZwJDYiRT7g-2A4Sfhp5ZdDqU7IpWveMkXi6_6ZVsxWVvb_-yIohWfCZduvogZH9sdkLQcv4qd19PD28R3lLM2oCPTT1rzxSgj-QP-3ERXLy3IEPpYK-Pqt444CwB2cnPap8BWYCXvHp9UtFlXhZ0i7R5jQc1vS8TdSPKTE4ZTyrv90ofdI9gMNu7fPg5Zl9k_HNAc4h9Lb2SBeVHWcW5gehxZlRzWDxQNGyIsjbH35zCDAXMqyotWyy4FToYMZWbbxol-phOr2WPJS5lmq561hEKTFU2y1bXKAI4RYsBb5gbj5hP23umctspLsEXDZxi7BJncd00qOK_TRxEo531leXoquaK3A_R_ZGMBgRBZA-1bxad0z8h_XBvNRCL6WTgxRdiZx5P3P58Xm45kOWkC9RiBewYhTeu9Nk2s5uGzQlmLlgI0owUxjpS7lSiZgznTVe0QtFerRq39gQFXyq47xoApVPOeZL-4xxmQ9OB2v-WleaVaTP8UyRRziYcmS84zqUPKHEb82s3sFJYftMFGNPrpN1NmK4QxXK_Dzwc-HCTUKg1t9Gs70veiR77w0htIctn6TFoiExrQC757bsbikEQJKchG5TLZN5uOwk4-REmYFJrJyW5ih5_ZPORqPGdR2fG42vRUE7sIR565_XisOaNUKyPWNwZ9m4aWBreF5raEUlU1cO5_8ehrqcnegaDJyu1Gd4sG6FXCtXMOYaFTF-6wqUeVXMK9wJuPaR_PfrrtCHdf8H1Wji49Fb5gv_mzuwTN26otBroAispG5sp_r8OTyba9caKcygF1q2gwm9_II4RYymtp1iHkohiLI6oDa1mR91SQtclBW5k2XSs7VfsSTXWsq0i4_LZU-eJxnq2NzqRXHH1v_GmzIcGDYv0ttjbaSHy2TGxipvs2SR47Wt44Fk-RFVf11V-8gGWQ3bZ01M-4e0gsYdxMUIk9PaH9Nj902zIudj6e8Rc0pbDy2xCWk3EuzwLfR-VQBxXsL2Xvts7Dee8Jty7wK8BkpV_6cjaXHmBs7yrnv7VwOI0YvGtcgNrlKoKe_vBkzkdOFZ6f5MoiwURYyNQYIASiQToVglMnwZM_Xe-pcLvLe7xRz0y12sjEHRnrQmHluYhYEMnAYMmJDJXIluRit_hgZmuTkSqcNV-GxA5QJcvUuuZ6yMpr3d2xuaCOGTMDOVHQrPOBrtS-cXBZ4Hru9nxmSVMPZm2MONb7HRAMCqh7_4LhCRpLzmzD-bL-WrA36wvxXk0mrq_NBMolYFmI16EZ7yd9GzhthKjU_sHnCsjEqC_XtAr_dJV8idA0buTfFslNaSRz1LotcTMxpshcebYkmsRz6_bFw9ShyNBcaWh-bBQT6lQluc_fAoW9Rv3QztWOIQJn4_MaiuaaHR5W_MtfQ1kViaWbm2UZWe4Sg1URjvwulUPtRLtFOkiLHIZK0eVMOMC1t0mopt01oCK1Nly-9Jwc9ASAx02YbFauWyhSFQJtErBwSD4ARvQ-YwgmkE_RFRm8cmIqkdVT0bfyda4oYKftwqkDUqhsDVcDlhl0f36-Zpy-n6GQgyx69hXPQwXIsGF2RnNbbBd-XtUtQxG1CXoPaghkIbs91lzN4KW6bzlgHOgjiJmPluxKgbX4SlNHqpoX_-hg0CSGj7PKJm8BQpeZWI4o4uEpR8I4abzNIcMgbTWuXLTEv30TmTVXPBdn-QQyKsa_-Iy13wQlYEgD1PkjAKgQce0sya4plhMdNdoWPP2iQKj6a8dTr5ENqdDmVF9-iIqivFAAAonZe9qgpwcdTsRovYNBG-mbCS7A775FQmJaISKh1P1Kvt5US-dHCeg37lDMX1x73NGQs7yBJQkxe_ft-cMzjwhbVZWzDQGnm_Dev-XogcjFH0n_f34o4iI30XNajoo3TndbXs261zv6TPbY8l247Ps905xDwBo6eDzUNP7ejnE2HsUiZSj5Cr1AmmKgeH3up1-wqv7vJ21FaRsdiCONBKv3AOZx6Fx5Ash3X8S3TGdS97w1sFhpLk_Enow8MUJU3dOhfn8ZuyaSSsDtjcLOlt5cxsWOnC0TJRj_l-nPYqp1J61D2sk=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_082d91cd1d321250016adf2a7fd5fc87d1a31546a95f47dc06",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 300,
+      "completion_tokens": 100,
+      "total_tokens": 400,
+      "cost": 8e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 8e-05,
+        "upstream_inference_prompt_cost": 3e-05,
+        "upstream_inference_completions_cost": 5e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 67,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

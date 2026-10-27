@@ -1,0 +1,69 @@
+{
+  "attempt": 2,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793018288-1A8jtTJZylyDYbTgFD5i",
+  "finish_reason": "length",
+  "input_tokens": 202,
+  "output_tokens": 4096,
+  "cost_usd": 0.0020682,
+  "raw_response": {
+    "id": "gen-1793018288-1A8jtTJZylyDYbTgFD5i",
+    "object": "chat.completion",
+    "created": 1793018288,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <stdint.h>\n#include <openssl/rsa.h>\n#include <openssl/bn.h>\n#include <openssl/rand.h>\n\ntypedef struct {\n    unsigned char *d;\n    size_t len;\n    size_t cap;\n} buf_t;\n\nstatic void die(const char *msg)\n{\n    fprintf(stderr, \"error: %s\\n\", msg);\n    exit(1);\n}\n\nstatic void buf_reserve(buf_t *b, size_t extra)\n{\n    if (b->len + extra > b->cap) {\n        size_t nc = b->cap ? b->cap : 256;\n        while (nc < b->len + extra)\n            nc *= 2;\n        unsigned char *nd = realloc(b->d, nc);\n        if (!nd)\n            die(\"out of memory\");\n        b->d = nd;\n        b->cap = nc;\n    }\n}\n\nstatic void buf_append(buf_t *b, const void *p, size_t n)\n{\n    buf_reserve(b, n);\n    if (n)\n        memcpy(b->d + b->len, p, n);\n    b->len += n;\n}\n\nstatic void buf_u32(buf_t *b, uint32_t v)\n{\n    unsigned char t[4];\n    t[0] = (unsigned char)(v >> 24);\n    t[1] = (unsigned char)(v >> 16);\n    t[2] = (unsigned char)(v >> 8);\n    t[3] = (unsigned char)(v);\n    buf_append(b, t, 4);\n}\n\nstatic void buf_str(buf_t *b, const void *p, size_t n)\n{\n    buf_u32(b, (uint32_t)n);\n    buf_append(b, p, n);\n}\n\nstatic void buf_mpint(buf_t *b, const BIGNUM *bn)\n{\n    int len = BN_num_bytes(bn);\n    if (len == 0) {\n        buf_u32(b, 0);\n        return;\n    }\n    unsigned char *tmp = malloc((size_t)len + 1);\n    if (!tmp)\n        die(\"out of memory\");\n    BN_bn2bin(bn, tmp + 1);\n    if (tmp[1] & 0x80) {\n        tmp[0] = 0;\n        buf_str(b, tmp, (size_t)len + 1);\n    } else {\n        buf_str(b, tmp + 1, (size_t)len);\n    }\n    free(tmp);\n}\n\nstatic char *base64_encode(const unsigned char *in, size_t n)\n{\n    static const char tbl[] =\n        \"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/\";\n    size_t olen = ((n + 2) / 3) * 4;\n    char *out = malloc(olen + 1);\n    if (!out)\n        die(\"out of memory\");\n    size_t i, j = 0;\n    for (i = 0; i + 2 < n; i += 3) {\n        uint32_t v = ((uint32_t)in[i] << 16) | ((uint32_t)in[i + 1] << 8) | in[i + 2];\n        out[j++] = tbl[(v >> 18) & 63];\n        out[j++] = tbl[(v >> 12) & 63];\n        out[j++] = tbl[(v >> 6) & 63];\n        out[j++] = tbl[v & 63];\n    }\n    if (n - i == 1) {\n        uint32_t v = (uint32_t)in[i] << 16;\n        out[j++] = tbl[(v >> 18) & 63];\n        out[j++] = tbl[(v >> 12) & 63];\n        out[j++] = '=';\n        out[j++] = '=';\n    } else if (n - i == 2) {\n        uint32_t v = ((uint32_t)in[i] << 16) | ((uint32_t)in[i + 1] << 8);\n        out[j++] = tbl[(v >> 18) & 63];\n        out[j++] = tbl[(v >> 12) & 63];\n        out[j++] = tbl[(v >> 6) & 63];\n        out[j++] = '=';\n    }\n    out[j] = '\\0';\n    return out;\n}\n\nstatic RSA *generate_rsa_key(int bits)\n{\n    RSA *rsa = RSA_new();\n    BIGNUM *e = BN_new();\n    if (!rsa || !e)\n        die(\"allocation failed\");\n    if (!BN_set_word(e, 65537))\n        die(\"failed to set exponent\");\n    if (!RSA_generate_key_ex(rsa, bits, e, NULL))\n        die(\"RSA key generation failed\");\n    BN_free(e);\n    return rsa;\n}\n\nstatic void export_openssh_private_key(RSA *rsa, const char *comment, buf_t *out)\n{\n    const BIGNUM *n, *e, *d, *p, *q, *dmp1, *dmq1, *iqmp;\n    RSA_get0_key(rsa, &n, &e, &d);\n    RSA_get0_factors(rsa, &p, &q);\n    RSA_get0_crt_params(rsa,",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 202,
+      "completion_tokens": 4096,
+      "total_tokens": 4298,
+      "cost": 0.0020682,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0020682,
+        "upstream_inference_prompt_cost": 2.02e-05,
+        "upstream_inference_completions_cost": 0.002048
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2387,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793016578-nifslc4JRL1X36KJCmLN",
+  "finish_reason": "stop",
+  "input_tokens": 186,
+  "output_tokens": 241,
+  "cost_usd": 0.0001391,
+  "raw_response": {
+    "id": "gen-1793016578-nifslc4JRL1X36KJCmLN",
+    "object": "chat.completion",
+    "created": 1793016578,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "import java.util.ArrayList;\nimport java.util.List;\n\npublic class LineNumbering {\n    public static List<String> number(List<String> lines) {\n        List<String> numberedLines = new ArrayList<>(lines.size());\n        for (int i = 0; i < lines.size(); i++) {\n            numberedLines.add((i + 1) + \": \" + lines.get(i));\n        }\n        return numberedLines;\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Generating Java source code**\n\nI need to produce the Java source code for a function, likely the one from Codewars related to line numbering. It seems like I should implement a class called `LineNumbering` with a method `public static List<String> number(List<String> lines)`. This code needs to be self-contained, so I will include the necessary imports as well. The expected structure will be using `ArrayList` for implementation. I\u2019ll organize it into a complete class for clarity!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Generating Java source code**\n\nI need to produce the Java source code for a function, likely the one from Codewars related to line numbering. It seems like I should implement a class called `LineNumbering` with a method `public static List<String> number(List<String> lines)`. This code needs to be self-contained, so I will include the necessary imports as well. The expected structure will be using `ArrayList` for implementation. I\u2019ll organize it into a complete class for clarity!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30MF9Id5W6llbqqkzva08MUPAn6KA0RvyVFens1n9m11vA6DnZ7_hcQnvPcTZ0RL3i7Kd4xZ9Ulp5HLs9MqOuE7hPsE7R-LKXsWqJhfC3oF4HV9OorKquuphVHiJB_OtCYbHBJukPGW0vyTdhgTEIOP29LqniabKvU12YCehOoN8pmLbu9PJQadtVbz_4y1_xd2Hdxa_ZhvUeKFDbR1c9o21tm2spXWEVBVVnqa0J5sbupv_tH5LujMGd_wkW_EuUmKVQ7iEHCL4vfT-YxFg6RdaP6gEmn6QbSsenhIuLmWLp6vCJf-bu95CfJ_N7JdavMBjzGJ1Hx15ijx0eWDD8qbhvL4ILCbPi2UugVaZ54Tm8bB9K6sb4UTkmKVY1K9tDna7xfEnbyqjJYDgrMr5BTZNVaWo6V_WJaQfEBNTEajOF730S5nh1m1aERAbBcaonacwNO-GsPwtbDIipPV7DgfpTphj1emFr1Bn7q78m8KxdLC3ZuHCqX8hLNOOmI7LNoIhNtxpv1EZl_G8T49JHjackU9Zrk__7Elq_lXLT_zyfUjo81kajobvzyhDjmVqBtnyZAoI6izF-PJ1DMQOGWTVQalpZSNKGrrD-meHiCw25cb8VOTjQjxm16LldaZfw4QE-Mh3Mz761bmVhk-TN7x2_a4j9-xLArhsJtdhjfR5bEosTdZ78lqMeZ8lJNN30kk_AjrZU0kUWh_q3OHxcmmy4huwpao_fwCQqkIdNPmL3acF8TNWRDGqHoRrmAWJ4BmezIn3F3xU0NnrN2acGkXAID1pCI_hn_52b65UN46tCgCo79DHgrIhw5GST9t2tuPHLnstFr1O7FJxO1p97JjDmA4zz9Lm8wbs07s8DfpxtdyyYcpow-4bgDhIioaBPTonohA2kTX6s8VN-UvK6q-eXmsucrq-LhsCIvnW-cbMoSwDbVSOspeMbfHPTVS_fLVMXBCS_j0zxuGhLvv32oYLUwJ0t45BMPwtKu7bYcWr6KGdRqKqwgqn66AlgSrt2pO6d6Z2esi6RLepKo66v8UvrSMGqxB2SwYe9u9mPzGDjQLC_LiJW7pRYdc5NJHFv01-w4tMdaQiBn7PYcIE_UFEycgD8tStgCrwj1S1ht92n9wqMSsLwJLZBaILRHEp68t9SvXbfFXTxuaAfaYQyUH5qyf6FSj44PGPWjd8_iYO49ATooyYXxVgJgPfv6St4LwIdabfhMMs9z7xwoOyPb5OAjd-ReBjgK67C56epuf5MRAcTDBtvRUU0tZ_TqWF0VjMRJB4qUoZiDTsU_SNe1jQgVXbgRIB9U6T3Toze8SrlmF9HOSQgYlpIrX6Xa8aeE1BL_nL49C80ApJK8s_gm3Lc91jJLcZv1_T13GcAjuIAKyGpwRv4JLEMurGSsLb94R9SrTiq-zv95Klp5oDgTH-0gr-7htuqspZ5DfXeXsf93Ow8kHW2oTKOHGBbgi83n_-DWuPMVfh3qlRyYodYMrRG1DGoMkSMgJiSzzk0BlazN4GSV0CicmneDNNtBOsrVznY8rTAPaMMDlsv0FWGvpzKkPaO6IXhBaDHANYkklW6HwQsT3yQpjbTdpne-5USRVGvYTMeup3kWvU3nXV6AF5sqwU5ZKsjjtSZ128KINIyNzbAC-Xcp_ZO5eMzXOqJPidxthIJ2Iy5omq-xrRfwGNCyl5IVrIHUTUORCvwkH1N0h27Q8R1cl_AgmMZP-72fjGoqdLsTHcoQPqmMpEIe-GCXrIb_nbUoNoJefT6yxZ0ygAO5MmqZ1fkf9CHoFOOV9ER077Gp0xU7Ah1Wm8vxcTsjlGV9xH7DHbZ98O9v88hJGqsvJqF5Mm4vl9VKhTkhkWuYxaOWeiixaLKRJITVy7jOz2o6oSV5O7wgGM2wWvF2tZKL1sHJ06pUecqpEK4WzDF6Sonuk5Tx7SO2oficVwD3RtGz1XjLJyP8xDtjvTdNh2jUNNw7c4OuCqRB4sUv74wkJazv_14zOZ3RdTfLJq3yyaZ-8rOXtGtU5PCYCY9YQrzcNd7wEB42PGcOXqEUZdmmcgkjc5NoqP2iPeT4F3W9eoIC-Ck4Q14jLx1FN5ojqPuyoMpRULC6ISTt5s_h5sJdXkZ2vfG5tXdzU8m2YZKpwD28BFjQ9NiBlU7V2wMqn89YAYxADJ_5JfBxRoWANW20VzVUCBkHFeSbujqfroJUWq5WcxcW9HagK5g8kKrehIhRtFmoZJV84rRm2zM1YCwUxaHLI8eyucq8DAhHEBKcNoZZu2k1CSZIhGuGsC4i2DIvE20udSodi3ZJsQzLDHU-6k8FnRMdJc-p1W_BScaucYdcRTfOm_KvB5DBn6saiCMS-atzNTcVMZKB57GQ4ST7VQs_wh8AjzjS9WHTcicqVTKCRdy_QQnTmlMB39BRXAxxPuq0HBwoNikfMhBhgtbqalXgqP_8tUHRHQcp_3JeTYcxTmFo4Lrm-hSMlmMjAp-xT8g0f7zkv6avaQAAtkei3Xxo9m-8cmdSca1gJQ-hfgxfTe45b7b5rKwGzOVcKRuj_30JTUGqNA_PBD6ouPO86RWW7zDHjkqr8i1kkYrqaEsMj8xK1Fn-ALSwcWsKCHbTp5LxQMK0PqEXHT88pFe15npRT2CTW8gy0OI3ooawpgYRhHyFMhTKWltALK0lpiM-LKTFbZLTFDoEZjODzvEpHFXCHkx8F7FeQNDQnMZxq-KteRLOxIhVeOqR3_fA7GF9T3ITnZBn4aq9_-Q0m_w9yefiGi_l7u4BEbXwW5w4Os1lxqbyDgPLzVFvxO-OjXsFpNclHCYJyWhLBd6lwyqqtpld6aHWjpQnv7DNJwyQ9ylHkOe9W3jCKpYg1NThRhyng7EfalLtMFEESBNhGvfhLJ7hB3GJrPjzqfTo47yXTDDbMdVAkqkx6zmC3jcvEBeN6oJrA5kgfhmhiegas3j2EauWP_QZjsNm-C1mmXfH0_SCGQZfrlXmpMr5UpqQi4J1hszPcjoYsZCE6qUB9AX3IdTTMV93aLp-ir-S_mJ97qRMZtfk34d855w1hCnjsqJFUFL1tYgMhyXJ24eBZsgoNZisB4V9qtsVyj78rK2TW3yeu4k4TPi0ed9M4zqniJa87v1XGsn2S6z1TlReuzfkh-zsHOKFBUMQrWLRfZc-K8vLOUKn6c-UkxXLECn7ZA-W3dZ8EwsRiHWT8_vUHFAwcaKnJVdwXeob_GyyFoOs9zPi9o2rzgBAmsswmsgb1RZPouB-sqX46ehhaUIfbDh-t43d4sLq06_1Jv0doyLxJpsAvzU361emgxDNV01N3A2MoiEmoLdrJlXNebtkUcepRlK1-IijnExfwexe0yr0fuAbB30PrmyVUODbi7NOZzG63rlzLa9EjYJ_7nV-R750-xT2u9GMo21BL7rUqNz6pT70KyLigBuWXDjddvDHj2L_asdtrk8Bjf6YHxyEcn.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0be2f75022b755ee016adf430301a487d1bc2caee87415f947",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 186,
+      "completion_tokens": 241,
+      "total_tokens": 427,
+      "cost": 0.0001391,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001391,
+        "upstream_inference_prompt_cost": 1.86e-05,
+        "upstream_inference_completions_cost": 0.0001205
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 146,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

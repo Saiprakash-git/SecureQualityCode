@@ -1,0 +1,14 @@
+@@15eb63b20f91fcb7 STEP 0 BEGIN@@
+claude/task25/Task25_CLAUDE_claude_3_5_sonnet_20240620.java:4: error: cannot find symbol
+    public static List<String> number(List<String> lines) { return Solution.number(lines); }
+                                      ^
+  symbol:   class List
+  location: class Task25_CLAUDE_claude_3_5_sonnet_20240620
+claude/task25/Task25_CLAUDE_claude_3_5_sonnet_20240620.java:4: error: cannot find symbol
+    public static List<String> number(List<String> lines) { return Solution.number(lines); }
+                  ^
+  symbol:   class List
+  location: class Task25_CLAUDE_claude_3_5_sonnet_20240620
+2 errors
+
+@@15eb63b20f91fcb7 STEP 0 END rc=1@@

@@ -1,0 +1,7 @@
+Task130_gemini-3-8-flash_cpp.cpp:287:63: error: expected '}'
+  287 |     cors_config.exposed_headers = {"X-Server-Execution-Time"};
+      |                                                               ^
+Task130_gemini-3-8-flash_cpp.cpp:282:12: note: to match this '{'
+  282 | int main() {
+      |            ^
+1 error generated.

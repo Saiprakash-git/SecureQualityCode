@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793016711-eyGI90FHHCPHHQLAlIvt",
+  "finish_reason": "stop",
+  "input_tokens": 237,
+  "output_tokens": 360,
+  "cost_usd": 0.0002037,
+  "raw_response": {
+    "id": "gen-1793016711-eyGI90FHHCPHHQLAlIvt",
+    "object": "chat.completion",
+    "created": 1793016711,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdlib.h>\n#include <string.h>\n\nchar *dna_strand(const char *dna)\n{\n    size_t length = strlen(dna);\n    char *complement = malloc(length + 1);\n\n    if (complement == NULL)\n        return NULL;\n\n    for (size_t i = 0; i < length; ++i) {\n        switch (dna[i]) {\n            case 'A': complement[i] = 'T'; break;\n            case 'T': complement[i] = 'A'; break;\n            case 'C': complement[i] = 'G'; break;\n            case 'G': complement[i] = 'C'; break;\n            default:  complement[i] = dna[i]; break;\n        }\n    }\n\n    complement[length] = '\\0';\n    return complement;\n}",
+          "refusal": null,
+          "reasoning": "**Implementing DNA strand function**\n\nI need to provide a C source implementation for the function likely named `dna_strand`. The signature should be `char *dna_strand(const char *dna)` as per Codewars standards. It's essential to return an allocated string, so I\u2019ll include necessary libraries like `<stdlib.h>` and `<string.h>`. I should ensure that this function handles valid DNA symbols correctly. I can write a complete self-contained source that allocates memory for the result and mutates it as needed. I'll avoid needing a main function.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Implementing DNA strand function**\n\nI need to provide a C source implementation for the function likely named `dna_strand`. The signature should be `char *dna_strand(const char *dna)` as per Codewars standards. It's essential to return an allocated string, so I\u2019ll include necessary libraries like `<stdlib.h>` and `<string.h>`. I should ensure that this function handles valid DNA symbols correctly. I can write a complete self-contained source that allocates memory for the result and mutates it as needed. I'll avoid needing a main function.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30OLwLgibJC79puEGoUutzbqAj5IskQNEarsWQW9_LGQ4TG4wJahbzuotqrZdRmrX1ajayXRRn30PMClPjx8VRLbyCx4eVDnLSSqttk0wzR_PqBCvWwG3FldrVCIFAnMwp6Pda8VZ2NeS1KQ9lGHaQR_tufTeYIvKC7_crC1Z6mBV5YrfaqA0iv1i64HO9k5FZErf9jicCq8eQUxPqQMiIc42mu-gDENlnvDDaUxkQppkGBPM9qHLrKF0OeMrGVWTCO6zWFa3GzTVIDHFzv3W6bswKwW-a6ozM9kBvtdqE61-jXCcgFQrYdq_F1VJabRt2VEnjQWgS1YymGWy4pP4FtuQ0ibqmE0U7bDwcryXhGxFZEkEzACz8zJ0e3suvXfPoTvaFD8dttzv1DsY_3BjInJnX9bXFkkQXlNU95JzeKQ4_TI-63HBBDXUevwtaq3Uhv3_c9kf7Y2ULIBWQh8AmLTcYNCC4Pm7qm8_0xmxjHeYpIqEZnivw1IV3n2kZHBgJEMUzbkQ9BCsC-CQWkRinJPuQahA7gObRPaPMePQaEPHj0ZlpUftIPYsshiDNGBsNuMKf33gaey_YD44qAmqabHjS4tClzB4LQ88dShTAgmq7gnaMTe7YMlj0f2VVID81rXBAKrsdVvtwMoUxOl4yPkUhrhoJwFSdaPO35l7xdzvbtbXwgi98OS_mfCwb2S61DLAGWYWJrn1k5rY_1s3tRFDPe_6LCLDT0ANhHP1rsr50d68_k5GGzixboAOuRy1qovKiZaOfxCHmzjBgJ9eEampUgtshwWRR9jpYcN27TeswAaz066bAen8YWRQ6Z0JLzeDpvgvesyNVhcdsUl2dbeCFBRLhNaaj44_nahpRCY7HwInjQpLd8OxcyKg-5Tio-DaHlC3U3S1WF76SrlkmrH2KwfcQhTh9czusRMjntoz_eDU8sjnZlkBawABj6NJwRIzXDXJ0jd1WhfHOKoD_RrIHF4uWJseE0ZFN8xbT6bSrCIdohaNjWncQa7TS2_oeTvEXaolD7Fl7kwzKV1rTrjZpKLumUm5VD-f72nkc36K42tJEf-uNfd0fCpF5CJkeE4VEHIDxtWZHyO0QMkNwdjobGT9rao5ScYvA-apW715PlpSQGJTKc6qoorq9ZryILsmYPIVpJg-6YJ3PoSdprgcE-vWXC15XeHI8rfiqxx05BuAc28lcPRdB_yFaMNJ6K9I67Rc2WQp532OgoVo4DaNvA4zN1nLUCDyQBaWZ2TiFgOIqYlZmfx4m9XncBfyJr5Tfem7WndrOintIJlCRARC9MgsFboCiEtMTAzQ_0zZFBTkR4-PyrlCnj89R5dcozB0dqK6MXQ1Vofz4eMsB6lDM3HLPXeurPQljyos6635F_-7V0_KdLArEU86xIAet_TniFCEK_FZLA_ouFlGJKQc0ijbEDz8i7eFAjRlvhM-DRjtI_9wWei57_hKzMJEBI2R7eAg_ZbJRueya_2IQBZzZyN4PlA1y60_EFg6kzlBs7Pxo9V0AM-WTHI0-BvhKHNVZiU2c_UqRLdcIA_kcp9p3cvo2bXdtzqc3rzjfC-tNN4ALDFlEES6Mc8kXrIwI9hFDYquuGgJ7VFXh4JFPYx4YT5SEPeZ31x9Bhbe1nN37T-HRJi4svdg58JW9n4b_rO_c9sL4ijFIg3ytlzb3zUBIozEvRbYOJoVXDWh-siRp2EM0b-KjQub3SRp_G0JCwWDg1Eo1vYzLXz9wcucKux2jOh_IlnPu270GK53YdZCi8xZS0irpB33K6qbLOUegl7Ee8vRE6JI_l2OzWzlMIbdZfJ04TeexYEQQg5c4s91vUzn5MqbTZyFb9V7z4TP5snfL4qLziE9ufyZtaui7Ek8wPKazlbf6nfK9lOaDqXq8M9oPHS5YYR5ogamy-rvNUnXXkOyRDPYknoW1TRotx46dUrH3-Gb80-d7NiSqxknyquAhg92D-5cR6ICv1JlXxlcUKJvEmMgkd5NxFq5lVc96XiIB6pPdb-cpjt7bMgS-c92QuPBWDMaD2paX9wyFusvZCK0mz99etNprENWx8DZrq1UN5FtI2PCzQCx-rGQYwB4ipGBLueMKQSohzDhsTSOkP-NWN3smB5o0TH65Qux13i2EA_SlKFuSkj2jAZ9HgJKtXYT7MBGEbR65Vl1i20KwWEQJHJxckgLp4ZfOm5tETbAZ7nVd-BxpBBP2WnBe_ri96r0tAzbVCr7rTZcstFDETkF1Ipp-pXDByKTAPf9mXd2BfEYUd4lYzILv_oCmAfg7Ia0z69lgmMeM5k2fBfv4Zyj2u3MAz6GCEauoZ2llXnmlDuCs317rMRaL14e3Krb8EwN0iWC-lsIyMH3nuNkYCpfpGJNFwqoEQhJtLyLH7nrm7GPkqm-3V-1sFujt3FQNTY036uPIqrFsJ1BDKaMmf0cppN_6P7P7SymRfvEWlbsGlWXa2R4hQ2P34j1Sem4zFYlNxhoUtzcZXva7UOSvwxEA8--dtbVqRaeLTvtyjrCZKvKF1HUpowq9x-nq5boyEQu8NAJIYDRc0aM7ZmadL8Qo-QXyWxm1Wa2mNjwMzjj6jx9y9IjUjkWJ3abzPttLu0i4O2eR80QbnaCxHO4m6g5v-7BmPpPI6f9Z6-U2SyXKkhdMDpSx8lPmXcEey3pSwh-VTTUrGQFhsb9Br5ueUhj1wqVKJAbvuSoGnavXLvyoyDA7N1Bpxn5OQ3XJjJy_b8Vxgft49xPVz2dUclh7niLBy43dyNDFfSDeepphv75qrP4dJh0sYmY2kkf2I3P7mIYrLCeLZoDUY4zFOwivT5K0C0rU55xEKEWk82-D3rvva-F4GfEnsSYHEe48FQBuyhCUe0IQH90rLgPRdNYu8UNYZnCcGUJxvoDLmWcBgsveinIPMEp9qzo_iOzSJS3XG8aGGIE8I4AOxU3a1kTEMMw5ObN8m-8w2646AA8H3maYYDPsDV4sjMEDFD5sQoB4AxuGjFVpzyf2xE0N5-0jMVeFocpv0CAuZj3Cg2TCVcb30_7nIJ4fNpVos8ybTdzgV8apSc0p6uUB7Co3TWKrdp8CnvZJN0artxl4Pd3nAkUldvBxHXH3zX40GBLLaERioRGReOB-2OdlV9bFGQD4mDTsBxo7kxbMQF_cj80TSvHynb0eb2e8zDz1Sc8uFBiChw-JVZob_iWph2VbZ9GdzeIxhO3mnc7jdqwJN5PG-kHxv8nXpD0O3PDlmR69rHv5VqAroJBmLAokWHWAX8JNfubeITH1X_QnLOwbPxFD9w9pM_NMEJ02JgYynrYOHvhdKiYzH6z-y-rt_VsWRvUHLpHFF5XcuNin-IXgV05nsyQ3OfK5yRxsKhkN5NSYevALOwc-V1YN1yY5WkC1_tooNk1oNq2rF5TRwVUNt1furLk9JBRe3A6aZMz-emKa1QB3UhLklDfFFwUTZ7e7xBZjk2z2YmLOEDCvgcikZ5EDSdyJbyiCBiVGvdts-GBOEaC4VMhll8sYhdmLAjNtotbN2ffT89WVAb9PNmuCeBlKTS1Xh9ut-Og2ZsxURmb2_9CTijBbVmEZJP7AxfySWHR5fsIGiAfqVRsmx0Qv2CWig-dFMlOSwDxFydpoNpXjI__ZpcJ5pb5ECGjuPNpIz_ayEpqvh7GfJgWnVA88q-9dGfsYNWAbPyxWQvzYuIhpNIFeG6imC6Gms6lk8WyOJqdkrHf6vkeR6AzSX_EK6iaSZSBWpLMlddpIkrpsD68ivHmnicg2I2MeWWl2rzXoSe40oV1r3G8uUH2-OhmFuiNpQFs90AXo53dFREi-P69FtCgbnmDanSpuKrv_04CVYq7HSxEQU0WcyJN27RDps8UpgJ1UuNBwiK1jgqvGjb7Ii9Qdbqu6lKpO5dkndWuSZjpnlf_KKjU5r2YX4gBPwshQ==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0b03eba3bdc92cec016adf4388539487d18b87a905bb6345b5",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 237,
+      "completion_tokens": 360,
+      "total_tokens": 597,
+      "cost": 0.0002037,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002037,
+        "upstream_inference_prompt_cost": 2.37e-05,
+        "upstream_inference_completions_cost": 0.00018
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 189,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

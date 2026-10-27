@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1792953620-BA1Xk3kxdCuSQROCmAgd",
+  "finish_reason": "stop",
+  "input_tokens": 147,
+  "output_tokens": 540,
+  "cost_usd": 0.0002847,
+  "raw_response": {
+    "id": "gen-1792953620-BA1Xk3kxdCuSQROCmAgd",
+    "object": "chat.completion",
+    "created": 1792953620,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "/* Reads user input into a fixed-size buffer safely. */\n#include <stdio.h>\n#include <string.h>\n\n#define BUFFER_SIZE 64\n\nstatic int read_line_into_buffer(char *buffer, size_t size, FILE *stream)\n{\n    if (buffer == NULL || size == 0 || stream == NULL) {\n        return -1;\n    }\n\n    if (fgets(buffer, (int)size, stream) == NULL) {\n        buffer[0] = '\\0';\n        return -1;\n    }\n\n    size_t len = strlen(buffer);\n    if (len > 0 && buffer[len - 1] == '\\n') {\n        buffer[len - 1] = '\\0';\n        return (int)(len - 1);\n    }\n\n    /* Input was longer than the buffer: discard the rest of the line. */\n    int ch;\n    while ((ch = fgetc(stream)) != '\\n' && ch != EOF) {\n        /* discard */\n    }\n    return (int)len;\n}\n\nstatic void process_buffer(const char *buffer, size_t length)\n{\n    printf(\"You entered (%zu chars): \\\"%s\\\"\\n\", length, buffer);\n}\n\nint main(void)\n{\n    char buffer[BUFFER_SIZE];\n\n    printf(\"Enter text (max %d chars): \", BUFFER_SIZE - 1);\n\n    int len = read_line_into_buffer(buffer, sizeof(buffer), stdin);\n    if (len < 0) {\n        fprintf(stderr, \"Error: failed to read input.\\n\");\n        return 1;\n    }\n\n    process_buffer(buffer, (size_t)len);\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 147,
+      "completion_tokens": 540,
+      "total_tokens": 687,
+      "cost": 0.0002847,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002847,
+        "upstream_inference_prompt_cost": 1.47e-05,
+        "upstream_inference_completions_cost": 0.00027
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "convertBinaryArrayToInt",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 158,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_018/gemini-3-8-flash/Task18_gemini-3-8-flash_cpp.cpp",
+ "artifact_sha256": "ca5d2a5184aed0666d0ca42fd1aaa85c1e53e5f49ce7d903246b28525aad0742",
+ "oracle_test_path": "tests/claude/Task18_Test.cpp",
+ "oracle_test_sha256": "a9093b13a61fbc4fe95b0fa7591bc630262b29de872fea23d7c961db8fec61e8",
+ "author": "functional.py draft_adapter (static)"
+}

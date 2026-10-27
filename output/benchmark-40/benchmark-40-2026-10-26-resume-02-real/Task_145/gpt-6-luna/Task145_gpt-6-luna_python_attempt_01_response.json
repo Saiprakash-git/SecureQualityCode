@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793025281-QfEGXn5QmEx78qYIrNgN",
+  "finish_reason": "stop",
+  "input_tokens": 113,
+  "output_tokens": 649,
+  "cost_usd": 0.0003358,
+  "raw_response": {
+    "id": "gen-1793025281-QfEGXn5QmEx78qYIrNgN",
+    "object": "chat.completion",
+    "created": 1793025281,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "import ast\nimport re\nimport sys\n\n\ndef maximum_subarray(numbers):\n    \"\"\"Return the maximum sum and the contiguous subarray that produces it.\"\"\"\n    if not numbers:\n        return 0, []\n\n    current_sum = best_sum = numbers[0]\n    current_start = best_start = best_end = 0\n\n    for index in range(1, len(numbers)):\n        if numbers[index] > current_sum + numbers[index]:\n            current_sum = numbers[index]\n            current_start = index\n        else:\n            current_sum += numbers[index]\n\n        if current_sum > best_sum:\n            best_sum = current_sum\n            best_start = current_start\n            best_end = index\n\n    return best_sum, numbers[best_start : best_end + 1]\n\n\ndef main():\n    text = sys.stdin.read().strip()\n    if not text:\n        return\n\n    try:\n        parsed = ast.literal_eval(text)\n        numbers = parsed if isinstance(parsed, (list, tuple)) else [parsed]\n    except (ValueError, SyntaxError):\n        numbers = [int(value) for value in re.findall(r\"-?\\d+\", text)]\n\n    best_sum, subarray = maximum_subarray(numbers)\n    print(best_sum)\n    print(*subarray)\n\n\nif __name__ == \"__main__\":\n    main()",
+          "refusal": null,
+          "reasoning": "**Producing max subarray code**\n\nI need to create a Python program that takes an array input. I'll implement a function called `max_subarray`, which will parse integers and handle empty cases. This function will return the maximum sum and the subarray, and I should ensure it adheres to robust formats. The function signature will likely be `maximum_subarray(numbers) -> tuple[int, list]`, where I take care of possible empty input. I'll also consider how to display the outputs for maximum sum and subarray in a clear way.**Creating a robust parser**\n\nI need to handle an input like `[1, 2, -3]`, and if parsing fails, I'll extract signed integers with regex. The input could be from stdin, so I should use `ast.literal_eval` for lists or whitespace. My parser will involve cleaning the text and trying `literal_eval` first, then falling back to regex if necessary. I'll write the `max_subarray` function to return a tuple of the maximum sum and the corresponding subarray. I'll ensure the output is displayed as the sum on one line and the subarray space-separated below. Only the source code will be provided.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Producing max subarray code**\n\nI need to create a Python program that takes an array input. I'll implement a function called `max_subarray`, which will parse integers and handle empty cases. This function will return the maximum sum and the subarray, and I should ensure it adheres to robust formats. The function signature will likely be `maximum_subarray(numbers) -> tuple[int, list]`, where I take care of possible empty input. I'll also consider how to display the outputs for maximum sum and subarray in a clear way.**Creating a robust parser**\n\nI need to handle an input like `[1, 2, -3]`, and if parsing fails, I'll extract signed integers with regex. The input could be from stdin, so I should use `ast.literal_eval` for lists or whitespace. My parser will involve cleaning the text and trying `literal_eval` first, then falling back to regex if necessary. I'll write the `max_subarray` function to return a tuple of the maximum sum and the corresponding subarray. I'll ensure the output is displayed as the sum on one line and the subarray space-separated below. Only the source code will be provided.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq32UH34_Fqys9Dmn5ZYJHC6iwAoNluU_1ITF_B6pTmjs9vyc7uzmkml-i7pjY3mkQ7wLF4r9g_PYWW_eTChRHWzj_cXTIY8pTgfYFhT1VqN0Gya08UHDowF7ykQQKCi6I8MxGo1HoO8st2OM0pnXFoivEQ6JMKN2g7u0zHkfg_CQ4xoZDfzles5AoFX2EtBpoge4p9WAVlSIZrw9grjJetoPH5Pzqp02wJla8QeOlueSvxIOZldB6v0xl0-m0OSadpHlVU1psp7XcM3lE8TVB-SzG-caV2sR7yjAyazMU3CPiAwdXeLmeee9X0zJKoi8-TkLKwglKEbpVsAiC_8XMIq8rR2N86qIj8BoyqIangUmXuULfq0Kr84U_X3JbaoJdiQNpszuuBAwmyNBAV2yc4mpItfQzeS-S73RczBOfqm95nXZH-tWj8F4Q6pKpzwgNm25w_hhfTz6DROQNIiMmj8KuV1ueHAHxpAhW8aO670TFm29up-SIzTQg9jetmM4izAysR2lPaUBNuK_wH7e6NhJx4AzUruNZWRgWGbLmnBf_RMPutcUpNTyOrFD0HvlsvO-PU_FAkfY85u6JojCx-ElFkEAJyPqVw-0Y-MvQyrrTAdVUARAmFOrIVaHcNd4JYSnTA4-uydvjbczrZW8yTHiBg38LxFQgQVT8clvYkN5ZcWO4l40jlaHNNj6opzOiuRG2EEEYJULuq-T-gULmXaAJCJRGOT9RAp-fo1NOZx6JxNql8fbSO0WD6RVz9Ul5ND4gAM04vgcMJRSALXpya3b6m4aag5Fsq_vZheTdilu2--EVytnh5yG4uh8A40yKRZEhTYRoQuvzD11nKzcxFEFv3SI6Ae6GF-tIHg1qpU2ahlTC-bCm4yP1MsK7XbK44bZrVdqtRrZjv8kKdlAmyRe3B0DhLRMsGW66-nG_GmlbhDePbZTQdURExP_oNsYYy8QSXo6oCJnJRr4bb1bkCKQvbC-b1--9K4DwxNwcXgS_Hiv6vwPQ7LvBimMmdxNDhbnS5O45VcRKLyzhTLjY1C3YxPTdwGIeYmeQkYGukdqbfqug6hGpUzdG4XGx3nF3qNwAZN7nDeGZ11DgoOW-Kfz0FVEvNxVMAChi6jncFR1FXKtLtaH8eQUbQRNyjfXn0TvEao9xDmW1c6ILQC962lQ7vPqwT3q-m_G5t-AmG2gq9r8zKUcSOKCFgIVyUXbVu85wgzHyjUZjND5OKGk8Q45dOHv1sQ-G-cxzRMJ20iz9mcFKUAOhTpUW_5wAKPvkwsIpqHiZvF4Trhfaig37gBogAL6yoQCJmZT_GsOQqNRx0E9r72gdWoWj6fpaqe7VMrPTILgc2m-zeQxfFmK-g6iNoKbC4oEhVVc6plnGhVqkf3k_0LUeNPj_0j038YuuxwAO3362A4ZWydEpV3epQ17GSJ9Auh1e6vzvL_l7u1McrZxFZ0_Pz-Ll9FjhBEn9M8Ur2qWRtGLGPIlNOTVA90jAzbb70Pfv6O3moC5oaMX-SJ5WtURrnb2AYxgASsYyoKWa87qCdO9-YDnncLoP-sZK8gJPYf4543IwzpTw7nstP7xguBAPpAy7cZ7X-YC1kOZ3-rmqOe-H_W5PGxTcGEtW4jdrlOdNjfilXOeDev2sU3gIlnjJL08OUWnQOIulpQvYqyDF1BgFJGjkk7h4h_oAVrMtqQ6fDU6HpoorvfY-nu_ukTdtNClmt2y1ZsYhKNkNLRn7IxgwZBZeE94iYOQCT9M-Um62e2OuICpdXWQvHYYXc6hW6l5amyn1njEIjLtqpvDZJUR24vcJlw3RCIBH6zTfuT7CvB1UWM9TjmLUyXCjW8MJ6xkbhtJ3v9fj0XlAgeNbhQSBBBGeojYRzewidic3C3G0FLRZFstP1GzUyzLVQFfF5drEK9n72IU_5mv5_09DGdifwDGUYAvG7UIlJlo4A0rr5SqaUdhEQX-XvFCAxkgXKgxSBp3aoXstD1VCw1cMZ2sPQHkWTZee8tFCjrS4Y0rkcth3yHOcz1WZmu--vQ_tlQRxfds2Oa4GhD0cUKkrGVPyDK60Wia0NPyPcFGQKRTQiybXIDMwiR1rE_NAT1icaBjj1pUHLZ8-NrN0UFfR_oYmDw8sv_OfOE0waqyjHmD6DHVhf2nmp8uRv9wyuxkQeCI0QJ1ZvRsnYt4BsF_bwgx1zv-_7tKBrgNqVX5WiYoFXk9oQkQEoK1IQDFg4xqE-ocEcJ_o0t2s1ETovnwyIeSsz-6upx7xS2pexhhtHz57MsRW2YXiE8EqgpZh4jRN9ERn28lIvxmnrmpmdKgwQpYCxfC1uXKzOPB5i0zd_JIns3vAcFeYBcMwfJEbwJ20RZB4sVJlcGXQlA_sFllWpEjdT_9dXZjTywAq3bnHYPeJy_lTcFB7Y-XjzIllglGOsm52X9-UnLuEJ-kpDZqj5Zvw5fr7Z5T5qRWypeMhf5YXY-iCz9pm31-0FU3HkjyhGcqVRcoTf4Lnd36gc_H__YQQ9W6kea5bLJFAUu6GEO8AeuGA1-9eF6FPMTosnw1lED3ChxR4xCZBVm8APVModXI-rukcnzmmRpHuiH3XFsyRLuKNlJymw1ftMIhFVbzeenAI4enkLNV-Sn8OyUXeMQDPHyWZonBcEvGKGS1caPAarAfzih5HmqfwONzAbbEofmIyKsLRdlP3abPZdL3-sgtL9xFNLj3qGIHpDcgZxUIWstzsPklRRNct_H88Rr0a8STZPT_Ox8OqEAQoGfDimVAs0dfWYlTO3l1pTRyp4fwtCqVBueG1y3gRuylCZ2ZSaE7DzHkzSG2Wk0BatnkGeBI-_cgpW-DZzu8yXMgsp_x4R1crZgpdXx3RpSZGmluiJwAv_3-XoUohgZVW1oSPC0PNU9zIS_Kmkg_9vp_Bmqzkk4TxUtZzEEORtLgG7bVIM1VwI5aVToKWMsgw-zwx1t6Cq3S3Dq65H4rl3nR_GamezDnYAHK46HoHimU2XGuUxwPkLEsTyw-xupDjfAW_V40MnY2rk5Eu44_Jkx7pcyg7m7nzvXCZMJxokt5JyNfsCJZRcZBY9I-k5quj-ut6Ua2IQcw-x0ROcayIuXgs6B47i5U8kHEazn4vOwOrQsmB073X7dlOCwb6usZJ2uo_LE8tU0caqLeI4UwgOtm8ArJ_xJB9BuKE6phAead8pEchdf8h2rsYjYAxLpZLnu-XMR_r4mS3QuVxI3guwY72vOzsDJVF2km2R_xcKPrecnd4wg_oKxJCKrRBQpeYPLLzzV_iJEGpPr1RakIcr5eQyuWc1DH0F5s6gjK6gGjmmHqaoAwSOyvxQxx85PFBJJrrLRrcOGM0PvIXSFCsve0DY2ZCs-MFWL-UeotnGiZaD2hqwKeyBQogoSlYi1S-LCFuzE3LoeQZFncaCb5lmT0g4gn566Vz8SAZn9oMCiXNxnNQjCypwppuo8Uad5AlUjZiv-IpYqXp6jmsMWsNC1woho1HVSlJmLow1q9ZRg0nM8blbu7DUngcujHv_qzRcEaPo2aFDJysIrdZHILsUy9zfVC7YUYS2fkBb35w_ngr8xByVEsVFq8ybhgIQxUGyjWu7tcvmA5L9T9UDz3ef9-z_4UiUFyNSQ4D6cPpqgnEgiH67wK5gDhEzCe4r4JSYP-5G5ppy2RsVufwRiiK6sEEzRjPes7n5tn9mVq5Qe6o7GSWWZvSfmVmWrPrv2qFyPNRl5_VI05skKoDDQ9kFWa_FKc8wsMrTyrHMfQPA2LHrZSf207LJJb6MZ2Dfrz-BjKWHAZ3Bpm-SCfuG55lzKpELpTy-Z2X1qxKhFaJZJSDBmEh8FJmTLm0FRBj14JnsYe1RcoNRhgwz4VkR5vFTMXmEpODR3VqZ8zaNHvX80J5lZuej0kENjuMuKYYc20evfPvmqKv0Wvvjz7317q_jKV8zsD_8WBjv176PmMisT9BxUQ7yNeCKnaoZWKzUCPG-rQrGIlaJwCzagrlr2-YyscBeQf7iIcx_nj5RcoQILQJKtzCYi3SkvvoNc3O9Kxs-a2JC-ATUyWsfDEjqREAdmyWfae_2txUxl0Ehmdf7ctpWxZ2D1SZVv20leiJQdC7tYVcsudFP2RfPD67ALvsY1Sr6YFFdJdIquybxybbvJI0GXYMBXDnuJPwbtxngmdAF4iHX4x-kKWQKp2D01OzN4vA7JKjtaJ7yfLGmUcmZPFkoSMKMGcRjCOJHjRtq8slob7-lQFbcbQ-hYiNuxEL662yMx5lvSvPgofTrwGJqt5nAyghNIgFtdy7BYZ4qtZuWD0CSMoziqj89IzGtvO2TSxUlzfWJAwPIIRGJQnozxsXfUorB-QHNNK1fj_HY9nHlao3xSgS5FgwQCo7nz7BjjHDknLwn2mbHf5Akv3E2Z_mohUYqMV5SA1_1c1TQbV4_MzjTtR7ZRlsk2r7vCV2Hk8KbJQAdkKUuwYcAo1k4ixbumAKigsSC_KUvi3ggCZhKxtlevfqqazkTB64PGDWp9KQJDHNU3TPHyMwb0A88EIGYlFab0OGJMJRL1rE_bE-RTAC01NbxACFMwl-69p-Y3t-lcOwoNq2xUEC-YTR2LvlcmuunrhONRQfykbcC36yL0aNjztEPGW8WhX5FUpT9kdldWaiocqnlfyxGTRxY2s7pBV6-d1ND6uGhSi9x3da0wnzdWaZJO4s0R5W59_3a0auVpw2sdxWVenxZthLsuJTs4DSO-ZA_cEZXYA5Sw0EzAIuNHtyhQRDkG8ObS6zDLhWHPODNCJBpkGyMXW884evRk967haljvTCEykrVGqsOa31DY-sXL1e8yaKa_frS12MnrNW6EbOVyYUkHg4JcK-cLV5rfC77ZuAZId4E-OaTki3tDA0zarzO2qtmGb43IQh0uZ7lSNpZy7_h81Xu8HjkRfUMFKAm9YjWKOBMHi74yPBUpIQSq6Y48yyt4Zh1Xm-FqPi0TgjSVPcxh5wY0-ZsaT_Y3KDdT-H7kwnuXEwtnr9kRO13dvRD6dtAovhkkxqfQT-73oCYNsXYSmxJ0vcTsupfpiu_IfT9V0Umgji3_Izdynogq4j6NmScrFawM3r82yQC0Mr8Ke7lztFnPgHr85zTVLGCQsiF7pEQin0Fmz7nRSEgSutVfduoAEcs6xIJUQPPVQ8zwJl77i2W5z8yEHwxZV7ZXc7bUB1ZmILbLRMpXeBLSjwadiygRn0mj5RHuZWNlstJ5WQB4ytxp7EUZiD7-yFNxrre1r02Du1TsLYK9wADLfjnSUV0VZMMVLE43jJss8rotC0YuUrIfSUN1wM_NqxpElaAXW799BPn4wiUNu12TTlXxiCkvsCXAWNqRBprl77VLJr9NIaSP3bztd7iObc-gITUR0UGayVnUWz7YNP09XKOq5ozd-6Ap5x-5z7ecMFGNcP7YCTuuCIVFO19TU7voo7f8U5sGEiH5U1qPS6m8LWuRAPBWo8Y_silBPrk-KzNz9fB0eYc-msWukZe7QB4ymLPCtkPckdbzugYeMaiIBwzhC8BT3yMOO0Otsgf4f-T2Ul3VQ6a-_JHoAFl7Ry9nIcoT1XGoruxyLrTup2CFP__WA2Q6ADr32LBwd81JCGO8aRHhP_G9kenA_akmVGyIdjSk5Zjuyk9Z8s9qWVrzGtxssyrIqRBNi0AHZZdgFe2iA4nQEuoSfRdYyl6u7sSaqdMkOdoy5eDj86GDIy-3ZkNgbmU-5TiinF8m6KbuQZxOHDPtuFEbFvaA7kQ90RPOYX01EmH9hgu8r2ActlFU1VCMU6lvnVV5CdHVQ37c5aMRCr3xu_gYa_s40OFxR_6C_P6zO8mvJOj5GUaKCfLjnNnXo-N_CF-dMExCrTD5R_SnAbqgVwyPuMUrGCS3eZaz615wuMXdYYY9DgNHHT6fwmn42_dSZIHz339h3svuw6FmWf2e2YDwDb1iVk6R-z_DUmLB9lRDV4QZo7aXTFXabbVHR7F8pCOxoF8_MgYICqvjzuEukWzZtcmc6xDm_SQYjSCXkivj-YDG6X41GRK-CfZJNCcuHWlR7iUaBCWzvipfxoWkajInpMnxGe1eVdZ2dm_pWygKducAwPTybRdZNUNITDouLhZjvN7bmtvaVsLO6FRpSfB5L-gt-aw3-OweOqr-dxN8e1CAfT_SV3IIDuJ9PCwx3TpScs54iau5Uan8Z_t3NbxNj7YYaj4VrVYO74UTcNXjwLySPiStDkaj4eUHhdFBmkD7lvtQrkEYu5ZgwXpFG-2kpBqyDOIu7sHtezUP6fvF_vmgT49SkdVDBl0ksWozK4wdyX91qYph2LvG_jDtonMb03lXc2Z0bBSZWml4hhts5YRw5KyHMy8mvMUxLgfGChYBGAtaXa5xAdzkerD8cwFmyF7OeAPPlj5yazwsYZk5eXpQEicOa34B3_qqRjBCSlCEyFVdacJh3zLwpmWtDj0M-j3prmoJmFPurAoLWjaiFvHTvG-FjUc9pWeGMjERqQ4Q==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0e51243e252cde88016adf65029e1087d1872b20a7b51d4651",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 113,
+      "completion_tokens": 649,
+      "total_tokens": 762,
+      "cost": 0.0003358,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003358,
+        "upstream_inference_prompt_cost": 1.13e-05,
+        "upstream_inference_completions_cost": 0.0003245
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 378,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "high",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 65,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_012/qwen3-8-flash/Task12_qwen3-8-flash_python.py",
+ "artifact_sha256": "c1a60e72482ac9baa752a15edbe967053066201d55bcea81df588184dfa99a36",
+ "oracle_test_path": "tests/claude/Task12_CLAUDE_claude_3_5_sonnet_20240620/Task12_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "f946a67a34c020a5b63e05a3a882e6c3e6b6abc7f11762356539190efed95d5d",
+ "author": "functional.py draft_adapter (static)"
+}

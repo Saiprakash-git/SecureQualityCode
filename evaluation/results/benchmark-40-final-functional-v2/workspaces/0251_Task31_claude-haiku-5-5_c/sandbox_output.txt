@@ -1,0 +1,7 @@
+@@114698f0148f65fd STEP 0 BEGIN@@
+
+@@114698f0148f65fd STEP 0 END rc=0@@
+@@114698f0148f65fd STEP 1 BEGIN@@
+All tests passed!
+
+@@114698f0148f65fd STEP 1 END rc=0@@

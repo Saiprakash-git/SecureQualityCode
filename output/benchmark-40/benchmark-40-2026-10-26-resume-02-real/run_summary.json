@@ -1,0 +1,31 @@
+{
+  "run_id": "benchmark-40-2026-10-26-resume-02-real",
+  "end_time": "20261026_214413",
+  "tasks_attempted": 339,
+  "planned_combinations": 800,
+  "tasks_success": 299,
+  "tasks_error": 40,
+  "truncated_accepted": 52,
+  "total_input_tokens": 64461,
+  "total_output_tokens": 1157339,
+  "start_combination": 1,
+  "prior_spend_usd": 1.460938,
+  "resume_from_runs": [
+    "F:\\MajorProject-VII\\output\\benchmark-40\\benchmark-40-2026-10-26-real",
+    "F:\\MajorProject-VII\\output\\benchmark-40\\benchmark-40-2026-10-26-resume-01-real"
+  ],
+  "prior_runs_cost_usd": 2.104687,
+  "this_run_cost_usd": 2.136925,
+  "total_cost_usd": 5.70255,
+  "provisional_cost_usd": 0.062,
+  "unreconciled_spend_usd": 0.13,
+  "cap_basis_usd": 5.89455,
+  "skipped_complete": 418,
+  "combinations_finished_overall": 754,
+  "combinations_not_finished": 46,
+  "concurrency": 3,
+  "stopped_early": true,
+  "stop_reason": "unknown_cost",
+  "budget_note": "Each request reserves its worst-case cost (reserve_usd) before it is sent.",
+  "dry_run": false
+}

@@ -1,0 +1,31 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "findEvenIndex",
+   "target": "findEvenIndex",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "int",
+    "params": [
+     "const std::vector<int>& arr"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "const std::vector<int>& arr"
+    ],
+    "return": "int"
+   }
+  }
+ ],
+ "combo_index": 96,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_014/claude-haiku-5-5/Task14_claude-haiku-5-5_cpp.cpp",
+ "artifact_sha256": "4ad1facaf954db1df9e6efeb6e777a553246cd9ae101eebedb0236333c2c5978",
+ "oracle_test_path": "tests/claude/Task14_Test.cpp",
+ "oracle_test_sha256": "c28511e54a31b60e4bda5f1af23c9a249855e73f1e4032b57c71af5f576f7e37",
+ "author": "functional.py draft_adapter (static)"
+}

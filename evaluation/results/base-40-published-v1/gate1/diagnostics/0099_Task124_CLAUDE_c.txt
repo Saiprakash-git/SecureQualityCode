@@ -1,0 +1,13 @@
+Task124_CLAUDE_claude-3-5-sonnet-20240620.c:10:32: warning: multi-character character constant [-Wmultichar]
+   10 |     for (int i = 0; data[i] != '\\0'; i++) {
+      |                                ^
+Task124_CLAUDE_claude-3-5-sonnet-20240620.c:10:29: warning: result of comparison of constant 23600 with expression of type 'char' is always true [-Wtautological-constant-out-of-range-compare]
+   10 |     for (int i = 0; data[i] != '\\0'; i++) {
+      |                     ~~~~~~~ ^  ~~~~~
+Task124_CLAUDE_claude-3-5-sonnet-20240620.c:16:32: warning: multi-character character constant [-Wmultichar]
+   16 |     for (int i = 0; data[i] != '\\0'; i++) {
+      |                                ^
+Task124_CLAUDE_claude-3-5-sonnet-20240620.c:16:29: warning: result of comparison of constant 23600 with expression of type 'char' is always true [-Wtautological-constant-out-of-range-compare]
+   16 |     for (int i = 0; data[i] != '\\0'; i++) {
+      |                     ~~~~~~~ ^  ~~~~~
+4 warnings generated.

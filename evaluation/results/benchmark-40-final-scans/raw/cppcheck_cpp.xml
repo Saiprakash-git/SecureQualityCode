@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results version="2">
+    <cppcheck version="2.13.0"/>
+    <errors>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0016.cpp">
+            <location file="src/cpp/0016.cpp" line="150" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::transform algorithm instead of a raw loop." verbose="Consider using std::transform algorithm instead of a raw loop." cwe="398" file0="src/cpp/0018.cpp">
+            <location file="src/cpp/0018.cpp" line="235" column="21"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::transform algorithm instead of a raw loop." verbose="Consider using std::transform algorithm instead of a raw loop." cwe="398" file0="src/cpp/0018.cpp">
+            <location file="src/cpp/0018.cpp" line="244" column="17"/>
+        </error>
+        <error id="unusedVariable" severity="style" msg="Unused variable: line" verbose="Unused variable: line" cwe="563" file0="src/cpp/0016.cpp">
+            <location file="src/cpp/0016.cpp" line="72" column="17"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0056.cpp">
+            <location file="src/cpp/0056.cpp" line="9" column="13"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0058.cpp">
+            <location file="src/cpp/0058.cpp" line="8" column="13"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0059.cpp">
+            <location file="src/cpp/0059.cpp" line="7" column="13"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0076.cpp">
+            <location file="src/cpp/0076.cpp" line="14" column="23"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0077.cpp">
+            <location file="src/cpp/0077.cpp" line="12" column="19"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0078.cpp">
+            <location file="src/cpp/0078.cpp" line="14" column="27"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0079.cpp">
+            <location file="src/cpp/0079.cpp" line="13" column="19"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0080.cpp">
+            <location file="src/cpp/0080.cpp" line="8" column="19"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0097.cpp">
+            <location file="src/cpp/0097.cpp" line="6" column="15"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0099.cpp">
+            <location file="src/cpp/0099.cpp" line="6" column="18"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0100.cpp">
+            <location file="src/cpp/0100.cpp" line="6" column="15"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0156.cpp">
+            <location file="src/cpp/0156.cpp" line="8" column="16"/>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;arr&apos; should be passed by const reference." verbose="Parameter &apos;arr&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="src/cpp/0157.cpp">
+            <location file="src/cpp/0157.cpp" line="3" column="45" info="Function parameter &apos;arr&apos; should be passed by const reference."/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0157.cpp">
+            <location file="src/cpp/0157.cpp" line="6" column="15"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0158.cpp">
+            <location file="src/cpp/0158.cpp" line="7" column="16"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0160.cpp">
+            <location file="src/cpp/0160.cpp" line="6" column="16"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0159.cpp">
+            <location file="src/cpp/0159.cpp" line="7" column="16"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;res1&apos; is assigned a value that is never used." verbose="Variable &apos;res1&apos; is assigned a value that is never used." cwe="563" file0="src/cpp/0178.cpp">
+            <location file="src/cpp/0178.cpp" line="17" column="27"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;res2&apos; is assigned a value that is never used." verbose="Variable &apos;res2&apos; is assigned a value that is never used." cwe="563" file0="src/cpp/0178.cpp">
+            <location file="src/cpp/0178.cpp" line="20" column="27"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;res3&apos; is assigned a value that is never used." verbose="Variable &apos;res3&apos; is assigned a value that is never used." cwe="563" file0="src/cpp/0178.cpp">
+            <location file="src/cpp/0178.cpp" line="23" column="27"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="syntax error" verbose="syntax error" file0="src/cpp/0196.cpp">
+            <location file="src/cpp/0196.cpp" line="3" column="49"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0276.cpp">
+            <location file="src/cpp/0276.cpp" line="270" column="22"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0280.cpp">
+            <location file="src/cpp/0280.cpp" line="64" column="59"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::transform algorithm instead of a raw loop." verbose="Consider using std::transform algorithm instead of a raw loop." cwe="398" file0="src/cpp/0277.cpp">
+            <location file="src/cpp/0277.cpp" line="41" column="16"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::transform algorithm instead of a raw loop." verbose="Consider using std::transform algorithm instead of a raw loop." cwe="398" file0="src/cpp/0277.cpp">
+            <location file="src/cpp/0277.cpp" line="51" column="16"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0296.cpp">
+            <location file="src/cpp/0296.cpp" line="45" column="38"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::all_of or std::none_of algorithm instead of a raw loop." verbose="Consider using std::all_of or std::none_of algorithm instead of a raw loop." cwe="398" file0="src/cpp/0279.cpp">
+            <location file="src/cpp/0279.cpp" line="11" column="5"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0298.cpp">
+            <location file="src/cpp/0298.cpp" line="182" column="114"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0316.cpp">
+            <location file="src/cpp/0316.cpp" line="232" column="22"/>
+        </error>
+        <error id="stlcstrConstructor" severity="performance" msg="Constructing a std::string_view from the result of c_str() is slow and redundant." verbose="Constructing a std::string_view from const char* requires a call to strlen(). Solve that by directly passing the string." cwe="704" file0="src/cpp/0278.cpp">
+            <location file="src/cpp/0278.cpp" line="36" column="22"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::any_of algorithm instead of a raw loop." verbose="Consider using std::any_of algorithm instead of a raw loop." cwe="398" file0="src/cpp/0318.cpp">
+            <location file="src/cpp/0318.cpp" line="142" column="57"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0338.cpp">
+            <location file="src/cpp/0338.cpp" line="65" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0339.cpp">
+            <location file="src/cpp/0339.cpp" line="88" column="12"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::transform algorithm instead of a raw loop." verbose="Consider using std::transform algorithm instead of a raw loop." cwe="398" file0="src/cpp/0317.cpp">
+            <location file="src/cpp/0317.cpp" line="147" column="18"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0359.cpp">
+            <location file="src/cpp/0359.cpp" line="19" column="91"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0357.cpp">
+            <location file="src/cpp/0357.cpp" line="195" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0376.cpp">
+            <location file="src/cpp/0376.cpp" line="124" column="72"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0358.cpp">
+            <location file="src/cpp/0358.cpp" line="157" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0377.cpp">
+            <location file="src/cpp/0377.cpp" line="94" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;(&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;(&apos;. Configuration: &apos;&apos;." file0="src/cpp/0379.cpp">
+            <location file="src/cpp/0379.cpp" line="21" column="42"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0400.cpp">
+            <location file="src/cpp/0400.cpp" line="32" column="38"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0416.cpp">
+            <location file="src/cpp/0416.cpp" line="82" column="47" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0420.cpp">
+            <location file="src/cpp/0420.cpp" line="34" column="29"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="syntax error" verbose="syntax error" file0="src/cpp/0436.cpp">
+            <location file="src/cpp/0436.cpp" line="158" column="3"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0438.cpp">
+            <location file="src/cpp/0438.cpp" line="57" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0439.cpp">
+            <location file="src/cpp/0439.cpp" line="9" column="20"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0439.cpp">
+            <location file="src/cpp/0439.cpp" line="61" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="No pair for character (&quot;). Can&apos;t process file. File is either invalid or unicode, which is currently not supported." verbose="No pair for character (&quot;). Can&apos;t process file. File is either invalid or unicode, which is currently not supported.">
+            <location file="src/cpp/0456.cpp" line="144" column="31"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0458.cpp">
+            <location file="src/cpp/0458.cpp" line="16" column="57"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0437.cpp">
+            <location file="src/cpp/0437.cpp" line="192" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0459.cpp">
+            <location file="src/cpp/0459.cpp" line="55" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0476.cpp">
+            <location file="src/cpp/0476.cpp" line="10" column="11"/>
+        </error>
+        <error id="constVariable" severity="style" msg="Variable &apos;hashes&apos; can be declared as const array" verbose="Variable &apos;hashes&apos; can be declared as const array" cwe="398" file0="src/cpp/0478.cpp">
+            <location file="src/cpp/0478.cpp" line="123" column="18" info="Variable &apos;hashes&apos; can be declared as const array"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0479.cpp">
+            <location file="src/cpp/0479.cpp" line="24" column="39"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0516.cpp">
+            <location file="src/cpp/0516.cpp" line="89" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="uselessCallsSubstr" severity="performance" msg="Ineffective call of function &apos;substr&apos; because a prefix of the string is assigned to itself. Use resize() or pop_back() instead." verbose="Ineffective call of function &apos;substr&apos; because a prefix of the string is assigned to itself. Use resize() or pop_back() instead." cwe="398" file0="src/cpp/0516.cpp">
+            <location file="src/cpp/0516.cpp" line="23" column="40"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0556.cpp">
+            <location file="src/cpp/0556.cpp" line="71" column="77"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0540.cpp">
+            <location file="src/cpp/0540.cpp" line="46" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0557.cpp">
+            <location file="src/cpp/0557.cpp" line="260" column="14"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0559.cpp">
+            <location file="src/cpp/0559.cpp" line="45" column="123"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0558.cpp">
+            <location file="src/cpp/0558.cpp" line="218" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="syntax error" verbose="syntax error" file0="src/cpp/0576.cpp">
+            <location file="src/cpp/0576.cpp" line="57" column="3"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0578.cpp">
+            <location file="src/cpp/0578.cpp" line="33" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0579.cpp">
+            <location file="src/cpp/0579.cpp" line="27" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0580.cpp">
+            <location file="src/cpp/0580.cpp" line="30" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="No pair for character (&quot;). Can&apos;t process file. File is either invalid or unicode, which is currently not supported." verbose="No pair for character (&quot;). Can&apos;t process file. File is either invalid or unicode, which is currently not supported.">
+            <location file="src/cpp/0616.cpp" line="222" column="27"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="No pair for character (&quot;). Can&apos;t process file. File is either invalid or unicode, which is currently not supported." verbose="No pair for character (&quot;). Can&apos;t process file. File is either invalid or unicode, which is currently not supported.">
+            <location file="src/cpp/0618.cpp" line="275" column="26"/>
+        </error>
+        <error id="knownConditionTrueFalse" severity="style" msg="Condition &apos;!initializeSSL()&apos; is always false" verbose="Condition &apos;!initializeSSL()&apos; is always false" cwe="570" file0="src/cpp/0619.cpp">
+            <location file="src/cpp/0619.cpp" line="33" column="9" info="Condition &apos;!initializeSSL()&apos; is always false"/>
+            <location file="src/cpp/0619.cpp" line="33" column="23" info="Calling function &apos;initializeSSL&apos; returns 1"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0619.cpp">
+            <location file="src/cpp/0619.cpp" line="24" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0617.cpp">
+            <location file="src/cpp/0617.cpp" line="140" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::transform algorithm instead of a raw loop." verbose="Consider using std::transform algorithm instead of a raw loop." cwe="398" file0="src/cpp/0656.cpp">
+            <location file="src/cpp/0656.cpp" line="22" column="25"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::transform algorithm instead of a raw loop." verbose="Consider using std::transform algorithm instead of a raw loop." cwe="398" file0="src/cpp/0656.cpp">
+            <location file="src/cpp/0656.cpp" line="28" column="25"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::copy_if algorithm instead of a raw loop." verbose="Consider using std::copy_if algorithm instead of a raw loop." cwe="398" file0="src/cpp/0656.cpp">
+            <location file="src/cpp/0656.cpp" line="60" column="37"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0659.cpp">
+            <location file="src/cpp/0659.cpp" line="146" column="12"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0676.cpp">
+            <location file="src/cpp/0676.cpp" line="243" column="28"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="No pair for character (&quot;). Can&apos;t process file. File is either invalid or unicode, which is currently not supported." verbose="No pair for character (&quot;). Can&apos;t process file. File is either invalid or unicode, which is currently not supported.">
+            <location file="src/cpp/0678.cpp" line="257" column="31"/>
+        </error>
+        <error id="preprocessorErrorDirective" severity="error" msg="Syntax error in #ifdef" verbose="Syntax error in #ifdef">
+            <location file="src/cpp/0677.cpp" line="278" column="0"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0679.cpp">
+            <location file="src/cpp/0679.cpp" line="77" column="42"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0696.cpp">
+            <location file="src/cpp/0696.cpp" line="204" column="12"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0698.cpp">
+            <location file="src/cpp/0698.cpp" line="282" column="12"/>
+        </error>
+        <error id="useInitializationList" severity="performance" msg="Variable &apos;allowedMethods&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;allowedMethods&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="src/cpp/0699.cpp">
+            <location file="src/cpp/0699.cpp" line="17" column="9"/>
+        </error>
+        <error id="useInitializationList" severity="performance" msg="Variable &apos;allowedHeaders&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;allowedHeaders&apos; a value by passing the value to the constructor in the initialization list." cwe="398" file0="src/cpp/0699.cpp">
+            <location file="src/cpp/0699.cpp" line="18" column="9"/>
+        </error>
+        <error id="noExplicitConstructor" severity="style" msg="Class &apos;CorsApi&apos; has a constructor with 1 argument that is not explicit." verbose="Class &apos;CorsApi&apos; has a constructor with 1 argument that is not explicit. Such, so called &quot;Converting constructors&quot;, should in general be explicit for type safety reasons as that prevents unintended implicit conversions." cwe="398" file0="src/cpp/0699.cpp">
+            <location file="src/cpp/0699.cpp" line="78" column="5"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;requestMethod&apos; is assigned a value that is never used." verbose="Variable &apos;requestMethod&apos; is assigned a value that is never used." cwe="563" file0="src/cpp/0699.cpp">
+            <location file="src/cpp/0699.cpp" line="85" column="35"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::count_if algorithm instead of a raw loop." verbose="Consider using std::count_if algorithm instead of a raw loop." cwe="398" file0="src/cpp/0716.cpp">
+            <location file="src/cpp/0716.cpp" line="187" column="30"/>
+        </error>
+        <error id="noExplicitConstructor" severity="style" msg="Class &apos;SecurityMonitor&apos; has a constructor with 1 argument that is not explicit." verbose="Class &apos;SecurityMonitor&apos; has a constructor with 1 argument that is not explicit. Such, so called &quot;Converting constructors&quot;, should in general be explicit for type safety reasons as that prevents unintended implicit conversions." cwe="398" file0="src/cpp/0717.cpp">
+            <location file="src/cpp/0717.cpp" line="131" column="5"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." verbose="Unmatched &apos;{&apos;. Configuration: &apos;&apos;." file0="src/cpp/0719.cpp">
+            <location file="src/cpp/0719.cpp" line="75" column="23"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;local&apos; can be declared as pointer to const" verbose="Variable &apos;local&apos; can be declared as pointer to const" cwe="398" file0="src/cpp/0720.cpp">
+            <location file="src/cpp/0720.cpp" line="25" column="14" info="Variable &apos;local&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::copy_if algorithm instead of a raw loop." verbose="Consider using std::copy_if algorithm instead of a raw loop." cwe="398" file0="src/cpp/0720.cpp">
+            <location file="src/cpp/0720.cpp" line="90" column="21"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::any_of algorithm instead of a raw loop." verbose="Consider using std::any_of algorithm instead of a raw loop." cwe="398" file0="src/cpp/0697.cpp">
+            <location file="src/cpp/0697.cpp" line="91" column="0"/>
+        </error>
+        <error id="invalidTestForOverflow" severity="warning" msg="Invalid test for overflow &apos;nums[i]&gt;current_max+nums[i]&apos;; signed integer overflow is undefined behavior. Some mainstream compilers removes handling of overflows when optimising the code and change the code to &apos;current_max&lt;0&apos;." verbose="Invalid test for overflow &apos;nums[i]&gt;current_max+nums[i]&apos;; signed integer overflow is undefined behavior. Some mainstream compilers removes handling of overflows when optimising the code and change the code to &apos;current_max&lt;0&apos;." cwe="391" file0="src/cpp/0758.cpp">
+            <location file="src/cpp/0758.cpp" line="24" column="21"/>
+        </error>
+        <error id="operatorEqVarError" severity="warning" msg="Member variable &apos;Stack &lt; int &gt;::count&apos; is not assigned a value in &apos;Stack &lt; int &gt;::operator=&apos;." verbose="Member variable &apos;Stack &lt; int &gt;::count&apos; is not assigned a value in &apos;Stack &lt; int &gt;::operator=&apos;." cwe="398" file0="src/cpp/0776.cpp">
+            <location file="src/cpp/0776.cpp" line="24" column="12"/>
+        </error>
+        <error id="noCopyConstructor" severity="warning" msg="Class &apos;Stack&apos; does not have a copy constructor which is recommended since it has dynamic memory/resource allocation(s)." verbose="Class &apos;Stack&apos; does not have a copy constructor which is recommended since it has dynamic memory/resource allocation(s)." cwe="398" file0="src/cpp/0779.cpp">
+            <location file="src/cpp/0779.cpp" line="12" column="9"/>
+        </error>
+        <error id="noOperatorEq" severity="warning" msg="Class &apos;Stack&apos; does not have a operator= which is recommended since it has dynamic memory/resource allocation(s)." verbose="Class &apos;Stack&apos; does not have a operator= which is recommended since it has dynamic memory/resource allocation(s)." cwe="398" file0="src/cpp/0779.cpp">
+            <location file="src/cpp/0779.cpp" line="12" column="9"/>
+        </error>
+        <error id="noExplicitConstructor" severity="style" msg="Class &apos;Stack&apos; has a constructor with 1 argument that is not explicit." verbose="Class &apos;Stack&apos; has a constructor with 1 argument that is not explicit. Such, so called &quot;Converting constructors&quot;, should in general be explicit for type safety reasons as that prevents unintended implicit conversions." cwe="398" file0="src/cpp/0779.cpp">
+            <location file="src/cpp/0779.cpp" line="11" column="5"/>
+        </error>
+        <error id="operatorEqVarError" severity="warning" msg="Member variable &apos;Queue &lt; int &gt;::count&apos; is not assigned a value in &apos;Queue &lt; int &gt;::operator=&apos;." verbose="Member variable &apos;Queue &lt; int &gt;::count&apos; is not assigned a value in &apos;Queue &lt; int &gt;::operator=&apos;." cwe="398" file0="src/cpp/0798.cpp">
+            <location file="src/cpp/0798.cpp" line="34" column="12"/>
+        </error>
+        <error id="noExplicitConstructor" severity="style" msg="Struct &apos;Node&apos; has a constructor with 1 argument that is not explicit." verbose="Struct &apos;Node&apos; has a constructor with 1 argument that is not explicit. Such, so called &quot;Converting constructors&quot;, should in general be explicit for type safety reasons as that prevents unintended implicit conversions." cwe="398" file0="src/cpp/0798.cpp">
+            <location file="src/cpp/0798.cpp" line="11" column="9"/>
+        </error>
+        <error id="noExplicitConstructor" severity="style" msg="Struct &apos;Node&apos; has a constructor with 1 argument that is not explicit." verbose="Struct &apos;Node&apos; has a constructor with 1 argument that is not explicit. Such, so called &quot;Converting constructors&quot;, should in general be explicit for type safety reasons as that prevents unintended implicit conversions." cwe="398" file0="src/cpp/0798.cpp">
+            <location file="src/cpp/0798.cpp" line="12" column="9"/>
+        </error>
+        <error id="noExplicitConstructor" severity="style" msg="Struct &apos;Node&apos; has a constructor with 1 argument that is not explicit." verbose="Struct &apos;Node&apos; has a constructor with 1 argument that is not explicit. Such, so called &quot;Converting constructors&quot;, should in general be explicit for type safety reasons as that prevents unintended implicit conversions." cwe="398" file0="src/cpp/0799.cpp">
+            <location file="src/cpp/0799.cpp" line="9" column="9"/>
+        </error>
+        <error id="throwInNoexceptFunction" severity="error" msg="Exception thrown in function declared not to throw exceptions." verbose="Exception thrown in function declared not to throw exceptions." cwe="398" file0="src/cpp/0798.cpp">
+            <location file="src/cpp/0798.cpp" line="55" column="13"/>
+        </error>
+        <error id="noExplicitConstructor" severity="style" msg="Struct &apos;Node&apos; has a constructor with 1 argument that is not explicit." verbose="Struct &apos;Node&apos; has a constructor with 1 argument that is not explicit. Such, so called &quot;Converting constructors&quot;, should in general be explicit for type safety reasons as that prevents unintended implicit conversions." cwe="398" file0="src/cpp/0800.cpp">
+            <location file="src/cpp/0800.cpp" line="10" column="9"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0457.cpp">
+            <location file="src/cpp/0457.cpp" line="179" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+    </errors>
+</results>

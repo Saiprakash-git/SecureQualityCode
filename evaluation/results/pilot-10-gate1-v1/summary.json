@@ -1,0 +1,1071 @@
+{
+  "overall": {
+    "planned": 200,
+    "generation_final": 199,
+    "artifacts": 184,
+    "gate1_counts": {
+      "pass": 142,
+      "fail_integrity": 30,
+      "fail_syntax": 0,
+      "fail_compile": 0,
+      "blocked_dependency": 12,
+      "toolchain_error": 0,
+      "no_artifact": 16
+    },
+    "pass_over_final": {
+      "k": 142,
+      "n": 199,
+      "rate": 0.7136,
+      "ci95_wilson": [
+        0.6472,
+        0.7719
+      ]
+    },
+    "pass_over_evaluable_artifacts": {
+      "k": 142,
+      "n": 172,
+      "rate": 0.8256,
+      "ci95_wilson": [
+        0.7619,
+        0.875
+      ]
+    }
+  },
+  "by_model": {
+    "claude-haiku-5-5": {
+      "planned": 40,
+      "generation_final": 40,
+      "artifacts": 37,
+      "gate1_counts": {
+        "pass": 27,
+        "fail_integrity": 9,
+        "fail_syntax": 0,
+        "fail_compile": 0,
+        "blocked_dependency": 1,
+        "toolchain_error": 0,
+        "no_artifact": 3
+      },
+      "pass_over_final": {
+        "k": 27,
+        "n": 40,
+        "rate": 0.675,
+        "ci95_wilson": [
+          0.5202,
+          0.7992
+        ]
+      },
+      "pass_over_evaluable_artifacts": {
+        "k": 27,
+        "n": 36,
+        "rate": 0.75,
+        "ci95_wilson": [
+          0.5893,
+          0.8625
+        ]
+      }
+    },
+    "gemini-3-8-flash": {
+      "planned": 40,
+      "generation_final": 40,
+      "artifacts": 40,
+      "gate1_counts": {
+        "pass": 30,
+        "fail_integrity": 8,
+        "fail_syntax": 0,
+        "fail_compile": 0,
+        "blocked_dependency": 2,
+        "toolchain_error": 0,
+        "no_artifact": 0
+      },
+      "pass_over_final": {
+        "k": 30,
+        "n": 40,
+        "rate": 0.75,
+        "ci95_wilson": [
+          0.5981,
+          0.8581
+        ]
+      },
+      "pass_over_evaluable_artifacts": {
+        "k": 30,
+        "n": 38,
+        "rate": 0.7895,
+        "ci95_wilson": [
+          0.6365,
+          0.8893
+        ]
+      }
+    },
+    "gpt-6-luna": {
+      "planned": 40,
+      "generation_final": 40,
+      "artifacts": 40,
+      "gate1_counts": {
+        "pass": 30,
+        "fail_integrity": 5,
+        "fail_syntax": 0,
+        "fail_compile": 0,
+        "blocked_dependency": 5,
+        "toolchain_error": 0,
+        "no_artifact": 0
+      },
+      "pass_over_final": {
+        "k": 30,
+        "n": 40,
+        "rate": 0.75,
+        "ci95_wilson": [
+          0.5981,
+          0.8581
+        ]
+      },
+      "pass_over_evaluable_artifacts": {
+        "k": 30,
+        "n": 35,
+        "rate": 0.8571,
+        "ci95_wilson": [
+          0.7062,
+          0.9374
+        ]
+      }
+    },
+    "mistral-large-4": {
+      "planned": 40,
+      "generation_final": 40,
+      "artifacts": 35,
+      "gate1_counts": {
+        "pass": 29,
+        "fail_integrity": 4,
+        "fail_syntax": 0,
+        "fail_compile": 0,
+        "blocked_dependency": 2,
+        "toolchain_error": 0,
+        "no_artifact": 5
+      },
+      "pass_over_final": {
+        "k": 29,
+        "n": 40,
+        "rate": 0.725,
+        "ci95_wilson": [
+          0.5717,
+          0.8389
+        ]
+      },
+      "pass_over_evaluable_artifacts": {
+        "k": 29,
+        "n": 33,
+        "rate": 0.8788,
+        "ci95_wilson": [
+          0.7267,
+          0.9518
+        ]
+      }
+    },
+    "qwen3-8-flash": {
+      "planned": 40,
+      "generation_final": 39,
+      "artifacts": 32,
+      "gate1_counts": {
+        "pass": 26,
+        "fail_integrity": 4,
+        "fail_syntax": 0,
+        "fail_compile": 0,
+        "blocked_dependency": 2,
+        "toolchain_error": 0,
+        "no_artifact": 8
+      },
+      "pass_over_final": {
+        "k": 26,
+        "n": 39,
+        "rate": 0.6667,
+        "ci95_wilson": [
+          0.5098,
+          0.7937
+        ]
+      },
+      "pass_over_evaluable_artifacts": {
+        "k": 26,
+        "n": 30,
+        "rate": 0.8667,
+        "ci95_wilson": [
+          0.7032,
+          0.9469
+        ]
+      }
+    }
+  },
+  "by_language": {
+    "c": {
+      "planned": 50,
+      "generation_final": 50,
+      "artifacts": 44,
+      "gate1_counts": {
+        "pass": 28,
+        "fail_integrity": 10,
+        "fail_syntax": 0,
+        "fail_compile": 0,
+        "blocked_dependency": 6,
+        "toolchain_error": 0,
+        "no_artifact": 6
+      },
+      "pass_over_final": {
+        "k": 28,
+        "n": 50,
+        "rate": 0.56,
+        "ci95_wilson": [
+          0.4231,
+          0.6884
+        ]
+      },
+      "pass_over_evaluable_artifacts": {
+        "k": 28,
+        "n": 38,
+        "rate": 0.7368,
+        "ci95_wilson": [
+          0.5799,
+          0.8503
+        ]
+      }
+    },
+    "cpp": {
+      "planned": 50,
+      "generation_final": 49,
+      "artifacts": 44,
+      "gate1_counts": {
+        "pass": 29,
+        "fail_integrity": 10,
+        "fail_syntax": 0,
+        "fail_compile": 0,
+        "blocked_dependency": 5,
+        "toolchain_error": 0,
+        "no_artifact": 6
+      },
+      "pass_over_final": {
+        "k": 29,
+        "n": 49,
+        "rate": 0.5918,
+        "ci95_wilson": [
+          0.4525,
+          0.7178
+        ]
+      },
+      "pass_over_evaluable_artifacts": {
+        "k": 29,
+        "n": 39,
+        "rate": 0.7436,
+        "ci95_wilson": [
+          0.5892,
+          0.8543
+        ]
+      }
+    },
+    "java": {
+      "planned": 50,
+      "generation_final": 50,
+      "artifacts": 48,
+      "gate1_counts": {
+        "pass": 39,
+        "fail_integrity": 8,
+        "fail_syntax": 0,
+        "fail_compile": 0,
+        "blocked_dependency": 1,
+        "toolchain_error": 0,
+        "no_artifact": 2
+      },
+      "pass_over_final": {
+        "k": 39,
+        "n": 50,
+        "rate": 0.78,
+        "ci95_wilson": [
+          0.6476,
+          0.8725
+        ]
+      },
+      "pass_over_evaluable_artifacts": {
+        "k": 39,
+        "n": 47,
+        "rate": 0.8298,
+        "ci95_wilson": [
+          0.6986,
+          0.9111
+        ]
+      }
+    },
+    "python": {
+      "planned": 50,
+      "generation_final": 50,
+      "artifacts": 48,
+      "gate1_counts": {
+        "pass": 46,
+        "fail_integrity": 2,
+        "fail_syntax": 0,
+        "fail_compile": 0,
+        "blocked_dependency": 0,
+        "toolchain_error": 0,
+        "no_artifact": 2
+      },
+      "pass_over_final": {
+        "k": 46,
+        "n": 50,
+        "rate": 0.92,
+        "ci95_wilson": [
+          0.8116,
+          0.9685
+        ]
+      },
+      "pass_over_evaluable_artifacts": {
+        "k": 46,
+        "n": 48,
+        "rate": 0.9583,
+        "ci95_wilson": [
+          0.8602,
+          0.9885
+        ]
+      }
+    }
+  },
+  "by_model_language": {
+    "claude-haiku-5-5": {
+      "python": {
+        "planned": 10,
+        "generation_final": 10,
+        "artifacts": 10,
+        "gate1_counts": {
+          "pass": 9,
+          "fail_integrity": 1,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 0
+        },
+        "pass_over_final": {
+          "k": 9,
+          "n": 10,
+          "rate": 0.9,
+          "ci95_wilson": [
+            0.5958,
+            0.9821
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 9,
+          "n": 10,
+          "rate": 0.9,
+          "ci95_wilson": [
+            0.5958,
+            0.9821
+          ]
+        }
+      },
+      "java": {
+        "planned": 10,
+        "generation_final": 10,
+        "artifacts": 9,
+        "gate1_counts": {
+          "pass": 8,
+          "fail_integrity": 1,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 1
+        },
+        "pass_over_final": {
+          "k": 8,
+          "n": 10,
+          "rate": 0.8,
+          "ci95_wilson": [
+            0.4902,
+            0.9433
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 8,
+          "n": 9,
+          "rate": 0.8889,
+          "ci95_wilson": [
+            0.565,
+            0.9801
+          ]
+        }
+      },
+      "c": {
+        "planned": 10,
+        "generation_final": 10,
+        "artifacts": 9,
+        "gate1_counts": {
+          "pass": 5,
+          "fail_integrity": 3,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 1,
+          "toolchain_error": 0,
+          "no_artifact": 1
+        },
+        "pass_over_final": {
+          "k": 5,
+          "n": 10,
+          "rate": 0.5,
+          "ci95_wilson": [
+            0.2366,
+            0.7634
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 5,
+          "n": 8,
+          "rate": 0.625,
+          "ci95_wilson": [
+            0.3057,
+            0.8632
+          ]
+        }
+      },
+      "cpp": {
+        "planned": 10,
+        "generation_final": 10,
+        "artifacts": 9,
+        "gate1_counts": {
+          "pass": 5,
+          "fail_integrity": 4,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 1
+        },
+        "pass_over_final": {
+          "k": 5,
+          "n": 10,
+          "rate": 0.5,
+          "ci95_wilson": [
+            0.2366,
+            0.7634
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 5,
+          "n": 9,
+          "rate": 0.5556,
+          "ci95_wilson": [
+            0.2667,
+            0.8112
+          ]
+        }
+      }
+    },
+    "gemini-3-8-flash": {
+      "python": {
+        "planned": 10,
+        "generation_final": 10,
+        "artifacts": 10,
+        "gate1_counts": {
+          "pass": 9,
+          "fail_integrity": 1,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 0
+        },
+        "pass_over_final": {
+          "k": 9,
+          "n": 10,
+          "rate": 0.9,
+          "ci95_wilson": [
+            0.5958,
+            0.9821
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 9,
+          "n": 10,
+          "rate": 0.9,
+          "ci95_wilson": [
+            0.5958,
+            0.9821
+          ]
+        }
+      },
+      "java": {
+        "planned": 10,
+        "generation_final": 10,
+        "artifacts": 10,
+        "gate1_counts": {
+          "pass": 9,
+          "fail_integrity": 1,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 0
+        },
+        "pass_over_final": {
+          "k": 9,
+          "n": 10,
+          "rate": 0.9,
+          "ci95_wilson": [
+            0.5958,
+            0.9821
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 9,
+          "n": 10,
+          "rate": 0.9,
+          "ci95_wilson": [
+            0.5958,
+            0.9821
+          ]
+        }
+      },
+      "c": {
+        "planned": 10,
+        "generation_final": 10,
+        "artifacts": 10,
+        "gate1_counts": {
+          "pass": 6,
+          "fail_integrity": 3,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 1,
+          "toolchain_error": 0,
+          "no_artifact": 0
+        },
+        "pass_over_final": {
+          "k": 6,
+          "n": 10,
+          "rate": 0.6,
+          "ci95_wilson": [
+            0.3127,
+            0.8318
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 6,
+          "n": 9,
+          "rate": 0.6667,
+          "ci95_wilson": [
+            0.3542,
+            0.8794
+          ]
+        }
+      },
+      "cpp": {
+        "planned": 10,
+        "generation_final": 10,
+        "artifacts": 10,
+        "gate1_counts": {
+          "pass": 6,
+          "fail_integrity": 3,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 1,
+          "toolchain_error": 0,
+          "no_artifact": 0
+        },
+        "pass_over_final": {
+          "k": 6,
+          "n": 10,
+          "rate": 0.6,
+          "ci95_wilson": [
+            0.3127,
+            0.8318
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 6,
+          "n": 9,
+          "rate": 0.6667,
+          "ci95_wilson": [
+            0.3542,
+            0.8794
+          ]
+        }
+      }
+    },
+    "gpt-6-luna": {
+      "python": {
+        "planned": 10,
+        "generation_final": 10,
+        "artifacts": 10,
+        "gate1_counts": {
+          "pass": 10,
+          "fail_integrity": 0,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 0
+        },
+        "pass_over_final": {
+          "k": 10,
+          "n": 10,
+          "rate": 1.0,
+          "ci95_wilson": [
+            0.7225,
+            1.0
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 10,
+          "n": 10,
+          "rate": 1.0,
+          "ci95_wilson": [
+            0.7225,
+            1.0
+          ]
+        }
+      },
+      "java": {
+        "planned": 10,
+        "generation_final": 10,
+        "artifacts": 10,
+        "gate1_counts": {
+          "pass": 9,
+          "fail_integrity": 1,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 0
+        },
+        "pass_over_final": {
+          "k": 9,
+          "n": 10,
+          "rate": 0.9,
+          "ci95_wilson": [
+            0.5958,
+            0.9821
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 9,
+          "n": 10,
+          "rate": 0.9,
+          "ci95_wilson": [
+            0.5958,
+            0.9821
+          ]
+        }
+      },
+      "c": {
+        "planned": 10,
+        "generation_final": 10,
+        "artifacts": 10,
+        "gate1_counts": {
+          "pass": 5,
+          "fail_integrity": 2,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 3,
+          "toolchain_error": 0,
+          "no_artifact": 0
+        },
+        "pass_over_final": {
+          "k": 5,
+          "n": 10,
+          "rate": 0.5,
+          "ci95_wilson": [
+            0.2366,
+            0.7634
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 5,
+          "n": 7,
+          "rate": 0.7143,
+          "ci95_wilson": [
+            0.3589,
+            0.9178
+          ]
+        }
+      },
+      "cpp": {
+        "planned": 10,
+        "generation_final": 10,
+        "artifacts": 10,
+        "gate1_counts": {
+          "pass": 6,
+          "fail_integrity": 2,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 2,
+          "toolchain_error": 0,
+          "no_artifact": 0
+        },
+        "pass_over_final": {
+          "k": 6,
+          "n": 10,
+          "rate": 0.6,
+          "ci95_wilson": [
+            0.3127,
+            0.8318
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 6,
+          "n": 8,
+          "rate": 0.75,
+          "ci95_wilson": [
+            0.4093,
+            0.9285
+          ]
+        }
+      }
+    },
+    "mistral-large-4": {
+      "python": {
+        "planned": 10,
+        "generation_final": 10,
+        "artifacts": 9,
+        "gate1_counts": {
+          "pass": 9,
+          "fail_integrity": 0,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 1
+        },
+        "pass_over_final": {
+          "k": 9,
+          "n": 10,
+          "rate": 0.9,
+          "ci95_wilson": [
+            0.5958,
+            0.9821
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 9,
+          "n": 9,
+          "rate": 1.0,
+          "ci95_wilson": [
+            0.7009,
+            1.0
+          ]
+        }
+      },
+      "java": {
+        "planned": 10,
+        "generation_final": 10,
+        "artifacts": 10,
+        "gate1_counts": {
+          "pass": 7,
+          "fail_integrity": 2,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 1,
+          "toolchain_error": 0,
+          "no_artifact": 0
+        },
+        "pass_over_final": {
+          "k": 7,
+          "n": 10,
+          "rate": 0.7,
+          "ci95_wilson": [
+            0.3968,
+            0.8922
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 7,
+          "n": 9,
+          "rate": 0.7778,
+          "ci95_wilson": [
+            0.4526,
+            0.9368
+          ]
+        }
+      },
+      "c": {
+        "planned": 10,
+        "generation_final": 10,
+        "artifacts": 8,
+        "gate1_counts": {
+          "pass": 6,
+          "fail_integrity": 2,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 2
+        },
+        "pass_over_final": {
+          "k": 6,
+          "n": 10,
+          "rate": 0.6,
+          "ci95_wilson": [
+            0.3127,
+            0.8318
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 6,
+          "n": 8,
+          "rate": 0.75,
+          "ci95_wilson": [
+            0.4093,
+            0.9285
+          ]
+        }
+      },
+      "cpp": {
+        "planned": 10,
+        "generation_final": 10,
+        "artifacts": 8,
+        "gate1_counts": {
+          "pass": 7,
+          "fail_integrity": 0,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 1,
+          "toolchain_error": 0,
+          "no_artifact": 2
+        },
+        "pass_over_final": {
+          "k": 7,
+          "n": 10,
+          "rate": 0.7,
+          "ci95_wilson": [
+            0.3968,
+            0.8922
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 7,
+          "n": 7,
+          "rate": 1.0,
+          "ci95_wilson": [
+            0.6457,
+            1.0
+          ]
+        }
+      }
+    },
+    "qwen3-8-flash": {
+      "python": {
+        "planned": 10,
+        "generation_final": 10,
+        "artifacts": 9,
+        "gate1_counts": {
+          "pass": 9,
+          "fail_integrity": 0,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 1
+        },
+        "pass_over_final": {
+          "k": 9,
+          "n": 10,
+          "rate": 0.9,
+          "ci95_wilson": [
+            0.5958,
+            0.9821
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 9,
+          "n": 9,
+          "rate": 1.0,
+          "ci95_wilson": [
+            0.7009,
+            1.0
+          ]
+        }
+      },
+      "java": {
+        "planned": 10,
+        "generation_final": 10,
+        "artifacts": 9,
+        "gate1_counts": {
+          "pass": 6,
+          "fail_integrity": 3,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 1
+        },
+        "pass_over_final": {
+          "k": 6,
+          "n": 10,
+          "rate": 0.6,
+          "ci95_wilson": [
+            0.3127,
+            0.8318
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 6,
+          "n": 9,
+          "rate": 0.6667,
+          "ci95_wilson": [
+            0.3542,
+            0.8794
+          ]
+        }
+      },
+      "c": {
+        "planned": 10,
+        "generation_final": 10,
+        "artifacts": 7,
+        "gate1_counts": {
+          "pass": 6,
+          "fail_integrity": 0,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 1,
+          "toolchain_error": 0,
+          "no_artifact": 3
+        },
+        "pass_over_final": {
+          "k": 6,
+          "n": 10,
+          "rate": 0.6,
+          "ci95_wilson": [
+            0.3127,
+            0.8318
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 6,
+          "n": 6,
+          "rate": 1.0,
+          "ci95_wilson": [
+            0.6097,
+            1.0
+          ]
+        }
+      },
+      "cpp": {
+        "planned": 10,
+        "generation_final": 9,
+        "artifacts": 7,
+        "gate1_counts": {
+          "pass": 5,
+          "fail_integrity": 1,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 1,
+          "toolchain_error": 0,
+          "no_artifact": 3
+        },
+        "pass_over_final": {
+          "k": 5,
+          "n": 9,
+          "rate": 0.5556,
+          "ci95_wilson": [
+            0.2667,
+            0.8112
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 5,
+          "n": 6,
+          "rate": 0.8333,
+          "ci95_wilson": [
+            0.4365,
+            0.9699
+          ]
+        }
+      }
+    }
+  },
+  "paired": {
+    "complete_cells": 39,
+    "total_cells": 40,
+    "outcome": "gate1_status == pass (failed generation counts as not pass)",
+    "pairs": [
+      {
+        "model_a": "claude-haiku-5-5",
+        "model_b": "gpt-6-luna",
+        "a_pass_b_not": 0,
+        "b_pass_a_not": 3,
+        "mcnemar_exact_p_unadjusted": 0.25
+      },
+      {
+        "model_a": "claude-haiku-5-5",
+        "model_b": "gemini-3-8-flash",
+        "a_pass_b_not": 0,
+        "b_pass_a_not": 3,
+        "mcnemar_exact_p_unadjusted": 0.25
+      },
+      {
+        "model_a": "claude-haiku-5-5",
+        "model_b": "mistral-large-4",
+        "a_pass_b_not": 2,
+        "b_pass_a_not": 4,
+        "mcnemar_exact_p_unadjusted": 0.6875
+      },
+      {
+        "model_a": "claude-haiku-5-5",
+        "model_b": "qwen3-8-flash",
+        "a_pass_b_not": 2,
+        "b_pass_a_not": 1,
+        "mcnemar_exact_p_unadjusted": 1.0
+      },
+      {
+        "model_a": "gpt-6-luna",
+        "model_b": "gemini-3-8-flash",
+        "a_pass_b_not": 1,
+        "b_pass_a_not": 1,
+        "mcnemar_exact_p_unadjusted": 1.0
+      },
+      {
+        "model_a": "gpt-6-luna",
+        "model_b": "mistral-large-4",
+        "a_pass_b_not": 3,
+        "b_pass_a_not": 2,
+        "mcnemar_exact_p_unadjusted": 1.0
+      },
+      {
+        "model_a": "gpt-6-luna",
+        "model_b": "qwen3-8-flash",
+        "a_pass_b_not": 5,
+        "b_pass_a_not": 1,
+        "mcnemar_exact_p_unadjusted": 0.21875
+      },
+      {
+        "model_a": "gemini-3-8-flash",
+        "model_b": "mistral-large-4",
+        "a_pass_b_not": 3,
+        "b_pass_a_not": 2,
+        "mcnemar_exact_p_unadjusted": 1.0
+      },
+      {
+        "model_a": "gemini-3-8-flash",
+        "model_b": "qwen3-8-flash",
+        "a_pass_b_not": 5,
+        "b_pass_a_not": 1,
+        "mcnemar_exact_p_unadjusted": 0.21875
+      },
+      {
+        "model_a": "mistral-large-4",
+        "model_b": "qwen3-8-flash",
+        "a_pass_b_not": 3,
+        "b_pass_a_not": 0,
+        "mcnemar_exact_p_unadjusted": 0.25
+      }
+    ]
+  },
+  "integrity_failure_counts": {
+    "markdown_fence_residue": 3,
+    "truncated_finish_length": 29
+  },
+  "missing_dependency_counts": {
+    "jakarta.servlet": 1,
+    "jakarta.servlet.annotation": 1,
+    "jakarta.servlet.http": 1,
+    "mysql/mysql.h": 1,
+    "openssl/crypto.h": 2,
+    "sqlite3.h": 11
+  },
+  "python_third_party_import_counts": {
+    "flask": 1
+  },
+  "truncated_but_built_ok": 2
+}

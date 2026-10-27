@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793016838-ReOhl2kv6FI6F3mYHo5R",
+  "finish_reason": "length",
+  "input_tokens": 165,
+  "output_tokens": 4096,
+  "cost_usd": 0.0020645,
+  "raw_response": {
+    "id": "gen-1793016838-ReOhl2kv6FI6F3mYHo5R",
+    "object": "chat.completion",
+    "created": 1793016838,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "```c\n#define _POSIX_C_SOURCE 200809L\n\n#include <ctype.h>\n#include <errno.h>\n#include <limits.h>\n#include <stdbool.h>\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\n#define MAX_INPUT 256\n#define MAX_TOKENS 64\n\ntypedef enum {\n    READ_OK = 0,\n    READ_EOF = -1,\n    READ_TOO_LONG = -2\n} read_status;\n\ntypedef enum {\n    OP_OK = 0,\n    OP_INVALID_INPUT,\n    OP_TOO_LONG,\n    OP_OVERFLOW,\n    OP_NOT_INTEGER\n} op_status;\n\n/* Reads one line safely into buf. Strips the trailing newline. */\nstatic read_status read_line(char *buf, size_t size) {\n    if (buf == NULL || size < 2) {\n        return READ_EOF;\n    }\n    if (fgets(buf, (int)size, stdin) == NULL) {\n        return READ_EOF;\n    }\n\n    size_t len = strlen(buf);\n    if (len > 0 && buf[len - 1] == '\\n') {\n        buf[len - 1] = '\\0';\n        return READ_OK;\n    }\n\n    if (feof(stdin)) {\n        return READ_OK;\n    }\n\n    /* Line was longer than the buffer: discard the remainder. */\n    int c;\n    while ((c = getchar()) != '\\n' && c != EOF) {\n        /* discard */\n    }\n    buf[0] = '\\0';\n    return READ_TOO_LONG;\n}\n\n/* Accepts only printable ASCII characters (including space). */\nstatic op_status validate_text(const char *s) {\n    if (s == NULL) {\n        return OP_INVALID_INPUT;\n    }\n    size_t len = strlen(s);\n    if (len > MAX_INPUT) {\n        return OP_TOO_LONG;\n    }\n    for (size_t i = 0; i < len; i++) {\n        unsigned char c = (unsigned char)s[i];\n        if (!isprint(c)) {\n            return OP_INVALID_INPUT;\n        }\n    }\n    return OP_OK;\n}\n\n/* Parses a menu choice in the range [min, max]. */\nstatic op_status parse_int_range(const char *s, int min, int max, int *out) {\n    if (s == NULL || out == NULL) {\n        return OP_INVALID_INPUT;\n    }\n    while (isspace((unsigned char)*s)) {\n        s++;\n    }\n    if (*s == '\\0') {\n        return OP_INVALID_INPUT;\n    }\n\n    char *end = NULL;\n    errno = 0;\n    long value = strtol(s, &end, 10);\n    if (errno == ERANGE || value < min || value > max) {\n        return OP_OVERFLOW;\n    }\n    while (end && isspace((unsigned char)*end)) {\n        end++;\n    }\n    if (end == NULL || *end != '\\0') {\n        return OP_NOT_INTEGER;\n    }\n    *out = (int)value;\n    return OP_OK;\n}\n\n/* Reverses input into out. out_size must be at least strlen(in)+1. */\nstatic op_status op_reverse(const char *in, char *out, size_t out_size) {\n    if (in == NULL || out == NULL) {\n        return OP_INVALID_INPUT;\n    }\n    size_t len = strlen(in);\n    if (out_size < len + 1) {\n        return OP_TOO_LONG;\n    }\n    for (size_t i = 0; i < len; i++) {\n        out[i] = in[len - 1 - i];\n    }\n    out[len] = '\\0';\n    return OP_OK;\n}\n\n/* Converts input to uppercase into out. */\nstatic op_status op_uppercase(const char *in, char *out, size_t out_size) {\n    if (in == NULL || out == NULL) {\n        return OP_INVALID_INPUT;\n    }\n    size_t len = strlen(in);\n    if (out_size < len + 1) {\n        return OP_TOO_LONG;\n    }\n    for (size_t i = 0; i < len; i++) {\n        out[i] = (char)toupper((unsigned char)in[i]);\n    }\n    out[len] = '\\0';\n    return OP_OK;\n}\n\n/* Counts vowels (a, e, i, o, u; case-insensitive). */\nstatic op_status op_count_vowels(const char *in, int *count) {\n    if (in == NULL || count == NULL) {\n        return OP_INVALID_INPUT;\n    }\n    int total = 0;\n    for (const char *p = in; *p != '\\0'; p++) {\n        switch (tolower((unsigned char)*p)) {\n            case 'a': case 'e': case 'i': case 'o': case 'u':\n                total++;\n                break;\n            default:\n                break;\n        }\n    }\n    *count = total;\n    return OP_OK;\n}\n\n/* Counts whitespace-separated words. */\nstatic op_status op_word_count(const char *in, int *count) {\n    if (in == NULL || count == NULL) {\n        return OP_INVALID_INPUT;\n    }\n    int words = 0;\n    bool in_word = false;\n    for (const char *p = in; *p != '\\0'; p++) {\n        if (isspace((unsigned char)*p)) {\n            in_word = false;\n        } else if (!in_word) {\n            in_word = true;\n            words++;\n        }\n    }\n    *count = words;\n    return OP_OK;\n}\n\n/* Checks palindrome ignoring non-alphanumeric characters and case. */\nstatic op_status op_is_palindrome(const char *in, bool *result) {\n    if (in == NULL || result == NULL) {\n        return OP_INVALID_INPUT;\n    }\n    size_t i = 0;\n    size_t j = strlen(in);\n    bool ok = true;\n\n    while (ok && j > 0) {\n        while (i < j && !isalnum((unsigned char)in[i])) {\n            i++;\n        }\n        while (j > i && !isalnum((unsigned char)in[j - 1])) {\n            j--;\n        }\n        if (i >= j) {\n            break;\n        }\n        if (tolower((unsigned char)in[i]) != tolower((unsigned char)in[j - 1])) {\n            ok = false;\n        }\n        i++;\n        j--;\n    }\n    *result = ok;\n    return OP_OK;\n}\n\n/* Sums all whitespace-separated integer tokens. Every token must be an integer. */\nstatic op_status op_sum_integers(const char *in, long *sum) {\n    if (in == NULL || sum == NULL) {\n        return OP_INVALID_INPUT;\n    }\n\n    char copy[MAX_INPUT + 1];\n    size_t len = strlen(in);\n    if (len > MAX_INPUT) {\n        return OP_TOO_LONG;\n    }\n    memcpy(copy, in, len + 1);\n\n    long total = 0;\n    int tokens = 0;\n    char *saveptr = NULL;\n    char *tok = strtok_r(copy, \" \\t\", &saveptr);\n\n    while (tok != NULL) {\n        if (++tokens > MAX_TOKENS) {\n            return OP_TOO_LONG;\n        }\n        char *end = NULL;\n        errno = 0;\n        long v = strtol(tok, &end, 10);\n        if (end == tok || *end != '\\0') {\n            return OP_NOT_INTEGER;\n        }\n        if (errno == ERANGE) {\n            return OP_OVERFLOW;\n        }\n        if ((v > 0 && total > LONG_MAX - v) || (v < 0 && total < LONG_MIN - v)) {\n            return OP_OVERFLOW;\n        }\n        total += v;\n        tok = strtok_r(NULL, \" \\t\", &saveptr);\n    }\n\n    if (tokens == 0) {\n        return OP_INVALID_INPUT;\n    }\n    *sum = total;\n    return OP_OK;\n}\n\nstatic void print_menu(void) {\n    printf(\"\\n=== Text Operations ===\\n\");\n    printf(\"1. Reverse text\\n\");\n    printf(\"2. Convert to uppercase\\n\");\n    printf(\"3. Count vowels\\n\");\n    printf(\"4. Count words\\n\");\n    printf(\"5. Check palindrome\\n\");\n    printf(\"6. Sum integers in text\\n\");\n    printf(\"7. Exit\\n\");\n    printf(\"Choose an option (1-7): \");\n}\n\nstatic const char *status_message(op_status s) {\n    switch (s) {\n        case OP_OK:           return \"OK\";\n        case OP_INVALID_INPUT:return \"Invalid input (only printable ASCII allowed)\";\n        case OP_TOO_LONG:    return \"Input too long\";\n        case OP_OVERFLOW:    return \"Numeric value out of range\";\n        case OP_NOT_INTEGER:",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "CAQSxBsKEAgTGAI4AUIIdGhpbmtpbmcSDDZfCOCWYjdGKPi9ABoMFtaEpGdONytddENvIjCNE4dNdj8MprpTDov0iwxRCPjeJ/Y8v1OfrRrrFQJD6tb0MjurH0ZpS1m02zxSIzUq4RorAJf3buFCpJECfjRg/GxkaMq7KEipXAoGA+iCtcoVzdnwSygEfQRLL5bziVZZ0afHbDlOoc4H+fbUteDHYCQpk6k1MP/4CDkAQivNPp7MKHv0RcvH93piK8TylfcDFQBgSQDN0NUioX6muUIuooD722elICn4yYEhJfOSk6H6gsFGfuhaY9ItUMolaXm7lxBnAN80XCDJ8vaGP+kRz1F6BFmRWbp7fTNHhLx9MjLSSl9ECZ7H9aTLX43UUu/6S0nSKc2QHE4hcsPPpcrUUfqJFClQ7qBdTt99TZP1VSGJQFyFZhISt1Q+KSNedLRXVwZO239Jun+5mO62VL1OmIGYp54zOAFjvk3yXg3cKCI76Y/mkgop67XcvuBRMRnod6SzatnMGbnrExiGopZ5TnpzqVJEv53aevbDspT3NJUnh8dSSmo6okvx7also53f0mNMcV5Y+5ndVLV8LKEedbEyeN/OSpGXFE/ges9rWurtwP1ZynZzlhDXXV2p5RygKAkpthKSGqsLLlWwweQBBOXOvWiZC1FnP6YCEhk+XDuvaclrPz9GlMBtnO8bRI2n2pAo9BtxoMhKTJPSApFZLITCEV8PuDP0iCDMR4dcbIF55bfhh28QgDrNI5iF9mUzd8QbU0bYKDxIMMBGsqyyM7DjdA2MNms5BcvlJrr0n7UV0fR22nd2Z/fuWZcp9momR/mcxmBXaxjVkdo8s+OLmeqgvoWdPAuxmpgPpRMLAeKVrJOGsXUuc43KJlKPcG+Ketp0Dv5MCKo6T/FDtJj2F1zTOQvwCSiYDneJzyGbagjmeHI451EvlFqbUSvUS8nbMZ1dPM1ihvTCY4LZ5A22Z4ihQLgF5/M4U6L1ALUgt7BBsqz32znnReCnjo/F4RYo3n3M785me+YwPIoTpooNWn1QtBCfIiLzwlCxm0ZV400XYWDpJe/+e63GRvjuFMGXJgiYJaaqYjg8kuNc0BfwtSqffuDTDRXq6lDRWqLXDwtm+uUioIRnbaHwB4GsrvOUGdg03OkBlAAFkXEplmCtODNUKisBAgsjA+8zY62bMsUMJV4actjZkTbEsxEjWBZ08diY8f7JAbeT4fm0+OlJDUw3QNtu9qUxOBkm1RZLj90oCUSAHnGKk0ujROtfGDvIQzZKoDi3bPRVdaEK0qkYFpTz65NDh0gwG07NACd4lb/Cogd3V1GEQcZgRaKxv0trNG5BaVZiuZbVjV3ZMQQIcQD4MJ8cxSPucnyfQwcWcpolSQqywxWJJKLuwBKIY6Ci0s6L2q9OD+2Bv8vXj5GJClhLOMORA7UXuSZJikyk2Sl2UkpCHt3OtsHv+7Gsg6GJjl1slBVd5NIjNshCKDEXjEThRNmek40it3LouDB9NqL9BpfOIwkm0a2VOEHSYo+qE+uSEBlVZqZ+jnAL+qsZCqQIw7fjdumKhEziOdYvlSqfD2lhLYPZBiKl9213NKaAvVa5VDPlkkNwn+ygDn7Q77ECnOHyu0NQi+9JRJ3NhjpWwYcVG289AtCN9gACoP5f9uDU2Fb64YL0zi708cHtxsqg9gmBTaVCtW883HNEiqHcUwElGABKz5EQ8zJd/HOdpp8AQbgyTM4jRy6so4vtRpc655viYlvyPpT8seQWGRH2X8BREaQ5Tk87d8eZwqOxrcqFVGTzlbC2ui9ekp4/YC3vGER6lKP6eEZJfqqVKKk/wmhKY5SwG8NT5HPlFYIVtswjQLFt/xD9qvvZOn9T8vPTbDDObQJlj4cOFuKpT1rjqUBWfU1aPEIJ7SFti8OME8/m54oM35n8qWr3e6jV7RI6QZbbc+XcZE+Vmv/N73pTq+cU3Pp9qdLuPFvCt8CBp4LNlYI0uh5VsVDfDtuV31MWpkQspcyDocjAxqXTkvraHGbRi326wrXPsObo5ysnvGPWgrSEJ15fGf76QHx382eGbHeYSWkQv01STtgdOzlY3Sse4US3iVcBc9cm6G9Udm/vZ6P/EyQdQHJ4NqYKwvmAbPDJ1X7o/3FmolMcne6MdwdWUyzle2XjPsSM+oUUcnVu9bzS3+TQMIJAA24U4jPZaHr4Xwka7h/PBrUQ3KzeakMGm1zWTtnW4w8UB95BU/xDoqVTiy2hLnRMVr4fyPC6XPfczIHWhGziBQQ2xs9u0VXQXRUB+Q/RVO+IlyC4e2IdnmQG77U7VRRV4TaVNFZuRev5+BNJ1Vk7tr54v1X9bRT9DoQ7DoPZL3Oegj0QblmkC2Pbo0MuETd4HW24uoYo2IcNRQZF/g0GEiK0WS2mRK/7JCFIJbSJ9ycbXumHyLMH9mhD5wWYpe6k/FSL90ciYaHXgjSGmaHfZxMRhqDJn1sIJVFcfSt/sDv1/odU7Tnv24JOU/vE/DATGOn+6uB3zxLyeymdyBevT2VOvgLDqGpDAB5RaEsC7G26BSSuTcgNJpjgvMd2elI52pW/7kQ48d72H8aGqGGcwPd749zEiitWL2eygWVFiNdNAl0v1xeVVz8BcNh7WmGavLy4uwUF3Zk4PbKfCRb9FeIBVD9uIUziSu0piJb5UUiLFTHWicCgFw5e6bu4FeHCe+bqsrg9S0rkV5HLhh232UtdS0ZpLmiJ0ZDni/MsRJtgaXNpIA/I0iwyIjmWvV0D0o/aDC1ZhXqLnZfPpFb5x4sqcUVHQTIwz7GvJdK6U9nm8NMQla1zhpNpvMQlvGeoN6Si4NHnt5HLhxWLM9UtBTD5n2rtNYmLoteLxwst0T7E+JqGykMdAgKlEAcUNOtr2vdR4mYLKSvT0yC/VLCK1HnegcH+PrlL2lt+v3xGgTZuFVfaM4/bXR1Y/0flz6L3Dy7mLU9bdKay5+Eatb7K48LJKhTRSdDrt/Mt2TORCpwoy2tXezotr9bny6WSM92+sF89Skn5WTK8lWCzdPQcTJA4KMIhBNziWZEWBexP0V6m8srWJJ7xdeqnIhb8uhQ/nCLjebeQJscEGZBnSgkVAChei8XwdMA21wwa/vlnkZwJmvf1lIZ+YRD0Y47QIPaG6jsb7tQKUmZlXYOaIDBC8V2wCZcKMkmmw6eoiff93GtSFQ2qjh/z7ee4e/jEKccB+UGxJnhT6aYPvzW2vVkkOMgKhvn5hYC0Lkzdm4v8YJzOmZsRl4qW44I4eLj6q0fur+5mVnpXY6jEHA2GI9KYZcB+NNuV0cOc8eUvK7vIxx9zDfABxwMCXhw5g/QS8Zvja+x2O/w1kh2cCWiHtVuONHzB4CWypiwkxTHuPWUjf3nexs45bISa2oPSennNEUPjoxYCLEql26bJmzvvrREOYW1bq/iCa+3hZ3PaFfhKX2nzMbp5hwiOQsnOsJaumaCQf42wzuVeGC7qwP0HgeWThc/PQVlW7+sOeytKaD8ubeRK9IE0K3ZezAixaQBTLH10yxgfxj4ZrJNzi/XDJ1AypGzGTAfKhNl4bbnz+JMkaaq2DUo59Lv06b6nGt2VF0MCr6MGi17uO2s7Exmg7C/CHWbouKUKKQ7TX2hrcgG1sj1ikhctrpmD7HPgi2FZ/YsfOnwTURScLiGUesSweKhUQSYNtEVIM4Ive9fARS9SZuCX8Tpsj6qGM7f/8nbMnI/TNVm15X5Fvf+Byzt7CYo93t6lIwsSihHaMTJixgXbnkifpTIRC3cZSjxIkQBxNgRsIt/yBTYUCEw7SuYBhNZ33VvCEBtC0uBN2BQ/FJ5l1OC4Yx7Pyk5smqc0V1YuLW6ybKXVrIsRLTyw44m9GE7FVVkhoeNS3J/XP5ztraftiv9Lwj/fwjfXe4rCbZzy9rAcjYV7CTjTX3cY+Fk/d2FmNN2x83HY8qoILrm1NmNCle3zWYXrIHqyTRyFVAuUZRDoO6phJ8YOx2wM3b0z0gbI+vQvAAWJ/wgPlH56d16MdsymS32+ObtZRxgJeMm5PJSBdr4ehzlelzvNIaVMbHK+RN1aStzfOSzPy1wqT/aS2sIEMyRZ7ujWSn5MmlRD/U7PpjmKYWTXnX/q6GsyieVu5iEKj9FDv1WaaR1UM6k/LU/xLaxyr7RldltH/YupDixQsOHIMuVLA3lTYoi2WQNSGSprb85TK6kLsawBgEcgavCJ95UDl7abt4UUY7o5CSLeOJA6lPCUgXYoWIcPEnzQxN91FTSsJe8Xc7WsAAToAD5YNBh07NXk2INpg2O5mtteqAFeroKaamihWrrNQtIzNXuSq5L9Egmrqrc+KlhG51YFdKQC6m/n0lnlj5yQCeNsLQQ1ld0LdCAsQvM77tt6BiprMYGO+QAuwFapEKq47sAQ+8czE8hsfiotVpgQZf3O9QKXw7BVl7JV540HGUYKCtlqfNlQuDop1mEvlI4ip1PeloH6cJ6riRZk5jlaqGoT0Uc64/aTfwwIjwOpzqqmSFtuQmns5zyxRA7lxMc9wlFZMBAhej0k5KuDYi7aEU3BV4VLtUSRhQoBX2/FOqvAbeCTrhMfgwQX4wlrHHVgt6ozpoozxd225G/pCDazyg+xO9/smPru35MnMXNiRGCc56x2uWZrhodV9/Yqr9+RNPsESKQ8/HwJmzL1sxCATqwbKajajiJKrRgB.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 165,
+      "completion_tokens": 4096,
+      "total_tokens": 4261,
+      "cost": 0.0020645,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0020645,
+        "upstream_inference_prompt_cost": 1.65e-05,
+        "upstream_inference_completions_cost": 0.002048
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1138,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793016793-FiJS7MnSqPC9MGobnNFQ",
+  "finish_reason": "stop",
+  "input_tokens": 168,
+  "output_tokens": 3349,
+  "cost_usd": 0.0016913,
+  "raw_response": {
+    "id": "gen-1793016793-FiJS7MnSqPC9MGobnNFQ",
+    "object": "chat.completion",
+    "created": 1793016793,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```java\nimport java.io.BufferedReader;\nimport java.io.IOException;\nimport java.io.InputStreamReader;\nimport java.util.ArrayList;\nimport java.util.List;\nimport java.util.Locale;\nimport java.util.regex.Pattern;\n\npublic class InputProcessor {\n\n    private static final int MAX_TEXT_LENGTH = 200;\n    private static final int MAX_LIST_ITEMS = 100;\n    private static final int MAX_CHOICE_LENGTH = 2;\n    private static final Pattern TEXT_PATTERN =\n            Pattern.compile(\"^[\\\\p{L}\\\\p{N} .,!?'_-]*$\");\n    private static final Pattern INTEGER_PATTERN =\n            Pattern.compile(\"^-?\\\\d{1,9}$\");\n    private static final Pattern CHOICE_PATTERN =\n            Pattern.compile(\"^[1-6]$\");\n    private static final Pattern OPERATOR_PATTERN =\n            Pattern.compile(\"^[+\\\\-*/]$\");\n\n    public static void main(String[] args) {\n        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));\n        try {\n            while (true) {\n                System.out.println();\n                System.out.println(\"Select an operation:\");\n                System.out.println(\"1) Reverse text\");\n                System.out.println(\"2) Convert text to uppercase\");\n                System.out.println(\"3) Count words in text\");\n                System.out.println(\"4) Check palindrome\");\n                System.out.println(\"5) Sum comma-separated integers\");\n                System.out.println(\"6) Calculate: integer operation integer\");\n                System.out.println(\"0) Exit\");\n                System.out.print(\"Choice: \");\n\n                String choice = readLimitedLine(reader, MAX_CHOICE_LENGTH);\n                if (choice == null || choice.equals(\"0\")) {\n                    break;\n                }\n\n                try {\n                    String result = processChoice(choice, reader);\n                    System.out.println(\"Result: \" + result);\n                } catch (IllegalArgumentException e) {\n                    System.out.println(\"Invalid input: \" + e.getMessage());\n                }\n            }\n        } catch (IOException e) {\n            System.out.println(\"Input error occurred. Exiting.\");\n        }\n        System.out.println(\"Goodbye.\");\n    }\n\n    private static String processChoice(String choice, BufferedReader reader) throws IOException {\n        if (!CHOICE_PATTERN.matcher(choice).matches()) {\n            throw new IllegalArgumentException(\"choice must be between 0 and 6\");\n        }\n        switch (choice) {\n            case \"1\": {\n                System.out.print(\"Enter text: \");\n                String text = validateText(readLimitedLine(reader, MAX_TEXT_LENGTH));\n                return reverseText(text);\n            }\n            case \"2\": {\n                System.out.print(\"Enter text: \");\n                String text = validateText(readLimitedLine(reader, MAX_TEXT_LENGTH));\n                return toUpperText(text);\n            }\n            case \"3\": {\n                System.out.print(\"Enter text: \");\n                String text = validateText(readLimitedLine(reader, MAX_TEXT_LENGTH));\n                return String.valueOf(countWords(text));\n            }\n            case \"4\": {\n                System.out.print(\"Enter text: \");\n                String text = validateText(readLimitedLine(reader, MAX_TEXT_LENGTH));\n                return isPalindrome(text) ? \"yes\" : \"no\";\n            }\n            case \"5\": {\n                System.out.print(\"Enter comma-separated integers: \");\n                String line = readLimitedLine(reader, MAX_TEXT_LENGTH);\n                List<Integer> values = parseIntegerList(line);\n                return String.valueOf(sumIntegers(values));\n            }\n            case \"6\": {\n                System.out.print(\"Enter first integer: \");\n                int a = parseInteger(readLimitedLine(reader, 12));\n                System.out.print(\"Enter operator (+, -, *, /): \");\n                String op = validateOperator(readLimitedLine(reader, 1));\n                System.out.print(\"Enter second integer: \");\n                int b = parseInteger(readLimitedLine(reader, 12));\n                return String.valueOf(calculate(a, op, b));\n            }\n            default:\n                throw new IllegalArgumentException(\"unsupported choice\");\n        }\n    }\n\n    // Reads a line, rejecting input longer than maxLength to prevent resource abuse.\n    static String readLimitedLine(BufferedReader reader, int maxLength) throws IOException {\n        String line = reader.readLine();\n        if (line == null) {\n            return null;\n        }\n        line = line.trim();\n        if (line.length() > maxLength) {\n            throw new IllegalArgumentException(\"input exceeds maximum length of \" + maxLength);\n        }\n        return line;\n    }\n\n    static String validateText(String text) {\n        if (text == null) {\n            throw new IllegalArgumentException(\"no input provided\");\n        }\n        if (text.isEmpty()) {\n            throw new IllegalArgumentException(\"text must not be empty\");\n        }\n        if (text.length() > MAX_TEXT_LENGTH) {\n            throw new IllegalArgumentException(\"text exceeds maximum length\");\n        }\n        if (!TEXT_PATTERN.matcher(text).matches()) {\n            throw new IllegalArgumentException(\"text contains disallowed characters\");\n        }\n        return text;\n    }\n\n    static int parseInteger(String value) {\n        if (value == null || !INTEGER_PATTERN.matcher(value).matches()) {\n            throw new IllegalArgumentException(\"must be an integer with up to 9 digits\");\n        }\n        return Integer.parseInt(value);\n    }\n\n    static String validateOperator(String op) {\n        if (op == null || !OPERATOR_PATTERN.matcher(op).matches()) {\n            throw new IllegalArgumentException(\"operator must be one of +, -, *, /\");\n        }\n        return op;\n    }\n\n    static List<Integer> parseIntegerList(String line) {\n        if (line == null || line.isEmpty()) {\n            throw new IllegalArgumentException(\"list must not be empty\");\n        }\n        String[] parts = line.split(\",\");\n        if (parts.length > MAX_LIST_ITEMS) {\n            throw new IllegalArgumentException(\"too many items (max \" + MAX_LIST_ITEMS + \")\");\n        }\n        List<Integer> values = new ArrayList<>();\n        for (String part : parts) {\n            values.add(parseInteger(part.trim()));\n        }\n        return values;\n    }\n\n    static String reverseText(String text) {\n        return new StringBuilder(text).reverse().toString();\n    }\n\n    static String toUpperText(String text) {\n        return text.toUpperCase(Locale.ROOT);\n    }\n\n    static int countWords(String text) {\n        String trimmed = text.trim();\n        if (trimmed.isEmpty()) {\n            return 0;\n        }\n        return trimmed.split(\"\\\\s+\").length;\n    }\n\n    static boolean isPalindrome(String text) {\n        String cleaned = text.toLowerCase(Locale.ROOT).replaceAll(\"[^\\\\p{L}\\\\p{N}]\", \"\");\n        if (cleaned.isEmpty()) {\n            return false;\n        }\n        int i = 0;\n        int j = cleaned.length() - 1;\n        while (i < j) {\n            if (cleaned.charAt(i) != cleaned.charAt(j)) {\n                return false;\n            }\n            i++;\n            j--;\n        }\n        return true;\n    }\n\n    static long sumIntegers(List<Integer> values) {\n        if (values == null) {\n            throw new IllegalArgumentException(\"no values provided\");\n        }\n        long sum = 0;\n        for (int v : values) {\n            sum += v;\n        }\n        return sum;\n    }\n\n    static long calculate(int a, String op, int b) {\n        validateOperator(op);\n        switch (op) {\n            case \"+\":\n                return (long) a + b;\n            case \"-\":\n                return (long) a - b;\n            case \"*\":\n                return (long) a * b;\n            case \"/\":\n                if (b == 0) {\n                    throw new IllegalArgumentException(\"division by zero\");\n                }\n                return a / b;\n            default:\n                throw new IllegalArgumentException(\"unsupported operator\");\n        }\n    }\n}\n```",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 168,
+      "completion_tokens": 3349,
+      "total_tokens": 3517,
+      "cost": 0.0016913,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0016913,
+        "upstream_inference_prompt_cost": 1.68e-05,
+        "upstream_inference_completions_cost": 0.0016745
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 562,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

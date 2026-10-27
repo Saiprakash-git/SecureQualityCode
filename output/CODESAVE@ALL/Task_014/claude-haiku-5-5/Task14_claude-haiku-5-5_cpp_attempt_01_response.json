@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793009242-Fn0lUVbPpPtI46TWLMbs",
+  "finish_reason": "stop",
+  "input_tokens": 643,
+  "output_tokens": 374,
+  "cost_usd": 0.0002513,
+  "raw_response": {
+    "id": "gen-1793009242-Fn0lUVbPpPtI46TWLMbs",
+    "object": "chat.completion",
+    "created": 1793009242,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <vector>\n#include <numeric>\n\nint findEvenIndex(const std::vector<int>& arr) {\n    long long total = std::accumulate(arr.begin(), arr.end(), 0LL);\n    long long left = 0;\n    for (size_t i = 0; i < arr.size(); ++i) {\n        long long right = total - left - arr[i];\n        if (left == right) {\n            return static_cast<int>(i);\n        }\n        left += arr[i];\n    }\n    return -1;\n}\n\nint main() {\n    std::vector<int> arr;\n    int value;\n    while (std::cin >> value) {\n        arr.push_back(value);\n    }\n    std::cout << findEvenIndex(arr) << std::endl;\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "CAQS9AcKEAgTGAI4AUIIdGhpbmtpbmcSDD/VBymMOLWJRC4hSBoMRPXTn1demyzAHqpsIjBkn9v+24cSlaRcq/ZpY+UemIxIEzCb0h25GRH3iz8i+LXMdDBjQa/KFGJwsRg1aI4qkQd2tkywR+Xu0Uysf6+/WayLDxyLpAWA/qz36E0t1PBSgKVqsKxiaafyImwJgB46B1N/ILq18M/DGnwUaGuEubsb9XR1JM+hYKeGR71BJDv3zNeluAt+Xsz8/hAvvDx/VEr2RyJjdL+CvPqixcqlSlaw4EXBH9GQ5EoJD3GWTX+qDThcjDhpjq6noxnOS4CiwafmuvVP6PPQmCGa/co7tJKl6rpAA64wb+bBJETI/2PXMZoOYmLjEVFHWz42ClrK3/oORIS7Hbjre4wmkVoj84Lcp9xniEZRbjgqTLtCwTq44YeMtw8fC1LzSoRugOJ29kljB1DNuC6A1i0KRr57KOuejJKYzM7RWfKZGSBATx+AA6ZUPXko96U5/s6O3LYhDo93qfS1dd7gBZDZwHACdcaUMmKY3nIij3buZoyXhrQrxVeNzrSEqb2IPoDC2hO8qS3c+ohBVOZPoFNVQ6XPuFI3BArI6OVR++RNMMlnDXLIQMk4JcbYMlneoe/BmFIN3h6GLnnj6zKht7c2ZNy+plNK/N2uhu+Yv5+f9u9E4cvN1TRei5qmBCsCdBSGRshpHBQbk3xbjE0nS+Ov+434Uc0kShPAV6pT2YEF1r8+QpXVnBs85SkuYVrnAYU6s7WtSvfSEg5NU1nMWj9AbKy1ZG88nH/nTb+aqzhyoUizU5PdFWKlHMDrD+3osvSvjgKWggBERaPYN3ZJPvKl5CwywkMfHb3pfv5EffeYIRgmmMTmDbzA/CYMAaMNQTmS0oaomjeHES9P0cIaumWGMumo/7tnf6sM+wsP0d7mTwz4gBHOohHjFkxgmixEi1gjhYy37vQXRLPQynetcjy4fkjct0eHJW9E/7G3/Fb4dZI8PBigCdHxqpBS+EI+4ZOWhxnvZR/X/MLrrjsCIzLcAbCd2/CbpMQezJjjHq24JyOXPlCd2KCult9kBPLfqUgmxjOFJq/5OryXzi9e3PXk9eVQ4eNjiXevuhacjBrdwKahbEUg6YYzpxU/Z9odfGrCwRjZzmsQGOTVE0GxVvRbRgbv2Pe6iYYgG+OeEgnavI2/BrzrR4kVENqsEFYt/QIK+QHUqrLGhk9/L37/6lGPD8xdF80rvsPSAW6+O/0lkN5Yh33fgdoDrRNDgcq+MW9Epc8sE6YifkrjYFbWg0LXSm4Ri/XCt78gbZVy9R27o3558UUQ82rQ2P67i87zBsttGCupakTtGAE=.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 643,
+      "completion_tokens": 374,
+      "total_tokens": 1017,
+      "cost": 0.0002513,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002513,
+        "upstream_inference_prompt_cost": 6.43e-05,
+        "upstream_inference_completions_cost": 0.000187
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 121,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

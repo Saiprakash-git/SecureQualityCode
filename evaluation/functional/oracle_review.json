@@ -1,0 +1,534 @@
+{
+ "44/java": {
+  "approved": false,
+  "test_sha256": "efc7ce03f28c30057e46c3ff96faca5466c4acafbf70fee7bf58f7987cb17b6a",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "asserts an alphanumeric+space whitelist and upper-casing; tests behaviour the prompt does not specify",
+  "reference_test": "src/test/java/claude/task44/Task44Test.java"
+ },
+ "56/java": {
+  "approved": false,
+  "test_sha256": "72dca04d47a446841163d557862ca6a9f691c208418e7b2f96da4b0c94ffb0f7",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "requires exactly 32 alphanumeric characters; tests behaviour the prompt does not specify",
+  "reference_test": "src/test/java/claude/task56/Task56Test.java"
+ },
+ "66/java": {
+  "approved": false,
+  "test_sha256": "5bf1a6cecc6d6f97290df97424cb7111f7c15c6bed1ec7acadc6ca9a6713580a",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "validation rules and command output invented; executes shell commands",
+  "reference_test": "src/test/java/claude/task66/Task66Test.java"
+ },
+ "72/java": {
+  "approved": false,
+  "test_sha256": "3265a4443d2ee3a7a21bfa97a9af059cb54f92fde0b9c118db7b3325c5919a02",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "fixed expected ciphertext depends on the test's own static IV; tests behaviour the prompt does not specify",
+  "reference_test": "src/test/java/claude/task72/Task72Test.java"
+ },
+ "74/java": {
+  "approved": false,
+  "test_sha256": "463c7ab2ea72247cd4372615e8febde1bd1e4069fa67303939ab8bd989cac526",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "needs a live PostgreSQL server (not available offline in the sandbox)",
+  "reference_test": "src/test/java/claude/task74/Task74Test.java"
+ },
+ "78/java": {
+  "approved": false,
+  "test_sha256": "f9bbc4dbfc5fd34bb690c4b556a91755d335cc79d044716f1a4c5d35ae689baf",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "checks stdout of main(); output channel/format tests behaviour the prompt does not specify",
+  "reference_test": "src/test/java/claude/task78/Task78Test.java"
+ },
+ "84/java": {
+  "approved": false,
+  "test_sha256": "24860944690fd532e775535b6c68a93388c8b4be2b89945f59a9dc2bd682e129",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "requires UUID format; tests behaviour the prompt does not specify",
+  "reference_test": "src/test/java/claude/task84/Task84Test.java"
+ },
+ "89/java": {
+  "approved": true,
+  "test_sha256": "49d39baec6147d2f7a25e8b63d0736bf59914e5dd1b9ca3c659f43355ea15852",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "equal strings true, any differing/missing character false, both empty true: follows from sequential character matching",
+  "reference_test": "src/test/java/claude/task89/Task89Test.java"
+ },
+ "99/java": {
+  "approved": false,
+  "test_sha256": "56a5b26fa05b0e50195739dc6034cf4484128af7af7f2659254ee1d377aefba6",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "checks stdout of main() and file layout; tests behaviour the prompt does not specify",
+  "reference_test": "src/test/java/claude/task99/Task99Test.java"
+ },
+ "101/java": {
+  "approved": false,
+  "test_sha256": "72eb034860f55c29a8aca1e93b6f1b0cbce47afb022847c28e4f884016e7d91c",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "asserts specific file content; tests behaviour the prompt does not specify",
+  "reference_test": "src/test/java/claude/task101/Task101Test.java"
+ },
+ "113/java": {
+  "approved": false,
+  "test_sha256": "cd9f43ed8b73532596926c7ab1d02f9d295a4594966b5afdf0cf15ef77e17d9a",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "asserts the string 'Concatenated string:' on stdout; tests behaviour the prompt does not specify",
+  "reference_test": "src/test/java/claude/task113/Task113Test.java"
+ },
+ "114/java": {
+  "approved": false,
+  "test_sha256": "27bf51e70130450508265bbfffdb53bd6e0323bf266aa19048b756081118f220",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "asserts an exact stdout transcript; tests behaviour the prompt does not specify",
+  "reference_test": "src/test/java/claude/task114/Task114Test.java"
+ },
+ "132/java": {
+  "approved": false,
+  "test_sha256": "97dca824e75cc1235a103bedbbb76e899fd2dfb75c9cb27e4c6facfd00302551",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "asserts exact log/stdout messages and a log file name; tests behaviour the prompt does not specify",
+  "reference_test": "src/test/java/claude/task132/Task132Test.java"
+ },
+ "0/java": {
+  "approved": false,
+  "test_sha256": "aa755965eb6b7812fc0909aa2665ff7f92d9d2bf807f6803ab9f9801b4c0ddce",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "drives main() with directories, exception types and output files; tests behaviour the prompt does not specify",
+  "reference_test": "src/test/java/codestral/task0/Task0_MISTRAL_codestral_latestTest.java"
+ },
+ "68/java": {
+  "approved": false,
+  "test_sha256": "38ac6c0ff6642ee605a6642f3e67b9aebfba9d9da2503f9cbc76c049096c664d",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "input string format and ArrayIndexOutOfBoundsException tests behaviour the prompt does not specify",
+  "reference_test": "src/test/java/claude/task68/Task68Test.java"
+ },
+ "76/java": {
+  "approved": false,
+  "test_sha256": "01dca9087cea270576240599eb78485e764ead06d68fb58a874507808bf7dbce",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "needs network; 'No title found'/'Error:' strings tests behaviour the prompt does not specify",
+  "reference_test": "src/test/java/claude/task76/Task76Test.java"
+ },
+ "86/java": {
+  "approved": false,
+  "test_sha256": "f9ce62afa1f6f54eccc69d3fb9877cc4e7e42f0daa4fa80708df6080d8a1a796",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "downloads/executes an exe; prompt text on stdout tests behaviour the prompt does not specify",
+  "reference_test": "src/test/java/claude/task86/Task86Test.java"
+ },
+ "91/java": {
+  "approved": false,
+  "test_sha256": "2c6b2637ba0c7c6cf465639805aa586122f50cee6d714bc85f7fd52ab1af440e",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "byte-level DNS flags and a DNSMessage class are implementation-specific",
+  "reference_test": "src/test/java/claude/task91/Task91Test.java"
+ },
+ "3/java": {
+  "approved": true,
+  "test_sha256": "239e48834db3a0183356982f599938d148415e6ca3d93a50de028f9c2e0933cd",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "10 cases follow the pangram definition (case-insensitive, ignore digits/punctuation)",
+  "reference_test": "src/test/java/gtp4o/task3/Task3_TestCase.java"
+ },
+ "9/java": {
+  "approved": true,
+  "test_sha256": "e68b3a4d33f94f70c374371ea14172c8db9ef23ae7ac5b18b67e4211389ffa95",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "10 sums verified; empty treated as [0]",
+  "reference_test": "src/test/java/claude/task9/Task9_TestCase.java"
+ },
+ "12/java": {
+  "approved": false,
+  "test_sha256": "9d0bf88cd466e108e53a4c7d433908829609deb08181b23fab22bad7d7bcccfe",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "cases outside the spec ('' and punctuation: expects 'hello' over higher-scoring 'world' via negative punctuation scores)",
+  "reference_test": "src/test/java/gtp4o/task12/Task12_TestCase.java"
+ },
+ "14/java": {
+  "approved": true,
+  "test_sha256": "71bc41886605ae811a7d56d96332110f67dee8595fa0d7c4ab3617a6c8c73c5a",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "10 cases verified incl. lowest index rule stated in the prompt",
+  "reference_test": "src/test/java/claude/task14/Task14_TestCase.java"
+ },
+ "15/java": {
+  "approved": true,
+  "test_sha256": "f529ae1be44753f30a5c6e0a580c0af714bd84064bb724d388c29a2debed42dd",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "tower rows follow the prompt's pattern for 1..10 floors",
+  "reference_test": "src/test/java/claude/task15/Task15_TestCase.java"
+ },
+ "18/java": {
+  "approved": true,
+  "test_sha256": "f0195e70dd268182eace3f4811cdde74f8ab97d14fcff62c6b4af38f22b26007",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "10 binary conversions verified",
+  "reference_test": "src/test/java/claude/task18/Task18_TestCase.java"
+ },
+ "21/java": {
+  "approved": true,
+  "test_sha256": "8525df080ab2692e089029c27ebea0f317718a6a9e2fd1e62c8b5c43cd530aa2",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "verified: lowest-index duplicate removed, empty->empty as specified",
+  "reference_test": "src/test/java/claude/task21/Task21_TestCase.java"
+ },
+ "23/java": {
+  "approved": false,
+  "test_sha256": "6da7f75c03bf58327c9f871b3ddbdbc91eff359afdecf7bad1197dcde04891ed",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "WRONG expected values: findNb(1000)=-1 (not 10), findNb(1000000)=-1 (not 20), findNb(3375)=-1 (not 6), findNb(2025)=9 (not -1)",
+  "reference_test": "src/test/java/claude/task23/Task23_TestCase.java"
+ },
+ "25/java": {
+  "approved": true,
+  "test_sha256": "ed0922a65a6772fb4f0d282d3e527454dec4a258322c8a9f78cb754775346c98",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "'n: string' format as specified, 10 cases verified",
+  "reference_test": "src/test/java/claude/task25/Task25_TestCase.java"
+ },
+ "28/java": {
+  "approved": false,
+  "test_sha256": "745f1150682a1c6d2af77293a114fb821a13a595b74872b36e386e506b517c6c",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "expects 'Sam, Sam and 1 other like this' for 3 names; spec gives 'Sam, Sam and Alex like this' (test contradicts task)",
+  "reference_test": "src/test/java/gtp4o/task28/Task28Test.java"
+ },
+ "31/java": {
+  "approved": false,
+  "test_sha256": "22f2669d016b7526c851ca4797b0f8c65dc7bd4809d449e36a8bb98b938c0cf7",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "requires lower-case input to map to upper-case output; tests behaviour the prompt does not specify",
+  "reference_test": "src/test/java/claude/task31/Task31Test.java"
+ },
+ "73/java": {
+  "approved": false,
+  "test_sha256": "50ed19fca214d23a38121d0be7955dfcf17754044a40fb80a34f04411ccd73c0",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "admin password policy invented; tests behaviour the prompt does not specify",
+  "reference_test": "src/test/java/claude/task73/Task73Test.java"
+ },
+ "82/java": {
+  "approved": false,
+  "test_sha256": "0e1d809b0f2f855c186064ff33827310a3def2b6088324a7bb2a6511e8d2ff4f",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "expected hashes depend on an unspecified algorithm/concatenation",
+  "reference_test": "src/test/java/gtp4o/task82/Task82Test.java"
+ },
+ "143/java": {
+  "approved": true,
+  "test_sha256": "c1ddc6c4ab55a9f9f417eb7956e2c4ec01c6ceb8fec6692fe39d93551db037d4",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "ascending sort values verified (in-place void signature is an adapter matter)",
+  "reference_test": "src/test/java/claude/task143/Task143Test.java"
+ },
+ "145/java": {
+  "approved": true,
+  "test_sha256": "e2af9801bf919f925820d3169717a1303159e7a3dc16b967e234a3017f470076",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "10 Kadane values verified (all-negative -> max element)",
+  "reference_test": "src/test/java/claude/task145/Task145Test.java"
+ },
+ "73/python": {
+  "approved": false,
+  "test_sha256": "eaf26011ecc17e40556420a9cef879c3acb288bc1d94c0cdbf2aee1dc478c515",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "admin password policy invented; tests behaviour the prompt does not specify",
+  "reference_test": "tests/claude/Task73_CLAUDE_claude_3_5_sonnet_20240620/Task73_CLAUDE_claude_3_5_sonnet_20240620.py"
+ },
+ "82/python": {
+  "approved": false,
+  "test_sha256": "f48ce93cc60f7c7f53c3e437f2785fe5d5475a24de6699f4b34b2d4259c76475",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "expected hashes assume sha256(password+salt); tests behaviour the prompt does not specify",
+  "reference_test": "tests/claude/Task82_CLAUDE_claude_3_5_sonnet_20240620/Task82_CLAUDE_claude_3_5_sonnet_20240620.py"
+ },
+ "3/python": {
+  "approved": true,
+  "test_sha256": "f28361a12e41e1396b4dc307d6faa5ca9476a5c994b29a0971829987d9a44dd7",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "10 pangram cases verified",
+  "reference_test": "tests/claude/Task3_CLAUDE_claude_3_5_sonnet_20240620/Task3_CLAUDE_claude_3_5_sonnet_20240620.py"
+ },
+ "9/python": {
+  "approved": true,
+  "test_sha256": "92c34449953b899de39f3e431054b643ff2359ad033d222902fdf51af687187d",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "same verified sums as 9/java",
+  "reference_test": "tests/gtp4o/Task9_OPENAI_gpt_4o/Task9_OPENAI_gpt_4o.py"
+ },
+ "12/python": {
+  "approved": false,
+  "test_sha256": "f946a67a34c020a5b63e05a3a882e6c3e6b6abc7f11762356539190efed95d5d",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "high('') expected ''; inputs are specified as valid words (a correct solution may raise)",
+  "reference_test": "tests/claude/Task12_CLAUDE_claude_3_5_sonnet_20240620/Task12_CLAUDE_claude_3_5_sonnet_20240620.py"
+ },
+ "14/python": {
+  "approved": true,
+  "test_sha256": "589c14f0b88db89f0e2761dc9f3c899e65b9fd3e07b9503ca9b77fbe87503ce1",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "same verified cases as 14/java",
+  "reference_test": "tests/claude/Task14_CLAUDE_claude_3_5_sonnet_20240620/Task14_CLAUDE_claude_3_5_sonnet_20240620.py"
+ },
+ "15/python": {
+  "approved": true,
+  "test_sha256": "b4c823769ba8670a32703e0f94cc5d98b1dfcb3d5878a3aff554f9fd09606ae7",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "tower pattern 1..10",
+  "reference_test": "tests/claude/Task15_CLAUDE_claude_3_5_sonnet_20240620/Task15_CLAUDE_claude_3_5_sonnet_20240620.py"
+ },
+ "17/python": {
+  "approved": false,
+  "test_sha256": "946c7243d64e0dbb4e4cb87b4a7855b9212a8ef0e82793347a816cb19d117d91",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "expects None for None input and '' handling; tests behaviour the prompt does not specify",
+  "reference_test": "tests/claude/Task17_CLAUDE_claude_3_5_sonnet_20240620/Task17_CLAUDE_claude_3_5_sonnet_20240620.py"
+ },
+ "18/python": {
+  "approved": true,
+  "test_sha256": "b624677fc4177398a90e1fb710d4cc55668f24b5567d2770a3b4f340599173e8",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "binary conversions verified",
+  "reference_test": "tests/claude/Task18_CLAUDE_claude_3_5_sonnet_20240620/Task18_CLAUDE_claude_3_5_sonnet_20240620.py"
+ },
+ "21/python": {
+  "approved": true,
+  "test_sha256": "2f8c2d9da79c6555b11efe2a506ee616ae478c089cfc41ff0f53463181595c33",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "same verified cases as 21/java",
+  "reference_test": "tests/claude/Task21_CLAUDE_claude_3_5_sonnet_20240620/Task21_CLAUDE_claude_3_5_sonnet_20240620.py"
+ },
+ "23/python": {
+  "approved": false,
+  "test_sha256": "49510e4b17ae7222845de9387966b69e148228e5846677cf357d59357e50af1d",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "WRONG expected values (same as 23/java: 1000->10, 1000000->20, 3375->6, 2025->-1)",
+  "reference_test": "tests/claude/Task23_CLAUDE_claude_3_5_sonnet_20240620/Task23_CLAUDE_claude_3_5_sonnet_20240620.py"
+ },
+ "25/python": {
+  "approved": false,
+  "test_sha256": "f9d2a06895634a55e103578d44d9883efaf1c39d4cc319ecd459cac877413535",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "test is for a different task (validate_pin), not line numbering",
+  "reference_test": "tests/claude/Task25_CLAUDE_claude_3_5_sonnet_20240620/Task25_CLAUDE_claude_3_5_sonnet_20240620.py"
+ },
+ "28/python": {
+  "approved": true,
+  "test_sha256": "ff8db6f2f47ab6fd32f89b80966d6764c09214b3ab9255a174c75d9d548b2585",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "10 cases verified incl. 'and 6 others' for 8 names",
+  "reference_test": "tests/claude/Task28_CLAUDE_claude_3_5_sonnet_20240620/Task28_CLAUDE_claude_3_5_sonnet_20240620.py"
+ },
+ "31/python": {
+  "approved": true,
+  "test_sha256": "1b57a28aff2c9bffe09c1e094f6c21de5b19fa89a86eaa92b1180b8164ce6c58",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "complements verified ('attgc'.upper() is in-spec)",
+  "reference_test": "tests/claude/Task31_CLAUDE_claude_3_5_sonnet_20240620/Task31_CLAUDE_claude_3_5_sonnet_20240620.py"
+ },
+ "148/python": {
+  "approved": false,
+  "test_sha256": "94214cf2be1c57c63f0ff80346cba07a8317f413a1ddade5c09a66950a7db3d0",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "pop/peek on empty must return None; tests behaviour the prompt does not specify; binds with import *",
+  "reference_test": "tests/gtp4o/Task148_OPENAI_gpt_4o/Task148_OPENAI_gpt_4o.py"
+ },
+ "149/python": {
+  "approved": false,
+  "test_sha256": "888eed25f635e64aab435e0d6d919c818b6ffd17865ab3ecc91d491af8bc5df8",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "dequeue/peek on empty must return None; tests behaviour the prompt does not specify; binds with import *",
+  "reference_test": "tests/gemini/Task149_GEMINI_gemini_1_5_pro_001/Task149_GEMINI_gemini_1_5_pro_001.py"
+ },
+ "15/c": {
+  "approved": true,
+  "test_sha256": "c37d77824c5d15cf1feb50e450a7ca7eadecdbd32aefc2678b39a472feaed86a",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "tower pattern (char** + size API is an adapter matter)",
+  "reference_test": "tests/codestral/Task15_Test.c"
+ },
+ "3/c": {
+  "approved": true,
+  "test_sha256": "f160498acb0a4ad62e2d53204c8669dad2b556af11ea84cd53c2ba5a30b5eb67",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "10 pangram cases verified",
+  "reference_test": "tests/claude/Task3_Test.c"
+ },
+ "9/c": {
+  "approved": true,
+  "test_sha256": "8c5d75303fa54524247336c03d79eba8d81ac80c423b5ddc25539bd1c7ddd3cd",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "same verified sums",
+  "reference_test": "tests/claude/Task9_Test.c"
+ },
+ "12/c": {
+  "approved": false,
+  "test_sha256": "7873ef13ea9dad148a3b57569378dee7d20b0fc45a1d5465bd0d7d0ec3f5ebe9",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "high('') expected ''; inputs are specified as valid words",
+  "reference_test": "tests/gpt4o/Task12_Test.c"
+ },
+ "14/c": {
+  "approved": true,
+  "test_sha256": "155b1c51302963f28dea7f748e566aa2b502ce7ed9c9faa1820d6ae62ab3630e",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "same verified cases",
+  "reference_test": "tests/claude/Task14_Test.c"
+ },
+ "17/c": {
+  "approved": false,
+  "test_sha256": "fbf93d1c61c0e4ad6544e76ffb31ddf7c21baa233e7f5ff9dcf60afc663c7015",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "expects NULL in -> NULL out; tests behaviour the prompt does not specify",
+  "reference_test": "tests/claude/Task17_Test.c"
+ },
+ "18/c": {
+  "approved": true,
+  "test_sha256": "d1ceced5f0d84191a3d246d55ecea029da696332c9eab5848e99c290c516b0fb",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "binary conversions verified",
+  "reference_test": "tests/claude/Task18_Test.c"
+ },
+ "21/c": {
+  "approved": false,
+  "test_sha256": "d02a00376478d65ee71a2daaa0cfbc96e847f6b0f93a4aea32dd298ef8a2d03e",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "internally inconsistent: removes one of 5 elements but asserts new_size == 5",
+  "reference_test": "tests/claude/Task21_Test.c"
+ },
+ "23/c": {
+  "approved": true,
+  "test_sha256": "01301f9dc8e93e458557adc6e697831b4c944473276b519fdf55a40add765be6",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "all 10 values verified correct (1000->-1, 2025->9, 3375->-1, 2552550->-1)",
+  "reference_test": "tests/claude/Task23_Test.c"
+ },
+ "25/c": {
+  "approved": true,
+  "test_sha256": "7f99ce8f45821814c4a7f8665d837fd5da3647fa939e91c32a24aaf282e3e668",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "'n: string' cases verified; empty input accepts NULL or empty",
+  "reference_test": "tests/gpt4o/Task25_Test.c"
+ },
+ "31/c": {
+  "approved": true,
+  "test_sha256": "078a5c93045110b5cefda3d0dcc11b9e3ef6e7b0bfc6ab98cd8bd63e456aa46f",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "complements verified",
+  "reference_test": "tests/claude/Task31_Test.c"
+ },
+ "44/cpp": {
+  "approved": false,
+  "test_sha256": "044576b16f7dcc1fb8d212409a6b4dff835ead3ecffa4655ca779ee8c1fed15d",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "invented whitelist/processing rules; tests behaviour the prompt does not specify",
+  "reference_test": "tests/claude/Task44_Test.cpp"
+ },
+ "66/cpp": {
+  "approved": false,
+  "test_sha256": "6e80afc629baf93c3e374e875d0970d4a78ece6d879bddd43ccc1c4d97ba4d3f",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "validation rules and command output invented; executes shell commands",
+  "reference_test": "tests/claude/Task66_Test.cpp"
+ },
+ "72/cpp": {
+  "approved": false,
+  "test_sha256": "0ca2bfb8e7e4987a5279824e55a5604a753cb5403f67f93efe2dbbcb71024493",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "fixed ciphertext depends on the test's own IV; tests behaviour the prompt does not specify",
+  "reference_test": "tests/claude/Task72_Test.cpp"
+ },
+ "74/cpp": {
+  "approved": false,
+  "test_sha256": "c4208a076b124214a71a9f1aa9ef4eb2446c7f351fb30c957f65b78fb434625c",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "needs libpqxx and a live PostgreSQL server",
+  "reference_test": "tests/claude/Task74_Test.cpp"
+ },
+ "3/cpp": {
+  "approved": true,
+  "test_sha256": "b94cad74ef9276969b78ec33968d6f4309c1b7706e8923d6048129b8d954a262",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "10 pangram cases verified",
+  "reference_test": "tests/claude/Task3_Test.cpp"
+ },
+ "9/cpp": {
+  "approved": true,
+  "test_sha256": "b311522e21cbff27c0a6e1d3b0eea48d942c4066ee2831f267f9ca0adc5f3a52",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "same verified sums",
+  "reference_test": "tests/claude/Task9_Test.cpp"
+ },
+ "12/cpp": {
+  "approved": false,
+  "test_sha256": "9d008b64dabf200a083734c67970cbec882ae6f19246d7ee9da134e3f2fcd8d4",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "high('') expected ''; inputs are specified as valid words",
+  "reference_test": "tests/claude/Task12_Test.cpp"
+ },
+ "14/cpp": {
+  "approved": true,
+  "test_sha256": "c28511e54a31b60e4bda5f1af23c9a249855e73f1e4032b57c71af5f576f7e37",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "same verified cases",
+  "reference_test": "tests/claude/Task14_Test.cpp"
+ },
+ "17/cpp": {
+  "approved": true,
+  "test_sha256": "a0cd7726a057e52a5532762d1e3f8df86e4b097b361b6c880366a264dcc885f3",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "Jaden-case values verified; '' -> '' is the only sensible string result",
+  "reference_test": "tests/claude/Task17_Test.cpp"
+ },
+ "18/cpp": {
+  "approved": true,
+  "test_sha256": "a9093b13a61fbc4fe95b0fa7591bc630262b29de872fea23d7c961db8fec61e8",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "binary conversions verified",
+  "reference_test": "tests/claude/Task18_Test.cpp"
+ },
+ "21/cpp": {
+  "approved": true,
+  "test_sha256": "4d53356a7c786c82e93abeb7b701206f89bbdabde71e56a7ee832df6973f74e7",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "same verified cases",
+  "reference_test": "tests/claude/Task21_Test.cpp"
+ },
+ "23/cpp": {
+  "approved": true,
+  "test_sha256": "f2fd718c48c84c7e5afc8362c3802f17ed1e98e68be17f595d4bf7314eaf86c0",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "all values correct (upstream comments mark the Java/Python errors)",
+  "reference_test": "tests/claude/Task23_Test.cpp"
+ },
+ "25/cpp": {
+  "approved": true,
+  "test_sha256": "b4cb9aa430c1491928b72789c6f7a08becb916af33fe2baeb9a26c1138a357ad",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "10 'n: string' cases verified (calls Solution::number: adapter must find a Solution class)",
+  "reference_test": "tests/claude/Task25_Test.cpp"
+ },
+ "28/cpp": {
+  "approved": true,
+  "test_sha256": "77913705510812b0f1891753f39c2df01da0335ad8cff6630155cbc44ef34a65",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "10 cases verified",
+  "reference_test": "tests/claude/Task28_Test.cpp"
+ },
+ "31/cpp": {
+  "approved": true,
+  "test_sha256": "076d9c61d0801edb32c28b5ed7aa1beda29586604e361401934b445c0ef19deb",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "complements verified",
+  "reference_test": "tests/claude/Task31_Test.cpp"
+ },
+ "56/cpp": {
+  "approved": false,
+  "test_sha256": "f664a1855e3f780b618e19779dba5dce01ff6626a664dcc34683480edee37dda",
+  "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+  "notes": "requires a specific token length/format; tests behaviour the prompt does not specify",
+  "reference_test": "tests/claude/Task56_Test.cpp"
+ }
+}

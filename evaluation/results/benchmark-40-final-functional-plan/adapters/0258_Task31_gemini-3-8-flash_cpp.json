@@ -1,0 +1,31 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "DNAStrand",
+   "target": "DNAStrand",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "std::string",
+    "params": [
+     "const std::string& dna"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "const std::string& dna"
+    ],
+    "return": "std::string"
+   }
+  }
+ ],
+ "combo_index": 258,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_031/gemini-3-8-flash/Task31_gemini-3-8-flash_cpp.cpp",
+ "artifact_sha256": "cf96fe2a2a161d5681cb0ce5d1ce009d03becc48401141f571acefdf9952f7b4",
+ "oracle_test_path": "tests/claude/Task31_Test.cpp",
+ "oracle_test_sha256": "076d9c61d0801edb32c28b5ed7aa1beda29586604e361401934b445c0ef19deb",
+ "author": "functional.py draft_adapter (static)"
+}

@@ -1,0 +1,7 @@
+@@6efe9f12ec209b96 STEP 0 BEGIN@@
+
+@@6efe9f12ec209b96 STEP 0 END rc=0@@
+@@6efe9f12ec209b96 STEP 1 BEGIN@@
+All test cases passed.
+
+@@6efe9f12ec209b96 STEP 1 END rc=0@@

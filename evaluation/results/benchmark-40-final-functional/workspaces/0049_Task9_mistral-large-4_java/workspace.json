@@ -1,0 +1,60 @@
+{
+ "language": "java",
+ "artifact_origin": "generated",
+ "artifact_sha256": "f3f242f7e3e49e9803a08d5bc3eca356945ee2d53d54181d2e0cb014db9aef95",
+ "oracle_test_path": "src/test/java/claude/task9/Task9_TestCase.java",
+ "oracle_test_sha256": "e68b3a4d33f94f70c374371ea14172c8db9ef23ae7ac5b18b67e4211389ffa95",
+ "verdict_style": "junit_xml",
+ "bindings": [
+  {
+   "canonical": "Task9_CLAUDE_claude_3_5_sonnet_20240620.oddOrEven",
+   "target": "Solution.oddOrEven",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "file": "Solution.java",
+   "change": "package claude.task9 prepended"
+  }
+ ],
+ "steps": [
+  [
+   "{javac}",
+   "-encoding",
+   "UTF-8",
+   "-proc:none",
+   "-d",
+   "classes",
+   "-cp",
+   "{junit_jar}",
+   "claude/task9/Solution.java",
+   "claude/task9/Task9_CLAUDE_claude_3_5_sonnet_20240620.java",
+   "claude/task9/Task9_TestCase.java"
+  ],
+  [
+   "{java}",
+   "-jar",
+   "{junit_jar}",
+   "execute",
+   "--class-path",
+   "classes",
+   "--select-class",
+   "claude.task9.Task9_TestCase",
+   "--reports-dir",
+   "reports",
+   "--disable-banner",
+   "--details=summary"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "claude/task9/Solution.java": "4626b754801e3c0ab2707a24a92016feab59a7df4b6cb132a2a80f89c9f4e29a",
+  "claude/task9/Task9_CLAUDE_claude_3_5_sonnet_20240620.java": "b941a3b836160ac7578ccf7f7ca0b2a13aa1b62e320db3f435cd3fb7991d1862",
+  "claude/task9/Task9_TestCase.java": "e68b3a4d33f94f70c374371ea14172c8db9ef23ae7ac5b18b67e4211389ffa95"
+ }
+}

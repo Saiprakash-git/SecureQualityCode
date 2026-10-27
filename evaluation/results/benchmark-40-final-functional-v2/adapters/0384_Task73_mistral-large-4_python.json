@@ -1,0 +1,26 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "is_valid_admin_password",
+   "target": "is_valid_admin_password",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": null,
+   "canonical_signature": {
+    "arity": 1
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": null,
+    "return": null
+   }
+  }
+ ],
+ "combo_index": 384,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_073/mistral-large-4/Task73_mistral-large-4_python.py",
+ "artifact_sha256": "26baf84c7de61387b93e98e2502c6f6392e058d7266dbce1971abecc05e69e4f",
+ "oracle_test_path": "tests/claude/Task73_CLAUDE_claude_3_5_sonnet_20240620/Task73_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "eaf26011ecc17e40556420a9cef879c3acb288bc1d94c0cdbf2aee1dc478c515",
+ "author": "functional.py draft_adapter (static)"
+}

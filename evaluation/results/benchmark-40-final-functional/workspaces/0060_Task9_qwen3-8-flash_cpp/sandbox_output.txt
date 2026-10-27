@@ -1,0 +1,7 @@
+@@9f35c96ba4663af2 STEP 0 BEGIN@@
+
+@@9f35c96ba4663af2 STEP 0 END rc=0@@
+@@9f35c96ba4663af2 STEP 1 BEGIN@@
+All test cases passed!
+
+@@9f35c96ba4663af2 STEP 1 END rc=0@@

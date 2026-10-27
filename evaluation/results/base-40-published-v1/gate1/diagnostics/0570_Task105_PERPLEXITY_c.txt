@@ -1,0 +1,4 @@
+Task105_PERPLEXITY_llama-3-sonar-large-32k-chat.c:1:10: fatal error: 'openssl/ssl.h' file not found
+    1 | #include <openssl/ssl.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.

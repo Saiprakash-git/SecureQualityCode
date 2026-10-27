@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793009966-l5neNv6Qa0Hsdr04kRY6",
+  "finish_reason": "stop",
+  "input_tokens": 319,
+  "output_tokens": 1336,
+  "cost_usd": 0.00524925,
+  "raw_response": {
+    "id": "gen-1793009966-l5neNv6Qa0Hsdr04kRY6",
+    "object": "chat.completion",
+    "created": 1793009966,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <ctype.h>\n\nchar *to_jaden_case(const char *string) {\n    if (string == NULL || *string == '\\0') {\n        return NULL;\n    }\n\n    size_t len = strlen(string);\n    char *result = (char *)malloc(len + 1);\n    if (result == NULL) {\n        return NULL;\n    }\n\n    int capitalize_next = 1;\n    for (size_t i = 0; i < len; i++) {\n        if (capitalize_next && islower((unsigned char)string[i])) {\n            result[i] = (char)toupper((unsigned char)string[i]);\n        } else {\n            result[i] = string[i];\n        }\n        capitalize_next = (string[i] == ' ');\n    }\n    result[len] = '\\0';\n\n    return result;\n}\n\nint main(void) {\n    const char *quote = \"How can mirrors be real if our eyes aren't real\";\n    char *jaden_cased = to_jaden_case(quote);\n\n    if (jaden_cased != NULL) {\n        printf(\"Not Jaden-Cased: \\\"%s\\\"\\n\", quote);\n        printf(\"Jaden-Cased:     \\\"%s\\\"\\n\", jaden_cased);\n        free(jaden_cased);\n    }\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Developing C Functionality**\n\nI'm currently focused on crafting a robust C function to implement Jaden Casing for input strings. The core logic involves iterating through the string, identifying word boundaries, and capitalizing the initial character of each word while ensuring the rest of the word remains in its original case. I'm also considering edge cases such as empty strings, strings with leading/trailing spaces, and multiple spaces between words. The goal is to deliver a self-contained, clean C source file as requested.\n\n**Refining C Implementation**\n\nI'm now considering the function signature. I'll opt for a signature that allocates and returns a new string for Jaden casing, specifically `char *to_jaden_case(const char *string)`. This approach avoids modifying the original string and aligns with common practices for string manipulation in C.\n\n**Expanding Function Capabilities**\n\nI'm exploring options for the `to_jaden_case` function's design. I'm considering whether to offer both a self-contained version that allocates memory and a version that accepts an output buffer. The capitalization logic is now clearer: capitalize any character that is either at the beginning of the string or immediately follows a space. I'm also noting the requirement to return `null` for empty or `null` input strings, similar to the Java specification.\n\n**Implementing C Logic**\n\nMy focus has shifted to the concrete C code. I'm implementing the `to_jaden_case` function, handling `NULL` or empty string inputs by returning `NULL`. The logic for capitalization is being refined to ensure only the first letter after a space, or the very first letter, is capitalized. Memory allocation for the resulting string is now a direct part of the implementation.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing C Functionality**\n\nI'm currently focused on crafting a robust C function to implement Jaden Casing for input strings. The core logic involves iterating through the string, identifying word boundaries, and capitalizing the initial character of each word while ensuring the rest of the word remains in its original case. I'm also considering edge cases such as empty strings, strings with leading/trailing spaces, and multiple spaces between words. The goal is to deliver a self-contained, clean C source file as requested.\n\n**Refining C Implementation**\n\nI'm now considering the function signature. I'll opt for a signature that allocates and returns a new string for Jaden casing, specifically `char *to_jaden_case(const char *string)`. This approach avoids modifying the original string and aligns with common practices for string manipulation in C.\n\n**Expanding Function Capabilities**\n\nI'm exploring options for the `to_jaden_case` function's design. I'm considering whether to offer both a self-contained version that allocates memory and a version that accepts an output buffer. The capitalization logic is now clearer: capitalize any character that is either at the beginning of the string or immediately follows a space. I'm also noting the requirement to return `null` for empty or `null` input strings, similar to the Java specification.\n\n**Implementing C Logic**\n\nMy focus has shifted to the concrete C code. I'm implementing the `to_jaden_case` function, handling `NULL` or empty string inputs by returning `NULL`. The logic for capitalization is being refined to ensure only the first letter after a space, or the very first letter, is capitalized. Memory allocation for the resulting string is now a direct part of the implementation.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 319,
+      "completion_tokens": 1336,
+      "total_tokens": 1655,
+      "cost": 0.00524925,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00524925,
+        "upstream_inference_prompt_cost": 0.00023925,
+        "upstream_inference_completions_cost": 0.00501
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 980,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,31 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "isPangram",
+   "target": "is_pangram",
+   "kind": "alias",
+   "name_match": "normalized",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "bool",
+    "params": [
+     "const char* str"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "const char *str"
+    ],
+    "return": "bool"
+   }
+  }
+ ],
+ "combo_index": 35,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_003/qwen3-8-flash/Task3_qwen3-8-flash_c.c",
+ "artifact_sha256": "5b43ec9b748ad89eb1d1307af43b5488f5e872da8903843a5a2b331a0edc239c",
+ "oracle_test_path": "tests/claude/Task3_Test.c",
+ "oracle_test_sha256": "f160498acb0a4ad62e2d53204c8669dad2b556af11ea84cd53c2ba5a30b5eb67",
+ "author": "functional.py draft_adapter (static)"
+}

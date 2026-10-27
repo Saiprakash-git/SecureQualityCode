@@ -1,0 +1,26 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "make_complement",
+   "target": "dna_strand",
+   "kind": "alias",
+   "name_match": "normalized",
+   "types_match": null,
+   "canonical_signature": {
+    "arity": 1
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": null,
+    "return": null
+   }
+  }
+ ],
+ "combo_index": 245,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_031/qwen3-8-flash/Task31_qwen3-8-flash_python.py",
+ "artifact_sha256": "957868c041af1083a8e720c322a838b6d780c18aa5ae94985d8772001caaf87b",
+ "oracle_test_path": "tests/claude/Task31_CLAUDE_claude_3_5_sonnet_20240620/Task31_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "1b57a28aff2c9bffe09c1e094f6c21de5b19fa89a86eaa92b1180b8164ce6c58",
+ "author": "functional.py draft_adapter (static)"
+}

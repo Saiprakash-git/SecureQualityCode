@@ -1,0 +1,4 @@
+Task130_GEMINI_gemini-1.5-pro-001.cpp:3:10: fatal error: 'pistache/endpoint.h' file not found
+    3 | #include <pistache/endpoint.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~
+1 error generated.

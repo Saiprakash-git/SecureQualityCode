@@ -1,0 +1,4 @@
+Task105_OPENAI_gpt-4o.c:3:10: fatal error: 'openssl/ssl.h' file not found
+    3 | #include <openssl/ssl.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.

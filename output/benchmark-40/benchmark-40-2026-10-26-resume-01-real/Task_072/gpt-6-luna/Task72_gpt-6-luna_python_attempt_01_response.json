@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793017669-iwfjRgT7rxFMrxYcYlTa",
+  "finish_reason": "stop",
+  "input_tokens": 151,
+  "output_tokens": 410,
+  "cost_usd": 0.0002201,
+  "raw_response": {
+    "id": "gen-1793017669-iwfjRgT7rxFMrxYcYlTa",
+    "object": "chat.completion",
+    "created": 1793017669,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "from Crypto.Cipher import AES\n\n\nSTATIC_IV = b\"0123456789abcdef\"\n\n\ndef encrypt_data(data: bytes, key: bytes) -> bytes:\n    \"\"\"Encrypt bytes with AES-CBC and PKCS#7 padding.\"\"\"\n    if not isinstance(data, bytes):\n        raise TypeError(\"data must be bytes\")\n    if not isinstance(key, bytes):\n        raise TypeError(\"key must be bytes\")\n\n    block_size = AES.block_size\n    padding_length = block_size - len(data) % block_size\n    padded_data = data + bytes([padding_length]) * padding_length\n\n    cipher = AES.new(key, AES.MODE_CBC, iv=STATIC_IV)\n    return cipher.encrypt(padded_data)",
+          "refusal": null,
+          "reasoning": "**Ensuring encryption setup**\n\nI need to ensure that the bytes input is correct and consider padding for the encryption process. I'll return the encrypted output, and since I'm using a static IV, I can use that constant. Since the IV is known, I could return just the ciphertext without including the IV itself. Oh, and I need to make sure to set the key argument properly for the encryption to work as intended.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Ensuring encryption setup**\n\nI need to ensure that the bytes input is correct and consider padding for the encryption process. I'll return the encrypted output, and since I'm using a static IV, I can use that constant. Since the IV is known, I could return just the ciphertext without including the IV itself. Oh, and I need to make sure to set the key argument properly for the encryption to work as intended.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30dJ4wATYX_Teq0KYTogLRqemH3eri6JATm6s6N4aE7HqQ7vowuIdNTDFkqxOf1IIaF6pEE4GxAVAJdLkUgREG1cJg-oQk_tCioGllhpGmh06tXJOe6yrQZNFRrofwbgkVpoukHn5kMUwO0Y8ulQXM5Pwct0eyRELW0WNcBG9Yem28tpZ_ujW3d8SKWINBMFjnNvTEJs1lmohKkFFzze7DEVD3iBeWapMxPA8sWkHRZoVI-uvy0HrVvraics2e5xAE6x_Awr7ebVyRaL-6_aZ9vKD3yaBKDIHLO6bPRuynfy3-1icRGBlXZlMyikCYUcnRmqT3r5SniVUjhrKOGWHrPUCwl8pzUhHefmHcF09CRSwJ4u3qV6d8QOr-TKvkDQp-Cnppe8ZwQZ04eVUz-u7kh4K4EjQj_pB-XrmgBW7sZUIKQCmmIbyz6QdVcyfOr7hnC85w9R536upfZaIrkvOYQCqlO4NAKtsKixNpX-NDWIrdNoypYd2pF86c2MBVvTAWCZq-SRIQngTXUGlQ4ZevsANjzUbfgWYL4ufRtz5lJEnQ-TFQ9gItZDYMqx763l5TtywM-c2DMPLLLEHXrYqmanb--KNnuANeXPS1WUw1nGCcgypRLAiU7UiRQuKqsnTPKaggFJIAjTgGSGwZwlMHNad5yochc3yFrhz3bmtQxxp6Qfke9kZUsKR24qNnrp-CUUrROhQ_U7Etk8lVKWJ5kNVmy2FQ-KR-gOJhZ3f_Q-AM_v086irczYq0QHjYueP4HYFLAJl-Qao07J1SKat1uPKcYrgTiirKLwKYe27e3Mj2NrIEs7QWtMboyLjREQTp9PcPAWmExzpb7Pg7QsMiomDuvYsC8wmEFSVz9vEnzQXvuwCShMesRjp6wmhTzoBxEexCPq1ZHYzsV0N1DmVEGXTnfSepTkCJ7Ykb9UcQDVabc3W0P48RDSg5j9c5tgSMIbaKex_F-31_AlRsK9IzUearNqeIeLBOZpBDRrG15bKYI4DtJBooRJpdOFvCRDVP7YtGurJs7HlmhgEO2yAbuwAQkR9_2JQudLef41fNWAvPGazkFnzV7kyulDwuqLgDmsyN6Rrt-fO2UtAkrOMsqggwVmE3dVp9mneJdSmYbOdomV47281Cwy2It7ycZsnOsVqNFFYc7_Mn-cJSDNNzTCaTMkz4upsPsCnfg1R9VcnMXxrpdIT1sfm9PEontuc-0iWSmmSkxoon2fY0tBdkSpGeLQrrO2PjJS8DOx58K3_84DR-AJBJIAyAeKOck61q5LwVRuEyTv2d_vh0EWrwDQX23J9q5_TZG3Y0TsLywxskWwE2bKVtqFLLWwvZ4mrxnn3kYmPr1xyOq5AntvcoChnZpOoSEUaNUYqdri4IfFPgiIQEFyc-G3zMMPgJJboAb5GuRP4oZeEGXc0mIpaXJqA4Va-mGtaO-VbNz59iO9LM9dnC7WtPh4OlLhedcVQb2mjZI3igqgiPyeyqio0Wmj54Z5tH3owOErBSj8vSYJM6HmG01lKYsQtQZM_G1Y20uxpEzQqx1wC9tvcd5OmCGPc1a7jX_CWh_zPwtWK0GdO-knFEcnSHZXzB8Ri6lQekMrN77ARQ0XWtiLFAqh7YTXWmUsJpW4F4xyD15Jx6vFkZGb1cBqWQRta8wbkPKP4AjbWKuQuKrg5dI2ItReGdYyEDwJbhNqvOu8m_OLuB-R18ov5qbny6zxTKV88ZGYaGLI0Wvk6ckVIycYtV_7eleZtmtDTeJ_MQ5v-cClNOB2U_OU_QWxDJ0ycQHiUOi5Uqq2q7pR7ieXGtO6CZmv47DwMmXyGoeapbb8eRDzax_VNlTx6Ki0M5uPM-l5WGvt8OwLoMU-8reIIy14fmbURyqf6PNtBo0FvhnAhH-f9kJb-r2YYvUSzsKpTf2jD4vGN6DueYATWa2sTViwXyLq_5CmkergxBH_jfxw4UPPqMEs_bcZV6LR4BfiOwmUURUTzuD0uoH036ryJJedqpY6HExE6ihXJv-8rRBMKl7aSjYCoWSqW8Qfdq-muDGeOlKEwCgqHdSibi9Il6vkitgV2ENsgWQkgYG3jFU2KJs9Kno2oeRxoAIVXI2SGZ3mvBo-zOul9bm7gxwpjNIJ-PMPVTtLTr7sdUHgB-3E-fg4M3pO2gTV8tfVFvpYatV90V3Av4m7e9eIiNssXVB1qz5stt4r3HLA9ylZOA-cp7hwNaZ9zW2Qi6MrrVYOwx_l2Tk7MOjLzGAdYgD31TWM_GkJ7IngZQ2oDKiAhvHCmPGDfXb6A5csMwhrqusC16l0nDnJt3TkwQjoY_aV6RyqhmB3l-E1huJ7DSsYOfD1ReSmUOZ6rEW4vrzHAuAwqLIXh1aVMB0Jp943vQQeqQPiEOOM-3cwxhdz8lBvFJijp2YNqKTTodQZPgb7dosT5KR5vXQZzzUpqxjYyIhYW4EE7RtRxwwkxubd9ALj8O7GcWid3tFVymE5mMoC8rodi5RpBnsKmvfsblxCJIgyX4GfgT3Nli_kCeaFVyHpvJjlp1VFnyid0mh5_PpPQDmPwat4tO5h2CB2mHVhIHu5w7LIFDdE8I-FqIOHyRRpPUHNcfCu-mwZuGJshHB56ZdNZ4I8FaTMxPDt3sM_lUTXuPHC22-BZZXUZliStjHQwsYn7SDKDldEBH9OA3lE3BpwrlIAIZ523sg0uNZm2YJ38nQU_doqTqLDN7C_LT2W7xLQH4os4jhX_NyyT1BtpZciLPc8xkwDCavzWjwJ7BYn1N1dtQ7gY-qy35MUBf6Fq6TOyQWKAVOm4cDausQN5shdle1qzSgj5qljUv-2gnncmi0zC3vaXGPXsIyQyLJ2Veae734NzEki6MW-dO0An00GieKx-GJl0vu_q1dttDj-TVXko1MefML6c4LXlQsu6u6zWiCWfc-kwPYUx3AeiQlM_cIZtEGwS4ZHPlg-j309KRxxOjiNMD6KJN2txx87QhBhEv8je_JeLXIDDl764FGLUdvoQSMUeHs4TvEat5G74cfLwV3v6113453b5f6ReaRauWJXI6n0-CSvLk_yGgq6XRrQV0kmb-ZHcNIGYWUuD9cQbFQ4WGQh0vnoITGj1gT5GxKBwv_sY6aBP28bs8sVzu1awyP22i2l2UHYcPbroqZgFny3QAq6DG7LJbdP55wnx17ZuvzjCd9sLnNFl3GPwFjVaNCpJygAj3aEPrRUsnn3f6e40LNZGkrMCEPzh3LV_c_oknZE85fFmcc42iKC1rDl5aXd53fXwXOcR7kliNgoOuWuE9QzwxavU9Gwch14dqDpnE3m9CfqCdeD9fh96MQBR6ZPWpQYoBg2vOCmi4iuf3bf6BLhYJwt-5rQVGp4ylEprjKZr3ZkV30CjpGFfxUkvaNZCq0TVEvettYaqJIyhRGHUtyCbwnnbHD5IQI2HcQNJu8O2rLLEg06Aa3VAn69bARjoDcIpfbDP5vvZE1KJFnjPoypKy91DHTV9IqPy0I4CbinO1VGvhosSJvXOURp1qNPPaqmEWetZY9IynfbkmfEoSyvDvS25uBpLBTAQbwe0MgI_R3MYpt8Q7Ypf-tStWFK-NJTdhgqltPT7_7YOYPngbUTScqcL7qGee0JKmE7qP9LDcXO2sxEMrpu3kDhdXIRFaN9opDz9n-iZfYtfu3H8TFhzLTgmeYTk7ufad0fkXx3dGYowFrSNK7nGztK4Ly9aHAsYr9W3oh_kWP2rpZzhBmCnItHO7viWOnquP6b20raxZOegAhWEWvGEVw5eo5fgNA9fFPPt1IoTibyjavvuH_oOvZXIRZMOthP2iHQX8OuJh6njpuhw6mxNc8i8VfG-3IUmflou5sdoCFpN2sKqkvjnVhfy3genxlO1ixMhKgdMHQr4LAyuwWxtbkEIoeBz0WQ2PX6So9hbjjQS3TG0ENxFW9ybCZdgJzbFz98pGTloS5uR_hsAdgKjHpIXwND1jfZ_v99LRdD7St5TZ3-nCbu2B34ayK5rAlxHxBoFXl6z4j83WtBFFVw65brw8zjjY4ilkVq0O25kIOX7HmKxItxz2YsjTgbeLaFT78yRFv1cNqxQ8Avj0qvvR1ZmEGU4l4UXYqn3d3Hob0WLO3Yz9ECsP_Q2JTaUPo7nfXOx3hOz2Jy4z-UjoT_jOJvzuoL7QOlJx8eKEV0r3ivQmFl0COg1CEcr2El8hguTgZ4i7fbvrohnDKtb_5yc0arUnWCDVi-6wjwjr2m4vEukgwLHDSUT238NMNBkOhAWaXh2OLXdeS_CcVLAUKrY1p85r_4BqkTN4ryuQTDr7fIUXYh-Z6r_fi1uqcMeunjnK2HQZZtFh6T5m4kHFLIwtmcBjYxh8D5Vktn_mbcpSVpluRMRNhCcvQ3geAqsLmDMrkzmKlUrVf_7dmCgWxxFTj6bkrINPT3mW6ck1J7OjdtJYOaL9kyDp-wMtD14NubrLD8QuNySadcrTICOQTNKGvrLBCcmoR-f9OvYwOcMA4l4VnE8Epn6l1xlPgfhS5xjCglyk30CbBiG0Y22UriQCnTNwegfHRIVB4UvnU01uTYy5DRlHpCHFBllC0Gm9B7sG1luTz1F5PiGL9w4Dv4GmnIwQmcN6Jhkej36l5Kdjfc43cyELspdUS7qV-tMENHfqoITn_PPfhA6krMk_uvK0EGYlFES46aBhizZPu4sXSgVxbuiDpkO0Na9d06XsZkptCbhKf_1wKhctCje3WKANTd51b6tMhCBmCS2yHNYkjmrbV4C7bJcanzkEiPGUCJxu0FIf1AU4gydVXAtLUUQR01hHYgfRWuENdFTDRuz-7V8VTus-xKD5ciHKnZBLWWiBGIpm4Jw4lrdF0EnDJbf1L6AcKv--PXgXDoDR-0kIw22SsaOsQ_-2IwbFak0tzT1ZO9eAgF96bPLrjloNK-5KDOwvBvneBrv0bS11ov8gObmjS6ciBUbA==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0e66156aa7e6870f016adf4745aa2887d1b2db583785847038",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 151,
+      "completion_tokens": 410,
+      "total_tokens": 561,
+      "cost": 0.0002201,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002201,
+        "upstream_inference_prompt_cost": 1.51e-05,
+        "upstream_inference_completions_cost": 0.000205
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 259,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

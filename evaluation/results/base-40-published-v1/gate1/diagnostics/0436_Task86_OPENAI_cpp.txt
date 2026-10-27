@@ -1,0 +1,4 @@
+Task86_OPENAI_gpt-4o.cpp:3:10: fatal error: 'curl/curl.h' file not found
+    3 | #include <curl/curl.h>
+      |          ^~~~~~~~~~~~~
+1 error generated.

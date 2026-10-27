@@ -1,0 +1,7 @@
+@@37f34eacc8ff971c STEP 0 BEGIN@@
+
+@@37f34eacc8ff971c STEP 0 END rc=0@@
+@@37f34eacc8ff971c STEP 1 BEGIN@@
+All test cases passed.
+
+@@37f34eacc8ff971c STEP 1 END rc=0@@

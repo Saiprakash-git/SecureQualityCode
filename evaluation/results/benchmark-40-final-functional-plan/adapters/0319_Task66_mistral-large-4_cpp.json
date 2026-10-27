@@ -1,0 +1,51 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "executeCommand",
+   "target": "executeCommand",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": false,
+   "canonical_signature": {
+    "return": "std::string",
+    "params": [
+     "const std::string& cmd"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "const std::string& command"
+    ],
+    "return": "CommandResult"
+   }
+  },
+  {
+   "canonical": "validateCommand",
+   "target": "validateCommand",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "bool",
+    "params": [
+     "const std::string& cmd"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "const std::string& command"
+    ],
+    "return": "bool"
+   }
+  }
+ ],
+ "combo_index": 319,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_066/mistral-large-4/Task66_mistral-large-4_cpp.cpp",
+ "artifact_sha256": "f173f56b9ae60b9c7eec69b817d970991fb68e64b59a6b8e6e1915a473345e3e",
+ "oracle_test_path": "tests/claude/Task66_Test.cpp",
+ "oracle_test_sha256": "6e80afc629baf93c3e374e875d0970d4a78ece6d879bddd43ccc1c4d97ba4d3f",
+ "author": "functional.py draft_adapter (static)"
+}

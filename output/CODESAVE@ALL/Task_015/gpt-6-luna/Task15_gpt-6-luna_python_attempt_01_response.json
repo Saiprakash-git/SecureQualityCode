@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793009288-bHy3TOjg9KQk3YCmJ769",
+  "finish_reason": "stop",
+  "input_tokens": 207,
+  "output_tokens": 130,
+  "cost_usd": 8.57e-05,
+  "raw_response": {
+    "id": "gen-1793009288-bHy3TOjg9KQk3YCmJ769",
+    "object": "chat.completion",
+    "created": 1793009288,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "def tower_builder(n_floors):\n    width = 2 * n_floors - 1\n    return [\n        \" \" * (n_floors - floor - 1)\n        + \"*\" * (2 * floor + 1)\n        + \" \" * (n_floors - floor - 1)\n        for floor in range(n_floors)\n    ]",
+          "refusal": null,
+          "reasoning": "**Developing tower builder code**\n\nI need to create a function called `tower_builder(n_floors)` in Python. It should be self-contained, and I\u2019m wondering if I should include typing for better clarity. This is a common challenge, so I want to make sure I am returning a list of strings that represent the tower. I think I can skip validation for this task and focus on producing the source output effectively. Let's get started!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Developing tower builder code**\n\nI need to create a function called `tower_builder(n_floors)` in Python. It should be self-contained, and I\u2019m wondering if I should include typing for better clarity. This is a common challenge, so I want to make sure I am returning a list of strings that represent the tower. I think I can skip validation for this task and focus on producing the source output effectively. Let's get started!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3yaKq6YxNBPKkxnKTc73nFdCXRDTV-A4oisN_0hsWNwAz8aTmJ-TlGuUJBCn-DsAKmxiRWgMrbWzwXCreL-bIOSPhmKWF4Wpxxd6VVtKRacLgDHieqewnDjEomsdPFD50qwbJ6Ih8iJIs0Q0393SsFk5bTQQgcXA2-mtfcXvx2GrXb9Si8SzHZg2ZvpTT5rdsTZxGYVGHCwwZFQe_D_ctd1JJEeMllOOKi6lZeHp4CSs4uz8iQH4WsO1R1gsIeX8KT8-crINp1JdBbUcY3-JMd17FuG2u1FN6GUuPdZ_AHwNv4PVCHvReNHLaj555Ij9L6jfthgSVWAwZVQazVSlpBk8UNzXehaQSHj6ISxBzuLLp42ZxkZVXsWTi1SuLM51Jd7LssFz1rFFMs4GnR96SiI_BdkOlyHDuiOvfb7tiVTWv_7w-UdGzV-BSOh5SKqWG-0Qhz6x4FMxUdsQKlFun1mF99cww-ax_4EwtsaTYHPhyep9bKUAX_oHu7dsvkeaTSDpOORA-ejRpPOScR-x82uU5wiHIgaX6lgxpfnX6XMhbfkUFF60eIaSQnWBse-7Djl7RZZ1Xj-nXemttV2k9i2j74IPm5z5hBkmbF1c3bR7IVGjXV8YLiUTY0O1tmkTy1tyJXdczxFyu8yHo5liN_7nqR_m3vX-8DKqsnx4XvQZyTvdj3PDQGoFyFNO3paRAZ1TgDorFwd1-Vo4B2M6y9oIooxiu3PBX7H_C3w3JGQPW_v4F7Lg7g_3TpWKWJkXMOyxcRXhsi_YIbrcHVjDE-MjeL34wC1RfFRm6MZXcWo6R0Xifi-G5h8Nw8vGaeSxlyXrLfUHt8loxZFpxsfv6-gXZ_amu0kpythRp_SrIlXyW1MSmIiWm7ghwhBXcuXEkz_nvImp-a299xPa66U1-u4fbhqxhpK6gsjGqSNQ56gnXChhEWMt6TBaU1Yk3BR6jEgkcW0imEigTEP1LHPihXBGJTS_MVb3bDb6v29vByWM2bTJO34cRwk-HVJMzF18JRTvboBWT1wa9QAfi4jrlSTBIA6a_4UbZD7j8c0JQnwFmdyhWc_XNJ4YnjMQLmQb-nzrko_l7VQVDpt1y8c96l2Dv3HExYeezf8XXAHVv4AgFZD-GE9vffmf3bNekEB73j3_sNwJeITIk_xI_PggVOGAfc6MychFETnJEw3mL0H0sD-w2pXL8BWLb8dcVYbo-YgrbZLLkiXkjuLvZQTuhNz3yVAVjLxm6FI8LCdoOz5bQ2uoIHxnzAqvDY1Med13DzTkhjr_r2xUAMrwOfZB2a1z1uSWovE8NZLCsh0k-2vJeu-I8itCSJmm1yp47oN5sAjOpdnKa7mvECaTvku90y79BuVyUYp8wEEHO5T97-VImXkKw-74mGNGOtk2EXNEsoP2j7lUaSWpJu-BJlTTKh1LYvykp-BzA-CIGgkBEtdXE_OepN0lcRovm2Y7BoG63O9w_e3VoQXIIFpWB_T9ck9REOk-MiLqlKZLt98FdTasl1Gvnpz1id0G-G_BweqPfj9iWYfzbkbIY4E1JeoKvmEhf3y_YOH3Z4qyStFwoBPw6is5D30rm7dRUwpD9zAbAHKkMxW-QnscIOFBKGlBJA1w317A9uaXBwc7tDVHKBFDUuesU3uximNH8I5fF9vgergWlP1sySx7k53UB1kFH2hn2_4Bv3avonvr0tAGOB3yOebxJNxtoo-a9PtuF9d8Ax_xNBoEplTKlQuEorPQz7kSrUqS_dJ8hDq2zPO1mU9D1ZrmZDfvwiwqLs723FuwcUiq2boMuOyng3OI22Sz9QdIpip9ba0QZ6BVRGbm3a-xZqJTLWBBTzz5Mzh9uXaPdRWL10s0G3vMSlIuRMHTge76B28dEkre6O1Z_Qo6frK2jeq99CGzJB3CwgkPSBdUM5Efco81O46VFQP4o_Z4XFvtCE4-V1foBG8TAGBCFQlQS3lpgesauanSlNDgEHUOqiXvCIKdqcC7uADG9rJALizFmKDrwnfzAnBNcBMEZXzD-2rqjc8MFmBiotnVXV0YVMobILMTiJwx__oNWSX82PzFtAvy998o9kjSkDYAcok5jzLyob_cl7Lof4LGY0lFtIauVgtunneP0TMpw-FTsMbFFcPz4Ovx2V1KeqU1oURxKTs=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0fe9ddc97b4050c6016adf268916c887d1a141e884e4f9a6a6",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 207,
+      "completion_tokens": 130,
+      "total_tokens": 337,
+      "cost": 8.57e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 8.57e-05,
+        "upstream_inference_prompt_cost": 2.07e-05,
+        "upstream_inference_completions_cost": 6.5e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 44,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

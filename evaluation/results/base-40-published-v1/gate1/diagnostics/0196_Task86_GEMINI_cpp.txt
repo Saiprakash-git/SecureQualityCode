@@ -1,0 +1,4 @@
+Task86_GEMINI_gemini-1.5-pro-001.cpp:3:10: fatal error: 'windows.h' file not found
+    3 | #include <windows.h>
+      |          ^~~~~~~~~~~
+1 error generated.

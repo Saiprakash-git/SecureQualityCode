@@ -1,0 +1,32 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "Task3_OPENAI_gpt_4o.isPangram",
+   "target": "Main.isPangram",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "boolean",
+    "params": [
+     "String s"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "String input"
+    ],
+    "return": "boolean",
+    "static": true
+   }
+  }
+ ],
+ "combo_index": 30,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_003/qwen3-8-flash/Task3_qwen3-8-flash_java.java",
+ "artifact_sha256": "69805fc7301bdb9cf50765b3f4b15c37dcbf5360c4796c0a6e2b61466f73af9f",
+ "oracle_test_path": "src/test/java/gtp4o/task3/Task3_TestCase.java",
+ "oracle_test_sha256": "239e48834db3a0183356982f599938d148415e6ca3d93a50de028f9c2e0933cd",
+ "author": "functional.py draft_adapter (static)"
+}

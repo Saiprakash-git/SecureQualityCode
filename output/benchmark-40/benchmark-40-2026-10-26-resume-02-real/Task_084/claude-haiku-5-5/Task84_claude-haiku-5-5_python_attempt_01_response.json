@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793022982-Oum9rwqpBNXEVSpWNyT8",
+  "finish_reason": "stop",
+  "input_tokens": 150,
+  "output_tokens": 168,
+  "cost_usd": 9.9e-05,
+  "raw_response": {
+    "id": "gen-1793022982-Oum9rwqpBNXEVSpWNyT8",
+    "object": "chat.completion",
+    "created": 1793022982,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import secrets\nimport uuid\n\n\ndef generate_session_id(length_bytes: int = 32) -> str:\n    if not isinstance(length_bytes, int) or length_bytes <= 0:\n        raise ValueError(\"length_bytes must be a positive integer\")\n    unique_part = uuid.uuid4().hex\n    random_part = secrets.token_urlsafe(length_bytes)\n    return f\"{unique_part}-{random_part}\"\n\n\nif __name__ == \"__main__\":\n    print(generate_session_id())",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 150,
+      "completion_tokens": 168,
+      "total_tokens": 318,
+      "cost": 9.9e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 9.9e-05,
+        "upstream_inference_prompt_cost": 1.5e-05,
+        "upstream_inference_completions_cost": 8.4e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

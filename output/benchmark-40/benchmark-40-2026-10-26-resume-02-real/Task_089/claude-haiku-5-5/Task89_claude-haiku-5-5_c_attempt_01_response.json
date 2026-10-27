@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793023442-Q8aPI1cagPbo6LoTnNeH",
+  "finish_reason": "stop",
+  "input_tokens": 166,
+  "output_tokens": 1507,
+  "cost_usd": 0.0007701,
+  "raw_response": {
+    "id": "gen-1793023442-Q8aPI1cagPbo6LoTnNeH",
+    "object": "chat.completion",
+    "created": 1793023442,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <string.h>\n\n#define MAX_PASS 256\n#define PASS_FILE \"password.txt\"\n\nvoid strip_newline(char *s) {\n    size_t n = strlen(s);\n    while (n > 0 && (s[n - 1] == '\\n' || s[n - 1] == '\\r')) {\n        s[--n] = '\\0';\n    }\n}\n\nint read_stored_password(const char *filename, char *buffer, size_t size) {\n    FILE *fp = fopen(filename, \"r\");\n    if (fp == NULL) {\n        return -1;\n    }\n    if (fgets(buffer, (int)size, fp) == NULL) {\n        buffer[0] = '\\0';\n        fclose(fp);\n        return -1;\n    }\n    fclose(fp);\n    strip_newline(buffer);\n    return 0;\n}\n\nint read_user_password(char *buffer, size_t size) {\n    if (fgets(buffer, (int)size, stdin) == NULL) {\n        buffer[0] = '\\0';\n        return -1;\n    }\n    strip_newline(buffer);\n    return 0;\n}\n\nint compare_passwords(const char *stored, const char *entered) {\n    size_t i = 0;\n    while (stored[i] != '\\0' && entered[i] != '\\0') {\n        if (stored[i] != entered[i]) {\n            return 0;\n        }\n        i++;\n    }\n    return stored[i] == entered[i];\n}\n\nint main(void) {\n    char stored[MAX_PASS];\n    char entered[MAX_PASS];\n\n    if (read_stored_password(PASS_FILE, stored, sizeof(stored)) != 0) {\n        fprintf(stderr, \"Error: could not read password from '%s'.\\n\", PASS_FILE);\n        return 1;\n    }\n\n    printf(\"Enter password: \");\n    fflush(stdout);\n\n    if (read_user_password(entered, sizeof(entered)) != 0) {\n        fprintf(stderr, \"Error: could not read input.\\n\");\n        return 1;\n    }\n\n    if (compare_passwords(stored, entered)) {\n        printf(\"Password accepted.\\n\");\n        return 0;\n    } else {\n        printf(\"Password incorrect.\\n\");\n        return 2;\n    }\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 166,
+      "completion_tokens": 1507,
+      "total_tokens": 1673,
+      "cost": 0.0007701,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007701,
+        "upstream_inference_prompt_cost": 1.66e-05,
+        "upstream_inference_completions_cost": 0.0007535
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 762,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

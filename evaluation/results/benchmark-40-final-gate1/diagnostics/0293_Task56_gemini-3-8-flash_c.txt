@@ -1,0 +1,19 @@
+Task56_gemini-3-8-flash_c.c:187:32: error: expected ')'
+  187 |         sha256_update(&ctx, key
+      |                                ^
+Task56_gemini-3-8-flash_c.c:187:22: note: to match this '('
+  187 |         sha256_update(&ctx, key
+      |                      ^
+Task56_gemini-3-8-flash_c.c:187:32: error: expected '}'
+  187 |         sha256_update(&ctx, key
+      |                                ^
+Task56_gemini-3-8-flash_c.c:185:38: note: to match this '{'
+  185 |     if (key_len > SHA256_BLOCK_SIZE) {
+      |                                      ^
+Task56_gemini-3-8-flash_c.c:187:32: error: expected '}'
+  187 |         sha256_update(&ctx, key
+      |                                ^
+Task56_gemini-3-8-flash_c.c:179:39: note: to match this '{'
+  179 |                         uint8_t *out) {
+      |                                       ^
+3 errors generated.

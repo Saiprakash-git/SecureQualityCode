@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793023016-il4FNerLqc2BwTyW66pX",
+  "finish_reason": "stop",
+  "input_tokens": 146,
+  "output_tokens": 1778,
+  "cost_usd": 0.0009036,
+  "raw_response": {
+    "id": "gen-1793023016-il4FNerLqc2BwTyW66pX",
+    "object": "chat.completion",
+    "created": 1793023016,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#define _POSIX_C_SOURCE 200809L\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <stdint.h>\n#include <time.h>\n#include <unistd.h>\n#include <fcntl.h>\n\n#define SESSION_ID_BYTES 16\n#define SESSION_ID_HEX_LEN (SESSION_ID_BYTES * 2)\n#define SESSION_ID_BUF_LEN (SESSION_ID_HEX_LEN + 1)\n\nstatic uint64_t session_counter = 0;\n\nstatic int fill_random_bytes(unsigned char *out, size_t n)\n{\n    int fd = open(\"/dev/urandom\", O_RDONLY);\n    if (fd >= 0) {\n        size_t got = 0;\n        while (got < n) {\n            ssize_t r = read(fd, out + got, n - got);\n            if (r <= 0) {\n                break;\n            }\n            got += (size_t)r;\n        }\n        close(fd);\n        if (got == n) {\n            return 0;\n        }\n    }\n\n    /* Fallback: non-cryptographic PRNG seeded with time, pid and counter */\n    static int seeded = 0;\n    if (!seeded) {\n        unsigned int seed = (unsigned int)time(NULL)\n                          ^ (unsigned int)getpid() * 2654435761u;\n        srand(seed);\n        seeded = 1;\n    }\n    for (size_t i = 0; i < n; i++) {\n        out[i] = (unsigned char)(rand() & 0xFF);\n    }\n    return 0;\n}\n\nint generate_session_id(char *buf, size_t buflen)\n{\n    static const char hex[] = \"0123456789abcdef\";\n    unsigned char bytes[SESSION_ID_BYTES];\n    uint64_t counter;\n    uint64_t now;\n\n    if (buf == NULL || buflen < SESSION_ID_BUF_LEN) {\n        return -1;\n    }\n\n    if (fill_random_bytes(bytes, SESSION_ID_BYTES) != 0) {\n        return -1;\n    }\n\n    /* Mix in a per-process counter and timestamp so IDs never repeat */\n    counter = ++session_counter;\n    now = (uint64_t)time(NULL);\n\n    for (int i = 0; i < 8; i++) {\n        bytes[8 + i] ^= (unsigned char)((counter >> (56 - 8 * i)) & 0xFF);\n        bytes[i] ^= (unsigned char)((now >> (56 - 8 * i)) & 0xFF);\n    }\n\n    for (size_t i = 0; i < SESSION_ID_BYTES; i++) {\n        buf[i * 2]     = hex[(bytes[i] >> 4) & 0x0F];\n        buf[i * 2 + 1] = hex[bytes[i] & 0x0F];\n    }\n    buf[SESSION_ID_HEX_LEN] = '\\0';\n    return 0;\n}\n\nint main(void)\n{\n    char id[SESSION_ID_BUF_LEN];\n\n    for (int i = 0; i < 5; i++) {\n        if (generate_session_id(id, sizeof(id)) == 0) {\n            printf(\"%s\\n\", id);\n        } else {\n            fprintf(stderr, \"Failed to generate session ID\\n\");\n            return EXIT_FAILURE;\n        }\n    }\n\n    return EXIT_SUCCESS;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 146,
+      "completion_tokens": 1778,
+      "total_tokens": 1924,
+      "cost": 0.0009036,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0009036,
+        "upstream_inference_prompt_cost": 1.46e-05,
+        "upstream_inference_completions_cost": 0.000889
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 624,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

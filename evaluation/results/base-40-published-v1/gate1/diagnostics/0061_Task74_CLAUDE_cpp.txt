@@ -1,0 +1,4 @@
+Task74_CLAUDE_claude-3-5-sonnet-20240620.cpp:3:10: fatal error: 'pqxx/pqxx' file not found
+    3 | #include <pqxx/pqxx>
+      |          ^~~~~~~~~~~
+1 error generated.

@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "Task68_CLAUDE_claude_3_5_sonnet_20240620.extractDcAndUsername",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 347,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_068/gpt-6-luna/Task68_gpt-6-luna_java.java",
+ "artifact_sha256": "f32eaca1394dab6d984fab717a5b5957ca5a7dd0ac9af6f54dace4dcedc0c74c",
+ "oracle_test_path": "src/test/java/claude/task68/Task68Test.java",
+ "oracle_test_sha256": "38ac6c0ff6642ee605a6642f3e67b9aebfba9d9da2503f9cbc76c049096c664d",
+ "author": "functional.py draft_adapter (static)"
+}

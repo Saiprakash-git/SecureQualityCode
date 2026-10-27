@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "Task18_CLAUDE_claude_3_5_sonnet_20240620.convertBinaryArrayToInt",
+   "target": "BinaryConverter.binaryArrayToInt",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "bound by reviewer to BinaryConverter.binaryArrayToInt: the artifact's single implementation of this task with a call-compatible signature",
+ "combo_index": 149,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_018/mistral-large-4/Task18_mistral-large-4_java.java",
+ "artifact_sha256": "dcceff457f947202fec07e2d7432c211c665d2bd21fe192dad635066c5a3f1bf",
+ "oracle_test_path": "src/test/java/claude/task18/Task18_TestCase.java",
+ "oracle_test_sha256": "f0195e70dd268182eace3f4811cdde74f8ab97d14fcff62c6b4af38f22b26007",
+ "author": "functional.py draft_adapter (static)"
+}

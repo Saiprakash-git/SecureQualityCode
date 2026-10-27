@@ -1,0 +1,32 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "Task12_OPENAI_gpt_4o.high",
+   "target": "Solution.high",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "String",
+    "params": [
+     "String inputString"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "String s"
+    ],
+    "return": "String",
+    "static": true
+   }
+  }
+ ],
+ "combo_index": 66,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_012/claude-haiku-5-5/Task12_claude-haiku-5-5_java.java",
+ "artifact_sha256": "ff3c35c97b5d2511970918eb079855cb6b805bc81abf65924a2823a7fbc20628",
+ "oracle_test_path": "src/test/java/gtp4o/task12/Task12_TestCase.java",
+ "oracle_test_sha256": "9d0bf88cd466e108e53a4c7d433908829609deb08181b23fab22bad7d7bcccfe",
+ "author": "functional.py draft_adapter (static)"
+}

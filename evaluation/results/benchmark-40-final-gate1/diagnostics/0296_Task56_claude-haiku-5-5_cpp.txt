@@ -1,0 +1,30 @@
+Task56_claude-haiku-5-5_cpp.cpp:49:40: error: use of undeclared identifier 'rot'
+   49 |             uint32_t S0 = rotr(a, 2) ^ rot
+      |                                        ^
+Task56_claude-haiku-5-5_cpp.cpp:49:43: error: expected ';' at end of declaration
+   49 |             uint32_t S0 = rotr(a, 2) ^ rot
+      |                                           ^
+      |                                           ;
+Task56_claude-haiku-5-5_cpp.cpp:49:43: error: expected '}'
+Task56_claude-haiku-5-5_cpp.cpp:45:38: note: to match this '{'
+   45 |         for (int i = 0; i < 64; ++i) {
+      |                                      ^
+Task56_claude-haiku-5-5_cpp.cpp:49:43: error: expected '}'
+   49 |             uint32_t S0 = rotr(a, 2) ^ rot
+      |                                           ^
+Task56_claude-haiku-5-5_cpp.cpp:32:53: note: to match this '{'
+   32 |     for (size_t off = 0; off < m.size(); off += 64) {
+      |                                                     ^
+Task56_claude-haiku-5-5_cpp.cpp:49:43: error: expected '}'
+   49 |             uint32_t S0 = rotr(a, 2) ^ rot
+      |                                           ^
+Task56_claude-haiku-5-5_cpp.cpp:23:44: note: to match this '{'
+   23 | std::string sha256(const std::string& msg) {
+      |                                            ^
+Task56_claude-haiku-5-5_cpp.cpp:49:43: error: expected '}'
+   49 |             uint32_t S0 = rotr(a, 2) ^ rot
+      |                                           ^
+Task56_claude-haiku-5-5_cpp.cpp:8:11: note: to match this '{'
+    8 | namespace {
+      |           ^
+6 errors generated.

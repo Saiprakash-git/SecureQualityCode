@@ -1,0 +1,32 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "Task101_CLAUDE_claude_3_5_sonnet_20240620.main",
+   "target": "CreateExecutableScript.main",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "void",
+    "params": [
+     "String[] args"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "String[] args"
+    ],
+    "return": "void",
+    "static": true
+   }
+  }
+ ],
+ "combo_index": 588,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-02-real/Task_101/gemini-3-8-flash/Task101_gemini-3-8-flash_java.java",
+ "artifact_sha256": "14fe12b67a824d0a5aa633cdddc0bbe353869692cb5b68e44ec97e845a3521f1",
+ "oracle_test_path": "src/test/java/claude/task101/Task101Test.java",
+ "oracle_test_sha256": "72eb034860f55c29a8aca1e93b6f1b0cbce47afb022847c28e4f884016e7d91c",
+ "author": "functional.py draft_adapter (static)"
+}

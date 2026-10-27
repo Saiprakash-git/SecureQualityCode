@@ -1,0 +1,32 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "Task31_CLAUDE_claude_3_5_sonnet_20240620.makeComplement",
+   "target": "DnaStrand.makeComplement",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "String",
+    "params": [
+     "String dna"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "String dna"
+    ],
+    "return": "String",
+    "static": true
+   }
+  }
+ ],
+ "combo_index": 249,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_031/mistral-large-4/Task31_mistral-large-4_java.java",
+ "artifact_sha256": "b1823b5cd5aa64ed57f0e262f0a78a8152cc7e2b4241fec2c038c07a3bff5cfa",
+ "oracle_test_path": "src/test/java/claude/task31/Task31Test.java",
+ "oracle_test_sha256": "22f2669d016b7526c851ca4797b0f8c65dc7bd4809d449e36a8bb98b938c0cf7",
+ "author": "functional.py draft_adapter (static)"
+}

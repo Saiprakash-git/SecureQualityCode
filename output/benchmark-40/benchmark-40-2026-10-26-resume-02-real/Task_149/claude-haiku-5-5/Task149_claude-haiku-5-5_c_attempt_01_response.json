@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793025519-ynyCbcdBEBJz0JgXwAof",
+  "finish_reason": "stop",
+  "input_tokens": 157,
+  "output_tokens": 955,
+  "cost_usd": 0.0004932,
+  "raw_response": {
+    "id": "gen-1793025519-ynyCbcdBEBJz0JgXwAof",
+    "object": "chat.completion",
+    "created": 1793025519,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n\ntypedef struct Node {\n    int data;\n    struct Node *next;\n} Node;\n\ntypedef struct Queue {\n    Node *front;\n    Node *rear;\n    size_t size;\n} Queue;\n\nQueue *queue_create(void) {\n    Queue *q = malloc(sizeof(Queue));\n    if (!q) return NULL;\n    q->front = NULL;\n    q->rear = NULL;\n    q->size = 0;\n    return q;\n}\n\nint queue_is_empty(const Queue *q) {\n    return q == NULL || q->front == NULL;\n}\n\nint queue_enqueue(Queue *q, int value) {\n    if (!q) return 0;\n    Node *node = malloc(sizeof(Node));\n    if (!node) return 0;\n    node->data = value;\n    node->next = NULL;\n    if (q->rear) {\n        q->rear->next = node;\n    } else {\n        q->front = node;\n    }\n    q->rear = node;\n    q->size++;\n    return 1;\n}\n\nint queue_dequeue(Queue *q, int *out) {\n    if (queue_is_empty(q)) return 0;\n    Node *node = q->front;\n    if (out) *out = node->data;\n    q->front = node->next;\n    if (!q->front) q->rear = NULL;\n    free(node);\n    q->size--;\n    return 1;\n}\n\nint queue_peek(const Queue *q, int *out) {\n    if (queue_is_empty(q)) return 0;\n    if (out) *out = q->front->data;\n    return 1;\n}\n\nsize_t queue_size(const Queue *q) {\n    return q ? q->size : 0;\n}\n\nvoid queue_destroy(Queue *q) {\n    if (!q) return;\n    Node *cur = q->front;\n    while (cur) {\n        Node *next = cur->next;\n        free(cur);\n        cur = next;\n    }\n    free(q);\n}\n\nint main(void) {\n    Queue *q = queue_create();\n    if (!q) {\n        fprintf(stderr, \"Failed to create queue\\n\");\n        return EXIT_FAILURE;\n    }\n\n    for (int i = 1; i <= 5; i++) {\n        queue_enqueue(q, i * 10);\n        printf(\"Enqueued: %d\\n\", i * 10);\n    }\n\n    int value;\n    if (queue_peek(q, &value)) {\n        printf(\"Peek: %d\\n\", value);\n    }\n\n    printf(\"Size: %zu\\n\", queue_size(q));\n\n    while (!queue_is_empty(q)) {\n        if (queue_dequeue(q, &value)) {\n            printf(\"Dequeued: %d\\n\", value);\n        }\n    }\n\n    if (!queue_peek(q, &value)) {\n        printf(\"Queue is empty, peek failed\\n\");\n    }\n\n    queue_destroy(q);\n    return EXIT_SUCCESS;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 157,
+      "completion_tokens": 955,
+      "total_tokens": 1112,
+      "cost": 0.0004932,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0004932,
+        "upstream_inference_prompt_cost": 1.57e-05,
+        "upstream_inference_completions_cost": 0.0004775
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

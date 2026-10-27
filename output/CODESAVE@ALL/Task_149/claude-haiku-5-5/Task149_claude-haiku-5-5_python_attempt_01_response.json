@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793025478-rDrSxqcfJVpT00rf0XpG",
+  "finish_reason": "stop",
+  "input_tokens": 161,
+  "output_tokens": 478,
+  "cost_usd": 0.0002551,
+  "raw_response": {
+    "id": "gen-1793025478-rDrSxqcfJVpT00rf0XpG",
+    "object": "chat.completion",
+    "created": 1793025478,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "class Queue:\n    def __init__(self):\n        self._items = []\n        self._head = 0\n\n    def enqueue(self, item):\n        self._items.append(item)\n\n    def dequeue(self):\n        if self.is_empty():\n            raise IndexError(\"dequeue from empty queue\")\n        item = self._items[self._head]\n        self._items[self._head] = None\n        self._head += 1\n        if self._head > 32 and self._head * 2 >= len(self._items):\n            self._items = self._items[self._head:]\n            self._head = 0\n        return item\n\n    def peek(self):\n        if self.is_empty():\n            raise IndexError(\"peek from empty queue\")\n        return self._items[self._head]\n\n    def is_empty(self):\n        return self._head >= len(self._items)\n\n    def size(self):\n        return len(self._items) - self._head\n\n    def __len__(self):\n        return self.size()\n\n    def __repr__(self):\n        return f\"Queue({self._items[self._head:]!r})\"\n\n\ndef main():\n    q = Queue()\n    q.enqueue(1)\n    q.enqueue(2)\n    q.enqueue(3)\n    print(q)\n    print(\"Peek:\", q.peek())\n    print(\"Dequeue:\", q.dequeue())\n    print(\"Dequeue:\", q.dequeue())\n    print(\"Size:\", q.size())\n    print(\"Dequeue:\", q.dequeue())\n    print(\"Empty:\", q.is_empty())\n\n\nif __name__ == \"__main__\":\n    main()",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 161,
+      "completion_tokens": 478,
+      "total_tokens": 639,
+      "cost": 0.0002551,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002551,
+        "upstream_inference_prompt_cost": 1.61e-05,
+        "upstream_inference_completions_cost": 0.000239
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

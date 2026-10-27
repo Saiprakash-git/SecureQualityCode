@@ -3,7 +3,8 @@
 # Environment variables and secrets
 # ==============================
 .env
-Openrouter ai  sk-or-v1-45b401ec478.txt
+Openrouter ai*.txt
+*sk-or-v1*
 .env.*
 !.env.example
 !.env.sample
@@ -68,3 +69,14 @@ temp/
 # ==============================
 *.sqlite3-journal
 *.db-journal
+
+# ==============================
+# Evaluation toolchain (local venv with zig/clang, caches)
+# ==============================
+evaluation/.toolchain/
+evaluation/.upstream/
+# Review reports quote upstream test code (no license declared upstream); keep local
+evaluation/functional/review/*.md
+evaluation/scanners/rules/*.yml
+paper/.toolchain/
+paper/build/main.log

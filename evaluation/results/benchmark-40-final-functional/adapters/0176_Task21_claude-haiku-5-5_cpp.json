@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "removeSmallest",
+   "target": "removeSmallest",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 176,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_021/claude-haiku-5-5/Task21_claude-haiku-5-5_cpp.cpp",
+ "artifact_sha256": "9147938aca7dfc7fb9a761aac55a43a1516c14d136794a77f98620bb042024c1",
+ "oracle_test_path": "tests/claude/Task21_Test.cpp",
+ "oracle_test_sha256": "4d53356a7c786c82e93abeb7b701206f89bbdabde71e56a7ee832df6973f74e7",
+ "author": "functional.py draft_adapter (static)"
+}

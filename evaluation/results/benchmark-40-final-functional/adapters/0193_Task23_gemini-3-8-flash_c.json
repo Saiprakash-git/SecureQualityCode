@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "findNb",
+   "target": "findNb",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 193,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_023/gemini-3-8-flash/Task23_gemini-3-8-flash_c.c",
+ "artifact_sha256": "2f90b846960d38b66db1992c016a48d77edbf37d72c69b87194c3e7173d62aa5",
+ "oracle_test_path": "tests/claude/Task23_Test.c",
+ "oracle_test_sha256": "01301f9dc8e93e458557adc6e697831b4c944473276b519fdf55a40add765be6",
+ "author": "functional.py draft_adapter (static)"
+}

@@ -1,0 +1,47 @@
+{
+ "language": "c",
+ "artifact_origin": "generated",
+ "artifact_sha256": "f04b6ffea767a4641c923b6f8e52ccc55102fa6faf3cf0c6dfc3aed044acf421",
+ "oracle_test_path": "tests/claude/Task31_Test.c",
+ "oracle_test_sha256": "078a5c93045110b5cefda3d0dcc11b9e3ef6e7b0bfc6ab98cd8bd63e456aa46f",
+ "verdict_style": "exit_code_and_fail_lines",
+ "bindings": [
+  {
+   "canonical": "dna_strand",
+   "target": "dna_strand",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "line": 8,
+   "removed": "#include \"../../source/output/claude/c/Task31_CLAUDE_claude-3-5-sonnet-20240620.c\"  // Include the header for the function",
+   "inserted": "#include \"adapter.h\"  /* adapter */"
+  }
+ ],
+ "steps": [
+  [
+   "{cc}",
+   "-std=gnu17",
+   "-O0",
+   "-o",
+   "{exe:test_oracle}",
+   "test_oracle.c",
+   "-lm",
+   "-lpthread"
+  ],
+  [
+   "{run:test_oracle}"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "adapter.h": "ceffad82157e8e40b39e0763fa3e54b685f252fa5c5c0ca3be1b5659fc9e130a",
+  "impl_under_test.c": "f04b6ffea767a4641c923b6f8e52ccc55102fa6faf3cf0c6dfc3aed044acf421",
+  "test_oracle.c": "f786afdc2af03df0fd13f63e1c1c51f46a610a640c98f864d01b5ccf2616dd0b"
+ }
+}

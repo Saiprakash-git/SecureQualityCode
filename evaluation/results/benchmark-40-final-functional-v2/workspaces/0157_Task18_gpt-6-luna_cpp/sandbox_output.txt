@@ -1,0 +1,7 @@
+@@fab965a0326fb13c STEP 0 BEGIN@@
+
+@@fab965a0326fb13c STEP 0 END rc=0@@
+@@fab965a0326fb13c STEP 1 BEGIN@@
+All test cases passed.
+
+@@fab965a0326fb13c STEP 1 END rc=0@@

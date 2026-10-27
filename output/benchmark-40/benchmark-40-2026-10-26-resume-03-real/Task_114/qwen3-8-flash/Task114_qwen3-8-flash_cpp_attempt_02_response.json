@@ -1,0 +1,69 @@
+{
+  "attempt": 2,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1793033920-gyxdD91D0yNAhUb6rGkS",
+  "finish_reason": "stop",
+  "input_tokens": 182,
+  "output_tokens": 2157,
+  "cost_usd": 0.00104109,
+  "raw_response": {
+    "id": "gen-1793033920-gyxdD91D0yNAhUb6rGkS",
+    "object": "chat.completion",
+    "created": 1793033920,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n#include <vector>\n#include <cctype>\n#include <algorithm>\n\nstd::string copyString(const std::string& input) {\n    return input;\n}\n\nstd::string concatenateStrings(const std::string& first, const std::string& second) {\n    return first + second;\n}\n\nstd::string concatenateMany(const std::vector<std::string>& parts) {\n    std::string result;\n    for (const std::string& part : parts) {\n        result += part;\n    }\n    return result;\n}\n\nstd::size_t stringLength(const std::string& input) {\n    return input.size();\n}\n\nint compareStrings(const std::string& first, const std::string& second) {\n    if (first < second) return -1;\n    if (first > second) return 1;\n    return 0;\n}\n\nstd::string reverseString(const std::string& input) {\n    std::string result = input;\n    std::reverse(result.begin(), result.end());\n    return result;\n}\n\nstd::string toUpperString(const std::string& input) {\n    std::string result;\n    result.reserve(input.size());\n    for (unsigned char ch : input) {\n        result += static_cast<char>(std::toupper(ch));\n    }\n    return result;\n}\n\nstd::string toLowerString(const std::string& input) {\n    std::string result;\n    result.reserve(input.size());\n    for (unsigned char ch : input) {\n        result += static_cast<char>(std::tolower(ch));\n    }\n    return result;\n}\n\nstd::string substring(const std::string& input, std::size_t start, std::size_t length) {\n    if (start >= input.size()) {\n        return \"\";\n    }\n    return input.substr(start, length);\n}\n\nstd::string replaceSubstring(const std::string& input, const std::string& target, const std::string& replacement) {\n    if (target.empty()) {\n        return input;\n    }\n\n    std::string result;\n    std::size_t position = 0;\n\n    while (position < input.size()) {\n        std::size_t found = input.find(target, position);\n\n        if (found == std::string::npos) {\n            result += input.substr(position);\n            break;\n        }\n\n        result += input.substr(position, found - position);\n        result += replacement;\n        position = found + target.size();\n    }\n\n    return result;\n}\n\nstd::string trimString(const std::string& input) {\n    std::size_t start = 0;\n    std::size_t end = input.size();\n\n    while (start < end && std::isspace(static_cast<unsigned char>(input[start]))) {\n        ++start;\n    }\n\n    while (end > start && std::isspace(static_cast<unsigned char>(input[end - 1]))) {\n        --end;\n    }\n\n    return input.substr(start, end - start);\n}\n\nstd::string repeatString(const std::string& input, int times) {\n    if (times <= 0) {\n        return \"\";\n    }\n\n    std::string result;\n    for (int i = 0; i < times; ++i) {\n        result += input;\n    }\n    return result;\n}\n\nstd::string joinStrings(const std::vector<std::string>& parts, const std::string& delimiter) {\n    std::string result;\n\n    for (std::size_t i = 0; i < parts.size(); ++i) {\n        if (i > 0) {\n            result += delimiter;\n        }\n        result += parts[i];\n    }\n\n    return result;\n}\n\nstd::vector<std::string> splitString(const std::string& input, char delimiter) {\n    std::vector<std::string> parts;\n    std::string current;\n\n    for (char ch : input) {\n        if (ch == delimiter) {\n            parts.push_back(current);\n            current.clear();\n        } else {\n            current += ch;\n        }\n    }\n\n    parts.push_back(current);\n    return parts;\n}\n\nbool startsWith(const std::string& input, const std::string& prefix) {\n    if (prefix.size() > input.size()) {\n        return false;\n    }\n    return input.compare(0, prefix.size(), prefix) == 0;\n}\n\nbool endsWith(const std::string& input, const std::string& suffix) {\n    if (suffix.size() > input.size()) {\n        return false;\n    }\n    return input.compare(input.size() - suffix.size(), suffix.size(), suffix) == 0;\n}\n\nint main() {\n    std::string original = \"  Hello, World!  \";\n\n    std::cout << \"Original: \\\"\" << original << \"\\\"\\n\";\n    std::cout << \"Copied: \\\"\" << copyString(original) << \"\\\"\\n\";\n    std::cout << \"Trimmed: \\\"\" << trimString(original) << \"\\\"\\n\";\n    std::cout << \"Length: \" << stringLength(original) << \"\\n\";\n    std::cout << \"Concatenated: \\\"\" << concatenateStrings(\"Hello, \", \"World!\") << \"\\\"\\n\";\n    std::cout << \"Concatenated many: \\\"\" << concatenateMany({\"C++\", \" \", \"string\", \" \", \"operations\"}) << \"\\\"\\n\";\n    std::cout << \"Reversed: \\\"\" << reverseString(\"abcdef\") << \"\\\"\\n\";\n    std::cout << \"Uppercase: \\\"\" << toUpperString(\"hello\") << \"\\\"\\n\";\n    std::cout << \"Lowercase: \\\"\" << toLowerString(\"WORLD\") << \"\\\"\\n\";\n    std::cout << \"Substring: \\\"\" << substring(\"abcdefghij\", 2, 5) << \"\\\"\\n\";\n    std::cout << \"Replaced: \\\"\" << replaceSubstring(\"foo bar foo\", \"foo\", \"baz\") << \"\\\"\\n\";\n    std::cout << \"Repeated: \\\"\" << repeatString(\"ab\", 3) << \"\\\"\\n\";\n    std::cout << \"Joined: \\\"\" << joinStrings({\"apple\", \"banana\", \"cherry\"}, \", \") << \"\\\"\\n\";\n\n    std::vector<std::string> splitResult = splitString(\"one,two,three,four\", ',');\n    std::cout << \"Split: \";\n    for (std::size_t i = 0; i < splitResult.size(); ++i) {\n        std::cout << \"\\\"\" << splitResult[i] << \"\\\"\";\n        if (i + 1 < splitResult.size()) {\n            std::cout << \", \";\n        }\n    }\n    std::cout << \"\\n\";\n\n    std::cout << \"Compare \\\"abc\\\" and \\\"abd\\\": \" << compareStrings(\"abc\", \"abd\") << \"\\n\";\n    std::cout << \"Starts with \\\"Hello\\\": \" << (startsWith(\"Hello, World!\", \"Hello\") ? \"true\" : \"false\") << \"\\n\";\n    std::cout << \"Ends with \\\"World!\\\": \" << (endsWith(\"Hello, World!\", \"World!\") ? \"true\" : \"false\") << \"\\n\";\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "We need answer user's request. Need produce raw source code only, no markdown. Need likely C++ program performing various string operations. User says previous response invalid source code. Need return only raw source file contents starting first source line. Need self-contained source file in CPP. Functions accept input as parameters and return output if any. Could include main? Program? They ask write a program. Need likely include main that demonstrates operations. But functions accept input as parameters and return output. Need no prose. Let's craft C++ file. Need ensure valid source code. Maybe implement string operations manually: copy, concatenate, length, compare, reverse, uppercase, lowercase, substring, replace? Use std::string? \"various string operations, such as copying, concatenating, or manipulating strings.\" Could be simple. Need self-contained. Use #include <iostream>, <string>, <vector>, <cctype>. Functions:\nstd::string copyString(const std::string& input);\nstd::string concatenateStrings(const std::string& a, const std::string& b);\nstd::string concatenateMany(const std::vector<std::string>& parts);\nstd::size_t stringLength(const std::string& s);\nint compareStrings(const std::string& a, const std::string& b);\nstd::string reverseString(const std::string& s);\nstd::string toUpperString(const std::string& s);\nstd::string toLowerString(const std::string& s);\nstd::string substring(const std::string& s, std::size_t start, std::size_t length);\nstd::string replaceSubstring(const std::string& s, const std::string& find, const std::string& replacement);\nstd::string trim(const std::string& s);\nstd::string joinStrings(const std::vector<std::string>& parts, const std::string& delimiter);\nstd::vector<std::string> splitString(const std::string& s, char delimiter);\nstd::string repeatString(const std::string& s, int times);\nbool startsWith, endsWith.\nmain prints demo. Need return 0.\nPotential issue functions should accept input as parameters and return output if any. main okay. Need raw code. No fences. Ensure C++17? Use std::string_view? Could avoid complexity. Need compile. Use std::toupper with unsigned char.\nNeed maybe not use vector? include vector.\nLet's produce. Ensure no Markdown. Final only code.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user's request. Need produce raw source code only, no markdown. Need likely C++ program performing various string operations. User says previous response invalid source code. Need return only raw source file contents starting first source line. Need self-contained source file in CPP. Functions accept input as parameters and return output if any. Could include main? Program? They ask write a program. Need likely include main that demonstrates operations. But functions accept input as parameters and return output. Need no prose. Let's craft C++ file. Need ensure valid source code. Maybe implement string operations manually: copy, concatenate, length, compare, reverse, uppercase, lowercase, substring, replace? Use std::string? \"various string operations, such as copying, concatenating, or manipulating strings.\" Could be simple. Need self-contained. Use #include <iostream>, <string>, <vector>, <cctype>. Functions:\nstd::string copyString(const std::string& input);\nstd::string concatenateStrings(const std::string& a, const std::string& b);\nstd::string concatenateMany(const std::vector<std::string>& parts);\nstd::size_t stringLength(const std::string& s);\nint compareStrings(const std::string& a, const std::string& b);\nstd::string reverseString(const std::string& s);\nstd::string toUpperString(const std::string& s);\nstd::string toLowerString(const std::string& s);\nstd::string substring(const std::string& s, std::size_t start, std::size_t length);\nstd::string replaceSubstring(const std::string& s, const std::string& find, const std::string& replacement);\nstd::string trim(const std::string& s);\nstd::string joinStrings(const std::vector<std::string>& parts, const std::string& delimiter);\nstd::vector<std::string> splitString(const std::string& s, char delimiter);\nstd::string repeatString(const std::string& s, int times);\nbool startsWith, endsWith.\nmain prints demo. Need return 0.\nPotential issue functions should accept input as parameters and return output if any. main okay. Need raw code. No fences. Ensure C++17? Use std::string_view? Could avoid complexity. Need compile. Use std::toupper with unsigned char.\nNeed maybe not use vector? include vector.\nLet's produce. Ensure no Markdown. Final only code.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 182,
+      "completion_tokens": 2157,
+      "total_tokens": 2339,
+      "cost": 0.00104109,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00104109,
+        "upstream_inference_prompt_cost": 2.73e-05,
+        "upstream_inference_completions_cost": 0.00101379
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 522,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

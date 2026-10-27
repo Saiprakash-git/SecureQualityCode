@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1793027097-gbnwmKPRC9TrLyzyywQJ",
+  "finish_reason": "stop",
+  "input_tokens": 153,
+  "output_tokens": 981,
+  "cost_usd": 0.00048402,
+  "raw_response": {
+    "id": "gen-1793027097-gbnwmKPRC9TrLyzyywQJ",
+    "object": "chat.completion",
+    "created": 1793027097,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "import java.sql.Connection;\nimport java.sql.DriverManager;\nimport java.sql.SQLException;\nimport java.util.Properties;\n\npublic class Main {\n    public static Connection createConnection(\n            String host,\n            int port,\n            String database,\n            String username,\n            String password) throws SQLException {\n\n        if (host == null || host.isEmpty()) {\n            throw new SQLException(\"Host is required.\");\n        }\n\n        if (port <= 0 || port > 65535) {\n            throw new SQLException(\"Invalid port.\");\n        }\n\n        if (database == null || database.isEmpty()) {\n            throw new SQLException(\"Database is required.\");\n        }\n\n        if (username == null) {\n            throw new SQLException(\"Username is required.\");\n        }\n\n        try {\n            Class.forName(\"org.postgresql.Driver\");\n        } catch (ClassNotFoundException e) {\n            throw new SQLException(\"PostgreSQL JDBC driver not found.\", e);\n        }\n\n        String url = \"jdbc:postgresql://\" + host + \":\" + port + \"/\" + database;\n\n        Properties properties = new Properties();\n        properties.setProperty(\"user\", username);\n        properties.setProperty(\"password\", password == null ? \"\" : password);\n\n        return DriverManager.getConnection(url, properties);\n    }\n}",
+          "refusal": null,
+          "reasoning": "We need answer user wants ONLY raw source code, no markdown fences, no explanations. Need produce Java self-contained source file. Need write program to create and return a connection object for a Postgres database. Need likely class with method getConnection. Need include imports. Since only raw source code. Need think about requirements: JAVA, complete self-contained source file. All functions accept input as parameters and return output if any. Could define public class Main with static Connection createConnection(String host, int port, String database, String username, String password) throws SQLException. Use DriverManager.getConnection(\"jdbc:postgresql://...\"). Need maybe load driver Class.forName(\"org.postgresql.Driver\")? Modern JDBC auto loads, but can include. Need handle properties. Return Connection. Ensure no markdown. Need only source file content starting first line. Could include package? No. Need maybe if database null? Keep simple. Need imports java.sql.*. Public class Main. Method static Connection createConnection(String host, int port, String database, String username, String password) throws SQLException. If host null use localhost? But all functions accept input as parameters. Maybe no defaults. Use Properties. Need ensure self-contained but depends on PostgreSQL JDBC driver classpath. That's okay. Could include main? User says program to create and return a connection object. Maybe method enough. But \"program\" maybe class with main? But all functions accept input as parameters and return output if any. Could include main that calls? But main accepts args and returns void. Maybe not necessary. If include main, it would need connection? Could just method. But to be safe, public class Main with createConnection. No main? Java source file can compile without main if class named Main? It compiles. But \"program\" maybe runnable? However requirement: create and return connection object. Could include main demonstrating? But then main would need parameters? All functions accept input as parameters and return output if any. main is not function? Could avoid main. But if they expect program, maybe class with static method. Need return only code. Need no comments? Comments okay but maybe avoid. Need ensure no markdown. Let's craft:\n\nimport java.sql.Connection;\nimport java.sql.DriverManager;\nimport java.sql.SQLException;\nimport java.util.Properties;\n\npublic class Main {\n    public static Connection createConnection(String host, int port, String database, String username, String password) throws SQLException {\n        if (host == null || host.isEmpty()) throw new SQLException(\"Host is required\");\n        if (database == null || database.isEmpty()) throw new SQLException(\"Database is required\");\n        if (username == null) throw new SQLException(\"Username is required\");\n        if (port <= 0 || port > 65535) throw new SQLException(\"Invalid port\");\n        try { Class.forName(\"org.postgresql.Driver\"); } catch (ClassNotFoundException e) { throw new SQLException(\"PostgreSQL JDBC driver not found\", e); }\n        String url = \"jdbc:postgresql://\" + host + \":\" + port + \"/\" + database;\n        Properties props = new Properties();\n        props.setProperty(\"user\", username);\n        props.setProperty(\"password\", password == null ? \"\" : password);\n        return DriverManager.getConnection(url, props);\n    }\n}\n\nNeed maybe password null? Could require. If password null throw? But some auth no password. Keep. Need raw source only. Ensure no fences. final.\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user wants ONLY raw source code, no markdown fences, no explanations. Need produce Java self-contained source file. Need write program to create and return a connection object for a Postgres database. Need likely class with method getConnection. Need include imports. Since only raw source code. Need think about requirements: JAVA, complete self-contained source file. All functions accept input as parameters and return output if any. Could define public class Main with static Connection createConnection(String host, int port, String database, String username, String password) throws SQLException. Use DriverManager.getConnection(\"jdbc:postgresql://...\"). Need maybe load driver Class.forName(\"org.postgresql.Driver\")? Modern JDBC auto loads, but can include. Need handle properties. Return Connection. Ensure no markdown. Need only source file content starting first line. Could include package? No. Need maybe if database null? Keep simple. Need imports java.sql.*. Public class Main. Method static Connection createConnection(String host, int port, String database, String username, String password) throws SQLException. If host null use localhost? But all functions accept input as parameters. Maybe no defaults. Use Properties. Need ensure self-contained but depends on PostgreSQL JDBC driver classpath. That's okay. Could include main? User says program to create and return a connection object. Maybe method enough. But \"program\" maybe class with main? But all functions accept input as parameters and return output if any. Could include main that calls? But main accepts args and returns void. Maybe not necessary. If include main, it would need connection? Could just method. But to be safe, public class Main with createConnection. No main? Java source file can compile without main if class named Main? It compiles. But \"program\" maybe runnable? However requirement: create and return connection object. Could include main demonstrating? But then main would need parameters? All functions accept input as parameters and return output if any. main is not function? Could avoid main. But if they expect program, maybe class with static method. Need return only code. Need no comments? Comments okay but maybe avoid. Need ensure no markdown. Let's craft:\n\nimport java.sql.Connection;\nimport java.sql.DriverManager;\nimport java.sql.SQLException;\nimport java.util.Properties;\n\npublic class Main {\n    public static Connection createConnection(String host, int port, String database, String username, String password) throws SQLException {\n        if (host == null || host.isEmpty()) throw new SQLException(\"Host is required\");\n        if (database == null || database.isEmpty()) throw new SQLException(\"Database is required\");\n        if (username == null) throw new SQLException(\"Username is required\");\n        if (port <= 0 || port > 65535) throw new SQLException(\"Invalid port\");\n        try { Class.forName(\"org.postgresql.Driver\"); } catch (ClassNotFoundException e) { throw new SQLException(\"PostgreSQL JDBC driver not found\", e); }\n        String url = \"jdbc:postgresql://\" + host + \":\" + port + \"/\" + database;\n        Properties props = new Properties();\n        props.setProperty(\"user\", username);\n        props.setProperty(\"password\", password == null ? \"\" : password);\n        return DriverManager.getConnection(url, props);\n    }\n}\n\nNeed maybe password null? Could require. If password null throw? But some auth no password. Keep. Need raw source only. Ensure no fences. final.\n",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 153,
+      "completion_tokens": 981,
+      "total_tokens": 1134,
+      "cost": 0.00048402,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00048402,
+        "upstream_inference_prompt_cost": 2.295e-05,
+        "upstream_inference_completions_cost": 0.00046107
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 703,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

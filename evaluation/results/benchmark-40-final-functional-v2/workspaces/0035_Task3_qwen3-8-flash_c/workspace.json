@@ -1,0 +1,47 @@
+{
+ "language": "c",
+ "artifact_origin": "generated",
+ "artifact_sha256": "5b43ec9b748ad89eb1d1307af43b5488f5e872da8903843a5a2b331a0edc239c",
+ "oracle_test_path": "tests/claude/Task3_Test.c",
+ "oracle_test_sha256": "f160498acb0a4ad62e2d53204c8669dad2b556af11ea84cd53c2ba5a30b5eb67",
+ "verdict_style": "exit_code_and_fail_lines",
+ "bindings": [
+  {
+   "canonical": "isPangram",
+   "target": "is_pangram",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "line": 8,
+   "removed": "#include \"../../source/output/claude/c/Task3_CLAUDE_claude-3-5-sonnet-20240620.c\"  // Include the header for the function",
+   "inserted": "#include \"adapter.h\"  /* adapter */"
+  }
+ ],
+ "steps": [
+  [
+   "{cc}",
+   "-std=gnu17",
+   "-O0",
+   "-o",
+   "{exe:test_oracle}",
+   "test_oracle.c",
+   "-lm",
+   "-lpthread"
+  ],
+  [
+   "{run:test_oracle}"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "adapter.h": "42dd68f99a654331b8f83f985465b8ee98b4ab641f45ac781dea8f6123294b12",
+  "impl_under_test.c": "5b43ec9b748ad89eb1d1307af43b5488f5e872da8903843a5a2b331a0edc239c",
+  "test_oracle.c": "1f90ea964741e127bd49e64d34aae9ebba9eeddc07c524d98e64fa6626208d10"
+ }
+}

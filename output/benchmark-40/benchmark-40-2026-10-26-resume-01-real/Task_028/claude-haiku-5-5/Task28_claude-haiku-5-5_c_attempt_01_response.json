@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793016641-sHzyjXIiagQDtEUR0JSX",
+  "finish_reason": "stop",
+  "input_tokens": 383,
+  "output_tokens": 906,
+  "cost_usd": 0.0004913,
+  "raw_response": {
+    "id": "gen-1793016641-sHzyjXIiagQDtEUR0JSX",
+    "object": "chat.completion",
+    "created": 1793016641,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stddef.h>\n\nchar *likes(const char *const names[], size_t n, char *buf, size_t bufsize)\n{\n    if (bufsize == 0) return buf;\n\n    if (n == 0) {\n        snprintf(buf, bufsize, \"no one likes this\");\n    } else if (n == 1) {\n        snprintf(buf, bufsize, \"%s likes this\", names[0]);\n    } else if (n == 2) {\n        snprintf(buf, bufsize, \"%s and %s like this\", names[0], names[1]);\n    } else if (n == 3) {\n        snprintf(buf, bufsize, \"%s, %s and %s like this\", names[0], names[1], names[2]);\n    } else {\n        snprintf(buf, bufsize, \"%s, %s and %zu others like this\", names[0], names[1], n - 2);\n    }\n\n    return buf;\n}\n\nint main(void)\n{\n    char buf[256];\n\n    const char *t0[] = { NULL };\n    const char *t1[] = { \"Peter\" };\n    const char *t2[] = { \"Jacob\", \"Alex\" };\n    const char *t3[] = { \"Max\", \"John\", \"Mark\" };\n    const char *t4[] = { \"Alex\", \"Jacob\", \"Mark\", \"Max\" };\n\n    printf(\"%s\\n\", likes(t0, 0, buf, sizeof buf));\n    printf(\"%s\\n\", likes(t1, 1, buf, sizeof buf));\n    printf(\"%s\\n\", likes(t2, 2, buf, sizeof buf));\n    printf(\"%s\\n\", likes(t3, 3, buf, sizeof buf));\n    printf(\"%s\\n\", likes(t4, 4, buf, sizeof buf));\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 383,
+      "completion_tokens": 906,
+      "total_tokens": 1289,
+      "cost": 0.0004913,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0004913,
+        "upstream_inference_prompt_cost": 3.83e-05,
+        "upstream_inference_completions_cost": 0.000453
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 330,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793017932-T4jsPsn0P57MG7ujnXk3",
+  "finish_reason": "stop",
+  "input_tokens": 105,
+  "output_tokens": 596,
+  "cost_usd": 0.0003085,
+  "raw_response": {
+    "id": "gen-1793017932-T4jsPsn0P57MG7ujnXk3",
+    "object": "chat.completion",
+    "created": 1793017932,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n#include <cctype>\n\nbool isValidAdminPassword(const std::string& password) {\n    if (password.size() < 8) {\n        return false;\n    }\n\n    bool hasUppercase = false;\n    bool hasLowercase = false;\n    bool hasDigit = false;\n    bool hasSpecial = false;\n\n    for (unsigned char ch : password) {\n        if (std::isupper(ch)) {\n            hasUppercase = true;\n        } else if (std::islower(ch)) {\n            hasLowercase = true;\n        } else if (std::isdigit(ch)) {\n            hasDigit = true;\n        } else if (!std::isspace(ch)) {\n            hasSpecial = true;\n        } else {\n            return false;\n        }\n    }\n\n    return hasUppercase && hasLowercase && hasDigit && hasSpecial;\n}\n\nint main() {\n    std::string password;\n    std::getline(std::cin, password);\n\n    std::cout << (isValidAdminPassword(password) ? \"Valid\" : \"Invalid\") << '\\n';\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": "**Developing password validation program**\n\nI need to write a C++ program for admin password validation, but I'm missing specifications. I think I could create a typical task involve checking if a given password is valid for an admin user. It should accept a username and password, validating them against known criteria. Common requirements could include a minimum length, mix of character types, and possibly hardcoding the admin password. I should define a function to validate this effectively.**Refining password policy**\n\nI need to implement a password policy that requires at least 12 characters, following standard admin requirements, like including uppercase, lowercase, digits, and special characters, without allowing whitespace. Going for 8 characters is more conventional but seems less secure. I shouldn't hardcode known passwords. The function should accept inputs as parameters and return a boolean. Since I want to validate password correctness without asking for unstated policies, I can set up validation that outputs \"Valid\"/\"Invalid\" or \"YES\"/\"NO.\" I\u2019ll also handle input carefully to avoid whitespace issues.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Developing password validation program**\n\nI need to write a C++ program for admin password validation, but I'm missing specifications. I think I could create a typical task involve checking if a given password is valid for an admin user. It should accept a username and password, validating them against known criteria. Common requirements could include a minimum length, mix of character types, and possibly hardcoding the admin password. I should define a function to validate this effectively.**Refining password policy**\n\nI need to implement a password policy that requires at least 12 characters, following standard admin requirements, like including uppercase, lowercase, digits, and special characters, without allowing whitespace. Going for 8 characters is more conventional but seems less secure. I shouldn't hardcode known passwords. The function should accept inputs as parameters and return a boolean. Since I want to validate password correctness without asking for unstated policies, I can set up validation that outputs \"Valid\"/\"Invalid\" or \"YES\"/\"NO.\" I\u2019ll also handle input carefully to avoid whitespace issues.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30hRTJ6U1wG78VAmXgmBms7sHFEYQmleZoqwFqWZhJmwDvfUBu-u7IivcgKgnoU-c5P6Id_HVF8Mj54Z1cfRP-behhifrcwQFhwgS2I46ISydxCaKqriBaEitvx07Y45xdR2E-JKoeIllYEjfeR27BVltaSUkXyE3bomZ685JWH7zuEmgIIbd3NBCGkObKouvDhw3VsUN2rE3sMxRHUi5Q018ChEXxSHn1ik1a6u1IpaNODRC6Vdr1E0nYUgNlSDZQU3TiRCSrwAIlWm7sCTu7dWS01iZk0nnG6uPi6FO3K9IpNMnWhRnHCqTmTf1gOKwbgYYzlMgVhrs25xiNc6yZdcs5hBMNtjCjBfY2L94XEmtNXoSS9JISCCrWXKbVLaxMpIqyOf7b3BHm0kdL3kBqm8sm2vfntq_bglP04MlBlgUFjvp7OJUXh4xVIsV9-lBzl1BnWII2Nnq2pFXc4m0yuQy3ptWR17eJyZig5NrqVZXl4RMAVCzED_2B64t2hGF-x751bbI9zjWGAhU4fneMNCEEc-G4VSr2_l4NODEuVEW5ysiZ9t4ln9bc49-uhFfB_9mHK8XHuQYJ23-WTZo6EtdUwGpunZRJoqS-MRGM7RzR2PbsWLGnuwWWwfPakbxI3zJ4-klEiRJweXdbr5-5YsgRVwK4jyI60iJt_UUT4KVh78-pXP48UuOn_7OCwMldpsGc5T1P1wUCbmVzca2NreB0XIPto-vUtCY-cnID3VmpyHVpupzr9K2Wo1yrnQ_7zPVTu4PiSGLt8SZqIxmfyChl1LvcaGD_yEnNp9kXqxKWqv-T22tDsCYUjmBM91rZlWAq6sAF2mUsVw31yRAth883aqH8hDFJ8iuCuZSgpzGSchMTrFwyhQTe7Xlf5EnVRddp9-EELM3AU3axJFpTvLS2JFPhcWed8jjyhuhT8CfqYz0iE6wrUBoqbEFTJ3sDyrnNUxiTkVhMS5XUgHQV6CA2M3xxdCqAoumVImtW_KNKMMSOFtrsMLQ6Y8gz5x08PMZvEuNz9xw73ifJoo5OKRMNduI6EP0CbXSlwH53eIBc2e0QAtz-KAn1YGpN2L9ljdc4hQC848tU1kAblWzrKzy7Dzo6tyvLP2_nHFTLS6rqaXHqkbrp4zAgQx-W0Sp80bd-_5LBdJtzmNadRGM_L6jWx8hYevllzSgFhdjtK-O-X4jiyDmtb1MG2_gVUUtEsks3KSQM19XUGlVY11IK2leZ8slxfHjMjnUkM4LOsd9xGnRxgOb0HB2QaZxaqHkxMCJ_3Vwk_9-j2FE93IgeLjRp6p3ytnM7d9JStR4Kwr1QphGfikmizGW5OsPwQaOHsPVOrxeIzpuJOJIdnX_gQMzP2FHWxkJTdPcWlIwu3QLJkszN-V0J5x_lTRhip_Iw18xFtrWgtCN2sbAv57EcXW3dYVKWABZIeqbZlI_wvw96aDFWr8EaZqsQxCVlJqg_fwBn6BrdKo-DCAy522sxQtN_V-z71xbecNmSepaMUPozEBbOE-_XA81DbPgjuT-qhc5P84kXGfU4GC_fTD8o8KUCfL7EljnixrXEBwvE71TPDbrhV5gBvqAGEr9Jm2wGreW-Z1I9GYINDfFmAWjDCki7vPd4GXJwZNiPHVchURKRhkCb4EtcNgZYFwqEZbFTCOK3W1A0udWyXff1-ry3Oe15S-pt9inGZsVYQFeHwB_VpyTQrElJ6tBn0p1UcCYGrPjSLj54hJ98qVsAvA0rKsB1t2iR6N4SPSJMIAETVZExGmiw1kHvjKuC8omS4IdaRNtTTFT_xBCMCZqww35r5uUBoONSXFTTGWggGIl_e849pV0vEfcZ4rRIxcibiWAeCd2nSr-7c2g-issDnS1nPiN9KkLmcNWRk87wm8YM9k9T35zQQv6upyQnsasjM0vC-XVQ0PyTZ7nRq4I4O1FgAsGccA3X1bYq06PGrneHt235h7M15OoTsemf3ibEgFaE51kRGux1uKtDJhidZ83aPmFv8up_b__gbAtjC2dychDsisYYGlGX4N6Q4tZ9fthD3XMspcDgwDpTetR3S4CA6sot0UiZgbbbeLUW4_mEYn212kpwH70EwyIso3G0sg4Yp-XwYoe-no_3gefcSTmt1S91AnbQZgAVSrkT7wEd5qHTipkUXeOHPWszss6bxGN9WqBRzm83_ZaxThCYcFEhrSa1b5rCGhimlVLd4tOKQRJzJfuYjp9dYkyWRpUV99J_l9Xmaec1Ar7Xl1OptofJ0gGdd88dbwD326L4-LC3Wgqv_HpQMCrzD0U2hYXLTwr-LOtlbzphZZmhkFL-7jexUHCoPlNf-9A3MyP2XgAdHytjuqIcoM_OJ-zcKcqV8ER46j0QAUFSqnrLq-w0X9j-DWlWv1h9LNftpCDUA7CdALQPzFlCJZ3E9ByEZb4u6uq-a6zq_gdPMyS81wUVWY7dOSR1jA_qybsJl86uokjc-za6oVPqJ9yGjBaK4bwgqJQp7QIOLgZoHGXEUHt7fokCkaeW90GIz9LrvtiFtnGQTvuRItrITz6lpji1aq_n1hKBhTQVzO_qLlPnLJaM2RfBueMdBhcw_tRZPdG4r5Ez41P7ATKfeWAQjM8ycFoMSWeMLJdooyOOqAd3SUI9lLXQF5GnRXVTySqMaB4iQPJ96GSVH4S1PdC0fyf7NnlLBR_NbU5oRb6T9vaJACsHrvjB2BuRUt8k3jR08g0Mq1ffegaG1EuUuFd0Fet9BlSeBZSXPqm1ar43DRmrxjIMAAoaeuVSXGX4_mBKqh0HpSBI1h_dZV5A7eU5BVoIHyRdN1bTlzdozHetmAyQlxsd1EVBww9KzaokLaMGKLB-c3fVPHJQqISeHpY0kMqGEGxNrZCHPABd5GcDIyNgOCEG9w3NwLjovTA5vV8PxKLbJnICnEegr94VVklM0Sj5TIA0nmhG4n6kTPu-a4GkrMiWQshpud2FrweSwwZ55ow6gwdfmHs6IMGC8p7tBZGY9xH_-sDjUkA-ZDzEApwYhr7mIRz2fcA7-QoycfMFoYUyO9u-4aZ2ksCnbFo9dbgqKOhexjEN4NS0Dp8PFmKYiT3jwfWxJ0QqS1YV_oNypu8rVWaF0DDRiw97Yqw5hLpd1JulyogCyBesHCBzcFzjfb9xpcDB2pFv5An809uG4QOOA1_lJhVYMzGAz-PThAodxOyUKqyAuvz-qMXEltWVtD3X5I-Abb9lk4ndMHenEl_aLmAy8BT1ykWf5HwGbI5wVqp9beQY4i2KufggqL8DekYskP2mgx18Ye6mQXrhxg7kIBQtdLPflfbuuzwGBnSy9l5jD0mpDV24YYAJyJAxhmM5d5WtnS9r81tmN-6OuXswyHBohzWUGLQcmrcdhBrPSpBtszhHiUYXuwtlcBuNGs-lwoBiQOIRmqM4G9eVMZ7W5_wOMTqRCZetOz2IbxDMawj9syngWIQJcj1R0oTQYY4JLEJbxRYszUWbSwEMWzRigcSW54Xg6vbx0zQ05_FtOcT5GNgvQsXkNao3cc5u36mdxDPx_Uf4kr0Ae1ZUdgBxEzyX4GmuJFxSuXabck1aEMkKWHeR_jc2Z08KYG47-U9mL6Ekc7C7kODcf7Ay8pxbbbs1RZiTceKJUpRWoE7PLx0C2VmawlQgiVmLuIgF6F-tdPRHbBo0NWTXPdkvtXWDMqBi7OF0v9BJggLGuux6EbyzH-gTf-Fa3uSrv47YeeFy16EyawGGJAz0xJSK9D8r38_1430JSNf4G-u4g42tjtFJZKcdK-IEdakYvDLsTa9b2Eta--fnGPrYUXMlGF9zWlgqp1UCzJ1vBC9AL19vKuPrunUOjck21h9nDbS_o13On7Ss8au9eDCKhnT2gTEht8X3CEH51sIbvla2nKhzsFQhb9tWbRWdnzn_mK4BBMgVZ1_F-aGD_b5wpHX1X-oLvSMV2iMq43nnUAoNF5vWQUfyVhehGuG90dT0TADcABEwfBRtJ9N_RZyzvpAGzJuAoEg_PseLQaEynkpl2u-5QitBcPD3VE4T8rJbaT0jO_xveLtSHzy5guwCrybG3nK9d4H3YqNLlh2U5X5PFq3X7YcqVFTXy7EJH3r_TbO7rtw_pYc5frq_vKVR7P0fsIoC-u8Y7DQkFPm702mCZmRHyvBObSt2zi_d2mcdP_2Yh743JZKZLU-WrI2KNj8vyFG8JbXQyXL330MbuHw8crZjoyZJ1_HVuXXmstTTPEE7fea1vAQBr9dVzuiuLCObaWhVZqOCoUEJRtlCDJ9vqUwcB6v7OdPF3uCSgyeHsYv0doP3yxyuSmQKJ4BK8IqvYtxndeomt4OROfq_CaGLApxHc71oapWVzSp3eTVQpC1nClVoARjySSS1Hso6qVbxNiGiVLPgzmt9dYVYJxbDael-gsJ0bt1pH79ktWOE4RVhdiOPDP2fTWv7oFv1DSvcuj2cAK_7BvHTD_XUykb1R9ID7la-TR06HPdZJNd0HMWhoEmUXAidBvbcKsQlBhDMxP1I2fPw_k14JFW5zPU5KHNHIxRbnC_0NQ6nXaDPIa3fzQotqt5Gm6FxcYyfXuKjaK3z3EtzfSYWvn5pSmgb2GAg1I13-ltL01lIMz6p8OC6hYIFpyUcmQC5F41aqwCLGHyc04QrHiNNSDwnXDBZ7xxFEvq5TxkXdoS_RCDzr0fln9JV7FO6xIANKyQPrqS1LFFEyLdKv8A73Nn_O6rzA5LVhvjKye4WyU215qL_eTS270bvuPXC1Rj3wrjG-azcqX_Rf6579E5FmysHMvNXtJeZsP3Gb31O7IKvrmdCXf1gQ9fzkUTH5xeIvt8HxUnM4F8iTM1TLb8YB1vuupaNymQiEZfJ0aaogNAO7kzG67voUfx69rNlS1IoJnZ9Dld5CX0p1owovdmB-oUG6yEkIBqRb4xzf5zNO2cd1zoM59HPM0Pjwef5crhoWk0X30xP_ITb5pe7DjEs25OuPWs6B7NI2GNLjM5DA17rkreOmQI-NN-HOGvtb8JqvdENnysZ86DFkRwoWOqv1iru5kk5_vEfA9nWXijFZYa-SJ9HnoTC1YvR4a0IAecIRkR8mhdw9ASKURRd5D9f4_aG-pMM8DGE5sTfVxGC4yVBdG2xZa4zITc1bC6iZMDP7FFTz7nUGiUHvU_3YO6Nykayw3mU0w0Lp7ISmpWAXsbCv1ICEP51n-Yiww099zDX3P1A1VxyXozg1Fz7oDiuOic-ipiElzbTe_fRTe6fSDHK2o4rd_6wLxhVrsK25QD9MXOD9vP0hmMn15rMD9C0sbHkVSP8SD0UpH8gl1PB6PDr3OSFPZkp-FntMkocjvscciWgx6kP5JB9IcxKIgpKLjM9fwzM8OCODqSFa6qPVdahJ26l5xQeLZqYNFjOBrhlEhQkCsxi_dQkk0vsKP-udIRAYTunhjXHG_GxAb2p40Q7kCNuU7qix99hfiqnuoZSvwoHh7QW3jTIE7LB-i589t8PcxPKdUJ2US5KZhGVgiKz3mr_98gLeajKRxHlp6MErQ2noUQXBN0Zho7sNWuJUe9NbNBNCZeSqGZG_dca_e2jP9FUKk67Uj4YTWRzADMUxlySuxKcRa7T4GsAixgYj0YyiQd8oXIPDHaYR9yUVoCGVfTpc0Ou9Ab_OShOVPnCGX5UmC7aYKpZ5IGfOWZTgH6v0RlV4UZoBkJJM5pvzmE9Y5Ibvf854gby0cNoyjMIybuy2jzJyE0RCZ7JPNS7izjG2JDGr0VWR2Smvs3FOk7avuvujSJOEdYmFI6thfxLZyJrxmvGIJna05hA4o-CV1xEZZG5AHbddO878opIgDiwbWLThwkIjpANa9y_2UOZdFxJwcwgewcd_oMOD4eG6y5VaDyJfRtBMYNUV9CnJxHSfFSjI1KerVWpkBBkPdVbTjUn_wZ2ojTDg6c4F4tSsjh2E8zEIAQT5gPTie1UAjFwwX8BHPgsDGNksfMc1cVJAHpNPBUzfruI8aN9zBTrEnoyeJrTCsjyBU1qQIQPHiC4qp3_0EjNJdSzf99gqSqcHIL-SKQLhmlyckkta50xCQWKvGzNjF2glt6KuiQo69cfv7k65076laZ4lMosf0z2jH1rktGz2u2SAm0WTOaL8iUThsBvMNoLtJz-C5ammDlQ8woagKly0UBN-r7UDzrAB3km94QzBnl00WQ7zbT5V4-7CUOGSiZMwtjQXcTXJ4o1nE8Shb5Zk1UAmkRxSeVD0TCetwnHfa02y2FF51QA7O7Np_o0be4tt6Jxuhhi_TDZMtlErqPnf2CFMdZR9OkojyDDr4UYIKYAg7bnyxCcHJpzTURRx2Tlu2sn19XK1KNogJ4xQ2mttqRMMjBvXdFjzGnMX6MXWTDv66zPeyXB4ZFoIFksWkcct9YjSC51NULSwnVyWyz7xkdjwul3uVynvRPutOEBe7JUp-MWs814WaDD81OrTjykenIfJV3Zfz.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_062175004359ffb1016adf484cc8e487d1bce6da5e671e4edb",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 105,
+      "completion_tokens": 596,
+      "total_tokens": 701,
+      "cost": 0.0003085,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003085,
+        "upstream_inference_prompt_cost": 1.05e-05,
+        "upstream_inference_completions_cost": 0.000298
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 357,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

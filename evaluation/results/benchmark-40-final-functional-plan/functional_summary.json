@@ -1,0 +1,41 @@
+{
+ "functional_status": {
+  "not_testable": 800
+ },
+ "reasons": {
+  "oracle_unreviewed": 336,
+  "no_oracle": 268,
+  "gate1": 196
+ },
+ "oracle_status": {
+  "no_oracle": 420,
+  "unreviewed": 380
+ },
+ "adapter_status": {
+  "proposed_loose": 80,
+  "proposed_exact": 135,
+  "unresolved": 121
+ },
+ "adapter_status_by_language": {
+  "python": {
+   "proposed_exact": 47,
+   "proposed_loose": 9,
+   "unresolved": 24
+  },
+  "java": {
+   "proposed_loose": 40,
+   "proposed_exact": 46,
+   "unresolved": 59
+  },
+  "c": {
+   "proposed_loose": 17,
+   "unresolved": 20,
+   "proposed_exact": 13
+  },
+  "cpp": {
+   "proposed_exact": 29,
+   "proposed_loose": 14,
+   "unresolved": 18
+  }
+ }
+}

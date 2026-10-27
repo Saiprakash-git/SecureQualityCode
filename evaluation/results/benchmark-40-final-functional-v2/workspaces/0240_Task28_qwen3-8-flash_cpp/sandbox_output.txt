@@ -1,0 +1,7 @@
+@@93d31548ff40e331 STEP 0 BEGIN@@
+
+@@93d31548ff40e331 STEP 0 END rc=0@@
+@@93d31548ff40e331 STEP 1 BEGIN@@
+All test cases passed!
+
+@@93d31548ff40e331 STEP 1 END rc=0@@

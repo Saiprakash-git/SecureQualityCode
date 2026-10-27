@@ -1,0 +1,1078 @@
+{
+  "overall": {
+    "planned": 800,
+    "generation_final": 800,
+    "artifacts": 734,
+    "gate1_counts": {
+      "pass": 604,
+      "fail_integrity": 85,
+      "fail_syntax": 2,
+      "fail_compile": 2,
+      "blocked_dependency": 41,
+      "toolchain_error": 0,
+      "no_artifact": 66
+    },
+    "pass_over_final": {
+      "k": 604,
+      "n": 800,
+      "rate": 0.755,
+      "ci95_wilson": [
+        0.724,
+        0.7835
+      ]
+    },
+    "pass_over_evaluable_artifacts": {
+      "k": 604,
+      "n": 693,
+      "rate": 0.8716,
+      "ci95_wilson": [
+        0.8446,
+        0.8944
+      ]
+    }
+  },
+  "by_model": {
+    "claude-haiku-5-5": {
+      "planned": 160,
+      "generation_final": 160,
+      "artifacts": 159,
+      "gate1_counts": {
+        "pass": 118,
+        "fail_integrity": 31,
+        "fail_syntax": 1,
+        "fail_compile": 1,
+        "blocked_dependency": 8,
+        "toolchain_error": 0,
+        "no_artifact": 1
+      },
+      "pass_over_final": {
+        "k": 118,
+        "n": 160,
+        "rate": 0.7375,
+        "ci95_wilson": [
+          0.6643,
+          0.7995
+        ]
+      },
+      "pass_over_evaluable_artifacts": {
+        "k": 118,
+        "n": 151,
+        "rate": 0.7815,
+        "ci95_wilson": [
+          0.709,
+          0.8399
+        ]
+      }
+    },
+    "gemini-3-8-flash": {
+      "planned": 160,
+      "generation_final": 160,
+      "artifacts": 156,
+      "gate1_counts": {
+        "pass": 131,
+        "fail_integrity": 14,
+        "fail_syntax": 0,
+        "fail_compile": 0,
+        "blocked_dependency": 11,
+        "toolchain_error": 0,
+        "no_artifact": 4
+      },
+      "pass_over_final": {
+        "k": 131,
+        "n": 160,
+        "rate": 0.8187,
+        "ci95_wilson": [
+          0.7518,
+          0.8707
+        ]
+      },
+      "pass_over_evaluable_artifacts": {
+        "k": 131,
+        "n": 145,
+        "rate": 0.9034,
+        "ci95_wilson": [
+          0.8445,
+          0.9416
+        ]
+      }
+    },
+    "gpt-6-luna": {
+      "planned": 160,
+      "generation_final": 160,
+      "artifacts": 160,
+      "gate1_counts": {
+        "pass": 134,
+        "fail_integrity": 11,
+        "fail_syntax": 1,
+        "fail_compile": 0,
+        "blocked_dependency": 14,
+        "toolchain_error": 0,
+        "no_artifact": 0
+      },
+      "pass_over_final": {
+        "k": 134,
+        "n": 160,
+        "rate": 0.8375,
+        "ci95_wilson": [
+          0.7725,
+          0.8866
+        ]
+      },
+      "pass_over_evaluable_artifacts": {
+        "k": 134,
+        "n": 146,
+        "rate": 0.9178,
+        "ci95_wilson": [
+          0.8618,
+          0.9524
+        ]
+      }
+    },
+    "mistral-large-4": {
+      "planned": 160,
+      "generation_final": 160,
+      "artifacts": 149,
+      "gate1_counts": {
+        "pass": 122,
+        "fail_integrity": 19,
+        "fail_syntax": 0,
+        "fail_compile": 1,
+        "blocked_dependency": 7,
+        "toolchain_error": 0,
+        "no_artifact": 11
+      },
+      "pass_over_final": {
+        "k": 122,
+        "n": 160,
+        "rate": 0.7625,
+        "ci95_wilson": [
+          0.6909,
+          0.8218
+        ]
+      },
+      "pass_over_evaluable_artifacts": {
+        "k": 122,
+        "n": 142,
+        "rate": 0.8592,
+        "ci95_wilson": [
+          0.7925,
+          0.9069
+        ]
+      }
+    },
+    "qwen3-8-flash": {
+      "planned": 160,
+      "generation_final": 160,
+      "artifacts": 110,
+      "gate1_counts": {
+        "pass": 99,
+        "fail_integrity": 10,
+        "fail_syntax": 0,
+        "fail_compile": 0,
+        "blocked_dependency": 1,
+        "toolchain_error": 0,
+        "no_artifact": 50
+      },
+      "pass_over_final": {
+        "k": 99,
+        "n": 160,
+        "rate": 0.6188,
+        "ci95_wilson": [
+          0.5415,
+          0.6904
+        ]
+      },
+      "pass_over_evaluable_artifacts": {
+        "k": 99,
+        "n": 109,
+        "rate": 0.9083,
+        "ci95_wilson": [
+          0.8393,
+          0.9494
+        ]
+      }
+    }
+  },
+  "by_language": {
+    "c": {
+      "planned": 200,
+      "generation_final": 200,
+      "artifacts": 175,
+      "gate1_counts": {
+        "pass": 117,
+        "fail_integrity": 37,
+        "fail_syntax": 0,
+        "fail_compile": 1,
+        "blocked_dependency": 20,
+        "toolchain_error": 0,
+        "no_artifact": 25
+      },
+      "pass_over_final": {
+        "k": 117,
+        "n": 200,
+        "rate": 0.585,
+        "ci95_wilson": [
+          0.5157,
+          0.6511
+        ]
+      },
+      "pass_over_evaluable_artifacts": {
+        "k": 117,
+        "n": 155,
+        "rate": 0.7548,
+        "ci95_wilson": [
+          0.6815,
+          0.8159
+        ]
+      }
+    },
+    "cpp": {
+      "planned": 200,
+      "generation_final": 200,
+      "artifacts": 183,
+      "gate1_counts": {
+        "pass": 131,
+        "fail_integrity": 30,
+        "fail_syntax": 0,
+        "fail_compile": 1,
+        "blocked_dependency": 21,
+        "toolchain_error": 0,
+        "no_artifact": 17
+      },
+      "pass_over_final": {
+        "k": 131,
+        "n": 200,
+        "rate": 0.655,
+        "ci95_wilson": [
+          0.5868,
+          0.7174
+        ]
+      },
+      "pass_over_evaluable_artifacts": {
+        "k": 131,
+        "n": 162,
+        "rate": 0.8086,
+        "ci95_wilson": [
+          0.7412,
+          0.8618
+        ]
+      }
+    },
+    "java": {
+      "planned": 200,
+      "generation_final": 200,
+      "artifacts": 189,
+      "gate1_counts": {
+        "pass": 170,
+        "fail_integrity": 17,
+        "fail_syntax": 2,
+        "fail_compile": 0,
+        "blocked_dependency": 0,
+        "toolchain_error": 0,
+        "no_artifact": 11
+      },
+      "pass_over_final": {
+        "k": 170,
+        "n": 200,
+        "rate": 0.85,
+        "ci95_wilson": [
+          0.7939,
+          0.8929
+        ]
+      },
+      "pass_over_evaluable_artifacts": {
+        "k": 170,
+        "n": 189,
+        "rate": 0.8995,
+        "ci95_wilson": [
+          0.8483,
+          0.9347
+        ]
+      }
+    },
+    "python": {
+      "planned": 200,
+      "generation_final": 200,
+      "artifacts": 187,
+      "gate1_counts": {
+        "pass": 186,
+        "fail_integrity": 1,
+        "fail_syntax": 0,
+        "fail_compile": 0,
+        "blocked_dependency": 0,
+        "toolchain_error": 0,
+        "no_artifact": 13
+      },
+      "pass_over_final": {
+        "k": 186,
+        "n": 200,
+        "rate": 0.93,
+        "ci95_wilson": [
+          0.8859,
+          0.9578
+        ]
+      },
+      "pass_over_evaluable_artifacts": {
+        "k": 186,
+        "n": 187,
+        "rate": 0.9947,
+        "ci95_wilson": [
+          0.9703,
+          0.9991
+        ]
+      }
+    }
+  },
+  "by_model_language": {
+    "claude-haiku-5-5": {
+      "python": {
+        "planned": 40,
+        "generation_final": 40,
+        "artifacts": 39,
+        "gate1_counts": {
+          "pass": 39,
+          "fail_integrity": 0,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 1
+        },
+        "pass_over_final": {
+          "k": 39,
+          "n": 40,
+          "rate": 0.975,
+          "ci95_wilson": [
+            0.8712,
+            0.9956
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 39,
+          "n": 39,
+          "rate": 1.0,
+          "ci95_wilson": [
+            0.9103,
+            1.0
+          ]
+        }
+      },
+      "java": {
+        "planned": 40,
+        "generation_final": 40,
+        "artifacts": 40,
+        "gate1_counts": {
+          "pass": 31,
+          "fail_integrity": 8,
+          "fail_syntax": 1,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 0
+        },
+        "pass_over_final": {
+          "k": 31,
+          "n": 40,
+          "rate": 0.775,
+          "ci95_wilson": [
+            0.625,
+            0.8768
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 31,
+          "n": 40,
+          "rate": 0.775,
+          "ci95_wilson": [
+            0.625,
+            0.8768
+          ]
+        }
+      },
+      "c": {
+        "planned": 40,
+        "generation_final": 40,
+        "artifacts": 40,
+        "gate1_counts": {
+          "pass": 25,
+          "fail_integrity": 11,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 4,
+          "toolchain_error": 0,
+          "no_artifact": 0
+        },
+        "pass_over_final": {
+          "k": 25,
+          "n": 40,
+          "rate": 0.625,
+          "ci95_wilson": [
+            0.4703,
+            0.7578
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 25,
+          "n": 36,
+          "rate": 0.6944,
+          "ci95_wilson": [
+            0.5314,
+            0.82
+          ]
+        }
+      },
+      "cpp": {
+        "planned": 40,
+        "generation_final": 40,
+        "artifacts": 40,
+        "gate1_counts": {
+          "pass": 23,
+          "fail_integrity": 12,
+          "fail_syntax": 0,
+          "fail_compile": 1,
+          "blocked_dependency": 4,
+          "toolchain_error": 0,
+          "no_artifact": 0
+        },
+        "pass_over_final": {
+          "k": 23,
+          "n": 40,
+          "rate": 0.575,
+          "ci95_wilson": [
+            0.422,
+            0.7149
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 23,
+          "n": 36,
+          "rate": 0.6389,
+          "ci95_wilson": [
+            0.4758,
+            0.7752
+          ]
+        }
+      }
+    },
+    "gemini-3-8-flash": {
+      "python": {
+        "planned": 40,
+        "generation_final": 40,
+        "artifacts": 39,
+        "gate1_counts": {
+          "pass": 39,
+          "fail_integrity": 0,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 1
+        },
+        "pass_over_final": {
+          "k": 39,
+          "n": 40,
+          "rate": 0.975,
+          "ci95_wilson": [
+            0.8712,
+            0.9956
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 39,
+          "n": 39,
+          "rate": 1.0,
+          "ci95_wilson": [
+            0.9103,
+            1.0
+          ]
+        }
+      },
+      "java": {
+        "planned": 40,
+        "generation_final": 40,
+        "artifacts": 39,
+        "gate1_counts": {
+          "pass": 38,
+          "fail_integrity": 1,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 1
+        },
+        "pass_over_final": {
+          "k": 38,
+          "n": 40,
+          "rate": 0.95,
+          "ci95_wilson": [
+            0.835,
+            0.9862
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 38,
+          "n": 39,
+          "rate": 0.9744,
+          "ci95_wilson": [
+            0.8682,
+            0.9955
+          ]
+        }
+      },
+      "c": {
+        "planned": 40,
+        "generation_final": 40,
+        "artifacts": 39,
+        "gate1_counts": {
+          "pass": 25,
+          "fail_integrity": 8,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 6,
+          "toolchain_error": 0,
+          "no_artifact": 1
+        },
+        "pass_over_final": {
+          "k": 25,
+          "n": 40,
+          "rate": 0.625,
+          "ci95_wilson": [
+            0.4703,
+            0.7578
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 25,
+          "n": 33,
+          "rate": 0.7576,
+          "ci95_wilson": [
+            0.5898,
+            0.8717
+          ]
+        }
+      },
+      "cpp": {
+        "planned": 40,
+        "generation_final": 40,
+        "artifacts": 39,
+        "gate1_counts": {
+          "pass": 29,
+          "fail_integrity": 5,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 5,
+          "toolchain_error": 0,
+          "no_artifact": 1
+        },
+        "pass_over_final": {
+          "k": 29,
+          "n": 40,
+          "rate": 0.725,
+          "ci95_wilson": [
+            0.5717,
+            0.8389
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 29,
+          "n": 34,
+          "rate": 0.8529,
+          "ci95_wilson": [
+            0.6987,
+            0.9355
+          ]
+        }
+      }
+    },
+    "gpt-6-luna": {
+      "python": {
+        "planned": 40,
+        "generation_final": 40,
+        "artifacts": 40,
+        "gate1_counts": {
+          "pass": 40,
+          "fail_integrity": 0,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 0
+        },
+        "pass_over_final": {
+          "k": 40,
+          "n": 40,
+          "rate": 1.0,
+          "ci95_wilson": [
+            0.9124,
+            1.0
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 40,
+          "n": 40,
+          "rate": 1.0,
+          "ci95_wilson": [
+            0.9124,
+            1.0
+          ]
+        }
+      },
+      "java": {
+        "planned": 40,
+        "generation_final": 40,
+        "artifacts": 40,
+        "gate1_counts": {
+          "pass": 37,
+          "fail_integrity": 2,
+          "fail_syntax": 1,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 0
+        },
+        "pass_over_final": {
+          "k": 37,
+          "n": 40,
+          "rate": 0.925,
+          "ci95_wilson": [
+            0.8014,
+            0.9742
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 37,
+          "n": 40,
+          "rate": 0.925,
+          "ci95_wilson": [
+            0.8014,
+            0.9742
+          ]
+        }
+      },
+      "c": {
+        "planned": 40,
+        "generation_final": 40,
+        "artifacts": 40,
+        "gate1_counts": {
+          "pass": 27,
+          "fail_integrity": 7,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 6,
+          "toolchain_error": 0,
+          "no_artifact": 0
+        },
+        "pass_over_final": {
+          "k": 27,
+          "n": 40,
+          "rate": 0.675,
+          "ci95_wilson": [
+            0.5202,
+            0.7992
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 27,
+          "n": 34,
+          "rate": 0.7941,
+          "ci95_wilson": [
+            0.632,
+            0.8965
+          ]
+        }
+      },
+      "cpp": {
+        "planned": 40,
+        "generation_final": 40,
+        "artifacts": 40,
+        "gate1_counts": {
+          "pass": 30,
+          "fail_integrity": 2,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 8,
+          "toolchain_error": 0,
+          "no_artifact": 0
+        },
+        "pass_over_final": {
+          "k": 30,
+          "n": 40,
+          "rate": 0.75,
+          "ci95_wilson": [
+            0.5981,
+            0.8581
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 30,
+          "n": 32,
+          "rate": 0.9375,
+          "ci95_wilson": [
+            0.7985,
+            0.9827
+          ]
+        }
+      }
+    },
+    "mistral-large-4": {
+      "python": {
+        "planned": 40,
+        "generation_final": 40,
+        "artifacts": 38,
+        "gate1_counts": {
+          "pass": 37,
+          "fail_integrity": 1,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 2
+        },
+        "pass_over_final": {
+          "k": 37,
+          "n": 40,
+          "rate": 0.925,
+          "ci95_wilson": [
+            0.8014,
+            0.9742
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 37,
+          "n": 38,
+          "rate": 0.9737,
+          "ci95_wilson": [
+            0.8651,
+            0.9953
+          ]
+        }
+      },
+      "java": {
+        "planned": 40,
+        "generation_final": 40,
+        "artifacts": 38,
+        "gate1_counts": {
+          "pass": 35,
+          "fail_integrity": 3,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 2
+        },
+        "pass_over_final": {
+          "k": 35,
+          "n": 40,
+          "rate": 0.875,
+          "ci95_wilson": [
+            0.7389,
+            0.9454
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 35,
+          "n": 38,
+          "rate": 0.9211,
+          "ci95_wilson": [
+            0.792,
+            0.9728
+          ]
+        }
+      },
+      "c": {
+        "planned": 40,
+        "generation_final": 40,
+        "artifacts": 34,
+        "gate1_counts": {
+          "pass": 23,
+          "fail_integrity": 7,
+          "fail_syntax": 0,
+          "fail_compile": 1,
+          "blocked_dependency": 3,
+          "toolchain_error": 0,
+          "no_artifact": 6
+        },
+        "pass_over_final": {
+          "k": 23,
+          "n": 40,
+          "rate": 0.575,
+          "ci95_wilson": [
+            0.422,
+            0.7149
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 23,
+          "n": 31,
+          "rate": 0.7419,
+          "ci95_wilson": [
+            0.5675,
+            0.863
+          ]
+        }
+      },
+      "cpp": {
+        "planned": 40,
+        "generation_final": 40,
+        "artifacts": 39,
+        "gate1_counts": {
+          "pass": 27,
+          "fail_integrity": 8,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 4,
+          "toolchain_error": 0,
+          "no_artifact": 1
+        },
+        "pass_over_final": {
+          "k": 27,
+          "n": 40,
+          "rate": 0.675,
+          "ci95_wilson": [
+            0.5202,
+            0.7992
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 27,
+          "n": 35,
+          "rate": 0.7714,
+          "ci95_wilson": [
+            0.6098,
+            0.8793
+          ]
+        }
+      }
+    },
+    "qwen3-8-flash": {
+      "python": {
+        "planned": 40,
+        "generation_final": 40,
+        "artifacts": 31,
+        "gate1_counts": {
+          "pass": 31,
+          "fail_integrity": 0,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 9
+        },
+        "pass_over_final": {
+          "k": 31,
+          "n": 40,
+          "rate": 0.775,
+          "ci95_wilson": [
+            0.625,
+            0.8768
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 31,
+          "n": 31,
+          "rate": 1.0,
+          "ci95_wilson": [
+            0.8897,
+            1.0
+          ]
+        }
+      },
+      "java": {
+        "planned": 40,
+        "generation_final": 40,
+        "artifacts": 32,
+        "gate1_counts": {
+          "pass": 29,
+          "fail_integrity": 3,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 8
+        },
+        "pass_over_final": {
+          "k": 29,
+          "n": 40,
+          "rate": 0.725,
+          "ci95_wilson": [
+            0.5717,
+            0.8389
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 29,
+          "n": 32,
+          "rate": 0.9062,
+          "ci95_wilson": [
+            0.7578,
+            0.9676
+          ]
+        }
+      },
+      "c": {
+        "planned": 40,
+        "generation_final": 40,
+        "artifacts": 22,
+        "gate1_counts": {
+          "pass": 17,
+          "fail_integrity": 4,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 1,
+          "toolchain_error": 0,
+          "no_artifact": 18
+        },
+        "pass_over_final": {
+          "k": 17,
+          "n": 40,
+          "rate": 0.425,
+          "ci95_wilson": [
+            0.2851,
+            0.578
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 17,
+          "n": 21,
+          "rate": 0.8095,
+          "ci95_wilson": [
+            0.6,
+            0.9233
+          ]
+        }
+      },
+      "cpp": {
+        "planned": 40,
+        "generation_final": 40,
+        "artifacts": 25,
+        "gate1_counts": {
+          "pass": 22,
+          "fail_integrity": 3,
+          "fail_syntax": 0,
+          "fail_compile": 0,
+          "blocked_dependency": 0,
+          "toolchain_error": 0,
+          "no_artifact": 15
+        },
+        "pass_over_final": {
+          "k": 22,
+          "n": 40,
+          "rate": 0.55,
+          "ci95_wilson": [
+            0.3983,
+            0.6929
+          ]
+        },
+        "pass_over_evaluable_artifacts": {
+          "k": 22,
+          "n": 25,
+          "rate": 0.88,
+          "ci95_wilson": [
+            0.7004,
+            0.9583
+          ]
+        }
+      }
+    }
+  },
+  "paired": {
+    "complete_cells": 160,
+    "total_cells": 160,
+    "outcome": "gate1_status == pass (failed generation counts as not pass)",
+    "pairs": [
+      {
+        "model_a": "claude-haiku-5-5",
+        "model_b": "gpt-6-luna",
+        "a_pass_b_not": 2,
+        "b_pass_a_not": 18,
+        "mcnemar_exact_p_unadjusted": 0.000402
+      },
+      {
+        "model_a": "claude-haiku-5-5",
+        "model_b": "gemini-3-8-flash",
+        "a_pass_b_not": 3,
+        "b_pass_a_not": 16,
+        "mcnemar_exact_p_unadjusted": 0.004425
+      },
+      {
+        "model_a": "claude-haiku-5-5",
+        "model_b": "mistral-large-4",
+        "a_pass_b_not": 11,
+        "b_pass_a_not": 15,
+        "mcnemar_exact_p_unadjusted": 0.557197
+      },
+      {
+        "model_a": "claude-haiku-5-5",
+        "model_b": "qwen3-8-flash",
+        "a_pass_b_not": 23,
+        "b_pass_a_not": 4,
+        "mcnemar_exact_p_unadjusted": 0.000311
+      },
+      {
+        "model_a": "gpt-6-luna",
+        "model_b": "gemini-3-8-flash",
+        "a_pass_b_not": 7,
+        "b_pass_a_not": 4,
+        "mcnemar_exact_p_unadjusted": 0.548828
+      },
+      {
+        "model_a": "gpt-6-luna",
+        "model_b": "mistral-large-4",
+        "a_pass_b_not": 16,
+        "b_pass_a_not": 4,
+        "mcnemar_exact_p_unadjusted": 0.011818
+      },
+      {
+        "model_a": "gpt-6-luna",
+        "model_b": "qwen3-8-flash",
+        "a_pass_b_not": 36,
+        "b_pass_a_not": 1,
+        "mcnemar_exact_p_unadjusted": 0.0
+      },
+      {
+        "model_a": "gemini-3-8-flash",
+        "model_b": "mistral-large-4",
+        "a_pass_b_not": 13,
+        "b_pass_a_not": 4,
+        "mcnemar_exact_p_unadjusted": 0.049042
+      },
+      {
+        "model_a": "gemini-3-8-flash",
+        "model_b": "qwen3-8-flash",
+        "a_pass_b_not": 33,
+        "b_pass_a_not": 1,
+        "mcnemar_exact_p_unadjusted": 0.0
+      },
+      {
+        "model_a": "mistral-large-4",
+        "model_b": "qwen3-8-flash",
+        "a_pass_b_not": 29,
+        "b_pass_a_not": 6,
+        "mcnemar_exact_p_unadjusted": 0.000117
+      }
+    ]
+  },
+  "integrity_failure_counts": {
+    "markdown_fence_residue": 10,
+    "truncated_finish_length": 80
+  },
+  "missing_dependency_counts": {
+    "curl/curl.h": 8,
+    "ldap.h": 7,
+    "libpq-fe.h": 10,
+    "openssl/crypto.h": 2,
+    "openssl/err.h": 2,
+    "openssl/evp.h": 11,
+    "openssl/rsa.h": 3,
+    "openssl/ssl.h": 6,
+    "sqlite3.h": 8,
+    "windows.h": 3
+  },
+  "python_third_party_import_counts": {
+    "Crypto": 1,
+    "cryptography": 9,
+    "ldap3": 4,
+    "psycopg2": 5
+  },
+  "truncated_but_built_ok": 2
+}

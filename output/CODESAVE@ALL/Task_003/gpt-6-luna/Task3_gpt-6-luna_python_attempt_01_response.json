@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793007862-961H6MxpYkvS5rX25Wku",
+  "finish_reason": "stop",
+  "input_tokens": 182,
+  "output_tokens": 114,
+  "cost_usd": 7.52e-05,
+  "raw_response": {
+    "id": "gen-1793007862-961H6MxpYkvS5rX25Wku",
+    "object": "chat.completion",
+    "created": 1793007862,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "import string\n\n\ndef is_pangram(sentence):\n    return set(string.ascii_lowercase).issubset(sentence.lower())",
+          "refusal": null,
+          "reasoning": "**Implementing pangram check**\n\nI need to create a function called `is_pangram(s)` in Python that checks if a given string is a pangram. It should be self-contained, using the set of ASCII lowercase letters to compare against the alphabet A-Z. I should consider ensuring it handles Unicode correctly. Since there's no need for a main input, I'll focus on defining the function with the appropriate logic. I might import `string` to make the implementation clearer.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Implementing pangram check**\n\nI need to create a function called `is_pangram(s)` in Python that checks if a given string is a pangram. It should be self-contained, using the set of ASCII lowercase letters to compare against the alphabet A-Z. I should consider ensuring it handles Unicode correctly. Since there's no need for a main input, I'll focus on defining the function with the appropriate logic. I might import `string` to make the implementation clearer.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3yD4z5egCTdHBH-DpB0I5vArpAi8d2sTNH-iJi84Ju82pXT5hhRyMpjhjv1Eyd32fSr-Ot7ikaun31lyqoelw1HGMkjwa6xX9wYAH2UVmPcbZlD5Fg5949azgZuhu34xL7lq7UhXaLeMjU1PmCeE_e4HxWUo9VQ-Vtduw9iETfoB-pxsmjlFYLSVWaojGC5tJGasoCZ_NW1sQeNqA5WvfsEfKNrNllp_krS2m_43H4zTDNLWMKwba2NxSi0f5dNBBmEumFRAu9i-xVawHETatIm-roFob_ihU72CScC6wo14F2tvg2ae7arAD4gsdRUCZyPOOP1466HWPeuiHMkmH0Gj_3rVpyy7wDP2ORf86JEkPA3_GWzuwKIujFmbp8qyQNDtE68kNjwDgnyN9NuYpsCICeX__7MZ2_8MKASgstdxtFSEE6nIB8rd0xT4kqUU4sXE0YAmimRTXCuJTi3hhHv40u4rIlI3fQgLQ-BrqHBz5-Emnd0Tr0wVg54SqKrhBnzwzoZf_o8bQRH9tb7Pk0lkobKg3QcRuwmTiD0YBJqiIMPGFdnbd0P9iksuN0ajQE5lYPbm8xUcpkZZE4u33jHfYgAJ57U10Oe5Jpy67TDbX-K49jZSaG7Qpy-2U6cW1UQ3zLdkikNcRZmpNQcOGQzPe1NN9v5KoizL1XoQ-rJ9nvZtkWlygCv8hxcsdiehA1bXqwq7v7B1gmup0xTZuiEJa5Dca3hUY6z9iFduALMKDBnG4sg5IsFHlJfcecWg1W8o2O1vkLK2vXJlOBNV6q95nCndwZTRZ9dw37lSwyFOx9TOi2dBnpobQitG-0_xdUPPWxRpyINrjGGqVPNRir12z3W014QyptPwy6WIc2qO0BDth6XkuwzzvHm0pMqcxb-B7od4Fk9Dal20m1y6GIdFIVZGAekKtL84hkCiHDiGGx15aFFNn0HuRKoat6KJNeoeKGvov4bwuEAyGX6ixqnHEbkwtkGg2OXS9yjcDV1UoPyLtlunqE1_x97uA529KxiBvcGtJuPnfQghnVwnyaNP9Zy4hNoEUYJTSBt2i4EyvUDMvlp7R3hocsLLmexTpHS4kJ-HS52FYd4QuNzxks-gCEvoc5PxHfRIh0oJalBWf7Cm9Q55u3cQz82vL3uamtHvaEsK42YWscrIJJzUjVJajVAY1vnoBAf-fIzKCp_knRxGFV9RPVbJTSUpgi1fv7JXl0GyfI_i6fXbHfLY_g2qpxm6wflqDZ0TVse2CNKRa0cXLSfJt1fOxUJfmtE9r1s-jh3G0DY0cEkImJqRrEjjY3zPXlOrYSjb-HKzi_OtBV14zh7XeTsCJcJOKu1GUtBcZSRfLq3OFW1B0I9z_Uv2DN6RC_7r2M-4gvR8AJ1RIOfgL6manBkTCtUK17lOlbRZGM3wYI6yAITQvtvmlDJB9NXk5othQ2xfTerptiapTiaDem3Ubt0uMGMbar-b9vJk0jqtVIFhCQnuIr9UQjdW09hDlZwN36HGnPBUEbiEQtXyWp13oG66VPQw6gfLwJ9QOrSrzjsJ0D1wAFiOrNPquBIjPzAJpV5hxRWkZzoh0AcP9pEEcTTZOKFDdKJEEbfXP9reuJp2itBbPOucVpouE0jxP-oo75uRtLIEBREXZTqXheF-b9SeQdxlFkRptIyZuKIEZL3U_jfZQ6Yfh5KD57cpJvMi5lLI5h9kSSyTzjXN54U8iTHkQq8oqhI8Ov1oIpl0vY_4vn9YNovxvThGPCigBeqfaORU8l4CwazdrmPcN0YSlT2fo876JnM3NPc-fQeD89hNmIgEdVHsoSYSRkAAFf2xO5pr9qSxko41akde1r7NBstIlt02tZ6neuoilfFqL4Ci1T3sZJeYdjotx_981yLrrBwzxj0c5-d8C7a1OIqZ0kF2tRlV_CHL8Hz-_7WsISXw-Pwa8VTNhdtSz8QuLXVLGo8GKXAwfcT5K45zInSvxQ1Kms8z1ET4W5gbU2lAJPLJH0MO4VtT7KGd2GXu6mTWqgWqhi3_xzUBMthFuCTzPq5cfwJ3DOfoK0WUSoCh1QlZVWOYMIQVVMgCPtJMgHCmo4jru9lhHjexxSgcERjf5Pi7Vf3gDijbyLiitytJ6WW9sODkRxi4TI3_uKgHKmngQDjyEBxY1llShaJNZKOZo262iaJDU2uLCJwyB8vE8WcxQN0NuZd2ACqC-N7SIjof6PuV3CknpZVKG9HPY7JF3hw6tIjCrnZPcebLcv6_VlLsl2o0lbnOFpM3appLMYxUqu-4P6nyVtpQL9JFBFw5eOYPzsE7XH2MBHwly2V6ZEMBXJZjHLWd5BR_SD-uPo6zkv-8QiVi225nV8fGsftESpnD4YrcHZnlNMXbvNCxZgHx5q2tCwS92C-ZjvKlupDIA7L2VTWu5N1QYIGxwQ5CwvTLo5oCMAKawI54kSZ9J9BrHbTbV8dnxyjSgs9FYD5mQg2htScVQuHLtRAHic-xGFuAlhnvawe6JO74CTil5N0Ws0lQjzekDhR3pAK3F465zOSbxPtrVOpEqGu_EXydD2-nOAP3MXAau22zo-jU0ewHXPSfPQqD9ps7Qr3hctqUZfGxmS7niaHOejWfcePuFeLbAzAa92HrNGn7.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_05c657082d9cf28d016adf20f7256887d1b1f26bc1c3b410f5",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 182,
+      "completion_tokens": 114,
+      "total_tokens": 296,
+      "cost": 7.52e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 7.52e-05,
+        "upstream_inference_prompt_cost": 1.82e-05,
+        "upstream_inference_completions_cost": 5.7e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 83,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

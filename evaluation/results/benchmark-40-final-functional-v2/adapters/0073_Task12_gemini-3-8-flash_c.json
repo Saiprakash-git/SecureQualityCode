@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "high",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 73,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_012/gemini-3-8-flash/Task12_gemini-3-8-flash_c.c",
+ "artifact_sha256": "310410ed3535a2e118d182b88c8067da1ff4b72833f87e86d9be9aa2b2f4e39e",
+ "oracle_test_path": "tests/gpt4o/Task12_Test.c",
+ "oracle_test_sha256": "7873ef13ea9dad148a3b57569378dee7d20b0fc45a1d5465bd0d7d0ec3f5ebe9",
+ "author": "functional.py draft_adapter (static)"
+}

@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "high",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 64,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_012/mistral-large-4/Task12_mistral-large-4_python.py",
+ "artifact_sha256": "2b2557746788ced1d14f02352d449af7b0d8947aeddaefd9183b187e84b22b9c",
+ "oracle_test_path": "tests/claude/Task12_CLAUDE_claude_3_5_sonnet_20240620/Task12_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "f946a67a34c020a5b63e05a3a882e6c3e6b6abc7f11762356539190efed95d5d",
+ "author": "functional.py draft_adapter (static)"
+}

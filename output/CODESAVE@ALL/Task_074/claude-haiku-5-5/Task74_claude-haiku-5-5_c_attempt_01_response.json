@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793017985-FX1NVXizdgJ6NornvUaA",
+  "finish_reason": "stop",
+  "input_tokens": 147,
+  "output_tokens": 1855,
+  "cost_usd": 0.0009422,
+  "raw_response": {
+    "id": "gen-1793017985-FX1NVXizdgJ6NornvUaA",
+    "object": "chat.completion",
+    "created": 1793017985,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <libpq-fe.h>\n\ntypedef struct {\n    PGconn *conn;\n} pg_connection_t;\n\nstatic const char *nonempty_or_null(const char *s)\n{\n    return (s != NULL && s[0] != '\\0') ? s : NULL;\n}\n\nstatic void set_error(char *errbuf, size_t errlen, const char *msg)\n{\n    if (errbuf == NULL || errlen == 0) {\n        return;\n    }\n    strncpy(errbuf, msg != NULL ? msg : \"unknown error\", errlen - 1);\n    errbuf[errlen - 1] = '\\0';\n}\n\npg_connection_t *pg_connection_create(const char *host,\n                                      const char *port,\n                                      const char *dbname,\n                                      const char *user,\n                                      const char *password,\n                                      char *errbuf,\n                                      size_t errlen)\n{\n    const char *keywords[] = { \"host\", \"port\", \"dbname\", \"user\", \"password\", NULL };\n    const char *values[]   = {\n        nonempty_or_null(host),\n        nonempty_or_null(port),\n        nonempty_or_null(dbname),\n        nonempty_or_null(user),\n        nonempty_or_null(password),\n        NULL\n    };\n\n    pg_connection_t *obj = malloc(sizeof(*obj));\n    if (obj == NULL) {\n        set_error(errbuf, errlen, \"memory allocation failed\");\n        return NULL;\n    }\n\n    obj->conn = PQconnectdbParams(keywords, values, 0);\n    if (obj->conn == NULL) {\n        set_error(errbuf, errlen, \"failed to allocate PGconn\");\n        free(obj);\n        return NULL;\n    }\n\n    if (PQstatus(obj->conn) != CONNECTION_OK) {\n        set_error(errbuf, errlen, PQerrorMessage(obj->conn));\n        PQfinish(obj->conn);\n        free(obj);\n        return NULL;\n    }\n\n    return obj;\n}\n\nint pg_connection_is_alive(const pg_connection_t *obj)\n{\n    if (obj == NULL || obj->conn == NULL) {\n        return 0;\n    }\n    return PQstatus(obj->conn) == CONNECTION_OK;\n}\n\nint pg_connection_server_version(const pg_connection_t *obj)\n{\n    if (!pg_connection_is_alive(obj)) {\n        return -1;\n    }\n    return PQserverVersion(obj->conn);\n}\n\nvoid pg_connection_destroy(pg_connection_t *obj)\n{\n    if (obj == NULL) {\n        return;\n    }\n    if (obj->conn != NULL) {\n        PQfinish(obj->conn);\n    }\n    free(obj);\n}\n\nint main(int argc, char *argv[])\n{\n    const char *host     = argc > 1 ? argv[1] : NULL;\n    const char *port     = argc > 2 ? argv[2] : NULL;\n    const char *dbname   = argc > 3 ? argv[3] : NULL;\n    const char *user     = argc > 4 ? argv[4] : NULL;\n    const char *password = argc > 5 ? argv[5] : NULL;\n\n    char errbuf[512];\n    pg_connection_t *db = pg_connection_create(host, port, dbname, user, password,\n                                               errbuf, sizeof(errbuf));\n    if (db == NULL) {\n        fprintf(stderr, \"Connection failed: %s\\n\", errbuf);\n        return 1;\n    }\n\n    printf(\"Connected successfully. Server version: %d\\n\",\n           pg_connection_server_version(db));\n\n    pg_connection_destroy(db);\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 147,
+      "completion_tokens": 1855,
+      "total_tokens": 2002,
+      "cost": 0.0009422,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0009422,
+        "upstream_inference_prompt_cost": 1.47e-05,
+        "upstream_inference_completions_cost": 0.0009275
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 604,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

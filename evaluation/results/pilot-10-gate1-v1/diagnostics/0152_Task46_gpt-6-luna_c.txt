@@ -1,0 +1,4 @@
+Task46_gpt-6-luna_c.c:5:10: fatal error: 'sqlite3.h' file not found
+    5 | #include <sqlite3.h>
+      |          ^~~~~~~~~~~
+1 error generated.

@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "Task82_OPENAI_gpt_4o.computeHash",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 470,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-02-real/Task_082/qwen3-8-flash/Task82_qwen3-8-flash_java.java",
+ "artifact_sha256": "2870a98a3379cf610b5f34761b48bc5279a6ec4bed74a5ac0cf3af44b46a372e",
+ "oracle_test_path": "src/test/java/gtp4o/task82/Task82Test.java",
+ "oracle_test_sha256": "0e1d809b0f2f855c186064ff33827310a3def2b6088324a7bb2a6511e8d2ff4f",
+ "author": "functional.py draft_adapter (static)"
+}

@@ -1,0 +1,7 @@
+@@9bcaa937d574c607 STEP 0 BEGIN@@
+
+@@9bcaa937d574c607 STEP 0 END rc=0@@
+@@9bcaa937d574c607 STEP 1 BEGIN@@
+All test cases passed!
+
+@@9bcaa937d574c607 STEP 1 END rc=0@@

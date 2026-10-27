@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1793017353-aSyr4maA93XIoxsgJngC",
+  "finish_reason": "stop",
+  "input_tokens": 239,
+  "output_tokens": 129,
+  "cost_usd": 9.648e-05,
+  "raw_response": {
+    "id": "gen-1793017353-aSyr4maA93XIoxsgJngC",
+    "object": "chat.completion",
+    "created": 1793017353,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "def number(lines):\n    return [f\"{i + 1}: {line}\" for i, line in enumerate(lines)]",
+          "refusal": null,
+          "reasoning": "We need answer user wants only raw source code, no markdown fences. Need produce Python self-contained source file. Need likely function number. Need infer name? Codewars Line numbers maybe function number(lines). We need return list of strings prepended. Need only source code. Need ensure no explanations. Need maybe include def number(lines): return [f\"{i+1}: {line}\" for i,line in enumerate(lines)]. Could include type hints? Fine. Need raw source. Ensure no fences.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user wants only raw source code, no markdown fences. Need produce Python self-contained source file. Need likely function number. Need infer name? Codewars Line numbers maybe function number(lines). We need return list of strings prepended. Need only source code. Need ensure no explanations. Need maybe include def number(lines): return [f\"{i+1}: {line}\" for i,line in enumerate(lines)]. Could include type hints? Fine. Need raw source. Ensure no fences.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 239,
+      "completion_tokens": 129,
+      "total_tokens": 368,
+      "cost": 9.648e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 9.648e-05,
+        "upstream_inference_prompt_cost": 3.585e-05,
+        "upstream_inference_completions_cost": 6.063e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 100,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

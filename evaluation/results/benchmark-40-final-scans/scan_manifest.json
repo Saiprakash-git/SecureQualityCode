@@ -1,0 +1,45 @@
+{
+ "snapshot_id": "30d64f1cb11b31601668eac1c52335b3add07055a728327fce475e9189abbdc2",
+ "artifacts_scanned": 734,
+ "findings": 1600,
+ "unmapped_findings": 0,
+ "semgrep_errors": 39,
+ "semgrep_error_types": {
+  "Syntax error": 28,
+  "['PartialParsing', [{'path': 'src/c/0371": 1,
+  "['PartialParsing', [{'path': 'src/c/0434": 1,
+  "['PartialParsing', [{'path': 'src/c/0495": 1,
+  "['PartialParsing', [{'path': 'src/c/0511": 1,
+  "['PartialParsing', [{'path': 'src/c/0655": 1,
+  "['PartialParsing', [{'path': 'src/c/0672": 1,
+  "['PartialParsing', [{'path': 'src/java/0": 5
+ },
+ "versions": [
+  "semgrep 1.182.1",
+  "bandit bandit 1.9.4",
+  "flawfinder 2.0.20",
+  "lizard 1.24.3",
+  "cppcheck Cppcheck 2.13.0",
+  "725e296a8b75b951619af243ec4ca47d06a56587ce19cc8bbf94a21135b0791d  rules/cwe-top-25.yml",
+  "83d7cde9157b3c79cc5cfaea26e7bd2ba9c740f2ba07635ad475b2585556c32d  rules/security-audit.yml"
+ ],
+ "config": {
+  "semgrep": "--config cwe-top-25.yml --config security-audit.yml --timeout 30 --metrics=off",
+  "bandit": "-r src/python (all severities/confidences)",
+  "flawfinder": "--minlevel=0",
+  "cppcheck": "--enable=warning,style,performance,portability (c17 / c++17)",
+  "lizard": "-l python -l java -l cpp"
+ },
+ "severity_mapping": {
+  "semgrep": "ERROR=high WARNING=medium INFO=low",
+  "bandit": "issue_severity",
+  "flawfinder": "level>=4 high, 2-3 medium, 0-1 low",
+  "cppcheck": "error=high warning=medium other=low (reliability/quality, not security)"
+ },
+ "findings_by_tool": {
+  "cppcheck": 192,
+  "flawfinder": 1284,
+  "semgrep": 73,
+  "bandit": 51
+ }
+}

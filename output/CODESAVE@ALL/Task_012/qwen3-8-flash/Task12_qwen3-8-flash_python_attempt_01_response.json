@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "qwen/qwen3.8-flash",
+  "response_id": "gen-1793008604-rl8ovc21FrbkDWJFtqqb",
+  "finish_reason": "stop",
+  "input_tokens": 252,
+  "output_tokens": 247,
+  "cost_usd": 0.00015389,
+  "raw_response": {
+    "id": "gen-1793008604-rl8ovc21FrbkDWJFtqqb",
+    "object": "chat.completion",
+    "created": 1793008604,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "def highest_scoring_word(s):\n    words = s.split()\n    if not words:\n        return \"\"\n\n    best_word = words[0]\n    best_score = sum(ord(ch) - ord(\"a\") + 1 for ch in best_word)\n\n    for word in words[1:]:\n        score = sum(ord(ch) - ord(\"a\") + 1 for ch in word)\n        if score > best_score:\n            best_score = score\n            best_word = word\n\n    return best_word",
+          "refusal": null,
+          "reasoning": "We need answer user wants only raw source code, no markdown. Need produce Python self-contained file. Problem: Given string of words find highest scoring word. Need likely function? Codewars style maybe highest_scoring_word? Need infer. User says all functions accept input as parameters and return output. Need only source file contents starting first line. We need include function. Could be named highest_scoring_word(s). Implement. Need no explanations. Ensure tie earliest. Letters lowercase. Split spaces. Score sum ord(c)-96. Return word. Edge? empty? valid inputs likely at least one word. Could handle empty return ''. Need raw code only.\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "We need answer user wants only raw source code, no markdown. Need produce Python self-contained file. Problem: Given string of words find highest scoring word. Need likely function? Codewars style maybe highest_scoring_word? Need infer. User says all functions accept input as parameters and return output. Need only source file contents starting first line. We need include function. Could be named highest_scoring_word(s). Implement. Need no explanations. Ensure tie earliest. Letters lowercase. Split spaces. Score sum ord(c)-96. Return word. Edge? empty? valid inputs likely at least one word. Could handle empty return ''. Need raw code only.\n",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 252,
+      "completion_tokens": 247,
+      "total_tokens": 499,
+      "cost": 0.00015389,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00015389,
+        "upstream_inference_prompt_cost": 3.78e-05,
+        "upstream_inference_completions_cost": 0.00011609
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 132,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

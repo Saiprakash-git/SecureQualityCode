@@ -1,0 +1,7 @@
+@@622dd2c92ac1a393 STEP 0 BEGIN@@
+
+@@622dd2c92ac1a393 STEP 0 END rc=0@@
+@@622dd2c92ac1a393 STEP 1 BEGIN@@
+All test cases passed!
+
+@@622dd2c92ac1a393 STEP 1 END rc=0@@

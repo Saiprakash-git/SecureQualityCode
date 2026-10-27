@@ -1,0 +1,60 @@
+{
+ "language": "java",
+ "artifact_origin": "generated",
+ "artifact_sha256": "f85dbc912148ab475fafd379c49ab476a2a2f6e67df10a3f203e58f99a953d42",
+ "oracle_test_path": "src/test/java/claude/task145/Task145Test.java",
+ "oracle_test_sha256": "e2af9801bf919f925820d3169717a1303159e7a3dc16b967e234a3017f470076",
+ "verdict_style": "junit_xml",
+ "bindings": [
+  {
+   "canonical": "Task145_CLAUDE_claude_3_5_sonnet_20240620.maxSubarraySum",
+   "target": "MaxSubarray.maxSubArray",
+   "kind": "alias"
+  }
+ ],
+ "changes": [
+  {
+   "file": "MaxSubarray.java",
+   "change": "package claude.task145 prepended"
+  }
+ ],
+ "steps": [
+  [
+   "{javac}",
+   "-encoding",
+   "UTF-8",
+   "-proc:none",
+   "-d",
+   "classes",
+   "-cp",
+   "{junit_jar}",
+   "claude/task145/MaxSubarray.java",
+   "claude/task145/Task145Test.java",
+   "claude/task145/Task145_CLAUDE_claude_3_5_sonnet_20240620.java"
+  ],
+  [
+   "{java}",
+   "-jar",
+   "{junit_jar}",
+   "execute",
+   "--class-path",
+   "classes",
+   "--select-class",
+   "claude.task145.Task145Test",
+   "--reports-dir",
+   "reports",
+   "--disable-banner",
+   "--details=summary"
+  ]
+ ],
+ "approvals": {
+  "oracle": "approved",
+  "adapter": "approved",
+  "adapter_reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)"
+ },
+ "files": {
+  "claude/task145/MaxSubarray.java": "df125d3f640044ac5ac6648d39bbe03df32e84b48ff777f44ed7eb669b97c0dc",
+  "claude/task145/Task145Test.java": "e2af9801bf919f925820d3169717a1303159e7a3dc16b967e234a3017f470076",
+  "claude/task145/Task145_CLAUDE_claude_3_5_sonnet_20240620.java": "a0bb94fcef25885daa96484e7092d57ad0fe1ec3028a38a722ec49a4d90dc9f3"
+ }
+}

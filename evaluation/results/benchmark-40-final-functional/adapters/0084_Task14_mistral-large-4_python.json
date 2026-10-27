@@ -1,0 +1,18 @@
+{
+ "status": "approved",
+ "bindings": [
+  {
+   "canonical": "find_even_index",
+   "target": "find_even_index",
+   "kind": "alias"
+  }
+ ],
+ "reviewer": "claude (AI-assisted review on user's instruction; confirm before publication)",
+ "review_notes": "proposed_exact binding checked: target implements the oracle's function with call-compatible arguments/return",
+ "combo_index": 84,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_014/mistral-large-4/Task14_mistral-large-4_python.py",
+ "artifact_sha256": "de4eeeb21b9393b06ca9bb1da036a04af11491a4a87c90c9c31bae0e80265d2c",
+ "oracle_test_path": "tests/claude/Task14_CLAUDE_claude_3_5_sonnet_20240620/Task14_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "589c14f0b88db89f0e2761dc9f3c899e65b9fd3e07b9503ca9b77fbe87503ce1",
+ "author": "functional.py draft_adapter (static)"
+}

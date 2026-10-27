@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793016553-i59Er03uKNIdJIdvYJ6H",
+  "finish_reason": "stop",
+  "input_tokens": 356,
+  "output_tokens": 366,
+  "cost_usd": 0.0002186,
+  "raw_response": {
+    "id": "gen-1793016553-i59Er03uKNIdJIdvYJ6H",
+    "object": "chat.completion",
+    "created": 1793016553,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "long long find_nb(long long m) {\n    if (m < 0) return -1;\n\n    __int128 total = 0;\n    for (long long n = 1; total < m; ++n) {\n        total += static_cast<__int128>(n) * n * n;\n        if (total == m) return n;\n    }\n\n    return -1;\n}",
+          "refusal": null,
+          "reasoning": "**Exploring the \"Pile of Cubes\" Kata**\n\nI'm thinking about the Codewars kata \"Pile of Cubes\" and trying to outline the C++ function `findNb(long long m)`. I need to remember to include necessary headers. I wonder if I should use a formula or iterate through values. Oh, and I definitely need to ensure that if `m` is negative, the function should return -1 right away. This will keep the function efficient and focused!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Exploring the \"Pile of Cubes\" Kata**\n\nI'm thinking about the Codewars kata \"Pile of Cubes\" and trying to outline the C++ function `findNb(long long m)`. I need to remember to include necessary headers. I wonder if I should use a formula or iterate through values. Oh, and I definitely need to ensure that if `m` is negative, the function should return -1 right away. This will keep the function efficient and focused!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30LuyqzF0P7uE8MFnJ5fwR8bS0owBEkRgQQeYAkE4iwu773k5IFAcX_swq6iF9WK6l0qn153kPXwPq6O5H92jJHwD2i1AIy7yTGqvYgyckjPQbBfm7j7f3ExewuxqeNChhH9LuTaS3qHPG5BjW2_lOLlCEqJtF7lxHAmQxI8I28NzShKcsMwEZas1urwBn5QFnKsHd0sRogE2t6xOg7d_-ab3t8HnPiMpWHMPLUMmJE1eW5urrUfxmgrbnywppFgqquli5aaMeWLCr_R9YR30o5sYR-rIPVYSd5nD3BnOUiL6tY2A5Ik0bHngjEor_pFw9l5wI4mgrIt6VCLAzFU9QcG0mkOezgVjzQeYdMRjjvM9gAiKC24LBIuNLHyD3gr4b-2e7ymthABj6gLCaTtT2-4NUAfV_lVh-J-Uldrz0jXyg41ysgK3ckkEbYmL1bAXbdDc754blvHrPmyCDg6LZhBj5ojKkWPRSSc2XURB6mFFzORQwjwnR-AacczrhXKxc9cXl6chnB5tmwUMxxb6puMA-z2SCC6tRjiRtSEX2M5EL6L-dgLCDpA-qe80iNxGIx5nKaJCqTqfDXF0qiL8STmwaL4aclU7xSgxZeCtV4JFEiEzoRig3ufJxM0XltDMNS0_2L9pncAvaxVr-VOkfLILj7deoxG9tHExXILPoUnRK35RNjP81wTqkEKPkt_SE58AAMMAlMnk-zI9KIwdtuFbgd7eqY1OnFP4GHtcILZu3II3XNIiTYX_1g6TjoUTdjV9p32qc3EeQNvzBXoqCsN189MO7uIdiNtvKtFuHszOju5TnC0-gwWKz62gltfsbkTvYle8sshW9s9Z9LSU5Fa7YhJWySOIPzvXe-MR7FOc8Ef8zuUieotAjLJvt5F3TxlR7wFoxoeIEns4p24bg8P9luVURD6QuqVWBzndbwgrMRjfqFPK6u1KrL7LN-onPBK-7qNsgaGLhQyLYBYbHbTTwMl8kW8w-Dl2BGQp9RbZoY0MWWabur7Ff0jIel2MRx5Fw4WYmyl8onw7wt5hZVM2yHvfBFnx4JVACG64eFDwCmp1aWDcLnF5uH34QTnCbaJ2_NY43AngFd8GXIu2xQ2Sp0OfGmDAaPf_1nXPLroibCrmR6tmeY32DDqFoyVp6AAxXZdw-XdZ7Yduo4x1pYXqHe13ckiVI935V1CQov85s41o-hMsvZpl8-2SpbqgnyG-k8-GBvdJ23_JYPSf5Q7i9xQXX3956OA9SvJr_YknpqzzS2SmBYzT47FOWi2QkLjHd-ljJakxo25i9DDYhzZbEzIeZhLtF6PCT-eUcsA-P8Aa-GKiEFtcKqeEuB4Fh6Y-crSAL8kYul9YMVxYdQlS9uuNdosGV_3-eZs-CxVxAJdXckN8NcFl2Nnir9LJfVxrVQiGHlv1QY9OpLPDBPJxSbOW3mDTdWxoNJC0czwuOWnfL3Kexpr5Qc-ZR-UwlnH2D0nC6BR3YetBb4uG7cI7pHLjbfbCT6yu4zM9rI1nLAgUtYwkH3AeQdB_gm4FZH4yCw_jGtvW7ux9_kBrwQHRl9LzkBqC26mfX52KbPRbrt0xpnjc5VN26MfB4RNYMlv_DJvSF-gqa4NMeC5YyTV6pHBKRL49YWawMJFfATvF4wDNqqtp1NF4lXxL40OxIHJTCtgvqelQzePJHnYExxbEM-pcaB4rhNr8r2flKl_zwRnU3Ue-VBudpCrBzfozkGcic3J9XqxniUHAxXoOqfoUYC7YR6XE_TlTwokvAnLFBjyBP6KmHZ6zqkclbFvvSk25uQxuwXIJCnA-GLB3JIgXjmHaRbBDO7h94kxYmKV0m8Ln3Rk-PhMYtrputRh-dcdk1kPIm2TYYXCvHEf0FFJhDBGIrO8THY8gHZ3ICh4rKKJw6D7sdGSGZShnaermIwEQ9JIBoTF2szI6o1RHkbv1Eg1CK1Q101gKH1FV4ba-gUaDNMYnY4y6rDnnJm0vOybDemGOeU1bAv68iSQXdFukcLdPxpRnNiFpPgIT8LOA90rfvO2dDbhG3PCWKJFOrwMEVJeGZVJYkXlWFmxHLbNNdqd39561ObYWNXv4RTW5pDw_-6vfnOV0jBOfYjKBYeXYHYnnoBoscuvuq2wng-9pd_LhxjqweNSDcz1Zcy-ON3UtGZk28-S1kgTTZtMngAroOHdRSOJwt9LznTpPepwB4yaG9s9kLAhNp-BwcQYe62iHo-xPhXnhPsiTz2pMawjpPPtCLvcb3JcZcy-_3n2a-j0anln-KmUmBQUwGT0m_VXQqy6Dv_yJ9nZlFs8CR03Fd9GmH-CsMQdQO8hjvrwxh43NFry5YmYyBQs0I1zlv6R6rn885-LyjOeq1gtM9dmwJkrU0iHdnUgzf-9j6_nJ_xFyyfTJxR-Fk4boGnZXBrbBuO7VwcjtyfRGNeSxG_2nhBOi6IvxuQlqLKyQInZUkBvJJ4WtpuV4PepL5AyPFWzxy8FxGlFoxkXFfH3l9PMKP2F00OaNcWhHxSpOg5I-NPsHMNaqIDJ2ww1vZE86SFYnubjkrMzTsgue-axe9bAjLzgrpChuGeimPWX01kmIP-7WbSVSTOt4XYDC9nKT4B14DOVS_iGTL0araZ4coP0sBJcCFuxhzhFIeJCAzmYsuFrBxtoSifvUDYj8Kf-UvsRAcUzbi1uR0yVvvIwwtuxjNIccMhdrWXCj2kzfhVcrVelnKWZAARGz5K4ZThwwgJk3Ni0eh8wGro21a5bVjuhdliyMcZR0gsmxf7Mgk3lVK24hNicYSWdv-tjU1JI7S_fLXB-KbefMUnCt4PF2xoii_NA1M5mBlpJ0TxTZP77f2K9ViAhbiYw3P2XBJ07t88KQiA-vt7_IUqC0HKKhdcDcBDEuxO1weRdRDlR4rFu0b1Rop3aDdUQu35gqmlvO1kPka26MPXfYsEgzfubnocxKkl-QKGeD5WeSL4igj53dspR5BOwhB2SH-KNY-3xLx0BqbqWxB7zEoH2TD2bfc8S5YIEnWZB3wfoAGpXUUkhls5bCkVi3gbT8UY7-HQPViQvZLuPpZ6u0qa0ZhLi1leao3qOhgRfo2l63x2XyprgqKvbUIVzy2_nPIiBRlGkWV975iC78Q2XmkXdBUmlhBjy5I0jCrj3i0IdRhkhvTo-zKCqThzjSREMT2JCZ8XEqAlQOZQJT8JvLceGMZjvEFsQT_WaXHuhXOqhtvXGW6mReN20d-vXIKV66EX-od2Dvw_zQlTnZSCykEnsMdoJbmXq6_GYFMqcjUrmrraVMwUx0lU1tEA3uqKA2PGN9zOI7smK7iGPWWv3ZWxXpxrB8zFKWhdMWE8oqK_zo4ZrrL_woYSBubm56PME_38qMg9itX1M9M7pInaDJOSobwbT0dzf3PEQX4u-UkVJIFttqIv0e9dzOOx9R5wdMwXnE8IAksx6VbetCDm7r__HY7cZDfeCKyx_Nv4k8nFNVOcLSeLL-IE06avEMhq2CeqUaL2I4bylD0DP8qjBF7SGNQaXIyjdqE-kNm4MbCwbMh0OUkAY9WYSACSLNspVAYkAQ1ZgY2BbH0nzdjpJKy0Bshr_hg67DOuMuY229QvefGLK8Wzg_geJcyiNdhJo2BFDD0m8_8_zX05D02w_amvWZnbpDy2-xYQ1nisvm86XkaQ0X-PUgwu5UoUr6fHHUiHHUGDLytBzAQa0aLsBe8zBZtpT3Kgpgbe8BNfIc1VKncyDPfaQaXOrxOmRzbaV3JSs-65vMcwZeKi8RTswm9MVn4pRfC-nrQMg6sd2ZaribVEL-5hvlAC-aaVF0DEQjhMVILIA3Dvju9RCcHVuSRRZVCILFOYUVNE3p0PQxjh8Vw6TNYETmi_0lkxKocQq1s9C6FtdRB_a0nw6dzXuR-s48Giv22O15Z1US6ohCbDyPIfAiXmL4hCcrAedcG9I_Ld89xWVfLOIj4pV_ZDwDxdGsL267NVrQj9k75D5wK006n-fTP-ZYFo1BFW6WaNARmB6QGmc9fN54hHkEzS0Epg-bJ1XX4SxYvCwTmm5cA1kD2URKt9ipOacM9v0dhgGFYU3JCNiXrlxUWKosMN0A1KaCO3BZdFsMjXV6g95H_4xtBK-7kUkfFzxrCjSdhdpef2_n5Yb_s3atpTI0bbW9e3q3T5Xc4ewbRXo-EezRQaT0qrMjY9aLu3030k7UJa7DG6z-moFXgcaby8JKSYnf0xnKs4tqqHxQeUrr3Xw8XZGkTRwxRMl1t7Ulh9eogzYL7q4WFZzzbFBFNswrhcj08iCEvOQL3BQgBWdILWxbB9Jr70eapIaEk9HlrSmM_MvhetVNC06pPgggAMCZ9GvdAORQQ-ZKecbxAr41kG4YqtuTFn0SGlDrfODyWcoH-pxICj7CGyO7EANEsoWV9omWp14sjoOFtq75i-AnfN_wXo9-O42O2S_G_DZUOeYcx1iT9PmaEChOIom8l4m6bpGWAw5906m6aIwTD-GnOd5_QDq_KiiHyznNQrB18fHJgwm6iyIHRsVEC5ug559y6E3d-as6tbPOK7ldcTeEiJQEsNkTDcnau94m-_WAsVdchox9FiKeXZg3dtIyUxY3X1rjFW8tXwtN-0evuemrPNH5KccqHA_T3990K8_IF7fuCV1RwXcADi5PZwkM9nJhm05Jkgq4Ys83xqLckYHHASafDLI_po4NCXRp_lS_qV9BatWH-uX3-7GGyabUl5_cQ9Y7jmz6maO69IPSeM_1CExxVbBceoN-_iLr5t1s6mHLAQhqKBf-qhAFYAFCnciGQBP3sxQjYcFL4Ma3RCTV60XYwRXHGSM4zAdtQCrVwKCk3o33NsFQeX8Jwg4vc1jJkIX7S7tW2mxEwyMh0y03jH1l3-eztDJqkHSgmABcSG4bH8rfONT1NMsMkM=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_08b3168f6d7128b4016adf42eaecac87d186cff699ac11f51a",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 356,
+      "completion_tokens": 366,
+      "total_tokens": 722,
+      "cost": 0.0002186,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002186,
+        "upstream_inference_prompt_cost": 3.56e-05,
+        "upstream_inference_completions_cost": 0.000183
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 277,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

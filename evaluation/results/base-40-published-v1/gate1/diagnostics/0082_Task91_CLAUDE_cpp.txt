@@ -1,0 +1,10 @@
+Task91_CLAUDE_claude-3-5-sonnet-20240620.cpp:69:33: error: member reference base type 'const char' is not a structure or union
+   69 |         response.push_back(label.length());
+      |                            ~~~~~^~~~~~~
+Task91_CLAUDE_claude-3-5-sonnet-20240620.cpp:70:46: error: member reference base type 'const char' is not a structure or union
+   70 |         response.insert(response.end(), label.begin(), label.end());
+      |                                         ~~~~~^~~~~~
+Task91_CLAUDE_claude-3-5-sonnet-20240620.cpp:70:61: error: member reference base type 'const char' is not a structure or union
+   70 |         response.insert(response.end(), label.begin(), label.end());
+      |                                                        ~~~~~^~~~
+3 errors generated.

@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "Task145_CLAUDE_claude_3_5_sonnet_20240620.maxSubarraySum",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 750,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-03-real/Task_145/qwen3-8-flash/Task145_qwen3-8-flash_java.java",
+ "artifact_sha256": "f5332143b6ecc269358311ee18534dfd7586686654d94de5c4112524a3d115b6",
+ "oracle_test_path": "src/test/java/claude/task145/Task145Test.java",
+ "oracle_test_sha256": "e2af9801bf919f925820d3169717a1303159e7a3dc16b967e234a3017f470076",
+ "author": "functional.py draft_adapter (static)"
+}

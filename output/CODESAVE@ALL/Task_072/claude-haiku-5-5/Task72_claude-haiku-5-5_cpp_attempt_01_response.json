@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793017761-Kxf08aQXu7xSHveV4RxM",
+  "finish_reason": "length",
+  "input_tokens": 230,
+  "output_tokens": 4096,
+  "cost_usd": 0.002071,
+  "raw_response": {
+    "id": "gen-1793017761-Kxf08aQXu7xSHveV4RxM",
+    "object": "chat.completion",
+    "created": 1793017761,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "#include <cstdint>\n#include <iostream>\n#include <iomanip>\n#include <sstream>\n#include <stdexcept>\n#include <string>\n#include <vector>\n\nnamespace aes_cbc {\n\nstatic const size_t BLOCK_SIZE = 16;\n\nstatic uint8_t gmul(uint8_t a, uint8_t b) {\n    uint8_t p = 0;\n    while (b) {\n        if (b & 1) p ^= a;\n        bool hi = (a & 0x80) != 0;\n        a <<= 1;\n        if (hi) a ^= 0x1b;\n        b >>= 1;\n    }\n    return p;\n}\n\nstatic uint8_t ginv(uint8_t a) {\n    if (!a) return 0;\n    uint8_t r = 1, base = a;\n    int e = 254;\n    while (e) {\n        if (e & 1) r = gmul(r, base);\n        base = gmul(base, base);\n        e >>= 1;\n    }\n    return r;\n}\n\nstatic uint8_t rotl8(uint8_t x, int n) {\n    return static_cast<uint8_t>((x << n) | (x >> (8 - n)));\n}\n\nstruct SBox {\n    uint8_t fwd[256];\n    SBox() {\n        for (int i = 0; i < 256; ++i) {\n            uint8_t b = ginv(static_cast<uint8_t>(i));\n            fwd[i] = b ^ rotl8(b, 1) ^ rotl8(b, 2) ^ rotl8(b, 3) ^ rotl8(b, 4) ^ 0x63;\n        }\n    }\n};\n\nstatic const SBox& sbox() {\n    static const SBox instance;\n    return instance;\n}\n\nstatic void keyExpansion(const std::vector<uint8_t>& key, std::vector<uint8_t>& rk, int& Nr) {\n    int Nk = static_cast<int>(key.size() / 4);\n    Nr = Nk + 6;\n    int totalWords = 4 * (Nr + 1);\n    rk.assign(static_cast<size_t>(totalWords) * 4, 0);\n\n    for (int i = 0; i < 4 * Nk; ++i) rk[i] = key[i];\n\n    uint8_t rcon = 1;\n    for (int i = Nk; i < totalWords; ++i) {\n        uint8_t t[4];\n        for (int j = 0; j < 4; ++j) t[j] = rk[(i - 1) * 4 + j];\n\n        if (i % Nk == 0) {\n            uint8_t tmp = t[0];\n            t[0] = sbox().fwd[t[1]] ^ rcon;\n            t[1] = sbox().fwd[t[2]];\n            t[2] = sbox().fwd[t[3]];\n            t[3] = sbox().fwd[tmp];\n            rcon = gmul(rcon, 2);\n        } else if (Nk > 6 && i % Nk == 4) {\n            for (int j = 0; j < 4; ++j) t[j] = sbox().fwd[t[j]];\n        }\n\n        for (int j = 0; j < 4; ++j)\n            rk[i * 4 + j] = rk[(i - Nk) * 4 + j] ^ t[j];\n    }\n}\n\nstatic void addRoundKey(uint8_t* s, const std::vector<uint8_t>& rk, int round) {\n    for (int i = 0; i < 16; ++i) s[i] ^= rk[round * 16 + i];\n}\n\nstatic void subBytes(uint8_t* s) {\n    for (int i = 0; i < 16; ++i) s[i] = sbox().fwd[s[i]];\n}\n\nstatic void shiftRows(uint8_t* s) {\n    uint8_t t[16];\n    for (int r = 0; r < 4; ++r)\n        for (int c = 0; c < 4; ++c)\n            t[r + 4 * c] = s[r + 4 * ((c + r) % 4)];\n    for (int i = 0; i < 16; ++i) s[i] = t[i];\n}\n\nstatic void mixColumns(uint8_t* s) {\n    for (int c = 0; c < 4; ++c) {\n        uint8_t a0 = s[4 * c], a1 = s[4 * c + 1], a2 = s[4 * c + 2], a3 = s[4 * c + 3];\n        s[4 * c]     = gmul(a0, 2) ^ gmul(a1, 3) ^ a2 ^ a3;\n        s[4 * c + 1] = a0 ^ gmul(a1, 2) ^ gmul(a2, 3) ^ a3;\n        s[4 * c + 2] = a0 ^ a1 ^ gmul(a2, 2) ^ gmul(a3, 3);\n        s[4 * c + 3] = gmul(a0, 3) ^ a1 ^ a2 ^ gmul(a3, 2);\n    }\n}\n\nstatic void encryptBlock(uint8_t* block, const std::vector<uint8_t>& rk, int Nr) {\n    addRoundKey(block, rk, 0);\n    for (int round = 1; round < Nr; ++round) {\n        subBytes(block);\n        shiftRows(block);\n        mixColumns(block);\n        addRoundKey(block, rk, round);\n    }\n    subBytes(block);\n    shiftRows(block);\n    addRoundKey(block, rk, Nr);\n}\n\nstatic std::vector<uint8_t> pkcs7Pad(const std::vector<uint8_t>& data) {\n    std::vector<uint8_t> out = data;\n    size_t padLen = BLOCK_SIZE - (data.size() % BLOCK_SIZE);\n    out.insert(out.end(), padLen, static",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 230,
+      "completion_tokens": 4096,
+      "total_tokens": 4326,
+      "cost": 0.002071,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002071,
+        "upstream_inference_prompt_cost": 2.3e-05,
+        "upstream_inference_completions_cost": 0.002048
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2194,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

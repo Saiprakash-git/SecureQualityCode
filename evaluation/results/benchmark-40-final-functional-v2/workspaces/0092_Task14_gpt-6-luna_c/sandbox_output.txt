@@ -1,0 +1,18 @@
+@@75f3f4318a9ed45e STEP 0 BEGIN@@
+
+@@75f3f4318a9ed45e STEP 0 END rc=0@@
+@@75f3f4318a9ed45e STEP 1 BEGIN@@
+[PASS] testCase1
+[PASS] testCase2
+[PASS] testCase3
+[PASS] testCase4
+[PASS] testCase5
+[PASS] testCase6
+[PASS] testCase7
+[PASS] testCase8
+[PASS] testCase9
+[PASS] testCase10
+
+All test cases completed.
+
+@@75f3f4318a9ed45e STEP 1 END rc=0@@

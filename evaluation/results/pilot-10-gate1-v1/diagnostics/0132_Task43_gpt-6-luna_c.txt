@@ -1,0 +1,13 @@
+Task43_gpt-6-luna_c.c:247:59: error: expected '}'
+  247 |         memcpy(data, session->data, MAX_SESSION_DATA + 1);
+      |                                                           ^
+Task43_gpt-6-luna_c.c:244:26: note: to match this '{'
+  244 |     if (session != NULL) {
+      |                          ^
+Task43_gpt-6-luna_c.c:247:59: error: expected '}'
+  247 |         memcpy(data, session->data, MAX_SESSION_DATA + 1);
+      |                                                           ^
+Task43_gpt-6-luna_c.c:235:1: note: to match this '{'
+  235 | {
+      | ^
+2 errors generated.

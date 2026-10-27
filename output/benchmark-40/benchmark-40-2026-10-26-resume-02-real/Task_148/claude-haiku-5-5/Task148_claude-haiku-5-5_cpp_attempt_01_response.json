@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793025440-LTnUjjxJhVVhfjt28bVc",
+  "finish_reason": "stop",
+  "input_tokens": 154,
+  "output_tokens": 962,
+  "cost_usd": 0.0004964,
+  "raw_response": {
+    "id": "gen-1793025440-LTnUjjxJhVVhfjt28bVc",
+    "object": "chat.completion",
+    "created": 1793025440,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <stdexcept>\n#include <cstddef>\n\ntemplate <typename T>\nclass Stack {\nprivate:\n    struct Node {\n        T value;\n        Node* next;\n        Node(const T& v, Node* n) : value(v), next(n) {}\n    };\n\n    Node* topNode;\n    std::size_t count;\n\npublic:\n    Stack() : topNode(nullptr), count(0) {}\n\n    Stack(const Stack& other) : topNode(nullptr), count(0) {\n        copyFrom(other);\n    }\n\n    Stack& operator=(const Stack& other) {\n        if (this != &other) {\n            clear();\n            copyFrom(other);\n        }\n        return *this;\n    }\n\n    ~Stack() {\n        clear();\n    }\n\n    void push(const T& value) {\n        topNode = new Node(value, topNode);\n        ++count;\n    }\n\n    void pop() {\n        if (isEmpty()) {\n            throw std::underflow_error(\"pop from empty stack\");\n        }\n        Node* old = topNode;\n        topNode = topNode->next;\n        delete old;\n        --count;\n    }\n\n    T& peek() {\n        if (isEmpty()) {\n            throw std::underflow_error(\"peek on empty stack\");\n        }\n        return topNode->value;\n    }\n\n    const T& peek() const {\n        if (isEmpty()) {\n            throw std::underflow_error(\"peek on empty stack\");\n        }\n        return topNode->value;\n    }\n\n    bool isEmpty() const {\n        return topNode == nullptr;\n    }\n\n    std::size_t size() const {\n        return count;\n    }\n\n    void clear() {\n        while (!isEmpty()) {\n            pop();\n        }\n    }\n\nprivate:\n    void copyFrom(const Stack& other) {\n        // Copy preserving order: collect into temporary stack first, then rebuild.\n        Stack temp;\n        for (Node* n = other.topNode; n != nullptr; n = n->next) {\n            temp.push(n->value);\n        }\n        for (Node* n = temp.topNode; n != nullptr; n = n->next) {\n            push(n->value);\n        }\n        // Reverse ordering fix: temp holds items reversed; pushing them back restores original order.\n    }\n};\n\nint main() {\n    Stack<int> s;\n\n    s.push(10);\n    s.push(20);\n    s.push(30);\n\n    std::cout << \"Top element: \" << s.peek() << \"\\n\";\n    std::cout << \"Size: \" << s.size() << \"\\n\";\n\n    s.pop();\n    std::cout << \"After pop, top element: \" << s.peek() << \"\\n\";\n\n    s.pop();\n    s.pop();\n\n    std::cout << \"Is empty: \" << (s.isEmpty() ? \"yes\" : \"no\") << \"\\n\";\n\n    try {\n        s.peek();\n    } catch (const std::underflow_error& e) {\n        std::cout << \"Error: \" << e.what() << \"\\n\";\n    }\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 154,
+      "completion_tokens": 962,
+      "total_tokens": 1116,
+      "cost": 0.0004964,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0004964,
+        "upstream_inference_prompt_cost": 1.54e-05,
+        "upstream_inference_completions_cost": 0.000481
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

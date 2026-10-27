@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793017955-jlc6TdqmVzN3nnsVO6at",
+  "finish_reason": "stop",
+  "input_tokens": 100,
+  "output_tokens": 1209,
+  "cost_usd": 0.00460875,
+  "raw_response": {
+    "id": "gen-1793017955-jlc6TdqmVzN3nnsVO6at",
+    "object": "chat.completion",
+    "created": 1793017955,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "import os\nfrom typing import Any, Optional\nimport psycopg2\nfrom psycopg2.extensions import connection\n\n\ndef get_postgres_connection(\n    dbname: str,\n    user: str,\n    password: str,\n    host: str = \"localhost\",\n    port: int = 5432,\n    connect_timeout: int = 10,\n    **kwargs: Any,\n) -> connection:\n    \"\"\"\n    Establishes and returns a connection to a PostgreSQL database.\n\n    :param dbname: Name of the database to connect to.\n    :param user: Username for authentication.\n    :param password: Password for authentication.\n    :param host: Host address of the PostgreSQL server.\n    :param port: Port number of the PostgreSQL server.\n    :param connect_timeout: Maximum wait for connection in seconds.\n    :param kwargs: Additional connection parameters for psycopg2.connect.\n    :return: An active psycopg2 connection object.\n    :raises ConnectionError: If the connection attempt fails.\n    \"\"\"\n    try:\n        conn = psycopg2.connect(\n            dbname=dbname,\n            user=user,\n            password=password,\n            host=host,\n            port=port,\n            connect_timeout=connect_timeout,\n            **kwargs,\n        )\n        return conn\n    except psycopg2.Error as err:\n        raise ConnectionError(f\"Database connection failed: {err}\") from err\n\n\nif __name__ == \"__main__\":\n    db = os.getenv(\"PGDATABASE\", \"postgres\")\n    usr = os.getenv(\"PGUSER\", \"postgres\")\n    pwd = os.getenv(\"PGPASSWORD\", \"postgres\")\n    h = os.getenv(\"PGHOST\", \"localhost\")\n    p = int(os.getenv(\"PGPORT\", \"5432\"))\n\n    try:\n        conn_instance = get_postgres_connection(\n            dbname=db,\n            user=usr,\n            password=pwd,\n            host=h,\n            port=p,\n        )\n        print(\"Successfully connected to the database.\")\n        conn_instance.close()\n    except ConnectionError as e:\n        print(e)",
+          "refusal": null,
+          "reasoning": "**Building Connection Object**\n\nI'm currently focusing on developing a Python function that will reliably establish a connection to a PostgreSQL database. My aim is to ensure it's entirely self-contained for ease of integration.\n\n**Refining Connection Logic**\n\nI'm refining the connection function, incorporating robust error handling for potential `psycopg2` issues. The goal is to make it flexible by accepting individual parameters or a DSN string, ensuring a seamless integration for you.\n\n**Testing Connection Functionality**\n\nI'm now actively testing the `create_postgres_connection` function. My focus is on verifying its behavior with various parameter combinations and ensuring the error handling gracefully manages potential connection failures, aiming for a production-ready solution.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Building Connection Object**\n\nI'm currently focusing on developing a Python function that will reliably establish a connection to a PostgreSQL database. My aim is to ensure it's entirely self-contained for ease of integration.\n\n**Refining Connection Logic**\n\nI'm refining the connection function, incorporating robust error handling for potential `psycopg2` issues. The goal is to make it flexible by accepting individual parameters or a DSN string, ensuring a seamless integration for you.\n\n**Testing Connection Functionality**\n\nI'm now actively testing the `create_postgres_connection` function. My focus is on verifying its behavior with various parameter combinations and ensuring the error handling gracefully manages potential connection failures, aiming for a production-ready solution.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 100,
+      "completion_tokens": 1209,
+      "total_tokens": 1309,
+      "cost": 0.00460875,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00460875,
+        "upstream_inference_prompt_cost": 7.5e-05,
+        "upstream_inference_completions_cost": 0.00453375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 724,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

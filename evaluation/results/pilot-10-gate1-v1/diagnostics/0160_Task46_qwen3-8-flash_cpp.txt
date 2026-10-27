@@ -1,0 +1,15 @@
+Task46_qwen3-8-flash_cpp.cpp:98:17: error: no viable conversion from 'const std::string' (aka 'const basic_string<char>') to 'std::size_t' (aka 'unsigned long')
+   98 |     std::size_t end = value
+      |                 ^     ~~~~~
+F:\MajorProject-VII\evaluation\.toolchain\Lib\site-packages\ziglang\lib\libcxx\include/string:1232:55: note: candidate function
+ 1232 |   _LIBCPP_HIDE_FROM_ABI _LIBCPP_CONSTEXPR_SINCE_CXX20 operator __self_view() const _NOEXCEPT {
+      |                                                       ^
+Task46_qwen3-8-flash_cpp.cpp:98:28: error: expected ';' at end of declaration
+   98 |     std::size_t end = value
+      |                            ^
+      |                            ;
+Task46_qwen3-8-flash_cpp.cpp:98:28: error: expected '}'
+Task46_qwen3-8-flash_cpp.cpp:88:58: note: to match this '{'
+   88 | std::string UserDatabase::trim(const std::string& value) {
+      |                                                          ^
+3 errors generated.

@@ -1,0 +1,4 @@
+Task12_OPENAI_gpt-4o.c:7:10: warning: unused variable 'tempWord' [-Wunused-variable]
+    7 |     char tempWord[100];
+      |          ^~~~~~~~
+1 warning generated.

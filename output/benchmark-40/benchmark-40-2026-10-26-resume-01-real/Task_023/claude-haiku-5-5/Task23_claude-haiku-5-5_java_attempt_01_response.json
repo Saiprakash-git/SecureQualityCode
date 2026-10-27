@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793016513-x9QaXgxSJHyLg0Cs6lag",
+  "finish_reason": "stop",
+  "input_tokens": 475,
+  "output_tokens": 314,
+  "cost_usd": 0.0002045,
+  "raw_response": {
+    "id": "gen-1793016513-x9QaXgxSJHyLg0Cs6lag",
+    "object": "chat.completion",
+    "created": 1793016513,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "public class Solution {\n    public static long findNb(long m) {\n        long sum = 0;\n        long n = 0;\n        while (sum < m) {\n            n++;\n            sum += n * n * n;\n        }\n        return sum == m ? n : -1;\n    }\n\n    public static void main(String[] args) {\n        System.out.println(findNb(1071225));\n        System.out.println(findNb(91716553919377L));\n    }\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "CAQSuAgKEAgTGAI4AUIIdGhpbmtpbmcSDA9JICgxN9moi/R1aBoM69ToWp43BeaWMwn+IjAu5zqyfakJQtvPE38ilZEl6AcHhY8gSkjkIP0z+BJQEBssNSOOP9/crq9TU2ru9qkq1Qcc0Frc44P/RhICeYclmf9TFSgW1dMRQtQSl3QDrRZN0Y/6oanWwS9Yztnsz4d00U8r3LOVn5+1Y33rbniRf+U3h9Qm3BX8o+PFizjvjQXsyCo6wrfv0um2KqC4paJTfIMKT5s1Ihp628I19yLAaWkdjdddEDLVQdJjBVEQCSrPc1zKtVAeJnLBIOC7T6m9xBH4p3UEtwcJ5ENGVleCXCA+n0g3h/twBfEdcf7rc6cexqyjEEDtfM/K1W12lsVZYs3s7eGDO31i7F/8hjG9VLEbE6c68O/rCad1xoeW6aCi3NEmLP82xVHQtcXqGMs0d5zc4LJLq9dJo/KnUDeU442ektXSuuvwOkxnwZWfji7iIkcl7DiD4ESEOIc53OyUOoK1ZkNS5pTG4Js0P/99WsO2Fdm8nwjU5YmBtQwgXQni+7sDjWlfeDrdDVwBWCjOKoCtJecPbs7mykHeUzi17qA3ohjYpkECDHelD+AHWKJfznj56KvrTeNupe8xzgax2eOPFG1JfDbVxBFFp7dGEN9tap+Civ+uAvuJFwYvraV5YDZGNKwmpUJ/vKRaZ/n5l837awmMftfpzfcGwGnCkvhmzM45ilHXZjc6WBhoS733q93EBuYOBgbg9pf/aPfqbDwrTfV4otDBEJ8pSDfiD4vYYmSBCtBVUq8QODY1ezCNjEWR+14Jk4kj9qlFOp3nbEtUm0PaChDXaw+U8Ar6hamkR93iRUbjeZGqt1oSf72zjyZajkFKyihLg7GwdEniR90q2ngok31bvdXaGY/Eqdat8ujhnjTdjV9vwEFmFIRk60jTvme6bQFpEc7uvoQNHWnxq5rMTLTjVYct3hi+AsHzlPGvo6AAklzDzgIpqpWLioYJSdyCS8Y/M+feJAgQWmrfE4a+GuSBPg1opdYy+KffbH1ySLibZDX4blE6X6p84f+b+dKHPBZBHM110XDyv/4RIzSspx7lkkmtaxyr93QM1U7dZBBnf26vjPfbcDoCQB9Mv+L/SfXZNVvSWOwdZ88tFfw4v7sZTyHCXNEhnhOh5CidAcm4AMCP2Jmj/hJvtrSMoxQaIUn11o53N9OvczG6aQPy7dNuAVEZ1dlsP2iey/MyZAtTZ/FEgWWf+0ClJP8SKMUFjQ37TmawZfDhN9H5HNY/V9lrt5rpfUN7o3KPDOdgoVWx7pbOXmT1wDmOa3z4IHZw1sgd5C0L6cSR/j80UJHwsmkpE23JiaaHwE8I8yiHgGSHZlYaALg820i79MrS09XkvicAu3wTSlSrUEjvWjeDgoSCZD93NmqP1OMTny6WPHQYAQ==.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 475,
+      "completion_tokens": 314,
+      "total_tokens": 789,
+      "cost": 0.0002045,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002045,
+        "upstream_inference_prompt_cost": 4.75e-05,
+        "upstream_inference_completions_cost": 0.000157
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 177,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

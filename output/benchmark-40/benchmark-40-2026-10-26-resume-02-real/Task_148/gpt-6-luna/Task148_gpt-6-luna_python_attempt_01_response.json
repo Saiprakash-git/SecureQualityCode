@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793025365-qorKSYjhIHtRHMynFbaT",
+  "finish_reason": "stop",
+  "input_tokens": 109,
+  "output_tokens": 242,
+  "cost_usd": 0.0001319,
+  "raw_response": {
+    "id": "gen-1793025365-qorKSYjhIHtRHMynFbaT",
+    "object": "chat.completion",
+    "created": 1793025365,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "class Stack:\n    def __init__(self):\n        self._items = []\n\n    def push(self, item):\n        self._items.append(item)\n\n    def pop(self):\n        if not self._items:\n            raise IndexError(\"pop from empty stack\")\n        return self._items.pop()\n\n    def peek(self):\n        if not self._items:\n            raise IndexError(\"peek from empty stack\")\n        return self._items[-1]\n\n    def is_empty(self):\n        return len(self._items) == 0\n\n    def __len__(self):\n        return len(self._items)",
+          "refusal": null,
+          "reasoning": "**Defining Stack structure**\n\nI need to produce a code-only implementation of a Stack class. I'll decide on methods like push, pop, peek, along with length and is_empty checks. If the stack is empty, calling pop or peek should raise an IndexError. The code should be self-contained and written in Python. I'll make sure the methods accept parameters and return appropriate outputs. Using a list for the stack data structure seems straightforward, and I might include type annotations for clarity.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Defining Stack structure**\n\nI need to produce a code-only implementation of a Stack class. I'll decide on methods like push, pop, peek, along with length and is_empty checks. If the stack is empty, calling pop or peek should raise an IndexError. The code should be self-contained and written in Python. I'll make sure the methods accept parameters and return appropriate outputs. Using a list for the stack data structure seems straightforward, and I might include type annotations for clarity.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq32VYE8pbwMiR5-qMg7iIbL3NmmOD6kUxYW3WA2XWvdSDd_ih6ph1kbmAT8dr3u_NDmf8RXfpSnoWFsJC3Ibg8f_9ecObYELFKapxYF88wYryH2PE207D3y4DSA_nBDOydKWESQR3-_ASRxxjhboNMgfRfT0OIfIFoSTzbENP7-hQlKFMFPDvPJfYCty9MzBNLegYLJAwLyzQCCQokxDxfOI799c_RyhCFCcqwIdVCNd953yrukML2XlfWLaP91YZGOtmb8xYkCzwIXcxrUS_MGP6OoVRAOEXGxW5hbsmmI_N5G2bDvW9ttlnACvjE1U-2J1alAlfMZ8n-vHEmdFT4Nt21ii0RRXCqZ4bz_62qDFvi7UihcC20LqyQSuGLziUPEtEBwPWokdEiEUUz-aVF_4dc2V9A1_FTKdyVicyX-SPlGhCi7LacJ5XeP2kFfDR6Yj5mh20W1dlIu9wLcCvMJ9IOe36qdYB4sb0GcXT8pQ0q8JSYlatV18UqfwZ8Ra53Trho0Jz01LVJyW5piNEgWpcAKLLdekeSmjpk13BWE2xF8F6jcWI1mRX8tkG_jjCYfLwSyR4Y8L7BCZwikut5QqliqRpqcyqJX8suBU_tkpWo8QYAHa5lUpowHaZ1MpSNtsuei6daQ-DRnx1RIMr6g_TuZVJoIaJpM61KFxYADTc603pJphWe5P1dsL6_c6ZFNdLrv5hiXHYI0OsElX68vKn72lMLkP-covHR0_nCxZHDEadulCj3C9cnU9NZM3oVAqDkUrrSWsaFvMd3E0K7mC0m6jwyzOW7qm1-BeveAB7GEe9XyBlbAEuR9EyOR4xZ8FovMUyexma9YjgKxR6biBp4hR_xPHjpB3D9tBwFMIyxhZ0Semlytf2PCcABK4T0GTYTzJ6FqFsHTXoscfzh_6rFbuepvbfFlR9rDyibj0Z7whrJhAb1wJ0Z3UU1urcKlO4MtoD2nUZyxuhreKydm1PRWJRm4ya9A2LCxAAq4Sj0AinGVrC7yj1BC3fOBuZh1sR1rohCTAOXjJV7fO6KRbYfA__tKItCzATwTy6BbjZnBGFmxIpLNVZAStwrm8sPMfh8w2Ok7zVw6Vl1zZ3ooo_LNF61SXOOJn-EXIEkHcUSDmg1EZ9BHx1PiqGtUj498m3Dsiun5aM6Z1Abl64gKRIFK3kDWaNyTp9o7LjrtZ6H7lPDQCI_fTmRwGg8blIErqx2-U2Wf-Fid0e9Y04EK3ivW5vScl3CGlGywjEVJjlQ6u3_AGCacg0PHaJfDFpLMSxuVFKS_68SKlhhjMAxdJOxc5St5eVrFvN2i_GXmW45E5ycotQGR77wfff5sNliS0IgVuUnxjsEe5txgHHuW01fZF8YRFwZ2PlJympVsrgf4uhm4YufmXbYJb5EnJK3RHhqR1Yb1LpJUBMR5kgvwTbfvS0yQx-SbngyJQGzQLqBvLkPmejJQolr8mCLHZ7tIo6_KhbcAdyh0Se-7rHAmK_JQb63UvcgNxtVK5OGFtXt-6x1FhTRW30HbqkHG_3b8RT6_4h_WYF5jgPg1l2-EMPTWrrRXMT-BTHSHa1JBpuDK-cNGJnhaJrltjeMAq-z2C_Wlx5skb6TzTqE7mNeiZa_iSAIjnJYiz2kZnFu7evXeC_pO66hGxH5Z0jYmlDPqfQeePNBB1W3y_Yh-IT2xiU0xOGyUZgs9D0qTdMuRfBZ9yfLTw-Ip5-T_wtpRQWrDNELBjSNvFI6NR_Rcncgl3jSAMyriYl_kNGc_IAI1NfNFkaraTKit0G_aPQoiOHe6FUMU5WuxAfevR446zJ9RMbYvGlGM7WN3hl2hweRpz8Q3PNLQG4fNrZMZ4AbJcgTDBu4aUcwkcgwymbwfyjE5EFvOIBl15zaXc6SDHKMYUTh5COgAt0F1G6n2qkhHpNjY_P59xMEsT5k_pYzDy4i0xewnr9pGMbnzGWnSyTVTw0a9KFYlS0jNQ4XvOH1t497m8pJ6VvVzybmkpcQ9QtubFDyajg3-Q7MnmRzT-Qd47Tw75YhBCSJ3hEaMUpQMvBugB6qYwQ61iDI3ym9DCCUioZBm-oMuohMwu7JOaI4ZypGVhBFqlQ6hewrHj4NajOezpa86l5LxQGPzK8LWNU60qsL1hBsl4qESwO7Xdmh3CvbYiTD8OG2y7Y1eXA5QNpBhPzlIy-MVdjd74wMQRaN-0OjqNYGuZAw6t9RePJuyEhQK46awMPQ7UMrTi17oUpdB8OlFHfgXqxbEb1k1VN9qUak_XaltJFLI3N_D323Xsw_qU1W2zxEvFyUqFiB_2edUdWoZGJRZ5QaMpSr82ZTGopaX0pEO5yeJbSIgL4p5qCLnWMDWqQYc9sZD27eOv4-96eH_FhIhO764lD2k_7cwpeYfsTUZ21bAZMM_CVe_4e0_Nyv_X5P1r2cXBCp9w6XmWNM5kwPFVSgdHQv1QDllKogNuqVfVjFEX7zCNkxfDf51zHwaI8ohZ-FRQzYCqdrtGF_Ztk-F_P5-fnVgbojYIrNSB_BH1_HOypoRnKrF9rEkqgqx6KvTGMxG_kv020QaAhs_dlgtaS40riPFD01pvDG2VAnW1Raly7dERpynuP4T6sztpya5eZzybOGSGqKmPciwYIjyqsed-2KPlNTmh3BAILo107DRkY81uRdNl0Cuc6tnSzaAE-VliEt7yRhGivDbIoO1gCKA0-ExFL0PkQFlE-CuUsnswiQulm_Nbq1jM2kz7jFptKxdVpMTEO9UECNqerP8UUK47GitGz-6VMOKkolWYoZOU3T6mPfb3ag_MXY2zzdX45AoxUNvVubgtn-i5equQJVGmdO1p6u8tCwVeT493JcF3pUJQRGTAmaBEwYScvAl3BbaAC_n6D4ojRiH1itomNO7LD-E8VtrdJUCimT0QFsQGNpBZSletz2vphw3oNYnaYFBO8iUhSPB9ObkdlHup3VSQV_WISfpAjHcmU6nJjBlVG6J3SlVm0fxN9GTEomaenzyqEJ-9ukb3oUAGKTkCLRbIOGnvH-bwN1u09friR0gyyYjaaNLUaIjXLDGr41oexFh3BXgD_jbsI_rcZ8r4zB2Qt2j639dxKBw==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0c25b5fdc6a643b3016adf65567b6c87d1bb2f5ceeb27deb7c",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 109,
+      "completion_tokens": 242,
+      "total_tokens": 351,
+      "cost": 0.0001319,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001319,
+        "upstream_inference_prompt_cost": 1.09e-05,
+        "upstream_inference_completions_cost": 0.000121
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 116,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

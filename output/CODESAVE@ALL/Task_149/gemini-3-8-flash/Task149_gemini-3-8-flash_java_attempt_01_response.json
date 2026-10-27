@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793025509-pB7WtzaL4oaz7yoszBdT",
+  "finish_reason": "stop",
+  "input_tokens": 103,
+  "output_tokens": 1462,
+  "cost_usd": 0.00555975,
+  "raw_response": {
+    "id": "gen-1793025509-pB7WtzaL4oaz7yoszBdT",
+    "object": "chat.completion",
+    "created": 1793025509,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "import java.util.NoSuchElementException;\n\npublic class Queue<T> {\n\n    private static class Node<T> {\n        private final T data;\n        private Node<T> next;\n\n        public Node(T data) {\n            this.data = data;\n            this.next = null;\n        }\n    }\n\n    private Node<T> front;\n    private Node<T> rear;\n    private int size;\n\n    public Queue() {\n        this.front = null;\n        this.rear = null;\n        this.size = 0;\n    }\n\n    public void enqueue(T item) {\n        Node<T> newNode = new Node<>(item);\n        if (rear != null) {\n            rear.next = newNode;\n        }\n        rear = newNode;\n        if (front == null) {\n            front = rear;\n        }\n        size++;\n    }\n\n    public T dequeue() {\n        if (isEmpty()) {\n            throw new NoSuchElementException(\"Queue is empty\");\n        }\n        T data = front.data;\n        front = front.next;\n        if (front == null) {\n            rear = null;\n        }\n        size--;\n        return data;\n    }\n\n    public T peek() {\n        if (isEmpty()) {\n            throw new NoSuchElementException(\"Queue is empty\");\n        }\n        return front.data;\n    }\n\n    public boolean isEmpty() {\n        return front == null;\n    }\n\n    public int size() {\n        return size;\n    }\n\n    public static void main(String[] args) {\n        Queue<Integer> queue = new Queue<>();\n\n        queue.enqueue(10);\n        queue.enqueue(20);\n        queue.enqueue(30);\n\n        System.out.println(\"Peek: \" + queue.peek());\n        System.out.println(\"Dequeued: \" + queue.dequeue());\n        System.out.println(\"Peek after dequeue: \" + queue.peek());\n        System.out.println(\"Size: \" + queue.size());\n\n        while (!queue.isEmpty()) {\n            System.out.println(\"Dequeued: \" + queue.dequeue());\n        }\n\n        System.out.println(\"Is empty: \" + queue.isEmpty());\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Developing Queue Implementation**\n\nI'm focused on creating a robust, single Java file for a Queue. My current efforts involve ensuring all core operations (`enqueue`, `dequeue`, `peek`) are seamlessly integrated and function as expected within a self-contained structure.\n\n**Finalizing Queue Structure**\n\nI'm now concentrating on refining the core logic for the Queue. Specifically, I'm incorporating robust exception handling for edge cases, such as attempting to dequeue from an empty queue, ensuring the implementation adheres to standard conventions and is thoroughly tested.\n\n**Implementing Dequeue Logic**\n\nI'm currently working on the `dequeue` method, specifically addressing the condition where the queue becomes empty after a removal. My focus is on correctly updating the `head` and `tail` pointers to reflect this state and ensure proper behavior.\n\n**Testing Queue Functionality**\n\nI'm diligently testing the `enqueue`, `dequeue`, and `peek` methods. My current focus is on verifying that the `tail` pointer is correctly managed, especially when the queue empties, and ensuring exception handling for an empty queue functions as intended during `dequeue` and `peek`.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Queue Implementation**\n\nI'm focused on creating a robust, single Java file for a Queue. My current efforts involve ensuring all core operations (`enqueue`, `dequeue`, `peek`) are seamlessly integrated and function as expected within a self-contained structure.\n\n**Finalizing Queue Structure**\n\nI'm now concentrating on refining the core logic for the Queue. Specifically, I'm incorporating robust exception handling for edge cases, such as attempting to dequeue from an empty queue, ensuring the implementation adheres to standard conventions and is thoroughly tested.\n\n**Implementing Dequeue Logic**\n\nI'm currently working on the `dequeue` method, specifically addressing the condition where the queue becomes empty after a removal. My focus is on correctly updating the `head` and `tail` pointers to reflect this state and ensure proper behavior.\n\n**Testing Queue Functionality**\n\nI'm diligently testing the `enqueue`, `dequeue`, and `peek` methods. My current focus is on verifying that the `tail` pointer is correctly managed, especially when the queue empties, and ensuring exception handling for an empty queue functions as intended during `dequeue` and `peek`.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 103,
+      "completion_tokens": 1462,
+      "total_tokens": 1565,
+      "cost": 0.00555975,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00555975,
+        "upstream_inference_prompt_cost": 7.725e-05,
+        "upstream_inference_completions_cost": 0.0054825
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 944,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

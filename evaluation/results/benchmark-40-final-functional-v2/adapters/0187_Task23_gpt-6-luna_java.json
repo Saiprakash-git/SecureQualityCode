@@ -1,0 +1,32 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "Task23_CLAUDE_claude_3_5_sonnet_20240620.findNb",
+   "target": "Kata.findNb",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "long",
+    "params": [
+     "long m"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "long m"
+    ],
+    "return": "long",
+    "static": true
+   }
+  }
+ ],
+ "combo_index": 187,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_023/gpt-6-luna/Task23_gpt-6-luna_java.java",
+ "artifact_sha256": "8d7455fe10d4c25f026d7a2aa8112e93deb6cfba36d59fc1f5336c43495fa8b3",
+ "oracle_test_path": "src/test/java/claude/task23/Task23_TestCase.java",
+ "oracle_test_sha256": "6da7f75c03bf58327c9f871b3ddbdbc91eff359afdecf7bad1197dcde04891ed",
+ "author": "functional.py draft_adapter (static)"
+}

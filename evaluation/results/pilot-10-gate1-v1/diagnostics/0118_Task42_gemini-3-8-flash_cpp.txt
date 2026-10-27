@@ -1,0 +1,29 @@
+Task42_gemini-3-8-flash_cpp.cpp:172:21: error: use of undeclared identifier 'uint8_'
+  172 |         std::vector<uint8_
+      |                     ^
+Task42_gemini-3-8-flash_cpp.cpp:172:27: error: expected '>'
+  172 |         std::vector<uint8_
+      |                           ^
+Task42_gemini-3-8-flash_cpp.cpp:172:20: note: to match this '<'
+  172 |         std::vector<uint8_
+      |                    ^
+Task42_gemini-3-8-flash_cpp.cpp:172:27: error: expected unqualified-id
+  172 |         std::vector<uint8_
+      |                           ^
+Task42_gemini-3-8-flash_cpp.cpp:172:27: error: expected '}'
+Task42_gemini-3-8-flash_cpp.cpp:165:48: note: to match this '{'
+  165 |     while (derived_key.size() < output_length) {
+      |                                                ^
+Task42_gemini-3-8-flash_cpp.cpp:172:27: error: expected '}'
+  172 |         std::vector<uint8_
+      |                           ^
+Task42_gemini-3-8-flash_cpp.cpp:161:62: note: to match this '{'
+  161 |                                        size_t output_length) {
+      |                                                              ^
+Task42_gemini-3-8-flash_cpp.cpp:172:27: error: expected '}'
+  172 |         std::vector<uint8_
+      |                           ^
+Task42_gemini-3-8-flash_cpp.cpp:11:18: note: to match this '{'
+   11 | namespace crypto {
+      |                  ^
+6 errors generated.

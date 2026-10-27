@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "*",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 761,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-02-real/Task_148/claude-haiku-5-5/Task148_claude-haiku-5-5_python.py",
+ "artifact_sha256": "f0027fc9f74e29759e7d224c64131d266a65aa25223f8a6f090402899c5439c4",
+ "oracle_test_path": "tests/gtp4o/Task148_OPENAI_gpt_4o/Task148_OPENAI_gpt_4o.py",
+ "oracle_test_sha256": "94214cf2be1c57c63f0ff80346cba07a8317f413a1ddade5c09a66950a7db3d0",
+ "author": "functional.py draft_adapter (static)"
+}

@@ -1,0 +1,17 @@
+{
+ "status": "unresolved",
+ "bindings": [
+  {
+   "canonical": "Task12_OPENAI_gpt_4o.high",
+   "target": null,
+   "kind": "unresolved",
+   "candidates": []
+  }
+ ],
+ "combo_index": 69,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_012/mistral-large-4/Task12_mistral-large-4_java.java",
+ "artifact_sha256": "ce168dea6ea2e0da651dcf24977f09ea0d82002104be609031b9553ca745fdd9",
+ "oracle_test_path": "src/test/java/gtp4o/task12/Task12_TestCase.java",
+ "oracle_test_sha256": "9d0bf88cd466e108e53a4c7d433908829609deb08181b23fab22bad7d7bcccfe",
+ "author": "functional.py draft_adapter (static)"
+}

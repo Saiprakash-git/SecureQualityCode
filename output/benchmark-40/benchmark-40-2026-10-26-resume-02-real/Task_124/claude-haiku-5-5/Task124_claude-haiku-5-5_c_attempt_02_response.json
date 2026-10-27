@@ -1,0 +1,69 @@
+{
+  "attempt": 2,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793024489-mIZmXp3JxMOKiL3iOLWR",
+  "finish_reason": "length",
+  "input_tokens": 190,
+  "output_tokens": 4096,
+  "cost_usd": 0.002067,
+  "raw_response": {
+    "id": "gen-1793024489-mIZmXp3JxMOKiL3iOLWR",
+    "object": "chat.completion",
+    "created": 1793024489,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "```c\n/*\n * sensitive_store.c\n * Stores personal and payment data with input validation, masked display,\n * and encrypted-at-rest file storage.\n *\n * Build: cc -std=c99 -Wall -Wextra -o sensitive_store sensitive_store.c\n * Run:   ./sensitive_store <passphrase> [data_file]\n *\n * NOTE: The at-rest cipher below is a simple XOR keystream derived from a\n * passphrase. It illustrates the structure of encrypted storage but is not a\n * vetted cryptographic construction. For production use, replace xor_cipher()\n * with an authenticated cipher such as AES-GCM or XChaCha20-Poly1305 from a\n * reviewed library (for example libsodium or OpenSSL).\n */\n\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <ctype.h>\n\n#define MAX_RECORDS   100\n#define NAME_LEN      64\n#define EMAIL_LEN     64\n#define CARD_LEN      20\n#define SSN_LEN       12\n#define MAGIC         0x53534431u  /* \"SSD1\" */\n\ntypedef struct {\n    char name[NAME_LEN];\n    char email[EMAIL_LEN];\n    char card[CARD_LEN];\n    char ssn[SSN_LEN];\n    unsigned char used;\n} Record;\n\ntypedef struct {\n    Record items[MAX_RECORDS];\n    size_t count;\n} Store;\n\n/* ---------- Validation ---------- */\n\nstatic int luhn_valid(const char *num)\n{\n    int sum = 0, alt = 0;\n    size_t len = strlen(num);\n    if (len < 13 || len > 19) return 0;\n    for (size_t i = len; i-- > 0;) {\n        if (!isdigit((unsigned char)num[i])) return 0;\n        int d = num[i] - '0';\n        if (alt) {\n            d *= 2;\n            if (d > 9) d -= 9;\n        }\n        sum += d;\n        alt = !alt;\n    }\n    return sum % 10 == 0;\n}\n\nstatic int validate_ssn(const char *ssn)\n{\n    /* Accepts format NNN-NN-NNNN */\n    if (strlen(ssn) != 11) return 0;\n    for (int i = 0; i < 11; i++) {\n        if (i == 3 || i == 6) {\n            if (ssn[i] != '-') return 0;\n        } else if (!isdigit((unsigned char)ssn[i])) {\n            return 0;\n        }\n    }\n    return 1;\n}\n\nstatic int validate_email(const char *email)\n{\n    const char *at = strchr(email, '@');\n    if (!at || at == email) return 0;\n    if (!strchr(at, '.')) return 0;\n    return strlen(email) < EMAIL_LEN;\n}\n\nstatic void strip_newline(char *s)\n{\n    size_t n = strcspn(s, \"\\r\\n\");\n    s[n] = '\\0';\n}\n\n/* ---------- Masking for display ---------- */\n\nstatic void mask_card(const char *card, char *out, size_t outsz)\n{\n    size_t len = strlen(card);\n    size_t i;\n    if (outsz == 0) return;\n    if (len <= 4) {\n        snprintf(out, outsz, \"****\");\n        return;\n    }\n    for (i = 0; i < len - 4 && i + 1 < outsz; i++) out[i] = '*';\n    snprintf(out + i, outsz - i, \"%s\", card + len - 4);\n}\n\nstatic void mask_ssn(const char *ssn, char *out, size_t outsz)\n{\n    snprintf(out, outsz, \"***-**-%s\", ssn + 7);\n}\n\n/* ---------- Store operations ---------- */\n\nstatic int store_add(Store *s, const char *name, const char *email,\n                     const char *card, const char *ssn)\n{\n    if (!s || s->count >= MAX_RECORDS) return -1;\n    if (!name || !*name || strlen(name) >= NAME_LEN) return -1;\n    if (!validate_email(email)) return -1;\n    if (!luhn_valid(card)) return -1;\n    if (!validate_ssn(ssn)) return -1;\n\n    Record *r = &s->items[s->count];\n    memset(r, 0, sizeof(*r));\n    strcpy(r->name, name);\n    strcpy(r->email, email);\n    strcpy(r->card, card);\n    strcpy(r->ssn, ssn);\n    r->used = 1;\n    s->count++;\n    return (int)(s->count - 1);\n}\n\nstatic int store_delete(Store *s, size_t index)\n{\n    if (!s || index >= s->count) return -1;\n    for (size_t i = index; i + 1 < s->count; i++) {\n        s->items[i] = s->items[i + 1];\n    }\n    s->count--;\n    memset(&s->items[s->count], 0, sizeof(Record));\n    return 0;\n}\n\nstatic void store_list(const Store *s, char *out, size_t outsz)\n{\n    size_t used = 0;\n    char mcard[CARD_LEN], mssn[SSN_LEN + 8];\n    out[0] = '\\0';\n    for (size_t i = 0; i < s->count; i++) {\n        mask_card(s->items[i].card, mcard, sizeof(mcard));\n        mask_ssn(s->items[i].ssn, mssn, sizeof(mssn));\n        int n = snprintf(out + used, outsz - used,\n                         \"[%zu] %s <%s> card:%s ssn:%s\\n\",\n                         i, s->items[i].name, s->items[i].email,\n                         mcard, mssn);\n        if (n < 0 || (size_t)n >= outsz - used) break;\n        used += (size_t)n;\n    }\n}\n\n/* ---------- At-rest protection ---------- */\n\nstatic void xor_cipher(unsigned char *buf, size_t len,\n                       const char *key, unsigned long long nonce)\n{\n    size_t klen = strlen(key);\n    unsigned long long state = nonce ^ 0x9E3779B97F4A7C15ULL;\n    if (klen == 0) return;\n    for (size_t i = 0; i < len; i++) {\n        state = state * 6364136223846793005ULL + 1442695040888963407ULL;\n        buf[i] ^= (unsigned char)key[i % klen] ^ (unsigned char)(state >> 56);\n    }\n}\n\nstatic int store_save(const Store *s, const char *path, const char *key)\n{\n    FILE *f;\n    unsigned int magic = MAGIC;\n    unsigned long long nonce;\n    size_t total = sizeof(Record) * s->count;\n    unsigned char *buf;\n\n    if (total == 0) total = 1;\n    buf = malloc(total);\n    if (!buf) return -1;\n    if (s->count) memcpy(buf, s->items, sizeof(Record) * s->count);\n\n    nonce = (unsigned long long)time(NULL) ^ ((unsigned long long)rand() << 16);\n    xor_cipher(buf, sizeof(Record) * s->count, key, nonce);\n\n    f = fopen(path, \"wb\");\n    if (!f) { free(buf); return -1; }\n    fwrite(&magic, sizeof(magic), 1, f);\n    fwrite(&nonce, sizeof(nonce), 1, f);\n    fwrite(&s->count, sizeof(s->count), 1, f);\n    fwrite(buf, 1, sizeof(Record) * s->count, f);\n    fclose(f);\n\n    memset(buf, 0, total);\n    free(buf);\n    return 0;\n}\n\nstatic int store_load(Store *s, const char *path, const char *key)\n{\n    FILE *f;\n    unsigned int magic;\n    unsigned long long nonce;\n    size_t count;\n\n    f = fopen(path, \"rb\");\n    if (!f) return -1;\n    if (fread(&magic, sizeof(magic), 1, f) != 1 || magic != MAGIC ||\n        fread(&nonce, sizeof(nonce), 1, f) != 1 ||\n        fread(&count, sizeof(count), 1, f) != 1 ||\n        count > MAX_RECORDS) {\n        fclose(f);\n        return -1;\n    }\n    if (fread(s->items, sizeof(Record), count, f) != count) {\n        fclose(f);\n        return -1;\n    }\n    fclose(f);\n\n    xor_cipher((unsigned char *)s->items, sizeof(Record) * count, key, nonce);\n    s->count = count;\n    return 0;\n}\n\n/* ---------- Interactive front end ---------- */\n\nstatic void prompt(const char *label, char *buf, size_t sz)\n{\n    printf(\"%s\", label);\n    fflush(stdout);\n    if (!fgets(buf, (int)sz, stdin)) {\n        buf[0] = '\\0';\n        return;\n    }\n    strip_newline(buf);\n}\n\nint main(int argc, char *argv[])\n{\n    static Store store;\n    const char *path = \"sensitive_data.bin\";\n    char choice[8], name[NAME_LEN], email[EMAIL_LEN];\n    char card[CARD_LEN], ssn[SSN_LEN], listing[8192], idx[16];\n\n    if (argc < 2) {\n        fprintf(stderr, \"usage: %s <passphrase> [data_file]\\n\", argv[0]);\n        return 1;\n    }\n    if (argc >= 3) path = argv[2];\n    srand((unsigned)time(NULL));\n\n    for (;;) {\n        printf(\"\\n1) Add  2) List  3) Delete  4) Save  5) Load  6) Quit\\n\");\n        prompt(\"> \", choice, sizeof(choice));\n\n        if (choice[0] == '1') {\n            prompt(\"Name: \", name, sizeof(name));\n            prompt(\"Email: \", email, sizeof(email));\n            prompt(\"Card number (digits): \", card, sizeof(card));\n            prompt(\"SSN (NNN-NN-NNNN): \", ssn, size",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 190,
+      "completion_tokens": 4096,
+      "total_tokens": 4286,
+      "cost": 0.002067,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002067,
+        "upstream_inference_prompt_cost": 1.9e-05,
+        "upstream_inference_completions_cost": 0.002048
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 716,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

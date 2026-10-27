@@ -1,0 +1,58 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793008438-2a316bJ3LLkEPLX3Nf8H",
+  "finish_reason": "stop",
+  "input_tokens": 254,
+  "output_tokens": 330,
+  "cost_usd": 0.0001904,
+  "raw_response": {
+    "id": "gen-1793008438-2a316bJ3LLkEPLX3Nf8H",
+    "object": "chat.completion",
+    "created": 1793008438,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "/* Determine whether the sum of integers is odd or even. */\n#include <stdio.h>\n\nconst char *odd_or_even(const int *arr, size_t n) {\n    long long sum = 0;\n    if (arr == NULL || n == 0) {\n        return \"even\";\n    }\n    for (size_t i = 0; i < n; i++) {\n        sum += arr[i];\n    }\n    return (sum % 2 == 0) ? \"even\" : \"odd\";\n}\n\nint main(void) {\n    int a1[] = {0};\n    int a2[] = {0, 1, 4};\n    int a3[] = {0, -1, -5};\n    printf(\"%s\\n\", odd_or_even(a1, sizeof(a1) / sizeof(a1[0])));\n    printf(\"%s\\n\", odd_or_even(a2, sizeof(a2) / sizeof(a2[0])));\n    printf(\"%s\\n\", odd_or_even(a3, sizeof(a3) / sizeof(a3[0])));\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 254,
+      "completion_tokens": 330,
+      "total_tokens": 584,
+      "cost": 0.0001904,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001904,
+        "upstream_inference_prompt_cost": 2.54e-05,
+        "upstream_inference_completions_cost": 0.000165
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

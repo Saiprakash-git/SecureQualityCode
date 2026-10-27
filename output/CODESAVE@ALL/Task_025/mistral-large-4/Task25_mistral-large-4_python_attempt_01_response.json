@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "mistralai/mistral-large-4-0",
+  "response_id": "gen-1793016889-o440dlJXNEZ3VcJ7Tsgd",
+  "finish_reason": "stop",
+  "input_tokens": 189,
+  "output_tokens": 360,
+  "cost_usd": 0.00176184,
+  "raw_response": {
+    "id": "gen-1793016889-o440dlJXNEZ3VcJ7Tsgd",
+    "object": "chat.completion",
+    "created": 1793016889,
+    "model": "mistralai/mistral-large-4-0",
+    "provider": "Mistral",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "def number(lines):\n    return [f\"{i}: {line}\" for i, line in enumerate(lines, 1)]",
+          "refusal": null,
+          "reasoning": "The user wants a Python function that takes a list of strings and returns each line prepended with a line number starting at 1, in the format \"n: string\".\n\nRequirements:\n1. Return only raw source code (no markdown fences, no explanations)\n2. One complete self-contained source file in Python\n3. All functions should accept input as parameters and return output\n4. Start with the first source line\n\nThe function should:\n- Take a list of strings as input\n- Return a list of strings where each element is \"n: string\" with n starting at 1\n\nExample:\n- [] --> []\n- [\"a\", \"b\", \"c\"] --> [\"1: a\", \"2: b\", \"3: c\"]\n\nImplementation:\n```python\ndef number(lines):\n    return [f\"{i}: {line}\" for i, line in enumerate(lines, 1)]\n```\n\nOr using a loop:\n```python\ndef number(lines):\n    result = []\n    for i, line in enumerate(lines, 1):\n        result.append(f\"{i}: {line}\")\n    return result\n```\n\nBoth work. The list comprehension is more Pythonic.\n\nI need to make sure there are no markdown fences, no explanations, just the raw code.\n\nThe function name isn't specified, but \"number\" seems appropriate based on the problem description (\"implementing the line numbering\").\n\nLet me write the complete file:\n\n```python\ndef number(lines):\n    return [f\"{i}: {line}\" for i, line in enumerate(lines, 1)]\n```\n\nThat's it. Simple and meets all requirements.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "The user wants a Python function that takes a list of strings and returns each line prepended with a line number starting at 1, in the format \"n: string\".\n\nRequirements:\n1. Return only raw source code (no markdown fences, no explanations)\n2. One complete self-contained source file in Python\n3. All functions should accept input as parameters and return output\n4. Start with the first source line\n\nThe function should:\n- Take a list of strings as input\n- Return a list of strings where each element is \"n: string\" with n starting at 1\n\nExample:\n- [] --> []\n- [\"a\", \"b\", \"c\"] --> [\"1: a\", \"2: b\", \"3: c\"]\n\nImplementation:\n```python\ndef number(lines):\n    return [f\"{i}: {line}\" for i, line in enumerate(lines, 1)]\n```\n\nOr using a loop:\n```python\ndef number(lines):\n    result = []\n    for i, line in enumerate(lines, 1):\n        result.append(f\"{i}: {line}\")\n    return result\n```\n\nBoth work. The list comprehension is more Pythonic.\n\nI need to make sure there are no markdown fences, no explanations, just the raw code.\n\nThe function name isn't specified, but \"number\" seems appropriate based on the problem description (\"implementing the line numbering\").\n\nLet me write the complete file:\n\n```python\ndef number(lines):\n    return [f\"{i}: {line}\" for i, line in enumerate(lines, 1)]\n```\n\nThat's it. Simple and meets all requirements.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 189,
+      "completion_tokens": 360,
+      "total_tokens": 549,
+      "cost": 0.00176184,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00176184,
+        "upstream_inference_prompt_cost": 0.00025704,
+        "upstream_inference_completions_cost": 0.0015048
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 332,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

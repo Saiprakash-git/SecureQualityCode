@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793010308-BpbnbSAcK1bljTtJkFfa",
+  "finish_reason": "stop",
+  "input_tokens": 300,
+  "output_tokens": 351,
+  "cost_usd": 0.00154125,
+  "raw_response": {
+    "id": "gen-1793010308-BpbnbSAcK1bljTtJkFfa",
+    "object": "chat.completion",
+    "created": 1793010308,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "def binary_array_to_number(arr):\n    result = 0\n    for bit in arr:\n        result = (result << 1) | bit\n    return result",
+          "refusal": null,
+          "reasoning": "**Processing Binary Strings**\n\nI'm currently working on transforming binary array inputs into their integer representations. My focus is on efficiently handling arrays of varying lengths, aiming for a Pythonic solution.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Processing Binary Strings**\n\nI'm currently working on transforming binary array inputs into their integer representations. My focus is on efficiently handling arrays of varying lengths, aiming for a Pythonic solution.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "AY89a19O6IK23+cBSRA/l9NtE9HM54lXvBGElMn2kIxdAxbHdaBxCaRwpx8c2g+JfqAzXT//pXdmtf3UFJcznUDBvijgq/JsLxeLtiSAP528x+7zzA+FxuGS82/eMAkCbIRisPLUuuzhw9OuQYVe90CvcrQ5PyOjTpLh9YW53rOn0EK6HdtisCvkQesEfxpJFuEdsdmlYhHeU87h87JYuoKNUaJ+njYxFUy1goXxdsDwFuu3u+XqRrDx0gaSELxyJ6NBvyxRw4j1c49MfTi7u7Nolf7ImU0/OR9BUGcktiqAd06q+VOGtoVYHzCsPFYc9SJITGNU+GrCcbq9BYvKEZu5oU1MkhhJq9DG2PpMwA5dvF/QLmy5HAvpQ7NjeH/vpGf96qeZrTYXq8EKaatehWRw2fJfSa6HD0sddchbt/DS10C5JRXZYEfw1zsmN6QsFInStfYvg5mWP0FPhc93J0LzC6//8N2wwUlfpoxFTY5ttMU4AbZBgvK2d0s2RoemxGWMlVhT/PRFqKeWhlqY7H2cRdhHhCBSl24Vc8iiYHQODuwIq0efCw4+DHII0PqGYLhisOoaUUQqHMvdECKvsC5eR2JjFe8mckwtmI01Ace2JshdqSKm45dEr0LPomRtcqLIWU4ySnUmo/rq16NEE7qgW23GrI6/GA2nwY70CPaKF6EGsqtpGdgn29X9+BrKpk1oB1DwAS6uIvWBoby6wGgg4yha5NjfeZY//pvlh0EDk+fhAvJ/txvd5+vJqIhqLe1X1HZQ1XTboJGD18YnJZ3BiYN8xnJmXDm773tsoiObsH1UzXA5fZde9vW5AxGzuISIsIy876aRjoEgr43sSZLHhCvf3UTtoLzHB3lvKzN94q1j6pGffNvsr3LelZ+c6hObXsr+5iOJAncML09eZm0Y5ktMxLAw0Jopkkbps9tvNU6uye3FEb5Gy/JGBj9u4IbCEcnhSuA9xfZvHcIX1rzzckQ8T5YgX+126llSYk2SqWJ+Fmrhzy6Zl7C2ZEUg07x8mveO3pfyj4Pr1hz3Yzy/nmUPwyCFKRkB6ZRsfFw/HJylVGirY+xND2jlwgxApuBjDFa26tikrq2cjxzCKejdmJlTqfekYIbPi5DfHFwf7ep6Zo5V4QegCBzyF88jcv4rctEMQWAAW5Qj9uLVK0qayQDu3714pyZIuc3eaKezGjkzuATOj+4SIm+abV11iEer9o25uBbz7SQLmJUWdMYyUE7cMM+c0PME2rcnOoXsvHm+iQWKMHpJks7bfFqnZ5QxLUBPhQ5WkP9lmmkV1VyD1HFYWshKq7wnUeeBgZikPGPOfvqhzoP88zkqros8qHa73AVaUm3nk/4ZXFXIY2nxgxms21o+kZYlfLLuRoPgFHliXasrQGk5k9A0E5uVyESdt297GrgzAAnTuH0/jmuVgMPBh8jKkSd7HFSp7R1Hqj8IvR4qM8HLSo7/LqQGvrU1J+esw1lPSpM0D3NSRZLysGRgNag5/ecDw8PMncbGwMzUV6IgfJwjWTw9fkweL5nWYhh0P+svl3Ad26wjHx01bQUlwldBgqGQOHN0CF87pwWxeyCP4Qbo6+NsiYqhFG7F4kA=",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 300,
+      "completion_tokens": 351,
+      "total_tokens": 651,
+      "cost": 0.00154125,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00154125,
+        "upstream_inference_prompt_cost": 0.000225,
+        "upstream_inference_completions_cost": 0.00131625
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 311,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

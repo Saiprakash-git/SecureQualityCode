@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793018204-BU93dKgKXlihb9Pa7tW4",
+  "finish_reason": "stop",
+  "input_tokens": 112,
+  "output_tokens": 1170,
+  "cost_usd": 0.0044715,
+  "raw_response": {
+    "id": "gen-1793018204-BU93dKgKXlihb9Pa7tW4",
+    "object": "chat.completion",
+    "created": 1793018204,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "from cryptography.hazmat.primitives.asymmetric import rsa\nfrom cryptography.hazmat.primitives import serialization\n\n\ndef generate_rsa_openssh_private_key(\n    key_size: int = 2048,\n    public_exponent: int = 65537,\n    password: str | bytes | None = None,\n) -> str:\n    \"\"\"\n    Generates an RSA private key and exports it in the OpenSSH private key format.\n\n    :param key_size: Bit length of the RSA key (default: 2048).\n    :param public_exponent: Public exponent (default: 65537).\n    :param password: Optional password to encrypt the private key.\n    :return: The OpenSSH private key as an ASCII string.\n    \"\"\"\n    private_key = rsa.generate_private_key(\n        public_exponent=public_exponent,\n        key_size=key_size,\n    )\n\n    if password is not None:\n        if isinstance(password, str):\n            password = password.encode(\"utf-8\")\n        encryption_algorithm = serialization.BestAvailableEncryption(password)\n    else:\n        encryption_algorithm = serialization.NoEncryption()\n\n    openssh_private_bytes = private_key.private_bytes(\n        encoding=serialization.Encoding.PEM,\n        format=serialization.PrivateFormat.OpenSSH,\n        encryption_algorithm=encryption_algorithm,\n    )\n\n    return openssh_private_bytes.decode(\"utf-8\")\n\n\nif __name__ == \"__main__\":\n    key = generate_rsa_openssh_private_key(key_size=2048)\n    print(key)",
+          "refusal": null,
+          "reasoning": "**Generating RSA Key**\n\nI'm currently focused on crafting a robust Python script. My primary objective is to create an RSA private key and then seamlessly export it into the OpenSSH format, ensuring it's ready for immediate use.\n\n**Refining Export Format**\n\nI'm verifying the exact encoding for OpenSSH private keys when using the `cryptography` library. My current hypothesis is that it utilizes PEM, but I need to confirm this detail to ensure the generated key is truly compatible with OpenSSH tools.\n\n**Confirming OpenSSH Format**\n\nI've confirmed that `serialization.PrivateFormat.OpenSSH` within the `cryptography` library requires `serialization.Encoding.PEM`. This format was introduced in version 3.0, and I've verified its existence and usage through a quick code snippet.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Generating RSA Key**\n\nI'm currently focused on crafting a robust Python script. My primary objective is to create an RSA private key and then seamlessly export it into the OpenSSH format, ensuring it's ready for immediate use.\n\n**Refining Export Format**\n\nI'm verifying the exact encoding for OpenSSH private keys when using the `cryptography` library. My current hypothesis is that it utilizes PEM, but I need to confirm this detail to ensure the generated key is truly compatible with OpenSSH tools.\n\n**Confirming OpenSSH Format**\n\nI've confirmed that `serialization.PrivateFormat.OpenSSH` within the `cryptography` library requires `serialization.Encoding.PEM`. This format was introduced in version 3.0, and I've verified its existence and usage through a quick code snippet.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 112,
+      "completion_tokens": 1170,
+      "total_tokens": 1282,
+      "cost": 0.0044715,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0044715,
+        "upstream_inference_prompt_cost": 8.4e-05,
+        "upstream_inference_completions_cost": 0.0043875
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 786,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

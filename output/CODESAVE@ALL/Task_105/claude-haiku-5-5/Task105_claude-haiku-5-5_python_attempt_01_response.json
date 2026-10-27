@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793023932-klITxJ2x0zd0M3LisqWJ",
+  "finish_reason": "stop",
+  "input_tokens": 156,
+  "output_tokens": 1725,
+  "cost_usd": 0.0008781,
+  "raw_response": {
+    "id": "gen-1793023932-klITxJ2x0zd0M3LisqWJ",
+    "object": "chat.completion",
+    "created": 1793023932,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import socket\nimport ssl\nimport sys\nimport argparse\n\n\ndef create_secure_context(cafile=None, verify=True, min_version=ssl.TLSVersion.TLSv1_2):\n    context = ssl.create_default_context(purpose=ssl.Purpose.SERVER_AUTH, cafile=cafile)\n    context.minimum_version = min_version\n    if not verify:\n        context.check_hostname = False\n        context.verify_mode = ssl.CERT_NONE\n    else:\n        context.check_hostname = True\n        context.verify_mode = ssl.CERT_REQUIRED\n    context.options |= ssl.OP_NO_COMPRESSION\n    return context\n\n\ndef establish_tls_connection(host, port=443, timeout=10.0, cafile=None, verify=True,\n                             server_name=None, min_version=ssl.TLSVersion.TLSv1_2):\n    context = create_secure_context(cafile=cafile, verify=verify, min_version=min_version)\n    sni = server_name or host\n    raw_sock = socket.create_connection((host, port), timeout=timeout)\n    try:\n        tls_sock = context.wrap_socket(raw_sock, server_hostname=sni)\n    except Exception:\n        raw_sock.close()\n        raise\n    return tls_sock\n\n\ndef get_connection_info(tls_sock):\n    cert = tls_sock.getpeercert()\n    info = {\n        \"protocol\": tls_sock.version(),\n        \"cipher\": tls_sock.cipher(),\n        \"server_hostname\": tls_sock.server_hostname,\n        \"certificate\": cert,\n    }\n    return info\n\n\ndef send_request(tls_sock, host, path=\"/\"):\n    request = (\n        f\"GET {path} HTTP/1.1\\r\\n\"\n        f\"Host: {host}\\r\\n\"\n        \"User-Agent: secure-tls-client/1.0\\r\\n\"\n        \"Connection: close\\r\\n\\r\\n\"\n    ).encode(\"ascii\")\n    tls_sock.sendall(request)\n    chunks = []\n    while True:\n        data = tls_sock.recv(4096)\n        if not data:\n            break\n        chunks.append(data)\n    return b\"\".join(chunks)\n\n\ndef fetch_secure(host, port=443, path=\"/\", timeout=10.0, cafile=None, verify=True):\n    with establish_tls_connection(host, port, timeout, cafile, verify) as tls_sock:\n        info = get_connection_info(tls_sock)\n        response = send_request(tls_sock, host, path)\n    return info, response\n\n\ndef parse_args(argv):\n    parser = argparse.ArgumentParser(description=\"Establish a secure SSL/TLS connection to a remote server.\")\n    parser.add_argument(\"host\", help=\"Server hostname\")\n    parser.add_argument(\"-p\", \"--port\", type=int, default=443, help=\"Server port (default 443)\")\n    parser.add_argument(\"-P\", \"--path\", default=\"/\", help=\"HTTP path to request (default /)\")\n    parser.add_argument(\"-t\", \"--timeout\", type=float, default=10.0, help=\"Timeout in seconds\")\n    parser.add_argument(\"-c\", \"--cafile\", default=None, help=\"Custom CA bundle file\")\n    parser.add_argument(\"--no-verify\", action=\"store_true\", help=\"Disable certificate verification (insecure)\")\n    parser.add_argument(\"--body\", action=\"store_true\", help=\"Print full response body\")\n    return parser.parse_args(argv)\n\n\ndef main(argv=None):\n    args = parse_args(argv if argv is not None else sys.argv[1:])\n    try:\n        info, response = fetch_secure(\n            args.host,\n            port=args.port,\n            path=args.path,\n            timeout=args.timeout,\n            cafile=args.cafile,\n            verify=not args.no_verify,\n        )\n    except ssl.SSLCertVerificationError as e:\n        print(f\"Certificate verification failed: {e}\", file=sys.stderr)\n        return 1\n    except ssl.SSLError as e:\n        print(f\"TLS error: {e}\", file=sys.stderr)\n        return 1\n    except (socket.error, OSError) as e:\n        print(f\"Connection error: {e}\", file=sys.stderr)\n        return 1\n\n    print(f\"Protocol: {info['protocol']}\")\n    print(f\"Cipher: {info['cipher']}\")\n    subject = info[\"certificate\"].get(\"subject\",()) if info[\"certificate\"] else ()\n    print(f\"Certificate subject: {subject}\")\n    issuer = info[\"certificate\"].get(\"issuer\", ()) if info[\"certificate\"] else ()\n    print(f\"Certificate issuer: {issuer}\")\n    not_after = info[\"certificate\"].get(\"notAfter\") if info[\"certificate\"] else None\n    print(f\"Certificate expires: {not_after}\")\n\n    text = response.decode(\"utf-8\", errors=\"replace\")\n    header_end = text.find(\"\\r\\n\\r\\n\")\n    if header_end != -1:\n        status_line = text.split(\"\\r\\n\", 1)[0]\n        print(f\"Response status: {status_line}\")\n        if args.body:\n            print(text[header_end + 4:])\n    else:\n        print(text)\n    return 0\n\n\nif __name__ == \"__main__\":\n    sys.exit(main())",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 156,
+      "completion_tokens": 1725,
+      "total_tokens": 1881,
+      "cost": 0.0008781,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008781,
+        "upstream_inference_prompt_cost": 1.56e-05,
+        "upstream_inference_completions_cost": 0.0008625
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

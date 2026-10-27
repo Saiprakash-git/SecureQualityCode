@@ -1,0 +1,7 @@
+Task113_qwen3-8-flash_c.c:84:40: warning: passing 'char **' to parameter of type 'const char *const *' discards qualifiers in nested pointer types [-Wincompatible-pointer-types-discards-qualifiers]
+   84 |     char *result = concatenate_strings(strings, count);
+      |                                        ^~~~~~~
+Task113_qwen3-8-flash_c.c:13:53: note: passing argument to parameter 'strings' here
+   13 | static char *concatenate_strings(const char *const *strings, size_t count)
+      |                                                     ^
+1 warning generated.

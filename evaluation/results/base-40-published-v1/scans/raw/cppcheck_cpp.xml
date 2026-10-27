@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results version="2">
+    <cppcheck version="2.13.0"/>
+    <errors>
+        <error id="noExplicitConstructor" severity="style" msg="Class &apos;FileProcessor&apos; has a constructor with 1 argument that is not explicit." verbose="Class &apos;FileProcessor&apos; has a constructor with 1 argument that is not explicit. Such, so called &quot;Converting constructors&quot;, should in general be explicit for type safety reasons as that prevents unintended implicit conversions." cwe="398" file0="src/cpp/0001.cpp">
+            <location file="src/cpp/0001.cpp" line="20" column="5"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0010.cpp">
+            <location file="src/cpp/0010.cpp" line="19" column="19"/>
+        </error>
+        <error id="containerOutOfBounds" severity="error" msg="Out of bounds access in expression &apos;result.pop_back()&apos; because &apos;result&apos; is empty." verbose="Out of bounds access in expression &apos;result.pop_back()&apos; because &apos;result&apos; is empty." cwe="398" file0="src/cpp/0019.cpp">
+            <location file="src/cpp/0019.cpp" line="17" column="20" info="Access out of bounds"/>
+            <location file="src/cpp/0019.cpp" line="12" column="16" info="Assuming condition is false"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::transform algorithm instead of a raw loop." verbose="Consider using std::transform algorithm instead of a raw loop." cwe="398" file0="src/cpp/0040.cpp">
+            <location file="src/cpp/0040.cpp" line="13" column="11"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0049.cpp">
+            <location file="src/cpp/0049.cpp" line="41" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="No pair for character (&quot;). Can&apos;t process file. File is either invalid or unicode, which is currently not supported." verbose="No pair for character (&quot;). Can&apos;t process file. File is either invalid or unicode, which is currently not supported.">
+            <location file="src/cpp/0058.cpp" line="20" column="74"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;token&apos; can be reduced." verbose="The scope of the variable &apos;token&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/cpp/0052.cpp">
+            <location file="src/cpp/0052.cpp" line="14" column="17"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0052.cpp">
+            <location file="src/cpp/0052.cpp" line="78" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0064.cpp">
+            <location file="src/cpp/0064.cpp" line="8" column="35"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0064.cpp">
+            <location file="src/cpp/0064.cpp" line="39" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;fp&apos; can be reduced." verbose="The scope of the variable &apos;fp&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/cpp/0076.cpp">
+            <location file="src/cpp/0076.cpp" line="14" column="11"/>
+        </error>
+        <error id="constParameterCallback" severity="style" msg="Parameter &apos;ptr&apos; can be declared as pointer to const. However it seems that &apos;write_data&apos; is a callback function, if &apos;ptr&apos; is declared with const you might also need to cast function pointer(s)." verbose="Parameter &apos;ptr&apos; can be declared as pointer to const. However it seems that &apos;write_data&apos; is a callback function, if &apos;ptr&apos; is declared with const you might also need to cast function pointer(s)." cwe="398" file0="src/cpp/0076.cpp">
+            <location file="src/cpp/0076.cpp" line="7" column="25" info="Parameter &apos;ptr&apos; can be declared as pointer to const"/>
+            <location file="src/cpp/0076.cpp" line="21" column="55" info="You might need to cast the function pointer here"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;line&apos; can be reduced." verbose="The scope of the variable &apos;line&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/cpp/0085.cpp">
+            <location file="src/cpp/0085.cpp" line="10" column="17"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::transform algorithm instead of a raw loop." verbose="Consider using std::transform algorithm instead of a raw loop." cwe="398" file0="src/cpp/0100.cpp">
+            <location file="src/cpp/0100.cpp" line="11" column="11"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::transform algorithm instead of a raw loop." verbose="Consider using std::transform algorithm instead of a raw loop." cwe="398" file0="src/cpp/0100.cpp">
+            <location file="src/cpp/0100.cpp" line="19" column="11"/>
+        </error>
+        <error id="constParameterReference" severity="style" msg="Parameter &apos;arr&apos; can be declared as reference to const" verbose="Parameter &apos;arr&apos; can be declared as reference to const" cwe="398" file0="src/cpp/0112.cpp">
+            <location file="src/cpp/0112.cpp" line="9" column="33" info="Parameter &apos;arr&apos; can be declared as reference to const"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0082.cpp">
+            <location file="src/cpp/0082.cpp" line="107" column="23"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0082.cpp">
+            <location file="src/cpp/0082.cpp" line="118" column="62"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0082.cpp">
+            <location file="src/cpp/0082.cpp" line="134" column="62"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;header&apos; can be declared as pointer to const" verbose="Variable &apos;header&apos; can be declared as pointer to const" cwe="398" file0="src/cpp/0082.cpp">
+            <location file="src/cpp/0082.cpp" line="125" column="20" info="Variable &apos;header&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="containerOutOfBounds" severity="error" msg="Out of bounds access in expression &apos;domain.pop_back()&apos; because &apos;domain&apos; is empty." verbose="Out of bounds access in expression &apos;domain.pop_back()&apos; because &apos;domain&apos; is empty." cwe="398" file0="src/cpp/0082.cpp">
+            <location file="src/cpp/0082.cpp" line="43" column="20" info="Access out of bounds"/>
+            <location file="src/cpp/0082.cpp" line="38" column="40" info="Assuming condition is false"/>
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;DNSAnswer::name&apos; is never used." verbose="struct member &apos;DNSAnswer::name&apos; is never used." cwe="563" file0="src/cpp/0082.cpp">
+            <location file="src/cpp/0082.cpp" line="26" column="17"/>
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;DNSAnswer::type&apos; is never used." verbose="struct member &apos;DNSAnswer::type&apos; is never used." cwe="563" file0="src/cpp/0082.cpp">
+            <location file="src/cpp/0082.cpp" line="27" column="14"/>
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;DNSAnswer::class_&apos; is never used." verbose="struct member &apos;DNSAnswer::class_&apos; is never used." cwe="563" file0="src/cpp/0082.cpp">
+            <location file="src/cpp/0082.cpp" line="28" column="14"/>
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;DNSAnswer::ttl&apos; is never used." verbose="struct member &apos;DNSAnswer::ttl&apos; is never used." cwe="563" file0="src/cpp/0082.cpp">
+            <location file="src/cpp/0082.cpp" line="29" column="14"/>
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;DNSAnswer::rdlength&apos; is never used." verbose="struct member &apos;DNSAnswer::rdlength&apos; is never used." cwe="563" file0="src/cpp/0082.cpp">
+            <location file="src/cpp/0082.cpp" line="30" column="14"/>
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;DNSAnswer::rdata&apos; is never used." verbose="struct member &apos;DNSAnswer::rdata&apos; is never used." cwe="563" file0="src/cpp/0082.cpp">
+            <location file="src/cpp/0082.cpp" line="31" column="17"/>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;str&apos; should be passed by const reference." verbose="Parameter &apos;str&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="src/cpp/0124.cpp">
+            <location file="src/cpp/0124.cpp" line="8" column="23" info="Function parameter &apos;str&apos; should be passed by const reference."/>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;arr&apos; should be passed by const reference." verbose="Parameter &apos;arr&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="src/cpp/0127.cpp">
+            <location file="src/cpp/0127.cpp" line="6" column="34" info="Function parameter &apos;arr&apos; should be passed by const reference."/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0127.cpp">
+            <location file="src/cpp/0127.cpp" line="9" column="13"/>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;numbers&apos; should be passed by const reference." verbose="Parameter &apos;numbers&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="src/cpp/0133.cpp">
+            <location file="src/cpp/0133.cpp" line="3" column="40" info="Function parameter &apos;numbers&apos; should be passed by const reference."/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0130.cpp">
+            <location file="src/cpp/0130.cpp" line="24" column="19"/>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;arr&apos; should be passed by const reference." verbose="Parameter &apos;arr&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="src/cpp/0142.cpp">
+            <location file="src/cpp/0142.cpp" line="7" column="40" info="Function parameter &apos;arr&apos; should be passed by const reference."/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0169.cpp">
+            <location file="src/cpp/0169.cpp" line="47" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;entry&apos; can be reduced." verbose="The scope of the variable &apos;entry&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/cpp/0172.cpp">
+            <location file="src/cpp/0172.cpp" line="17" column="18"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;attr&apos; can be reduced." verbose="The scope of the variable &apos;attr&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/cpp/0172.cpp">
+            <location file="src/cpp/0172.cpp" line="19" column="11"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;vals&apos; can be reduced." verbose="The scope of the variable &apos;vals&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/cpp/0172.cpp">
+            <location file="src/cpp/0172.cpp" line="21" column="12"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0172.cpp">
+            <location file="src/cpp/0172.cpp" line="6" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0175.cpp">
+            <location file="src/cpp/0175.cpp" line="60" column="30"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;plaintext&apos; can be declared as pointer to const" verbose="Variable &apos;plaintext&apos; can be declared as pointer to const" cwe="398" file0="src/cpp/0175.cpp">
+            <location file="src/cpp/0175.cpp" line="60" column="18" info="Variable &apos;plaintext&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="constVariable" severity="style" msg="Variable &apos;key&apos; can be declared as const array" verbose="Variable &apos;key&apos; can be declared as const array" cwe="398" file0="src/cpp/0175.cpp">
+            <location file="src/cpp/0175.cpp" line="53" column="17" info="Variable &apos;key&apos; can be declared as const array"/>
+        </error>
+        <error id="constVariable" severity="style" msg="Variable &apos;iv&apos; can be declared as const array" verbose="Variable &apos;iv&apos; can be declared as const array" cwe="398" file0="src/cpp/0175.cpp">
+            <location file="src/cpp/0175.cpp" line="50" column="17" info="Variable &apos;iv&apos; can be declared as const array"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0184.cpp">
+            <location file="src/cpp/0184.cpp" line="18" column="10"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0184.cpp">
+            <location file="src/cpp/0184.cpp" line="32" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="unknownMacro" severity="error" msg="There is an unknown macro here somewhere. Configuration is required. If HTTP_PROTOTYPE is a macro then please configure it." verbose="There is an unknown macro here somewhere. Configuration is required. If HTTP_PROTOTYPE is a macro then please configure it." file0="src/cpp/0223.cpp">
+            <location file="src/cpp/0223.cpp" line="10" column="5"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0202.cpp">
+            <location file="src/cpp/0202.cpp" line="64" column="23"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0202.cpp">
+            <location file="src/cpp/0202.cpp" line="74" column="75"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0202.cpp">
+            <location file="src/cpp/0202.cpp" line="90" column="83"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::transform algorithm instead of a raw loop." verbose="Consider using std::transform algorithm instead of a raw loop." cwe="398" file0="src/cpp/0217.cpp">
+            <location file="src/cpp/0217.cpp" line="26" column="11"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::transform algorithm instead of a raw loop." verbose="Consider using std::transform algorithm instead of a raw loop." cwe="398" file0="src/cpp/0217.cpp">
+            <location file="src/cpp/0217.cpp" line="33" column="11"/>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;stops&apos; should be passed by const reference." verbose="Parameter &apos;stops&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="src/cpp/0241.cpp">
+            <location file="src/cpp/0241.cpp" line="3" column="51" info="Function parameter &apos;stops&apos; should be passed by const reference."/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0241.cpp">
+            <location file="src/cpp/0241.cpp" line="6" column="15"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0247.cpp">
+            <location file="src/cpp/0247.cpp" line="7" column="13"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0250.cpp">
+            <location file="src/cpp/0250.cpp" line="16" column="19"/>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;arr&apos; should be passed by const reference." verbose="Parameter &apos;arr&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="src/cpp/0262.cpp">
+            <location file="src/cpp/0262.cpp" line="4" column="42" info="Function parameter &apos;arr&apos; should be passed by const reference."/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;data&apos; can be reduced." verbose="The scope of the variable &apos;data&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/cpp/0289.cpp">
+            <location file="src/cpp/0289.cpp" line="22" column="17"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0304.cpp">
+            <location file="src/cpp/0304.cpp" line="7" column="35"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;fp&apos; can be reduced." verbose="The scope of the variable &apos;fp&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/cpp/0316.cpp">
+            <location file="src/cpp/0316.cpp" line="14" column="11"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;url&apos; can be reduced." verbose="The scope of the variable &apos;url&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/cpp/0316.cpp">
+            <location file="src/cpp/0316.cpp" line="16" column="11"/>
+        </error>
+        <error id="constParameterCallback" severity="style" msg="Parameter &apos;ptr&apos; can be declared as pointer to const. However it seems that &apos;write_data&apos; is a callback function, if &apos;ptr&apos; is declared with const you might also need to cast function pointer(s)." verbose="Parameter &apos;ptr&apos; can be declared as pointer to const. However it seems that &apos;write_data&apos; is a callback function, if &apos;ptr&apos; is declared with const you might also need to cast function pointer(s)." cwe="398" file0="src/cpp/0316.cpp">
+            <location file="src/cpp/0316.cpp" line="7" column="25" info="Parameter &apos;ptr&apos; can be declared as pointer to const"/>
+            <location file="src/cpp/0316.cpp" line="24" column="55" info="You might need to cast the function pointer here"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;filename&apos; can be declared as pointer to const" verbose="Variable &apos;filename&apos; can be declared as pointer to const" cwe="398" file0="src/cpp/0316.cpp">
+            <location file="src/cpp/0316.cpp" line="17" column="11" info="Variable &apos;filename&apos; can be declared as pointer to const"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;storedPassword&apos; can be reduced." verbose="The scope of the variable &apos;storedPassword&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/cpp/0319.cpp">
+            <location file="src/cpp/0319.cpp" line="9" column="17"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0322.cpp">
+            <location file="src/cpp/0322.cpp" line="44" column="19"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0322.cpp">
+            <location file="src/cpp/0322.cpp" line="49" column="60"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0322.cpp">
+            <location file="src/cpp/0322.cpp" line="56" column="57"/>
+        </error>
+        <error id="unusedVariable" severity="style" msg="Unused variable: p" verbose="Unused variable: p" cwe="563" file0="src/cpp/0331.cpp">
+            <location file="src/cpp/0331.cpp" line="23" column="40"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;a&apos; can be reduced." verbose="The scope of the variable &apos;a&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/cpp/0340.cpp">
+            <location file="src/cpp/0340.cpp" line="8" column="10"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;password[i]&apos; is assigned a value that is never used." verbose="Variable &apos;password[i]&apos; is assigned a value that is never used." cwe="563" file0="src/cpp/0340.cpp">
+            <location file="src/cpp/0340.cpp" line="14" column="25"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;password[i]&apos; is assigned a value that is never used." verbose="Variable &apos;password[i]&apos; is assigned a value that is never used." cwe="563" file0="src/cpp/0340.cpp">
+            <location file="src/cpp/0340.cpp" line="22" column="25"/>
+        </error>
+        <error id="constParameterReference" severity="style" msg="Parameter &apos;arr&apos; can be declared as reference to const" verbose="Parameter &apos;arr&apos; can be declared as reference to const" cwe="398" file0="src/cpp/0352.cpp">
+            <location file="src/cpp/0352.cpp" line="5" column="38" info="Parameter &apos;arr&apos; can be declared as reference to const"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0367.cpp">
+            <location file="src/cpp/0367.cpp" line="7" column="13"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0370.cpp">
+            <location file="src/cpp/0370.cpp" line="13" column="19"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0382.cpp">
+            <location file="src/cpp/0382.cpp" line="7" column="16"/>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;numbers&apos; should be passed by const reference." verbose="Parameter &apos;numbers&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="src/cpp/0385.cpp">
+            <location file="src/cpp/0385.cpp" line="5" column="51" info="Function parameter &apos;numbers&apos; should be passed by const reference."/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0409.cpp">
+            <location file="src/cpp/0409.cpp" line="22" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0412.cpp">
+            <location file="src/cpp/0412.cpp" line="7" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;password&apos; should be passed by const reference." verbose="Parameter &apos;password&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="src/cpp/0418.cpp">
+            <location file="src/cpp/0418.cpp" line="6" column="29" info="Function parameter &apos;password&apos; should be passed by const reference."/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0424.cpp">
+            <location file="src/cpp/0424.cpp" line="7" column="35"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;url&apos; can be reduced." verbose="The scope of the variable &apos;url&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/cpp/0436.cpp">
+            <location file="src/cpp/0436.cpp" line="13" column="12"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;fp&apos; can be reduced." verbose="The scope of the variable &apos;fp&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398" file0="src/cpp/0436.cpp">
+            <location file="src/cpp/0436.cpp" line="16" column="11"/>
+        </error>
+        <error id="constParameterCallback" severity="style" msg="Parameter &apos;ptr&apos; can be declared as pointer to const. However it seems that &apos;write_data&apos; is a callback function, if &apos;ptr&apos; is declared with const you might also need to cast function pointer(s)." verbose="Parameter &apos;ptr&apos; can be declared as pointer to const. However it seems that &apos;write_data&apos; is a callback function, if &apos;ptr&apos; is declared with const you might also need to cast function pointer(s)." cwe="398" file0="src/cpp/0436.cpp">
+            <location file="src/cpp/0436.cpp" line="7" column="25" info="Parameter &apos;ptr&apos; can be declared as pointer to const"/>
+            <location file="src/cpp/0436.cpp" line="22" column="55" info="You might need to cast the function pointer here"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0442.cpp">
+            <location file="src/cpp/0442.cpp" line="19" column="17"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0442.cpp">
+            <location file="src/cpp/0442.cpp" line="24" column="62"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0442.cpp">
+            <location file="src/cpp/0442.cpp" line="27" column="39"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0451.cpp">
+            <location file="src/cpp/0451.cpp" line="20" column="34"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0451.cpp">
+            <location file="src/cpp/0451.cpp" line="22" column="22"/>
+        </error>
+        <error id="constParameterReference" severity="style" msg="Parameter &apos;arr&apos; can be declared as reference to const" verbose="Parameter &apos;arr&apos; can be declared as reference to const" cwe="398" file0="src/cpp/0472.cpp">
+            <location file="src/cpp/0472.cpp" line="5" column="33" info="Parameter &apos;arr&apos; can be declared as reference to const"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::transform algorithm instead of a raw loop." verbose="Consider using std::transform algorithm instead of a raw loop." cwe="398" file0="src/cpp/0481.cpp">
+            <location file="src/cpp/0481.cpp" line="23" column="17"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::any_of algorithm instead of a raw loop." verbose="Consider using std::any_of algorithm instead of a raw loop." cwe="398" file0="src/cpp/0484.cpp">
+            <location file="src/cpp/0484.cpp" line="10" column="40"/>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;arr&apos; should be passed by const reference." verbose="Parameter &apos;arr&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="src/cpp/0487.cpp">
+            <location file="src/cpp/0487.cpp" line="4" column="40" info="Function parameter &apos;arr&apos; should be passed by const reference."/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0487.cpp">
+            <location file="src/cpp/0487.cpp" line="7" column="13"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::accumulate algorithm instead of a raw loop." verbose="Consider using std::accumulate algorithm instead of a raw loop." cwe="398" file0="src/cpp/0490.cpp">
+            <location file="src/cpp/0490.cpp" line="18" column="19"/>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;arr&apos; should be passed by const reference." verbose="Parameter &apos;arr&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="src/cpp/0493.cpp">
+            <location file="src/cpp/0493.cpp" line="4" column="36" info="Function parameter &apos;arr&apos; should be passed by const reference."/>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;arr&apos; should be passed by const reference." verbose="Parameter &apos;arr&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="src/cpp/0502.cpp">
+            <location file="src/cpp/0502.cpp" line="4" column="42" info="Function parameter &apos;arr&apos; should be passed by const reference."/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::any_of algorithm instead of a raw loop." verbose="Consider using std::any_of algorithm instead of a raw loop." cwe="398" file0="src/cpp/0520.cpp">
+            <location file="src/cpp/0520.cpp" line="21" column="31"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::transform algorithm instead of a raw loop." verbose="Consider using std::transform algorithm instead of a raw loop." cwe="398" file0="src/cpp/0520.cpp">
+            <location file="src/cpp/0520.cpp" line="33" column="15"/>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::transform algorithm instead of a raw loop." verbose="Consider using std::transform algorithm instead of a raw loop." cwe="398" file0="src/cpp/0520.cpp">
+            <location file="src/cpp/0520.cpp" line="37" column="15"/>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;names&apos; should be passed by const reference." verbose="Parameter &apos;names&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="src/cpp/0514.cpp">
+            <location file="src/cpp/0514.cpp" line="4" column="44" info="Function parameter &apos;names&apos; should be passed by const reference."/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0523.cpp">
+            <location file="src/cpp/0523.cpp" line="11" column="12"/>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;argv&apos; can be declared as const array" verbose="Parameter &apos;argv&apos; can be declared as const array" cwe="398" file0="src/cpp/0529.cpp">
+            <location file="src/cpp/0529.cpp" line="4" column="26" info="Parameter &apos;argv&apos; can be declared as const array"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0535.cpp">
+            <location file="src/cpp/0535.cpp" line="23" column="21"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0550.cpp">
+            <location file="src/cpp/0550.cpp" line="10" column="12"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0562.cpp">
+            <location file="src/cpp/0562.cpp" line="19" column="21"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0562.cpp">
+            <location file="src/cpp/0562.cpp" line="30" column="63"/>
+        </error>
+        <error id="cstyleCast" severity="style" msg="C-style pointer casting" verbose="C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected." cwe="398" file0="src/cpp/0562.cpp">
+            <location file="src/cpp/0562.cpp" line="45" column="86"/>
+        </error>
+        <error id="noExplicitConstructor" severity="style" msg="Class &apos;SensitiveData&apos; has a constructor with 1 argument that is not explicit." verbose="Class &apos;SensitiveData&apos; has a constructor with 1 argument that is not explicit. Such, so called &quot;Converting constructors&quot;, should in general be explicit for type safety reasons as that prevents unintended implicit conversions." cwe="398" file0="src/cpp/0580.cpp">
+            <location file="src/cpp/0580.cpp" line="9" column="5"/>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;data&apos; should be passed by const reference." verbose="Parameter &apos;data&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="src/cpp/0580.cpp">
+            <location file="src/cpp/0580.cpp" line="9" column="31" info="Function parameter &apos;data&apos; should be passed by const reference."/>
+        </error>
+        <error id="constParameterReference" severity="style" msg="Parameter &apos;arr&apos; can be declared as reference to const" verbose="Parameter &apos;arr&apos; can be declared as reference to const" cwe="398" file0="src/cpp/0592.cpp">
+            <location file="src/cpp/0592.cpp" line="5" column="38" info="Parameter &apos;arr&apos; can be declared as reference to const"/>
+        </error>
+        <error id="noCopyConstructor" severity="warning" msg="Class &apos;Stack&apos; does not have a copy constructor which is recommended since it has dynamic memory/resource allocation(s)." verbose="Class &apos;Stack&apos; does not have a copy constructor which is recommended since it has dynamic memory/resource allocation(s)." cwe="398" file0="src/cpp/0595.cpp">
+            <location file="src/cpp/0595.cpp" line="12" column="9"/>
+        </error>
+        <error id="noOperatorEq" severity="warning" msg="Class &apos;Stack&apos; does not have a operator= which is recommended since it has dynamic memory/resource allocation(s)." verbose="Class &apos;Stack&apos; does not have a operator= which is recommended since it has dynamic memory/resource allocation(s)." cwe="398" file0="src/cpp/0595.cpp">
+            <location file="src/cpp/0595.cpp" line="12" column="9"/>
+        </error>
+        <error id="noDestructor" severity="warning" msg="Class &apos;Stack&apos; does not have a destructor which is recommended since it has dynamic memory/resource allocation(s)." verbose="Class &apos;Stack&apos; does not have a destructor which is recommended since it has dynamic memory/resource allocation(s)." cwe="398" file0="src/cpp/0595.cpp">
+            <location file="src/cpp/0595.cpp" line="12" column="9"/>
+        </error>
+        <error id="noExplicitConstructor" severity="style" msg="Class &apos;Stack&apos; has a constructor with 1 argument that is not explicit." verbose="Class &apos;Stack&apos; has a constructor with 1 argument that is not explicit. Such, so called &quot;Converting constructors&quot;, should in general be explicit for type safety reasons as that prevents unintended implicit conversions." cwe="398" file0="src/cpp/0595.cpp">
+            <location file="src/cpp/0595.cpp" line="10" column="5"/>
+        </error>
+        <error id="unsafeClassCanLeak" severity="style" msg="Class &apos;Stack&apos; is unsafe, &apos;Stack::stackArray&apos; can leak by wrong usage." verbose="The class &apos;Stack&apos; is unsafe, wrong usage can cause memory/resource leaks for &apos;Stack::stackArray&apos;. This can for instance be fixed by adding proper cleanup in the destructor." cwe="398" file0="src/cpp/0595.cpp">
+            <location file="src/cpp/0595.cpp" line="7" column="10"/>
+        </error>
+    </errors>
+</results>

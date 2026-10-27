@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1792945914-mF39bFnqyAjkyHfF6CSW",
+  "finish_reason": "stop",
+  "input_tokens": 105,
+  "output_tokens": 776,
+  "cost_usd": 0.00298875,
+  "raw_response": {
+    "id": "gen-1792945914-mF39bFnqyAjkyHfF6CSW",
+    "object": "chat.completion",
+    "created": 1792945914,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "#include <iostream>\n#include <string>\n#include <cstdlib>\n\nint displayFileContents(const std::string& filename) {\n    if (filename.empty()) {\n        return -1;\n    }\n\n#if defined(_WIN32) || defined(_WIN64)\n    std::string command = \"type \\\"\" + filename + \"\\\"\";\n#else\n    std::string command = \"cat \\\"\" + filename + \"\\\"\";\n#endif\n\n    return std::system(command.c_str());\n}\n\nint main() {\n    std::cout << \"Enter filename: \";\n    std::string filename;\n    if (std::getline(std::cin, filename)) {\n        return displayFileContents(filename);\n    }\n    return 1;\n}",
+          "refusal": null,
+          "reasoning": "**Processing User Input**\n\nI'm currently focused on the core task of accepting a filename directly from the user. My current approach involves structuring the C++ code to ensure this input is handled as a parameter for the relevant functions.\n\n**Implementing File Display**\n\nI'm now integrating the logic to execute system commands for displaying file content, dynamically choosing between `type` and `cat` based on the operating system. The plan is to wrap the filename appropriately for system execution.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Processing User Input**\n\nI'm currently focused on the core task of accepting a filename directly from the user. My current approach involves structuring the C++ code to ensure this input is handled as a parameter for the relevant functions.\n\n**Implementing File Display**\n\nI'm now integrating the logic to execute system commands for displaying file content, dynamically choosing between `type` and `cat` based on the operating system. The plan is to wrap the filename appropriately for system execution.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 105,
+      "completion_tokens": 776,
+      "total_tokens": 881,
+      "cost": 0.00298875,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00298875,
+        "upstream_inference_prompt_cost": 7.875e-05,
+        "upstream_inference_completions_cost": 0.00291
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 602,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

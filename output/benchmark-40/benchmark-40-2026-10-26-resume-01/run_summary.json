@@ -1,0 +1,30 @@
+{
+  "run_id": "benchmark-40-2026-10-26-resume-01",
+  "end_time": "20261026_173652",
+  "tasks_attempted": 641,
+  "planned_combinations": 800,
+  "tasks_success": 641,
+  "tasks_error": 0,
+  "truncated_accepted": 0,
+  "total_input_tokens": 0,
+  "total_output_tokens": 0,
+  "start_combination": 1,
+  "prior_spend_usd": 1.460938,
+  "resume_from_runs": [
+    "F:\\MajorProject-VII\\output\\benchmark-40\\benchmark-40-2026-10-26-real"
+  ],
+  "prior_runs_cost_usd": 0.619167,
+  "this_run_cost_usd": 0.0,
+  "total_cost_usd": 2.080105,
+  "provisional_cost_usd": 0.0,
+  "unreconciled_spend_usd": 0.13,
+  "cap_basis_usd": 2.210105,
+  "skipped_complete": 159,
+  "combinations_finished_overall": 800,
+  "combinations_not_finished": 0,
+  "concurrency": 3,
+  "stopped_early": false,
+  "stop_reason": null,
+  "budget_note": "Each request reserves its worst-case cost (reserve_usd) before it is sent.",
+  "dry_run": true
+}

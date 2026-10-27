@@ -1,0 +1,3 @@
+LdapUserLookup.java:158:62: compiler.err.premature.eof
+LdapUserLookup.java:156:9: compiler.err.try.without.catch.finally.or.resource.decls
+2 errors

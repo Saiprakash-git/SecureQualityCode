@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793016446-eyJsZ166wFcVET9qPsWb",
+  "finish_reason": "stop",
+  "input_tokens": 329,
+  "output_tokens": 83,
+  "cost_usd": 7.44e-05,
+  "raw_response": {
+    "id": "gen-1793016446-eyJsZ166wFcVET9qPsWb",
+    "object": "chat.completion",
+    "created": 1793016446,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "def remove_smallest(numbers):\n    if not numbers:\n        return []\n    index = numbers.index(min(numbers))\n    return numbers[:index] + numbers[index + 1:]",
+          "refusal": null,
+          "reasoning": "**Producing code for Task**\n\nI need to create a Python function called `remove_smallest(numbers)`. The goal is to ensure that the function does not mutate the input list. I'll likely find the index of the smallest number using `min`, then I'll need to concatenate the list without that element. I should also keep in mind to return a new list as the result, and I'll start by handling the case for an empty list properly.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Producing code for Task**\n\nI need to create a Python function called `remove_smallest(numbers)`. The goal is to ensure that the function does not mutate the input list. I'll likely find the index of the smallest number using `min`, then I'll need to concatenate the list without that element. I should also keep in mind to return a new list as the result, and I'll start by handling the case for an empty list properly.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30KBSs2qmShMPr4e14OZv8vDufp-yOIp6OVw8KSk-4SrCtobTzTuJukMOPo-fpVq-zwdGnXHQ5duc5F8t0pTApNKQfgI8vNYZhDgtx3fYybSD_plL3s-lUpUTQ-XJnVjcxY_S0wWwM9i7ASqoBaegzAwv5kyic8fy6phElbFseyVrPdbXgpeplZW-aFzzQCo9gGr3WZVSPwy-yN81iihp60VJrAlxF15FdcdO52_NfjjApnGemxu-FYEkcy_eBD6vb39QSevcPLPu7bpA1dyYBpFopu_2HaA4cnf9MM9NKW3isJE7LerBo3JEQUtVGFtUKpiC2OZK2uh3SW81Yt3hs5pLJNcVp954yQ2tRs0wluRxVfXYW4ZupWZpjbiE3hsvV6ZYFV1aX2q3y0sY4xk4MFInrEPCcasnCDVGNIS4TWqRcbXv0twyfkD6AulK-f0diry6iwKN1szJq_zaod5TH2KYc3ZVnJutDfMMNs9zx59ZRTGhG4CXOfopM0jZlA9jGz2Iw2sVmd24eqlhnpYlYILnM0NgWsVTDC4sQpgQYYOsLVBwJJb-cQ9_q6YC337u0MoIwr-IKWEzH7mL7BkA7vCwYuLOQiGQlOSM7S4oKth3H5SKQkSeaJtzizYscMy1P-7lcPEy-3dskH5kgV9QtT-QupShap83iK9_hvsdM3axRNA5idGzU5ARYVqj0GT6ecfh1ks1KXcOsfGmBldT4buAlRGuIgFySn6pIVVFzPWre3UfbnpJ3hRolo6JII2H89E9lNdIKy7zXQrwwkE0Z4L7w6pXrijdLJtqopJ1HE5Bsd8BdckQYsBq-jpHPJHjOGYkJ406cSSvv7_5xdR6IAJdpX0Rt_iVHCVNaHv08qnfXUYdSGmA5XJosql53IEzH8we6SlZFEr2umXkoHjfMok3ayOEsSZ-pVGdVVxx8ajfgsilq9g_U3Jb_EdgesnNR2kvdiaWMO8Te7KT-VTr96uaO0vZzO7sVwdvPhqIZZ5VxqNCxMo8CEaAiqXc63q3gK7GoLhJhf2YK3kpGmPoAbQwTuj0Ir6QzW845pyWA5YbVHkwLTFbPYatmNZLf7vg7FNEcBjDJKo1xO5aWjMZaSLmR8BDcvW0h2Be5l847LuzzWXPNn2SadBxTtrrIJPos9m-i-vJ3vB5imUDCTgtYe1-1fASV_FhNvAWvt0bBuFc7xqgRvWd9spOh2g9qPYGQdKjZnhgkIt7WqOolIu9zV1rF2V5do6XCbTODL-maDagjx4Ic0UQHhcxcq45B8IrZO_7bCVk2nk7eEkmJ9rf0DnpSBcitRvVbYEH8MITaS_Mmii4R1uaSqnQiNHal-2do_BSaZM3Davm-XU4xspdGp58Q__RFbJiOCm6VKrdRNJfTvsud7vn2P3Pfi2dkkMJFrL3y2Hwx4-1jzvJK4aTtmXyBh7FWrQaDIa8GElyT8EL85352M-izSOQMYq5qq-USkPOYU-lnrUCAbS60dwKgEKsdvwgUMW-rOcCA45j2gMEHita1vbuFAE1LZA2JchEeBk2tDUl1adtAyod5Jx1YSlb0qZUUPF_-a6dHGodNLCfFpjtPWdiVsjljrQjUPGo5ZEiJM4mUKoCckBXZ4l78vi8pL0cME6EHh1o4kSVv6bfA1gA732H0jMUtbu8PqEpeyoKP8T_qni4iUTfctNDeMsiIeAd_nUSlO4Z5-BOBiqGHHw_2XxWreUUekBp-YMid8jV0uh03gxmuKImev1O9ftGA4BI_GrJ79JuohcHpASkt86jO7y4Ld_0f1ZnCvGdV5WofJDUKprwCg_QTnfi9_4LeuqRKLp3Hwu8xMpXKPuvAq-Gxa3sbtzQ2tk7i6Ovb05vHkDQajxqBb9QkLlmYHkCTNxO4A6pGhB_aBtDViOhsE28GZFN-ZLezjOMBKRo6K5TxOpsqACA01oeXuJNb9hWz9Px-kfAoYF5SDUEIfoCbPE8WhOilfsp91y-zsORewFFg6JEwW3cdg8ALccTXKYSYn4iwOAJZq-GCKrt_KjbLTB9sa2_PSte5Grz_83ajI9kqclCISZ14a8WPHA3UWh1yiP7Tv2Ag4lV8fQ5V51MYKr0UzF75VDGM8bmAw286Yp.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0500881d061906cb016adf427fa2c887d1b27311311ddb64d1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 329,
+      "completion_tokens": 83,
+      "total_tokens": 412,
+      "cost": 7.44e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 7.44e-05,
+        "upstream_inference_prompt_cost": 3.29e-05,
+        "upstream_inference_completions_cost": 4.15e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 42,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

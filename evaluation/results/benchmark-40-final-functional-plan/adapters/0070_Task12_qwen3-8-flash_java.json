@@ -1,0 +1,32 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "Task12_OPENAI_gpt_4o.high",
+   "target": "Solution.high",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "String",
+    "params": [
+     "String inputString"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "String s"
+    ],
+    "return": "String",
+    "static": true
+   }
+  }
+ ],
+ "combo_index": 70,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_012/qwen3-8-flash/Task12_qwen3-8-flash_java.java",
+ "artifact_sha256": "3191dd47f9be1dde2187d7f32f6178a49fb51dcf4b526df139003584f9563d44",
+ "oracle_test_path": "src/test/java/gtp4o/task12/Task12_TestCase.java",
+ "oracle_test_sha256": "9d0bf88cd466e108e53a4c7d433908829609deb08181b23fab22bad7d7bcccfe",
+ "author": "functional.py draft_adapter (static)"
+}

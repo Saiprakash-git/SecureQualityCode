@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793017548-Ww1Bpftw3ubGTzGr6zsE",
+  "finish_reason": "stop",
+  "input_tokens": 237,
+  "output_tokens": 3941,
+  "cost_usd": 0.0019942,
+  "raw_response": {
+    "id": "gen-1793017548-Ww1Bpftw3ubGTzGr6zsE",
+    "object": "chat.completion",
+    "created": 1793017548,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#define _GNU_SOURCE\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <ldap.h>\n\n#define LDAP_URI \"ldap://localhost:389\"\n\nstatic int build_base_dn(const char *domain, char *out, size_t outsz)\n{\n    char tmp[512];\n    char *tok, *saveptr = NULL;\n    size_t used = 0;\n\n    if (!domain || !out || outsz == 0)\n        return -1;\n\n    if (strlen(domain) >= sizeof(tmp))\n        return -1;\n\n    strcpy(tmp, domain);\n    out[0] = '\\0';\n\n    for (tok = strtok_r(tmp, \".\", &saveptr); tok; tok = strtok_r(NULL, \".\", &saveptr)) {\n        int n;\n        if (used > 0) {\n            n = snprintf(out + used, outsz - used, \",\");\n            if (n < 0 || (size_t)n >= outsz - used)\n                return -1;\n            used += (size_t)n;\n        }\n        n = snprintf(out + used, outsz - used, \"dc=%s\", tok);\n        if (n < 0 || (size_t)n >= outsz - used)\n            return -1;\n        used += (size_t)n;\n    }\n\n    return (used > 0) ? 0 : -1;\n}\n\nstatic int escape_filter_value(const char *in, char *out, size_t outsz)\n{\n    size_t j = 0;\n\n    if (!in || !out || outsz == 0)\n        return -1;\n\n    for (size_t i = 0; in[i]; i++) {\n        unsigned char c = (unsigned char)in[i];\n        const char *rep = NULL;\n        char hex[4];\n\n        switch (c) {\n        case '*':  rep = \"\\\\2a\"; break;\n        case '(':  rep = \"\\\\28\"; break;\n        case ')':  rep = \"\\\\29\"; break;\n        case '\\\\': rep = \"\\\\5c\"; break;\n        case '\\0': rep = \"\\\\00\"; break;\n        default:\n            hex[0] = (char)c;\n            hex[1] = '\\0';\n            rep = hex;\n            break;\n        }\n\n        size_t rl = strlen(rep);\n        if (j + rl + 1 > outsz)\n            return -1;\n        memcpy(out + j, rep, rl);\n        j += rl;\n    }\n\n    out[j] = '\\0';\n    return 0;\n}\n\nstatic int build_user_filter(const char *username, char *out, size_t outsz)\n{\n    char escaped[256];\n    int n;\n\n    if (!username || !out || outsz == 0)\n        return -1;\n\n    if (escape_filter_value(username, escaped, sizeof(escaped)) != 0)\n        return -1;\n\n    n = snprintf(out, outsz, \"(&(objectClass=person)(uid=%s))\", escaped);\n    if (n < 0 || (size_t)n >= outsz)\n        return -1;\n\n    return 0;\n}\n\nstatic int search_user(const char *base_dn, const char *filter)\n{\n    LDAP *ld = NULL;\n    LDAPMessage *res = NULL, *entry;\n    struct timeval tv = {10, 0};\n    int version = LDAP_VERSION3;\n    int rc, count;\n\n    rc = ldap_initialize(&ld, LDAP_URI);\n    if (rc != LDAP_SUCCESS) {\n        fprintf(stderr, \"ldap_initialize: %s\\n\", ldap_err2string(rc));\n        return 1;\n    }\n\n    ldap_set_option(ld, LDAP_OPT_PROTOCOL_VERSION, &version);\n\n    rc = ldap_simple_bind_s(ld, NULL, NULL);\n    if (rc != LDAP_SUCCESS) {\n        fprintf(stderr, \"LDAP bind failed: %s\\n\", ldap_err2string(rc));\n        ldap_unbind_ext_s(ld, NULL, NULL);\n        return 1;\n    }\n\n    printf(\"Base DN: %s\\n\", base_dn);\n    printf(\"Filter : %s\\n\", filter);\n\n    rc = ldap_search_ext_s(ld, base_dn, LDAP_SCOPE_SUBTREE, filter,\n                           NULL, 0, NULL, NULL, &tv, 0, &res);\n    if (rc != LDAP_SUCCESS) {\n        fprintf(stderr, \"LDAP search failed: %s\\n\", ldap_err2string(rc));\n        if (res)\n            ldap_msgfree(res);\n        ldap_unbind_ext_s(ld, NULL, NULL);\n        return 1;\n    }\n\n    count = ldap_count_entries(ld, res);\n    if (count <= 0) {\n        printf(\"No user found.\\n\");\n        ldap_msgfree(res);\n        ldap_unbind_ext_s(ld, NULL, NULL);\n        return 1;\n    }\n\n    for (entry = ldap_first_entry(ld, res); entry != NULL;\n         entry = ldap_next_entry(ld, entry)) {\n        char *dn = ldap_get_dn(ld, entry);\n        char *attr;\n        BerElement *ber = NULL;\n\n        printf(\"\\nDN: %s\\n\", dn ? dn : \"(unknown)\");\n\n        for (attr = ldap_first_attribute(ld, entry, &ber); attr != NULL;\n             attr = ldap_next_attribute(ld, entry, ber)) {\n            struct berval **vals = ldap_get_values_len(ld, entry, attr);\n            if (vals) {\n                for (int i = 0; vals[i] != NULL; i++) {\n                    printf(\"%s: %.*s\\n\", attr,\n                           (int)vals[i]->bv_len, vals[i]->bv_val);\n                }\n                ldap_value_free_len(vals);\n            }\n            ldap_memfree(attr);\n        }\n\n        if (ber)\n            ber_free(ber, 0);\n        if (dn)\n            ldap_memfree(dn);\n    }\n\n    ldap_msgfree(res);\n    ldap_unbind_ext_s(ld, NULL, NULL);\n    return 0;\n}\n\nstatic void usage(const char *prog)\n{\n    fprintf(stderr,\n            \"Usage:\\n\"\n            \"  %s <username>@<domain>\\n\"\n            \"  %s <username> <domain>\\n\"\n            \"Example:\\n\"\n            \"  %s jdoe example.com\\n\",\n            prog, prog, prog);\n}\n\nint main(int argc, char *argv[])\n{\n    char username[256] = {0};\n    char domain[256] = {0};\n    char base_dn[512];\n    char filter[512];\n    char *at;\n\n    if (argc < 2) {\n        usage(argv[0]);\n        return 1;\n    }\n\n    at = strchr(argv[1], '@');\n    if (at) {\n        size_t ulen = (size_t)(at - argv[1]);\n        if (ulen == 0 || ulen >= sizeof(username) || strlen(at + 1) >= sizeof(domain)) {\n            usage(argv[0]);\n            return 1;\n        }\n        memcpy(username, argv[1], ulen);\n        username[ulen] = '\\0';\n        strcpy(domain, at + 1);\n    } else {\n        if (argc < 3 || strlen(argv[1]) >= sizeof(username) || strlen(argv[2]) >= sizeof(domain)) {\n            usage(argv[0]);\n            return 1;\n        }\n        strcpy(username, argv[1]);\n        strcpy(domain, argv[2]);\n    }\n\n    if (build_base_dn(domain, base_dn, sizeof(base_dn)) != 0) {\n        fprintf(stderr, \"Failed to build base DN from domain '%s'\\n\", domain);\n        return 1;\n    }\n\n    if (build_user_filter(username, filter, sizeof(filter)) != 0) {\n        fprintf(stderr, \"Failed to build LDAP filter for user '%s'\\n\", username);\n        return 1;\n    }\n\n    return search_user(base_dn, filter);\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 237,
+      "completion_tokens": 3941,
+      "total_tokens": 4178,
+      "cost": 0.0019942,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0019942,
+        "upstream_inference_prompt_cost": 2.37e-05,
+        "upstream_inference_completions_cost": 0.0019705
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1262,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

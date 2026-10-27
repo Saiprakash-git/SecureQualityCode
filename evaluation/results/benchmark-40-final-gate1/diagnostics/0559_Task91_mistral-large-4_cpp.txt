@@ -1,0 +1,12 @@
+Task91_mistral-large-4_cpp.cpp:57:29: error: use of undeclared identifier 'D'
+   57 |     size_t qOffset = sizeof(D
+      |                             ^
+Task91_mistral-large-4_cpp.cpp:57:30: error: expected ';' at end of declaration
+   57 |     size_t qOffset = sizeof(D
+      |                              ^
+      |                              ;
+Task91_mistral-large-4_cpp.cpp:57:30: error: expected '}'
+Task91_mistral-large-4_cpp.cpp:45:123: note: to match this '{'
+   45 | void buildDNSResponse(const uint8_t* query, size_t queryLen, uint8_t* response, size_t& responseLen, uint32_t resolvedIP) {
+      |                                                                                                                           ^
+3 errors generated.

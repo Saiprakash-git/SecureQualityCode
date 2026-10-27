@@ -1,0 +1,7 @@
+@@af1eb2823f946993 STEP 0 BEGIN@@
+
+@@af1eb2823f946993 STEP 0 END rc=0@@
+@@af1eb2823f946993 STEP 1 BEGIN@@
+All test cases passed.
+
+@@af1eb2823f946993 STEP 1 END rc=0@@

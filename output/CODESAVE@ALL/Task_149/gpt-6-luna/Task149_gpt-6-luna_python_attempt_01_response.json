@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "raw_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793025481-pMTXhj4jcv4CvCbBXJ0C",
+  "finish_reason": "stop",
+  "input_tokens": 109,
+  "output_tokens": 361,
+  "cost_usd": 0.0001914,
+  "raw_response": {
+    "id": "gen-1793025481-pMTXhj4jcv4CvCbBXJ0C",
+    "object": "chat.completion",
+    "created": 1793025481,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "from collections import deque\nfrom typing import Deque, Generic, TypeVar\n\nT = TypeVar(\"T\")\n\n\nclass Queue(Generic[T]):\n    def __init__(self) -> None:\n        self._items: Deque[T] = deque()\n\n    def enqueue(self, item: T) -> None:\n        self._items.append(item)\n\n    def dequeue(self) -> T:\n        if not self._items:\n            raise IndexError(\"dequeue from an empty queue\")\n        return self._items.popleft()\n\n    def peek(self) -> T:\n        if not self._items:\n            raise IndexError(\"peek from an empty queue\")\n        return self._items[0]\n\n    def is_empty(self) -> bool:\n        return not self._items\n\n    def __len__(self) -> int:\n        return len(self._items)",
+          "refusal": null,
+          "reasoning": "**Constructing a Queue Class**\n\nI\u2019m focusing on creating a Python source code for a Queue class with fundamental operations like enqueue, dequeue, and peek. I\u2019ll use a list or the collections deque for simplicity, ensuring it raises an IndexError when empty. I need to include methods for checking if empty and obtaining the length, potentially using type hints for clarity. The final output will just be the Python code, with no additional script needed.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Constructing a Queue Class**\n\nI\u2019m focusing on creating a Python source code for a Queue class with fundamental operations like enqueue, dequeue, and peek. I\u2019ll use a list or the collections deque for simplicity, ensuring it raises an IndexError when empty. I need to include methods for checking if empty and obtaining the length, potentially using type hints for clarity. The final output will just be the Python code, with no additional script needed.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq32XMakv0xt_jgjta2NLFgJ-a-XFdb1UMTZq7vq-yPqhdbKXJ4Aye0o4kwdOUFGl53xf1eL2C0rpHDDM38I96qQeGydrAiC_bHRD_cMBk2jHF81_F0TYaxh8tcLwO9C-fpdGNvcrJzl4w1eABxAuFsGrGsgwrhuKL8Ip8CB1RnGH1qtYdoNpHQliVzpYCc5rsECOZmyAHPm2Jae94LHJxNzEqJdNSsEGfdF0JTyz_uen0U7X9ucz54WruNHywbZe-gN1G676pqyobQRGPEkU7Aea3sKPos24hcxAgiuybS8E5I-CC6WGhrgoVQOsChgZ8FgrgKAM19NPhTOQHAycN5FfNUU-M8Amfsm8xXUHfQNGOMXjXRZjheW14FAIvep5oG01qVDnCfjMnMSt1UB8lJ0LnGQcGl4Wuv3sr3HfXNiUJ6CTysNwYY3Aai9NCwCraB_lLIM6jPE_fAAG3C1sj_ToZS2njitHN_zQeVIGPpxNsBA9wDQUdn2F8vhD7ieyH65SYbayyYzBijSKO-MW08iSV7ND0tZL7ln_YDLpbX8MWFAT97zjFyl2vQg5_tJgFZU2DxKqHM_J3nTh0n7-ng3-Uv4QVa75ZesBZO8asWHDYSfdRMloMx9vJOh8w-eCffOhyTu-ljGqjJy5nD0XifnS2cquG1Q985JyagBR0sQA-x-4cJJ8RHPeWhgISDxcmubuzE1GHno9xR9wVnRlS9fnxlQQT3xGBZFOlK6R5ui5xz0VqrF0_wk2M_cKv8_owuEmDBeS-QvmsejnUkKz5Z8uFbCLGW7sjDKvEguaLYknlHL0bwQo0dG1jpocO1Fa-mDErSuYKghW4hiKuM0JavgZnEm7SsTUmPyP3OiTxv2Z7ycd1LJ2pG8R8-2-OUrc9jfaXKdQozMQQ4e73ZV6qajLp_f2qVEIu1Nw2IF2IrrO88NGMZXCpCFCcVoT3HQMwTVtUi9CMsIL0oz83VRlkZj9uxXsKmm93LACMqqEBNZ21duuQHHCa3E9Cnp5ydin1Pg_A2bsXCGJB-ddtVzR2fWfrWeEb0PWRJOXGvsO6KkViKZuk-FACmGdkxDTqP_G12Z_oh5BAyPmmBKTCU0byz_D0DCfd9BqUm5tOe1fXuPY7bDFwkh1XLHck3MH-Ki-p7ZvdoXO6o2XOeHy_kXlmZzXZe6oboGmjo3AIO5MUJ_geIFCuMoyQVX7edDAM593bCoXViWLthBNondd5OsCYzITn92wa4ysSB9EzLLJCHDd44v9eQ3oZXrf7WvS27G5_2fKSyOIzdQcNNT3qOUJcksws5e3CfzDnmAtT4N05dtfzBYDgQNgNjuqFOTtIGHq7ScW51eIhRZDkWuKfFTfb8Pxyqqy6T7rgblOj2aUIfQ7WTHLvO-FslRvBoVHODMPU1fIXxcwhFFjJtOkTyObWrDRaOc1riyw7X30tM1r5FV-NEPjaXQSc__7U7DetoQN_XRv9egY0RcjE4rojp-duvDqjnKScKC_EI_K_QCl0zL_RhqXo6Kb_5mIivV4e9HLH5e3FvSfEBtgPyYFdF6FPVuD4ZfPSsh3a07rcSTEKxQLi6KotXoMgi0bc9a0NOAZdgqmGnLl4VtyI5woHZIdtDjU0tJewHzxyoyPZtqTzh0ypsyG3oA1OpouP-13Xp4u2qHEs6TLZgZ521eLHu0BRCP0U3H16FzTU3HOZb_8bLnKvKbM6hoc6qwTSVyy0gMhauYlCsjeISVbxfQQOorQqVa2bt4C5px5N2sPFI9Rje45_pdwDkfJ4d3BUqOnYvAScReKjnm9m-aR1KsdkXWg2hvS9rywRAYOXTasx6i0JvHPU17hP0IMzrWwwjbZ9ZDP_5yVqaJ8vNhekQKqtSVYfVUv7bEiC5zmjKhgMB0RsMo1dAWrCfg1I_ecrV_ad75ta61AHfK_gbju34uFG3w_gnoqVykpt2ntGXM-29sojTh6Ud5Ojqj3UcctlL5bMJrTU3REU9hWFAC1S9YzCZSUGtjR-Zv6PLUo-tZS-GdLLublV7FXTbjUy2zSowH4Zypw9RsOyo0qDioQeKazA16l0ZIEZlNg9fpwoZOEDIpDs_R8S13gCnbg28AY7aj9I9OAUTCHTm0zA5JGY9eELbvWAxiNYvJG7LKx4fgCT-eqBBIFogd_V8Yr1zu6WqxGqig8qHdJjcaX7JBsWOBa5IbUNyNICSDrtMrlGfjSdD5xaTnInbl0fZ-N0hQDO7B9S2G820BhukqqnPrKdpC0-xu4n3ViHCCJoo8xFVcctEGyBHki3Ew97l-aC_CpI0uhdAJAgkbBDPh28pIqufXUkhDNOQlRlV2liXwsqOZPFWOLCmyPucXVoRM0iolqoDMK1w17xlxEFYHf_Fc296zARKCMgs92tLt83EXnusZDyji17NZRayMVsKjwjES9qW5akUdO16HPUv84bwTOux6v6rplCfcDIS8Wh9351s7cw8mopOm6ipLsLK62JCvLjGOYsYWYBmsoiwK0-FYUcvy1EeQ8TA8QrCgRWK987xDPgmvMlR0Pghs8JANWdkgrlAiuANJI4lvMbw2VzLP6DxPiYI8sn-1JjwGXmzNN-viA6g9C6JYu1fgDnXbZ6b3hiXzE1Y9lowwsfI5ISlOX2WvWyxhvWcgaZCqtI-KGOZLEOKZ9TJlzgwc-KJMYwiWC_mIXbOIRvlmb91Jr0ip4geCLIz_mtWXpYi75puCX0YGPABQ6ShuMyGjVHZVxReND5QgFnNAR46qc3SC0FVbrF8Ig7ikaXX8EIRcenzieyQX_MTEQedvceXO-RURSCFyYqIwXxiJVpGGqFO1fpLZH8EGcJFPC3BS_N5fQhtVhKxoRLZVBfNXOtT1cbSzWbc9vy9GVyS2-dPU3YKJFzwuz6wA81_tIs-FoOGR0ZNaj8Q8SH6Hh6tK5P7-0PBke6VaZ-MFe6DgsRMZdfT7zLpAAynwtf03IwxGY9oZG8y-WUpub3Fk_V8PR1ojyK_p19NBpmGbgRBlSRGncRa6KrVmn_P3VkDmLiKasm3e6CCf_aSrZcKMwX0WA3w9j3ukOEnI7HCcex54zXoLf5EfrtfTqGi-PuvzNI0N-uLYITOifembKb7QOpNq4OgbVcc1_x8HNG0XCJ_ESr-RZINCXNGj37hCm0UjNaNYM8ex65P5C5szSN80XW3gdu9gBt2ajkT4pCa7qEA1ojsefW6CHh6VAKPO6lkhsoi__sgBDG5G1OcOcCPEHz11lRvf3LXGFQnhDANl7K7TjT9wepWtuovRn38cFMGKK8g4VzWMqfPfiL2dWnYChxw-9uq-vvz7yii6IwoTxTwWLzM8BJ_9peUfu4SwqXfnuTw19XqFa1IsSbj3Fz0ULgCYEMOyUS7UN3DX4UXSsPhNZm3u2PLEX4db3yJRNhnfCYhhhRcpDCLPbDk2yIz4pcJLifvTd7qJ-9e_r32JFc9Nd2SzQRh3iYNH_hwkhFOoVEsD8YkdjwzlJQIRxYImWHatVUq3hkitit0hXvM6zpwdVMy83aug4s1cQquyFlPmzMwW4-zFagnmFVFcHIRzLuRSMaP95wD99kGz_tRJC_RzorL7cWYvoo5722Mi8HxK4alN17_6um-Y9IAxobdaYNcQsG6sfJUKv7jtEd0Y3SRCZqSf--neXp2QW2R0gc1njyfOiHuykDNtN0Pe5VP3P7C-iyXdS6fa5nbweDUsxDhpNNrWoYeEqrXvZx8sl8mFeHi9htiALHQG11MrraGJloKB0_fvYVUXwqeEjfmBw_NtiIcIZqA2YM2c5xFKFw3yc-dnXlOW0UtUYbcaXALIr-9H5MhALO7pCJTTF3eKk8NPjTtLzZVeOIEJI17ap0LB7C-c-i91QQSzdex7SN4fEIt_BTc74mMckku1QZpK9zlckzyXPUXzzE1096313yaXuo8vEWh6SQ8JNohTa6W9-KML4byRPw_FNRUhsnN6H9016f_KYb.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0d07da56f008dd0c016adf65c9fbcc87d185a0519accfd46ba",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 109,
+      "completion_tokens": 361,
+      "total_tokens": 470,
+      "cost": 0.0001914,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001914,
+        "upstream_inference_prompt_cost": 1.09e-05,
+        "upstream_inference_completions_cost": 0.0001805
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 184,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

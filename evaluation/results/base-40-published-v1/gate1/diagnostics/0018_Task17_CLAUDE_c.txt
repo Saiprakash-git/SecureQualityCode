@@ -1,0 +1,13 @@
+Task17_CLAUDE_claude-3-5-sonnet-20240620.c:7:38: warning: multi-character character constant [-Wmultichar]
+    7 |     if (string == NULL || *string == '\\0') return string;
+      |                                      ^
+Task17_CLAUDE_claude-3-5-sonnet-20240620.c:24:10: warning: multi-character character constant [-Wmultichar]
+   24 |     *p = '\\0';
+      |          ^
+Task17_CLAUDE_claude-3-5-sonnet-20240620.c:7:35: warning: result of comparison of constant 23600 with expression of type 'char' is always false [-Wtautological-constant-out-of-range-compare]
+    7 |     if (string == NULL || *string == '\\0') return string;
+      |                           ~~~~~~~ ^  ~~~~~
+Task17_CLAUDE_claude-3-5-sonnet-20240620.c:24:10: warning: implicit conversion from 'int' to 'char' changes value from 23600 to 48 [-Wconstant-conversion]
+   24 |     *p = '\\0';
+      |        ~ ^~~~~
+4 warnings generated.

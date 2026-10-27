@@ -1,0 +1,26 @@
+{
+ "status": "proposed_exact",
+ "bindings": [
+  {
+   "canonical": "tower_builder",
+   "target": "tower_builder",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": null,
+   "canonical_signature": {
+    "arity": 1
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": null,
+    "return": null
+   }
+  }
+ ],
+ "combo_index": 102,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-real/Task_015/gpt-6-luna/Task15_gpt-6-luna_python.py",
+ "artifact_sha256": "0486af8a7f01e7fcb7140caecbf659f18a3936e6dfa6282f63e754ddc022b8ab",
+ "oracle_test_path": "tests/claude/Task15_CLAUDE_claude_3_5_sonnet_20240620/Task15_CLAUDE_claude_3_5_sonnet_20240620.py",
+ "oracle_test_sha256": "b4c823769ba8670a32703e0f94cc5d98b1dfcb3d5878a3aff554f9fd09606ae7",
+ "author": "functional.py draft_adapter (static)"
+}

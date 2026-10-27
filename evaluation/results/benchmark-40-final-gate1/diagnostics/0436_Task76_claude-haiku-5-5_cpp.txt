@@ -1,0 +1,7 @@
+Task76_claude-haiku-5-5_cpp.cpp:1:1: error: expected unqualified-id
+    1 | ```cpp
+      | ^
+Task76_claude-haiku-5-5_cpp.cpp:2:10: fatal error: 'curl/curl.h' file not found
+    2 | #include <curl/curl.h>
+      |          ^~~~~~~~~~~~~
+2 errors generated.

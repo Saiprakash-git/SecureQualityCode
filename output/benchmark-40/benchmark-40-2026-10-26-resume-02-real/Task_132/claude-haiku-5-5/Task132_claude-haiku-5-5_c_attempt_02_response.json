@@ -1,0 +1,69 @@
+{
+  "attempt": 2,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793025091-4lNvi8TwANtHHU7ReVsj",
+  "finish_reason": "stop",
+  "input_tokens": 180,
+  "output_tokens": 3666,
+  "cost_usd": 0.001851,
+  "raw_response": {
+    "id": "gen-1793025091-4lNvi8TwANtHHU7ReVsj",
+    "object": "chat.completion",
+    "created": 1793025091,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#define _POSIX_C_SOURCE 200809L\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <time.h>\n\n#define MAX_LINE 1024\n#define MAX_TRACK 256\n#define BRUTE_THRESHOLD 5\n#define BRUTE_WINDOW_SEC 60\n\ntypedef enum { SEV_INFO = 0, SEV_WARN = 1, SEV_CRIT = 2 } Severity;\n\ntypedef struct {\n    time_t ts;\n    Severity sev;\n    char type[32];\n    char source[64];\n    char message[512];\n} Event;\n\ntypedef struct {\n    char source[64];\n    time_t window_start;\n    int count;\n    int used;\n} Tracker;\n\ntypedef struct {\n    size_t total;\n    size_t parsed_ok;\n    size_t parse_errors;\n    size_t alerts;\n} Stats;\n\nstatic const char *sev_name(Severity s) {\n    switch (s) {\n        case SEV_INFO: return \"INFO\";\n        case SEV_WARN: return \"WARN\";\n        case SEV_CRIT: return \"CRIT\";\n    }\n    return \"UNKNOWN\";\n}\n\nstatic int sev_parse(const char *s, Severity *out) {\n    if (strcmp(s, \"info\") == 0 || strcmp(s, \"INFO\") == 0) { *out = SEV_INFO; return 1; }\n    if (strcmp(s, \"warn\") == 0 || strcmp(s, \"WARN\") == 0) { *out = SEV_WARN; return 1; }\n    if (strcmp(s, \"crit\") == 0 || strcmp(s, \"CRIT\") == 0) { *out = SEV_CRIT; return 1; }\n    return 0;\n}\n\nint parse_event(const char *line, Event *e) {\n    char sevbuf[16] = {0};\n    long ts = 0;\n    int n;\n\n    if (!line || !e) return 0;\n    memset(e, 0, sizeof(*e));\n\n    n = sscanf(line, \"%ld %15s %31s %63s %511[^\\n]\",\n               &ts, sevbuf, e->type, e->source, e->message);\n    if (n < 4) return 0;\n    if (n == 4) e->message[0] = '\\0';\n    if (!sev_parse(sevbuf, &e->sev)) return 0;\n\n    e->ts = (time_t)ts;\n    return 1;\n}\n\nvoid format_event(const Event *e, char *buf, size_t size) {\n    char tbuf[32];\n    struct tm *tm_info;\n\n    tm_info = gmtime(&e->ts);\n    if (tm_info)\n        strftime(tbuf, sizeof(tbuf), \"%Y-%m-%dT%H:%M:%SZ\", tm_info);\n    else\n        snprintf(tbuf, sizeof(tbuf), \"invalid-time\");\n\n    snprintf(buf, size, \"[%s] %-4s type=%s src=%s msg=\\\"%s\\\"\",\n             tbuf, sev_name(e->sev), e->type, e->source, e->message);\n}\n\nint log_event(FILE *out, const Event *e) {\n    char line[MAX_LINE];\n    if (!out || !e) return 0;\n    format_event(e, line, sizeof(line));\n    if (fprintf(out, \"%s\\n\", line) < 0) return 0;\n    fflush(out);\n    return 1;\n}\n\nstatic Tracker *find_tracker(Tracker trackers[], size_t n, const char *source) {\n    size_t i;\n    for (i = 0; i < n; i++) {\n        if (trackers[i].used && strcmp(trackers[i].source, source) == 0)\n            return &trackers[i];\n    }\n    return NULL;\n}\n\nstatic Tracker *alloc_tracker(Tracker trackers[], size_t n, const char *source) {\n    size_t i;\n    for (i = 0; i < n; i++) {\n        if (!trackers[i].used) {\n            trackers[i].used = 1;\n            trackers[i].count = 0;\n            trackers[i].window_start = 0;\n            strncpy(trackers[i].source, source, sizeof(trackers[i].source) - 1);\n            trackers[i].source[sizeof(trackers[i].source) - 1] = '\\0';\n            return &trackers[i];\n        }\n    }\n    return NULL;\n}\n\n/* Returns 1 if the event triggers a brute-force alert, 0 otherwise. */\nint track_auth_failure(Tracker trackers[], size_t n, const Event *e) {\n    Tracker *t;\n\n    if (!trackers || !e) return 0;\n    if (strcmp(e->type, \"auth_fail\") != 0) return 0;\n\n    t = find_tracker(trackers, n, e->source);\n    if (!t) t = alloc_tracker(trackers, n, e->source);\n    if (!t) return 0;\n\n    if (t->count == 0 || e->ts - t->window_start > BRUTE_WINDOW_SEC) {\n        t->window_start = e->ts;\n        t->count = 0;\n    }\n    t->count++;\n\n    if (t->count == BRUTE_THRESHOLD) {\n        return 1;\n    }\n    return 0;\n}\n\n/* Returns 1 if the event should raise an alert under the general rules. */\nint needs_alert(const Event *e) {\n    if (!e) return 0;\n    if (e->sev == SEV_CRIT) return 1;\n    return 0;\n}\n\nvoid process_stream(FILE *in, FILE *logf, FILE *alertf, Stats *stats,\n                    Tracker trackers[], size_t ntrackers) {\n    char line[MAX_LINE];\n    Event e;\n    char alert_buf[MAX_LINE + 64];\n\n    while (fgets(line, sizeof(line), in)) {\n        size_t len = strlen(line);\n        if (len > 0 && line[len - 1] == '\\n') line[len - 1] = '\\0';\n        if (line[0] == '\\0' || line[0] == '#') continue;\n\n        stats->total++;\n\n        if (!parse_event(line, &e)) {\n            stats->parse_errors++;\n            continue;\n        }\n        stats->parsed_ok++;\n\n        log_event(logf, &e);\n\n        if (needs_alert(&e)) {\n            format_event(&e, alert_buf, sizeof(alert_buf));\n            fprintf(alertf, \"ALERT: critical event: %s\\n\", alert_buf);\n            stats->alerts++;\n        }\n\n        if (track_auth_failure(trackers, ntrackers, &e)) {\n            fprintf(alertf, \"ALERT: possible brute force from %s (>= %d failures within %d s)\\n\",\n                    e.source, BRUTE_THRESHOLD, BRUTE_WINDOW_SEC);\n            stats->alerts++;\n        }\n    }\n}\n\nint main(int argc, char *argv[]) {\n    FILE *in = stdin;\n    FILE *logf = stdout;\n    FILE *alertf = stderr;\n    Tracker trackers[MAX_TRACK];\n    Stats stats = {0, 0, 0, 0};\n    int rc = EXIT_SUCCESS;\n\n    memset(trackers, 0, sizeof(trackers));\n\n    if (argc >= 2) {\n        in = fopen(argv[1], \"r\");\n        if (!in) {\n            perror(\"open input\");\n            return EXIT_FAILURE;\n        }\n    }\n    if (argc >= 3) {\n        logf = fopen(argv[2], \"a\");\n        if (!logf) {\n            perror(\"open log\");\n            if (in != stdin) fclose(in);\n            return EXIT_FAILURE;\n        }\n    }\n\n    process_stream(in, logf, alertf, &stats, trackers, MAX_TRACK);\n\n    fprintf(alertf, \"Summary: lines=%zu parsed=%zu errors=%zu alerts=%zu\\n\",\n            stats.total, stats.parsed_ok, stats.parse_errors, stats.alerts);\n\n    if (stats.alerts > 0) rc = 2;\n\n    if (in != stdin) fclose(in);\n    if (logf != stdout) fclose(logf);\n    return rc;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 180,
+      "completion_tokens": 3666,
+      "total_tokens": 3846,
+      "cost": 0.001851,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.001851,
+        "upstream_inference_prompt_cost": 1.8e-05,
+        "upstream_inference_completions_cost": 0.001833
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 926,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

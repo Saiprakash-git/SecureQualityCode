@@ -1,0 +1,72 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "google/gemini-3.8-flash",
+  "response_id": "gen-1793010350-0PA6ynjlnnaBc2MdiXae",
+  "finish_reason": "stop",
+  "input_tokens": 300,
+  "output_tokens": 468,
+  "cost_usd": 0.00198,
+  "raw_response": {
+    "id": "gen-1793010350-0PA6ynjlnnaBc2MdiXae",
+    "object": "chat.completion",
+    "created": 1793010350,
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "import java.util.List;\n\npublic class BinaryArrayToNumber {\n\n    public static int convertBinaryArrayToInt(List<Integer> binary) {\n        int result = 0;\n        for (int bit : binary) {\n            result = (result << 1) | bit;\n        }\n        return result;\n    }\n\n    public static int convertBinaryArrayToInt(int[] binary) {\n        int result = 0;\n        for (int bit : binary) {\n            result = (result << 1) | bit;\n        }\n        return result;\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Processing Binary Strings**\n\nI'm currently focusing on translating binary sequences into their integer counterparts in Java. My aim is to develop a robust, single-file solution capable of handling binary arrays of any length.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Processing Binary Strings**\n\nI'm currently focusing on translating binary sequences into their integer counterparts in Java. My aim is to develop a robust, single-file solution capable of handling binary arrays of any length.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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",
+              "format": "google-gemini-v1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 300,
+      "completion_tokens": 468,
+      "total_tokens": 768,
+      "cost": 0.00198,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00198,
+        "upstream_inference_prompt_cost": 0.000225,
+        "upstream_inference_completions_cost": 0.001755
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 335,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

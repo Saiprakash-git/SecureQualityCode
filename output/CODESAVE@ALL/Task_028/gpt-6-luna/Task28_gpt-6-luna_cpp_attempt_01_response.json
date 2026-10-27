@@ -1,0 +1,76 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793016668-kfYLX9JxEtJbH79SBEWP",
+  "finish_reason": "stop",
+  "input_tokens": 267,
+  "output_tokens": 277,
+  "cost_usd": 0.0001652,
+  "raw_response": {
+    "id": "gen-1793016668-kfYLX9JxEtJbH79SBEWP",
+    "object": "chat.completion",
+    "created": 1793016668,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "#include <string>\n#include <vector>\n\nstd::string likes(const std::vector<std::string>& names) {\n    const std::size_t count = names.size();\n\n    if (count == 0) return \"no one likes this\";\n    if (count == 1) return names[0] + \" likes this\";\n    if (count == 2) return names[0] + \" and \" + names[1] + \" like this\";\n    if (count == 3) return names[0] + \", \" + names[1] + \" and \" + names[2] + \" like this\";\n\n    return names[0] + \", \" + names[1] + \" and \" +\n           std::to_string(count - 2) + \" others like this\";\n}",
+          "refusal": null,
+          "reasoning": "**Formatting function signature**\n\nI need to output a C++ source file specifically for the \"likes\" function. The expected function signature seems to be `std::string likes(const std::vector<std::string>& names)`. I should definitely include the `string` and `vector` headers but not a main function, as per the user\u2019s guidance. The user indicates all functions should accept input as parameters and return output, so I\u2019ll focus on providing just the function itself in the correct format.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Formatting function signature**\n\nI need to output a C++ source file specifically for the \"likes\" function. The expected function signature seems to be `std::string likes(const std::vector<std::string>& names)`. I should definitely include the `string` and `vector` headers but not a main function, as per the user\u2019s guidance. The user indicates all functions should accept input as parameters and return output, so I\u2019ll focus on providing just the function itself in the correct format.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq30NgRlDKK0aIuxxRp6JbhCsN2lWi5AUGiyWr4dWaaPIsMu8WUtSWu-IvB6M081WEGyyLU_ins5TcEE_jxTZVd28RV3e6ckfpDoROCYhocqwkbxdZapCdOPa9IB29eUSI9J8ZDTHNX2zP3MzA6U9dy3RtR5r0rDV_8ThaNFYkJ3hpqMTMqA5BI4UtoazYWWAN0dZCpXF59lPyiIM5HHUlNkEkn811IIT3sOpQ5BnikJFAHKEukoL9Nyw-ipkBIMCi2WdYp74j7DiiwF9oDc9dKZsm01Jnl2XJpXeOMPKRNPeTs3tfMU5_UM4e3Gt9AgMW5afGiKSH7rH7MBwSPPNn3nGlzUMJviIgjTNjKgoPmZY6uTU4Ak935jT_Z4rAV47zJ7Z1pEkYmw9AvRYHIJHolSZWdjZI271g_ocPZG9EXsxuv9Y22lEelfHh0BGrr5WOiBUqv2gluPGdfkwi_ubRCoeGqYrs9t1DX4Ojn3bo-3MwGX5ZoWwvunjAM4PbSPpXrbdOVlrr-PsXafqREVfW_pQnVeKiGYwH5jj8rT0nAmC1JcpNetY8hBCwDQr2KrazezleQY6lJV5pI95UU_ImNNlvYf8FsFbiIJXCpGjuDapDtNSbtJWN5dQZvMvuWd98uPt63woy5jnVwNGCDTO9AGHMaNtT6RnTfFzJ3ZUEAJQPdgIqlPVz95GITr6W1nmCktpCLrnqquj2-BpCCX6-3c632gYwIkGq17wuwakgKwtXT02mmU_TKDhfAbR1ki1kGAm6AzCYCkCQIV6S7sscWrAXX0-q8B2pqaq5S1noiv-eNAQexU3EpgbVBeWTAyCV17yG2Zk2zMx0s98pLWZwXFEj7gzjdiJuSbkN8a1J871nXfnTQW_mAoHOaL4sYxS4d5qRYnFiVzSMOljSd5r0Ns7egiFDhOLRvEomnIXrVaFUhwzCyjlktAPPtyMlTzwt-g5JR0Q7B66rSdXFtUddsvdLWMHYdQ2O5GSa86fiigL2Y9ToRfP7YhsoLMJQJDrf9cHHWicPcna1tyA_zMGWgy_vfpQ9jCPbS8OPnmawU2yTwlERbhuBWKyQyuubnG7jraHq4M1tpW59dbvYjK_4QKu_XDSgf1nrSsMVfMeC0ROeEgDPGgWtVczNIQrXddT4TdVXSG1QB5njrauVSMbkuD48YvhvI95Qv9icb7bpjft1gI8o8nUfxZFb_3VgoCKK2iwcm9hO13i17QXoUeySjIif5R-cajh30gMDe83H5GjQ5L8g5Xzk2xSSXaRwTi_Smunr3BUD4ZZl4YYNRoompkomHZZeIqqA65p8LEZbcbhbw55mYAu_RF_BzyvH5qm0tzQIcoD6tejxtzsiJ30Q-_p_6lft-x2KGfExkNzYf0j7dfRH7qG6W6W4etIwgrHbRV2o62xjC-yjNsYCWJ3p8dn1kR_NkTnwp2xqPFFYXaIp3b5NPK5AsJlX1bCVhxxh8mun_WHyIgsOLSbhVdKEh-wClaNmt_2KCi7yoDPyvntW5e-B4Xvj-vAiPSxri-SUxlIss7us6pJV1LbQk19H-FZDgxeIuQWc_h6cEY4YBPnkm95oQqTnTNQdoCP2mycUzWFStePkYww8wFvPTaZHtvncncmUySsl-OJnJmO8sUHV0gPE2jjkY05Dlt8Pu-sTHzTk36-Shqvs9oB7GE2SU5gepLE8eI5TZyp6Yjr8bobgI4MopEmTdrBYBdC1U3akttXoMlaZIXpx1mondkrHb1oKTmNNNLOqeOLY2DdCjqI6B0igKmQp4G4WfJQ7WiZYZSHkEEp_tLvRHC383j7nuhzbJh0qUcA-gt1Ilf7ogAaVBQKtXOIAJ-VWiOR83zip5JrLVTWxU3BvmMrPZ6AU6MzrIeUFnIVm1t5g-UDE-UZXTEeh4UIN7Ccbdjasp_jvSoOgf1W9i1GOe-IGoHGehStkLI_-1ywoe24MfKJqliKr9RgbMgjy-5ZYMbJANmwQ6mUBUMzZscGc-7GcnFVxIIjn6Pb49cs-ZV5XrdgOnGRdBN8I-qt59Rgik2NGUj3sDItoXfR9DcuqinVsz79pTKNvTX6tNWfqF7vzCbIab-DNuthh1nt-u2EkvFzTzkO7FeF-pcoQOrur8Kubo51EicLJA8o8AKr3vk5nw9WP36tFyj2PuiffBexJNTimVTyhhNoWN_znxW0Q9P2MfdUm_dCuvUaGfDNglmfvP-F50v5uG3CMKRJ0uOcDH52ssIeZcKhc-mAPoMGXhldOfKRAAFhjQqG-1O1hJhNhdnk7Aqug19KmFGRIr04vUKQKmDjDKW59txaB336ZIcly0we_NE24m73X544lkKSdDGkklrvg8eECp7y0CNV5mSo1Hn54z_oStXN1Oi8XBc1gfugV_n7c0yf8OZ-7QrA9ESyCb5yCoXLehVi4lRphcuqkVQeHZk9vXtV7m8OBlgqlqGdVF0KAak-2gLIgPjE57mctYsROjVgrH8Tm1rRmQZ85VPOkBNeGxJ4H1R47Yu8EYHxoN0JKXk6Rk8ww_FzOJwVkFPonCgh-BI01IP90TWyAAljzuFwy5QJYrAzvbxCjz0Tp6bgQDGa8aYBqK_cISN2wPHSNzY7EpPsyoydQIaaES5ShY-KJ3__1Qt0t31xmXYLdy2dWW9urIFXbnsLn99O7rGa2Iab2Q0FmysvlihDEwskp6bf9LIoHWA5JRmcJxUD56mvoST5iPtOhKN0KZYXgRzIPSDf_-VIJbgavDx7Knv1g_kndOBVtLN6a4QvxPo2X5oqZb41cFYGGX7Oa0d6OCh7hUle_e22oyKfKJ4ETd55FkLz4JkV30VxePBVjfVoNe6t483MrUyjYb5u016E0fpn6QF6vjs1dUMwo0gTJLHFbAh3BOrm7uHpVDMMerWS0HxPqncibFTgKLJNNO2tdc8uZGPiHu1KQag5DWx0MNnHYl4hpz89-Lz672JFM-Yee--CVlLU-JOulV_QCFEgMvlIrUH4=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0f2a6ef72540c7fc016adf435e011887d1a2c3829910073f89",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 267,
+      "completion_tokens": 277,
+      "total_tokens": 544,
+      "cost": 0.0001652,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001652,
+        "upstream_inference_prompt_cost": 2.67e-05,
+        "upstream_inference_completions_cost": 0.0001385
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 106,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

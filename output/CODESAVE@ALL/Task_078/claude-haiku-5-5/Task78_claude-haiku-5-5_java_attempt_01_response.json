@@ -1,0 +1,69 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793018214-KXZZpUIOqauEdxXpgxAx",
+  "finish_reason": "stop",
+  "input_tokens": 168,
+  "output_tokens": 3187,
+  "cost_usd": 0.0016103,
+  "raw_response": {
+    "id": "gen-1793018214-KXZZpUIOqauEdxXpgxAx",
+    "object": "chat.completion",
+    "created": 1793018214,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "import java.io.ByteArrayOutputStream;\nimport java.io.DataOutputStream;\nimport java.io.IOException;\nimport java.math.BigInteger;\nimport java.nio.charset.StandardCharsets;\nimport java.security.GeneralSecurityException;\nimport java.security.KeyPair;\nimport java.security.KeyPairGenerator;\nimport java.security.SecureRandom;\nimport java.security.interfaces.RSAPrivateCrtKey;\nimport java.security.interfaces.RSAPublicKey;\nimport java.util.Base64;\n\npublic class OpenSSHRsaKeyGenerator {\n\n    private static final String AUTH_MAGIC = \"openssh-key-v1\";\n    private static final String KEY_TYPE = \"ssh-rsa\";\n    private static final int CIPHER_BLOCK_SIZE = 8;\n\n    public static String generateOpenSSHPrivateKey(int bits, String comment)\n            throws GeneralSecurityException, IOException {\n        if (bits < 1024) {\n            throw new IllegalArgumentException(\"RSA key size must be at least 1024 bits\");\n        }\n        if (comment == null) {\n            comment = \"\";\n        }\n\n        KeyPairGenerator kpg = KeyPairGenerator.getInstance(\"RSA\");\n        kpg.initialize(bits, new SecureRandom());\n        KeyPair kp = kpg.generateKeyPair();\n\n        RSAPublicKey pub = (RSAPublicKey) kp.getPublic();\n        RSAPrivateCrtKey priv = (RSAPrivateCrtKey) kp.getPrivate();\n\n        // Public key blob: string \"ssh-rsa\", mpint e, mpint n\n        ByteArrayOutputStream pubBlobBytes = new ByteArrayOutputStream();\n        DataOutputStream pubBlob = new DataOutputStream(pubBlobBytes);\n        writeString(pubBlob, KEY_TYPE.getBytes(StandardCharsets.US_ASCII));\n        writeMpint(pubBlob, pub.getPublicExponent());\n        writeMpint(pubBlob, pub.getModulus());\n        pubBlob.flush();\n        byte[] publicBlob = pubBlobBytes.toByteArray();\n\n        // Private section (unencrypted)\n        SecureRandom rnd = new SecureRandom();\n        int checkInt = rnd.nextInt();\n\n        ByteArrayOutputStream privBytes = new ByteArrayOutputStream();\n        DataOutputStream priv0 = new DataOutputStream(privBytes);\n        priv0.writeInt(checkInt);\n        priv0.writeInt(checkInt);\n        writeString(priv0, KEY_TYPE.getBytes(StandardCharsets.US_ASCII));\n        writeMpint(priv0, priv.getModulus());\n        writeMpint(priv0, priv.getPublicExponent());\n        writeMpint(priv0, priv.getPrivateExponent());\n        writeMpint(priv0, priv.getCrtCoefficient());\n        writeMpint(priv0, priv.getPrimeP());\n        writeMpint(priv0, priv.getPrimeQ());\n        writeString(priv0, comment.getBytes(StandardCharsets.UTF_8));\n\n        int padLen = (CIPHER_BLOCK_SIZE - (privBytes.size() % CIPHER_BLOCK_SIZE)) % CIPHER_BLOCK_SIZE;\n        for (int i = 1; i <= padLen; i++) {\n            priv0.writeByte(i);\n        }\n        priv0.flush();\n        byte[] privateSection = privBytes.toByteArray();\n\n        // Full binary structure\n        ByteArrayOutputStream outBytes = new ByteArrayOutputStream();\n        DataOutputStream out = new DataOutputStream(outBytes);\n        out.write(AUTH_MAGIC.getBytes(StandardCharsets.US_ASCII));\n        out.writeByte(0);\n        writeString(out, \"none\".getBytes(StandardCharsets.US_ASCII)); // cipher\n        writeString(out, \"none\".getBytes(StandardCharsets.US_ASCII)); // kdf\n        writeString(out, new byte[0]);                                 // kdf options\n        out.writeInt(1);                                               // number of keys\n        writeString(out, publicBlob);\n        writeString(out, privateSection);\n        out.flush();\n\n        String b64 = Base64.getEncoder().encodeToString(outBytes.toByteArray());\n\n        StringBuilder sb = new StringBuilder();\n        sb.append(\"-----BEGIN OPENSSH PRIVATE KEY-----\\n\");\n        for (int i = 0; i < b64.length(); i += 70) {\n            sb.append(b64, i, Math.min(i + 70, b64.length())).append('\\n');\n        }\n        sb.append(\"-----END OPENSSH PRIVATE KEY-----\\n\");\n        return sb.toString();\n    }\n\n    private static void writeString(DataOutputStream out, byte[] data) throws IOException {\n        out.writeInt(data.length);\n        out.write(data);\n    }\n\n    private static void writeMpint(DataOutputStream out, BigInteger value) throws IOException {\n        writeString(out, value.toByteArray());\n    }\n\n    public static void main(String[] args) throws Exception {\n        int bits = 3072;\n        String comment = \"generated-rsa-key\";\n        if (args.length > 0) {\n            bits = Integer.parseInt(args[0]);\n        }\n        if (args.length > 1) {\n            comment = args[1];\n        }\n        System.out.print(generateOpenSSHPrivateKey(bits, comment));\n    }\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 168,
+      "completion_tokens": 3187,
+      "total_tokens": 3355,
+      "cost": 0.0016103,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0016103,
+        "upstream_inference_prompt_cost": 1.68e-05,
+        "upstream_inference_completions_cost": 0.0015935
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1245,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

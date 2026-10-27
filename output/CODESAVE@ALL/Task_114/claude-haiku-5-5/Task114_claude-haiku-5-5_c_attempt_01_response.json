@@ -1,0 +1,61 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793024282-bUeMqE8VbnnfL4O9hMDV",
+  "finish_reason": "stop",
+  "input_tokens": 157,
+  "output_tokens": 2068,
+  "cost_usd": 0.0010497,
+  "raw_response": {
+    "id": "gen-1793024282-bUeMqE8VbnnfL4O9hMDV",
+    "object": "chat.completion",
+    "created": 1793024282,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <ctype.h>\n\nsize_t str_length(const char *s) {\n    size_t n = 0;\n    while (s[n] != '\\0') n++;\n    return n;\n}\n\nchar *str_copy(char *dest, const char *src) {\n    char *d = dest;\n    while ((*d++ = *src++) != '\\0');\n    return dest;\n}\n\nchar *str_ncopy(char *dest, const char *src, size_t n) {\n    size_t i;\n    for (i = 0; i < n && src[i] != '\\0'; i++) dest[i] = src[i];\n    for (; i < n; i++) dest[i] = '\\0';\n    return dest;\n}\n\nchar *str_concat(char *dest, const char *src) {\n    char *d = dest;\n    while (*d) d++;\n    while ((*d++ = *src++) != '\\0');\n    return dest;\n}\n\nint str_compare(const char *a, const char *b) {\n    while (*a && *a == *b) {\n        a++;\n        b++;\n    }\n    return (unsigned char)*a - (unsigned char)*b;\n}\n\nchar *str_duplicate(const char *s) {\n    size_t len = str_length(s);\n    char *p = malloc(len + 1);\n    if (!p) return NULL;\n    str_copy(p, s);\n    return p;\n}\n\nchar *str_reverse(char *s) {\n    size_t len = str_length(s);\n    for (size_t i = 0; i < len / 2; i++) {\n        char tmp = s[i];\n        s[i] = s[len - 1 - i];\n        s[len - 1 - i] = tmp;\n    }\n    return s;\n}\n\nchar *str_to_upper(char *s) {\n    for (char *p = s; *p; p++) *p = (char)toupper((unsigned char)*p);\n    return s;\n}\n\nchar *str_to_lower(char *s) {\n    for (char *p = s; *p; p++) *p = (char)tolower((unsigned char)*p);\n    return s;\n}\n\nchar *str_trim(char *s) {\n    char *start = s;\n    while (isspace((unsigned char)*start)) start++;\n    char *end = start + str_length(start);\n    while (end > start && isspace((unsigned char)*(end - 1))) end--;\n    size_t len = (size_t)(end - start);\n    memmove(s, start, len);\n    s[len] = '\\0';\n    return s;\n}\n\nint str_count_char(const char *s, char c) {\n    int count = 0;\n    for (; *s; s++) if (*s == c) count++;\n    return count;\n}\n\nchar *str_replace_char(char *s, char from, char to) {\n    for (char *p = s; *p; p++) if (*p == from) *p = to;\n    return s;\n}\n\nint str_is_palindrome(const char *s) {\n    size_t len = str_length(s);\n    if (len == 0) return 1;\n    size_t i = 0, j = len - 1;\n    while (i < j) {\n        if (s[i] != s[j]) return 0;\n        i++;\n        j--;\n    }\n    return 1;\n}\n\nchar *str_substring(const char *s, size_t start, size_t len) {\n    size_t slen = str_length(s);\n    if (start > slen) start = slen;\n    if (len > slen - start) len = slen - start;\n    char *out = malloc(len + 1);\n    if (!out) return NULL;\n    memcpy(out, s + start, len);\n    out[len] = '\\0';\n    return out;\n}\n\nint str_find(const char *haystack, const char *needle) {\n    size_t hlen = str_length(haystack);\n    size_t nlen = str_length(needle);\n    if (nlen == 0) return 0;\n    if (nlen > hlen) return -1;\n    for (size_t i = 0; i <= hlen - nlen; i++) {\n        if (memcmp(haystack + i, needle, nlen) == 0) return (int)i;\n    }\n    return -1;\n}\n\nchar *str_remove_char(char *s, char c) {\n    char *r = s, *w = s;\n    while (*r) {\n        if (*r != c) *w++ = *r;\n        r++;\n    }\n    *w = '\\0';\n    return s;\n}\n\nint main(void) {\n    char buffer[256];\n    char text[256];\n\n    str_copy(buffer, \"  Hello, World  \");\n    printf(\"Original: [%s]\\n\", buffer);\n\n    str_trim(buffer);\n    printf(\"Trimmed: [%s]\\n\", buffer);\n\n    str_copy(text, buffer);\n    str_concat(text, \"!!!\");\n    printf(\"Concatenated: %s\\n\", text);\n\n    str_to_upper(text);\n    printf(\"Uppercase: %s\\n\", text);\n\n    str_to_lower(text);\n    printf(\"Lowercase: %s\\n\", text);\n\n    str_reverse(text);\n    printf(\"Reversed: %s\\n\", text);\n\n    printf(\"Length: %zu\\n\", str_length(buffer));\n    printf(\"Count of 'l': %d\\n\", str_count_char(buffer, 'l'));\n\n    str_replace_char(buffer, 'l', 'L');\n    printf(\"Replaced 'l' with 'L': %s\\n\", buffer);\n\n    printf(\"Find \\\"World\\\": %d\\n\", str_find(buffer, \"World\"));\n\n    char *sub = str_substring(\"programming\", 3, 4);\n    if (sub) {\n        printf(\"Substring: %s\\n\", sub);\n        free(sub);\n    }\n\n    char *dup = str_duplicate(\"duplicate\");\n    if (dup) {\n        printf(\"Duplicate: %s\\n\", dup);\n        free(dup);\n    }\n\n    printf(\"Compare 'abc' vs 'abd': %d\\n\", str_compare(\"abc\", \"abd\"));\n    printf(\"Palindrome 'racecar': %s\\n\", str_is_palindrome(\"racecar\") ? \"yes\" : \"no\");\n    printf(\"Palindrome 'hello': %s\\n\", str_is_palindrome(\"hello\") ? \"yes\" : \"no\");\n\n    str_remove_char(buffer, 'o');\n    printf(\"Removed 'o': %s\\n\", buffer);\n\n    str_ncopy(text, \"truncate\", 4);\n    text[4] = '\\0';\n    printf(\"ncopy: %s\\n\", text);\n\n    return 0;\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 157,
+      "completion_tokens": 2068,
+      "total_tokens": 2225,
+      "cost": 0.0010497,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0010497,
+        "upstream_inference_prompt_cost": 1.57e-05,
+        "upstream_inference_completions_cost": 0.001034
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null,
+  "billing": "billed",
+  "provisional_cost_usd": null,
+  "transport_retries": []
+}

@@ -1,0 +1,66 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "anthropic/claude-haiku-5.5",
+  "response_id": "gen-1793007538-EjGU7m3gt2tpIp1bPXF2",
+  "finish_reason": "stop",
+  "input_tokens": 268,
+  "output_tokens": 2853,
+  "cost_usd": 0.0014533,
+  "raw_response": {
+    "id": "gen-1793007538-EjGU7m3gt2tpIp1bPXF2",
+    "object": "chat.completion",
+    "created": 1793007538,
+    "model": "anthropic/claude-haiku-5.5",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "#include <atomic>\n#include <condition_variable>\n#include <cstddef>\n#include <exception>\n#include <filesystem>\n#include <fstream>\n#include <iostream>\n#include <map>\n#include <mutex>\n#include <set>\n#include <string>\n#include <thread>\n#include <vector>\n\nnamespace fs = std::filesystem;\n\nstruct FileStats {\n    std::size_t lines = 0;\n    std::size_t words = 0;\n    std::size_t bytes = 0;\n};\n\nstruct FileResult {\n    bool ok = false;\n    FileStats stats;\n    std::string error;\n};\n\nclass FileLockManager {\npublic:\n    void lock(const std::string& key) {\n        std::unique_lock<std::mutex> lk(m_);\n        cv_.wait(lk, [&] { return locked_.find(key) == locked_.end(); });\n        locked_.insert(key);\n    }\n\n    void unlock(const std::string& key) {\n        {\n            std::lock_guard<std::mutex> lk(m_);\n            locked_.erase(key);\n        }\n        cv_.notify_all();\n    }\n\nprivate:\n    std::mutex m_;\n    std::condition_variable cv_;\n    std::set<std::string> locked_;\n};\n\nclass FileLockGuard {\npublic:\n    FileLockGuard(FileLockManager& mgr, std::string key)\n        : mgr_(mgr), key_(std::move(key)) {\n        mgr_.lock(key_);\n    }\n    ~FileLockGuard() { mgr_.unlock(key_); }\n    FileLockGuard(const FileLockGuard&) = delete;\n    FileLockGuard& operator=(const FileLockGuard&) = delete;\n\nprivate:\n    FileLockManager& mgr_;\n    std::string key_;\n};\n\nFileStats processFile(const fs::path& path) {\n    std::ifstream in(path, std::ios::binary);\n    if (!in) {\n        throw std::runtime_error(\"cannot open file\");\n    }\n    FileStats stats;\n    std::string line;\n    bool inWord = false;\n    char c;\n    while (in.get(c)) {\n        ++stats.bytes;\n        if (c == '\\n') {\n            ++stats.lines;\n        }\n        bool space = (c == ' ' || c == '\\t' || c == '\\n' || c == '\\r' ||\n                      c == '\\v' || c == '\\f');\n        if (!space && !inWord) {\n            ++stats.words;\n            inWord = true;\n        } else if (space) {\n            inWord = false;\n        }\n    }\n    if (in.bad()) {\n        throw std::runtime_error(\"read error\");\n    }\n    return stats;\n}\n\nstd::map<std::string, FileResult> processDirectory(const fs::path& dir,\n                                                   std::size_t numThreads) {\n    std::vector<fs::path> files;\n    std::error_code ec;\n    for (const auto& entry : fs::directory_iterator(dir, ec)) {\n        if (entry.is_regular_file(ec)) {\n            files.push_back(entry.path());\n        }\n    }\n\n    std::map<std::string, FileResult> results;\n    std::mutex resultsMutex;\n    FileLockManager lockManager;\n    std::atomic<std::size_t> nextIndex{0};\n\n    if (numThreads == 0) {\n        numThreads = 1;\n    }\n\n    auto worker = [&]() {\n        while (true) {\n            std::size_t idx = nextIndex.fetch_add(1);\n            if (idx >= files.size()) {\n                break;\n            }\n            const fs::path& path = files[idx];\n            std::string key = path.string();\n\n            FileResult result;\n            try {\n                FileLockGuard guard(lockManager, key);\n                result.stats = processFile(path);\n                result.ok = true;\n            } catch (const std::exception& e) {\n                result.ok = false;\n                result.error = e.what();\n            }\n\n            std::lock_guard<std::mutex> lk(resultsMutex);\n            results[key] = result;\n        }\n    };\n\n    std::vector<std::thread> threads;\n    threads.reserve(numThreads);\n    for (std::size_t i = 0; i < numThreads; ++i) {\n        threads.emplace_back(worker);\n    }\n    for (auto& t : threads) {\n        t.join();\n    }\n\n    return results;\n}\n\nint main(int argc, char* argv[]) {\n    if (argc < 2) {\n        std::cerr << \"Usage: \" << argv[0] << \" <directory> [threads]\\n\";\n        return 1;\n    }\n\n    fs::path dir = argv[1];\n    if (!fs::is_directory(dir)) {\n        std::cerr << \"Not a directory: \" << dir << \"\\n\";\n        return 1;\n    }\n\n    std::size_t numThreads = std::thread::hardware_concurrency();\n    if (argc >= 3) {\n        try {\n            numThreads = std::stoul(argv[2]);\n        } catch (...) {\n            std::cerr << \"Invalid thread count\\n\";\n            return 1;\n        }\n    }\n    if (numThreads == 0) {\n        numThreads = 1;\n    }\n\n    auto results = processDirectory(dir, numThreads);\n\n    FileStats total;\n    std::size_t failures = 0;\n    for (const auto& [name, res] : results) {\n        if (res.ok) {\n            std::cout << name << \": lines=\" << res.stats.lines\n                      << \" words=\" << res.stats.words\n                      << \" bytes=\" << res.stats.bytes << \"\\n\";\n            total.lines += res.stats.lines;\n            total.words += res.stats.words;\n            total.bytes += res.stats.bytes;\n        } else {\n            ++failures;\n            std::cout << name << \": ERROR \" << res.error << \"\\n\";\n        }\n    }\n\n    std::cout << \"Total: lines=\" << total.lines\n              << \" words=\" << total.words\n              << \" bytes=\" << total.bytes\n              << \" files=\" << results.size()\n              << \" failures=\" << failures << \"\\n\";\n\n    return failures == 0 ? 0 : 2;\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "signature": "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.eyJlbmRwb2ludF9zbHVnIjoiYW50aHJvcGljL2NsYXVkZS1oYWlrdS01LjUtMjAyNjEwMDd8Y2xhdWRlLW9uLWF3cyJ9",
+              "format": "anthropic-claude-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 268,
+      "completion_tokens": 2853,
+      "total_tokens": 3121,
+      "cost": 0.0014533,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0014533,
+        "upstream_inference_prompt_cost": 2.68e-05,
+        "upstream_inference_completions_cost": 0.0014265
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 856,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

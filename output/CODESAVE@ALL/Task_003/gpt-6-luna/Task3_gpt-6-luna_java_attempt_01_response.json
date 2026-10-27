@@ -1,0 +1,73 @@
+{
+  "attempt": 1,
+  "status": "success",
+  "validation_status": "heuristic_source",
+  "response_model_id": "openai/gpt-6-luna",
+  "response_id": "gen-1793007916-xjH5DZ91tolk43yJa3et",
+  "finish_reason": "stop",
+  "input_tokens": 181,
+  "output_tokens": 452,
+  "cost_usd": 0.0002441,
+  "raw_response": {
+    "id": "gen-1793007916-xjH5DZ91tolk43yJa3et",
+    "object": "chat.completion",
+    "created": 1793007916,
+    "model": "openai/gpt-6-luna",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "import java.io.BufferedReader;\nimport java.io.InputStreamReader;\n\npublic class Main {\n    public static boolean isPangram(String text) {\n        boolean[] seen = new boolean[26];\n        int count = 0;\n\n        for (int i = 0; i < text.length(); i++) {\n            char c = text.charAt(i);\n            if (c >= 'A' && c <= 'Z') {\n                c = (char) (c - 'A' + 'a');\n            }\n            if (c >= 'a' && c <= 'z' && !seen[c - 'a']) {\n                seen[c - 'a'] = true;\n                count++;\n            }\n        }\n\n        return count == 26;\n    }\n\n    public static void main(String[] args) throws Exception {\n        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));\n        String text = reader.readLine();\n        System.out.println(text != null && isPangram(text) ? \"True\" : \"False\");\n    }\n}",
+          "refusal": null,
+          "reasoning": "**Producing Java source code**\n\nI need to create a complete Java program, likely a pangram checker, which is expected for the coding challenge. The user asks for a self-contained source, so I'll have to choose a class, probably Main, to read input and output True or False based on whether the input string is a pangram. I'll implement a function called `isPangram(String s)` that returns a boolean. I'll also ensure it handles punctuation and reads the entire line while preserving spaces. Lastly, the output should be \"True\" or \"False\" based on convention.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Producing Java source code**\n\nI need to create a complete Java program, likely a pangram checker, which is expected for the coding challenge. The user asks for a self-contained source, so I'll have to choose a class, probably Main, to read input and output True or False based on whether the input string is a pangram. I'll implement a function called `isPangram(String s)` that returns a boolean. I'll also ensure it handles punctuation and reads the entire line while preserving spaces. Lastly, the output should be \"True\" or \"False\" based on convention.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABq3yEy7BZMK7h-CRFv8W833Es9VlbJOueYS3sDRQmPHAJtP7LXaqSg7dTJKEJCqwBTrKypu7uNpHUVYSyVsdkDpf_wKDb480JmpexZRos0OOOl9P-qPLOZK5aWAtXjDnPYIf5VsQ0QkFwNNEjhYmFMb0mvnCZlwTx-K6yO_u-IKvEVavd3MYIVHY1oBQgV-v84tDcigF9FGQndNF6BkiSfWtnjiDNb3GGrRck6K6W8ZCEUOghhqvrX5TpKFBqN5hiCYKOxqyVbzdUyE3ITrtWVtTF5Ee_qDJnm2W6wbBb4mMuYIuQ1qxiIpZ6Ke3C0YwL7TcUIwiaCUwFhGmPW1RSYFvU9yLi_YBhKSfsCC3EbBWsoLabkGdxD1kfmf_QEGpUZgPhvJjr0HcA6_ErHsTT4Ark_LMgcgHgVOYkxTa0CRtJyq-Vjh0TlLBwFWwH9xL1thMsdtjbpeAa6x7XpFXSaPOpbp3GE9ubROQ0sZrGo9TM4LB4z7tnPBV-TttXrMdoEUtwBTr0t_sbGAW_uEnH992AFha_sFgeZS8o43ziphI8shrwWTxk5W5BsPq_ZexpBbd9lQ-pvvcrJmspUd0yOVmzjn-g4_3mJidRnG5sy4EhFqQjbzY-wq1BgQN4fJ_iu7aMN81x2VXO3GsLshSuA4AOPn6aKw0dPtcofqvzYoTaqObeU8YdIHKbEV6cy3Ad_L8FSkohBKXDd9e8MtoWsV__WZwB1P4TNziKfUOTZXcvWdeovLxA9F8PonSIJ2xNTP4WzBwZgqNlN9eEC-AqW15F1k_uyqsPWKgt1VCFQZraslZThRoivXebfnbzmbxZP_Fckwvqx271C_af6GwKszf2dR7YKzoDMS1Yl7m3U2Nxs2PJDk5jxvITKJL5KLkcA6t_zadoAuAl4-iVh0GS24W6rxpc0MjmuUEjcoQ6BigvDiN68KfDZxcMTQJh5KxdYwE0sRRqG7kaLBLWskLixnrkZKGx7kaFtqQw8U20wozo4YQpX-RoLT_gnUg6ySVoEo6qu3xW_NsgEJktHjb0OddBo9e16Q_QkPEbZ4ADF2do8oRDpOL5AkOZlRcswQgDOiAjqL6th90LzQXokylCFmoOK6HcKsJW5rtKBKNzPdyh7r5aSqeXwo9dmLgI6V_nqWCLhaIPRZfrlBkYgMAJnyn9TJCtPHAwIloqdiM_7IWJ-fNwlPhO7W2W0WocWuod7ax-NvLlWifP_0wCynMBg-xcBwEkShPQwRFaEsfFpVEP3-czkeGoSjgfiRHGx2zlG_jnm4YcvzdKDLgKqEykVKaMtikpRbp9xciZ0DVh9Djz--FKmxzzzNsBLu43sZpgKSNcHUhUq1OlFy2BOKk-XASbcrvgaeCc0sjsj8BMeZdoXy_cVh411Q1Dk2ZcugKG1LYE-Uqub1bINyv5fz_CH4SXydMK2DfzcazXlYRzSxPLy-F6TxISoVMyDz9tE6l__5wcqMrwDjRZdTCoS7vLwLmV6nqfc4pHVbJJMuk3rpj31zM9_2KeJnCNKUUyugoGf1z2VigH_PpFz92T_UyewTb8NTVDAz8IKZjq3qXUFRWiyeADPk9vn_g7kFLjsaXDSTe0jgHj1csACqqaIzjKJ5GBdNN5UOaSZ1GFPfvMhsfGjJq4n9jvi5ajiN4M4kE5NsSmJKoUihtCwD_OEaaVY0EgQHZPG10g933ed5wYE2keAXgK4svaSsXlAtqGr8I7esuUPrkhkpeIML4F0634WYss_4xs3rxlIAH1Gt0I0x9NvGp1NE5w5eP3IRhZKyV0zsME-D_sAbDCczUoUo3Fs3zIKNtOZZc-EBjukq925cGN7NSRzbxHKtkg64cnpu6oYSawvB3Wgsu02h3EpcDVB7OcpWGfuCI2Eva0Eg-trLaxrFoWJk7uJ2D9TzGkqa8fJnMp6AXTx8NOmekH-hwm7guxVo3fPodnkRlxXiRKkbGqfLdKvIv0gCCUc0dX6pd5QuEag2kGawK0kL3uszRQsu_NKpPIWjniLfIvwhmFDh9V1jj737mmZ1XEk3547HUWYtOoZh27YRhsjq4MaUNZ503SAS85D4m8LqTWl9JJvzTfFouodvRNKx34NOFSaw_acRih30QYxBCEBbj_JpFBlVL_XA2zsQdb_Xmeh8a5MAC6Al_mmeYApnexMUwE474tK-U4DH92LOC_ouw3CIze9ikj88GJ6KVMCeOGC8_jG8nmRmxkbT3MFlD5DEjqGD1jXx57M9s-sJ1ge5iN8MjZHQy8XBR-PLLzlYHocYY98-P_eXxh6DICs2VAdexyP4SkacHT4LQcka90RRcrCArwMSwKDL9qHrIQwaDyA267jvn_chA7oxhX-hS0c6f-7PQtNYyT3D6P4V4XX_Mdnm76ng2GOLSD15y23gRQZsI6wM6kIvTKjGbFHp7F7OUKKFUerRaXHDvbFGqVgrfopS8q_cy9eOJKqytZvJZZzG9AeSkFB5cMxuK3keFxL-czlgx_obgPsMoXu0d3q3HUQaZKgDpN65ktc8APgx6TO0K2aUTtuP7xg_MsOgFY2rwRWZVg_Rwt3IC6km_oYXjCR0HvkODpyxkVW96ADkNeNeZyIyqfpwWatvrVPj9iIrdaAKb6vIgfYeq2mP-6Zwq5ehtOi0PEeet1Ogcf1KO5c84aIfxTiY4zwGE8eR4ZCdxbGHOeeuMFdEzvU0j1C7wTmFDV0UYpCxzY1eTe-7H4hgDLLLAfsLghvve--bU6QBiBV8YZgmnoJG2bCLFy-Rt-n6p6cqRLEErEcr4-SunoaAET_cvbSbvo4tiRcoSe5lzlYf5KtsHojBFXTHDZ1qeak4Fw19mqlMSnNwqH-XYtRxs3asmq6gEN-BRZ7AsWkpM3tTR2SIMPynfVIALMEh60dLI3T8-T6tjUVtHd9GcrVElNbmXYUO5M0Stm5L1ibtvfkXTuIwtn4qVynyuV550hULsR2Bx7I2c_4NwigGhT6EqyFe-GXr8TgCLgx19lU9Zmxp4_MT9N_EeM3ggqgGU1G4kRJUIXNYsIz0FwGDdhHGLoRYXUdmEziBmUVuVdemUFnNG2vOflpMFrge_ALiosH8k8FueN2IdF2vMytwaaZgSgnBJP_BmejyQAv-h3CqDNRU6U6ngjENqRGMvdr37mWltDddyPNGFcHN7xboHbs-vW7G3Mzgaf8X-XDZyCVK4PNOQsF9nar_uOOb8b_PaFHsoSgiFubxVGv7wsd-zS6GRq0FdobX9h4xPuS91JzAdSnlplCW0jp7bjv6opZtV1GZwFAqFnsJOFo6QbA3nV0q0MJAbvhz7AktnNBIMoOvxiEFw6HHOh7ojHn2ScqpeX-3ae2XAJQC6Onb1vAiiafp17aa5K3WBYzPSrAGxY7arDbmQy00-ffrHYdqFzjBHa25yBY1d9_OG8kxwbzZCCaVn9yBqpkNNGTGhSXN9oorT4f9OFZaOPXsnqCVaMw0b8OmJNNzqysLYotQioGscUUfbamPvLH_Cn7PvbdP5KiNZyjqB-JyxVLBE3JEhZPAF7NnWLHPBSRmVkccOAc37nG6xnpcFjah-FjAC3bgawskyhNzvywh1XnzQiqHu1183yW4Y9aSc2nFjDmYce5xnhh4UOvVcy49EirX5H3yVi8JnIL7ohEUcf2FMZRGd2oPiUuOw55nKuuFzhXR1RuJ7TfMtHM2VxlC8lllpEXIptzeQxckw5ZOXy0Va9pyiXAFF274fLosaFxfSgAjWBkTRav_kbhqN5B6yxzUA6dFKRQ4YOz2ZSmxnhLuNGZQRFDqCLUpvn7n0RVkU-TdBCBd93uxYpiY3KerigCG20zbkyLn5GwX1wLFGRNHX0cI7TX-V8ALgN6LLIs946S88382vhYTLwP5tJMRoamxYkOjPSOdv3e62PIz7zlv7AmtnZvcQr1K23LjubutAYr11kiJVM0SvN1_AZ8XHyIwvSgvCypWWiB44Blxz5v_fxr4cH9O2HdN2DCmrEguilNsTkNqs3rZXmtc3qmpLKEDSd5z9zuiZCJLminSwY-YEwTidr4NnQtJjrwJTUn8LT9TJXtCWVSHaurkCFOGMelHRhEz5_qgvGYIvrbbE-tOGPcUSV0pyhL-L9q1Le37y3Ai49rV0vIi3CctJ42luMYonZh4tPOmzq4UxTYQesMRT-RMrTWO19JTWqwn6R5XvBNABuZgNV0xtt2O-R1qXE8CZmMFPvLX-Rula9-_2grZki4tPJgYKbwEBeiWgB6CPRTEw6d4YD4uhwwu_shkD5yADwz-3nrtQoS97yPkRkIsrmmYupFeG9prRcfTbeviNHOYw5olun-9w-fckqP3O3pJMLBVGgu0bJGeaFGaW0T7iEPkuxXrnu9OzJtY-EYghiCIkAZP9f9n3s7VVtc0Zx37dvImBkEpJJTw4DAob_7IhF1W7tf0W6jhgQiHOTnop7X_rGXuFZUJoNfq2x1jTZD3u7q91VgsR4UxeQqudkxzPZ_zjiW6HwqooJo3eftVe8Lji-LSWVE0tnkPj3ugaQNuv_0O92o-UF_8x5IX580HreYpNHxZixAagvluZeRGQ==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC02LWx1bmEtMjAyNjA5MjJ8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0c4e603edaf2fc32016adf212ef4e487d191bfb88c75703f5c",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 181,
+      "completion_tokens": 452,
+      "total_tokens": 633,
+      "cost": 0.0002441,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002441,
+        "upstream_inference_prompt_cost": 1.81e-05,
+        "upstream_inference_completions_cost": 0.000226
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 232,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  },
+  "error": null
+}

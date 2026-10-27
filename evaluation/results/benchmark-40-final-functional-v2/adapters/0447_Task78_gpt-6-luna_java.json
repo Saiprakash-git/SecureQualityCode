@@ -1,0 +1,32 @@
+{
+ "status": "proposed_loose",
+ "bindings": [
+  {
+   "canonical": "Task78_CLAUDE_claude_3_5_sonnet_20240620.main",
+   "target": "OpenSshRsaKeyGenerator.main",
+   "kind": "alias",
+   "name_match": "exact",
+   "types_match": true,
+   "canonical_signature": {
+    "return": "void",
+    "params": [
+     "String[] args"
+    ]
+   },
+   "target_signature": {
+    "arity": 1,
+    "params": [
+     "String[] args"
+    ],
+    "return": "void",
+    "static": true
+   }
+  }
+ ],
+ "combo_index": 447,
+ "artifact_path": "output/benchmark-40/benchmark-40-2026-10-26-resume-01-real/Task_078/gpt-6-luna/Task78_gpt-6-luna_java.java",
+ "artifact_sha256": "7e7fd2fb4fb9b742eb89c48e7b86efac6dd019433f82e56ab9aadadc544df5cc",
+ "oracle_test_path": "src/test/java/claude/task78/Task78Test.java",
+ "oracle_test_sha256": "f9bbc4dbfc5fd34bb690c4b556a91755d335cc79d044716f1a4c5d35ae689baf",
+ "author": "functional.py draft_adapter (static)"
+}
