@@ -466,3 +466,20 @@ Chronological record of completed steps. Newest at the bottom.
 - **Corrected claims:** "replication" -> "updated, partial re-measurement"; "undocumented manual fixes in 161 files" -> "161 files differ from the test copies for undocumented reasons, possibly including manual fixes"; functional coverage attributed to base tests and our approval criteria; "because of our failed generations" -> "largely reflecting"; "no robust direction" in sensitivity analyses was wrong (S1 -8.7 [-13.2,-4.1] and S3 -9.0 [-12.6,-5.4] favour base files; S2 -1.7, S4 -0.3 near zero) -> rewritten; "neither price nor model choice" limited to security findings.
 - **Still open (authors):** affiliation/emails, empty Acknowledgment, 9 incomplete references (TODO comments in the .bib section), confirmation of AI-proposed oracle/adapter/triage labels, venue page limit (now 11 pages + a short 12th).
 - **Build note:** eval-sandbox TeX lacks algorithm.sty/algorithmic.sty; main.tex falls back to minimal definitions only when they are missing (Overleaf uses the real packages).
+
+### 20. Project corpus document and artifact (read-only on all project data)
+- **Done:** wrote `PROJECT_CORPUS.md` (21 sections, about 10,000 words, 23 tables). It is a detailed, searchable reference covering:
+  - the base paper and SecureCoder (full method and numbers);
+  - the framing history; the dataset; task selection; models and billed prices;
+  - prompt and settings; the runner design; every run, incident and cost;
+  - the evaluation pipeline (modules, tools and versions, sandbox, gate 1, functional, scanners, statistics);
+  - all benchmark-40 results; the base comparison; pilot-10;
+  - both papers (RQs, framework components G1–G9, baselines B0–B8, metrics); defects and open items;
+  - a glossary, quick answers, a file map and the commit history.
+  - Each section has a "Search terms" line of synonyms. Facts are tagged [F], recommendations [R], assumptions [A].
+- **Artifact:** rendered from the same Markdown (scratchpad `build_corpus_page.py` + `corpus_template.html`), with search and highlighting, a section index and clickable term chips. Published at https://claude.ai/artifact/5FgGJs1Ndy6f4p7Rfq72Ra.
+- **Checks:** HTML nesting checked; script syntax checked with `node --check`.
+  - Numbers were copied from the primary result files (RESULTS.md v2, gate1 summary.json, base-40-comparison and pilot-10 RESULTS.md, ledgers and raw responses, both PDFs, `paper/` and `paper_proposal/` `main.tex`).
+  - Derived figures were cross-checked against published values: language totals sum to 604; 96/604 = 15.9% and 130/800 = 16.2% match the proposal abstract; resume-03 cost 0.132536 = 4.374148 minus the other three runs.
+- **Files changed:** `PROJECT_CORPUS.md` (new) and `work_log.md`. No project data, results or code changed. No API calls.
+- **Not verified:** the mapping of the `Papers.txt` IEEE links to titles. The early-draft related-work numbers in §15.3 are flagged as superseded by `paper/main.tex`.
